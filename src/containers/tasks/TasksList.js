@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './TasksList.css';
 import * as taskActions from '../../store/tasks/actions';
 import * as taskSelectors from '../../store/tasks/reducer';
-import TaskListView from '../../components/TaskListView';
+import ListView from '../../components/ListView';
 
 class TasksList extends Component {
 
@@ -15,7 +15,7 @@ class TasksList extends Component {
     if (!this.props.rowsById) return this.renderLoading();
     return (
       <div className="TasksList">
-        <TaskListView
+        <ListView
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow} />
