@@ -4,12 +4,12 @@
 
 import _ from 'lodash';
 
-const KAZNET_ENDPOINT = 'http://127.0.0.1:8000/api/v1';
+import * as constants from '../constants';
 
 class TaskService {
 
   async getTaskList() {
-    const url = `${KAZNET_ENDPOINT}/tasks/?format=vnd.api%2Bjson`;
+    const url = `${constants.KAZNET_ENDPOINT}/tasks/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
