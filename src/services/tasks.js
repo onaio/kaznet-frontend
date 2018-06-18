@@ -13,7 +13,8 @@ class TaskService {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        Accept: 'application/vnd.api+json'
+        Accept: 'application/vnd.api+json',
+        Authorization: 'Token 346d0a3704f858951781a24a22e68c9c1208d25a'
       }
     });
     if (!response.ok) {
