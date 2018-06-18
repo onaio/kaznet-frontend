@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
+import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
 import {
   Collapse,
   Navbar,
@@ -28,7 +29,7 @@ import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import TasksList from './containers/tasks/TasksList';
 
-fontawesome.library.add(faSearch);
+fontawesome.library.add(faSearch, faCaretDown);
 
 class App extends Component {
   render() {
@@ -92,6 +93,13 @@ class App extends Component {
               </Row>
             </section>
             <section className="page-actions">
+              <Row>
+                <Col sm="12" md={{ size: 8, offset: 2 }}>
+                  <div className="actions-holder">
+                    NAME <FontAwesomeIcon icon="caret-down" />
+                  </div>
+                </Col>
+              </Row>
             </section>
             <section className="page-section">
               <Row>

@@ -60,6 +60,12 @@
 .page-actions {
     min-height:60px;
     background-color: #e6e6e6;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.actions-holder {
+    margin-top:15px;
 }
 
 /** Media Queries **/
