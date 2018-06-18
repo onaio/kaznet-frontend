@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { ConnectedRouter } from 'connected-react-router';
+
+import App from './App';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 import * as reducers from './store/reducers';
 
@@ -28,7 +31,7 @@ ReactDOM.render(
       <App />
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('kaznet-root')
 );
 
 registerServiceWorker();
