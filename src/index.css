@@ -1,5 +1,38 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.kaznet-root {
+    max-width: 1470px;
+    margin:0 auto;
+}
+
+.navbar {
+    height: 100px;
+    padding: .5rem 2.5rem;
+    font-size: 1.50rem;
+    font-weight: 600;
+}
+
+.nav-link.active {
+    border-bottom: 1px solid;
+}
+
+.navbar-brand {
+    font-size: 1.70rem;
+}
+
+.userprofile-img {
+    width: 60px;
+}
+
+.bg-dark {
+    background-color: #3e3e3e!important;
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse {
+        margin-left: 50px;
+    }
+
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1.7rem;
+        padding-left: 1.7rem;
+    }
 }
