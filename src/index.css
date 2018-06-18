@@ -55,17 +55,12 @@
     font-size: 1.5rem;
 }
 
-/** page actions **/
-
-.page-actions {
-    min-height:60px;
+/** Content **/
+.kaznet-table th {
     background-color: #e6e6e6;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.3rem;
-}
-
-.actions-holder {
-    margin-top:15px;
+    text-transform: capitalize;
 }
 
 /** Media Queries **/

@@ -31,11 +31,15 @@ class TasksList extends Component {
 
   renderRow(row) {
     return (
-      <div>
-        <h3>{row.attributes.name}</h3>
-        <p>{row.attributes.description}</p>
-      </div>
-    )
+      [
+        <td>{row.attributes.status}</td>,
+        <td>{row.attributes.name}</td>,
+        <td>{row.attributes.pending_submissions_count} / {row.attributes.submission_count}</td>,
+        <td>{row.attributes.created}</td>,
+        <td>{row.attributes.end}</td>,
+        <td>XFORM GOES HERE</td>
+      ]
+    );
   }
 
 }

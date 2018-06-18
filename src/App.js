@@ -92,15 +92,7 @@ class App extends Component {
                 </Col>
               </Row>
             </section>
-            <section className="page-actions">
-              <Row>
-                <Col sm="12" md={{ size: 8, offset: 2 }}>
-                  <div className="actions-holder">
-                    NAME <FontAwesomeIcon icon="caret-down" />
-                  </div>
-                </Col>
-              </Row>
-            </section>
+            <div>
             <section className="page-section">
               <Row>
                 <Col>
@@ -112,6 +104,7 @@ class App extends Component {
                 </Col>
               </Row>
             </section>
+            </div>
           </Container>
         </main>
       </div>
