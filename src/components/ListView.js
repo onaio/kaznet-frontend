@@ -1,3 +1,4 @@
+// This component renders a list using Bootstrap 4 tables
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
@@ -9,12 +10,7 @@ export default class ListView extends Component {
       <Table bordered className="kaznet-table">
         <thead>
           <tr>
-            <th>Status</th>
-            <th>Name</th>
-            <th>Need Review</th>
-            <th>Created</th>
-            <th>Expires</th>
-            <th>Form</th>
+            {this.props.renderHeaders()}
           </tr>
         </thead>
         <tbody>
