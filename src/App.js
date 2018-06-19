@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
-import { NavLink } from 'react-router-dom';
+
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
   Container,
   Row,
   Col,
@@ -23,9 +17,10 @@ import {
   InputGroupText
 } from 'reactstrap';
 
-import profile_image from './images/profile.png'
+
 import './App.css';
 import Home from './components/Home';
+import Header from './components/page/Header';
 import NoMatch from './components/NoMatch';
 import TasksList from './containers/tasks/TasksList';
 
@@ -35,35 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <Container fluid>
-            <Navbar dark color="dark" expand="md">
-              <NavbarBrand href="/">[Kaznet Logo]</NavbarBrand>
-              <NavbarToggler />
-              <Collapse navbar>
-                <Nav navbar>
-                  <NavItem>
-                    <NavLink to="/tasks" className="nav-link" activeClassName="active">Tasks</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink to="#" className="nav-link" activeClassName="active">Clients</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink to="#" className="nav-link" activeClassName="active">Locations</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink to="#" className="nav-link" activeClassName="active">Users</NavLink>
-                  </NavItem>
-                </Nav>
-                <Nav className="ml-auto" navbar>
-                  <NavItem>
-                    <img src={profile_image} className="img-fluid rounded-circle userprofile-img" alt="profile" />
-                  </NavItem>
-                </Nav>
-              </Collapse>
-            </Navbar>
-          </Container>
-        </header>
+        <Header />
         <main role="main" className="kaznet-main">
           <Container fluid>
             <section className="page-title">
