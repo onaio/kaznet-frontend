@@ -1,3 +1,4 @@
+// This component renders a list using Bootstrap 4 tables
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';

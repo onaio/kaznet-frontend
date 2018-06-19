@@ -1,9 +1,12 @@
+// Smart component that renders the Task list view
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './TasksList.css';
+
 import * as taskActions from '../../store/tasks/actions';
 import * as taskSelectors from '../../store/tasks/reducer';
+
 import ListView from '../../components/ListView';
+import ElementMap from '../ElementMap';
 
 class TasksList extends Component {
 
@@ -31,28 +34,30 @@ class TasksList extends Component {
   }
 
   renderHeaders() {
+    const headerItems = [
+      'Status',
+      'Name',
+      'Need Review',
+      'Created',
+      'Expires',
+      'Form'
+    ];
     return (
-      [
-        <th>Status</th>,
-        <th>Name</th>,
-        <th>Need Review</th>,
-        <th>Created</th>,
-        <th>Expires</th>,
-        <th>Form</th>,
-      ]
+      <ElementMap items={headerItems} HTMLTag='th' />
     );
   }
 
   renderRow(row) {
+    const rowItems =  [
+      row.attributes.status,
+      row.attributes.name,
+      row.attributes.pending_submissions_count + '/' + row.attributes.submission_count,
+      row.attributes.created,
+      row.attributes.end,
+      'XFORM GOES HERE'
+    ]
     return (
-      [
-        <td>{row.attributes.status}</td>,
-        <td>{row.attributes.name}</td>,
-        <td>{row.attributes.pending_submissions_count} / {row.attributes.submission_count}</td>,
-        <td>{row.attributes.created}</td>,
-        <td>{row.attributes.end}</td>,
-        <td>XFORM GOES HERE</td>
-      ]
+      <ElementMap items={rowItems} HTMLTag='td' />
     );
   }
 
