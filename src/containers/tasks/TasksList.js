@@ -16,6 +16,7 @@ class TasksList extends Component {
     return (
       <div className="TasksList">
         <ListView
+          renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow} />
@@ -26,6 +27,19 @@ class TasksList extends Component {
   renderLoading() {
     return (
       <p>Loading...</p>
+    );
+  }
+
+  renderHeaders() {
+    return (
+      [
+        <th>Status</th>,
+        <th>Name</th>,
+        <th>Need Review</th>,
+        <th>Created</th>,
+        <th>Expires</th>,
+        <th>Form</th>,
+      ]
     );
   }
 

@@ -9,12 +9,7 @@ export default class ListView extends Component {
       <Table bordered className="kaznet-table">
         <thead>
           <tr>
-            <th>Status</th>
-            <th>Name</th>
-            <th>Need Review</th>
-            <th>Created</th>
-            <th>Expires</th>
-            <th>Form</th>
+            {this.props.renderHeaders()}
           </tr>
         </thead>
         <tbody>
