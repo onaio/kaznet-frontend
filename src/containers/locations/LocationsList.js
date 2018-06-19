@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './LocationsList.css';
 import * as locationActions from '../../store/locations/actions';
 import * as locationSelectors from '../../store/locations/reducer';
-import ListView from '../../components/LocationListView';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import {
-    Row,
-    Col,
-    Form,
-    Button,
-    InputGroup,
-    InputGroupAddon,
-    Input,
-    InputGroupText
-  } from 'reactstrap';
+import ListView from '../../components/ListView';
+import ElementMap from '../ElementMap';
+
 
 class LocationsList extends Component {
 
@@ -25,39 +15,12 @@ class LocationsList extends Component {
     render() {
         if (!this.props.rowsById) return this.renderLoading();
         return (
-            <div className="Locations">
-                <section className="page-title">
-                <Row>
-                    <Col sm="12" md={{ size: 8, offset: 2 }}>
-                    <div>
-                        <h1>Page Title</h1>
-                        <Row>
-                        <Col md="9">
-                            <Form>
-                            <InputGroup className="search-group">
-                                <InputGroupAddon addonType="prepend" className="search-prepend">
-                                <InputGroupText className="bg-white border-right-0">
-                                    <FontAwesomeIcon icon="search" />
-                                </InputGroupText>
-                                </InputGroupAddon>
-                                <Input type="text" bsSize="lg" className="border-left-0" placeholder="Search" aria-label="Search" />
-                            </InputGroup>
-                            </Form>
-                        </Col>
-                        <Col md="3">
-                            <Button block size="lg" color="primary">+ Add Location</Button>
-                        </Col>
-                        </Row>
-                    </div>
-                    </Col>
-                </Row>
-                </section>
-                <div className="LocationList">
-                    <ListView
+            <div className="LocationList">
+                <ListView
+                    renderHeaders={this.renderHeaders}
                     rowsIdArray={this.props.rowsIdArray}
                     rowsById={this.props.rowsById}
                     renderRow={this.renderRow} />
-                </div>
             </div>
         );
     }
@@ -69,15 +32,28 @@ class LocationsList extends Component {
     }
 
     renderRow(row) {
+        const rowItems = [
+            row.attributes.name,
+            'Parent name here',
+            'Type Here',
+            row.attributes.description
+        ];
         return (
-            [
-                <td>{row.attributes.name}</td>,
-                <td>Parent name here</td>,
-                <td>Type Here</td>,
-                <td>{row.attributes.description}</td>,
-            ]
+            <ElementMap items={rowItems} HTMLTag='td' />
         );
     }
+
+    renderHeaders() {
+        const headerItems = [
+          'Name',
+          'Parent',
+          'Type',
+          'Description',
+        ];
+        return (
+          <ElementMap items={headerItems} HTMLTag='th' />
+        );
+      }
 }
 
 function mapStateToProps(state) {
