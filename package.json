@@ -26,6 +26,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "jest-fetch-mock": "^1.6.5",
     "redux-testkit": "^1.0.6"
   }
 }
