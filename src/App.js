@@ -39,8 +39,9 @@ class App extends Component {
                       <Switch>
                         <Route exact path="/tasks" component={TasksList} />
                         <Route exact path="/users" component={UsersList} />
-                        <Route exact path="/" component={Home} />
-                        <Route component={NoMatch} />
+                        <Route exact path="/locations" component={LocationsList}/>
+                        <Route exact path="/" component={Home}/>
+                        <Route component={NoMatch}/>
                       </Switch>
                     </Col>
                   </Row>
