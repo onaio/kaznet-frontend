@@ -13,8 +13,9 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
 
-import TasksList from "./containers/tasks/TasksList";
-import TitleSection from "./containers/global/TitleSection";
+import TasksList from './containers/tasks/TasksList';
+import TitleSection from './containers/global/TitleSection';
+import UsersList from './containers/users/UsersList';
 
 fontawesome.library.add(faSearch, faCaretDown);
 
@@ -32,9 +33,10 @@ class App extends Component {
                   <Row>
                     <Col>
                       <Switch>
-                        <Route exact path="/tasks" component={TasksList} />
-                        <Route exact path="/" component={Home} />
-                        <Route component={NoMatch} />
+                        <Route exact path="/tasks" component={TasksList}/>
+                        <Route exact path="/users" component={UsersList}/>
+                        <Route exact path="/" component={Home}/>
+                        <Route component={NoMatch}/>
                       </Switch>
                     </Col>
                   </Row>
