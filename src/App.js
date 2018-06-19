@@ -13,7 +13,7 @@ import {
 import './App.css';
 import Home from './components/Home';
 import Header from './components/page/Header';
-import PageTitle from './components/page/PageTitle';
+import TitleSection from './containers/global/TitleSection';
 import NoMatch from './components/NoMatch';
 import TasksList from './containers/tasks/TasksList';
 
@@ -26,7 +26,7 @@ class App extends Component {
         <Header />
         <main role="main" className="kaznet-main">
           <Container fluid>
-            <PageTitle />
+            <TitleSection />
             <div>
               <section className="page-section">
                 <Row>
