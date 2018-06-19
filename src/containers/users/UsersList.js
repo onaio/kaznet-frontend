@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './UsersList.css';
 import * as userActions from '../../store/users/actions';
 import * as userSelectors from '../../store/users/reducer';
-import ListView from '../../components/UserListView';
+import ListView from '../../components/ListView';
+import ElementMap from '../ElementMap';
 
 class UsersList extends Component {
 
@@ -16,6 +16,7 @@ class UsersList extends Component {
     return (
       <div className="UsersList">
         <ListView
+          renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow} />
@@ -29,18 +30,35 @@ class UsersList extends Component {
     );
   }
 
-  renderRow(row) {
+  renderHeaders() {
+    const headerItems = [
+      'Role',
+      'Username',
+      'Last Name',
+      'First Name',
+      'Submissions',
+      'Approved %',
+      'Last Active Date'
+    ];
     return (
-      [
-        <td>{row.attributes.role}</td>,
-        <td>{row.attributes.ona_username}</td>,
-        <td>{row.attributes.last_name}</td>,
-        <td>{row.attributes.first_name}</td>,
-        <td>{row.attributes.submission_count}</td>,
-        <td>{row.attributes.avg_approved_submissions * 100}%</td>,
-        <td>Last Active Date Here</td>
-      ]
+      <ElementMap items={headerItems} HTMLTag='th' />
     );
+  }
+
+  renderRow(row) {
+    const rowItems = [
+      row.attributes.role,
+      row.attributes.ona_username,
+      row.attributes.last_name,
+      row.attributes.first_name,
+      row.attributes.submission_count,
+      row.attributes.avg_approved_submissions * 100 + '%',
+      'Last Active Date Here'
+    ];
+
+    return (
+      <ElementMap items={rowItems} HTMLTag='td' />
+    )
   }
 
 }
