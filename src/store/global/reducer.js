@@ -5,7 +5,7 @@ import * as types from './actionTypes';
 
 const initialState = Immutable({
     pageTitle: 'Kaznet',
-    pageTitleButton: 'Friendly Button',
+    pageTitleButton: 'Friendly Button'
 });
 
 export default function reduce(state = initialState, action = {}) {
