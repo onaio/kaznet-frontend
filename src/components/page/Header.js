@@ -32,7 +32,7 @@ export default class Header extends Component {
                     <NavLink to="#" className="nav-link" activeClassName="active">Locations</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink to="#" className="nav-link" activeClassName="active">Users</NavLink>
+                    <NavLink to="/users" className="nav-link" activeClassName="active">Users</NavLink>
                   </NavItem>
                 </Nav>
                 <Nav className="ml-auto" navbar>
