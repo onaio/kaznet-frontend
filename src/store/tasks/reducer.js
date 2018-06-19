@@ -1,3 +1,4 @@
+// Tasks reducer
 import _ from 'lodash';
 import Immutable from 'seamless-immutable';
 

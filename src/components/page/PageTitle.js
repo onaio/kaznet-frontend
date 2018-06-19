@@ -25,12 +25,12 @@ export default class PageTitle extends Component {
                             <Col md="9">
                                 <Form>
                                     <InputGroup className="search-group">
-                                    <InputGroupAddon addonType="prepend" className="search-prepend">
-                                        <InputGroupText className="bg-white border-right-0">
-                                        <FontAwesomeIcon icon="search" />
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input type="text" bsSize="lg" className="border-left-0" placeholder="Search" aria-label="Search" />
+                                        <InputGroupAddon addonType="prepend" className="search-prepend">
+                                            <InputGroupText className="bg-white border-right-0">
+                                            <FontAwesomeIcon icon="search" />
+                                            </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input type="text" bsSize="lg" className="border-left-0" placeholder="Search" aria-label="Search" />
                                     </InputGroup>
                                 </Form>
                             </Col>
