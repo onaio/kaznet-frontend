@@ -17,6 +17,7 @@ import NoMatch from "./components/NoMatch";
 import TasksList from "./containers/tasks/TasksList";
 import TitleSection from "./containers/global/TitleSection";
 import UsersList from "./containers/users/UsersList";
+import LocationsList from './containers/locations/LocationsList'
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(faSearch, faCaretDown);
