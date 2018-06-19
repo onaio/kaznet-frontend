@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: node:10.4
+    commands:
+      - npm install yarn
+      - yarn
+      - yarn test --coverage=true --forceExit
+  slack:
+    image: plugins/slack
+    webhook: https://hooks.slack.com/services/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
+    username: drone
+    channel: tech-logs
+    when:
+      status: [success, failure]

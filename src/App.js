@@ -11,11 +11,14 @@ import {
 } from 'reactstrap';
 
 import './App.css';
+
 import Home from './components/Home';
+import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/page/Header';
-import PageTitle from './components/page/PageTitle';
 import NoMatch from './components/NoMatch';
+
 import TasksList from './containers/tasks/TasksList';
+import TitleSection from './containers/global/TitleSection';
 
 fontawesome.library.add(faSearch, faCaretDown);
 
@@ -23,25 +26,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <main role="main" className="kaznet-main">
-          <Container fluid>
-            <PageTitle />
-            <div>
-              <section className="page-section">
-                <Row>
-                  <Col>
-                    <Switch>
-                      <Route exact path="/tasks" component={TasksList}/>
-                      <Route exact path="/" component={Home}/>
-                      <Route component={NoMatch}/>
-                    </Switch>
-                  </Col>
-                </Row>
-              </section>
-            </div>
-          </Container>
-        </main>
+        <ErrorBoundary>
+          <Header />
+          <main role="main" className="kaznet-main">
+            <Container fluid>
+              <TitleSection />
+              <div>
+                <section className="page-section">
+                  <Row>
+                    <Col>
+                      <Switch>
+                        <Route exact path="/tasks" component={TasksList}/>
+                        <Route exact path="/" component={Home}/>
+                        <Route component={NoMatch}/>
+                      </Switch>
+                    </Col>
+                  </Row>
+                </section>
+              </div>
+            </Container>
+          </main>
+        </ErrorBoundary>
       </div>
     );
   }
