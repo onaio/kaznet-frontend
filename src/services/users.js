@@ -5,11 +5,12 @@ import * as constants from '../constants';
 class UserService {
 
   async getUserList() {
-    const url = `${constants.KAZNET_ENDPOINT}/userprofiles/?format=vnd.api%2Bjson`;
+    const url = `${constants.API_ENDPOINT}/userprofiles/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         Accept: 'application/vnd.api+json',
+        Authorization: `Token ${constants.API_TOKEN}`
       }
     });
     if (!response.ok) {
