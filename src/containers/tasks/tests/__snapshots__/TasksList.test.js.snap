@@ -1,0 +1,426 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/task/TasksList renders task list correctly 1`] = `
+<TasksList
+  changePageTitle={[Function]}
+  changePageTitleButton={[Function]}
+  fetchTasks={[Function]}
+  rowsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "approved_submissions_count": 0,
+          "created": "2018-06-14T16:25:00.925745+03:00",
+          "current_bounty_amount": null,
+          "description": "This is amazing",
+          "end": null,
+          "estimated_time": "4 01:15:20",
+          "modified": "2018-06-14T16:25:00.925766+03:00",
+          "name": "Kaznet",
+          "pending_submissions_count": 0,
+          "rejected_submissions_count": 0,
+          "start": "2018-06-14T16:23:51+03:00",
+          "status": "d",
+          "submission_count": 0,
+          "target_id": null,
+          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+          "total_bounty_payout": "0 KES",
+          "total_submission_target": 100,
+          "user_submission_target": 100,
+        },
+        "id": "1",
+        "relationships": Object {
+          "bounty": Object {
+            "data": null,
+          },
+          "client": Object {
+            "data": Object {
+              "id": "1",
+              "type": "Client",
+            },
+          },
+          "locations": Object {
+            "data": Array [
+              Object {
+                "id": "1",
+                "type": "Location",
+              },
+            ],
+            "meta": Object {
+              "count": 1,
+            },
+          },
+          "parent": Object {
+            "data": null,
+          },
+          "segment_rules": Object {
+            "data": Array [],
+            "meta": Object {
+              "count": 0,
+            },
+          },
+          "target_content_type": Object {
+            "data": null,
+          },
+        },
+        "type": "Task",
+      },
+      "2": Object {
+        "attributes": Object {
+          "approved_submissions_count": 0,
+          "created": "2018-06-19T21:01:21.545847+03:00",
+          "current_bounty_amount": null,
+          "description": "This is a description.",
+          "end": "2018-08-16T21:00:40+03:00",
+          "estimated_time": "4 01:15:20",
+          "modified": "2018-06-19T21:01:21.545888+03:00",
+          "name": "Example Task",
+          "pending_submissions_count": 0,
+          "rejected_submissions_count": 0,
+          "start": "2018-06-19T21:00:34+03:00",
+          "status": "d",
+          "submission_count": 0,
+          "target_id": null,
+          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+          "total_bounty_payout": "0 KES",
+          "total_submission_target": 123,
+          "user_submission_target": 234,
+        },
+        "id": "2",
+        "relationships": Object {
+          "bounty": Object {
+            "data": null,
+          },
+          "client": Object {
+            "data": Object {
+              "id": "11",
+              "type": "Client",
+            },
+          },
+          "locations": Object {
+            "data": Array [
+              Object {
+                "id": "1",
+                "type": "Location",
+              },
+            ],
+            "meta": Object {
+              "count": 1,
+            },
+          },
+          "parent": Object {
+            "data": null,
+          },
+          "segment_rules": Object {
+            "data": Array [],
+            "meta": Object {
+              "count": 0,
+            },
+          },
+          "target_content_type": Object {
+            "data": null,
+          },
+        },
+        "type": "Task",
+      },
+    }
+  }
+  rowsIdArray={
+    Array [
+      "1",
+      "2",
+    ]
+  }
+>
+  <div
+    className="TasksList"
+  >
+    <ListView
+      renderHeaders={[Function]}
+      renderRow={[Function]}
+      rowsById={
+        Object {
+          "1": Object {
+            "attributes": Object {
+              "approved_submissions_count": 0,
+              "created": "2018-06-14T16:25:00.925745+03:00",
+              "current_bounty_amount": null,
+              "description": "This is amazing",
+              "end": null,
+              "estimated_time": "4 01:15:20",
+              "modified": "2018-06-14T16:25:00.925766+03:00",
+              "name": "Kaznet",
+              "pending_submissions_count": 0,
+              "rejected_submissions_count": 0,
+              "start": "2018-06-14T16:23:51+03:00",
+              "status": "d",
+              "submission_count": 0,
+              "target_id": null,
+              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+              "total_bounty_payout": "0 KES",
+              "total_submission_target": 100,
+              "user_submission_target": 100,
+            },
+            "id": "1",
+            "relationships": Object {
+              "bounty": Object {
+                "data": null,
+              },
+              "client": Object {
+                "data": Object {
+                  "id": "1",
+                  "type": "Client",
+                },
+              },
+              "locations": Object {
+                "data": Array [
+                  Object {
+                    "id": "1",
+                    "type": "Location",
+                  },
+                ],
+                "meta": Object {
+                  "count": 1,
+                },
+              },
+              "parent": Object {
+                "data": null,
+              },
+              "segment_rules": Object {
+                "data": Array [],
+                "meta": Object {
+                  "count": 0,
+                },
+              },
+              "target_content_type": Object {
+                "data": null,
+              },
+            },
+            "type": "Task",
+          },
+          "2": Object {
+            "attributes": Object {
+              "approved_submissions_count": 0,
+              "created": "2018-06-19T21:01:21.545847+03:00",
+              "current_bounty_amount": null,
+              "description": "This is a description.",
+              "end": "2018-08-16T21:00:40+03:00",
+              "estimated_time": "4 01:15:20",
+              "modified": "2018-06-19T21:01:21.545888+03:00",
+              "name": "Example Task",
+              "pending_submissions_count": 0,
+              "rejected_submissions_count": 0,
+              "start": "2018-06-19T21:00:34+03:00",
+              "status": "d",
+              "submission_count": 0,
+              "target_id": null,
+              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+              "total_bounty_payout": "0 KES",
+              "total_submission_target": 123,
+              "user_submission_target": 234,
+            },
+            "id": "2",
+            "relationships": Object {
+              "bounty": Object {
+                "data": null,
+              },
+              "client": Object {
+                "data": Object {
+                  "id": "11",
+                  "type": "Client",
+                },
+              },
+              "locations": Object {
+                "data": Array [
+                  Object {
+                    "id": "1",
+                    "type": "Location",
+                  },
+                ],
+                "meta": Object {
+                  "count": 1,
+                },
+              },
+              "parent": Object {
+                "data": null,
+              },
+              "segment_rules": Object {
+                "data": Array [],
+                "meta": Object {
+                  "count": 0,
+                },
+              },
+              "target_content_type": Object {
+                "data": null,
+              },
+            },
+            "type": "Task",
+          },
+        }
+      }
+      rowsIdArray={
+        Array [
+          "1",
+          "2",
+        ]
+      }
+    >
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Status",
+                    "Name",
+                    "Need Review",
+                    "Created",
+                    "Expires",
+                    "Form",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Status
+                </th>
+                <th
+                  key="1"
+                >
+                  Name
+                </th>
+                <th
+                  key="2"
+                >
+                  Need Review
+                </th>
+                <th
+                  key="3"
+                >
+                  Created
+                </th>
+                <th
+                  key="4"
+                >
+                  Expires
+                </th>
+                <th
+                  key="5"
+                >
+                  Form
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "d",
+                    "Kaznet",
+                    "0/0",
+                    "2018-06-14T16:25:00.925745+03:00",
+                    null,
+                    "XFORM TITLE",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  d
+                </td>
+                <td
+                  key="1"
+                >
+                  Kaznet
+                </td>
+                <td
+                  key="2"
+                >
+                  0/0
+                </td>
+                <td
+                  key="3"
+                >
+                  2018-06-14T16:25:00.925745+03:00
+                </td>
+                <td
+                  key="4"
+                />
+                <td
+                  key="5"
+                >
+                  XFORM TITLE
+                </td>
+              </ElementMap>
+            </tr>
+            <tr
+              key="2"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "d",
+                    "Example Task",
+                    "0/0",
+                    "2018-06-19T21:01:21.545847+03:00",
+                    "2018-08-16T21:00:40+03:00",
+                    "XFORM TITLE",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  d
+                </td>
+                <td
+                  key="1"
+                >
+                  Example Task
+                </td>
+                <td
+                  key="2"
+                >
+                  0/0
+                </td>
+                <td
+                  key="3"
+                >
+                  2018-06-19T21:01:21.545847+03:00
+                </td>
+                <td
+                  key="4"
+                >
+                  2018-08-16T21:00:40+03:00
+                </td>
+                <td
+                  key="5"
+                >
+                  XFORM TITLE
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </ListView>
+  </div>
+</TasksList>
+`;

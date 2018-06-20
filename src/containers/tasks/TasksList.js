@@ -1,6 +1,7 @@
 // Smart component that renders the Task list view
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -9,11 +10,11 @@ import * as taskSelectors from "../../store/tasks/reducer";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
-class TasksList extends Component {
+export class TasksList extends Component {
   componentDidMount() {
-    this.props.dispatch(taskActions.fetchTasks());
-    this.props.dispatch(globalActions.changePageTitle("Tasks"));
-    this.props.dispatch(globalActions.changePageTitleButton("+ Create Task"));
+    this.props.fetchTasks();
+    this.props.changePageTitle("Tasks");
+    this.props.changePageTitleButton("+ Create Task");
   }
 
   render() {
@@ -69,4 +70,18 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(TasksList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      fetchTasks: taskActions.fetchTasks,
+      changePageTitle: globalActions.changePageTitle,
+      changePageTitleButton: globalActions.changePageTitleButton
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TasksList);

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ListView renders a table 1`] = `
+<ErrorBoundary>
+  <ListView
+    renderHeaders={[Function]}
+    renderRow={[Function]}
+    rowsById={
+      Object {
+        "0": "Bob",
+        "1": "Jane",
+      }
+    }
+    rowsIdArray={
+      Array [
+        "0",
+        "1",
+      ]
+    }
+  >
+    <Table
+      bordered={true}
+      className="kaznet-table"
+      responsiveTag="div"
+      tag="table"
+    >
+      <table
+        className="kaznet-table table table-bordered"
+      >
+        <thead>
+          <tr>
+            <ElementMap
+              HTMLTag="th"
+              items={
+                Array [
+                  "Name",
+                ]
+              }
+            >
+              <th
+                key="0"
+              >
+                Name
+              </th>
+            </ElementMap>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="0"
+          >
+            <ElementMap
+              HTMLTag="td"
+              items={
+                Array [
+                  "Bob",
+                ]
+              }
+            >
+              <td
+                key="0"
+              >
+                Bob
+              </td>
+            </ElementMap>
+          </tr>
+          <tr
+            key="1"
+          >
+            <ElementMap
+              HTMLTag="td"
+              items={
+                Array [
+                  "Jane",
+                ]
+              }
+            >
+              <td
+                key="0"
+              >
+                Jane
+              </td>
+            </ElementMap>
+          </tr>
+        </tbody>
+      </table>
+    </Table>
+  </ListView>
+</ErrorBoundary>
+`;
