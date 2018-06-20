@@ -23,10 +23,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
+    "husky": "^0.14.3",
     "jest-fetch-mock": "^1.6.5",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.5",
     "redux-testkit": "^1.0.6"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

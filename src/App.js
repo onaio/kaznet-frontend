@@ -1,24 +1,20 @@
 // Renders the main App
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router';
-import fontawesome from '@fortawesome/fontawesome';
-import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
-import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
-import {
-  Container,
-  Row,
-  Col
-} from 'reactstrap';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router";
+import fontawesome from "@fortawesome/fontawesome";
+import faSearch from "@fortawesome/fontawesome-free-solid/faSearch";
+import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
+import { Container, Row, Col } from "reactstrap";
 
-import './App.css';
+import "./App.css";
 
-import Home from './components/Home';
-import ErrorBoundary from './components/ErrorBoundary';
-import Header from './components/page/Header';
-import NoMatch from './components/NoMatch';
+import Home from "./components/Home";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Header from "./components/page/Header";
+import NoMatch from "./components/NoMatch";
 
-import TasksList from './containers/tasks/TasksList';
-import TitleSection from './containers/global/TitleSection';
+import TasksList from "./containers/tasks/TasksList";
+import TitleSection from "./containers/global/TitleSection";
 
 fontawesome.library.add(faSearch, faCaretDown);
 
@@ -36,9 +32,9 @@ class App extends Component {
                   <Row>
                     <Col>
                       <Switch>
-                        <Route exact path="/tasks" component={TasksList}/>
-                        <Route exact path="/" component={Home}/>
-                        <Route component={NoMatch}/>
+                        <Route exact path="/tasks" component={TasksList} />
+                        <Route exact path="/" component={Home} />
+                        <Route component={NoMatch} />
                       </Switch>
                     </Col>
                   </Row>
