@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as userActions from '../../store/users/actions';
+import * as globalActions from '../../store/global/actions';
 import * as userSelectors from '../../store/users/reducer';
+
 import ListView from '../../components/ListView';
 import ElementMap from '../ElementMap';
 
@@ -9,6 +12,8 @@ class UsersList extends Component {
 
   componentDidMount() {
     this.props.dispatch(userActions.fetchUsers());
+    this.props.dispatch(globalActions.changePageTitle('Users'));
+    this.props.dispatch(globalActions.changePageTitleButton('+ Create User'))
   }
 
   render() {
@@ -47,13 +52,13 @@ class UsersList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      row.attributes.role,
+      row.attributes.role_display,
       row.attributes.ona_username,
       row.attributes.last_name,
       row.attributes.first_name,
       row.attributes.submission_count,
       row.attributes.avg_approved_submissions * 100 + '%',
-      'Last Active Date Here'
+      row.attributes.last_login
     ];
 
     return (
