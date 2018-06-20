@@ -34,8 +34,8 @@ class LocationsList extends Component {
     renderRow(row) {
         const rowItems = [
             row.attributes.name,
-            'Parent name here',
-            'Type Here',
+            row.attributes.parent_name,
+            row.attributes.location_type_name,
             row.attributes.description
         ];
         return (
