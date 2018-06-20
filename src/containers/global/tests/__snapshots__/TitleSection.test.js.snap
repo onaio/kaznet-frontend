@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/global/TitleSection renders title section 1`] = `
+<TitleSection>
+  <PageTitle>
+    <section
+      className="page-title"
+    >
+      <Row
+        tag="div"
+      >
+        <div
+          className="row"
+        >
+          <Col
+            md={
+              Object {
+                "offset": 2,
+                "size": 8,
+              }
+            }
+            sm="12"
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <div
+              className="col-sm-12 col-md-8 offset-md-2"
+            >
+              <div>
+                <h1 />
+                <Row
+                  tag="div"
+                >
+                  <div
+                    className="row"
+                  >
+                    <Col
+                      md="9"
+                      tag="div"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <div
+                        className="col-md-9"
+                      >
+                        <Form
+                          tag="form"
+                        >
+                          <form
+                            className=""
+                          >
+                            <InputGroup
+                              className="search-group"
+                              tag="div"
+                            >
+                              <div
+                                className="search-group input-group"
+                              >
+                                <InputGroupAddon
+                                  addonType="prepend"
+                                  className="search-prepend"
+                                  tag="div"
+                                >
+                                  <div
+                                    className="search-prepend input-group-prepend"
+                                  >
+                                    <InputGroupText
+                                      className="bg-white border-right-0"
+                                      tag="span"
+                                    >
+                                      <span
+                                        className="bg-white border-right-0 input-group-text"
+                                      >
+                                        <FontAwesomeIcon
+                                          border={false}
+                                          className=""
+                                          fixedWidth={false}
+                                          flip={null}
+                                          icon="search"
+                                          listItem={false}
+                                          mask={null}
+                                          name=""
+                                          pull={null}
+                                          pulse={false}
+                                          rotation={null}
+                                          size={null}
+                                          spin={false}
+                                          symbol={false}
+                                          transform={null}
+                                        />
+                                      </span>
+                                    </InputGroupText>
+                                  </div>
+                                </InputGroupAddon>
+                                <Input
+                                  aria-label="Search"
+                                  bsSize="lg"
+                                  className="border-left-0"
+                                  placeholder="Search"
+                                  type="text"
+                                >
+                                  <input
+                                    aria-label="Search"
+                                    className="border-left-0 form-control-lg form-control"
+                                    placeholder="Search"
+                                    type="text"
+                                  />
+                                </Input>
+                              </div>
+                            </InputGroup>
+                          </form>
+                        </Form>
+                      </div>
+                    </Col>
+                    <Col
+                      md="3"
+                      tag="div"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <div
+                        className="col-md-3"
+                      >
+                        <Button
+                          block={true}
+                          color="primary"
+                          size="lg"
+                          tag="button"
+                        >
+                          <button
+                            className="btn btn-primary btn-lg btn-block"
+                            onClick={[Function]}
+                          />
+                        </Button>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+              </div>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </section>
+  </PageTitle>
+</TitleSection>
+`;
+
+exports[`containers/global/TitleSection renders title section correctly 1`] = `
+<TitleSection>
+  <PageTitle>
+    <section
+      className="page-title"
+    >
+      <Row
+        tag="div"
+      >
+        <div
+          className="row"
+        >
+          <Col
+            md={
+              Object {
+                "offset": 2,
+                "size": 8,
+              }
+            }
+            sm="12"
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <div
+              className="col-sm-12 col-md-8 offset-md-2"
+            >
+              <div>
+                <h1 />
+                <Row
+                  tag="div"
+                >
+                  <div
+                    className="row"
+                  >
+                    <Col
+                      md="9"
+                      tag="div"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <div
+                        className="col-md-9"
+                      >
+                        <Form
+                          tag="form"
+                        >
+                          <form
+                            className=""
+                          >
+                            <InputGroup
+                              className="search-group"
+                              tag="div"
+                            >
+                              <div
+                                className="search-group input-group"
+                              >
+                                <InputGroupAddon
+                                  addonType="prepend"
+                                  className="search-prepend"
+                                  tag="div"
+                                >
+                                  <div
+                                    className="search-prepend input-group-prepend"
+                                  >
+                                    <InputGroupText
+                                      className="bg-white border-right-0"
+                                      tag="span"
+                                    >
+                                      <span
+                                        className="bg-white border-right-0 input-group-text"
+                                      >
+                                        <FontAwesomeIcon
+                                          border={false}
+                                          className=""
+                                          fixedWidth={false}
+                                          flip={null}
+                                          icon="search"
+                                          listItem={false}
+                                          mask={null}
+                                          name=""
+                                          pull={null}
+                                          pulse={false}
+                                          rotation={null}
+                                          size={null}
+                                          spin={false}
+                                          symbol={false}
+                                          transform={null}
+                                        />
+                                      </span>
+                                    </InputGroupText>
+                                  </div>
+                                </InputGroupAddon>
+                                <Input
+                                  aria-label="Search"
+                                  bsSize="lg"
+                                  className="border-left-0"
+                                  placeholder="Search"
+                                  type="text"
+                                >
+                                  <input
+                                    aria-label="Search"
+                                    className="border-left-0 form-control-lg form-control"
+                                    placeholder="Search"
+                                    type="text"
+                                  />
+                                </Input>
+                              </div>
+                            </InputGroup>
+                          </form>
+                        </Form>
+                      </div>
+                    </Col>
+                    <Col
+                      md="3"
+                      tag="div"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <div
+                        className="col-md-3"
+                      >
+                        <Button
+                          block={true}
+                          color="primary"
+                          size="lg"
+                          tag="button"
+                        >
+                          <button
+                            className="btn btn-primary btn-lg btn-block"
+                            onClick={[Function]}
+                          />
+                        </Button>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+              </div>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </section>
+  </PageTitle>
+</TitleSection>
+`;
+
+exports[`containers/global/TitleSection renders without crashing 1`] = `
+<TitleSection>
+  <PageTitle>
+    <section
+      className="page-title"
+    >
+      <Row
+        tag="div"
+      >
+        <div
+          className="row"
+        >
+          <Col
+            md={
+              Object {
+                "offset": 2,
+                "size": 8,
+              }
+            }
+            sm="12"
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <div
+              className="col-sm-12 col-md-8 offset-md-2"
+            >
+              <div>
+                <h1 />
+                <Row
+                  tag="div"
+                >
+                  <div
+                    className="row"
+                  >
+                    <Col
+                      md="9"
+                      tag="div"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <div
+                        className="col-md-9"
+                      >
+                        <Form
+                          tag="form"
+                        >
+                          <form
+                            className=""
+                          >
+                            <InputGroup
+                              className="search-group"
+                              tag="div"
+                            >
+                              <div
+                                className="search-group input-group"
+                              >
+                                <InputGroupAddon
+                                  addonType="prepend"
+                                  className="search-prepend"
+                                  tag="div"
+                                >
+                                  <div
+                                    className="search-prepend input-group-prepend"
+                                  >
+                                    <InputGroupText
+                                      className="bg-white border-right-0"
+                                      tag="span"
+                                    >
+                                      <span
+                                        className="bg-white border-right-0 input-group-text"
+                                      >
+                                        <FontAwesomeIcon
+                                          border={false}
+                                          className=""
+                                          fixedWidth={false}
+                                          flip={null}
+                                          icon="search"
+                                          listItem={false}
+                                          mask={null}
+                                          name=""
+                                          pull={null}
+                                          pulse={false}
+                                          rotation={null}
+                                          size={null}
+                                          spin={false}
+                                          symbol={false}
+                                          transform={null}
+                                        />
+                                      </span>
+                                    </InputGroupText>
+                                  </div>
+                                </InputGroupAddon>
+                                <Input
+                                  aria-label="Search"
+                                  bsSize="lg"
+                                  className="border-left-0"
+                                  placeholder="Search"
+                                  type="text"
+                                >
+                                  <input
+                                    aria-label="Search"
+                                    className="border-left-0 form-control-lg form-control"
+                                    placeholder="Search"
+                                    type="text"
+                                  />
+                                </Input>
+                              </div>
+                            </InputGroup>
+                          </form>
+                        </Form>
+                      </div>
+                    </Col>
+                    <Col
+                      md="3"
+                      tag="div"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <div
+                        className="col-md-3"
+                      >
+                        <Button
+                          block={true}
+                          color="primary"
+                          size="lg"
+                          tag="button"
+                        >
+                          <button
+                            className="btn btn-primary btn-lg btn-block"
+                            onClick={[Function]}
+                          />
+                        </Button>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+              </div>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </section>
+  </PageTitle>
+</TitleSection>
+`;
