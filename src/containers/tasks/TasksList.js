@@ -1,20 +1,19 @@
 // Smart component that renders the Task list view
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import * as taskActions from '../../store/tasks/actions';
-import * as globalActions from '../../store/global/actions';
-import * as taskSelectors from '../../store/tasks/reducer';
+import * as taskActions from "../../store/tasks/actions";
+import * as globalActions from "../../store/global/actions";
+import * as taskSelectors from "../../store/tasks/reducer";
 
-import ListView from '../../components/ListView';
-import ElementMap from '../ElementMap';
+import ListView from "../../components/ListView";
+import ElementMap from "../ElementMap";
 
 class TasksList extends Component {
-
   componentDidMount() {
     this.props.dispatch(taskActions.fetchTasks());
-    this.props.dispatch(globalActions.changePageTitle('Tasks'));
-    this.props.dispatch(globalActions.changePageTitleButton('+ Create Task'));
+    this.props.dispatch(globalActions.changePageTitle("Tasks"));
+    this.props.dispatch(globalActions.changePageTitleButton("+ Create Task"));
   }
 
   render() {
@@ -25,45 +24,41 @@ class TasksList extends Component {
           renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
-          renderRow={this.renderRow} />
+          renderRow={this.renderRow}
+        />
       </div>
     );
   }
 
   renderLoading() {
-    return (
-      <p>Loading...</p>
-    );
+    return <p>Loading...</p>;
   }
 
   renderHeaders() {
     const headerItems = [
-      'Status',
-      'Name',
-      'Need Review',
-      'Created',
-      'Expires',
-      'Form'
+      "Status",
+      "Name",
+      "Need Review",
+      "Created",
+      "Expires",
+      "Form"
     ];
-    return (
-      <ElementMap items={headerItems} HTMLTag='th' />
-    );
+    return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
   renderRow(row) {
-    const rowItems =  [
+    const rowItems = [
       row.attributes.status,
       row.attributes.name,
-      row.attributes.pending_submissions_count + '/' + row.attributes.submission_count,
+      row.attributes.pending_submissions_count +
+        "/" +
+        row.attributes.submission_count,
       row.attributes.created,
       row.attributes.end,
-      'XFORM GOES HERE'
-    ]
-    return (
-      <ElementMap items={rowItems} HTMLTag='td' />
-    );
+      "XFORM TITLE"
+    ];
+    return <ElementMap items={rowItems} HTMLTag="td" />;
   }
-
 }
 
 // which props do we want to inject, given the global store state?
