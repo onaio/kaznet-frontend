@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as locationActions from '../../store/locations/actions';
 import * as locationSelectors from '../../store/locations/reducer';
+import * as globalActions from '../../store/global/actions'
+
 import ListView from '../../components/ListView';
 import ElementMap from '../ElementMap';
 
@@ -10,6 +13,8 @@ class LocationsList extends Component {
 
     componentDidMount() {
         this.props.dispatch(locationActions.fetchLocations());
+        this.props.dispatch(globalActions.changePageTitle('Locations'));
+        this.props.dispatch(globalActions.changePageTitleButton('+ Create Location'))
     }
 
     render() {
