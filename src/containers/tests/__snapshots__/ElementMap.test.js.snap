@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/ElementMap renders tags correctly 1`] = `
+<ElementMap
+  HTMLTag="div"
+  items={
+    Array [
+      "Name",
+    ]
+  }
+>
+  <div
+    key="0"
+  >
+    Name
+  </div>
+</ElementMap>
+`;
