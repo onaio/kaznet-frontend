@@ -13,9 +13,7 @@ describe("containers/ElementMap", () => {
   it("renders tags correctly", () => {
     const headerItems = ["Name"];
     const wrapper = mount(<ElementMap items={headerItems} HTMLTag="div" />);
-
     expect(toJson(wrapper)).toMatchSnapshot();
-
     wrapper.unmount();
   });
 });
