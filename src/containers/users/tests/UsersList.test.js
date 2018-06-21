@@ -22,6 +22,8 @@ describe("containers/users/UsersList", () => {
         fetchUsers={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        rowsById={fixtures.usersById}
+        rowsIdArray={fixtures.usersIdArray}
       />
     );
     expect(toJson(wrapper)).toMatchSnapshot();
