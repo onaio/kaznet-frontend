@@ -1,5 +1,6 @@
 // Smart component that renders the Locations List view
 import React, { Component } from "react";
+import voca from "voca";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -40,7 +41,7 @@ export class LocationsList extends Component {
       row.attributes.name,
       row.attributes.parent_name,
       row.attributes.location_type_name,
-      row.attributes.description
+      voca.truncate(row.attributes.description, 60)
     ];
     return <ElementMap items={rowItems} HTMLTag="td" />;
   }
