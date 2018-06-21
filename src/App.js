@@ -5,6 +5,7 @@ import fontawesome from "@fortawesome/fontawesome";
 import faSearch from "@fortawesome/fontawesome-free-solid/faSearch";
 import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import { Container, Row, Col } from "reactstrap";
+import moment from "moment";
 
 import "./App.css";
 
@@ -13,11 +14,12 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
 
-import TasksList from './containers/tasks/TasksList';
-import TitleSection from './containers/global/TitleSection';
-import UsersList from './containers/users/UsersList';
+import TasksList from "./containers/tasks/TasksList";
+import TitleSection from "./containers/global/TitleSection";
+import UsersList from "./containers/users/UsersList";
 
 fontawesome.library.add(faSearch, faCaretDown);
+moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
@@ -33,10 +35,10 @@ class App extends Component {
                   <Row>
                     <Col>
                       <Switch>
-                        <Route exact path="/tasks" component={TasksList}/>
-                        <Route exact path="/users" component={UsersList}/>
-                        <Route exact path="/" component={Home}/>
-                        <Route component={NoMatch}/>
+                        <Route exact path="/tasks" component={TasksList} />
+                        <Route exact path="/users" component={UsersList} />
+                        <Route exact path="/" component={Home} />
+                        <Route component={NoMatch} />
                       </Switch>
                     </Col>
                   </Row>
