@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import * as clientActions from "../../store/clients/actions";
 import * as clientSelectiors from "../../store/clients/reducer";
 import * as globalActions from "../../store/global/actions";
+
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
-class ClientsList extends Component {
+export class ClientsList extends Component {
   componentDidMount() {
-    this.props.dispatch(clientActions.fetchClients());
-    this.props.dispatch(globalActions.changePageTitle("Clients"));
-    this.props.dispatch(globalActions.changePageTitleButton("+ Create Client"));
+    this.props.fetchClients();
+    this.props.changePageTitle("Clients");
+    this.props.changePageTitleButton("+ Create Client");
   }
 
   render() {
@@ -49,4 +51,18 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ClientsList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      fetchClients: clientActions.fetchClients,
+      changePageTitle: globalActions.changePageTitle,
+      changePageTitle: globalActions.changePageTitleButton
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClientsList);
