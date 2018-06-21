@@ -43,7 +43,9 @@ export class ClientsList extends Component {
   renderRow(row) {
     const rowItems = [
       row.attributes.name,
-      <Moment format="DD-MM-YYYY">{row.attributes.created}</Moment>
+      <Moment key={row.id} format="DD-MM-YYYY">
+        {row.attributes.created}
+      </Moment>
     ];
     return <ElementMap items={rowItems} HTMLTag="td" />;
   }

@@ -13,7 +13,8 @@ export const clientData = {
       type: "Client",
       id: "1",
       attributes: {
-        name: "Sol Knights"
+        name: "Sol",
+        created: "2018-06-21T13:51:54.011373+03:00"
       }
     }
   ],

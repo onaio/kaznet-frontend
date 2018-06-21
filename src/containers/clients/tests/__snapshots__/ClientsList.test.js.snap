@@ -9,7 +9,8 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
     Object {
       "1": Object {
         "attributes": Object {
-          "name": "Sol Knights",
+          "created": "2018-06-21T13:51:54.011373+03:00",
+          "name": "Sol",
         },
         "id": "1",
         "type": "Client",
@@ -32,7 +33,8 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
         Object {
           "1": Object {
             "attributes": Object {
-              "name": "Sol Knights",
+              "created": "2018-06-21T13:51:54.011373+03:00",
+              "name": "Sol",
             },
             "id": "1",
             "type": "Client",
@@ -61,6 +63,7 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                 items={
                   Array [
                     "Name",
+                    "Created",
                   ]
                 }
               >
@@ -68,6 +71,11 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                   key="0"
                 >
                   Name
+                </th>
+                <th
+                  key="1"
+                >
+                  Created
                 </th>
               </ElementMap>
             </tr>
@@ -80,14 +88,57 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                 HTMLTag="td"
                 items={
                   Array [
-                    "Sol Knights",
+                    "Sol",
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  >
+                      2018-06-21T13:51:54.011373+03:00
+                  </t>,
                   ]
                 }
               >
                 <td
                   key="0"
                 >
-                  Sol Knights
+                  Sol
+                </td>
+                <td
+                  key="1"
+                >
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="1"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={"2018-06-21T10:51:54.011Z"}
+                    >
+                      21-06-2018
+                    </time>
+                  </t>
                 </td>
               </ElementMap>
             </tr>
