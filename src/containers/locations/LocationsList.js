@@ -1,5 +1,7 @@
+// Smart component that renders the Locations List view
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import * as locationActions from "../../store/locations/actions";
 import * as locationSelectors from "../../store/locations/reducer";
@@ -68,6 +70,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(LocationsList);
