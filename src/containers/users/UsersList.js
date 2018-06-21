@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Moment from "react-moment";
 
 import * as userActions from "../../store/users/actions";
 import * as globalActions from "../../store/global/actions";
@@ -55,7 +56,9 @@ export class UsersList extends Component {
       row.attributes.first_name,
       row.attributes.submission_count,
       row.attributes.avg_approved_submissions * 100 + "%",
-      row.attributes.last_login
+      <Moment key={row.id} format="DD-MM-YYYY">
+        {row.attributes.last_login}
+      </Moment>
     ];
 
     return <ElementMap items={rowItems} HTMLTag="td" />;
