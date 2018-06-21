@@ -226,21 +226,21 @@ exports[`components/page/Header renders header correctly 1`] = `
                               activeClassName="active"
                               aria-current="page"
                               className="nav-link"
-                              to="#"
+                              to="/users"
                             >
                               <Route
-                                path="#"
+                                path="\\\\/users"
                               >
                                 <Link
                                   aria-current={null}
                                   className="nav-link"
                                   replace={false}
-                                  to="#"
+                                  to="/users"
                                 >
                                   <a
                                     aria-current={null}
                                     className="nav-link"
-                                    href="/"
+                                    href="/users"
                                     onClick={[Function]}
                                   >
                                     Users
