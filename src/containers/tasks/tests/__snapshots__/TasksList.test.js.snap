@@ -10,23 +10,26 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
       "1": Object {
         "attributes": Object {
           "approved_submissions_count": 0,
-          "created": "2018-06-14T16:25:00.925745+03:00",
+          "created": "2018-06-21T13:51:57.580166+03:00",
           "current_bounty_amount": null,
-          "description": "This is amazing",
-          "end": null,
-          "estimated_time": "4 01:15:20",
-          "modified": "2018-06-14T16:25:00.925766+03:00",
-          "name": "Kaznet",
+          "description": "Hey here is task one huh",
+          "end": "2018-06-21T13:51:42+03:00",
+          "estimated_time": null,
+          "modified": "2018-06-21T13:51:57.580197+03:00",
+          "name": "Task Test",
           "pending_submissions_count": 0,
           "rejected_submissions_count": 0,
-          "start": "2018-06-14T16:23:51+03:00",
-          "status": "d",
+          "required_expertise": "4",
+          "start": "2018-06-21T13:51:39+03:00",
+          "status": "a",
+          "status_display": "Active",
           "submission_count": 0,
           "target_id": null,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+          "timing_rule": "FREQ=DAILY;INTERVAL=1;UNTIL=20180621T210000Z",
           "total_bounty_payout": "0 KES",
-          "total_submission_target": 100,
-          "user_submission_target": 100,
+          "total_submission_target": null,
+          "user_submission_target": null,
+          "xform_title": "",
         },
         "id": "1",
         "relationships": Object {
@@ -40,72 +43,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             },
           },
           "locations": Object {
-            "data": Array [
-              Object {
-                "id": "1",
-                "type": "Location",
-              },
-            ],
-            "meta": Object {
-              "count": 1,
-            },
-          },
-          "parent": Object {
-            "data": null,
-          },
-          "segment_rules": Object {
             "data": Array [],
             "meta": Object {
               "count": 0,
-            },
-          },
-          "target_content_type": Object {
-            "data": null,
-          },
-        },
-        "type": "Task",
-      },
-      "2": Object {
-        "attributes": Object {
-          "approved_submissions_count": 0,
-          "created": "2018-06-19T21:01:21.545847+03:00",
-          "current_bounty_amount": null,
-          "description": "This is a description.",
-          "end": "2018-08-16T21:00:40+03:00",
-          "estimated_time": "4 01:15:20",
-          "modified": "2018-06-19T21:01:21.545888+03:00",
-          "name": "Example Task",
-          "pending_submissions_count": 0,
-          "rejected_submissions_count": 0,
-          "start": "2018-06-19T21:00:34+03:00",
-          "status": "d",
-          "submission_count": 0,
-          "target_id": null,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
-          "total_bounty_payout": "0 KES",
-          "total_submission_target": 123,
-          "user_submission_target": 234,
-        },
-        "id": "2",
-        "relationships": Object {
-          "bounty": Object {
-            "data": null,
-          },
-          "client": Object {
-            "data": Object {
-              "id": "11",
-              "type": "Client",
-            },
-          },
-          "locations": Object {
-            "data": Array [
-              Object {
-                "id": "1",
-                "type": "Location",
-              },
-            ],
-            "meta": Object {
-              "count": 1,
             },
           },
           "parent": Object {
@@ -128,7 +68,6 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
   rowsIdArray={
     Array [
       "1",
-      "2",
     ]
   }
 >
@@ -143,23 +82,26 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
           "1": Object {
             "attributes": Object {
               "approved_submissions_count": 0,
-              "created": "2018-06-14T16:25:00.925745+03:00",
+              "created": "2018-06-21T13:51:57.580166+03:00",
               "current_bounty_amount": null,
-              "description": "This is amazing",
-              "end": null,
-              "estimated_time": "4 01:15:20",
-              "modified": "2018-06-14T16:25:00.925766+03:00",
-              "name": "Kaznet",
+              "description": "Hey here is task one huh",
+              "end": "2018-06-21T13:51:42+03:00",
+              "estimated_time": null,
+              "modified": "2018-06-21T13:51:57.580197+03:00",
+              "name": "Task Test",
               "pending_submissions_count": 0,
               "rejected_submissions_count": 0,
-              "start": "2018-06-14T16:23:51+03:00",
-              "status": "d",
+              "required_expertise": "4",
+              "start": "2018-06-21T13:51:39+03:00",
+              "status": "a",
+              "status_display": "Active",
               "submission_count": 0,
               "target_id": null,
-              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+              "timing_rule": "FREQ=DAILY;INTERVAL=1;UNTIL=20180621T210000Z",
               "total_bounty_payout": "0 KES",
-              "total_submission_target": 100,
-              "user_submission_target": 100,
+              "total_submission_target": null,
+              "user_submission_target": null,
+              "xform_title": "",
             },
             "id": "1",
             "relationships": Object {
@@ -173,72 +115,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 },
               },
               "locations": Object {
-                "data": Array [
-                  Object {
-                    "id": "1",
-                    "type": "Location",
-                  },
-                ],
-                "meta": Object {
-                  "count": 1,
-                },
-              },
-              "parent": Object {
-                "data": null,
-              },
-              "segment_rules": Object {
                 "data": Array [],
                 "meta": Object {
                   "count": 0,
-                },
-              },
-              "target_content_type": Object {
-                "data": null,
-              },
-            },
-            "type": "Task",
-          },
-          "2": Object {
-            "attributes": Object {
-              "approved_submissions_count": 0,
-              "created": "2018-06-19T21:01:21.545847+03:00",
-              "current_bounty_amount": null,
-              "description": "This is a description.",
-              "end": "2018-08-16T21:00:40+03:00",
-              "estimated_time": "4 01:15:20",
-              "modified": "2018-06-19T21:01:21.545888+03:00",
-              "name": "Example Task",
-              "pending_submissions_count": 0,
-              "rejected_submissions_count": 0,
-              "start": "2018-06-19T21:00:34+03:00",
-              "status": "d",
-              "submission_count": 0,
-              "target_id": null,
-              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
-              "total_bounty_payout": "0 KES",
-              "total_submission_target": 123,
-              "user_submission_target": 234,
-            },
-            "id": "2",
-            "relationships": Object {
-              "bounty": Object {
-                "data": null,
-              },
-              "client": Object {
-                "data": Object {
-                  "id": "11",
-                  "type": "Client",
-                },
-              },
-              "locations": Object {
-                "data": Array [
-                  Object {
-                    "id": "1",
-                    "type": "Location",
-                  },
-                ],
-                "meta": Object {
-                  "count": 1,
                 },
               },
               "parent": Object {
@@ -261,7 +140,6 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
       rowsIdArray={
         Array [
           "1",
-          "2",
         ]
       }
     >
@@ -330,8 +208,8 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 HTMLTag="td"
                 items={
                   Array [
-                    undefined,
-                    "Kaznet",
+                    "Active",
+                    "Task Test",
                     "0/0",
                     <t
                       ago={false}
@@ -348,7 +226,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       unix={false}
                       utc={false}
                   >
-                      2018-06-14T16:25:00.925745+03:00
+                      2018-06-21T13:51:57.580166+03:00
                   </t>,
                     <t
                       ago={false}
@@ -364,18 +242,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       unit={null}
                       unix={false}
                       utc={false}
-                  />,
-                    undefined,
+                  >
+                      2018-06-21T13:51:42+03:00
+                  </t>,
+                    "",
                   ]
                 }
               >
                 <td
                   key="0"
-                />
+                >
+                  Active
+                </td>
                 <td
                   key="1"
                 >
-                  Kaznet
+                  Task Test
                 </td>
                 <td
                   key="2"
@@ -402,9 +284,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     utc={false}
                   >
                     <time
-                      dateTime={"2018-06-14T13:25:00.925Z"}
+                      dateTime={"2018-06-21T10:51:57.580Z"}
                     >
-                      14-06-2018
+                      21-06-2018
                     </time>
                   </t>
                 </td>
@@ -428,127 +310,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     utc={false}
                   >
                     <time
-                      dateTime={null}
+                      dateTime={"2018-06-21T10:51:42.000Z"}
                     >
-                      Invalid date
-                    </time>
-                  </t>
-                </td>
-                <td
-                  key="5"
-                />
-              </ElementMap>
-            </tr>
-            <tr
-              key="2"
-            >
-              <ElementMap
-                HTMLTag="td"
-                items={
-                  Array [
-                    undefined,
-                    "Example Task",
-                    "0/0",
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                  >
-                      2018-06-19T21:01:21.545847+03:00
-                  </t>,
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                  >
-                      2018-08-16T21:00:40+03:00
-                  </t>,
-                    undefined,
-                  ]
-                }
-              >
-                <td
-                  key="0"
-                />
-                <td
-                  key="1"
-                >
-                  Example Task
-                </td>
-                <td
-                  key="2"
-                >
-                  0/0
-                </td>
-                <td
-                  key="3"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
-                    key="2"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
-                  >
-                    <time
-                      dateTime={"2018-06-19T18:01:21.545Z"}
-                    >
-                      19-06-2018
-                    </time>
-                  </t>
-                </td>
-                <td
-                  key="4"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
-                    key="2"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
-                  >
-                    <time
-                      dateTime={"2018-08-16T18:00:40.000Z"}
-                    >
-                      16-08-2018
+                      21-06-2018
                     </time>
                   </t>
                 </td>
