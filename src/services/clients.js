@@ -24,7 +24,6 @@ class ClientService {
     if (!data) {
       throw new Error(`ClientService getClientList failed, data not returned`);
     }
-
     return _.map(data, client => {
       return client;
     });
