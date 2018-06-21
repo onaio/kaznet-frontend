@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/users/UsersList renders user list correctly 1`] = `
+<UsersList
+  changePageTitle={[Function]}
+  changePageTitleButton={[Function]}
+  fetchUsers={[Function]}
+>
+  <p>
+    Loading...
+  </p>
+</UsersList>
+`;
