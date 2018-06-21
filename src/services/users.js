@@ -9,7 +9,7 @@ class UserService {
       method: "GET",
       headers: {
         Accept: "application/vnd.api+json",
-        Authorization: `Token b4dfde6232d8f696713a7fde59e8f05ecfded42d`
+        Authorization: `Token ${constants.API_TOKEN}`
       }
     });
     if (!response.ok) {
