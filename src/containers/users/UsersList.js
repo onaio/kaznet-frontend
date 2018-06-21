@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import * as userActions from "../../store/users/actions";
 import * as globalActions from "../../store/global/actions";
@@ -81,6 +82,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(UsersList);
