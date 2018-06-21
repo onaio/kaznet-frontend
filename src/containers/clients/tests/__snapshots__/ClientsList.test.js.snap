@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/clients/ClientsList renders client list correctly 1`] = `
+<ClientsList
+  changePageTitle={[Function]}
+  changePageTitleButton={[Function]}
+  fetchClients={[Function]}
+  rowsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "name": "Sol Knights",
+        },
+        "id": "1",
+        "type": "Client",
+      },
+    }
+  }
+  rowsIdArray={
+    Array [
+      "1",
+    ]
+  }
+>
+  <div
+    className="ClientsList"
+  >
+    <ListView
+      renderHeaders={[Function]}
+      renderRow={[Function]}
+      rowsById={
+        Object {
+          "1": Object {
+            "attributes": Object {
+              "name": "Sol Knights",
+            },
+            "id": "1",
+            "type": "Client",
+          },
+        }
+      }
+      rowsIdArray={
+        Array [
+          "1",
+        ]
+      }
+    >
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Sol Knights",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Sol Knights
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </ListView>
+  </div>
+</ClientsList>
+`;
