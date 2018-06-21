@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Moment from "react-moment";
 
 import * as clientActions from "../../store/clients/actions";
 import * as clientSelectiors from "../../store/clients/reducer";
@@ -34,12 +36,15 @@ export class ClientsList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = ["Name"];
+    const headerItems = ["Name", "Created"];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
   renderRow(row) {
-    const rowItems = [row.attributes.name];
+    const rowItems = [
+      row.attributes.name,
+      <Moment format="DD-MM-YYYY">{row.attributes.created}</Moment>
+    ];
     return <ElementMap items={rowItems} HTMLTag="td" />;
   }
 }
@@ -56,7 +61,7 @@ function mapDispatchToProps(dispatch) {
     {
       fetchClients: clientActions.fetchClients,
       changePageTitle: globalActions.changePageTitle,
-      changePageTitle: globalActions.changePageTitleButton
+      changePageTitleButton: globalActions.changePageTitleButton
     },
     dispatch
   );
