@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Moment from "react-moment";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -49,14 +50,18 @@ export class TasksList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      row.attributes.status,
+      row.attributes.status_display,
       row.attributes.name,
       row.attributes.pending_submissions_count +
         "/" +
         row.attributes.submission_count,
-      row.attributes.created,
-      row.attributes.end,
-      "XFORM TITLE"
+      <Moment key={row.id} format="DD-MM-YYYY">
+        {row.attributes.created}
+      </Moment>,
+      <Moment key={row.id} format="DD-MM-YYYY">
+        {row.attributes.end}
+      </Moment>,
+      row.attributes.xform_title
     ];
     return <ElementMap items={rowItems} HTMLTag="td" />;
   }
