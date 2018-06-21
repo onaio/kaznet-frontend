@@ -330,20 +330,48 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 HTMLTag="td"
                 items={
                   Array [
-                    "d",
+                    undefined,
                     "Kaznet",
                     "0/0",
-                    "2018-06-14T16:25:00.925745+03:00",
-                    null,
-                    "XFORM TITLE",
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  >
+                      2018-06-14T16:25:00.925745+03:00
+                  </t>,
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  />,
+                    undefined,
                   ]
                 }
               >
                 <td
                   key="0"
-                >
-                  d
-                </td>
+                />
                 <td
                   key="1"
                 >
@@ -357,16 +385,58 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 <td
                   key="3"
                 >
-                  2018-06-14T16:25:00.925745+03:00
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="1"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={"2018-06-14T13:25:00.925Z"}
+                    >
+                      14-06-2018
+                    </time>
+                  </t>
                 </td>
                 <td
                   key="4"
-                />
+                >
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="1"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={null}
+                    >
+                      Invalid date
+                    </time>
+                  </t>
+                </td>
                 <td
                   key="5"
-                >
-                  XFORM TITLE
-                </td>
+                />
               </ElementMap>
             </tr>
             <tr
@@ -376,20 +446,50 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 HTMLTag="td"
                 items={
                   Array [
-                    "d",
+                    undefined,
                     "Example Task",
                     "0/0",
-                    "2018-06-19T21:01:21.545847+03:00",
-                    "2018-08-16T21:00:40+03:00",
-                    "XFORM TITLE",
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  >
+                      2018-06-19T21:01:21.545847+03:00
+                  </t>,
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  >
+                      2018-08-16T21:00:40+03:00
+                  </t>,
+                    undefined,
                   ]
                 }
               >
                 <td
                   key="0"
-                >
-                  d
-                </td>
+                />
                 <td
                   key="1"
                 >
@@ -403,18 +503,58 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 <td
                   key="3"
                 >
-                  2018-06-19T21:01:21.545847+03:00
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="2"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={"2018-06-19T18:01:21.545Z"}
+                    >
+                      19-06-2018
+                    </time>
+                  </t>
                 </td>
                 <td
                   key="4"
                 >
-                  2018-08-16T21:00:40+03:00
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="2"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={"2018-08-16T18:00:40.000Z"}
+                    >
+                      16-08-2018
+                    </time>
+                  </t>
                 </td>
                 <td
                   key="5"
-                >
-                  XFORM TITLE
-                </td>
+                />
               </ElementMap>
             </tr>
           </tbody>
