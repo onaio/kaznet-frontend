@@ -16,7 +16,7 @@ describe("services/tasks", () => {
     expect(response).toEqual(fixtures.tasksArray);
   });
 
-  it("should handle default tasks http errors", async () => {
+  it("should handle fetch tasks http errors", async () => {
     fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
     let error;
     try {
@@ -26,6 +26,26 @@ describe("services/tasks", () => {
     }
     expect(error).toEqual(
       new Error("TaskService getTaskList failed, HTTP status 500")
+    );
+  });
+
+  it("should create a task", async () => {
+    const data = fixtures.singleTaskData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await TaskService.createTask({});
+    expect(response).toEqual(fixtures.singleTask);
+  });
+
+  it("should handle create task http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await TaskService.createTask();
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("TaskService createTask failed, HTTP status 500")
     );
   });
 });
