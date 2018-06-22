@@ -1,12 +1,12 @@
 // Tasks reducer
-import _ from 'lodash';
-import Immutable from 'seamless-immutable';
+import _ from "lodash";
+import Immutable from "seamless-immutable";
 
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = Immutable({
-  "tasksById": {},
-  "tasksIdArray": []
+  tasksById: {},
+  tasksIdArray: []
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -15,6 +15,14 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         tasksById: action.tasksById
       });
+    case types.TASK_CREATED:
+      return {
+        ...state,
+        tasksById: {
+          ...state.tasksById,
+          [action.taskData.id]: action.taskData
+        }
+      };
     default:
       return state;
   }
