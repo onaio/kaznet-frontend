@@ -55,7 +55,7 @@ export class UsersList extends Component {
       row.attributes.last_name,
       row.attributes.first_name,
       row.attributes.submission_count,
-      row.attributes.avg_approved_submissions * 100 + "%",
+      row.attributes.approval_rate * 100 + "%",
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.last_login}
       </Moment>
