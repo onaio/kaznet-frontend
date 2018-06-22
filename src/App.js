@@ -18,6 +18,7 @@ import TasksList from "./containers/tasks/TasksList";
 import TitleSection from "./containers/global/TitleSection";
 import UsersList from "./containers/users/UsersList";
 import LocationsList from './containers/locations/LocationsList'
+import ClientsList from './containers/clients/ClientsList'
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(faSearch, faCaretDown);
@@ -40,8 +41,9 @@ class App extends Component {
                         <Route exact path="/tasks" component={TasksList} />
                         <Route exact path="/users" component={UsersList} />
                         <Route exact path="/locations" component={LocationsList}/>
-                        <Route exact path="/" component={Home}/>
-                        <Route component={NoMatch}/>
+                        <Route exact path="/clients" component={ClientsList}/>
+                        <Route exact path="/" component={Home} />
+                        <Route component={NoMatch} />
                       </Switch>
                     </Col>
                   </Row>

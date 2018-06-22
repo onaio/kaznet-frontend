@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/clients/ClientsList renders client list correctly 1`] = `
+<ClientsList
+  changePageTitle={[Function]}
+  changePageTitleButton={[Function]}
+  fetchClients={[Function]}
+  rowsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "created": "2018-06-21T13:51:54.011373+03:00",
+          "name": "Sol",
+        },
+        "id": "1",
+        "type": "Client",
+      },
+    }
+  }
+  rowsIdArray={
+    Array [
+      "1",
+    ]
+  }
+>
+  <div
+    className="ClientsList"
+  >
+    <ListView
+      renderHeaders={[Function]}
+      renderRow={[Function]}
+      rowsById={
+        Object {
+          "1": Object {
+            "attributes": Object {
+              "created": "2018-06-21T13:51:54.011373+03:00",
+              "name": "Sol",
+            },
+            "id": "1",
+            "type": "Client",
+          },
+        }
+      }
+      rowsIdArray={
+        Array [
+          "1",
+        ]
+      }
+    >
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                    "Created",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+                <th
+                  key="1"
+                >
+                  Created
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Sol",
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  >
+                      2018-06-21T13:51:54.011373+03:00
+                  </t>,
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Sol
+                </td>
+                <td
+                  key="1"
+                >
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="1"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={"2018-06-21T10:51:54.011Z"}
+                    >
+                      21-06-2018
+                    </time>
+                  </t>
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </ListView>
+  </div>
+</ClientsList>
+`;

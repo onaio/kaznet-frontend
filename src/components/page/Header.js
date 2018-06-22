@@ -26,7 +26,7 @@ export default class Header extends Component {
                     <NavLink to="/tasks" className="nav-link" activeClassName="active">Tasks</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink to="#" className="nav-link" activeClassName="active">Clients</NavLink>
+                    <NavLink to="/clients" className="nav-link" activeClassName="active">Clients</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink to="/locations" className="nav-link" activeClassName="active">Locations</NavLink>
