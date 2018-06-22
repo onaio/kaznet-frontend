@@ -27,3 +27,16 @@ export function createTask(task_data) {
     }
   };
 }
+
+// fetch a specific task
+export function fetchTask(id) {
+  return async (dispatch, getState) => {
+    try {
+      const taskArray = await taskService.getTask(id);
+      const taskById = _.keyBy(taskArray, task => task.id);
+      dispatch({ type: types.TASK_FETCHED, taskById });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}

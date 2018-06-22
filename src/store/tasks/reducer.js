@@ -23,6 +23,10 @@ export default function reduce(state = initialState, action = {}) {
           [action.taskData.id]: action.taskData
         }
       };
+    case types.TASK_FETCHED:
+      return state.merge({
+        tasksById: action.taskById
+      });
     default:
       return state;
   }
