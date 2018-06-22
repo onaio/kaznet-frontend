@@ -10,7 +10,7 @@ import TaskService from "../../services/tasks";
 
 jest.mock("../../services/tasks");
 
-describe("store/topics integration", () => {
+describe("store/tasks integration", () => {
   let store;
 
   beforeEach(() => {

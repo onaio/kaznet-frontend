@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/users/UsersList renders user list correctly 1`] = `
+<UsersList
+  changePageTitle={[Function]}
+  changePageTitleButton={[Function]}
+  fetchUsers={[Function]}
+  rowsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "amount_earned": "0 KES",
+          "approval_rate": 0,
+          "approved_submissions": 0,
+          "avg_amount_earned": 0,
+          "avg_approval_rate": 0,
+          "avg_approved_submissions": 0,
+          "avg_rejected_submissions": 0,
+          "avg_submissions": 0,
+          "created": "2018-06-19T16:03:10.184043+03:00",
+          "email": "sol@admin.me",
+          "expertise": "1",
+          "first_name": "Davis",
+          "gender": "1",
+          "last_login": "2018-06-19T16:03:22+03:00",
+          "last_name": "Raymond",
+          "modified": "2018-06-20T08:45:12.976916+03:00",
+          "national_id": null,
+          "ona_pk": null,
+          "ona_username": "davisraym",
+          "payment_number": "",
+          "phone_number": "",
+          "rejected_submissions": 0,
+          "role": "1",
+          "role_display": "Admin",
+          "submission_count": 0,
+        },
+        "id": "1",
+        "type": "UserProfile",
+      },
+    }
+  }
+  rowsIdArray={
+    Array [
+      "1",
+    ]
+  }
+>
+  <div
+    className="UsersList"
+  >
+    <ListView
+      renderHeaders={[Function]}
+      renderRow={[Function]}
+      rowsById={
+        Object {
+          "1": Object {
+            "attributes": Object {
+              "amount_earned": "0 KES",
+              "approval_rate": 0,
+              "approved_submissions": 0,
+              "avg_amount_earned": 0,
+              "avg_approval_rate": 0,
+              "avg_approved_submissions": 0,
+              "avg_rejected_submissions": 0,
+              "avg_submissions": 0,
+              "created": "2018-06-19T16:03:10.184043+03:00",
+              "email": "sol@admin.me",
+              "expertise": "1",
+              "first_name": "Davis",
+              "gender": "1",
+              "last_login": "2018-06-19T16:03:22+03:00",
+              "last_name": "Raymond",
+              "modified": "2018-06-20T08:45:12.976916+03:00",
+              "national_id": null,
+              "ona_pk": null,
+              "ona_username": "davisraym",
+              "payment_number": "",
+              "phone_number": "",
+              "rejected_submissions": 0,
+              "role": "1",
+              "role_display": "Admin",
+              "submission_count": 0,
+            },
+            "id": "1",
+            "type": "UserProfile",
+          },
+        }
+      }
+      rowsIdArray={
+        Array [
+          "1",
+        ]
+      }
+    >
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Role",
+                    "Username",
+                    "Last Name",
+                    "First Name",
+                    "Submissions",
+                    "Approved %",
+                    "Last Active Date",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Role
+                </th>
+                <th
+                  key="1"
+                >
+                  Username
+                </th>
+                <th
+                  key="2"
+                >
+                  Last Name
+                </th>
+                <th
+                  key="3"
+                >
+                  First Name
+                </th>
+                <th
+                  key="4"
+                >
+                  Submissions
+                </th>
+                <th
+                  key="5"
+                >
+                  Approved %
+                </th>
+                <th
+                  key="6"
+                >
+                  Last Active Date
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Admin",
+                    "davisraym",
+                    "Raymond",
+                    "Davis",
+                    0,
+                    "0%",
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                  >
+                      2018-06-19T16:03:22+03:00
+                  </t>,
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Admin
+                </td>
+                <td
+                  key="1"
+                >
+                  davisraym
+                </td>
+                <td
+                  key="2"
+                >
+                  Raymond
+                </td>
+                <td
+                  key="3"
+                >
+                  Davis
+                </td>
+                <td
+                  key="4"
+                >
+                  0
+                </td>
+                <td
+                  key="5"
+                >
+                  0%
+                </td>
+                <td
+                  key="6"
+                >
+                  <t
+                    ago={false}
+                    calendar={false}
+                    decimal={false}
+                    element="time"
+                    filter={[Function]}
+                    format="DD-MM-YYYY"
+                    fromNow={false}
+                    interval={60000}
+                    key="1"
+                    onChange={[Function]}
+                    toNow={false}
+                    unit={null}
+                    unix={false}
+                    utc={false}
+                  >
+                    <time
+                      dateTime={"2018-06-19T13:03:22.000Z"}
+                    >
+                      19-06-2018
+                    </time>
+                  </t>
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </ListView>
+  </div>
+</UsersList>
+`;
