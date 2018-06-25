@@ -1,0 +1,820 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
+<TasksDetail
+  changePageTitle={[Function]}
+  fetchTask={[Function]}
+  match={
+    Object {
+      "params": Object {
+        "id": "1",
+      },
+    }
+  }
+  rowById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "approved_submissions_count": 0,
+          "created": "2018-06-21T13:51:57.580166+03:00",
+          "current_bounty_amount": null,
+          "description": "Hey here is task one huh",
+          "end": "2018-06-21T13:51:42+03:00",
+          "estimated_time": null,
+          "modified": "2018-06-21T13:51:57.580197+03:00",
+          "name": "Task Test",
+          "pending_submissions_count": 0,
+          "rejected_submissions_count": 0,
+          "required_expertise": "4",
+          "start": "2018-06-21T13:51:39+03:00",
+          "status": "a",
+          "status_display": "Active",
+          "submission_count": 0,
+          "target_id": null,
+          "timing_rule": "FREQ=DAILY;INTERVAL=1;UNTIL=20180621T210000Z",
+          "total_bounty_payout": "0 KES",
+          "total_submission_target": null,
+          "user_submission_target": null,
+          "xform_title": "",
+        },
+        "id": "1",
+        "relationships": Object {
+          "bounty": Object {
+            "data": null,
+          },
+          "client": Object {
+            "data": Object {
+              "id": "1",
+              "type": "Client",
+            },
+          },
+          "locations": Object {
+            "data": Array [],
+            "meta": Object {
+              "count": 0,
+            },
+          },
+          "parent": Object {
+            "data": null,
+          },
+          "segment_rules": Object {
+            "data": Array [],
+            "meta": Object {
+              "count": 0,
+            },
+          },
+          "target_content_type": Object {
+            "data": null,
+          },
+        },
+        "type": "Task",
+      },
+    }
+  }
+>
+  <div
+    className="TasksList"
+  >
+    <StatisticsSection
+      accepted={0}
+      rejected={0}
+      review={0}
+      reward="0 KES"
+      totalSubmissions={0}
+    >
+      <Col
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm="12"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="col-sm-12 col-md-8 offset-md-2"
+        >
+          <Row
+            tag="div"
+          >
+            <div
+              className="row"
+            >
+              <Col
+                className="kaznet-sub"
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="kaznet-sub col-sm-3"
+                >
+                  <p
+                    className="kaznet-stats-count"
+                  >
+                    0
+                     Submissions
+                  </p>
+                </div>
+              </Col>
+              <Col
+                className="kaznet-sub"
+                sm="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="kaznet-sub col-sm-9"
+                >
+                  <Button
+                    color="primary"
+                    tag="button"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      onClick={[Function]}
+                    >
+                      <FontAwesomeIcon
+                        border={false}
+                        className=""
+                        fixedWidth={false}
+                        flip={null}
+                        icon="clone"
+                        listItem={false}
+                        mask={null}
+                        name=""
+                        pull={null}
+                        pulse={false}
+                        rotation={null}
+                        size={null}
+                        spin={false}
+                        symbol={false}
+                        transform={null}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="svg-inline--fa fa-clone fa-w-16 "
+                          data-icon="clone"
+                          data-prefix="fas"
+                          role="img"
+                          style={Object {}}
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M464 0c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48H176c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h288M176 416c-44.112 0-80-35.888-80-80V128H48c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-48H176z"
+                            fill="currentColor"
+                            style={Object {}}
+                          />
+                        </svg>
+                      </FontAwesomeIcon>
+                       Review all submissions
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </Row>
+          <Row
+            tag="div"
+          >
+            <div
+              className="row"
+            >
+              <Col
+                sm="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-6"
+                >
+                  <Row
+                    tag="div"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <Col
+                        className="kaznet-no-gutter"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-no-gutter col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats"
+                          >
+                            <p
+                              className="stats-data"
+                            >
+                              0
+                            </p>
+                            <p
+                              className="stats-header"
+                            >
+                              Accepted
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col
+                        className="kaznet-no-gutter left-fix"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-no-gutter left-fix col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats"
+                          >
+                            <p
+                              className="stats-data"
+                            >
+                              0 KES
+                            </p>
+                            <p
+                              className="stats-header"
+                            >
+                              Total Reward
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+              <Col
+                className="overflow-fix"
+                sm="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="overflow-fix col-sm-6"
+                >
+                  <Row
+                    tag="div"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <Col
+                        className="kaznet-stats-col"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-stats-col col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats"
+                          >
+                            <h1
+                              className="stats-data"
+                            >
+                              0
+                            </h1>
+                            <p
+                              className="stats-header"
+                            >
+                              Needs Review
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col
+                        className="kaznet-stats-col"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-stats-col col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats overflow-fix"
+                          >
+                            <h1
+                              className="stats-data"
+                            >
+                              0
+                            </h1>
+                            <p
+                              className="stats-header"
+                            >
+                              Rejected
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          </Row>
+          <hr />
+        </div>
+      </Col>
+    </StatisticsSection>
+    <DetailView
+      renderAdditionalDetails={
+        <NestedElementMap
+          HTMLTag="td"
+          detailitems={
+            Object {
+              "Active dates": "Active Date Here",
+              "Locations": "Location Here",
+              "Minimum Contributor Level": "Minimum Contributor Level here",
+              "Recurring": "Timing Rule Here",
+              "Submission Limit": null,
+            }
+          }
+        />
+      }
+      renderMainDetails={
+        <NestedElementMap
+          HTMLTag="td"
+          detailitems={
+            Object {
+              "Description": "Hey here is task one huh",
+              "Form": "",
+              "Name": "Task Test",
+              "Unit Reward Amount": null,
+            }
+          }
+        />
+      }
+    >
+      <Col
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm="15"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="col-sm-15 col-md-8 offset-md-2"
+        >
+          <Table
+            borderless={true}
+            className="kaznet-table details"
+            responsiveTag="div"
+            tag="table"
+          >
+            <table
+              className="kaznet-table details table table-borderless"
+            >
+              <tbody>
+                <NestedElementMap
+                  HTMLTag="td"
+                  detailitems={
+                    Object {
+                      "Description": "Hey here is task one huh",
+                      "Form": "",
+                      "Name": "Task Test",
+                      "Unit Reward Amount": null,
+                    }
+                  }
+                >
+                  <tr
+                    key="Description"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Description",
+                        ]
+                      }
+                      key="1"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Description
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Hey here is task one huh",
+                        ]
+                      }
+                      key="20"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Hey here is task one huh
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Name"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Name",
+                        ]
+                      }
+                      key="2"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Name
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Task Test",
+                        ]
+                      }
+                      key="40"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Task Test
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Unit Reward Amount"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Unit Reward Amount",
+                        ]
+                      }
+                      key="3"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Unit Reward Amount
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          null,
+                        ]
+                      }
+                      key="60"
+                    >
+                      <td
+                        key="0"
+                      />
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Form"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Form",
+                        ]
+                      }
+                      key="4"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Form
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "",
+                        ]
+                      }
+                      key="80"
+                    >
+                      <td
+                        key="0"
+                      />
+                    </ElementMap>
+                  </tr>
+                </NestedElementMap>
+                <tr>
+                  <td
+                    className="kaznet-title-h1"
+                  >
+                    Details
+                  </td>
+                </tr>
+                <NestedElementMap
+                  HTMLTag="td"
+                  detailitems={
+                    Object {
+                      "Active dates": "Active Date Here",
+                      "Locations": "Location Here",
+                      "Minimum Contributor Level": "Minimum Contributor Level here",
+                      "Recurring": "Timing Rule Here",
+                      "Submission Limit": null,
+                    }
+                  }
+                >
+                  <tr
+                    key="Active dates"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Active dates",
+                        ]
+                      }
+                      key="1"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Active dates
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Active Date Here",
+                        ]
+                      }
+                      key="20"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Active Date Here
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Recurring"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Recurring",
+                        ]
+                      }
+                      key="2"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Recurring
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Timing Rule Here",
+                        ]
+                      }
+                      key="40"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Timing Rule Here
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Locations"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Locations",
+                        ]
+                      }
+                      key="3"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Locations
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Location Here",
+                        ]
+                      }
+                      key="60"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Location Here
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Submission Limit"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Submission Limit",
+                        ]
+                      }
+                      key="4"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Submission Limit
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          null,
+                        ]
+                      }
+                      key="80"
+                    >
+                      <td
+                        key="0"
+                      />
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Minimum Contributor Level"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Minimum Contributor Level",
+                        ]
+                      }
+                      key="5"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Minimum Contributor Level
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Minimum Contributor Level here",
+                        ]
+                      }
+                      key="100"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Minimum Contributor Level here
+                      </td>
+                    </ElementMap>
+                  </tr>
+                </NestedElementMap>
+              </tbody>
+            </table>
+          </Table>
+        </div>
+      </Col>
+    </DetailView>
+  </div>
+</TasksDetail>
+`;
