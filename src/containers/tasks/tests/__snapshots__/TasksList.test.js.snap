@@ -210,7 +210,11 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 items={
                   Array [
                     "Active",
-                    "Task Test",
+                    <a
+                      href="/tasks/1"
+                  >
+                      Task Test
+                  </a>,
                     "0/0",
                     <t
                       ago={false}
@@ -258,7 +262,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                 <td
                   key="1"
                 >
-                  Task Test
+                  <a
+                    href="/tasks/1"
+                    key="link_to"
+                  >
+                    Task Test
+                  </a>
                 </td>
                 <td
                   key="2"
