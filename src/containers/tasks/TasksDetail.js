@@ -9,6 +9,7 @@ import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 
 import DetailView from "../../components/DetailView";
+import StatisticsSection from "./StatisticsSection";
 import NestedElementMap from "../NestedElementMap";
 
 export class TasksDetail extends Component {
@@ -34,6 +35,13 @@ export class TasksDetail extends Component {
     this.title = task.attributes.name;
     return (
       <div className="TasksList">
+        <StatisticsSection
+          accepted={task.attributes.approved_submissions_count}
+          reward={task.attributes.total_bounty_payout}
+          review={task.attributes.pending_submissions_count}
+          rejected={task.attributes.rejected_submissions_count}
+          totalSubmissions={task.attributes.submission_count}
+        />
         <DetailView
           renderMainDetails={this.renderMainDetails(task)}
           renderAdditionalDetails={this.renderAdditionalDetails(task)}
