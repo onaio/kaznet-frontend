@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router";
 import fontawesome from "@fortawesome/fontawesome";
 import faSearch from "@fortawesome/fontawesome-free-solid/faSearch";
+import faClone from "@fortawesome/fontawesome-free-solid/faClone";
 import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
@@ -28,7 +29,8 @@ import LocationsList from "./containers/locations/LocationsList";
 import ClientsList from "./containers/clients/ClientsList";
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
-fontawesome.library.add(faSearch, faCaretDown);
+fontawesome.library.add(faSearch, faCaretDown, faClone);
+moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
@@ -52,8 +54,12 @@ class App extends Component {
                           component={TaskFormView}
                         />
                         <Route exact path="/users" component={UsersList} />
-                        <Route exact path="/locations" component={LocationsList}/>
-                        <Route exact path="/clients" component={ClientsList}/>
+                        <Route
+                          exact
+                          path="/locations"
+                          component={LocationsList}
+                        />
+                        <Route exact path="/clients" component={ClientsList} />
                         <Route
                           exact
                           path="/tasks/:id"
