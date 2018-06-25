@@ -13,11 +13,15 @@ export default class NestedElementMap extends Component {
           <ElementMap
             key={counter}
             items={[key]}
-            HTMLTag="td"
+            HTMLTag={this.props.HTMLTag}
             className="kaznet-title-td"
           />,
           // Need the key to be different as such we are multiplying it by 20 from the first one.
-          <ElementMap key={counter * 20} items={[value]} HTMLTag="td" />
+          <ElementMap
+            key={counter * 20}
+            items={[value]}
+            HTMLTag={this.props.HTMLTag}
+          />
         ])
       );
       counter++;
