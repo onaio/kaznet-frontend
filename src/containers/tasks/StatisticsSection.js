@@ -1,0 +1,59 @@
+import React, { Component } from "react";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import { Col, Row, Button } from "reactstrap";
+
+export default class StatisticsSection extends Component {
+  render() {
+    return (
+      <Col sm="12" md={{ size: 8, offset: 2 }}>
+        <Row>
+          <Col sm="3" className="kaznet-sub">
+            <p className="kaznet-stats-count">
+              {this.props.totalSubmissions} Submissions
+            </p>
+          </Col>
+          <Col sm="9" className="kaznet-sub">
+            <Button color="primary">
+              <FontAwesomeIcon icon="clone" /> Review all submissions
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm="6">
+            <Row>
+              <Col sm="6" className="kaznet-no-gutter">
+                <div className="kaznet-stats">
+                  <p className="stats-data">0</p>
+                  <p className="stats-header">Accepted</p>
+                </div>
+              </Col>
+              <Col sm="6" className="kaznet-no-gutter left-fix">
+                <div className="kaznet-stats">
+                  <p className="stats-data">5734 KES</p>
+                  <p className="stats-header">Total Reward</p>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+          <Col sm="6" className="overflow-fix">
+            <Row>
+              <Col sm="6" className="kaznet-stats-col">
+                <div className="kaznet-stats">
+                  <h1 className="stats-data">40</h1>
+                  <p className="stats-header">Needs Review</p>
+                </div>
+              </Col>
+              <Col sm="6" className="kaznet-stats-col">
+                <div className="kaznet-stats overflow-fix">
+                  <h1 className="stats-data">10</h1>
+                  <p className="stats-header">Rejected</p>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <hr />
+      </Col>
+    );
+  }
+}
