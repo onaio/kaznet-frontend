@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/DetailView renders a view 1`] = `
+<DetailView
+  renderAdditionalDetails={
+    <NestedElementMap
+      HTMLTag="td"
+      detailitems={
+        Object {
+          "Gender": "Male",
+        }
+      }
+    />
+  }
+  renderMainDetails={
+    <NestedElementMap
+      HTMLTag="td"
+      detailitems={
+        Object {
+          "Name": "Dave",
+          "Test": "Testing",
+        }
+      }
+    />
+  }
+>
+  <Col
+    md={
+      Object {
+        "offset": 2,
+        "size": 8,
+      }
+    }
+    sm="15"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <div
+      className="col-sm-15 col-md-8 offset-md-2"
+    >
+      <Table
+        borderless={true}
+        className="kaznet-table details"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table details table table-borderless"
+        >
+          <tbody>
+            <NestedElementMap
+              HTMLTag="td"
+              detailitems={
+                Object {
+                  "Name": "Dave",
+                  "Test": "Testing",
+                }
+              }
+            >
+              <tr
+                key="Name"
+              >
+                <ElementMap
+                  HTMLTag="td"
+                  className="kaznet-title-td"
+                  items={
+                    Array [
+                      "Name",
+                    ]
+                  }
+                  key="1"
+                >
+                  <td
+                    className="kaznet-title-td"
+                    key="0"
+                  >
+                    Name
+                  </td>
+                </ElementMap>
+                <ElementMap
+                  HTMLTag="td"
+                  items={
+                    Array [
+                      "Dave",
+                    ]
+                  }
+                  key="20"
+                >
+                  <td
+                    key="0"
+                  >
+                    Dave
+                  </td>
+                </ElementMap>
+              </tr>
+              <tr
+                key="Test"
+              >
+                <ElementMap
+                  HTMLTag="td"
+                  className="kaznet-title-td"
+                  items={
+                    Array [
+                      "Test",
+                    ]
+                  }
+                  key="2"
+                >
+                  <td
+                    className="kaznet-title-td"
+                    key="0"
+                  >
+                    Test
+                  </td>
+                </ElementMap>
+                <ElementMap
+                  HTMLTag="td"
+                  items={
+                    Array [
+                      "Testing",
+                    ]
+                  }
+                  key="40"
+                >
+                  <td
+                    key="0"
+                  >
+                    Testing
+                  </td>
+                </ElementMap>
+              </tr>
+            </NestedElementMap>
+            <tr>
+              <td
+                className="kaznet-title-h1"
+              >
+                Details
+              </td>
+            </tr>
+            <NestedElementMap
+              HTMLTag="td"
+              detailitems={
+                Object {
+                  "Gender": "Male",
+                }
+              }
+            >
+              <tr
+                key="Gender"
+              >
+                <ElementMap
+                  HTMLTag="td"
+                  className="kaznet-title-td"
+                  items={
+                    Array [
+                      "Gender",
+                    ]
+                  }
+                  key="1"
+                >
+                  <td
+                    className="kaznet-title-td"
+                    key="0"
+                  >
+                    Gender
+                  </td>
+                </ElementMap>
+                <ElementMap
+                  HTMLTag="td"
+                  items={
+                    Array [
+                      "Male",
+                    ]
+                  }
+                  key="20"
+                >
+                  <td
+                    key="0"
+                  >
+                    Male
+                  </td>
+                </ElementMap>
+              </tr>
+            </NestedElementMap>
+          </tbody>
+        </table>
+      </Table>
+    </div>
+  </Col>
+</DetailView>
+`;
