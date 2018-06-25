@@ -40,12 +40,15 @@ class TaskService {
       body: JSON.stringify(task_data),
       cache: "no-cache"
     });
-    if (!response.ok) {
+    if (!response.ok && response.status !== 400) {
       throw new Error(
         `TaskService createTask failed, HTTP status ${response.status}`
       );
     }
     const apiResponse = await response.json();
+    if (response.status === 400) {
+      return apiResponse;
+    }
     const data = _.get(apiResponse, "data");
     if (!data) {
       throw new Error(`TaskService createTask failed, data not returned`);
