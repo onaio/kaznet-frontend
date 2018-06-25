@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -53,9 +52,9 @@ export class TasksList extends Component {
   renderRow(row) {
     const rowItems = [
       row.attributes.status_display,
-      <Link to={`/tasks/${row.id}`} key="link_to">
+      <a href={`/tasks/${row.id}`} key="link_to">
         {row.attributes.name}
-      </Link>,
+      </a>,
       row.attributes.pending_submissions_count +
         "/" +
         row.attributes.submission_count,
