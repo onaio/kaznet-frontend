@@ -30,8 +30,7 @@ export function getFormContentType(state) {
 
   for (const [key, value] of Object.entries(contentTypesById)) {
     if (value.attributes.model === "xform") {
-      console.log(key);
-      return key;
+      return Number(key);
     }
   }
   return null;
