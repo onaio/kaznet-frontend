@@ -12,6 +12,7 @@ export class TitleSection extends Component {
       <PageTitle
         pageTitle={this.props.pageTitle}
         pageTitleButton={this.props.pageTitleButton}
+        pageTarget={this.props.pageTarget}
       />
     );
   }
@@ -21,7 +22,8 @@ export class TitleSection extends Component {
 function mapStateToProps(state) {
   return {
     pageTitle: globalSelectors.getPageTitle(state),
-    pageTitleButton: globalSelectors.getPageTitleButton(state)
+    pageTitleButton: globalSelectors.getPageTitleButton(state),
+    pageTarget: globalSelectors.getPageTarget(state)
   };
 }
 
