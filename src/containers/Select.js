@@ -6,11 +6,13 @@ export class OptionMap extends Component {
   render() {
     const obj = this.props.obj;
 
-    const listItems = Object.entries(obj).map(item => (
+    var listItems = Object.entries(obj).map(item => (
       <option key={item[0]} value={item[0]}>
         {item[1].attributes[this.props.titleField]}
       </option>
     ));
+
+    listItems.unshift(<option key={0}>----</option>);
     return listItems;
   }
 }
