@@ -17,8 +17,10 @@ import moment from "moment";
 import { OptionMap } from "../Select";
 import * as clientActions from "../../store/clients/actions";
 import * as formActions from "../../store/forms/actions";
+import * as contentTypeActions from "../../store/contentTypes/actions";
 import * as clientSelectors from "../../store/clients/reducer";
 import * as formSelectors from "../../store/forms/reducer";
+import * as contentTypeSelectors from "../../store/contentTypes/reducer";
 import TaskService from "../../services/tasks";
 
 const transformMyApiErrors = function(array) {
@@ -44,6 +46,7 @@ export class TaskForm extends Component {
   componentDidMount() {
     this.props.fetchForms();
     this.props.fetchClients();
+    this.props.fetchContentTypes();
   }
 
   render() {
@@ -58,7 +61,8 @@ export class TaskForm extends Component {
           required_expertise: "",
           timing_rule: "",
           status: "",
-          form: ""
+          form: "",
+          target_content_type: ""
         }}
         onSubmit={(values, { setSubmitting, setErrors }) => {
           const payload = {
@@ -75,9 +79,9 @@ export class TaskForm extends Component {
                 // timing_rule: getRRule(),
                 total_submission_target: null,
                 user_submission_target: values.user_submission_target,
-                status: values.status
-                // target_id: getTargetId(),
-                // target_content_type: getXFormContentType()
+                status: values.status,
+                target_id: values.form,
+                target_content_type: this.props.formContentTypeId
               },
               client: {
                 type: "Client",
@@ -187,7 +191,7 @@ export class TaskForm extends Component {
                   aria-label="reward"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.status}
+                  value={values.amount}
                   className={errors.amount ? "is-invalid" : ""}
                 />
                 <FormText color="muted">
@@ -211,7 +215,7 @@ export class TaskForm extends Component {
                   aria-label="form"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.status}
+                  value={values.form}
                   className={errors.form ? "is-invalid" : ""}
                 >
                   <OptionMap obj={this.props.formsById} titleField="title" />
@@ -385,7 +389,8 @@ function mapStateToProps(state) {
     clientsById: clientSelectors.getClientsById(state),
     clientsIdArray: clientSelectors.getClientsIdArray(state),
     formsById: formSelectors.getFormsById(state),
-    formsIdArray: formSelectors.getFormsIdArray(state)
+    formsIdArray: formSelectors.getFormsIdArray(state),
+    formContentTypeId: contentTypeSelectors.getFormContentType(state)
   };
 }
 
@@ -393,7 +398,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchClients: clientActions.fetchClients,
-      fetchForms: formActions.fetchForms
+      fetchForms: formActions.fetchForms,
+      fetchContentTypes: contentTypeActions.fetchContentTypes
     },
     dispatch
   );
