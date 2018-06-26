@@ -441,9 +441,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   2018-06-21T13:51:42+03:00
             </t>,
               ],
-              "Locations": "Location Here",
+              "Location": "Location Here",
               "Minimum Contributor Level": "Minimum Contributor Level here",
-              "Recurring": "Timing Rule Here",
+              "Recurring": "every day until June 22, 2018",
               "Submission Limit": null,
             }
           }
@@ -695,9 +695,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           2018-06-21T13:51:42+03:00
                     </t>,
                       ],
-                      "Locations": "Location Here",
+                      "Location": "Location Here",
                       "Minimum Contributor Level": "Minimum Contributor Level here",
-                      "Recurring": "Timing Rule Here",
+                      "Recurring": "every day until June 22, 2018",
                       "Submission Limit": null,
                     }
                   }
@@ -819,6 +819,42 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     </ElementMap>
                   </tr>
                   <tr
+                    key="Location"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Location",
+                        ]
+                      }
+                      key="2"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Location
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Location Here",
+                        ]
+                      }
+                      key="40"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Location Here
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
                     key="Recurring"
                   >
                     <ElementMap
@@ -829,7 +865,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           "Recurring",
                         ]
                       }
-                      key="2"
+                      key="3"
                     >
                       <td
                         className="kaznet-title-td"
@@ -842,43 +878,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "Timing Rule Here",
-                        ]
-                      }
-                      key="40"
-                    >
-                      <td
-                        key="0"
-                      >
-                        Timing Rule Here
-                      </td>
-                    </ElementMap>
-                  </tr>
-                  <tr
-                    key="Locations"
-                  >
-                    <ElementMap
-                      HTMLTag="td"
-                      className="kaznet-title-td"
-                      items={
-                        Array [
-                          "Locations",
-                        ]
-                      }
-                      key="3"
-                    >
-                      <td
-                        className="kaznet-title-td"
-                        key="0"
-                      >
-                        Locations
-                      </td>
-                    </ElementMap>
-                    <ElementMap
-                      HTMLTag="td"
-                      items={
-                        Array [
-                          "Location Here",
+                          "every day until June 22, 2018",
                         ]
                       }
                       key="60"
@@ -886,7 +886,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       <td
                         key="0"
                       >
-                        Location Here
+                        every day until June 22, 2018
                       </td>
                     </ElementMap>
                   </tr>

@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import _ from "lodash";
 import "./TasksDetail.css";
+import { rrulestr } from "rrule";
 
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
@@ -67,6 +68,8 @@ export class TasksDetail extends Component {
   }
 
   renderAdditionalDetails(data) {
+    const timingRule = rrulestr(data.attributes.timing_rule);
+
     const headerItems = {
       "Active dates": [
         <Moment format="DD-MM-YYYY" key="start_date">
@@ -77,10 +80,10 @@ export class TasksDetail extends Component {
           {data.attributes.end}
         </Moment>
       ],
-      Recurring: "Timing Rule Here",
-      Locations: "Location Here",
+      Location: "Location Here",
+      Recurring: timingRule.toText(),
       "Submission Limit": data.attributes.total_submission_target,
-      "Minimum Contributor Level": "Minimum Contributor Level here"
+      "Minimum Contributor Level": data.attributes.required_expertise_display
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
