@@ -15,43 +15,52 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
     Object {
       "1": Object {
         "attributes": Object {
-          "approved_submissions_count": 0,
-          "created": "2018-06-21T13:51:57.580166+03:00",
-          "current_bounty_amount": null,
-          "description": "Hey here is task one huh",
-          "end": "2018-06-21T13:51:42+03:00",
-          "estimated_time": null,
-          "modified": "2018-06-21T13:51:57.580197+03:00",
-          "name": "Task Test",
+          "approved_submissions_count": 1,
+          "created": "2018-06-21T12:15:45.349936+03:00",
+          "current_bounty_amount": "55.00 KES",
+          "description": "This is pure joy.",
+          "end": "2019-01-30T12:17:40+03:00",
+          "estimated_time": "4 01:15:20",
+          "modified": "2018-06-21T12:22:09.703447+03:00",
+          "name": "Awesome Task",
           "pending_submissions_count": 0,
           "rejected_submissions_count": 0,
-          "required_expertise": "4",
-          "start": "2018-06-21T13:51:39+03:00",
+          "required_expertise": "1",
+          "required_expertise_display": "Beginner",
+          "start": "2018-06-21T12:15:45+03:00",
           "status": "a",
           "status_display": "Active",
-          "submission_count": 0,
-          "target_id": null,
-          "timing_rule": "FREQ=DAILY;INTERVAL=1;UNTIL=20180621T210000Z",
-          "total_bounty_payout": "0 KES",
-          "total_submission_target": null,
-          "user_submission_target": null,
-          "xform_title": "",
+          "submission_count": 1,
+          "target_id": 1,
+          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+          "total_bounty_payout": "55.00 KES",
+          "total_submission_target": 100,
+          "user_submission_target": 100,
+          "xform_title": "Form 1",
         },
         "id": "1",
         "relationships": Object {
           "bounty": Object {
-            "data": null,
+            "data": Object {
+              "id": "2",
+              "type": "Bounty",
+            },
           },
           "client": Object {
             "data": Object {
-              "id": "1",
+              "id": "7",
               "type": "Client",
             },
           },
           "locations": Object {
-            "data": Array [],
+            "data": Array [
+              Object {
+                "id": "1",
+                "type": "Location",
+              },
+            ],
             "meta": Object {
-              "count": 0,
+              "count": 1,
             },
           },
           "parent": Object {
@@ -64,7 +73,78 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
             },
           },
           "target_content_type": Object {
+            "data": Object {
+              "id": "16",
+              "type": "ContentType",
+            },
+          },
+        },
+        "type": "Task",
+      },
+      "2": Object {
+        "attributes": Object {
+          "approved_submissions_count": 2,
+          "created": "2018-06-21T12:15:45.363700+03:00",
+          "current_bounty_amount": "150000.00 KES",
+          "description": "The best and most delicious task ever.",
+          "end": null,
+          "estimated_time": "00:00:19",
+          "modified": "2018-06-21T12:25:06.164454+03:00",
+          "name": "Kill Bill",
+          "pending_submissions_count": 0,
+          "rejected_submissions_count": 0,
+          "required_expertise": "3",
+          "required_expertise_display": "Advanced",
+          "start": "2018-08-17T12:15:45+03:00",
+          "status": "s",
+          "status_display": "Scheduled",
+          "submission_count": 2,
+          "target_id": 2,
+          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
+          "total_bounty_payout": "300000.00 KES",
+          "total_submission_target": 200,
+          "user_submission_target": 2,
+          "xform_title": "Form 2",
+        },
+        "id": "2",
+        "relationships": Object {
+          "bounty": Object {
+            "data": Object {
+              "id": "1",
+              "type": "Bounty",
+            },
+          },
+          "client": Object {
+            "data": Object {
+              "id": "2",
+              "type": "Client",
+            },
+          },
+          "locations": Object {
+            "data": Array [
+              Object {
+                "id": "2",
+                "type": "Location",
+              },
+            ],
+            "meta": Object {
+              "count": 1,
+            },
+          },
+          "parent": Object {
             "data": null,
+          },
+          "segment_rules": Object {
+            "data": Array [],
+            "meta": Object {
+              "count": 0,
+            },
+          },
+          "target_content_type": Object {
+            "data": Object {
+              "id": "16",
+              "type": "ContentType",
+            },
           },
         },
         "type": "Task",
@@ -76,11 +156,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
     className="TasksList"
   >
     <StatisticsSection
-      accepted={0}
+      accepted={1}
       rejected={0}
       review={0}
-      reward="0 KES"
-      totalSubmissions={0}
+      reward="55.00 KES"
+      totalSubmissions={1}
     >
       <Col
         md={
@@ -130,7 +210,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   <p
                     className="kaznet-stats-count"
                   >
-                    0
+                    1
                      Submissions
                   </p>
                 </div>
@@ -252,7 +332,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             <p
                               className="stats-data"
                             >
-                              0
+                              1
                             </p>
                             <p
                               className="stats-header"
@@ -285,7 +365,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             <p
                               className="stats-data"
                             >
-                              0 KES
+                              55.00 KES
                             </p>
                             <p
                               className="stats-header"
@@ -420,7 +500,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   unix={false}
                   utc={false}
             >
-                  2018-06-21T13:51:39+03:00
+                  2018-06-21T12:15:45+03:00
             </t>,
                 " to ",
                 <t
@@ -438,13 +518,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   unix={false}
                   utc={false}
             >
-                  2018-06-21T13:51:42+03:00
+                  2019-01-30T12:17:40+03:00
             </t>,
               ],
               "Location": "Location Here",
-              "Minimum Contributor Level": "Minimum Contributor Level here",
-              "Recurring": "every day until June 22, 2018",
-              "Submission Limit": null,
+              "Minimum Contributor Level": "Beginner",
+              "Recurring": "every 10 days for 12 times",
+              "Submission Limit": 100,
             }
           }
         />
@@ -454,10 +534,10 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
           HTMLTag="td"
           detailitems={
             Object {
-              "Description": "Hey here is task one huh",
-              "Form": "",
-              "Name": "Task Test",
-              "Unit Reward Amount": null,
+              "Description": "This is pure joy.",
+              "Form": "Form 1",
+              "Name": "Awesome Task",
+              "Unit Reward Amount": "55.00 KES",
             }
           }
         />
@@ -499,10 +579,10 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   HTMLTag="td"
                   detailitems={
                     Object {
-                      "Description": "Hey here is task one huh",
-                      "Form": "",
-                      "Name": "Task Test",
-                      "Unit Reward Amount": null,
+                      "Description": "This is pure joy.",
+                      "Form": "Form 1",
+                      "Name": "Awesome Task",
+                      "Unit Reward Amount": "55.00 KES",
                     }
                   }
                 >
@@ -530,7 +610,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "Hey here is task one huh",
+                          "This is pure joy.",
                         ]
                       }
                       key="20"
@@ -538,7 +618,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       <td
                         key="0"
                       >
-                        Hey here is task one huh
+                        This is pure joy.
                       </td>
                     </ElementMap>
                   </tr>
@@ -566,7 +646,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "Task Test",
+                          "Awesome Task",
                         ]
                       }
                       key="40"
@@ -574,7 +654,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       <td
                         key="0"
                       >
-                        Task Test
+                        Awesome Task
                       </td>
                     </ElementMap>
                   </tr>
@@ -602,14 +682,16 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          null,
+                          "55.00 KES",
                         ]
                       }
                       key="60"
                     >
                       <td
                         key="0"
-                      />
+                      >
+                        55.00 KES
+                      </td>
                     </ElementMap>
                   </tr>
                   <tr
@@ -636,14 +718,16 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "",
+                          "Form 1",
                         ]
                       }
                       key="80"
                     >
                       <td
                         key="0"
-                      />
+                      >
+                        Form 1
+                      </td>
                     </ElementMap>
                   </tr>
                 </NestedElementMap>
@@ -674,7 +758,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           unix={false}
                           utc={false}
                     >
-                          2018-06-21T13:51:39+03:00
+                          2018-06-21T12:15:45+03:00
                     </t>,
                         " to ",
                         <t
@@ -692,13 +776,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           unix={false}
                           utc={false}
                     >
-                          2018-06-21T13:51:42+03:00
+                          2019-01-30T12:17:40+03:00
                     </t>,
                       ],
                       "Location": "Location Here",
-                      "Minimum Contributor Level": "Minimum Contributor Level here",
-                      "Recurring": "every day until June 22, 2018",
-                      "Submission Limit": null,
+                      "Minimum Contributor Level": "Beginner",
+                      "Recurring": "every 10 days for 12 times",
+                      "Submission Limit": 100,
                     }
                   }
                 >
@@ -742,7 +826,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               unix={false}
                               utc={false}
                         >
-                              2018-06-21T13:51:39+03:00
+                              2018-06-21T12:15:45+03:00
                         </t>,
                             " to ",
                             <t
@@ -760,7 +844,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               unix={false}
                               utc={false}
                         >
-                              2018-06-21T13:51:42+03:00
+                              2019-01-30T12:17:40+03:00
                         </t>,
                           ],
                         ]
@@ -787,7 +871,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           utc={false}
                         >
                           <time
-                            dateTime={"2018-06-21T10:51:39.000Z"}
+                            dateTime={"2018-06-21T09:15:45.000Z"}
                           >
                             21-06-2018
                           </time>
@@ -810,9 +894,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           utc={false}
                         >
                           <time
-                            dateTime={"2018-06-21T10:51:42.000Z"}
+                            dateTime={"2019-01-30T09:17:40.000Z"}
                           >
-                            21-06-2018
+                            30-01-2019
                           </time>
                         </t>
                       </td>
@@ -878,7 +962,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "every day until June 22, 2018",
+                          "every 10 days for 12 times",
                         ]
                       }
                       key="60"
@@ -886,7 +970,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       <td
                         key="0"
                       >
-                        every day until June 22, 2018
+                        every 10 days for 12 times
                       </td>
                     </ElementMap>
                   </tr>
@@ -914,14 +998,16 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          null,
+                          100,
                         ]
                       }
                       key="80"
                     >
                       <td
                         key="0"
-                      />
+                      >
+                        100
+                      </td>
                     </ElementMap>
                   </tr>
                   <tr
@@ -948,7 +1034,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "Minimum Contributor Level here",
+                          "Beginner",
                         ]
                       }
                       key="100"
@@ -956,7 +1042,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       <td
                         key="0"
                       >
-                        Minimum Contributor Level here
+                        Beginner
                       </td>
                     </ElementMap>
                   </tr>
