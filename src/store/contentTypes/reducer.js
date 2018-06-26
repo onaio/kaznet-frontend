@@ -26,6 +26,6 @@ export function getContentTypesById(state) {
   return state.contentTypes.contentTypesById;
 }
 
-export function getContentTypesIdArray(state) {
-  return _.keys(state.contentTypes.contentTypesById);
+export function getFormContentType(state) {
+  return state.contentTypes.formContentType;
 }
