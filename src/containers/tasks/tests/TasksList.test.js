@@ -13,6 +13,7 @@ describe("containers/task/TasksList", () => {
         fetchTasks={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageTarget={function() {}}
       />
     );
   });
@@ -23,6 +24,7 @@ describe("containers/task/TasksList", () => {
         fetchTasks={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageTarget={function() {}}
         rowsById={fixtures.tasksById}
         rowsIdArray={fixtures.tasksIdArray}
       />

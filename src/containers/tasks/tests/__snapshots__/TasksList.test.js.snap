@@ -2,6 +2,7 @@
 
 exports[`containers/task/TasksList renders task list correctly 1`] = `
 <TasksList
+  changePageTarget={[Function]}
   changePageTitle={[Function]}
   changePageTitleButton={[Function]}
   fetchTasks={[Function]}

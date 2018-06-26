@@ -44,7 +44,7 @@ export default class PageTitle extends Component {
                 </Col>
                 <Col md="3">
                   <Link
-                    to={this.props.pageTarget}
+                    to={this.props.pageTarget || "/"}
                     className="btn btn-primary btn-lg"
                   >
                     {this.props.pageTitleButton}
