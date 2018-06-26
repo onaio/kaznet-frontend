@@ -60,7 +60,7 @@ export class TaskForm extends Component {
           description: "",
           required_expertise: "",
           timing_rule: "",
-          status: "",
+          status: "d",
           form: "",
           target_content_type: ""
         }}
@@ -143,7 +143,7 @@ export class TaskForm extends Component {
               <Col md="9">
                 <Input
                   name="status"
-                  type="email"
+                  type="select"
                   bsSize="lg"
                   placeholder="status"
                   aria-label="status"
@@ -151,7 +151,11 @@ export class TaskForm extends Component {
                   onBlur={handleBlur}
                   value={values.status}
                   className={errors.status ? "is-invalid" : ""}
-                />
+                >
+                  <option>----</option>
+                  <option value="d">Draft</option>
+                  <option value="a">Active</option>
+                </Input>
                 {errors.status && (
                   <div className="invalid-feedback">{errors.status}</div>
                 )}
