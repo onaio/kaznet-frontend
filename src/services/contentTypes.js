@@ -3,7 +3,7 @@ import * as constants from "../constants";
 
 class contentTypeService {
   async getContentTypeList() {
-    const url = `${constants.API_ENDPOINT}/contentTypes/?format=vnd.api%2Bjson`;
+    const url = `${constants.API_ENDPOINT}/contenttypes/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
