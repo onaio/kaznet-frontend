@@ -54,15 +54,15 @@ export class TaskForm extends Component {
       <Formik
         initialValues={{
           name: "",
-          estimated_time: "",
+          estimated_time: "15",
           start: moment().format("YYYY-MM-DD"),
           end: moment().format("YYYY-MM-DD"),
           description: "",
-          required_expertise: "",
+          required_expertise: "1",
           timing_rule: "",
           status: "d",
           form: "",
-          target_content_type: ""
+          user_submission_target: 10
         }}
         onSubmit={(values, { setSubmitting, setErrors }) => {
           const payload = {
@@ -357,7 +357,7 @@ export class TaskForm extends Component {
               <Col md="9">
                 <Input
                   name="required_expertise"
-                  type="email"
+                  type="select"
                   bsSize="lg"
                   placeholder="required expertise"
                   aria-label="required expertise"
@@ -365,7 +365,13 @@ export class TaskForm extends Component {
                   onBlur={handleBlur}
                   value={values.required_expertise}
                   className={errors.required_expertise ? "is-invalid" : ""}
-                />
+                >
+                  <option>----</option>
+                  <option value="1">Beginner</option>
+                  <option value="2">Intermediate</option>
+                  <option value="3">Advanced</option>
+                  <option value="4">Expert</option>
+                </Input>
                 {errors.required_expertise && (
                   <div className="invalid-feedback">
                     {errors.required_expertise}
