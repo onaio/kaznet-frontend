@@ -40,8 +40,6 @@ const transformMyApiErrors = function(array) {
     errors[field] = msg;
   }
 
-  console.log(errors);
-
   return errors;
 };
 
