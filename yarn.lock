@@ -6339,6 +6339,10 @@ react-router@^4.2.0, react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
+react-rrule-generator@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-rrule-generator/-/react-rrule-generator-1.0.2.tgz#a86d6811122d96165e511fa0c158d5bd261d2cda"
+
 react-scripts@1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.1.4.tgz#d5c230e707918d6dd2d06f303b10f5222d017c88"
