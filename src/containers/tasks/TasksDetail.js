@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Moment from "react-moment";
 import _ from "lodash";
 import "./TasksDetail.css";
 
@@ -67,7 +68,15 @@ export class TasksDetail extends Component {
 
   renderAdditionalDetails(data) {
     const headerItems = {
-      "Active dates": "Active Date Here",
+      "Active dates": [
+        <Moment format="DD-MM-YYYY" key="start_date">
+          {data.attributes.start}
+        </Moment>,
+        " to ",
+        <Moment format="DD-MM-YYYY" key="end_date">
+          {data.attributes.end}
+        </Moment>
+      ],
       Recurring: "Timing Rule Here",
       Locations: "Location Here",
       "Submission Limit": data.attributes.total_submission_target,

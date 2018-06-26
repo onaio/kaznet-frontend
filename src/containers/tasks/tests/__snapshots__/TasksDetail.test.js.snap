@@ -404,7 +404,43 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
           HTMLTag="td"
           detailitems={
             Object {
-              "Active dates": "Active Date Here",
+              "Active dates": Array [
+                <t
+                  ago={false}
+                  calendar={false}
+                  decimal={false}
+                  element="time"
+                  filter={[Function]}
+                  format="DD-MM-YYYY"
+                  fromNow={false}
+                  interval={60000}
+                  onChange={[Function]}
+                  toNow={false}
+                  unit={null}
+                  unix={false}
+                  utc={false}
+            >
+                  2018-06-21T13:51:39+03:00
+            </t>,
+                " to ",
+                <t
+                  ago={false}
+                  calendar={false}
+                  decimal={false}
+                  element="time"
+                  filter={[Function]}
+                  format="DD-MM-YYYY"
+                  fromNow={false}
+                  interval={60000}
+                  onChange={[Function]}
+                  toNow={false}
+                  unit={null}
+                  unix={false}
+                  utc={false}
+            >
+                  2018-06-21T13:51:42+03:00
+            </t>,
+              ],
               "Locations": "Location Here",
               "Minimum Contributor Level": "Minimum Contributor Level here",
               "Recurring": "Timing Rule Here",
@@ -622,7 +658,43 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   HTMLTag="td"
                   detailitems={
                     Object {
-                      "Active dates": "Active Date Here",
+                      "Active dates": Array [
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                    >
+                          2018-06-21T13:51:39+03:00
+                    </t>,
+                        " to ",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                    >
+                          2018-06-21T13:51:42+03:00
+                    </t>,
+                      ],
                       "Locations": "Location Here",
                       "Minimum Contributor Level": "Minimum Contributor Level here",
                       "Recurring": "Timing Rule Here",
@@ -654,7 +726,43 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       HTMLTag="td"
                       items={
                         Array [
-                          "Active Date Here",
+                          Array [
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="DD-MM-YYYY"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                        >
+                              2018-06-21T13:51:39+03:00
+                        </t>,
+                            " to ",
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="DD-MM-YYYY"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                        >
+                              2018-06-21T13:51:42+03:00
+                        </t>,
+                          ],
                         ]
                       }
                       key="20"
@@ -662,7 +770,51 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       <td
                         key="0"
                       >
-                        Active Date Here
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          key="start_date"
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                        >
+                          <time
+                            dateTime={"2018-06-21T10:51:39.000Z"}
+                          >
+                            21-06-2018
+                          </time>
+                        </t>
+                         to 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          key="end_date"
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                        >
+                          <time
+                            dateTime={"2018-06-21T10:51:42.000Z"}
+                          >
+                            21-06-2018
+                          </time>
+                        </t>
                       </td>
                     </ElementMap>
                   </tr>
