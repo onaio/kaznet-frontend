@@ -24,7 +24,13 @@ export default class StatisticsSection extends Component {
               <Col sm="6" className="kaznet-no-gutter">
                 <div className="kaznet-stats">
                   <p className="stats-data">{this.props.accepted}</p>
-                  <p className="stats-header">Accepted</p>
+                  <p className="stats-header">
+                    Accepted{" "}
+                    <FontAwesomeIcon
+                      icon="external-link-alt"
+                      className="fa-xs"
+                    />
+                  </p>
                 </div>
               </Col>
               <Col sm="6" className="kaznet-no-gutter left-fix">
@@ -40,13 +46,25 @@ export default class StatisticsSection extends Component {
               <Col sm="6" className="kaznet-stats-col">
                 <div className="kaznet-stats">
                   <h1 className="stats-data">{this.props.review}</h1>
-                  <p className="stats-header">Needs Review</p>
+                  <p className="stats-header">
+                    Needs Review{" "}
+                    <FontAwesomeIcon
+                      icon="external-link-alt"
+                      className="fa-xs"
+                    />
+                  </p>
                 </div>
               </Col>
               <Col sm="6" className="kaznet-stats-col">
                 <div className="kaznet-stats overflow-fix">
                   <h1 className="stats-data">{this.props.rejected}</h1>
-                  <p className="stats-header">Rejected</p>
+                  <p className="stats-header">
+                    Rejected{" "}
+                    <FontAwesomeIcon
+                      icon="external-link-alt"
+                      className="fa-xs"
+                    />
+                  </p>
                 </div>
               </Col>
             </Row>

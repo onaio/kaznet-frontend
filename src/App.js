@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router";
 import fontawesome from "@fortawesome/fontawesome";
 import faSearch from "@fortawesome/fontawesome-free-solid/faSearch";
 import faClone from "@fortawesome/fontawesome-free-solid/faClone";
+import faExternalLinkAlt from "@fortawesome/fontawesome-free-solid/faExternalLinkAlt";
 import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
@@ -29,7 +30,7 @@ import LocationsList from "./containers/locations/LocationsList";
 import ClientsList from "./containers/clients/ClientsList";
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
-fontawesome.library.add(faSearch, faCaretDown, faClone);
+fontawesome.library.add(faSearch, faCaretDown, faClone, faExternalLinkAlt);
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
