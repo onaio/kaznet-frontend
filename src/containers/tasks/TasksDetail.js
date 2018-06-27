@@ -5,6 +5,7 @@ import Moment from "react-moment";
 import _ from "lodash";
 import "./TasksDetail.css";
 import { rrulestr } from "rrule";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
@@ -61,7 +62,21 @@ export class TasksDetail extends Component {
       Description: data.attributes.description,
       Name: data.attributes.name,
       "Unit Reward Amount": data.attributes.current_bounty_amount,
-      Form: data.attributes.xform_title
+      Form:
+        data.attributes.xform_title !== ""
+          ? [
+              data.attributes.xform_title,
+              "\xa0\xa0",
+              <a href="/" key="form_link" className="link">
+                <FontAwesomeIcon
+                  icon="external-link-alt"
+                  className="fa-xs icon-link"
+                  key="form_link_icon"
+                />{" "}
+                VIEW IN ONA
+              </a>
+            ]
+          : "Not selected"
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;

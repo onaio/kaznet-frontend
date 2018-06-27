@@ -62,3 +62,17 @@
   font-size: 1.8em;
   opacity: 0.5;
 }
+
+.icon-link {
+  color: #3979cf;
+}
+
+.link {
+  margin-left: 0.4em;
+  font-size: 0.95em;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: none;
+}
