@@ -57,7 +57,7 @@ export class TasksList extends Component {
         "/" +
         row.attributes.submission_count,
       <Moment key={row.id} format="DD-MM-YYYY">
-        {row.attributes.created}
+        {row.attributes.start}
       </Moment>,
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.end}
