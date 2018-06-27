@@ -68,7 +68,10 @@ export class TasksDetail extends Component {
   }
 
   renderAdditionalDetails(data) {
-    const timingRule = rrulestr(data.attributes.timing_rule);
+    const timingRule =
+      data.attributes.timing_rule != null
+        ? rrulestr(data.attributes.timing_rule).toText()
+        : "";
 
     const headerItems = {
       "Active dates": [
@@ -81,7 +84,7 @@ export class TasksDetail extends Component {
         </Moment>
       ],
       Location: "Location Here",
-      Recurring: timingRule.toText(),
+      Recurring: timingRule,
       "Submission Limit": data.attributes.total_submission_target,
       "Minimum Contributor Level": data.attributes.required_expertise_display
     };
