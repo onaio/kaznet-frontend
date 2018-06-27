@@ -8,7 +8,8 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   formsById: {},
-  formsIdArray: []
+  formsIdArray: [],
+  unusedForms: []
 };
 
 describe("store/forms/reducer", () => {
