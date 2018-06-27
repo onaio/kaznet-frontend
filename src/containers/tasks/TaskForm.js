@@ -34,6 +34,8 @@ const transformMyApiErrors = function(array) {
     const field = element.source.pointer.split("/").pop();
 
     if (field === "target_id" || field === "target_content_type") {
+      console.log(field);
+      console.log(msg);
       errors.form = "Please select a valid form.";
     }
 
@@ -60,9 +62,7 @@ export class TaskForm extends Component {
           end: moment().format("YYYY-MM-DD"),
           description: "",
           required_expertise: "1",
-          timing_rule: "",
           status: "d",
-          form: "",
           user_submission_target: 10,
           amount: ""
         }}
@@ -73,25 +73,26 @@ export class TaskForm extends Component {
               id: null,
               attributes: {
                 name: values.name,
-                // estimated_time: getEstimatedTime(values.estimated_time),
+                estimated_time: values.estimated_time * 60,
                 required_expertise: values.required_expertise,
                 description: values.description,
                 start: moment(values.start).format("YYYY-MM-DD") + "T12:00",
                 end: moment(values.end).format("YYYY-MM-DD") + "T12:00",
                 timing_rule: values.timing_rule,
-                total_submission_target: null,
+                total_submission_target: undefined,
                 user_submission_target: values.user_submission_target,
                 status: values.status,
                 target_id: values.form,
-                target_content_type: this.props.formContentTypeId
-              },
-              client: {
-                type: "Client",
-                id: values.client
+                target_content_type: this.props.formContentTypeId,
+                client:
+                  values.client != null
+                    ? { type: "Client", id: values.client }
+                    : undefined
               }
             }
           };
 
+          console.log(payload);
           try {
             TaskService.createTask(payload).then(function(results) {
               setSubmitting(false);
@@ -124,7 +125,7 @@ export class TaskForm extends Component {
                     name="name"
                     type="text"
                     bsSize="lg"
-                    placeholder="title"
+                    placeholder="Title"
                     aria-label="title"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -145,7 +146,7 @@ export class TaskForm extends Component {
                     name="status"
                     type="select"
                     bsSize="lg"
-                    placeholder="status"
+                    placeholder="Status"
                     aria-label="status"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -171,7 +172,7 @@ export class TaskForm extends Component {
                     type="textarea"
                     cols="2"
                     bsSize="lg"
-                    placeholder="description"
+                    placeholder="Description"
                     aria-label="description"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -192,7 +193,7 @@ export class TaskForm extends Component {
                     name="amount"
                     type="number"
                     bsSize="lg"
-                    placeholder="reward"
+                    placeholder="Reward"
                     aria-label="reward"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -216,7 +217,7 @@ export class TaskForm extends Component {
                     name="form"
                     type="select"
                     bsSize="lg"
-                    placeholder="form"
+                    placeholder="Form"
                     aria-label="form"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -241,7 +242,7 @@ export class TaskForm extends Component {
                         name="start"
                         type="date"
                         bsSize="lg"
-                        placeholder="start"
+                        placeholder="Start Date"
                         aria-label="start"
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -258,7 +259,7 @@ export class TaskForm extends Component {
                         name="end"
                         type="date"
                         bsSize="lg"
-                        placeholder="end"
+                        placeholder="End Date"
                         aria-label="end"
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -283,7 +284,7 @@ export class TaskForm extends Component {
                     name="estimated_time"
                     type="number"
                     bsSize="lg"
-                    placeholder="estimated time"
+                    placeholder="Estimated Time"
                     aria-label="estimated time"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -310,7 +311,7 @@ export class TaskForm extends Component {
                     name="client"
                     type="select"
                     bsSize="lg"
-                    placeholder="client"
+                    placeholder="Client"
                     aria-label="client"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -335,7 +336,7 @@ export class TaskForm extends Component {
                     name="user_submission_target"
                     type="number"
                     bsSize="lg"
-                    placeholder="contributor submission target"
+                    placeholder="Contributor Submission Target"
                     aria-label="contributor submission target"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -362,7 +363,7 @@ export class TaskForm extends Component {
                     name="required_expertise"
                     type="select"
                     bsSize="lg"
-                    placeholder="required expertise"
+                    placeholder="Required Expertise"
                     aria-label="required expertise"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -391,7 +392,7 @@ export class TaskForm extends Component {
                     name="timing_rule"
                     type="hidden"
                     bsSize="lg"
-                    placeholder="timing rule"
+                    placeholder="Timing Rule"
                     aria-label="timing rule"
                     onChange={handleChange}
                     onBlur={handleBlur}
