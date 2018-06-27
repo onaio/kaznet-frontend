@@ -28,7 +28,7 @@ export default class StatisticsSection extends Component {
                     Accepted{" "}
                     <FontAwesomeIcon
                       icon="external-link-alt"
-                      className="fa-xs"
+                      className="fa-xs icon-link"
                     />
                   </p>
                 </div>
@@ -50,7 +50,7 @@ export default class StatisticsSection extends Component {
                     Needs Review{" "}
                     <FontAwesomeIcon
                       icon="external-link-alt"
-                      className="fa-xs"
+                      className="fa-xs icon-link"
                     />
                   </p>
                 </div>
@@ -62,7 +62,7 @@ export default class StatisticsSection extends Component {
                     Rejected{" "}
                     <FontAwesomeIcon
                       icon="external-link-alt"
-                      className="fa-xs"
+                      className="fa-xs icon-link"
                     />
                   </p>
                 </div>
