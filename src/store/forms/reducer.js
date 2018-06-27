@@ -6,7 +6,8 @@ import * as types from "./actionTypes";
 
 const initialState = Immutable({
   formsById: {},
-  formsIdArray: []
+  formsIdArray: [],
+  unusedForms: []
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -28,4 +29,12 @@ export function getFormsById(state) {
 
 export function getFormsIdArray(state) {
   return _.keys(state.forms.formsById);
+}
+
+export function getUnusedForms(state) {
+  const forms = _.filter(state.forms.formsById, form => {
+    return form.attributes.has_task;
+  });
+
+  return forms;
 }
