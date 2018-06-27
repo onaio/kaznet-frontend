@@ -222,7 +222,10 @@ export class TaskForm extends Component {
                     value={values.form}
                     className={errors.form ? "is-invalid" : ""}
                   >
-                    <OptionMap obj={this.props.formsById} titleField="title" />
+                    <OptionMap
+                      list={this.props.unusedForms}
+                      titleField="title"
+                    />
                   </Input>
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
@@ -429,6 +432,7 @@ function mapStateToProps(state) {
     clientsIdArray: clientSelectors.getClientsIdArray(state),
     formsById: formSelectors.getFormsById(state),
     formsIdArray: formSelectors.getFormsIdArray(state),
+    unusedForms: formSelectors.getUnusedForms(state),
     formContentTypeId: contentTypeSelectors.getFormContentType(state)
   };
 }
