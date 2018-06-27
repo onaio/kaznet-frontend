@@ -2,6 +2,7 @@
 
 exports[`containers/task/TasksList renders task list correctly 1`] = `
 <TasksList
+  changePageTarget={[Function]}
   changePageTitle={[Function]}
   changePageTitleButton={[Function]}
   fetchTasks={[Function]}
@@ -226,7 +227,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       unix={false}
                       utc={false}
                   >
-                      2018-06-21T13:51:57.580166+03:00
+                      2018-06-21T13:51:39+03:00
                   </t>,
                     <t
                       ago={false}
@@ -284,7 +285,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     utc={false}
                   >
                     <time
-                      dateTime={"2018-06-21T10:51:57.580Z"}
+                      dateTime={"2018-06-21T10:51:39.000Z"}
                     >
                       21-06-2018
                     </time>

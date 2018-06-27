@@ -15,17 +15,20 @@ import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
 
 import TasksList from "./containers/tasks/TasksList";
+
+import FormView from "./components/FormView";
+import TaskForm from "./containers/tasks/TaskForm";
 import TitleSection from "./containers/global/TitleSection";
 import UsersList from "./containers/users/UsersList";
-import LocationsList from './containers/locations/LocationsList'
-import ClientsList from './containers/clients/ClientsList'
+import LocationsList from "./containers/locations/LocationsList";
+import ClientsList from "./containers/clients/ClientsList";
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(faSearch, faCaretDown);
-moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
+    const TaskFormView = () => <FormView form={TaskForm} />;
     return (
       <div className="App">
         <ErrorBoundary>
@@ -39,9 +42,18 @@ class App extends Component {
                     <Col>
                       <Switch>
                         <Route exact path="/tasks" component={TasksList} />
+                        <Route
+                          exact
+                          path="/tasks/new"
+                          component={TaskFormView}
+                        />
                         <Route exact path="/users" component={UsersList} />
-                        <Route exact path="/locations" component={LocationsList}/>
-                        <Route exact path="/clients" component={ClientsList}/>
+                        <Route
+                          exact
+                          path="/locations"
+                          component={LocationsList}
+                        />
+                        <Route exact path="/clients" component={ClientsList} />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />
                       </Switch>

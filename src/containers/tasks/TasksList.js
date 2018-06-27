@@ -16,6 +16,7 @@ export class TasksList extends Component {
     this.props.fetchTasks();
     this.props.changePageTitle("Tasks");
     this.props.changePageTitleButton("+ Create Task");
+    this.props.changePageTarget("/tasks/new");
   }
 
   render() {
@@ -56,7 +57,7 @@ export class TasksList extends Component {
         "/" +
         row.attributes.submission_count,
       <Moment key={row.id} format="DD-MM-YYYY">
-        {row.attributes.created}
+        {row.attributes.start}
       </Moment>,
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.end}
@@ -80,7 +81,8 @@ function mapDispatchToProps(dispatch) {
     {
       fetchTasks: taskActions.fetchTasks,
       changePageTitle: globalActions.changePageTitle,
-      changePageTitleButton: globalActions.changePageTitleButton
+      changePageTitleButton: globalActions.changePageTitleButton,
+      changePageTarget: globalActions.changePageTarget
     },
     dispatch
   );

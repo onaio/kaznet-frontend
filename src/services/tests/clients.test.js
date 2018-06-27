@@ -1,6 +1,6 @@
-import ClientService from "./clients";
+import ClientService from "../clients";
 
-import * as fixtures from "../store/clients/tests/fixtures";
+import * as fixtures from "../../store/clients/tests/fixtures";
 
 global.fetch = require("jest-fetch-mock");
 

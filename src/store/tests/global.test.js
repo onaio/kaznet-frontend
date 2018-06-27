@@ -13,7 +13,7 @@ describe("store/global", () => {
     store = createStore(combineReducers(reducers), applyMiddleware(thunk));
   });
 
-  it("should set page title and page title button", async () => {
+  it("should set page title and parge target and page title button", async () => {
     store.dispatch(globalAction.changePageTitle);
     expect(globalSelectors.getPageTitle(store.getState())).toEqual("Kaznet");
 
@@ -29,5 +29,11 @@ describe("store/global", () => {
     expect(globalSelectors.getPageTitleButton(store.getState())).toEqual(
       "Button"
     );
+
+    store.dispatch(globalAction.changePageTarget("/zerg"));
+    expect(globalSelectors.getPageTarget(store.getState())).toEqual("/zerg");
+
+    store.dispatch(globalAction.changePageTarget("/pool"));
+    expect(globalSelectors.getPageTarget(store.getState())).toEqual("/pool");
   });
 });
