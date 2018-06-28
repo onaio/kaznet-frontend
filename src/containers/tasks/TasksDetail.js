@@ -54,7 +54,7 @@ export class TasksDetail extends Component {
   renderLoading() {
     if (this.props.isRetrieving) {
       return <p>Loading...</p>;
-    } else {
+    } else if (this.props.errorMessage) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
