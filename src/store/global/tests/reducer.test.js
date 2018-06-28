@@ -9,7 +9,9 @@ import * as actionTypes from "../actionTypes";
 const initialState = {
   pageTitle: "Kaznet",
   pageTitleButton: "Friendly Button",
-  pageTarget: "/"
+  pageTarget: "/",
+  errors: false,
+  errorMessage: null
 };
 
 describe("store/global/reducer", () => {
@@ -56,6 +58,20 @@ describe("store/global/reducer", () => {
     const pageTarget = "/tasks/new";
     const action = { type: actionTypes.CHANGE_PAGE_TARGET, pageTarget };
     newState.pageTarget = pageTarget;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should change errors and errorMessage", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const errorMessage = "Error!!";
+    const action = { type: actionTypes.REQUEST_FAILURE, errorMessage };
+    newState.errors = true;
+    newState.errorMessage = errorMessage;
+
     Reducer(global)
       .withState(existingState)
       .expect(action)

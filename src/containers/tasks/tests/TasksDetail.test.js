@@ -31,7 +31,7 @@ describe("containers/task/TasksDetail", () => {
         }}
         fetchTask={function() {}}
         changePageTitle={function() {}}
-        rowById={fixtures.tasksById}
+        taskById={fixtures.taskById}
       />
     );
     expect(toJson(wrapper)).toMatchSnapshot();

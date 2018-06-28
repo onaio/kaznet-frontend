@@ -11,144 +11,74 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       },
     }
   }
-  rowById={
+  taskById={
     Object {
-      "1": Object {
-        "attributes": Object {
-          "approved_submissions_count": 1,
-          "created": "2018-06-21T12:15:45.349936+03:00",
-          "current_bounty_amount": "55.00 KES",
-          "description": "This is pure joy.",
-          "end": "2019-01-30T12:17:40+03:00",
-          "estimated_time": "4 01:15:20",
-          "modified": "2018-06-21T12:22:09.703447+03:00",
-          "name": "Awesome Task",
-          "pending_submissions_count": 0,
-          "rejected_submissions_count": 0,
-          "required_expertise": "1",
-          "required_expertise_display": "Beginner",
-          "start": "2018-06-21T12:15:45+03:00",
-          "status": "a",
-          "status_display": "Active",
-          "submission_count": 1,
-          "target_id": 1,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-          "total_bounty_payout": "55.00 KES",
-          "total_submission_target": 100,
-          "user_submission_target": 100,
-          "xform_title": "Form 1",
-        },
-        "id": "1",
-        "relationships": Object {
-          "bounty": Object {
-            "data": Object {
-              "id": "2",
-              "type": "Bounty",
-            },
-          },
-          "client": Object {
-            "data": Object {
-              "id": "7",
-              "type": "Client",
-            },
-          },
-          "locations": Object {
-            "data": Array [
-              Object {
-                "id": "1",
-                "type": "Location",
-              },
-            ],
-            "meta": Object {
-              "count": 1,
-            },
-          },
-          "parent": Object {
-            "data": null,
-          },
-          "segment_rules": Object {
-            "data": Array [],
-            "meta": Object {
-              "count": 0,
-            },
-          },
-          "target_content_type": Object {
-            "data": Object {
-              "id": "16",
-              "type": "ContentType",
-            },
-          },
-        },
-        "type": "Task",
+      "attributes": Object {
+        "approved_submissions_count": 1,
+        "created": "2018-06-21T12:15:45.349936+03:00",
+        "current_bounty_amount": "55.00 KES",
+        "description": "This is pure joy.",
+        "end": "2019-01-30T12:17:40+03:00",
+        "estimated_time": "4 01:15:20",
+        "modified": "2018-06-21T12:22:09.703447+03:00",
+        "name": "Awesome Task",
+        "pending_submissions_count": 0,
+        "rejected_submissions_count": 0,
+        "required_expertise": "1",
+        "required_expertise_display": "Beginner",
+        "start": "2018-06-21T12:15:45+03:00",
+        "status": "a",
+        "status_display": "Active",
+        "submission_count": 1,
+        "target_id": 1,
+        "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+        "total_bounty_payout": "55.00 KES",
+        "total_submission_target": 100,
+        "user_submission_target": 100,
+        "xform_title": "Form 1",
       },
-      "2": Object {
-        "attributes": Object {
-          "approved_submissions_count": 2,
-          "created": "2018-06-21T12:15:45.363700+03:00",
-          "current_bounty_amount": "150000.00 KES",
-          "description": "The best and most delicious task ever.",
-          "end": null,
-          "estimated_time": "00:00:19",
-          "modified": "2018-06-21T12:25:06.164454+03:00",
-          "name": "Kill Bill",
-          "pending_submissions_count": 0,
-          "rejected_submissions_count": 0,
-          "required_expertise": "3",
-          "required_expertise_display": "Advanced",
-          "start": "2018-08-17T12:15:45+03:00",
-          "status": "s",
-          "status_display": "Scheduled",
-          "submission_count": 2,
-          "target_id": 2,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
-          "total_bounty_payout": "300000.00 KES",
-          "total_submission_target": 200,
-          "user_submission_target": 2,
-          "xform_title": "Form 2",
+      "id": "1",
+      "relationships": Object {
+        "bounty": Object {
+          "data": Object {
+            "id": "2",
+            "type": "Bounty",
+          },
         },
-        "id": "2",
-        "relationships": Object {
-          "bounty": Object {
-            "data": Object {
+        "client": Object {
+          "data": Object {
+            "id": "7",
+            "type": "Client",
+          },
+        },
+        "locations": Object {
+          "data": Array [
+            Object {
               "id": "1",
-              "type": "Bounty",
+              "type": "Location",
             },
-          },
-          "client": Object {
-            "data": Object {
-              "id": "2",
-              "type": "Client",
-            },
-          },
-          "locations": Object {
-            "data": Array [
-              Object {
-                "id": "2",
-                "type": "Location",
-              },
-            ],
-            "meta": Object {
-              "count": 1,
-            },
-          },
-          "parent": Object {
-            "data": null,
-          },
-          "segment_rules": Object {
-            "data": Array [],
-            "meta": Object {
-              "count": 0,
-            },
-          },
-          "target_content_type": Object {
-            "data": Object {
-              "id": "16",
-              "type": "ContentType",
-            },
+          ],
+          "meta": Object {
+            "count": 1,
           },
         },
-        "type": "Task",
+        "parent": Object {
+          "data": null,
+        },
+        "segment_rules": Object {
+          "data": Array [],
+          "meta": Object {
+            "count": 0,
+          },
+        },
+        "target_content_type": Object {
+          "data": Object {
+            "id": "16",
+            "type": "ContentType",
+          },
+        },
       },
+      "type": "Task",
     }
   }
 >

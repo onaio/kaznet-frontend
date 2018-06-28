@@ -8,7 +8,9 @@ const emptyState = Immutable({
   global: {
     pageTitle: "Kaznet",
     pageTitleButton: "Friendly Button",
-    pageTarget: "/"
+    pageTarget: "/",
+    errors: false,
+    errorMessage: null
   }
 });
 
@@ -30,4 +32,22 @@ describe("store/global/selectors", () => {
       .expect(emptyState)
       .toReturn("/");
   });
+
+  if (
+    ("should get default invert of errors",
+    () => {
+      Selector(global.getIsRetrieving)
+        .expect(emptyState)
+        .toReturn(true);
+    })
+  );
+
+  if (
+    ("should get default errorMessage",
+    () => {
+      Selector(global.getErrorMessage)
+        .expect(emptyState)
+        .toReturn(null);
+    })
+  );
 });
