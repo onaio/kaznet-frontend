@@ -10,6 +10,7 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
+import * as globalSelectors from "../../store/global/reducer";
 
 import DetailView from "../../components/DetailView";
 import StatisticsSection from "./StatisticsSection";
@@ -54,7 +55,11 @@ export class TasksDetail extends Component {
   }
 
   renderLoading() {
-    return <p>Loading...</p>;
+    if (this.props.isRetrieving) {
+      return <p>Loading...</p>;
+    } else {
+      return <p> {this.props.errorMessage.message} </p>;
+    }
   }
 
   renderMainDetails(data) {
@@ -109,7 +114,9 @@ export class TasksDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    rowById: taskSelectors.getTasksById(state)
+    rowById: taskSelectors.getTasksById(state),
+    isRetrieving: globalSelectors.getIsRetrieving(state),
+    errorMessage: globalSelectors.getErrorMessage(state)
   };
 }
 
