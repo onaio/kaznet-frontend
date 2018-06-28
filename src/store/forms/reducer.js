@@ -33,7 +33,7 @@ export function getFormsIdArray(state) {
 
 export function getUnusedForms(state) {
   const forms = _.filter(state.forms.formsById, form => {
-    return form.attributes.has_task;
+    return !form.attributes.has_task;
   });
 
   return forms;
