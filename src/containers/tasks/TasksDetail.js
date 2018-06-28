@@ -100,7 +100,7 @@ export class TasksDetail extends Component {
       ],
       Location: "Location Here",
       Recurring: timingRule,
-      "Submission Limit": data.attributes.total_submission_target,
+      "Submission Limit": data.attributes.user_submission_target,
       "Minimum Contributor Level": data.attributes.required_expertise_display
     };
 
