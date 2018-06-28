@@ -31,10 +31,16 @@ export function getFormsIdArray(state) {
   return _.keys(state.forms.formsById);
 }
 
-export function getUnusedForms(state) {
+export function getUnusedFormsById(state) {
   const forms = _.filter(state.forms.formsById, form => {
     return !form.attributes.has_task;
   });
 
-  return forms;
+  const formsById = _.keyBy(forms, form => {
+    return form.id;
+  });
+
+  console.log(formsById);
+
+  return formsById;
 }
