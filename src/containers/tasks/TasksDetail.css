@@ -1,0 +1,82 @@
+.statistics-data {
+  width: 977px;
+}
+.kaznet-title-td {
+  font-weight: bold;
+}
+
+.kaznet-stats {
+  background-color: #f6f6f6;
+  text-align: center;
+}
+
+.kaznet-sub {
+  padding-bottom: 13px;
+  padding-top: 12px;
+  padding-right: 0px !important;
+}
+
+.withspace {
+  margin-left: 10px !important;
+}
+
+.kaznet-stats-count {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 0px;
+}
+
+.kaznet-stats-col {
+  padding-left: 28px !important;
+  padding-right: 0px !important;
+  max-height: 111px !important;
+}
+
+.kaznet-no-gutter {
+  padding-right: 0px !important;
+}
+
+.left-fix {
+  padding-left: 0px !important;
+}
+
+.stats {
+  text-align: center;
+}
+
+.stats-data {
+  font-weight: bold;
+  font-size: 1.5em;
+  padding-top: 28px;
+  line-height: 36px;
+  margin: 0px;
+}
+
+.stats-header {
+  margin: 0px;
+  padding-bottom: 22px;
+}
+
+.details {
+  text-align: left;
+  margin-top: 2em;
+}
+
+.kaznet-title-h1 {
+  font-size: 1.8em;
+  opacity: 0.5;
+}
+
+.icon-link {
+  color: #3979cf;
+}
+
+.link {
+  margin-left: 0.4em;
+  font-size: 0.95em;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: none;
+}

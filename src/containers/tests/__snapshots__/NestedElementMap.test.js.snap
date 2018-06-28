@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/NestedElementMap renders elements correctly 1`] = `
+<NestedElementMap
+  HTMLTag="td"
+  detailitems={
+    Object {
+      "Amount": "300034",
+      "Task": "Test",
+    }
+  }
+>
+  <tr
+    key="Task"
+  >
+    <ElementMap
+      HTMLTag="td"
+      className="kaznet-title-td"
+      items={
+        Array [
+          "Task",
+        ]
+      }
+      key="1"
+    >
+      <td
+        className="kaznet-title-td"
+        key="0"
+      >
+        Task
+      </td>
+    </ElementMap>
+    <ElementMap
+      HTMLTag="td"
+      items={
+        Array [
+          "Test",
+        ]
+      }
+      key="20"
+    >
+      <td
+        key="0"
+      >
+        Test
+      </td>
+    </ElementMap>
+  </tr>
+  <tr
+    key="Amount"
+  >
+    <ElementMap
+      HTMLTag="td"
+      className="kaznet-title-td"
+      items={
+        Array [
+          "Amount",
+        ]
+      }
+      key="2"
+    >
+      <td
+        className="kaznet-title-td"
+        key="0"
+      >
+        Amount
+      </td>
+    </ElementMap>
+    <ElementMap
+      HTMLTag="td"
+      items={
+        Array [
+          "300034",
+        ]
+      }
+      key="40"
+    >
+      <td
+        key="0"
+      >
+        300034
+      </td>
+    </ElementMap>
+  </tr>
+</NestedElementMap>
+`;

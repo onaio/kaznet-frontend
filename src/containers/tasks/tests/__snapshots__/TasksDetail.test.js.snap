@@ -1,0 +1,1245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
+<TasksDetail
+  changePageTitle={[Function]}
+  fetchTask={[Function]}
+  match={
+    Object {
+      "params": Object {
+        "id": "1",
+      },
+    }
+  }
+  taskById={
+    Object {
+      "attributes": Object {
+        "approved_submissions_count": 1,
+        "created": "2018-06-21T12:15:45.349936+03:00",
+        "current_bounty_amount": "55.00 KES",
+        "description": "This is pure joy.",
+        "end": "2019-01-30T12:17:40+03:00",
+        "estimated_time": "4 01:15:20",
+        "modified": "2018-06-21T12:22:09.703447+03:00",
+        "name": "Awesome Task",
+        "pending_submissions_count": 0,
+        "rejected_submissions_count": 0,
+        "required_expertise": "1",
+        "required_expertise_display": "Beginner",
+        "start": "2018-06-21T12:15:45+03:00",
+        "status": "a",
+        "status_display": "Active",
+        "submission_count": 1,
+        "target_id": 1,
+        "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+        "total_bounty_payout": "55.00 KES",
+        "total_submission_target": 100,
+        "user_submission_target": 100,
+        "xform_title": "Form 1",
+      },
+      "id": "1",
+      "relationships": Object {
+        "bounty": Object {
+          "data": Object {
+            "id": "2",
+            "type": "Bounty",
+          },
+        },
+        "client": Object {
+          "data": Object {
+            "id": "7",
+            "type": "Client",
+          },
+        },
+        "locations": Object {
+          "data": Array [
+            Object {
+              "id": "1",
+              "type": "Location",
+            },
+          ],
+          "meta": Object {
+            "count": 1,
+          },
+        },
+        "parent": Object {
+          "data": null,
+        },
+        "segment_rules": Object {
+          "data": Array [],
+          "meta": Object {
+            "count": 0,
+          },
+        },
+        "target_content_type": Object {
+          "data": Object {
+            "id": "16",
+            "type": "ContentType",
+          },
+        },
+      },
+      "type": "Task",
+    }
+  }
+>
+  <div
+    className="TasksList"
+  >
+    <StatisticsSection
+      accepted={1}
+      rejected={0}
+      review={0}
+      reward="55.00 KES"
+      totalSubmissions={1}
+    >
+      <Col
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm="12"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="col-sm-12 col-md-8 offset-md-2"
+        >
+          <Row
+            tag="div"
+          >
+            <div
+              className="row"
+            >
+              <Col
+                className="kaznet-sub"
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="kaznet-sub col-sm-3"
+                >
+                  <p
+                    className="kaznet-stats-count"
+                  >
+                    1
+                     Submissions
+                  </p>
+                </div>
+              </Col>
+              <Col
+                className="kaznet-sub"
+                sm="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="kaznet-sub col-sm-9"
+                >
+                  <Button
+                    color="primary"
+                    tag="button"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      onClick={[Function]}
+                    >
+                      <FontAwesomeIcon
+                        border={false}
+                        className=""
+                        fixedWidth={false}
+                        flip={null}
+                        icon="clone"
+                        listItem={false}
+                        mask={null}
+                        name=""
+                        pull={null}
+                        pulse={false}
+                        rotation={null}
+                        size={null}
+                        spin={false}
+                        symbol={false}
+                        transform={null}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="svg-inline--fa fa-clone fa-w-16 "
+                          data-icon="clone"
+                          data-prefix="fas"
+                          role="img"
+                          style={Object {}}
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M464 0c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48H176c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h288M176 416c-44.112 0-80-35.888-80-80V128H48c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-48H176z"
+                            fill="currentColor"
+                            style={Object {}}
+                          />
+                        </svg>
+                      </FontAwesomeIcon>
+                       Review all submissions
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </Row>
+          <Row
+            tag="div"
+          >
+            <div
+              className="row"
+            >
+              <Col
+                sm="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-6"
+                >
+                  <Row
+                    tag="div"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <Col
+                        className="kaznet-no-gutter"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-no-gutter col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats"
+                          >
+                            <p
+                              className="stats-data"
+                            >
+                              1
+                            </p>
+                            <p
+                              className="stats-header"
+                            >
+                              Accepted
+                              <FontAwesomeIcon
+                                border={false}
+                                className="fa-xs icon-link withspace"
+                                fixedWidth={false}
+                                flip={null}
+                                icon="external-link-alt"
+                                listItem={false}
+                                mask={null}
+                                name=""
+                                pull={null}
+                                pulse={false}
+                                rotation={null}
+                                size={null}
+                                spin={false}
+                                symbol={false}
+                                transform={null}
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
+                                  data-icon="external-link-alt"
+                                  data-prefix="fas"
+                                  role="img"
+                                  style={Object {}}
+                                  viewBox="0 0 576 512"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"
+                                    fill="currentColor"
+                                    style={Object {}}
+                                  />
+                                </svg>
+                              </FontAwesomeIcon>
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col
+                        className="kaznet-no-gutter left-fix"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-no-gutter left-fix col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats"
+                          >
+                            <p
+                              className="stats-data"
+                            >
+                              55.00 KES
+                            </p>
+                            <p
+                              className="stats-header"
+                            >
+                              Total Reward
+                              <FontAwesomeIcon
+                                border={false}
+                                className="fa-xs icon-link withspace"
+                                fixedWidth={false}
+                                flip={null}
+                                icon="laptop"
+                                listItem={false}
+                                mask={null}
+                                name=""
+                                pull={null}
+                                pulse={false}
+                                rotation={null}
+                                size={null}
+                                spin={false}
+                                symbol={false}
+                                transform={null}
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace"
+                                  data-icon="laptop"
+                                  data-prefix="fas"
+                                  role="img"
+                                  style={Object {}}
+                                  viewBox="0 0 640 512"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M512 64v256H128V64h384m16-64H112C85.5 0 64 21.5 64 48v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm100 416H389.5c-3 0-5.5 2.1-5.9 5.1C381.2 436.3 368 448 352 448h-64c-16 0-29.2-11.7-31.6-26.9-.5-2.9-3-5.1-5.9-5.1H12c-6.6 0-12 5.4-12 12v36c0 26.5 21.5 48 48 48h544c26.5 0 48-21.5 48-48v-36c0-6.6-5.4-12-12-12z"
+                                    fill="currentColor"
+                                    style={Object {}}
+                                  />
+                                </svg>
+                              </FontAwesomeIcon>
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+              <Col
+                className="overflow-fix"
+                sm="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="overflow-fix col-sm-6"
+                >
+                  <Row
+                    tag="div"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <Col
+                        className="kaznet-stats-col"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-stats-col col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats"
+                          >
+                            <h1
+                              className="stats-data"
+                            >
+                              0
+                            </h1>
+                            <p
+                              className="stats-header"
+                            >
+                              Needs Review
+                              <FontAwesomeIcon
+                                border={false}
+                                className="fa-xs icon-link withspace"
+                                fixedWidth={false}
+                                flip={null}
+                                icon="external-link-alt"
+                                listItem={false}
+                                mask={null}
+                                name=""
+                                pull={null}
+                                pulse={false}
+                                rotation={null}
+                                size={null}
+                                spin={false}
+                                symbol={false}
+                                transform={null}
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
+                                  data-icon="external-link-alt"
+                                  data-prefix="fas"
+                                  role="img"
+                                  style={Object {}}
+                                  viewBox="0 0 576 512"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"
+                                    fill="currentColor"
+                                    style={Object {}}
+                                  />
+                                </svg>
+                              </FontAwesomeIcon>
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col
+                        className="kaznet-stats-col"
+                        sm="6"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="kaznet-stats-col col-sm-6"
+                        >
+                          <div
+                            className="kaznet-stats overflow-fix"
+                          >
+                            <h1
+                              className="stats-data"
+                            >
+                              0
+                            </h1>
+                            <p
+                              className="stats-header"
+                            >
+                              Rejected
+                              <FontAwesomeIcon
+                                border={false}
+                                className="fa-xs icon-link withspace"
+                                fixedWidth={false}
+                                flip={null}
+                                icon="external-link-alt"
+                                listItem={false}
+                                mask={null}
+                                name=""
+                                pull={null}
+                                pulse={false}
+                                rotation={null}
+                                size={null}
+                                spin={false}
+                                symbol={false}
+                                transform={null}
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
+                                  data-icon="external-link-alt"
+                                  data-prefix="fas"
+                                  role="img"
+                                  style={Object {}}
+                                  viewBox="0 0 576 512"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"
+                                    fill="currentColor"
+                                    style={Object {}}
+                                  />
+                                </svg>
+                              </FontAwesomeIcon>
+                            </p>
+                          </div>
+                        </div>
+                      </Col>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          </Row>
+          <hr />
+        </div>
+      </Col>
+    </StatisticsSection>
+    <DetailView
+      renderAdditionalDetails={
+        <NestedElementMap
+          HTMLTag="td"
+          detailitems={
+            Object {
+              "Active dates": Array [
+                <t
+                  ago={false}
+                  calendar={false}
+                  decimal={false}
+                  element="time"
+                  filter={[Function]}
+                  format="DD-MM-YYYY"
+                  fromNow={false}
+                  interval={60000}
+                  onChange={[Function]}
+                  toNow={false}
+                  unit={null}
+                  unix={false}
+                  utc={false}
+            >
+                  2018-06-21T12:15:45+03:00
+            </t>,
+                " to ",
+                <t
+                  ago={false}
+                  calendar={false}
+                  decimal={false}
+                  element="time"
+                  filter={[Function]}
+                  format="DD-MM-YYYY"
+                  fromNow={false}
+                  interval={60000}
+                  onChange={[Function]}
+                  toNow={false}
+                  unit={null}
+                  unix={false}
+                  utc={false}
+            >
+                  2019-01-30T12:17:40+03:00
+            </t>,
+              ],
+              "Location": "Location Here",
+              "Minimum Contributor Level": "Beginner",
+              "Recurring": "every 10 days for 12 times",
+              "Submission Limit": 100,
+            }
+          }
+        />
+      }
+      renderMainDetails={
+        <NestedElementMap
+          HTMLTag="td"
+          detailitems={
+            Object {
+              "Description": "This is pure joy.",
+              "Form": Array [
+                "Form 1",
+                <a
+                  className="link withspace"
+                  href="/"
+            >
+                  <FontAwesomeIcon
+                        border={false}
+                        className="fa-xs icon-link"
+                        fixedWidth={false}
+                        flip={null}
+                        icon="external-link-alt"
+                        listItem={false}
+                        mask={null}
+                        name=""
+                        pull={null}
+                        pulse={false}
+                        rotation={null}
+                        size={null}
+                        spin={false}
+                        symbol={false}
+                        transform={null}
+                  />
+                   
+                  VIEW IN ONA
+            </a>,
+              ],
+              "Name": "Awesome Task",
+              "Unit Reward Amount": "55.00 KES",
+            }
+          }
+        />
+      }
+    >
+      <Col
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm="15"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="col-sm-15 col-md-8 offset-md-2"
+        >
+          <Table
+            borderless={true}
+            className="kaznet-table details"
+            responsiveTag="div"
+            tag="table"
+          >
+            <table
+              className="kaznet-table details table table-borderless"
+            >
+              <tbody>
+                <NestedElementMap
+                  HTMLTag="td"
+                  detailitems={
+                    Object {
+                      "Description": "This is pure joy.",
+                      "Form": Array [
+                        "Form 1",
+                        <a
+                          className="link withspace"
+                          href="/"
+                    >
+                          <FontAwesomeIcon
+                                border={false}
+                                className="fa-xs icon-link"
+                                fixedWidth={false}
+                                flip={null}
+                                icon="external-link-alt"
+                                listItem={false}
+                                mask={null}
+                                name=""
+                                pull={null}
+                                pulse={false}
+                                rotation={null}
+                                size={null}
+                                spin={false}
+                                symbol={false}
+                                transform={null}
+                          />
+                           
+                          VIEW IN ONA
+                    </a>,
+                      ],
+                      "Name": "Awesome Task",
+                      "Unit Reward Amount": "55.00 KES",
+                    }
+                  }
+                >
+                  <tr
+                    key="Description"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Description",
+                        ]
+                      }
+                      key="1"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Description
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "This is pure joy.",
+                        ]
+                      }
+                      key="20"
+                    >
+                      <td
+                        key="0"
+                      >
+                        This is pure joy.
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Name"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Name",
+                        ]
+                      }
+                      key="2"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Name
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Awesome Task",
+                        ]
+                      }
+                      key="40"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Awesome Task
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Unit Reward Amount"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Unit Reward Amount",
+                        ]
+                      }
+                      key="3"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Unit Reward Amount
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "55.00 KES",
+                        ]
+                      }
+                      key="60"
+                    >
+                      <td
+                        key="0"
+                      >
+                        55.00 KES
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Form"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Form",
+                        ]
+                      }
+                      key="4"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Form
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          Array [
+                            "Form 1",
+                            <a
+                              className="link withspace"
+                              href="/"
+                        >
+                              <FontAwesomeIcon
+                                    border={false}
+                                    className="fa-xs icon-link"
+                                    fixedWidth={false}
+                                    flip={null}
+                                    icon="external-link-alt"
+                                    listItem={false}
+                                    mask={null}
+                                    name=""
+                                    pull={null}
+                                    pulse={false}
+                                    rotation={null}
+                                    size={null}
+                                    spin={false}
+                                    symbol={false}
+                                    transform={null}
+                              />
+                               
+                              VIEW IN ONA
+                        </a>,
+                          ],
+                        ]
+                      }
+                      key="80"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Form 1
+                        <a
+                          className="link withspace"
+                          href="/"
+                          key="form_link"
+                        >
+                          <FontAwesomeIcon
+                            border={false}
+                            className="fa-xs icon-link"
+                            fixedWidth={false}
+                            flip={null}
+                            icon="external-link-alt"
+                            key="form_link_icon"
+                            listItem={false}
+                            mask={null}
+                            name=""
+                            pull={null}
+                            pulse={false}
+                            rotation={null}
+                            size={null}
+                            spin={false}
+                            symbol={false}
+                            transform={null}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                              data-icon="external-link-alt"
+                              data-prefix="fas"
+                              role="img"
+                              style={Object {}}
+                              viewBox="0 0 576 512"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"
+                                fill="currentColor"
+                                style={Object {}}
+                              />
+                            </svg>
+                          </FontAwesomeIcon>
+                           
+                          VIEW IN ONA
+                        </a>
+                      </td>
+                    </ElementMap>
+                  </tr>
+                </NestedElementMap>
+                <tr>
+                  <td
+                    className="kaznet-title-h1"
+                  >
+                    Details
+                  </td>
+                </tr>
+                <NestedElementMap
+                  HTMLTag="td"
+                  detailitems={
+                    Object {
+                      "Active dates": Array [
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                    >
+                          2018-06-21T12:15:45+03:00
+                    </t>,
+                        " to ",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                    >
+                          2019-01-30T12:17:40+03:00
+                    </t>,
+                      ],
+                      "Location": "Location Here",
+                      "Minimum Contributor Level": "Beginner",
+                      "Recurring": "every 10 days for 12 times",
+                      "Submission Limit": 100,
+                    }
+                  }
+                >
+                  <tr
+                    key="Active dates"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Active dates",
+                        ]
+                      }
+                      key="1"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Active dates
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          Array [
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="DD-MM-YYYY"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                        >
+                              2018-06-21T12:15:45+03:00
+                        </t>,
+                            " to ",
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="DD-MM-YYYY"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                        >
+                              2019-01-30T12:17:40+03:00
+                        </t>,
+                          ],
+                        ]
+                      }
+                      key="20"
+                    >
+                      <td
+                        key="0"
+                      >
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          key="start_date"
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                        >
+                          <time
+                            dateTime={"2018-06-21T09:15:45.000Z"}
+                          >
+                            21-06-2018
+                          </time>
+                        </t>
+                         to 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          key="end_date"
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                        >
+                          <time
+                            dateTime={"2019-01-30T09:17:40.000Z"}
+                          >
+                            30-01-2019
+                          </time>
+                        </t>
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Location"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Location",
+                        ]
+                      }
+                      key="2"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Location
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Location Here",
+                        ]
+                      }
+                      key="40"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Location Here
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Recurring"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Recurring",
+                        ]
+                      }
+                      key="3"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Recurring
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "every 10 days for 12 times",
+                        ]
+                      }
+                      key="60"
+                    >
+                      <td
+                        key="0"
+                      >
+                        every 10 days for 12 times
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Submission Limit"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Submission Limit",
+                        ]
+                      }
+                      key="4"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Submission Limit
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          100,
+                        ]
+                      }
+                      key="80"
+                    >
+                      <td
+                        key="0"
+                      >
+                        100
+                      </td>
+                    </ElementMap>
+                  </tr>
+                  <tr
+                    key="Minimum Contributor Level"
+                  >
+                    <ElementMap
+                      HTMLTag="td"
+                      className="kaznet-title-td"
+                      items={
+                        Array [
+                          "Minimum Contributor Level",
+                        ]
+                      }
+                      key="5"
+                    >
+                      <td
+                        className="kaznet-title-td"
+                        key="0"
+                      >
+                        Minimum Contributor Level
+                      </td>
+                    </ElementMap>
+                    <ElementMap
+                      HTMLTag="td"
+                      items={
+                        Array [
+                          "Beginner",
+                        ]
+                      }
+                      key="100"
+                    >
+                      <td
+                        key="0"
+                      >
+                        Beginner
+                      </td>
+                    </ElementMap>
+                  </tr>
+                </NestedElementMap>
+              </tbody>
+            </table>
+          </Table>
+        </div>
+      </Col>
+    </DetailView>
+  </div>
+</TasksDetail>
+`;

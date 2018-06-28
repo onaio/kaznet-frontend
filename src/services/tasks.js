@@ -55,6 +55,33 @@ class TaskService {
     }
     return data;
   }
+
+  async getTask(id) {
+    const url = `${constants.API_ENDPOINT}/tasks/${id}/?format=vnd.api%2Bjson`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `TaskService getTask failed, HTTP status ${response.status}`
+      );
+    }
+
+    const apiResponse = await response.json();
+    const data = _.map(apiResponse, task => {
+      return task;
+    });
+
+    if (!data) {
+      throw new Error(`TaskService getTaskList failed, data not returned`);
+    }
+    return data;
+  }
 }
 
 export default new TaskService();

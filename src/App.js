@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router";
 import fontawesome from "@fortawesome/fontawesome";
 import faSearch from "@fortawesome/fontawesome-free-solid/faSearch";
+import faClone from "@fortawesome/fontawesome-free-solid/faClone";
+import faExternalLinkAlt from "@fortawesome/fontawesome-free-solid/faExternalLinkAlt";
+import faLaptop from "@fortawesome/fontawesome-free-solid/faLaptop";
 import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
@@ -18,13 +21,21 @@ import TasksList from "./containers/tasks/TasksList";
 
 import FormView from "./components/FormView";
 import TaskForm from "./containers/tasks/TaskForm";
+import TasksDetail from "./containers/tasks/TasksDetail";
 import TitleSection from "./containers/global/TitleSection";
 import UsersList from "./containers/users/UsersList";
 import LocationsList from "./containers/locations/LocationsList";
 import ClientsList from "./containers/clients/ClientsList";
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
-fontawesome.library.add(faSearch, faCaretDown);
+fontawesome.library.add(
+  faSearch,
+  faCaretDown,
+  faClone,
+  faExternalLinkAlt,
+  faLaptop
+);
+moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
@@ -54,6 +65,11 @@ class App extends Component {
                           component={LocationsList}
                         />
                         <Route exact path="/clients" component={ClientsList} />
+                        <Route
+                          exact
+                          path="/tasks/:id"
+                          component={TasksDetail}
+                        />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />
                       </Switch>

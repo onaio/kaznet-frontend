@@ -23,6 +23,10 @@ export default function reduce(state = initialState, action = {}) {
           [action.taskData.id]: action.taskData
         }
       };
+    case types.TASK_FETCHED:
+      return state.merge({
+        tasksById: action.taskById
+      });
     default:
       return state;
   }
@@ -36,4 +40,8 @@ export function getTasksById(state) {
 
 export function getTasksIdArray(state) {
   return _.keys(state.tasks.tasksById);
+}
+
+export function getTaskById(state, props) {
+  return _.get(state.tasks.tasksById, props.match.params.id);
 }

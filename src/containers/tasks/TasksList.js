@@ -52,7 +52,9 @@ export class TasksList extends Component {
   renderRow(row) {
     const rowItems = [
       row.attributes.status_display,
-      row.attributes.name,
+      <a href={`/tasks/${row.id}`} key="link_to">
+        {row.attributes.name}
+      </a>,
       row.attributes.pending_submissions_count +
         "/" +
         row.attributes.submission_count,

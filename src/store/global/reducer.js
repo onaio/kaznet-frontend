@@ -6,7 +6,9 @@ import * as types from "./actionTypes";
 const initialState = Immutable({
   pageTitle: "Kaznet",
   pageTitleButton: "Friendly Button",
-  pageTarget: "/"
+  pageTarget: "/",
+  errors: false,
+  errorMessage: null
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -24,6 +26,15 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         pageTarget: action.pageTarget
       });
+    case types.REQUEST_FAILURE:
+      return state.merge({
+        errors: true,
+        errorMessage: action.errorMessage
+      });
+    case types.REQUEST_SUCCESS:
+      return state.merge({
+        errors: false
+      });
     default:
       return state;
   }
@@ -40,4 +51,12 @@ export function getPageTitleButton(state) {
 
 export function getPageTarget(state) {
   return state.global.pageTarget;
+}
+
+export function getIsRetrieving(state) {
+  return !state.global.errors;
+}
+
+export function getErrorMessage(state) {
+  return state.global.errorMessage;
 }
