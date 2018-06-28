@@ -160,6 +160,7 @@ export const tasksArray = _.map(taskData.data, task => {
 });
 
 export const tasksById = _.keyBy(tasksArray, task => task.id);
+export const taskById = _.get(tasksById, 1);
 
 export const singleTaskData = {
   data: {
