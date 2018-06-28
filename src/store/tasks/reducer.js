@@ -41,3 +41,7 @@ export function getTasksById(state) {
 export function getTasksIdArray(state) {
   return _.keys(state.tasks.tasksById);
 }
+
+export function getTaskById(state, props) {
+  return _.get(state.tasks.tasksById, props.match.params.id);
+}
