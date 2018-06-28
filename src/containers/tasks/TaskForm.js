@@ -60,6 +60,7 @@ export class TaskForm extends Component {
           end: moment().format("YYYY-MM-DD"),
           description: "",
           required_expertise: "1",
+          timing_rule: "",
           status: "d",
           user_submission_target: 10,
           amount: ""
@@ -76,7 +77,8 @@ export class TaskForm extends Component {
                 description: values.description,
                 start: moment(values.start).format("YYYY-MM-DD") + "T12:00",
                 end: moment(values.end).format("YYYY-MM-DD") + "T12:00",
-                timing_rule: values.timing_rule,
+                timing_rule:
+                  values.timing_rule !== "" ? values.timing_rule : undefined,
                 total_submission_target: undefined,
                 user_submission_target: values.user_submission_target,
                 status: values.status,
@@ -223,7 +225,7 @@ export class TaskForm extends Component {
                     className={errors.form ? "is-invalid" : ""}
                   >
                     <OptionMap
-                      list={this.props.unusedForms}
+                      obj={this.props.unusedFormsById}
                       titleField="title"
                     />
                   </Input>
@@ -432,7 +434,7 @@ function mapStateToProps(state) {
     clientsIdArray: clientSelectors.getClientsIdArray(state),
     formsById: formSelectors.getFormsById(state),
     formsIdArray: formSelectors.getFormsIdArray(state),
-    unusedForms: formSelectors.getUnusedForms(state),
+    unusedFormsById: formSelectors.getUnusedFormsById(state),
     formContentTypeId: contentTypeSelectors.getFormContentType(state)
   };
 }
