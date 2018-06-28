@@ -175,10 +175,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Accepted
-                           
                           <FontAwesomeIcon
                             border={false}
-                            className="fa-xs icon-link"
+                            className="fa-xs icon-link withspace"
                             fixedWidth={false}
                             flip={null}
                             icon="external-link-alt"
@@ -195,7 +194,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
                               data-icon="external-link-alt"
                               data-prefix="fas"
                               role="img"
@@ -241,10 +240,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Total Reward
-                           
                           <FontAwesomeIcon
                             border={false}
-                            className="fa-xs icon-link"
+                            className="fa-xs icon-link withspace"
                             fixedWidth={false}
                             flip={null}
                             icon="laptop"
@@ -261,7 +259,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link"
+                              className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace"
                               data-icon="laptop"
                               data-prefix="fas"
                               role="img"
@@ -334,10 +332,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Needs Review
-                           
                           <FontAwesomeIcon
                             border={false}
-                            className="fa-xs icon-link"
+                            className="fa-xs icon-link withspace"
                             fixedWidth={false}
                             flip={null}
                             icon="external-link-alt"
@@ -354,7 +351,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
                               data-icon="external-link-alt"
                               data-prefix="fas"
                               role="img"
@@ -400,10 +397,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Rejected
-                           
                           <FontAwesomeIcon
                             border={false}
-                            className="fa-xs icon-link"
+                            className="fa-xs icon-link withspace"
                             fixedWidth={false}
                             flip={null}
                             icon="external-link-alt"
@@ -420,7 +416,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                              className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
                               data-icon="external-link-alt"
                               data-prefix="fas"
                               role="img"

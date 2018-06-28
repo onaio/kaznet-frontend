@@ -25,10 +25,10 @@ export default class StatisticsSection extends Component {
                 <div className="kaznet-stats">
                   <p className="stats-data">{this.props.accepted}</p>
                   <p className="stats-header">
-                    Accepted{" "}
+                    Accepted
                     <FontAwesomeIcon
                       icon="external-link-alt"
-                      className="fa-xs icon-link"
+                      className="fa-xs icon-link withspace"
                     />
                   </p>
                 </div>
@@ -37,10 +37,10 @@ export default class StatisticsSection extends Component {
                 <div className="kaznet-stats">
                   <p className="stats-data">{this.props.reward}</p>
                   <p className="stats-header">
-                    Total Reward{" "}
+                    Total Reward
                     <FontAwesomeIcon
                       icon="laptop"
-                      className="fa-xs icon-link"
+                      className="fa-xs icon-link withspace"
                     />
                   </p>
                 </div>
@@ -53,10 +53,10 @@ export default class StatisticsSection extends Component {
                 <div className="kaznet-stats">
                   <h1 className="stats-data">{this.props.review}</h1>
                   <p className="stats-header">
-                    Needs Review{" "}
+                    Needs Review
                     <FontAwesomeIcon
                       icon="external-link-alt"
-                      className="fa-xs icon-link"
+                      className="fa-xs icon-link withspace"
                     />
                   </p>
                 </div>
@@ -65,10 +65,10 @@ export default class StatisticsSection extends Component {
                 <div className="kaznet-stats overflow-fix">
                   <h1 className="stats-data">{this.props.rejected}</h1>
                   <p className="stats-header">
-                    Rejected{" "}
+                    Rejected
                     <FontAwesomeIcon
                       icon="external-link-alt"
-                      className="fa-xs icon-link"
+                      className="fa-xs icon-link withspace"
                     />
                   </p>
                 </div>

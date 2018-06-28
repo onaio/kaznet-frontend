@@ -338,10 +338,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               className="stats-header"
                             >
                               Accepted
-                               
                               <FontAwesomeIcon
                                 border={false}
-                                className="fa-xs icon-link"
+                                className="fa-xs icon-link withspace"
                                 fixedWidth={false}
                                 flip={null}
                                 icon="external-link-alt"
@@ -358,7 +357,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
                                   data-icon="external-link-alt"
                                   data-prefix="fas"
                                   role="img"
@@ -406,10 +405,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               className="stats-header"
                             >
                               Total Reward
-                               
                               <FontAwesomeIcon
                                 border={false}
-                                className="fa-xs icon-link"
+                                className="fa-xs icon-link withspace"
                                 fixedWidth={false}
                                 flip={null}
                                 icon="laptop"
@@ -426,7 +424,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link"
+                                  className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace"
                                   data-icon="laptop"
                                   data-prefix="fas"
                                   role="img"
@@ -501,10 +499,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               className="stats-header"
                             >
                               Needs Review
-                               
                               <FontAwesomeIcon
                                 border={false}
-                                className="fa-xs icon-link"
+                                className="fa-xs icon-link withspace"
                                 fixedWidth={false}
                                 flip={null}
                                 icon="external-link-alt"
@@ -521,7 +518,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
                                   data-icon="external-link-alt"
                                   data-prefix="fas"
                                   role="img"
@@ -569,10 +566,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               className="stats-header"
                             >
                               Rejected
-                               
                               <FontAwesomeIcon
                                 border={false}
-                                className="fa-xs icon-link"
+                                className="fa-xs icon-link withspace"
                                 fixedWidth={false}
                                 flip={null}
                                 icon="external-link-alt"
@@ -589,7 +585,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link"
+                                  className="svg-inline--fa fa-external-link-alt fa-w-18 fa-xs icon-link withspace"
                                   data-icon="external-link-alt"
                                   data-prefix="fas"
                                   role="img"
@@ -677,9 +673,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
               "Description": "This is pure joy.",
               "Form": Array [
                 "Form 1",
-                "  ",
                 <a
-                  className="link"
+                  className="link withspace"
                   href="/"
             >
                   <FontAwesomeIcon
@@ -749,9 +744,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       "Description": "This is pure joy.",
                       "Form": Array [
                         "Form 1",
-                        "  ",
                         <a
-                          className="link"
+                          className="link withspace"
                           href="/"
                     >
                           <FontAwesomeIcon
@@ -914,9 +908,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         Array [
                           Array [
                             "Form 1",
-                            "  ",
                             <a
-                              className="link"
+                              className="link withspace"
                               href="/"
                         >
                               <FontAwesomeIcon
@@ -948,9 +941,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         key="0"
                       >
                         Form 1
-                          
                         <a
-                          className="link"
+                          className="link withspace"
                           href="/"
                           key="form_link"
                         >

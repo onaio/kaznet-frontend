@@ -16,6 +16,10 @@
   padding-right: 0px !important;
 }
 
+.withspace {
+  margin-left: 10px !important;
+}
+
 .kaznet-stats-count {
   font-weight: bold;
   font-size: 1.3em;

@@ -66,8 +66,7 @@ export class TasksDetail extends Component {
         data.attributes.xform_title !== ""
           ? [
               data.attributes.xform_title,
-              "\xa0\xa0",
-              <a href="/" key="form_link" className="link">
+              <a href="/" key="form_link" className="link withspace">
                 <FontAwesomeIcon
                   icon="external-link-alt"
                   className="fa-xs icon-link"
