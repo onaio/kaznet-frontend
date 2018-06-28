@@ -36,7 +36,13 @@ export default class StatisticsSection extends Component {
               <Col sm="6" className="kaznet-no-gutter left-fix">
                 <div className="kaznet-stats">
                   <p className="stats-data">{this.props.reward}</p>
-                  <p className="stats-header">Total Reward</p>
+                  <p className="stats-header">
+                    Total Reward{" "}
+                    <FontAwesomeIcon
+                      icon="laptop"
+                      className="fa-xs icon-link"
+                    />
+                  </p>
                 </div>
               </Col>
             </Row>
