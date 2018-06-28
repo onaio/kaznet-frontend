@@ -18,13 +18,10 @@ import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
 
 import TasksList from "./containers/tasks/TasksList";
-<<<<<<< HEAD
 
 import FormView from "./components/FormView";
 import TaskForm from "./containers/tasks/TaskForm";
-=======
 import TasksDetail from "./containers/tasks/TasksDetail";
->>>>>>> Add Route for TasksDetail
 import TitleSection from "./containers/global/TitleSection";
 import UsersList from "./containers/users/UsersList";
 import LocationsList from "./containers/locations/LocationsList";

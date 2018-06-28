@@ -393,7 +393,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       unix={false}
                       utc={false}
                   >
-                      2018-06-21T12:15:45.349936+03:00
+                      2018-06-21T12:15:45+03:00
                   </t>,
                     <t
                       ago={false}
@@ -456,7 +456,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     utc={false}
                   >
                     <time
-                      dateTime={"2018-06-21T09:15:45.349Z"}
+                      dateTime={"2018-06-21T09:15:45.000Z"}
                     >
                       21-06-2018
                     </time>
@@ -524,7 +524,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       unix={false}
                       utc={false}
                   >
-                      2018-06-21T12:15:45.363700+03:00
+                      2018-08-17T12:15:45+03:00
                   </t>,
                     <t
                       ago={false}
@@ -585,9 +585,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     utc={false}
                   >
                     <time
-                      dateTime={"2018-06-21T09:15:45.363Z"}
+                      dateTime={"2018-08-17T09:15:45.000Z"}
                     >
-                      21-06-2018
+                      17-08-2018
                     </time>
                   </t>
                 </td>
