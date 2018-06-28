@@ -112,7 +112,6 @@ export class TasksDetail extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    rowById: taskSelectors.getTasksById(state),
     taskById: taskSelectors.getTaskById(state, props),
     isRetrieving: globalSelectors.getIsRetrieving(state),
     errorMessage: globalSelectors.getErrorMessage(state)
