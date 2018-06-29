@@ -9,8 +9,8 @@ import DetailPageTitle from "../../components/page/DetailTitle";
 
 export class TitleSection extends Component {
   render() {
-    if (!globalSelectors.getNoTitle) {
-      if (!globalSelectors.getShowDetail) {
+    if (this.props.showTitle) {
+      if (!this.props.showDetail) {
         return (
           <PageTitle
             pageTitle={this.props.pageTitle}
@@ -19,7 +19,12 @@ export class TitleSection extends Component {
           />
         );
       } else {
-        return <DetailPageTitle />;
+        return (
+          <DetailPageTitle
+            pageTitle={this.props.pageTitle}
+            detailName={this.props.detailName}
+          />
+        );
       }
     }
     return null;
@@ -31,7 +36,10 @@ function mapStateToProps(state) {
   return {
     pageTitle: globalSelectors.getPageTitle(state),
     pageTitleButton: globalSelectors.getPageTitleButton(state),
-    pageTarget: globalSelectors.getPageTarget(state)
+    pageTarget: globalSelectors.getPageTarget(state),
+    showTitle: !globalSelectors.getNoTitle(state),
+    showDetail: globalSelectors.getShowDetail(state),
+    detailName: globalSelectors.getDetailName(state)
   };
 }
 
