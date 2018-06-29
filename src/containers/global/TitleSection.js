@@ -23,6 +23,7 @@ export class TitleSection extends Component {
           <DetailPageTitle
             pageTitle={this.props.pageTitle}
             detailName={this.props.detailName}
+            pageTarget={this.props.pageTarget}
           />
         );
       }

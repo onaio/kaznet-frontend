@@ -11,7 +11,7 @@ export default class DetailPageTitle extends Component {
         <Col sm="12" md={{ size: 8, offset: 2 }}>
           <div>
             <h1 className="kaznet-detail-title">
-              <Link to="/tasks" className="kaznet-header-link">
+              <Link to={this.props.pageTarget} className="kaznet-header-link">
                 {this.props.pageTitle}
               </Link>{" "}
               > {this.props.detailName}

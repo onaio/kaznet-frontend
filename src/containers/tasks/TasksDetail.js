@@ -16,14 +16,10 @@ import NestedElementMap from "../NestedElementMap";
 import "./TasksDetail.css";
 
 export class TasksDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.title = "Undefined";
-  }
-
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
     this.props.changePageTitle(`Tasks`);
+    this.props.pageTarget("/tasks");
     this.props.showDetailTitle();
   }
 
@@ -126,7 +122,8 @@ function mapDispatchToProps(dispatch) {
     {
       fetchTask: taskActions.fetchTask,
       changePageTitle: globalActions.changePageTitle,
-      showDetailTitle: globalActions.toggleDetailTitleOn
+      showDetailTitle: globalActions.toggleDetailTitleOn,
+      pageTarget: globalActions.changePageTarget
     },
     dispatch
   );
