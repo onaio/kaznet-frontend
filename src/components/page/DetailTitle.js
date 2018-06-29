@@ -37,6 +37,11 @@ export default class DetailPageTitle extends Component {
                 <Link to="/" className="action-link">
                   DELETE
                 </Link>
+
+                <Link to="/" className="action-link archive-button">
+                  <FontAwesomeIcon icon="folder-open" className="withspace" />
+                  Archive
+                </Link>
               </Row>
             </Col>
           </div>

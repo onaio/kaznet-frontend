@@ -34,3 +34,22 @@
   padding-bottom: 20px;
   font-weight: bold;
 }
+
+.archive-button {
+  color: #979797;
+  position: absolute;
+  right: 0px;
+}
+
+.archive-button:hover {
+  text-decoration: none;
+  color: #8c8c8c;
+}
+
+.action-link {
+  margin-right: 15px;
+}
+
+.withspace {
+  margin-right: 10px;
+}
