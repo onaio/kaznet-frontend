@@ -4,6 +4,8 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Row, Col, Badge } from "reactstrap";
 import { Link } from "react-router-dom";
 
+import "./DetailTitle.css";
+
 export default class DetailPageTitle extends Component {
   render() {
     return (
