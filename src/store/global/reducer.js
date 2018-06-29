@@ -7,6 +7,9 @@ const initialState = Immutable({
   pageTitle: "Kaznet",
   pageTitleButton: "Friendly Button",
   pageTarget: "/",
+  noTitle: false,
+  showDetail: false,
+  detailName: null,
   errors: false,
   errorMessage: null
 });
@@ -25,6 +28,23 @@ export default function reduce(state = initialState, action = {}) {
     case types.CHANGE_PAGE_TARGET:
       return state.merge({
         pageTarget: action.pageTarget
+      });
+    case types.TOGGLE_DETAIL_TITLE_ON:
+      return state.merge({
+        showDetail: true,
+        detailName: action.detailName
+      });
+    case types.TOGGLE_DETAIL_TITLE_OFF:
+      return state.merge({
+        showDetail: false
+      });
+    case types.PAGE_TITLE_OFF:
+      return state.merge({
+        noTitle: true
+      });
+    case types.PAGE_TITLE_ON:
+      return state.merge({
+        noTitle: false
       });
     case types.REQUEST_FAILURE:
       return state.merge({
@@ -59,4 +79,12 @@ export function getIsRetrieving(state) {
 
 export function getErrorMessage(state) {
   return state.global.errorMessage;
+}
+
+export function getNoTitle(state) {
+  return state.global.noTitle;
+}
+
+export function getShowDetail(state) {
+  return state.global.showDetail;
 }
