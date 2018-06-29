@@ -13,6 +13,7 @@ import ElementMap from "../ElementMap";
 
 export class TasksList extends Component {
   componentDidMount() {
+    this.props.showListTitle();
     this.props.fetchTasks();
     this.props.changePageTitle("Tasks");
     this.props.changePageTitleButton("+ Create Task");
@@ -84,7 +85,8 @@ function mapDispatchToProps(dispatch) {
       fetchTasks: taskActions.fetchTasks,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
-      changePageTarget: globalActions.changePageTarget
+      changePageTarget: globalActions.changePageTarget,
+      showListTitle: globalActions.toggleDetailTitleOff
     },
     dispatch
   );
