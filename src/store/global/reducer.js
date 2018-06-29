@@ -31,11 +31,13 @@ export default function reduce(state = initialState, action = {}) {
       });
     case types.TOGGLE_DETAIL_TITLE_ON:
       return state.merge({
+        noTitle: false,
         showDetail: true,
         detailName: action.detailName
       });
     case types.TOGGLE_DETAIL_TITLE_OFF:
       return state.merge({
+        noTitle: false,
         showDetail: false
       });
     case types.PAGE_TITLE_OFF:
@@ -87,4 +89,8 @@ export function getNoTitle(state) {
 
 export function getShowDetail(state) {
   return state.global.showDetail;
+}
+
+export function getDetailName(state) {
+  return state.global.detailName;
 }
