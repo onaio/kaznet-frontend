@@ -85,7 +85,8 @@ export class TasksDetail extends Component {
 
   renderAdditionalDetails(data) {
     const timingRule =
-      this.task.attributes.timing_rule != null
+      this.task.attributes.timing_rule != null &&
+      this.task.attributes.timing_rule !== ""
         ? rrulestr(this.task.attributes.timing_rule).toText()
         : "";
 
