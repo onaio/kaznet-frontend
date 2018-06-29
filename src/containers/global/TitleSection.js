@@ -5,16 +5,24 @@ import { connect } from "react-redux";
 import * as globalSelectors from "../../store/global/reducer";
 
 import PageTitle from "../../components/page/PageTitle";
+import DetailPageTitle from "../../components/page/DetailTitle";
 
 export class TitleSection extends Component {
   render() {
-    return (
-      <PageTitle
-        pageTitle={this.props.pageTitle}
-        pageTitleButton={this.props.pageTitleButton}
-        pageTarget={this.props.pageTarget}
-      />
-    );
+    if (!globalSelectors.getNoTitle) {
+      if (!globalSelectors.getShowDetail) {
+        return (
+          <PageTitle
+            pageTitle={this.props.pageTitle}
+            pageTitleButton={this.props.pageTitleButton}
+            pageTarget={this.props.pageTarget}
+          />
+        );
+      } else {
+        return <DetailPageTitle />;
+      }
+    }
+    return null;
   }
 }
 
