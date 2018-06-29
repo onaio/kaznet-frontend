@@ -1,0 +1,36 @@
+.detail-page-title {
+  min-width: 150px;
+  background-color: #f4f4f4;
+}
+
+.kaznet-detail-title {
+  color: #464646;
+  font-weight: bold;
+  font-size: 2em;
+  padding-top: 35px;
+}
+
+.kaznet-header-link:hover {
+  text-decoration: none;
+}
+
+.kaznet-header-link {
+  color: #3e7dd1 !important;
+}
+
+.kaznet-badge {
+  margin-left: 15px;
+  font-weight: 100 !important;
+  font-size: 20px !important;
+  position: absolute;
+}
+
+.kaznet-creation-detail {
+  opacity: 0.5;
+}
+
+.kaznet-action-links {
+  color: #3e7dd1 !important;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
