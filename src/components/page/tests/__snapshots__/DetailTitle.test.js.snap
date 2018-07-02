@@ -75,13 +75,13 @@ exports[`components/page/DetailTitle renders header correctly 1`] = `
               &gt; 
               Testing!!!
               <Badge
-                className="kaznet-badge"
+                className="kaznet-badge badge-active"
                 color="secondary"
                 pill={false}
                 tag="span"
               >
                 <span
-                  className="kaznet-badge badge badge-secondary"
+                  className="kaznet-badge badge-active badge badge-secondary"
                 >
                   Active
                 </span>
