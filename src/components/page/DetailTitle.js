@@ -27,18 +27,7 @@ export default class DetailPageTitle extends Component {
             <Col md="12">
               <Row className="kaznet-action-links">
                 {/* Method maybe? to auto generate this links */}
-                <Link to="/" className="action-link">
-                  EDIT
-                </Link>
-                <Link to="/" className="action-link">
-                  CREATE A COPY
-                </Link>
-                <Link to="/" className="action-link">
-                  DEACTIVATE
-                </Link>
-                <Link to="/" className="action-link">
-                  DELETE
-                </Link>
+                {this.props.actionLinks}
 
                 <Link to="/" className="action-link archive-button">
                   <FontAwesomeIcon icon="folder-open" className="withspace" />
