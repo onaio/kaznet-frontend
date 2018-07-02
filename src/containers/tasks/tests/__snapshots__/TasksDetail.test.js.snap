@@ -4,6 +4,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
 <TasksDetail
   changePageTarget={[Function]}
   changePageTitle={[Function]}
+  changeTaskStatus={[Function]}
   fetchTask={[Function]}
   match={
     Object {
