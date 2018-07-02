@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
+import queryString from "query-string";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -14,11 +15,32 @@ import ElementMap from "../ElementMap";
 
 export class TasksList extends Component {
   componentDidMount() {
+
     this.props.showListTitle();
-    this.props.fetchTasks();
+    const pageLinks = this.props.pageLinks;
+    const page = queryString.parse(this.props.location.search).page;
+    const currentPageURL = pageLinks[page];
+    this.props.changePageNumber(2);
+    if (currentPageURL === null) {
+      this.props.fetchTasks();
+    } else {
+      this.props.fetchTasks(currentPageURL);
+    }
+
     this.props.changePageTitle("Tasks");
     this.props.changePageTitleButton("+ Create Task");
     this.props.changePageTarget("/tasks/new");
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentPage !== prevProps.currentPage) {
+      console.log(90989898989);
+      const pageLinks = this.props.pageLinks;
+      const page = queryString.parse(this.props.location.search).page;
+      const currentPageURL = pageLinks[page];
+
+      this.props.fetchTasks(currentPageURL);
+    }
   }
 
   render() {
@@ -30,6 +52,7 @@ export class TasksList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          pageLinks={this.props.pageLinks}
         />
       </div>
     );
@@ -76,7 +99,9 @@ export class TasksList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: taskSelectors.getTasksById(state),
-    rowsIdArray: taskSelectors.getTasksIdArray(state)
+    rowsIdArray: taskSelectors.getTasksIdArray(state),
+    pageLinks: taskSelectors.getPageLinks(state),
+    currentPage: taskSelectors.getCurrentPage(state)
   };
 }
 
@@ -84,6 +109,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchTasks: taskActions.fetchTasks,
+      changePageNumber: taskActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,

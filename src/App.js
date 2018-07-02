@@ -62,6 +62,11 @@ class App extends Component {
                         <Route exact path="/tasks" component={TasksList} />
                         <Route
                           exact
+                          path="/tasks:page(first|prev|next|last)"
+                          component={TasksList}
+                        />
+                        <Route
+                          exact
                           path="/tasks/new"
                           component={TaskCreateForm}
                         />

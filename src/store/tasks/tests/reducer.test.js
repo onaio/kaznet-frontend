@@ -9,12 +9,16 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   tasksById: {},
-  tasksIdArray: []
+  tasksIdArray: [],
+  currentPage: 1,
+  pageLinks: {}
 };
 
 const fullState = {
   tasksById: fixtures.tasksById,
-  tasksIdArray: fixtures.tasksIdArray
+  tasksIdArray: fixtures.tasksIdArray,
+  currentPage: 1,
+  pageLinks: fixtures.pageLinks
 };
 
 describe("store/tasks/reducer", () => {
@@ -38,11 +42,13 @@ describe("store/tasks/reducer", () => {
 
   it("should store fetched tasks", () => {
     const tasksById = fixtures.tasksById;
-    const action = { type: actionTypes.TASKS_FETCHED, tasksById };
+    const pageLinks = fixtures.pageLinks;
+    const action = { type: actionTypes.TASKS_FETCHED, tasksById, pageLinks };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     newState.tasksById = tasksById;
+    newState.pageLinks = pageLinks;
 
     Reducer(tasks)
       .withState(existingState)

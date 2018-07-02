@@ -3,8 +3,7 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class TaskService {
-  async getTaskList() {
-    const url = `${constants.API_ENDPOINT}/tasks/`;
+  async getTaskList(url = `${constants.API_ENDPOINT}/tasks/`) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -23,9 +22,19 @@ class TaskService {
       throw new Error(`TaskService getTaskList failed, data not returned`);
     }
 
-    return _.map(data, task => {
+    const tasksArray = _.map(data, task => {
       return task;
     });
+
+    const pageLinks = apiResponse.links;
+
+    const currentPage = apiResponse.meta.pagination.page;
+
+    return {
+      tasksArray: tasksArray,
+      pageLinks: pageLinks,
+      currentPage: currentPage
+    };
   }
 
   async createTask(task_data) {
