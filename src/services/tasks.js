@@ -72,10 +72,7 @@ class TaskService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.map(apiResponse, task => {
-      return task;
-    });
+    const data = await response.json();
 
     if (!data) {
       throw new Error(`TaskService getTaskList failed, data not returned`);
