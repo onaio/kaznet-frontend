@@ -19,7 +19,7 @@ export class TasksDetail extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
     this.props.changePageTitle(`Tasks`);
-    this.props.pageTarget("/tasks");
+    this.props.changePageTarget("/tasks");
     this.props.showDetailTitle();
   }
 
@@ -123,7 +123,7 @@ function mapDispatchToProps(dispatch) {
       fetchTask: taskActions.fetchTask,
       changePageTitle: globalActions.changePageTitle,
       showDetailTitle: globalActions.toggleDetailTitleOn,
-      pageTarget: globalActions.changePageTarget
+      changePageTarget: globalActions.changePageTarget
     },
     dispatch
   );
