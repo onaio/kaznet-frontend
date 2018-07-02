@@ -115,7 +115,7 @@ export class TasksDetail extends Component {
       EDIT: "/",
       "CREATE A COPY": "/",
       DEACTIVATE: "/",
-      DELETE: "/"
+      "DELETE TASK": "/"
     };
 
     return <LinkMap links={actionLinks} />;
