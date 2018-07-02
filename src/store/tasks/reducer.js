@@ -3,7 +3,6 @@ import _ from "lodash";
 import Immutable from "seamless-immutable";
 
 import * as types from "./actionTypes";
-import { Object } from "core-js";
 
 const initialState = Immutable({
   tasksById: {},
@@ -25,8 +24,7 @@ export default function reduce(state = initialState, action = {}) {
         }
       };
     case types.TASK_FETCHED:
-      const key = Object.keys(action.taskById)[0];
-      const data = Object.values(action.taskById)[0];
+      const data = action.taskData.data;
 
       // Have to turn state back to immutable
       // Seems the reduces does not do that for us
@@ -34,7 +32,7 @@ export default function reduce(state = initialState, action = {}) {
         ...state,
         tasksById: {
           ...state.tasksById,
-          [key]: data
+          [data.id]: data
         }
       });
     default:
