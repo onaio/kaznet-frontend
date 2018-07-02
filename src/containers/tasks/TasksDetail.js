@@ -19,6 +19,7 @@ import "./TasksDetail.css";
 export class TasksDetail extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
+    this.props.changeTaskStatus(null);
     this.props.changePageTitle(`Tasks`);
     this.props.changePageTarget("/tasks");
     this.props.showDetailTitle();
@@ -27,7 +28,8 @@ export class TasksDetail extends Component {
 
   componentDidUpdate() {
     if (this.task) {
-      this.props.showDetailTitle(`${this.task.attributes.name}`);
+      this.props.showDetailTitle(this.task.attributes.name);
+      this.props.changeTaskStatus(this.task.attributes.status_display);
     }
   }
 
@@ -137,7 +139,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitle: globalActions.changePageTitle,
       showDetailTitle: globalActions.toggleDetailTitleOn,
       changePageTarget: globalActions.changePageTarget,
-      setActionLinks: globalActions.setPageActionLinks
+      setActionLinks: globalActions.setPageActionLinks,
+      changeTaskStatus: globalActions.changeDetailStatus
     },
     dispatch
   );
