@@ -10,7 +10,8 @@ const initialState = Immutable({
   noTitle: false,
   showDetail: false,
   detailName: null,
-  actionLinks: []
+  actionLinks: [],
+  detailStatus: null
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -51,6 +52,10 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         actionLinks: action.actionLinks
       });
+    case types.CHANGE_DETAIL_STATUS:
+      return state.merge({
+        detailStatus: action.detailStatus
+      });
     default:
       return state;
   }
@@ -75,6 +80,10 @@ export function getPageTarget(state) {
 
 export function getNoTitle(state) {
   return state.global.noTitle;
+}
+
+export function getDetailStatus(state) {
+  return state.global.detailStatus;
 }
 
 export function getShowDetail(state) {
