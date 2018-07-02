@@ -13,6 +13,12 @@ export function changePageTitleButton(pageTitleButton) {
   };
 }
 
+export function setPageActionLinks(actionLinks) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.SET_ACTION_LINKS, actionLinks });
+  };
+}
+
 export function changePageTarget(pageTarget) {
   return async (dispatch, getState) => {
     dispatch({ type: types.CHANGE_PAGE_TARGET, pageTarget });
