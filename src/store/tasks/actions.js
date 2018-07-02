@@ -33,10 +33,9 @@ export function createTask(task_data) {
 export function fetchTask(id) {
   return async (dispatch, getState) => {
     try {
-      const taskArray = await taskService.getTask(id);
-      const taskById = _.keyBy(taskArray, task => task.id);
+      const taskData = await taskService.getTask(id);
       dispatch({ type: globalTypes.REQUEST_SUCCESS });
-      dispatch({ type: types.TASK_FETCHED, taskById });
+      dispatch({ type: types.TASK_FETCHED, taskData });
     } catch (error) {
       dispatch({ type: globalTypes.REQUEST_FAILURE, errorMessage: error });
     }
