@@ -2,6 +2,7 @@
 
 exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
 <TasksDetail
+  changePageTarget={[Function]}
   changePageTitle={[Function]}
   fetchTask={[Function]}
   match={
@@ -11,6 +12,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       },
     }
   }
+  showDetailTitle={[Function]}
   taskById={
     Object {
       "attributes": Object {

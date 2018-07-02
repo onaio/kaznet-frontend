@@ -17,6 +17,8 @@ describe("containers/task/TasksDetail", () => {
         }}
         fetchTask={function() {}}
         changePageTitle={function() {}}
+        changePageTarget={function() {}}
+        showDetailTitle={function() {}}
       />
     );
   });
@@ -31,6 +33,8 @@ describe("containers/task/TasksDetail", () => {
         }}
         fetchTask={function() {}}
         changePageTitle={function() {}}
+        changePageTarget={function() {}}
+        showDetailTitle={function() {}}
         taskById={fixtures.taskById}
       />
     );
