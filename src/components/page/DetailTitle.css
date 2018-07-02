@@ -31,7 +31,7 @@
 
 .kaznet-action-links {
   color: #3e7dd1 !important;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   font-weight: bold;
 }
 
@@ -46,8 +46,13 @@
   color: #8c8c8c;
 }
 
-.action-link {
-  margin-right: 15px;
+.action-link-divider {
+  margin-left: 17px;
+  margin-right: 17px;
+}
+
+.action-link-alert {
+  color: #ac451e;
 }
 
 .withspace {
