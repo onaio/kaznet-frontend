@@ -12,6 +12,7 @@ describe("containers/users/UsersList", () => {
         fetchUsers={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        showListTitle={function() {}}
       />
     );
   });
@@ -22,6 +23,7 @@ describe("containers/users/UsersList", () => {
         fetchUsers={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        showListTitle={function() {}}
         rowsById={fixtures.usersById}
         rowsIdArray={fixtures.usersIdArray}
       />

@@ -10,6 +10,9 @@ const initialState = {
   pageTitle: "Kaznet",
   pageTitleButton: "Friendly Button",
   pageTarget: "/",
+  noTitle: false,
+  showDetail: false,
+  detailName: null,
   errors: false,
   errorMessage: null
 };

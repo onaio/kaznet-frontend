@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/global/TitleSection renders title section correctly 1`] = `
+exports[`containers/global/TitleSection renders detail title correctly 1`] = `
 <Router
   history={
     Object {
@@ -23,7 +23,224 @@ exports[`containers/global/TitleSection renders title section correctly 1`] = `
     }
   }
 >
-  <TitleSection>
+  <TitleSection
+    pageTarget="/"
+    showDetail={true}
+    showTitle={true}
+  >
+    <DetailPageTitle
+      pageTarget="/"
+    >
+      <section
+        className="detail-page-title"
+      >
+        <Col
+          md={
+            Object {
+              "offset": 2,
+              "size": 8,
+            }
+          }
+          sm="12"
+          tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <div
+            className="col-sm-12 col-md-8 offset-md-2"
+          >
+            <div>
+              <h1
+                className="kaznet-detail-title"
+              >
+                <Link
+                  className="kaznet-header-link"
+                  replace={false}
+                  to="/"
+                >
+                  <a
+                    className="kaznet-header-link"
+                    href="/"
+                    onClick={[Function]}
+                  />
+                </Link>
+                 
+                &gt; 
+              </h1>
+              <p
+                className="kaznet-creation-detail"
+              >
+                By Jensen Nathan, 21 May 2018
+              </p>
+              <Col
+                md="12"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-12"
+                >
+                  <Row
+                    className="kaznet-action-links"
+                    tag="div"
+                  >
+                    <div
+                      className="kaznet-action-links row"
+                    >
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="action-link"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          EDIT
+                        </a>
+                      </Link>
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="action-link"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          CREATE A COPY
+                        </a>
+                      </Link>
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="action-link"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          DEACTIVATE
+                        </a>
+                      </Link>
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="action-link"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          DELETE
+                        </a>
+                      </Link>
+                      <Link
+                        className="action-link archive-button"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="action-link archive-button"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <FontAwesomeIcon
+                            border={false}
+                            className="withspace"
+                            fixedWidth={false}
+                            flip={null}
+                            icon="folder-open"
+                            listItem={false}
+                            mask={null}
+                            name=""
+                            pull={null}
+                            pulse={false}
+                            rotation={null}
+                            size={null}
+                            spin={false}
+                            symbol={false}
+                            transform={null}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="svg-inline--fa fa-folder-open fa-w-18 withspace"
+                              data-icon="folder-open"
+                              data-prefix="fas"
+                              role="img"
+                              style={Object {}}
+                              viewBox="0 0 576 512"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M572.694 292.093L500.27 416.248A63.997 63.997 0 0 1 444.989 448H45.025c-18.523 0-30.064-20.093-20.731-36.093l72.424-124.155A64 64 0 0 1 152 256h399.964c18.523 0 30.064 20.093 20.73 36.093zM152 224h328v-48c0-26.51-21.49-48-48-48H272l-64-64H48C21.49 64 0 85.49 0 112v278.046l69.077-118.418C86.214 242.25 117.989 224 152 224z"
+                                fill="currentColor"
+                                style={Object {}}
+                              />
+                            </svg>
+                          </FontAwesomeIcon>
+                          Archive
+                        </a>
+                      </Link>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          </div>
+        </Col>
+      </section>
+    </DetailPageTitle>
+  </TitleSection>
+</Router>
+`;
+
+exports[`containers/global/TitleSection renders page title correctly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <TitleSection
+    showDetail={false}
+    showTitle={true}
+  >
     <PageTitle>
       <section
         className="page-title"

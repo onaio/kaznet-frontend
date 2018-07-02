@@ -11,13 +11,23 @@ const history = createBrowserHistory();
 
 describe("containers/global/TitleSection", () => {
   it("renders without crashing", () => {
-    shallow(<TitleSection />).dive();
+    shallow(<TitleSection showTitle={true} showDetail={false} />).dive();
   });
 
-  it("renders title section correctly", () => {
+  it("renders page title correctly", () => {
     const wrapper = mount(
       <Router history={history}>
-        <TitleSection />
+        <TitleSection showTitle={true} showDetail={false} />
+      </Router>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it("renders detail title correctly", () => {
+    const wrapper = mount(
+      <Router history={history}>
+        <TitleSection showTitle={true} showDetail={true} pageTarget={"/"} />
       </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
