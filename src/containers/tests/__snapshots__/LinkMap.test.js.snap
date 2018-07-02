@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/LinkMap renders links correctly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <LinkMap
+    links={
+      Object {
+        "amount": "/",
+        "test": "/",
+      }
+    }
+  >
+    <Link
+      className="action-link"
+      key="test"
+      replace={false}
+      to="/"
+    >
+      <a
+        className="action-link"
+        href="/"
+        onClick={[Function]}
+      >
+        test
+      </a>
+    </Link>
+    <p
+      className="action-link-divider"
+      key="1"
+    >
+      |
+    </p>
+    <Link
+      className="action-link"
+      key="amount"
+      replace={false}
+      to="/"
+    >
+      <a
+        className="action-link"
+        href="/"
+        onClick={[Function]}
+      >
+        amount
+      </a>
+    </Link>
+  </LinkMap>
+</Router>
+`;
