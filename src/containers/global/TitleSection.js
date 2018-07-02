@@ -24,6 +24,7 @@ export class TitleSection extends Component {
             pageTitle={this.props.pageTitle}
             detailName={this.props.detailName}
             pageTarget={this.props.pageTarget}
+            actionLinks={this.props.actionLinks}
           />
         );
       }
@@ -40,7 +41,8 @@ function mapStateToProps(state) {
     pageTarget: globalSelectors.getPageTarget(state),
     showTitle: !globalSelectors.getNoTitle(state),
     showDetail: globalSelectors.getShowDetail(state),
-    detailName: globalSelectors.getDetailName(state)
+    detailName: globalSelectors.getDetailName(state),
+    actionLinks: globalSelectors.getActionLinks(state)
   };
 }
 
