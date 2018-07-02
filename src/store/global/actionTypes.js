@@ -6,6 +6,4 @@ export const TOGGLE_DETAIL_TITLE_ON = "global.TOGGLE_DETAIL_TITLE_ON";
 export const TOGGLE_DETAIL_TITLE_OFF = "global.TOGGLE_DETAIL_TITLE_OFF";
 export const PAGE_TITLE_ON = "global.PAGE_TITLE_ON";
 export const PAGE_TITLE_OFF = "global.PAGE_TITLE_OFF";
-export const REQUEST_FAILURE = "global.REQUEST_FAILURE";
-export const REQUEST_SUCCESS = "global.REQUEST_SUCCESS";
 export const SET_ACTION_LINKS = "global.SET_ACTION_LINKS";

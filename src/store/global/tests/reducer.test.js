@@ -13,8 +13,6 @@ const initialState = {
   noTitle: false,
   showDetail: false,
   detailName: null,
-  errors: false,
-  errorMessage: null,
   actionLinks: []
 };
 

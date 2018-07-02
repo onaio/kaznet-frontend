@@ -10,8 +10,6 @@ const initialState = Immutable({
   noTitle: false,
   showDetail: false,
   detailName: null,
-  errors: false,
-  errorMessage: null,
   actionLinks: []
 });
 
@@ -49,15 +47,6 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         noTitle: false
       });
-    case types.REQUEST_FAILURE:
-      return state.merge({
-        errors: true,
-        errorMessage: action.errorMessage
-      });
-    case types.REQUEST_SUCCESS:
-      return state.merge({
-        errors: false
-      });
     case types.SET_ACTION_LINKS:
       return state.merge({
         actionLinks: action.actionLinks
@@ -82,14 +71,6 @@ export function getPageTitleButton(state) {
 
 export function getPageTarget(state) {
   return state.global.pageTarget;
-}
-
-export function getIsRetrieving(state) {
-  return !state.global.errors;
-}
-
-export function getErrorMessage(state) {
-  return state.global.errorMessage;
 }
 
 export function getNoTitle(state) {
