@@ -103,58 +103,6 @@ exports[`containers/global/TitleSection renders detail title correctly 1`] = `
                       className="kaznet-action-links row"
                     >
                       <Link
-                        className="action-link"
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          className="action-link"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          EDIT
-                        </a>
-                      </Link>
-                      <Link
-                        className="action-link"
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          className="action-link"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          CREATE A COPY
-                        </a>
-                      </Link>
-                      <Link
-                        className="action-link"
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          className="action-link"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          DEACTIVATE
-                        </a>
-                      </Link>
-                      <Link
-                        className="action-link"
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          className="action-link"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          DELETE
-                        </a>
-                      </Link>
-                      <Link
                         className="action-link archive-button"
                         replace={false}
                         to="/"

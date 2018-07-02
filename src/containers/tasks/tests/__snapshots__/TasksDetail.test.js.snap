@@ -12,6 +12,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       },
     }
   }
+  setActionLinks={[Function]}
   showDetailTitle={[Function]}
   taskById={
     Object {

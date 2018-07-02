@@ -14,7 +14,8 @@ const initialState = {
   showDetail: false,
   detailName: null,
   errors: false,
-  errorMessage: null
+  errorMessage: null,
+  actionLinks: []
 };
 
 describe("store/global/reducer", () => {
