@@ -30,6 +30,7 @@ export class TasksDetail extends Component {
     if (this.task) {
       this.props.showDetailTitle(this.task.attributes.name);
       this.props.changeTaskStatus(this.task.attributes.status_display);
+      this.props.setActionLinks(this.renderActionLinks());
     }
   }
 
@@ -113,12 +114,25 @@ export class TasksDetail extends Component {
   }
 
   renderActionLinks() {
-    const actionLinks = {
-      EDIT: "/",
-      "CREATE A COPY": "/",
-      DEACTIVATE: "/",
-      "DELETE TASK": "/"
-    };
+    var actionLinks = {};
+
+    if (this.task) {
+      if (this.task.attributes.status_display === "Active") {
+        actionLinks = {
+          EDIT: "/",
+          "CREATE A COPY": "/",
+          DEACTIVATE: "/",
+          "DELETE TASK": "/"
+        };
+      } else {
+        actionLinks = {
+          EDIT: "/",
+          "CREATE A COPY": "/",
+          ACTIVATE: "/",
+          "DELETE TASK": "/"
+        };
+      }
+    }
 
     return <LinkMap links={actionLinks} />;
   }
