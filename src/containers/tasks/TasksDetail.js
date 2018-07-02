@@ -13,6 +13,7 @@ import * as globalSelectors from "../../store/global/reducer";
 import DetailView from "../../components/DetailView";
 import StatisticsSection from "./StatisticsSection";
 import NestedElementMap from "../NestedElementMap";
+import LinkMap from "../LinkMap";
 import "./TasksDetail.css";
 
 export class TasksDetail extends Component {
@@ -21,6 +22,7 @@ export class TasksDetail extends Component {
     this.props.changePageTitle(`Tasks`);
     this.props.changePageTarget("/tasks");
     this.props.showDetailTitle();
+    this.props.setActionLinks(this.renderActionLinks());
   }
 
   componentDidUpdate() {
@@ -81,7 +83,7 @@ export class TasksDetail extends Component {
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
 
-  renderAdditionalDetails(data) {
+  renderAdditionalDetails() {
     const timingRule =
       this.task.attributes.timing_rule != null &&
       this.task.attributes.timing_rule !== ""
@@ -107,6 +109,17 @@ export class TasksDetail extends Component {
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
+
+  renderActionLinks() {
+    const actionLinks = {
+      EDIT: "/",
+      "CREATE A COPY": "/",
+      DEACTIVATE: "/",
+      DELETE: "/"
+    };
+
+    return <LinkMap links={actionLinks} />;
+  }
 }
 
 function mapStateToProps(state, props) {
@@ -123,7 +136,8 @@ function mapDispatchToProps(dispatch) {
       fetchTask: taskActions.fetchTask,
       changePageTitle: globalActions.changePageTitle,
       showDetailTitle: globalActions.toggleDetailTitleOn,
-      changePageTarget: globalActions.changePageTarget
+      changePageTarget: globalActions.changePageTarget,
+      setActionLinks: globalActions.setPageActionLinks
     },
     dispatch
   );
