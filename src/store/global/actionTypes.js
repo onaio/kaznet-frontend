@@ -7,3 +7,4 @@ export const TOGGLE_DETAIL_TITLE_OFF = "global.TOGGLE_DETAIL_TITLE_OFF";
 export const PAGE_TITLE_ON = "global.PAGE_TITLE_ON";
 export const PAGE_TITLE_OFF = "global.PAGE_TITLE_OFF";
 export const SET_ACTION_LINKS = "global.SET_ACTION_LINKS";
+export const CHANGE_DETAIL_STATUS = "global.CHANGE_DETAIL_STATUS";
