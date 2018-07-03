@@ -140,7 +140,7 @@ export class TasksDetail extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    taskById: taskSelectors.getTaskById(state, props),
+    taskById: taskSelectors.getTaskById(state, props.match.params.id),
     isRetrieving: errorHandlerSelectors.getIsRetrieving(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
