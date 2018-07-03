@@ -301,3 +301,8 @@ export const singleTask = {
 };
 
 export const tasksIdArray = _.keys(tasksById);
+export const singleTaskArray = _.map(singleTaskData, task => {
+  return task;
+});
+
+export const singleTaskById = _.keyBy(singleTaskArray, task => task.id);
