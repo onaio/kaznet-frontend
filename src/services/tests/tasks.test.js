@@ -48,4 +48,24 @@ describe("services/tasks", () => {
       new Error("TaskService createTask failed, HTTP status 500")
     );
   });
+
+  it("should fetch task", async () => {
+    const data = fixtures.taskData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await TaskService.getTask(1);
+    expect(response).toEqual(fixtures.taskData);
+  });
+
+  it("should handle get task http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await TaskService.getTask(1);
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("TaskService getTask failed, HTTP status 500")
+    );
+  });
 });
