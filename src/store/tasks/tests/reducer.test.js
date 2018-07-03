@@ -22,6 +22,20 @@ describe("store/tasks/reducer", () => {
     expect(tasks()).toEqual(initialState);
   });
 
+  it("should store fetched task", () => {
+    const taskData = fixtures.singleTaskData;
+    const action = { type: actionTypes.TASK_FETCHED, taskData };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    newState.tasksById = fixtures.singleTaskById;
+
+    Reducer(tasks)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
   it("should store fetched tasks", () => {
     const tasksById = fixtures.tasksById;
     const action = { type: actionTypes.TASKS_FETCHED, tasksById };

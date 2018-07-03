@@ -12,6 +12,7 @@ import ElementMap from "../ElementMap";
 
 export class UsersList extends Component {
   componentDidMount() {
+    this.props.showListTitle();
     this.props.fetchUsers();
     this.props.changePageTitle("Users");
     this.props.changePageTitleButton("+ Create User");
@@ -78,7 +79,8 @@ function mapDispatchToProps(dispatch) {
     {
       fetchUsers: userActions.fetchUsers,
       changePageTitle: globalActions.changePageTitle,
-      changePageTitleButton: globalActions.changePageTitleButton
+      changePageTitleButton: globalActions.changePageTitleButton,
+      showListTitle: globalActions.toggleDetailTitleOff
     },
     dispatch
   );

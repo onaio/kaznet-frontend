@@ -7,8 +7,11 @@ const initialState = Immutable({
   pageTitle: "Kaznet",
   pageTitleButton: "Friendly Button",
   pageTarget: "/",
-  errors: false,
-  errorMessage: null
+  noTitle: false,
+  showDetail: false,
+  detailName: null,
+  actionLinks: [],
+  detailStatus: null
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -26,14 +29,32 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         pageTarget: action.pageTarget
       });
-    case types.REQUEST_FAILURE:
+    case types.TOGGLE_DETAIL_TITLE_ON:
       return state.merge({
-        errors: true,
-        errorMessage: action.errorMessage
+        noTitle: false,
+        showDetail: true,
+        detailName: action.detailName
       });
-    case types.REQUEST_SUCCESS:
+    case types.TOGGLE_DETAIL_TITLE_OFF:
       return state.merge({
-        errors: false
+        noTitle: false,
+        showDetail: false
+      });
+    case types.PAGE_TITLE_OFF:
+      return state.merge({
+        noTitle: true
+      });
+    case types.PAGE_TITLE_ON:
+      return state.merge({
+        noTitle: false
+      });
+    case types.SET_ACTION_LINKS:
+      return state.merge({
+        actionLinks: action.actionLinks
+      });
+    case types.CHANGE_DETAIL_STATUS:
+      return state.merge({
+        detailStatus: action.detailStatus
       });
     default:
       return state;
@@ -45,6 +66,10 @@ export function getPageTitle(state) {
   return state.global.pageTitle;
 }
 
+export function getActionLinks(state) {
+  return state.global.actionLinks;
+}
+
 export function getPageTitleButton(state) {
   return state.global.pageTitleButton;
 }
@@ -53,10 +78,18 @@ export function getPageTarget(state) {
   return state.global.pageTarget;
 }
 
-export function getIsRetrieving(state) {
-  return !state.global.errors;
+export function getNoTitle(state) {
+  return state.global.noTitle;
 }
 
-export function getErrorMessage(state) {
-  return state.global.errorMessage;
+export function getDetailStatus(state) {
+  return state.global.detailStatus;
+}
+
+export function getShowDetail(state) {
+  return state.global.showDetail;
+}
+
+export function getDetailName(state) {
+  return state.global.detailName;
 }

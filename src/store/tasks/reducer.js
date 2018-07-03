@@ -24,8 +24,16 @@ export default function reduce(state = initialState, action = {}) {
         }
       };
     case types.TASK_FETCHED:
-      return state.merge({
-        tasksById: action.taskById
+      const data = action.taskData.data;
+
+      // Have to turn state back to immutable
+      // Seems the reduces does not do that for us
+      return Immutable({
+        ...state,
+        tasksById: {
+          ...state.tasksById,
+          [data.id]: data
+        }
       });
     default:
       return state;
@@ -42,6 +50,6 @@ export function getTasksIdArray(state) {
   return _.keys(state.tasks.tasksById);
 }
 
-export function getTaskById(state, props) {
-  return _.get(state.tasks.tasksById, props.match.params.id);
+export function getTaskById(state, id) {
+  return _.get(state.tasks.tasksById, id);
 }

@@ -6,5 +6,15 @@ import locations from "./locations/reducer";
 import clients from "./clients/reducer";
 import forms from "./forms/reducer";
 import contentTypes from "./contentTypes/reducer";
+import errorHandler from "./errorHandler/reducer";
 
-export { tasks, global, users, locations, clients, forms, contentTypes };
+export {
+  tasks,
+  global,
+  users,
+  locations,
+  clients,
+  forms,
+  contentTypes,
+  errorHandler
+};

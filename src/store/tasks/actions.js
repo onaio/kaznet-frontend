@@ -1,7 +1,7 @@
 // task actions
 import _ from "lodash";
 import * as types from "./actionTypes";
-import * as globalTypes from "../global/actionTypes";
+import * as errorHandlerTypes from "../errorHandler/actionTypes";
 import taskService from "../../services/tasks";
 
 // get list of tasks
@@ -33,12 +33,14 @@ export function createTask(task_data) {
 export function fetchTask(id) {
   return async (dispatch, getState) => {
     try {
-      const taskArray = await taskService.getTask(id);
-      const taskById = _.keyBy(taskArray, task => task.id);
-      dispatch({ type: globalTypes.REQUEST_SUCCESS });
-      dispatch({ type: types.TASK_FETCHED, taskById });
+      const taskData = await taskService.getTask(id);
+      dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+      dispatch({ type: types.TASK_FETCHED, taskData });
     } catch (error) {
-      dispatch({ type: globalTypes.REQUEST_FAILURE, errorMessage: error });
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
   };
 }

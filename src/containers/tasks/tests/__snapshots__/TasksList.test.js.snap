@@ -1,633 +1,671 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`containers/task/TasksList renders task list correctly 1`] = `
-<TasksList
-  changePageTarget={[Function]}
-  changePageTitle={[Function]}
-  changePageTitleButton={[Function]}
-  fetchTasks={[Function]}
-  rowsById={
+<Router
+  history={
     Object {
-      "1": Object {
-        "attributes": Object {
-          "approved_submissions_count": 1,
-          "created": "2018-06-21T12:15:45.349936+03:00",
-          "current_bounty_amount": "55.00 KES",
-          "description": "This is pure joy.",
-          "end": "2019-01-30T12:17:40+03:00",
-          "estimated_time": "4 01:15:20",
-          "modified": "2018-06-21T12:22:09.703447+03:00",
-          "name": "Awesome Task",
-          "pending_submissions_count": 0,
-          "rejected_submissions_count": 0,
-          "required_expertise": "1",
-          "required_expertise_display": "Beginner",
-          "start": "2018-06-21T12:15:45+03:00",
-          "status": "a",
-          "status_display": "Active",
-          "submission_count": 1,
-          "target_id": 1,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-          "total_bounty_payout": "55.00 KES",
-          "total_submission_target": 100,
-          "user_submission_target": 100,
-          "xform_title": "Form 1",
-        },
-        "id": "1",
-        "relationships": Object {
-          "bounty": Object {
-            "data": Object {
-              "id": "2",
-              "type": "Bounty",
-            },
-          },
-          "client": Object {
-            "data": Object {
-              "id": "7",
-              "type": "Client",
-            },
-          },
-          "locations": Object {
-            "data": Array [
-              Object {
-                "id": "1",
-                "type": "Location",
-              },
-            ],
-            "meta": Object {
-              "count": 1,
-            },
-          },
-          "parent": Object {
-            "data": null,
-          },
-          "segment_rules": Object {
-            "data": Array [],
-            "meta": Object {
-              "count": 0,
-            },
-          },
-          "target_content_type": Object {
-            "data": Object {
-              "id": "16",
-              "type": "ContentType",
-            },
-          },
-        },
-        "type": "Task",
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
       },
-      "2": Object {
-        "attributes": Object {
-          "approved_submissions_count": 2,
-          "created": "2018-06-21T12:15:45.363700+03:00",
-          "current_bounty_amount": "150000.00 KES",
-          "description": "The best and most delicious task ever.",
-          "end": null,
-          "estimated_time": "00:00:19",
-          "modified": "2018-06-21T12:25:06.164454+03:00",
-          "name": "Kill Bill",
-          "pending_submissions_count": 0,
-          "rejected_submissions_count": 0,
-          "required_expertise": "3",
-          "required_expertise_display": "Advanced",
-          "start": "2018-08-17T12:15:45+03:00",
-          "status": "s",
-          "status_display": "Scheduled",
-          "submission_count": 2,
-          "target_id": 2,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
-          "total_bounty_payout": "300000.00 KES",
-          "total_submission_target": 200,
-          "user_submission_target": 2,
-          "xform_title": "Form 2",
-        },
-        "id": "2",
-        "relationships": Object {
-          "bounty": Object {
-            "data": Object {
-              "id": "1",
-              "type": "Bounty",
-            },
-          },
-          "client": Object {
-            "data": Object {
-              "id": "2",
-              "type": "Client",
-            },
-          },
-          "locations": Object {
-            "data": Array [
-              Object {
-                "id": "2",
-                "type": "Location",
-              },
-            ],
-            "meta": Object {
-              "count": 1,
-            },
-          },
-          "parent": Object {
-            "data": null,
-          },
-          "segment_rules": Object {
-            "data": Array [],
-            "meta": Object {
-              "count": 0,
-            },
-          },
-          "target_content_type": Object {
-            "data": Object {
-              "id": "16",
-              "type": "ContentType",
-            },
-          },
-        },
-        "type": "Task",
-      },
+      "push": [Function],
+      "replace": [Function],
     }
   }
-  rowsIdArray={
-    Array [
-      "1",
-      "2",
-    ]
-  }
 >
-  <div
-    className="TasksList"
-  >
-    <ListView
-      renderHeaders={[Function]}
-      renderRow={[Function]}
-      rowsById={
-        Object {
-          "1": Object {
-            "attributes": Object {
-              "approved_submissions_count": 1,
-              "created": "2018-06-21T12:15:45.349936+03:00",
-              "current_bounty_amount": "55.00 KES",
-              "description": "This is pure joy.",
-              "end": "2019-01-30T12:17:40+03:00",
-              "estimated_time": "4 01:15:20",
-              "modified": "2018-06-21T12:22:09.703447+03:00",
-              "name": "Awesome Task",
-              "pending_submissions_count": 0,
-              "rejected_submissions_count": 0,
-              "required_expertise": "1",
-              "required_expertise_display": "Beginner",
-              "start": "2018-06-21T12:15:45+03:00",
-              "status": "a",
-              "status_display": "Active",
-              "submission_count": 1,
-              "target_id": 1,
-              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-              "total_bounty_payout": "55.00 KES",
-              "total_submission_target": 100,
-              "user_submission_target": 100,
-              "xform_title": "Form 1",
-            },
-            "id": "1",
-            "relationships": Object {
-              "bounty": Object {
-                "data": Object {
-                  "id": "2",
-                  "type": "Bounty",
-                },
-              },
-              "client": Object {
-                "data": Object {
-                  "id": "7",
-                  "type": "Client",
-                },
-              },
-              "locations": Object {
-                "data": Array [
-                  Object {
-                    "id": "1",
-                    "type": "Location",
-                  },
-                ],
-                "meta": Object {
-                  "count": 1,
-                },
-              },
-              "parent": Object {
-                "data": null,
-              },
-              "segment_rules": Object {
-                "data": Array [],
-                "meta": Object {
-                  "count": 0,
-                },
-              },
-              "target_content_type": Object {
-                "data": Object {
-                  "id": "16",
-                  "type": "ContentType",
-                },
-              },
-            },
-            "type": "Task",
+  <TasksList
+    changePageTarget={[Function]}
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    fetchTasks={[Function]}
+    rowsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "approved_submissions_count": 1,
+            "created": "2018-06-21T12:15:45.349936+03:00",
+            "current_bounty_amount": "55.00 KES",
+            "description": "This is pure joy.",
+            "end": "2019-01-30T12:17:40+03:00",
+            "estimated_time": "4 01:15:20",
+            "modified": "2018-06-21T12:22:09.703447+03:00",
+            "name": "Awesome Task",
+            "pending_submissions_count": 0,
+            "rejected_submissions_count": 0,
+            "required_expertise": "1",
+            "required_expertise_display": "Beginner",
+            "start": "2018-06-21T12:15:45+03:00",
+            "status": "a",
+            "status_display": "Active",
+            "submission_count": 1,
+            "target_id": 1,
+            "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+            "total_bounty_payout": "55.00 KES",
+            "total_submission_target": 100,
+            "user_submission_target": 100,
+            "xform_title": "Form 1",
           },
-          "2": Object {
-            "attributes": Object {
-              "approved_submissions_count": 2,
-              "created": "2018-06-21T12:15:45.363700+03:00",
-              "current_bounty_amount": "150000.00 KES",
-              "description": "The best and most delicious task ever.",
-              "end": null,
-              "estimated_time": "00:00:19",
-              "modified": "2018-06-21T12:25:06.164454+03:00",
-              "name": "Kill Bill",
-              "pending_submissions_count": 0,
-              "rejected_submissions_count": 0,
-              "required_expertise": "3",
-              "required_expertise_display": "Advanced",
-              "start": "2018-08-17T12:15:45+03:00",
-              "status": "s",
-              "status_display": "Scheduled",
-              "submission_count": 2,
-              "target_id": 2,
-              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
-              "total_bounty_payout": "300000.00 KES",
-              "total_submission_target": 200,
-              "user_submission_target": 2,
-              "xform_title": "Form 2",
+          "id": "1",
+          "relationships": Object {
+            "bounty": Object {
+              "data": Object {
+                "id": "2",
+                "type": "Bounty",
+              },
             },
-            "id": "2",
-            "relationships": Object {
-              "bounty": Object {
-                "data": Object {
+            "client": Object {
+              "data": Object {
+                "id": "7",
+                "type": "Client",
+              },
+            },
+            "locations": Object {
+              "data": Array [
+                Object {
                   "id": "1",
-                  "type": "Bounty",
+                  "type": "Location",
                 },
-              },
-              "client": Object {
-                "data": Object {
-                  "id": "2",
-                  "type": "Client",
-                },
-              },
-              "locations": Object {
-                "data": Array [
-                  Object {
-                    "id": "2",
-                    "type": "Location",
-                  },
-                ],
-                "meta": Object {
-                  "count": 1,
-                },
-              },
-              "parent": Object {
-                "data": null,
-              },
-              "segment_rules": Object {
-                "data": Array [],
-                "meta": Object {
-                  "count": 0,
-                },
-              },
-              "target_content_type": Object {
-                "data": Object {
-                  "id": "16",
-                  "type": "ContentType",
-                },
+              ],
+              "meta": Object {
+                "count": 1,
               },
             },
-            "type": "Task",
+            "parent": Object {
+              "data": null,
+            },
+            "segment_rules": Object {
+              "data": Array [],
+              "meta": Object {
+                "count": 0,
+              },
+            },
+            "target_content_type": Object {
+              "data": Object {
+                "id": "16",
+                "type": "ContentType",
+              },
+            },
           },
-        }
+          "type": "Task",
+        },
+        "2": Object {
+          "attributes": Object {
+            "approved_submissions_count": 2,
+            "created": "2018-06-21T12:15:45.363700+03:00",
+            "current_bounty_amount": "150000.00 KES",
+            "description": "The best and most delicious task ever.",
+            "end": null,
+            "estimated_time": "00:00:19",
+            "modified": "2018-06-21T12:25:06.164454+03:00",
+            "name": "Kill Bill",
+            "pending_submissions_count": 0,
+            "rejected_submissions_count": 0,
+            "required_expertise": "3",
+            "required_expertise_display": "Advanced",
+            "start": "2018-08-17T12:15:45+03:00",
+            "status": "s",
+            "status_display": "Scheduled",
+            "submission_count": 2,
+            "target_id": 2,
+            "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
+            "total_bounty_payout": "300000.00 KES",
+            "total_submission_target": 200,
+            "user_submission_target": 2,
+            "xform_title": "Form 2",
+          },
+          "id": "2",
+          "relationships": Object {
+            "bounty": Object {
+              "data": Object {
+                "id": "1",
+                "type": "Bounty",
+              },
+            },
+            "client": Object {
+              "data": Object {
+                "id": "2",
+                "type": "Client",
+              },
+            },
+            "locations": Object {
+              "data": Array [
+                Object {
+                  "id": "2",
+                  "type": "Location",
+                },
+              ],
+              "meta": Object {
+                "count": 1,
+              },
+            },
+            "parent": Object {
+              "data": null,
+            },
+            "segment_rules": Object {
+              "data": Array [],
+              "meta": Object {
+                "count": 0,
+              },
+            },
+            "target_content_type": Object {
+              "data": Object {
+                "id": "16",
+                "type": "ContentType",
+              },
+            },
+          },
+          "type": "Task",
+        },
       }
-      rowsIdArray={
-        Array [
-          "1",
-          "2",
-        ]
-      }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+        "2",
+      ]
+    }
+    showListTitle={[Function]}
+  >
+    <div
+      className="TasksList"
     >
-      <Table
-        bordered={true}
-        className="kaznet-table"
-        responsiveTag="div"
-        tag="table"
+      <ListView
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "1": Object {
+              "attributes": Object {
+                "approved_submissions_count": 1,
+                "created": "2018-06-21T12:15:45.349936+03:00",
+                "current_bounty_amount": "55.00 KES",
+                "description": "This is pure joy.",
+                "end": "2019-01-30T12:17:40+03:00",
+                "estimated_time": "4 01:15:20",
+                "modified": "2018-06-21T12:22:09.703447+03:00",
+                "name": "Awesome Task",
+                "pending_submissions_count": 0,
+                "rejected_submissions_count": 0,
+                "required_expertise": "1",
+                "required_expertise_display": "Beginner",
+                "start": "2018-06-21T12:15:45+03:00",
+                "status": "a",
+                "status_display": "Active",
+                "submission_count": 1,
+                "target_id": 1,
+                "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+                "total_bounty_payout": "55.00 KES",
+                "total_submission_target": 100,
+                "user_submission_target": 100,
+                "xform_title": "Form 1",
+              },
+              "id": "1",
+              "relationships": Object {
+                "bounty": Object {
+                  "data": Object {
+                    "id": "2",
+                    "type": "Bounty",
+                  },
+                },
+                "client": Object {
+                  "data": Object {
+                    "id": "7",
+                    "type": "Client",
+                  },
+                },
+                "locations": Object {
+                  "data": Array [
+                    Object {
+                      "id": "1",
+                      "type": "Location",
+                    },
+                  ],
+                  "meta": Object {
+                    "count": 1,
+                  },
+                },
+                "parent": Object {
+                  "data": null,
+                },
+                "segment_rules": Object {
+                  "data": Array [],
+                  "meta": Object {
+                    "count": 0,
+                  },
+                },
+                "target_content_type": Object {
+                  "data": Object {
+                    "id": "16",
+                    "type": "ContentType",
+                  },
+                },
+              },
+              "type": "Task",
+            },
+            "2": Object {
+              "attributes": Object {
+                "approved_submissions_count": 2,
+                "created": "2018-06-21T12:15:45.363700+03:00",
+                "current_bounty_amount": "150000.00 KES",
+                "description": "The best and most delicious task ever.",
+                "end": null,
+                "estimated_time": "00:00:19",
+                "modified": "2018-06-21T12:25:06.164454+03:00",
+                "name": "Kill Bill",
+                "pending_submissions_count": 0,
+                "rejected_submissions_count": 0,
+                "required_expertise": "3",
+                "required_expertise_display": "Advanced",
+                "start": "2018-08-17T12:15:45+03:00",
+                "status": "s",
+                "status_display": "Scheduled",
+                "submission_count": 2,
+                "target_id": 2,
+                "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
+                "total_bounty_payout": "300000.00 KES",
+                "total_submission_target": 200,
+                "user_submission_target": 2,
+                "xform_title": "Form 2",
+              },
+              "id": "2",
+              "relationships": Object {
+                "bounty": Object {
+                  "data": Object {
+                    "id": "1",
+                    "type": "Bounty",
+                  },
+                },
+                "client": Object {
+                  "data": Object {
+                    "id": "2",
+                    "type": "Client",
+                  },
+                },
+                "locations": Object {
+                  "data": Array [
+                    Object {
+                      "id": "2",
+                      "type": "Location",
+                    },
+                  ],
+                  "meta": Object {
+                    "count": 1,
+                  },
+                },
+                "parent": Object {
+                  "data": null,
+                },
+                "segment_rules": Object {
+                  "data": Array [],
+                  "meta": Object {
+                    "count": 0,
+                  },
+                },
+                "target_content_type": Object {
+                  "data": Object {
+                    "id": "16",
+                    "type": "ContentType",
+                  },
+                },
+              },
+              "type": "Task",
+            },
+          }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+            "2",
+          ]
+        }
       >
-        <table
-          className="kaznet-table table table-bordered"
+        <Table
+          bordered={true}
+          className="kaznet-table"
+          responsiveTag="div"
+          tag="table"
         >
-          <thead>
-            <tr>
-              <ElementMap
-                HTMLTag="th"
-                items={
-                  Array [
-                    "Status",
-                    "Name",
-                    "Need Review",
-                    "Created",
-                    "Expires",
-                    "Form",
-                  ]
-                }
-              >
-                <th
-                  key="0"
+          <table
+            className="kaznet-table table table-bordered"
+          >
+            <thead>
+              <tr>
+                <ElementMap
+                  HTMLTag="th"
+                  items={
+                    Array [
+                      "Status",
+                      "Name",
+                      "Need Review",
+                      "Created",
+                      "Expires",
+                      "Form",
+                    ]
+                  }
                 >
-                  Status
-                </th>
-                <th
-                  key="1"
-                >
-                  Name
-                </th>
-                <th
-                  key="2"
-                >
-                  Need Review
-                </th>
-                <th
-                  key="3"
-                >
-                  Created
-                </th>
-                <th
-                  key="4"
-                >
-                  Expires
-                </th>
-                <th
-                  key="5"
-                >
-                  Form
-                </th>
-              </ElementMap>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              key="1"
-            >
-              <ElementMap
-                HTMLTag="td"
-                items={
-                  Array [
-                    "Active",
-                    <a
-                      href="/tasks/1"
+                  <th
+                    key="0"
                   >
-                      Awesome Task
-                  </a>,
-                    "0/1",
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                  >
-                      2018-06-21T12:15:45+03:00
-                  </t>,
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                  >
-                      2019-01-30T12:17:40+03:00
-                  </t>,
-                    "Form 1",
-                  ]
-                }
-              >
-                <td
-                  key="0"
-                >
-                  Active
-                </td>
-                <td
-                  key="1"
-                >
-                  <a
-                    href="/tasks/1"
-                    key="link_to"
-                  >
-                    Awesome Task
-                  </a>
-                </td>
-                <td
-                  key="2"
-                >
-                  0/1
-                </td>
-                <td
-                  key="3"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
+                    Status
+                  </th>
+                  <th
                     key="1"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
                   >
-                    <time
-                      dateTime={"2018-06-21T09:15:45.000Z"}
-                    >
-                      21-06-2018
-                    </time>
-                  </t>
-                </td>
-                <td
-                  key="4"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
-                    key="1"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
+                    Name
+                  </th>
+                  <th
+                    key="2"
                   >
-                    <time
-                      dateTime={"2019-01-30T09:17:40.000Z"}
-                    >
-                      30-01-2019
-                    </time>
-                  </t>
-                </td>
-                <td
-                  key="5"
-                >
-                  Form 1
-                </td>
-              </ElementMap>
-            </tr>
-            <tr
-              key="2"
-            >
-              <ElementMap
-                HTMLTag="td"
-                items={
-                  Array [
-                    "Scheduled",
-                    <a
-                      href="/tasks/2"
+                    Need Review
+                  </th>
+                  <th
+                    key="3"
                   >
-                      Kill Bill
-                  </a>,
-                    "0/2",
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
+                    Created
+                  </th>
+                  <th
+                    key="4"
                   >
-                      2018-08-17T12:15:45+03:00
-                  </t>,
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                  />,
-                    "Form 2",
-                  ]
-                }
+                    Expires
+                  </th>
+                  <th
+                    key="5"
+                  >
+                    Form
+                  </th>
+                </ElementMap>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                key="1"
               >
-                <td
-                  key="0"
-                >
-                  Scheduled
-                </td>
-                <td
-                  key="1"
-                >
-                  <a
-                    href="/tasks/2"
-                    key="link_to"
-                  >
-                    Kill Bill
-                  </a>
-                </td>
-                <td
-                  key="2"
-                >
-                  0/2
-                </td>
-                <td
-                  key="3"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
-                    key="2"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
-                  >
-                    <time
-                      dateTime={"2018-08-17T09:15:45.000Z"}
+                <ElementMap
+                  HTMLTag="td"
+                  items={
+                    Array [
+                      "Active",
+                      <Link
+                        replace={false}
+                        to="/tasks/1"
                     >
-                      17-08-2018
-                    </time>
-                  </t>
-                </td>
-                <td
-                  key="4"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
-                    key="2"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
-                  >
-                    <time
-                      dateTime={null}
+                        Awesome Task
+                    </Link>,
+                      "0/1",
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
                     >
-                      Invalid date
-                    </time>
-                  </t>
-                </td>
-                <td
-                  key="5"
+                        2018-06-21T12:15:45+03:00
+                    </t>,
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                    >
+                        2019-01-30T12:17:40+03:00
+                    </t>,
+                      "Form 1",
+                    ]
+                  }
                 >
-                  Form 2
-                </td>
-              </ElementMap>
-            </tr>
-          </tbody>
-        </table>
-      </Table>
-    </ListView>
-  </div>
-</TasksList>
+                  <td
+                    key="0"
+                  >
+                    Active
+                  </td>
+                  <td
+                    key="1"
+                  >
+                    <Link
+                      key="link_to"
+                      replace={false}
+                      to="/tasks/1"
+                    >
+                      <a
+                        href="/tasks/1"
+                        onClick={[Function]}
+                      >
+                        Awesome Task
+                      </a>
+                    </Link>
+                  </td>
+                  <td
+                    key="2"
+                  >
+                    0/1
+                  </td>
+                  <td
+                    key="3"
+                  >
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      key="1"
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2018-06-21T09:15:45.000Z"}
+                      >
+                        21-06-2018
+                      </time>
+                    </t>
+                  </td>
+                  <td
+                    key="4"
+                  >
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      key="1"
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2019-01-30T09:17:40.000Z"}
+                      >
+                        30-01-2019
+                      </time>
+                    </t>
+                  </td>
+                  <td
+                    key="5"
+                  >
+                    Form 1
+                  </td>
+                </ElementMap>
+              </tr>
+              <tr
+                key="2"
+              >
+                <ElementMap
+                  HTMLTag="td"
+                  items={
+                    Array [
+                      "Scheduled",
+                      <Link
+                        replace={false}
+                        to="/tasks/2"
+                    >
+                        Kill Bill
+                    </Link>,
+                      "0/2",
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                    >
+                        2018-08-17T12:15:45+03:00
+                    </t>,
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                    />,
+                      "Form 2",
+                    ]
+                  }
+                >
+                  <td
+                    key="0"
+                  >
+                    Scheduled
+                  </td>
+                  <td
+                    key="1"
+                  >
+                    <Link
+                      key="link_to"
+                      replace={false}
+                      to="/tasks/2"
+                    >
+                      <a
+                        href="/tasks/2"
+                        onClick={[Function]}
+                      >
+                        Kill Bill
+                      </a>
+                    </Link>
+                  </td>
+                  <td
+                    key="2"
+                  >
+                    0/2
+                  </td>
+                  <td
+                    key="3"
+                  >
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      key="2"
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2018-08-17T09:15:45.000Z"}
+                      >
+                        17-08-2018
+                      </time>
+                    </t>
+                  </td>
+                  <td
+                    key="4"
+                  >
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD-MM-YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      key="2"
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={null}
+                      >
+                        Invalid date
+                      </time>
+                    </t>
+                  </td>
+                  <td
+                    key="5"
+                  >
+                    Form 2
+                  </td>
+                </ElementMap>
+              </tr>
+            </tbody>
+          </table>
+        </Table>
+      </ListView>
+    </div>
+  </TasksList>
+</Router>
 `;

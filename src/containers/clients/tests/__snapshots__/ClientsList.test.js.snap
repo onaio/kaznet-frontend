@@ -22,6 +22,7 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
       "1",
     ]
   }
+  showListTitle={[Function]}
 >
   <div
     className="ClientsList"

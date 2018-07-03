@@ -13,6 +13,7 @@ import ElementMap from "../ElementMap";
 
 export class LocationsList extends Component {
   componentDidMount() {
+    this.props.showListTitle();
     this.props.fetchLocations();
     this.props.changePageTitle("Locations");
     this.props.changePageTitleButton("+ Create Location");
@@ -64,7 +65,8 @@ function mapDispatchToProps(dispatch) {
     {
       fetchLocations: locationActions.fetchLocations,
       changePageTitle: globalActions.changePageTitle,
-      changePageTitleButton: globalActions.changePageTitleButton
+      changePageTitleButton: globalActions.changePageTitleButton,
+      showListTitle: globalActions.toggleDetailTitleOff
     },
     dispatch
   );

@@ -9,8 +9,11 @@ const emptyState = Immutable({
     pageTitle: "Kaznet",
     pageTitleButton: "Friendly Button",
     pageTarget: "/",
-    errors: false,
-    errorMessage: null
+    noTitle: false,
+    showDetail: false,
+    detailName: null,
+    actionLinks: [],
+    detailStatus: null
   }
 });
 
@@ -33,21 +36,33 @@ describe("store/global/selectors", () => {
       .toReturn("/");
   });
 
-  if (
-    ("should get default invert of errors",
-    () => {
-      Selector(global.getIsRetrieving)
-        .expect(emptyState)
-        .toReturn(true);
-    })
-  );
+  it("should get default actionLinks when empty", () => {
+    Selector(global.getActionLinks)
+      .expect(emptyState)
+      .toReturn([]);
+  });
 
-  if (
-    ("should get default errorMessage",
-    () => {
-      Selector(global.getErrorMessage)
-        .expect(emptyState)
-        .toReturn(null);
-    })
-  );
+  it("should get default noTitle when empty", () => {
+    Selector(global.getNoTitle)
+      .expect(emptyState)
+      .toReturn(false);
+  });
+
+  it("should get default detailStatus when empty", () => {
+    Selector(global.getDetailStatus)
+      .expect(emptyState)
+      .toReturn(null);
+  });
+
+  it("should get default showDetail when empty", () => {
+    Selector(global.getShowDetail)
+      .expect(emptyState)
+      .toReturn(false);
+  });
+
+  it("should get default detailName when empty", () => {
+    Selector(global.getDetailName)
+      .expect(emptyState)
+      .toReturn(null);
+  });
 });

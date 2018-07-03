@@ -10,8 +10,11 @@ const initialState = {
   pageTitle: "Kaznet",
   pageTitleButton: "Friendly Button",
   pageTarget: "/",
-  errors: false,
-  errorMessage: null
+  noTitle: false,
+  showDetail: false,
+  detailName: null,
+  detailStatus: null,
+  actionLinks: []
 };
 
 describe("store/global/reducer", () => {
@@ -64,14 +67,70 @@ describe("store/global/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should change errors and errorMessage", () => {
+  it("should toggle noTitle and showDetail and Set detailName", () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const errorMessage = "Error!!";
-    const action = { type: actionTypes.REQUEST_FAILURE, errorMessage };
-    newState.errors = true;
-    newState.errorMessage = errorMessage;
+    const detailName = "Detail !!!";
+    const action = { type: actionTypes.TOGGLE_DETAIL_TITLE_ON, detailName };
+    newState.detailName = detailName;
+    newState.noTitle = false;
+    newState.showDetail = true;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 
+  it("should toggle noTitle and showDetail", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const action = { type: actionTypes.TOGGLE_DETAIL_TITLE_OFF };
+    newState.noTitle = false;
+    newState.showDetail = false;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should toggle noTitle", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const action = { type: actionTypes.PAGE_TITLE_OFF };
+    newState.noTitle = true;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+
+    const existingState2 = Immutable(newState);
+    const newState2 = _.clone(existingState2);
+    newState2.noTitle = false;
+    const action2 = { type: actionTypes.PAGE_TITLE_ON };
+    Reducer(global)
+      .withState(existingState2)
+      .expect(action2)
+      .toReturnState(newState2);
+  });
+
+  it("should set action links", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const actionLinks = ["Hey", "Bye"];
+    const action = { type: actionTypes.SET_ACTION_LINKS, actionLinks };
+    newState.actionLinks = actionLinks;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should change detail Status", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const detailStatus = "Active";
+    const action = { type: actionTypes.CHANGE_DETAIL_STATUS, detailStatus };
+    newState.detailStatus = detailStatus;
     Reducer(global)
       .withState(existingState)
       .expect(action)

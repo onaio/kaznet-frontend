@@ -8,26 +8,29 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
-import * as globalSelectors from "../../store/global/reducer";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
 import DetailView from "../../components/DetailView";
 import StatisticsSection from "./StatisticsSection";
 import NestedElementMap from "../NestedElementMap";
+import LinkMap from "../LinkMap";
 import "./TasksDetail.css";
 
 export class TasksDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.title = "Undefined";
-  }
-
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
+    this.props.changeTaskStatus(null);
+    this.props.changePageTitle(`Tasks`);
+    this.props.changePageTarget("/tasks");
+    this.props.showDetailTitle();
+    this.props.setActionLinks(this.renderActionLinks());
   }
 
   componentDidUpdate() {
     if (this.task) {
-      this.props.changePageTitle(`Tasks > ${this.task.attributes.name}`);
+      this.props.showDetailTitle(this.task.attributes.name);
+      this.props.changeTaskStatus(this.task.attributes.status_display);
+      this.props.setActionLinks(this.renderActionLinks());
     }
   }
 
@@ -83,9 +86,10 @@ export class TasksDetail extends Component {
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
 
-  renderAdditionalDetails(data) {
+  renderAdditionalDetails() {
     const timingRule =
-      this.task.attributes.timing_rule != null
+      this.task.attributes.timing_rule != null &&
+      this.task.attributes.timing_rule !== ""
         ? rrulestr(this.task.attributes.timing_rule).toText()
         : "";
 
@@ -108,13 +112,37 @@ export class TasksDetail extends Component {
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
+
+  renderActionLinks() {
+    var actionLinks = {};
+
+    if (this.task) {
+      if (this.task.attributes.status_display === "Active") {
+        actionLinks = {
+          EDIT: "/",
+          "CREATE A COPY": "/",
+          DEACTIVATE: "/",
+          "DELETE TASK": "/"
+        };
+      } else {
+        actionLinks = {
+          EDIT: "/",
+          "CREATE A COPY": "/",
+          ACTIVATE: "/",
+          "DELETE TASK": "/"
+        };
+      }
+    }
+
+    return <LinkMap links={actionLinks} />;
+  }
 }
 
 function mapStateToProps(state, props) {
   return {
-    taskById: taskSelectors.getTaskById(state, props),
-    isRetrieving: globalSelectors.getIsRetrieving(state),
-    errorMessage: globalSelectors.getErrorMessage(state)
+    taskById: taskSelectors.getTaskById(state, props.match.params.id),
+    isRetrieving: errorHandlerSelectors.getIsRetrieving(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
@@ -122,7 +150,11 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchTask: taskActions.fetchTask,
-      changePageTitle: globalActions.changePageTitle
+      changePageTitle: globalActions.changePageTitle,
+      showDetailTitle: globalActions.toggleDetailTitleOn,
+      changePageTarget: globalActions.changePageTarget,
+      setActionLinks: globalActions.setPageActionLinks,
+      changeTaskStatus: globalActions.changeDetailStatus
     },
     dispatch
   );

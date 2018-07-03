@@ -7,6 +7,7 @@ import faClone from "@fortawesome/fontawesome-free-solid/faClone";
 import faExternalLinkAlt from "@fortawesome/fontawesome-free-solid/faExternalLinkAlt";
 import faLaptop from "@fortawesome/fontawesome-free-solid/faLaptop";
 import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
+import faFolderOpen from "@fortawesome/fontawesome-free-solid/faFolderOpen";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
 
@@ -33,7 +34,8 @@ fontawesome.library.add(
   faCaretDown,
   faClone,
   faExternalLinkAlt,
-  faLaptop
+  faLaptop,
+  faFolderOpen
 );
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 
