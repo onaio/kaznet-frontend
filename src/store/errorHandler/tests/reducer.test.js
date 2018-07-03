@@ -35,4 +35,15 @@ describe("store/errorHandler/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
+
+  it("should not change errors", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const action = { type: actionTypes.REQUEST_SUCCESS };
+
+    Reducer(errorHandler)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });
