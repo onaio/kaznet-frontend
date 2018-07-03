@@ -18,15 +18,25 @@ export default class DetailPageTitle extends Component {
               </Link>{" "}
               > {this.props.detailName}
               {this.props.status != null ? (
-                this.props.status === "Active" ? (
-                  <Badge className="kaznet-badge badge-active">
-                    {this.props.status}
-                  </Badge>
-                ) : (
-                  <Badge className="kaznet-badge active">
-                    {this.props.status}
-                  </Badge>
-                )
+                <Badge
+                  className={
+                    this.props.status === "Active"
+                      ? "kaznet-badge badge-active"
+                      : this.props.status === "Draft"
+                        ? "kaznet-badge badge-draft"
+                        : this.props.status === "Deactivated"
+                          ? "kaznet-badge badge-deactivated"
+                          : this.props.status === "Archived"
+                            ? "kaznet-badge badge-archived"
+                            : this.props.status === "Expired"
+                              ? "kaznet-badge badge-expired"
+                              : this.props.status === "Scheduled"
+                                ? "kaznet-badge badge-scheduled"
+                                : "kaznet-badge"
+                  }
+                >
+                  {this.props.status}
+                </Badge>
               ) : null}
             </h1>
             <p className="kaznet-creation-detail">

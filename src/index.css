@@ -1,76 +1,100 @@
 /** Global Stuff **/
 .kaznet-root {
-    max-width: 1470px;
-    margin:0 auto;
+  max-width: 1470px;
+  margin: 0 auto;
 }
 
 .bg-dark {
-    background-color: #3e3e3e!important;
+  background-color: #3e3e3e !important;
 }
 
 .bg-white {
-    background-color: #ffffff!important;
+  background-color: #ffffff !important;
 }
 
 .btn-primary {
-    background-color: #297fca;
-    border-color: #297fca;
+  background-color: #297fca;
+  border-color: #297fca;
+}
+
+.badge-active {
+  background-color: #99c84d !important;
+}
+
+.badge-draft {
+  background-color: #bbc7dd !important;
+}
+
+.badge-scheduled {
+  background-color: #72a3fc !important;
+}
+
+.badge-expired {
+  background-color: #e09b4e !important;
+}
+
+.badge-archived {
+  background-color: #565656 !important;
+}
+
+.badge-deactivated {
+  background-color: #937c5e !important;
 }
 
 /** Navigation **/
 .navbar {
-    height: 100px;
-    padding: .5rem 2.5rem;
-    font-size: 1.50rem;
-    font-weight: 600;
+  height: 100px;
+  padding: 0.5rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .nav-link.active {
-    border-bottom: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .navbar-brand {
-    font-size: 1.70rem;
+  font-size: 1.7rem;
 }
 
 .userprofile-img {
-    width: 60px;
+  width: 60px;
 }
 
 /** page title **/
 
 .page-title {
-    min-height: 215px;
-    background-color: #f4f4f4;
+  min-height: 215px;
+  background-color: #f4f4f4;
 }
 
 .page-title h1 {
-    margin-top: 60px;
-    margin-bottom:20px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 .search-group .input-group-text {
-    color: #cccccc;
-    font-weight: 600;
-    font-size: 1.5rem;
+  color: #cccccc;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 /** Content **/
 .kaznet-table th {
-    background-color: #e6e6e6;
-    font-weight: 600;
-    font-size: 1.3rem;
-    text-transform: capitalize;
+  background-color: #e6e6e6;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-transform: capitalize;
 }
 
 /** Media Queries **/
 @media (min-width: 768px) {
-    .navbar-collapse {
-        margin-left: 50px;
-    }
+  .navbar-collapse {
+    margin-left: 50px;
+  }
 
-    .navbar-expand-md .navbar-nav .nav-link {
-        padding-right: 1.7rem;
-        padding-left: 1.7rem;
-    }
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 1.7rem;
+    padding-left: 1.7rem;
+  }
 }
