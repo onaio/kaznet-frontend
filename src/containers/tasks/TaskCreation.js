@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import moment from "moment";
+
 import TaskService from "../../services/tasks";
 import TaskForm from "./TaskForm";
+import FormView from "../../components/FormView";
 
 export default class TaskCreation extends Component {
   render() {
@@ -19,6 +21,16 @@ export default class TaskCreation extends Component {
       amount: ""
     };
 
-    return <TaskForm initialData={initialData} service={service} />;
+    return (
+      <FormView
+        form={
+          <TaskForm
+            initialData={initialData}
+            service={service}
+            redirectAfterAction="/tasks"
+          />
+        }
+      />
+    );
   }
 }
