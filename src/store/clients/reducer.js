@@ -5,7 +5,14 @@ import * as types from "./actionTypes";
 
 const initialState = Immutable({
   clientsById: {},
-  clientsIdArray: []
+  clientsIdArray: [],
+  currentPage: 1,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -51,6 +58,31 @@ export function getClientsIdArray(state) {
   return _.keys(state.clients.clientsById);
 }
 
+
 export function getClientById(state, id) {
   return _.get(state.clients.clientsById, id);
+}
+
+export function getPageLinks(state, props) {
+  return state.tasks.pageLinks;
+}
+
+export function getCurrentPage(state, props) {
+  return state.tasks.currentPage;
+}
+
+export function getFirstPage(state, props) {
+  return state.tasks.pageLinks.first;
+}
+
+export function getNextPage(state, props) {
+  return state.tasks.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.tasks.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  return state.tasks.pageLinks.last;
 }

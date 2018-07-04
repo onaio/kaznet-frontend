@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 import * as clientActions from "../../store/clients/actions";
-import * as clientSelectiors from "../../store/clients/reducer";
+import * as clientSelectors from "../../store/clients/reducer";
 import * as globalActions from "../../store/global/actions";
 
 import ListView from "../../components/ListView";
@@ -13,6 +13,7 @@ import ElementMap from "../ElementMap";
 
 export class ClientsList extends Component {
   componentDidMount() {
+    const pageLinks = this.props.pageLinks;
     this.props.showListTitle();
     this.props.fetchClients();
     this.props.changePageTitle("Clients");
@@ -29,6 +30,8 @@ export class ClientsList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          pageLinks={this.props.pageLinks}
+          currentPage={this.props.currentPage}
         />
       </div>
     );
@@ -58,8 +61,10 @@ export class ClientsList extends Component {
 
 function mapStateToProps(state) {
   return {
-    rowsById: clientSelectiors.getClientsById(state),
-    rowsIdArray: clientSelectiors.getClientsIdArray(state)
+    rowsById: clientSelectors.getClientsById(state),
+    rowsIdArray: clientSelectors.getClientsIdArray(state),
+    pageLinks: clientSelectors.getPageLinks(state),
+    currentPage: clientSelectors.getCurrentPage(state)
   };
 }
 
