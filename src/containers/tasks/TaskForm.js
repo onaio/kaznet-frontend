@@ -427,9 +427,6 @@ export class TaskForm extends Component {
 function mapStateToProps(state) {
   return {
     clientsById: clientSelectors.getClientsById(state),
-    clientsIdArray: clientSelectors.getClientsIdArray(state),
-    formsById: formSelectors.getFormsById(state),
-    formsIdArray: formSelectors.getFormsIdArray(state),
     unusedFormsById: formSelectors.getUnusedFormsById(state),
     formContentTypeId: contentTypeSelectors.getFormContentType(state),
     hasError: errorHandlerSelectors.getHasError(state),
