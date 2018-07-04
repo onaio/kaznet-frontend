@@ -125,7 +125,7 @@ export class TasksDetail extends Component {
     if (this.task) {
       if (this.task.attributes.status_display === "Active") {
         actionLinks = {
-          EDIT: "/",
+          EDIT: `/tasks/${this.task.id}/edit`,
           "CREATE A COPY": "/",
           DEACTIVATE: "/",
           "DELETE TASK": "/"
