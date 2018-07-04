@@ -40,7 +40,5 @@ export function getUnusedFormsById(state) {
     return form.id;
   });
 
-  console.log(formsById);
-
   return formsById;
 }
