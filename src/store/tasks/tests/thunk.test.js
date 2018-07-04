@@ -64,11 +64,14 @@ describe("store/tasks/actions", () => {
   it("should post to server to create new task", async () => {
     TaskService.createTask.mockReturnValueOnce(fixtures.singleTask);
     const dispatches = await Thunk(tasks.createTask).execute();
-    expect(dispatches.length).toBe(1);
+    expect(dispatches.length).toBe(2);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.TASK_CREATED,
       taskData: fixtures.singleTask
+    });
+    expect(dispatches[1].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
     });
   });
 
@@ -78,7 +81,11 @@ describe("store/tasks/actions", () => {
     });
     console.error = jest.fn(); // mock the console side effect
     const dispatches = await Thunk(tasks.createTask).execute();
-    expect(dispatches.length).toBe(0);
-    expect(console.error).toHaveBeenCalledWith(Error("oops"));
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_FAILURE,
+      errorMessage: Error("oops")
+    });
   });
 });
