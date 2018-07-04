@@ -20,6 +20,7 @@ import { Redirect } from "react-router-dom";
 import { OptionMap } from "../Select";
 import * as clientActions from "../../store/clients/actions";
 import * as formActions from "../../store/forms/actions";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as contentTypeActions from "../../store/contentTypes/actions";
 import * as clientSelectors from "../../store/clients/reducer";
 import * as formSelectors from "../../store/forms/reducer";
@@ -85,12 +86,11 @@ export class TaskForm extends Component {
               }
             }
           };
-
           try {
-            this.props.service(payload, this.targetId).then(function(results) {
+            this.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
-              if (results.errors) {
-                setErrors(transformMyApiErrors(results.errors));
+              if (this.props.hasError) {
+                setErrors(transformMyApiErrors(this.props.errorMessage));
               } else {
                 setStatus("done");
               }
@@ -431,13 +431,16 @@ function mapStateToProps(state) {
     formsById: formSelectors.getFormsById(state),
     formsIdArray: formSelectors.getFormsIdArray(state),
     unusedFormsById: formSelectors.getUnusedFormsById(state),
-    formContentTypeId: contentTypeSelectors.getFormContentType(state)
+    formContentTypeId: contentTypeSelectors.getFormContentType(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return bindActionCreators(
     {
+      formActionDispatch: ownProps.action,
       fetchClients: clientActions.fetchClients,
       fetchForms: formActions.fetchForms,
       fetchContentTypes: contentTypeActions.fetchContentTypes
