@@ -43,6 +43,12 @@ const transformMyApiErrors = function(array) {
 };
 
 export class TaskForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.targetId = props.targetId || null;
+  }
+
   componentDidMount() {
     this.props.fetchForms();
     this.props.fetchClients();
@@ -57,7 +63,7 @@ export class TaskForm extends Component {
           const payload = {
             data: {
               type: "Task",
-              id: null,
+              id: this.targetId != null ? this.targetId : null,
               attributes: {
                 name: values.name,
                 estimated_time: values.estimated_time * 60,
@@ -81,7 +87,7 @@ export class TaskForm extends Component {
           };
 
           try {
-            this.props.service(payload).then(function(results) {
+            this.props.service(payload, this.targetId).then(function(results) {
               setSubmitting(false);
               if (results.errors) {
                 setErrors(transformMyApiErrors(results.errors));
@@ -395,6 +401,7 @@ export class TaskForm extends Component {
 
                   <RRuleGenerator
                     onChange={rrule => setFieldValue("timing_rule", rrule)}
+                    value={values.timing_rule}
                   />
                 </Col>
               </FormGroup>
@@ -406,7 +413,9 @@ export class TaskForm extends Component {
                 {isSubmitting ? "Activating" : "Activate"}
               </Button>
             </Form>
-            {status === "done" && <Redirect to={"/tasks"} />}
+            {status === "done" && (
+              <Redirect to={this.props.redirectAfterAction} />
+            )}
           </div>
         )}
       />
