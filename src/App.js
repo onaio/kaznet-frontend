@@ -21,7 +21,7 @@ import NoMatch from "./components/NoMatch";
 import TasksList from "./containers/tasks/TasksList";
 
 import FormView from "./components/FormView";
-import TaskForm from "./containers/tasks/TaskForm";
+import TaskCreation from "./containers/tasks/TaskCreation";
 import TasksDetail from "./containers/tasks/TasksDetail";
 import TitleSection from "./containers/global/TitleSection";
 import UsersList from "./containers/users/UsersList";
@@ -43,7 +43,7 @@ moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
-    const TaskFormView = () => <FormView form={TaskForm} />;
+    const TaskCreationFormView = () => <FormView form={TaskCreation} />;
     return (
       <div className="App">
         <ErrorBoundary>
@@ -60,7 +60,7 @@ class App extends Component {
                         <Route
                           exact
                           path="/tasks/new"
-                          component={TaskFormView}
+                          component={TaskCreationFormView}
                         />
                         <Route exact path="/users" component={UsersList} />
                         <Route
