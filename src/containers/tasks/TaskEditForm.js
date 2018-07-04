@@ -5,7 +5,6 @@ import moment from "moment";
 
 import TaskForm from "./TaskForm";
 import FormView from "../../components/FormView";
-import TaskService from "../../services/tasks";
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
@@ -20,7 +19,7 @@ export class TaskEditForm extends Component {
   render() {
     this.task = this.props.taskById;
     if (!this.task) return this.renderLoading();
-    const service = TaskService.editTask;
+    const action = taskActions.editTask;
     const initialData = {
       name: this.task.attributes.name,
       estimated_time: moment
@@ -67,7 +66,7 @@ export class TaskEditForm extends Component {
         form={
           <TaskForm
             initialData={initialData}
-            service={service}
+            action={action}
             targetId={this.props.match.params.id}
             redirectAfterAction={`/tasks/${this.task.id}`}
           />
@@ -77,9 +76,9 @@ export class TaskEditForm extends Component {
   }
 
   renderLoading() {
-    if (this.props.isRetrieving) {
+    if (!this.props.hasError) {
       return <p>Loading...</p>;
-    } else if (this.props.errorMessage) {
+    } else if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
@@ -88,7 +87,7 @@ export class TaskEditForm extends Component {
 function mapStateToProps(state, props) {
   return {
     taskById: taskSelectors.getTaskById(state, props.match.params.id),
-    isRetrieving: errorHandlerSelectors.getIsRetrieving(state),
+    hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
