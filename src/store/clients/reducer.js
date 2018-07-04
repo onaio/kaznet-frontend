@@ -1,15 +1,7 @@
 import _ from "lodash";
-import Immutable from "seamless-immutable";
 
 import * as types from "./actionTypes";
-import { defaultAppState } from "../../constants.js";
-
-const initialState = Immutable(
-  _.merge(defaultAppState, {
-    clientsById: {},
-    clientsIdArray: []
-  })
-);
+import { initialState } from "../../constants";
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
