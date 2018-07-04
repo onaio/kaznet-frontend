@@ -5,7 +5,7 @@ import Moment from "react-moment";
 
 import * as userActions from "../../store/users/actions";
 import * as globalActions from "../../store/global/actions";
-import * as userSelectors from "../../store/users/reducer";
+import * as selectors from "../../store/selectors";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
@@ -71,10 +71,10 @@ export class UsersList extends Component {
 // which props do we want to inject, given the global store state?
 function mapStateToProps(state) {
   return {
-    rowsById: userSelectors.getUsersById(state),
-    rowsIdArray: userSelectors.getUsersIdArray(state),
-    pageLinks: userSelectors.getPageLinks(state),
-    currentPage: userSelectors.getCurrentPage(state)
+    rowsById: selectors.getUsersById(state),
+    rowsIdArray: selectors.getUsersIdArray(state),
+    pageLinks: selectors.getPageLinks(state),
+    currentPage: selectors.getCurrentPage(state)
   };
 }
 

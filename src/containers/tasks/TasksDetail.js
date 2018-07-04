@@ -5,7 +5,7 @@ import Moment from "react-moment";
 import { rrulestr } from "rrule";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
-import * as taskSelectors from "../../store/tasks/reducer";
+import * as selectors from "../../store/selectors";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
@@ -146,8 +146,9 @@ export class TasksDetail extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    taskById: taskSelectors.getTaskById(state, props.match.params.id),
+    taskById: selectors.getTaskById(state, props.match.params.id),
     hasError: errorHandlerSelectors.getHasError(state),
+    isRetrieving: errorHandlerSelectors.getIsRetrieving(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }

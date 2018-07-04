@@ -1,7 +1,5 @@
-import _ from "lodash";
-
 import * as types from "./actionTypes";
-import { initialState } from "../../constants";
+import { initialState } from "../state";
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
@@ -37,51 +35,3 @@ export default function reduce(state = initialState, action = {}) {
       return state;
   }
 }
-
-function getClientsById(state) {
-  return state.clients.clientsById;
-}
-
-function getClientsIdArray(state) {
-  return _.keys(state.clients.clientsById);
-}
-
-function getClientById(state, id) {
-  return _.get(state.clients.clientsById, id);
-}
-
-function getPageLinks(state, props) {
-  return state.tasks.pageLinks;
-}
-
-function getCurrentPage(state, props) {
-  return state.tasks.currentPage;
-}
-
-function getFirstPage(state, props) {
-  return state.tasks.pageLinks.first;
-}
-
-function getNextPage(state, props) {
-  return state.tasks.pageLinks.next;
-}
-
-function getPreviousPage(state, props) {
-  return state.tasks.pageLinks.prev;
-}
-
-function getLastPage(state, props) {
-  return state.tasks.pageLinks.last;
-}
-
-export {
-  getClientById,
-  getClientsById,
-  getClientsIdArray,
-  getPageLinks,
-  getCurrentPage,
-  getFirstPage,
-  getNextPage,
-  getPreviousPage,
-  getLastPage
-};
