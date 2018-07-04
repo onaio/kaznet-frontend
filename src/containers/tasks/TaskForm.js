@@ -24,7 +24,6 @@ import * as contentTypeActions from "../../store/contentTypes/actions";
 import * as clientSelectors from "../../store/clients/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
-import TaskService from "../../services/tasks";
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -53,18 +52,7 @@ export class TaskForm extends Component {
   render() {
     return (
       <Formik
-        initialValues={{
-          name: "",
-          estimated_time: "15",
-          start: moment().format("YYYY-MM-DD"),
-          end: moment().format("YYYY-MM-DD"),
-          description: "",
-          required_expertise: "1",
-          timing_rule: "",
-          status: "d",
-          user_submission_target: 10,
-          amount: ""
-        }}
+        initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -92,9 +80,8 @@ export class TaskForm extends Component {
             }
           };
 
-          console.log(payload);
           try {
-            TaskService.createTask(payload).then(function(results) {
+            this.props.service(payload).then(function(results) {
               setSubmitting(false);
               if (results.errors) {
                 setErrors(transformMyApiErrors(results.errors));
