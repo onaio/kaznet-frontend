@@ -28,6 +28,8 @@ export class LocationsList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          pageLinks={this.props.pageLinks}
+          currentPage={this.props.currentPage}
         />
       </div>
     );
@@ -56,7 +58,9 @@ export class LocationsList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: locationSelectors.getLocationsById(state),
-    rowsIdArray: locationSelectors.getLocationsIdArray(state)
+    rowsIdArray: locationSelectors.getLocationsIdArray(state),
+    pageLinks: locationSelectors.getPageLinks(state),
+    currentPage: locationSelectors.getCurrentPage(state)
   };
 }
 
