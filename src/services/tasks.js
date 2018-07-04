@@ -47,12 +47,13 @@ class TaskService {
     }
     const apiResponse = await response.json();
     if (response.status === 400) {
-      return apiResponse;
+      throw apiResponse.errors;
     }
     const data = _.get(apiResponse, "data");
     if (!data) {
       throw new Error(`TaskService createTask failed, data not returned`);
     }
+
     return data;
   }
 
@@ -78,7 +79,7 @@ class TaskService {
     const apiResponse = await response.json();
 
     if (response.status === 400) {
-      return apiResponse;
+      throw apiResponse.errors;
     }
 
     const data = _.get(apiResponse, "data");
