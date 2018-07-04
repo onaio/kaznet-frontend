@@ -27,6 +27,8 @@ export class UsersList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          pageLinks={this.props.pageLinks}
+          currentPage={this.props.currentPage}
         />
       </div>
     );
@@ -70,7 +72,9 @@ export class UsersList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: userSelectors.getUsersById(state),
-    rowsIdArray: userSelectors.getUsersIdArray(state)
+    rowsIdArray: userSelectors.getUsersIdArray(state),
+    pageLinks: userSelectors.getPageLinks(state),
+    currentPage: userSelectors.getCurrentPage(state)
   };
 }
 
