@@ -4,9 +4,14 @@ import Immutable from "seamless-immutable";
 
 import * as types from "./actionTypes";
 
-import { defaultPageState } from "../../constants.js";
+import { defaultAppState } from "../../constants.js";
 
-const initialState = Immutable(defaultPageState);
+const initialState = Immutable(
+  _.merge(defaultAppState, {
+    tasksById: {},
+    tasksIdArray: []
+  })
+);
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
