@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import moment from "moment";
 
-import TaskService from "../../services/tasks";
+import * as taskActions from "../../store/tasks/actions";
 import TaskForm from "./TaskForm";
 import FormView from "../../components/FormView";
 
 export default class TaskCreation extends Component {
   render() {
-    const service = TaskService.createTask;
+    const action = taskActions.createTask;
     const initialData = {
       name: "",
       estimated_time: "15",
@@ -26,7 +26,7 @@ export default class TaskCreation extends Component {
         form={
           <TaskForm
             initialData={initialData}
-            service={service}
+            action={action}
             redirectAfterAction="/tasks"
           />
         }
