@@ -15,9 +15,7 @@ import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class TasksList extends Component {
-
   async componentDidMount() {
-
     const pageLinks = this.props.pageLinks;
     // what if page is null because we are at the root i.e tasks/
     const page = queryString.parse(this.props.location.search).page;
@@ -50,7 +48,6 @@ export class TasksList extends Component {
       }
     } else {
       if (Number(page) !== this.props.currentPage) {
-        const currentPageURL = this.props.pageLinks.next;
         this.props.fetchTasks(`${constants.API_ENDPOINT}/tasks/?page=${page}`);
       }
     }

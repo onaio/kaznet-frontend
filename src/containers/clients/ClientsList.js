@@ -13,7 +13,6 @@ import ElementMap from "../ElementMap";
 
 export class ClientsList extends Component {
   componentDidMount() {
-    const pageLinks = this.props.pageLinks;
     this.props.showListTitle();
     this.props.fetchClients();
     this.props.changePageTitle("Clients");

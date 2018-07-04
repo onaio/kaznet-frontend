@@ -3,18 +3,9 @@ import _ from "lodash";
 import Immutable from "seamless-immutable";
 
 import * as types from "./actionTypes";
+import { defaultPageState } from "../../constants.js";
 
-const initialState = Immutable({
-  usersById: {},
-  usersIdArray: [],
-  currentPage: 1,
-  pageLinks: {
-    first: null,
-    last: null,
-    prev: null,
-    next: null
-  }
-});
+const initialState = Immutable(defaultPageState);
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
@@ -28,35 +19,45 @@ export default function reduce(state = initialState, action = {}) {
 }
 
 // selectors
-
-export function getUsersById(state) {
+function getUsersById(state) {
   return state.users.usersById;
 }
 
-export function getUsersIdArray(state) {
+function getUsersIdArray(state) {
   return _.keys(state.users.usersById);
 }
 
-export function getPageLinks(state, props) {
+function getPageLinks(state, props) {
   return state.tasks.pageLinks;
 }
 
-export function getCurrentPage(state, props) {
+function getCurrentPage(state, props) {
   return state.tasks.currentPage;
 }
 
-export function getFirstPage(state, props) {
+function getFirstPage(state, props) {
   return state.tasks.pageLinks.first;
 }
 
-export function getNextPage(state, props) {
+function getNextPage(state, props) {
   return state.tasks.pageLinks.next;
 }
 
-export function getPreviousPage(state, props) {
+function getPreviousPage(state, props) {
   return state.tasks.pageLinks.prev;
 }
 
-export function getLastPage(state, props) {
+function getLastPage(state, props) {
   return state.tasks.pageLinks.last;
 }
+
+export {
+  getUsersById,
+  getUsersIdArray,
+  getPageLinks,
+  getCurrentPage,
+  getFirstPage,
+  getNextPage,
+  getPreviousPage,
+  getLastPage
+};
