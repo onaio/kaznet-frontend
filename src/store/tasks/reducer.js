@@ -1,8 +1,16 @@
 // Tasks reducer
+import _ from "lodash";
 import Immutable from "seamless-immutable";
 
 import * as types from "./actionTypes";
-import { initialState } from "../state";
+import { defaultAppState } from "../state";
+
+const initialState = Immutable(
+  _.merge(defaultAppState, {
+    tasksById: {},
+    tasksIdArray: []
+  })
+);
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {

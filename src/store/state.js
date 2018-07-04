@@ -1,14 +1,4 @@
-import Immutable from "seamless-immutable";
-
 const defaultAppState = {
-  locationsById: {},
-  locationsIdArray: [],
-  clientsById: {},
-  clientsIdArray: [],
-  tasksById: {},
-  tasksIdArray: [],
-  usersById: {},
-  usersIdArray: [],
   currentPage: 1,
   pageLinks: {
     first: null,
@@ -18,6 +8,4 @@ const defaultAppState = {
   }
 };
 
-const initialState = Immutable(defaultAppState);
-
-export { initialState };
+export { defaultAppState };
