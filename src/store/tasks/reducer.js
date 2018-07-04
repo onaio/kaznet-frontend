@@ -10,7 +10,7 @@ const initialState = Immutable({
   currentPage: 1,
   pageLinks: {
     first: null,
-    last: "http://127.0.0.1:8000/api/v1/tasks/?page=5",
+    last: null,
     prev: null,
     next: null
   }

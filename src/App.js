@@ -60,10 +60,11 @@ class App extends Component {
                     <Col>
                       <Switch>
                         <Route exact path="/tasks" component={TasksList} />
+                        <Route exact path="/tasks:page" component={TasksList} />
                         <Route
                           exact
-                          path="/tasks:page(first|prev|next|last)"
-                          component={TasksList}
+                          path="/tasks/:id"
+                          component={TasksDetail}
                         />
                         <Route
                           exact

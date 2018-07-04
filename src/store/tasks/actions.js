@@ -29,9 +29,9 @@ export function fetchTasks(url) {
   };
 }
 
-export function changePageNumber(number) {
+export function changePageNumber(pageNumber) {
   return async (dispatch, getState) => {
-    dispatch({ type: types.TASK_CHANGE_PAGE, number });
+    dispatch({ type: types.TASK_CHANGE_PAGE, pageNumber });
   };
 }
 

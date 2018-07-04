@@ -43,7 +43,11 @@ export default class ListView extends Component {
         </PaginationItem>
         <PaginationItem disabled={this.props.pageLinks.prev ? false : true}>
           <Link
-            to={this.props.pageLinks.prev ? "/tasks/?page=prev" : "#"}
+            to={
+              this.props.pageLinks.prev
+                ? `/tasks/?page=${this.props.currentPage - 1}`
+                : "#"
+            }
             className="page-link"
             aria-label="Previous"
           >
@@ -52,7 +56,11 @@ export default class ListView extends Component {
         </PaginationItem>
         <PaginationItem disabled={this.props.pageLinks.next ? false : true}>
           <Link
-            to={this.props.pageLinks.next ? "/tasks/?page=next" : "#"}
+            to={
+              this.props.pageLinks.next
+                ? `/tasks/?page=${this.props.currentPage + 1}`
+                : "#"
+            }
             className="page-link"
             aria-label="Next"
           >
