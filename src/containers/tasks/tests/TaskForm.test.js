@@ -17,7 +17,7 @@ describe("containers/task/TasksList", () => {
     );
   });
 
-  it("renderes task form correctly", () => {
+  it("renders task form correctly", () => {
     const forms = {
       1: { attributes: { title: "name" } }
     };
