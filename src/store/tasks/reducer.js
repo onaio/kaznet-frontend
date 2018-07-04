@@ -16,13 +16,13 @@ export default function reduce(state = initialState, action = {}) {
         tasksById: action.tasksById
       });
     case types.TASK_CREATED:
-      return {
+      return Immutable({
         ...state,
         tasksById: {
           ...state.tasksById,
           [action.taskData.id]: action.taskData
         }
-      };
+      });
     case types.TASK_FETCHED:
       const data = action.taskData.data;
 
@@ -35,6 +35,14 @@ export default function reduce(state = initialState, action = {}) {
           [data.id]: data
         }
       });
+    case types.TASK_EDITED:
+      return {
+        ...state,
+        tasksById: {
+          ...state.tasksById,
+          [action.taskData.id]: action.taskData
+        }
+      };
     default:
       return state;
   }
