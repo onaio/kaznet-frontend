@@ -22,6 +22,14 @@ export default function reduce(state = initialState, action = {}) {
           [action.clientData.id]: action.clientData
         }
       });
+    case types.CLIENT_EDITED:
+      return Immutable({
+        ...state,
+        clientsById: {
+          ...state.clientsById,
+          [action.clientData.id]: action.clientData
+        }
+      });
     default:
       return state;
   }
