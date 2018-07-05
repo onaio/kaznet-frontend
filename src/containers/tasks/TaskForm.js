@@ -82,6 +82,7 @@ export class TaskForm extends Component {
                     : this.props.initialData.status,
                 target_id: values.form,
                 target_content_type: this.props.formContentTypeId,
+                amount: values.amount,
                 client:
                   values.client != null
                     ? { type: "Client", id: values.client }
