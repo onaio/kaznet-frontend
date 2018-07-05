@@ -53,3 +53,5 @@ export const formsArray = _.map(formData.data, form => {
 export const formsById = _.keyBy(formsArray, form => form.id);
 
 export const formsIdArray = _.keys(formsById);
+
+export const formIdOneById = _.get(formsById, 1);
