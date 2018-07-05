@@ -61,7 +61,7 @@ class ClientService {
   }
 
   async editClient(client_data, id) {
-    const url = `${constants.API_TOKEN}/clients/${id}`;
+    const url = `${constants.API_ENDPOINT}/clients/${id}/`;
     const response = await fetch(url, {
       method: "PATCH",
       headers: {
