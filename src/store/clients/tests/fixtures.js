@@ -32,7 +32,8 @@ export const singleClientData = {
     type: "Client",
     id: "1",
     attributes: {
-      name: "Client1"
+      name: "Sol",
+      created: "2018-06-21T13:51:54.011373+03:00"
     }
   }
 };
@@ -41,7 +42,8 @@ export const singleClient = {
   type: "Client",
   id: "1",
   attributes: {
-    name: "Client1"
+    name: "Sol",
+    created: "2018-06-21T13:51:54.011373+03:00"
   }
 };
 
