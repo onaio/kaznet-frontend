@@ -52,3 +52,5 @@ export const clientsArray = _.map(clientData.data, client => {
 export const clientsById = _.keyBy(clientsArray, client => client.id);
 
 export const clientsIdArray = _.keys(clientsById);
+
+export const clientById = _.get(clientsById, 1);
