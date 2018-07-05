@@ -2,7 +2,6 @@ import _ from "lodash";
 import Immutable from "seamless-immutable";
 
 import * as types from "./actionTypes";
-import { __generator } from "tslib";
 
 const initialState = Immutable({
   clientsById: {},
