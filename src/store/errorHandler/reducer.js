@@ -26,8 +26,8 @@ export default function reduce(state = initialState, action = {}) {
 
 // Error Handler Selectors
 
-export function getIsRetrieving(state) {
-  return !state.errorHandler.errors;
+export function getHasError(state) {
+  return state.errorHandler.errors;
 }
 
 export function getErrorMessage(state) {
