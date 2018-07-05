@@ -3,12 +3,17 @@
 exports[`containers/task/ClientForm renders client form correctly 1`] = `
 <ClientForm
   formActionDispatch={[Function]}
+  initialData={
+    Object {
+      "name": "Hi",
+    }
+  }
 >
   <Formik
     enableReinitialize={false}
     initialValues={
       Object {
-        "name": "",
+        "name": "Hi",
       }
     }
     isInitialValid={false}
@@ -58,7 +63,7 @@ exports[`containers/task/ClientForm renders client form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Client Name"
                     type="text"
-                    value=""
+                    value="Hi"
                   >
                     <input
                       aria-label="name"
@@ -68,7 +73,7 @@ exports[`containers/task/ClientForm renders client form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Client Name"
                       type="text"
-                      value=""
+                      value="Hi"
                     />
                   </Input>
                 </div>
