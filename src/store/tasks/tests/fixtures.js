@@ -306,3 +306,18 @@ export const singleTaskArray = _.map(singleTaskData, task => {
 });
 
 export const singleTaskById = _.keyBy(singleTaskArray, task => task.id);
+
+export const TaskFormInitialData = {
+  amount: 55,
+  client: "7",
+  descripton: undefined,
+  end: "2019-01-30",
+  estimated_time: 15,
+  form: 1,
+  name: "Awesome Task",
+  required_expertise: "1",
+  start: "2018-06-21",
+  status: "a",
+  timing_rule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+  user_submission_target: 100
+};
