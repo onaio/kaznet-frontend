@@ -19,10 +19,16 @@ import "./TasksDetail.css";
 export class TasksDetail extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
-    this.props.changeTaskStatus(null);
     this.props.changePageTitle(`Tasks`);
     this.props.changePageTarget("/tasks");
-    this.props.showDetailTitle();
+    if (this.task) {
+      this.props.showDetailTitle(this.task.attributes.name);
+      this.props.changeTaskStatus(this.task.attributes.status_display);
+      this.props.setActionLinks(this.renderActionLinks());
+    } else {
+      this.props.showDetailTitle();
+      this.props.changeTaskStatus();
+    }
     this.props.setActionLinks(this.renderActionLinks());
   }
 
