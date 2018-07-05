@@ -132,7 +132,7 @@ export class TasksDetail extends Component {
         };
       } else {
         actionLinks = {
-          EDIT: "/",
+          EDIT: `/tasks/${this.task.id}/edit`,
           "CREATE A COPY": "/",
           ACTIVATE: "/",
           "DELETE TASK": "/"
