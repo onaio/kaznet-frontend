@@ -15,13 +15,13 @@ export default function reduce(state = initialState, action = {}) {
         clientsById: action.clientsById
       });
     case types.CLIENT_CREATED:
-      return {
+      return Immutable({
         ...state,
         clientsById: {
           ...state.clientsById,
           [action.clientData.id]: action.clientData
         }
-      };
+      });
     default:
       return state;
   }
