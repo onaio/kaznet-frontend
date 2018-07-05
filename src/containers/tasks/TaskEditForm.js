@@ -20,6 +20,18 @@ export class TaskEditForm extends Component {
     this.task = this.props.taskById;
     if (!this.task) return this.renderLoading();
     const action = taskActions.editTask;
+    var status = this.task.attributes.status;
+
+    if (status === "Deactivated") {
+      status = "b";
+    } else if (status === "Expired") {
+      status = "c";
+    } else if (status === "Scheduled") {
+      status = "s";
+    } else if (status === "Archived") {
+      status = "e";
+    }
+
     const initialData = {
       name: this.task.attributes.name,
       estimated_time: moment
@@ -42,14 +54,14 @@ export class TaskEditForm extends Component {
         this.task.attributes.timing_rule != null
           ? this.task.attributes.timing_rule
           : undefined,
-      status: this.task.attributes.status,
+      status: status,
       user_submission_target:
         this.task.attributes.user_submission_target != null
           ? this.task.attributes.user_submission_target
           : undefined,
       amount:
         this.task.attributes.current_bounty_amount != null
-          ? this.task.attributes.current_bounty_amount
+          ? parseInt(this.task.attributes.current_bounty_amount, 10)
           : undefined,
       form:
         this.task.attributes.target_id != null
