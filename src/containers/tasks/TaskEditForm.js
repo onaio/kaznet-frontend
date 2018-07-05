@@ -45,7 +45,7 @@ export class TaskEditForm extends Component {
       end: moment(
         this.task.attributes.end != null ? this.task.attributes.end : undefined
       ).format("YYYY-MM-DD"),
-      descripton:
+      description:
         this.task.attributes.descripton != null
           ? this.task.attributes.descripton
           : undefined,
