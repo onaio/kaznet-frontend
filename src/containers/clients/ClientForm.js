@@ -25,17 +25,23 @@ const transformMyApiErrors = function(array) {
 };
 
 export class ClientForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.targetId = props.targetId || null;
+  }
+
   render() {
     return (
       <Formik
         initialValues={{
-          name: ""
+          name: this.props.initialData.name || null
         }}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
               type: "Client",
-              id: null,
+              id: this.targetId != null ? this.targetId : null,
               attributes: {
                 name: values.name
               }
