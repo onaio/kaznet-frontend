@@ -28,6 +28,7 @@ import UsersList from "./containers/users/UsersList";
 import LocationsList from "./containers/locations/LocationsList";
 import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
+import ClientEditForm from "./containers/clients/ClientEditForm";
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
@@ -77,6 +78,11 @@ class App extends Component {
                           exact
                           path="/clients/new"
                           component={ClientCreateForm}
+                        />
+                        <Route
+                          exact
+                          path="/clients/edit/:id"
+                          component={ClientEditForm}
                         />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />
