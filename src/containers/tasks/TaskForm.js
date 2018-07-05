@@ -76,7 +76,10 @@ export class TaskForm extends Component {
                   values.timing_rule !== "" ? values.timing_rule : undefined,
                 total_submission_target: undefined,
                 user_submission_target: values.user_submission_target,
-                status: values.status,
+                status:
+                  values.status !== this.props.initialData.status
+                    ? values.status
+                    : this.props.initialData.status,
                 target_id: values.form,
                 target_content_type: this.props.formContentTypeId,
                 client:
@@ -86,6 +89,7 @@ export class TaskForm extends Component {
               }
             }
           };
+
           try {
             this.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
@@ -219,6 +223,7 @@ export class TaskForm extends Component {
                   >
                     <OptionMap
                       obj={this.props.unusedFormsById}
+                      additionalObj={this.props.currentForm}
                       titleField="title"
                     />
                   </Input>
@@ -424,10 +429,11 @@ export class TaskForm extends Component {
 }
 
 // which props do we want to inject, given the global store state?
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
     clientsById: clientSelectors.getClientsById(state),
     unusedFormsById: formSelectors.getUnusedFormsById(state),
+    currentForm: formSelectors.getFormById(state, ownProps.initialData.form),
     formContentTypeId: contentTypeSelectors.getFormContentType(state),
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
