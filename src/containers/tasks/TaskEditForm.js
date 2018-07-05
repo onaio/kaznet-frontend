@@ -53,7 +53,7 @@ export class TaskEditForm extends Component {
       timing_rule:
         this.task.attributes.timing_rule != null
           ? this.task.attributes.timing_rule
-          : undefined,
+          : "",
       status: status,
       user_submission_target:
         this.task.attributes.user_submission_target != null
