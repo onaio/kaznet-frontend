@@ -50,7 +50,7 @@ class ClientService {
 
     const apiResponse = await response.json();
     if (response.status === 400) {
-      return apiResponse;
+      throw apiResponse.errors;
     }
     const data = _.get(apiResponse, "data");
 
