@@ -16,6 +16,7 @@ export class ClientsList extends Component {
     this.props.fetchClients();
     this.props.changePageTitle("Clients");
     this.props.changePageTitleButton("+ Add Client");
+    this.props.changePageTarget("/clients/new");
   }
 
   render() {
@@ -65,6 +66,7 @@ function mapDispatchToProps(dispatch) {
       fetchClients: clientActions.fetchClients,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
+      changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff
     },
     dispatch
