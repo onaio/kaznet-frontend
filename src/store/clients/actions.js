@@ -37,8 +37,23 @@ export function editClient(client_data, client_id) {
   return async (dispatch, getState) => {
     try {
       const clientData = await clientService.editClient(client_data, client_id);
-      dispatch({ type: types.CLIENT_EDITED, clientData });
       dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+      dispatch({ type: types.CLIENT_EDITED, clientData });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+export function getClient(client_id) {
+  return async (dispatch, getState) => {
+    try {
+      const clientData = await clientService.getClient(client_id);
+      dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+      dispatch({ type: types.CLIENT_FETCHED, clientData });
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
