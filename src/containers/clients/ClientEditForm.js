@@ -20,12 +20,18 @@ export class ClientEditForm extends Component {
     if (!this.client) return this.renderLoading();
     const action = clientActions.editClient;
     const initialData = {
-      name: this.client.name
+      name: this.client.attributes.name
     };
 
     return (
       <FormView
-        form={<ClientForm action={action} initialData={initialData} />}
+        form={
+          <ClientForm
+            action={action}
+            initialData={initialData}
+            targetId={this.client.id}
+          />
+        }
       />
     );
   }

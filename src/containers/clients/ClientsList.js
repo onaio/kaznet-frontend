@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 import * as clientActions from "../../store/clients/actions";
@@ -44,7 +45,9 @@ export class ClientsList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      row.attributes.name,
+      <Link to={`/clients/edit/${row.id}`} key="link_to">
+        {row.attributes.name}
+      </Link>,
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.created}
       </Moment>

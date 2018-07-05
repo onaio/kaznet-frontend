@@ -35,7 +35,10 @@ export class ClientForm extends Component {
     return (
       <Formik
         initialValues={{
-          name: this.props.initialData.name || null
+          name:
+            this.props.initialData.name != null
+              ? this.props.initialData.name
+              : null
         }}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
@@ -49,7 +52,7 @@ export class ClientForm extends Component {
           };
 
           try {
-            this.props.formActionDispatch(payload).then(() => {
+            this.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
