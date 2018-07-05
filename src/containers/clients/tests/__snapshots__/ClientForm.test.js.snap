@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/task/ClientForm renders client form correctly 1`] = `
+exports[`containers/client/ClientForm renders client form correctly 1`] = `
 <ClientForm
   formActionDispatch={[Function]}
   initialData={

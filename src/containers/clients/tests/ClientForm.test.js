@@ -5,7 +5,7 @@ import toJson from "enzyme-to-json";
 
 import { ClientForm } from "../ClientForm";
 
-describe("containers/task/ClientForm", () => {
+describe("containers/client/ClientForm", () => {
   it("renders without crashing", () => {
     const initialData = { name: "Hi" };
     shallow(
