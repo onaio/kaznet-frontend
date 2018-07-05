@@ -68,4 +68,24 @@ describe("services/clients", () => {
       new Error("ClientService editClient failed, HTTP status 500")
     );
   });
+
+  it("should fetch client", async () => {
+    const data = fixtures.singleClientData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await ClientService.getClient(1);
+    expect(response).toEqual(fixtures.singleClient);
+  });
+
+  it("should handle fetch client http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await ClientService.getClient(1);
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("ClientService getClient failed, HTTP status 500")
+    );
+  });
 });
