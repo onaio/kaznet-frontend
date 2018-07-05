@@ -70,10 +70,10 @@ describe("services/tasks", () => {
   });
 
   it("should fetch task", async () => {
-    const data = fixtures.taskData;
+    const data = fixtures.singleTaskData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await TaskService.getTask(1);
-    expect(response).toEqual(fixtures.taskData);
+    expect(response).toEqual(fixtures.singleTask);
   });
 
   it("should handle get task http errors", async () => {

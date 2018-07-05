@@ -23,7 +23,7 @@ describe("store/tasks/reducer", () => {
   });
 
   it("should store fetched task", () => {
-    const taskData = fixtures.singleTaskData;
+    const taskData = fixtures.singleTask;
     const action = { type: actionTypes.TASK_FETCHED, taskData };
 
     const existingState = Immutable(initialState);
