@@ -12,6 +12,7 @@ describe("containers/clients/ClientsList", () => {
         fetchClients={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageTarget={function() {}}
         showListTitle={function() {}}
       />
     );
@@ -23,6 +24,7 @@ describe("containers/clients/ClientsList", () => {
         fetchClients={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageTarget={function() {}}
         showListTitle={function() {}}
         rowsById={fixtures.clientsById}
         rowsIdArray={fixtures.clientsIdArray}

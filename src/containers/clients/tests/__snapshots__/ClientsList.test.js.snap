@@ -2,6 +2,7 @@
 
 exports[`containers/clients/ClientsList renders client list correctly 1`] = `
 <ClientsList
+  changePageTarget={[Function]}
   changePageTitle={[Function]}
   changePageTitleButton={[Function]}
   fetchClients={[Function]}
