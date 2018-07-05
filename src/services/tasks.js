@@ -106,11 +106,17 @@ class TaskService {
       );
     }
 
-    const data = await response.json();
+    const apiResponse = await response.json();
 
-    if (!data) {
-      throw new Error(`TaskService getTaskList failed, data not returned`);
+    if (response.status === 400) {
+      throw apiResponse.errors;
     }
+
+    const data = _.get(apiResponse, "data");
+    if (!data) {
+      throw new Error("TaskService getTask failed, data not returned");
+    }
+
     return data;
   }
 }
