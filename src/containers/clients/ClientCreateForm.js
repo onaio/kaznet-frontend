@@ -7,7 +7,13 @@ import FormView from "../../components/FormView";
 export default class ClientCreateForm extends Component {
   render() {
     const action = clientActions.createClient;
-
-    return <FormView form={<ClientForm action={action} />} />;
+    const initialData = {
+      name: ""
+    };
+    return (
+      <FormView
+        form={<ClientForm action={action} initialData={initialData} />}
+      />
+    );
   }
 }
