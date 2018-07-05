@@ -57,7 +57,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchClient: clientActions.getClient,
-      noTitle: globalActions.toggleDetailTitleOff
+      noTitle: globalActions.toggleTitleOff
     },
     dispatch
   );
