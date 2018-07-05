@@ -59,6 +59,39 @@ class ClientService {
     }
     return data;
   }
+
+  async editClient(client_data, id) {
+    const url = `${constants.API_TOKEN}/clients/${id}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/vnd.api+json",
+        "content-type": "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      },
+      body: JSON.stringify(client_data),
+      cache: "no-cache"
+    });
+
+    if (!response.ok && response.status !== 400) {
+      throw new Error(
+        `ClientService editClient failed, HTTP status ${response.status}`
+      );
+    }
+
+    const apiResponse = await response.json();
+
+    if (response.status === 400) {
+      throw apiResponse.errors;
+    }
+
+    const data = _.get(apiResponse, "data");
+    if (!data) {
+      throw new Error("ClientService editClient failed, data not returned");
+    }
+
+    return data;
+  }
 }
 
 export default new ClientService();
