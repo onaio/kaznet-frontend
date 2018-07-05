@@ -27,6 +27,24 @@ export const clientData = {
   }
 };
 
+export const singleClientData = {
+  data: {
+    type: "Client",
+    id: "1",
+    attributes: {
+      name: "Client1"
+    }
+  }
+};
+
+export const singleClient = {
+  type: "Client",
+  id: "1",
+  attributes: {
+    name: "Client1"
+  }
+};
+
 export const clientsArray = _.map(clientData.data, client => {
   return client;
 });

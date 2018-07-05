@@ -28,4 +28,24 @@ describe("services/clients", () => {
       new Error("ClientService getClientList failed, HTTP status 500")
     );
   });
+
+  it("should create a client", async () => {
+    const data = fixtures.singleClientData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await ClientService.createClient();
+    expect(response).toEqual(fixtures.singleClient);
+  });
+
+  it("should handle create client http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await ClientService.createClient();
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("ClientService createClient failed, HTTP status 500")
+    );
+  });
 });
