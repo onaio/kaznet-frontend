@@ -55,7 +55,7 @@ class ClientService {
     const data = _.get(apiResponse, "data");
 
     if (!data) {
-      throw new Error(`ClientService createData failed, data not returned`);
+      throw new Error(`ClientService createClient failed, data not returned`);
     }
     return data;
   }
