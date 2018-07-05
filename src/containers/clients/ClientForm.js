@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Form, FormGroup, Col, Input, Button } from "reactstrap";
 
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
+
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
@@ -98,6 +100,13 @@ export class ClientForm extends Component {
   }
 }
 
+function mapStateToProps(state, ownProps) {
+  return {
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
+  };
+}
+
 function mapDisptachToProps(dispatch, ownProps) {
   return bindActionCreators(
     {
@@ -107,4 +116,7 @@ function mapDisptachToProps(dispatch, ownProps) {
   );
 }
 
-export default connect(mapDisptachToProps)(ClientForm);
+export default connect(
+  mapStateToProps,
+  mapDisptachToProps
+)(ClientForm);
