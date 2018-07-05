@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/task/TasksList renders task form correctly 1`] = `
+exports[`containers/task/TaskForm renders task form correctly 1`] = `
 <TaskForm
   clientsById={
     Object {

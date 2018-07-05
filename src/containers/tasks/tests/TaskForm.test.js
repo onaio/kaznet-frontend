@@ -6,7 +6,7 @@ import toJson from "enzyme-to-json";
 import { TaskForm } from "../TaskForm";
 import * as fixtures from "../../../store/tasks/tests/fixtures";
 
-describe("containers/task/TasksList", () => {
+describe("containers/task/TaskForm", () => {
   it("renders without crashing", () => {
     shallow(
       <TaskForm
