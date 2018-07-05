@@ -61,9 +61,9 @@ export class TasksDetail extends Component {
   }
 
   renderLoading() {
-    if (this.props.isRetrieving) {
+    if (!this.props.hasError) {
       return <p>Loading...</p>;
-    } else if (this.props.errorMessage) {
+    } else if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
@@ -147,7 +147,7 @@ export class TasksDetail extends Component {
 function mapStateToProps(state, props) {
   return {
     taskById: taskSelectors.getTaskById(state, props.match.params.id),
-    isRetrieving: errorHandlerSelectors.getIsRetrieving(state),
+    hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
