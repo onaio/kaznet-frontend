@@ -20,7 +20,7 @@ import NoMatch from "./components/NoMatch";
 
 import TasksList from "./containers/tasks/TasksList";
 
-import TaskCreation from "./containers/tasks/TaskCreation";
+import TaskCreateForm from "./containers/tasks/TaskCreateForm";
 import TaskEditForm from "./containers/tasks/TaskEditForm";
 import TasksDetail from "./containers/tasks/TasksDetail";
 import TitleSection from "./containers/global/TitleSection";
@@ -59,7 +59,7 @@ class App extends Component {
                         <Route
                           exact
                           path="/tasks/new"
-                          component={TaskCreation}
+                          component={TaskCreateForm}
                         />
                         <Route
                           exact

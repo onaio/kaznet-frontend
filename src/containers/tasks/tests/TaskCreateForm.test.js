@@ -1,16 +1,15 @@
 // Test TaskCreation
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import moment from "moment";
-import toJson from "enzyme-to-json";
 
-import TaskCreation from "../TaskCreation";
+import { TaskCreateForm } from "../TaskCreateForm";
 import FormView from "../../../components/FormView";
 import TaskForm from "../TaskForm";
 
 describe("containers/task/TaskCreation", () => {
   it("renders without crashing", () => {
-    shallow(<TaskCreation />);
+    shallow(<TaskCreateForm noTitle={function() {}} />);
   });
 
   it("renders both Form View and TaskForm with correct Data", () => {
@@ -26,7 +25,7 @@ describe("containers/task/TaskCreation", () => {
       user_submission_target: 10,
       amount: ""
     };
-    const wrapper = shallow(<TaskCreation />).dive();
+    const wrapper = shallow(<TaskCreateForm noTitle={function() {}} />).dive();
     expect(wrapper.find(FormView)).toHaveLength(0);
     expect(wrapper.find(TaskForm)).toHaveLength(1);
     const data = wrapper.find(TaskForm).props().initialData;

@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import * as taskActions from "../../store/tasks/actions";
 import TaskForm from "./TaskForm";
 import FormView from "../../components/FormView";
+import * as globalActions from "../../store/global/actions";
 
-export default class TaskCreation extends Component {
+export class TaskCreateForm extends Component {
+  componentDidMount() {
+    this.props.noTitle();
+  }
+
   render() {
     const action = taskActions.createTask;
     const initialData = {
@@ -34,3 +41,17 @@ export default class TaskCreation extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      noTitle: globalActions.toggleTitleOff
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(TaskCreateForm);
