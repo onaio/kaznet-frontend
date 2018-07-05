@@ -1,7 +1,6 @@
 //Test TaskEditForm
 import React from "react";
 import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
 
 import * as fixtures from "../../../store/tasks/tests/fixtures";
 import { TaskEditForm } from "../TaskEditForm";
@@ -24,20 +23,6 @@ describe("containers/task/TaskEditForm", () => {
   });
 
   it("renders both Form View and TaskForm with correct Data", () => {
-    const initialData = {
-      amount: 55,
-      client: "7",
-      descripton: undefined,
-      end: "2019-01-30",
-      estimated_time: 15,
-      form: 1,
-      name: "Awesome Task",
-      required_expertise: "1",
-      start: "2018-06-21",
-      status: "a",
-      timing_rule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-      user_submission_target: 100
-    };
     const wrapper = shallow(
       <TaskEditForm
         match={{
@@ -54,6 +39,6 @@ describe("containers/task/TaskEditForm", () => {
     expect(wrapper.find(FormView)).toHaveLength(0);
     expect(wrapper.find(TaskForm)).toHaveLength(1);
     const data = wrapper.find(TaskForm).props().initialData;
-    expect(data).toEqual(initialData);
+    expect(data).toEqual(fixtures.TaskFormInitialData);
   });
 });

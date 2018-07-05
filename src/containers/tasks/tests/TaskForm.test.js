@@ -4,6 +4,7 @@ import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 
 import { TaskForm } from "../TaskForm";
+import * as fixtures from "../../../store/tasks/tests/fixtures";
 
 describe("containers/task/TasksList", () => {
   it("renders without crashing", () => {
@@ -33,6 +34,7 @@ describe("containers/task/TasksList", () => {
         fetchContentTypes={function() {}}
         unusedFormsById={forms}
         clientsById={clients}
+        initialData={fixtures.TaskFormInitialData}
       />
     );
     expect(toJson(wrapper)).toMatchSnapshot();

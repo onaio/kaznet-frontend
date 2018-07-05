@@ -15,6 +15,22 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
   fetchContentTypes={[Function]}
   fetchForms={[Function]}
   formActionDispatch={[Function]}
+  initialData={
+    Object {
+      "amount": 55,
+      "client": "7",
+      "descripton": undefined,
+      "end": "2019-01-30",
+      "estimated_time": 15,
+      "form": 1,
+      "name": "Awesome Task",
+      "required_expertise": "1",
+      "start": "2018-06-21",
+      "status": "a",
+      "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+      "user_submission_target": 100,
+    }
+  }
   unusedFormsById={
     Object {
       "1": Object {
@@ -27,6 +43,22 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
 >
   <Formik
     enableReinitialize={false}
+    initialValues={
+      Object {
+        "amount": 55,
+        "client": "7",
+        "descripton": undefined,
+        "end": "2019-01-30",
+        "estimated_time": 15,
+        "form": 1,
+        "name": "Awesome Task",
+        "required_expertise": "1",
+        "start": "2018-06-21",
+        "status": "a",
+        "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
+        "user_submission_target": 100,
+      }
+    }
     isInitialValid={false}
     onSubmit={[Function]}
     render={[Function]}
@@ -74,6 +106,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Title"
                     type="text"
+                    value="Awesome Task"
                   >
                     <input
                       aria-label="title"
@@ -83,6 +116,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Title"
                       type="text"
+                      value="Awesome Task"
                     />
                   </Input>
                 </div>
@@ -159,6 +193,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Status"
                     type="select"
+                    value="a"
                   >
                     <select
                       aria-label="status"
@@ -167,6 +202,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Status"
+                      value="a"
                     >
                       <option>
                         ----
@@ -343,6 +379,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Reward"
                     type="number"
+                    value={55}
                   >
                     <input
                       aria-label="reward"
@@ -352,6 +389,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Reward"
                       type="number"
+                      value={55}
                     />
                   </Input>
                   <FormText
@@ -438,6 +476,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Form"
                     type="select"
+                    value={1}
                   >
                     <select
                       aria-label="form"
@@ -446,6 +485,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Form"
+                      value={1}
                     >
                       <OptionMap
                         obj={
@@ -569,6 +609,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                             onChange={[Function]}
                             placeholder="Start Date"
                             type="date"
+                            value="2018-06-21"
                           >
                             <input
                               aria-label="start"
@@ -578,6 +619,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                               onChange={[Function]}
                               placeholder="Start Date"
                               type="date"
+                              value="2018-06-21"
                             />
                           </Input>
                         </div>
@@ -607,6 +649,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                             onChange={[Function]}
                             placeholder="End Date"
                             type="date"
+                            value="2019-01-30"
                           >
                             <input
                               aria-label="end"
@@ -616,6 +659,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                               onChange={[Function]}
                               placeholder="End Date"
                               type="date"
+                              value="2019-01-30"
                             />
                           </Input>
                         </div>
@@ -696,6 +740,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Estimated Time"
                     type="number"
+                    value={15}
                   >
                     <input
                       aria-label="estimated time"
@@ -705,6 +750,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Estimated Time"
                       type="number"
+                      value={15}
                     />
                   </Input>
                   <FormText
@@ -791,6 +837,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Client"
                     type="select"
+                    value="7"
                   >
                     <select
                       aria-label="client"
@@ -799,6 +846,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Client"
+                      value="7"
                     >
                       <OptionMap
                         obj={
@@ -900,6 +948,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Contributor Submission Target"
                     type="number"
+                    value={100}
                   >
                     <input
                       aria-label="contributor submission target"
@@ -909,6 +958,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Contributor Submission Target"
                       type="number"
+                      value={100}
                     />
                   </Input>
                 </div>
@@ -985,6 +1035,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Required Expertise"
                     type="select"
+                    value="1"
                   >
                     <select
                       aria-label="required expertise"
@@ -993,6 +1044,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Required Expertise"
+                      value="1"
                     >
                       <option>
                         ----
@@ -1093,6 +1145,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Timing Rule"
                     type="hidden"
+                    value="RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12"
                   >
                     <input
                       aria-label="timing rule"
@@ -1102,13 +1155,14 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Timing Rule"
                       type="hidden"
+                      value="RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12"
                     />
                   </Input>
                   <t
                     calendarComponent={null}
                     config={Object {}}
                     onChange={[Function]}
-                    value=""
+                    value="RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12"
                   >
                     <div>
                       <div
@@ -1120,9 +1174,9 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                             repeat={
                               Object {
                                 "daily": Object {
-                                  "interval": 1,
+                                  "interval": 10,
                                 },
-                                "frequency": "Yearly",
+                                "frequency": "Daily",
                                 "hourly": Object {
                                   "interval": 1,
                                 },
@@ -1202,7 +1256,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                                     id="Repeat frequency"
                                     name="repeat.frequency"
                                     onChange={[Function]}
-                                    value="Yearly"
+                                    value="Daily"
                                   >
                                     <option
                                       value="Yearly"
@@ -1232,581 +1286,40 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                                   </select>
                                 </div>
                               </div>
-                              <c
-                                handleChange={[Function]}
-                                yearly={
+                              <l
+                                daily={
                                   Object {
-                                    "mode": "on",
-                                    "on": Object {
-                                      "day": 1,
-                                      "month": "Jan",
-                                    },
-                                    "onThe": Object {
-                                      "day": "Monday",
-                                      "month": "Jan",
-                                      "which": "First",
-                                    },
-                                    "options": Object {
-                                      "modes": undefined,
-                                    },
+                                    "interval": 10,
                                   }
                                 }
+                                handleChange={[Function]}
                               >
-                                <div>
-                                  <f
-                                    handleChange={[Function]}
-                                    hasMoreModes={true}
-                                    mode="on"
-                                    on={
-                                      Object {
-                                        "day": 1,
-                                        "month": "Jan",
-                                      }
-                                    }
+                                <div
+                                  className="form-group row d-flex align-items-sm-center"
+                                >
+                                  <div
+                                    className="col-sm-1 offset-sm-2"
                                   >
-                                    <div
-                                      className="form-group row d-flex align-items-sm-center false"
-                                    >
-                                      <div
-                                        className="col-sm-1 offset-sm-2"
-                                      >
-                                        <input
-                                          aria-label="Repeat yearly on"
-                                          checked={true}
-                                          name="repeat.yearly.mode"
-                                          onChange={[Function]}
-                                          type="radio"
-                                          value="on"
-                                        />
-                                      </div>
-                                      <div
-                                        className="col-sm-1"
-                                      >
-                                        on
-                                      </div>
-                                      <div
-                                        className="col-sm-2"
-                                      >
-                                        <select
-                                          aria-label="Repeat yearly on month"
-                                          className="form-control"
-                                          disabled={false}
-                                          name="repeat.yearly.on.month"
-                                          onChange={[Function]}
-                                          value="Jan"
-                                        >
-                                          <option
-                                            key="Jan"
-                                            value="Jan"
-                                          >
-                                            Jan
-                                          </option>
-                                          <option
-                                            key="Feb"
-                                            value="Feb"
-                                          >
-                                            Feb
-                                          </option>
-                                          <option
-                                            key="Mar"
-                                            value="Mar"
-                                          >
-                                            Mar
-                                          </option>
-                                          <option
-                                            key="Apr"
-                                            value="Apr"
-                                          >
-                                            Apr
-                                          </option>
-                                          <option
-                                            key="May"
-                                            value="May"
-                                          >
-                                            May
-                                          </option>
-                                          <option
-                                            key="Jun"
-                                            value="Jun"
-                                          >
-                                            Jun
-                                          </option>
-                                          <option
-                                            key="Jul"
-                                            value="Jul"
-                                          >
-                                            Jul
-                                          </option>
-                                          <option
-                                            key="Aug"
-                                            value="Aug"
-                                          >
-                                            Aug
-                                          </option>
-                                          <option
-                                            key="Sep"
-                                            value="Sep"
-                                          >
-                                            Sep
-                                          </option>
-                                          <option
-                                            key="Oct"
-                                            value="Oct"
-                                          >
-                                            Oct
-                                          </option>
-                                          <option
-                                            key="Nov"
-                                            value="Nov"
-                                          >
-                                            Nov
-                                          </option>
-                                          <option
-                                            key="Dec"
-                                            value="Dec"
-                                          >
-                                            Dec
-                                          </option>
-                                        </select>
-                                      </div>
-                                      <div
-                                        className="col-sm-2"
-                                      >
-                                        <select
-                                          aria-label="Repeat yearly on a day"
-                                          className="form-control"
-                                          disabled={false}
-                                          name="repeat.yearly.on.day"
-                                          onChange={[Function]}
-                                          value={1}
-                                        >
-                                          <option
-                                            key="0"
-                                            value={1}
-                                          >
-                                            1
-                                          </option>
-                                          <option
-                                            key="1"
-                                            value={2}
-                                          >
-                                            2
-                                          </option>
-                                          <option
-                                            key="2"
-                                            value={3}
-                                          >
-                                            3
-                                          </option>
-                                          <option
-                                            key="3"
-                                            value={4}
-                                          >
-                                            4
-                                          </option>
-                                          <option
-                                            key="4"
-                                            value={5}
-                                          >
-                                            5
-                                          </option>
-                                          <option
-                                            key="5"
-                                            value={6}
-                                          >
-                                            6
-                                          </option>
-                                          <option
-                                            key="6"
-                                            value={7}
-                                          >
-                                            7
-                                          </option>
-                                          <option
-                                            key="7"
-                                            value={8}
-                                          >
-                                            8
-                                          </option>
-                                          <option
-                                            key="8"
-                                            value={9}
-                                          >
-                                            9
-                                          </option>
-                                          <option
-                                            key="9"
-                                            value={10}
-                                          >
-                                            10
-                                          </option>
-                                          <option
-                                            key="10"
-                                            value={11}
-                                          >
-                                            11
-                                          </option>
-                                          <option
-                                            key="11"
-                                            value={12}
-                                          >
-                                            12
-                                          </option>
-                                          <option
-                                            key="12"
-                                            value={13}
-                                          >
-                                            13
-                                          </option>
-                                          <option
-                                            key="13"
-                                            value={14}
-                                          >
-                                            14
-                                          </option>
-                                          <option
-                                            key="14"
-                                            value={15}
-                                          >
-                                            15
-                                          </option>
-                                          <option
-                                            key="15"
-                                            value={16}
-                                          >
-                                            16
-                                          </option>
-                                          <option
-                                            key="16"
-                                            value={17}
-                                          >
-                                            17
-                                          </option>
-                                          <option
-                                            key="17"
-                                            value={18}
-                                          >
-                                            18
-                                          </option>
-                                          <option
-                                            key="18"
-                                            value={19}
-                                          >
-                                            19
-                                          </option>
-                                          <option
-                                            key="19"
-                                            value={20}
-                                          >
-                                            20
-                                          </option>
-                                          <option
-                                            key="20"
-                                            value={21}
-                                          >
-                                            21
-                                          </option>
-                                          <option
-                                            key="21"
-                                            value={22}
-                                          >
-                                            22
-                                          </option>
-                                          <option
-                                            key="22"
-                                            value={23}
-                                          >
-                                            23
-                                          </option>
-                                          <option
-                                            key="23"
-                                            value={24}
-                                          >
-                                            24
-                                          </option>
-                                          <option
-                                            key="24"
-                                            value={25}
-                                          >
-                                            25
-                                          </option>
-                                          <option
-                                            key="25"
-                                            value={26}
-                                          >
-                                            26
-                                          </option>
-                                          <option
-                                            key="26"
-                                            value={27}
-                                          >
-                                            27
-                                          </option>
-                                          <option
-                                            key="27"
-                                            value={28}
-                                          >
-                                            28
-                                          </option>
-                                          <option
-                                            key="28"
-                                            value={29}
-                                          >
-                                            29
-                                          </option>
-                                          <option
-                                            key="29"
-                                            value={30}
-                                          >
-                                            30
-                                          </option>
-                                          <option
-                                            key="30"
-                                            value={31}
-                                          >
-                                            31
-                                          </option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                  </f>
-                                  <d
-                                    handleChange={[Function]}
-                                    hasMoreModes={true}
-                                    mode="on"
-                                    onThe={
-                                      Object {
-                                        "day": "Monday",
-                                        "month": "Jan",
-                                        "which": "First",
-                                      }
-                                    }
+                                    every
+                                  </div>
+                                  <div
+                                    className="col-sm-2"
                                   >
-                                    <div
-                                      className="form-group row d-flex align-items-sm-center opacity-50"
-                                    >
-                                      <div
-                                        className="col-sm-1 offset-sm-2"
-                                      >
-                                        <input
-                                          aria-label="Repeat yearly on the"
-                                          checked={false}
-                                          name="repeat.yearly.mode"
-                                          onChange={[Function]}
-                                          type="radio"
-                                          value="on the"
-                                        />
-                                      </div>
-                                      <div
-                                        className="col-sm-1"
-                                      >
-                                        on the
-                                      </div>
-                                      <div
-                                        className="col-sm-2"
-                                      >
-                                        <select
-                                          aria-label="Repeat yearly on the which"
-                                          className="form-control"
-                                          disabled={true}
-                                          name="repeat.yearly.onThe.which"
-                                          onChange={[Function]}
-                                          value="First"
-                                        >
-                                          <option
-                                            value="First"
-                                          >
-                                            First
-                                          </option>
-                                          <option
-                                            value="Second"
-                                          >
-                                            Second
-                                          </option>
-                                          <option
-                                            value="Third"
-                                          >
-                                            Third
-                                          </option>
-                                          <option
-                                            value="Fourth"
-                                          >
-                                            Fourth
-                                          </option>
-                                          <option
-                                            value="Last"
-                                          >
-                                            Last
-                                          </option>
-                                        </select>
-                                      </div>
-                                      <div
-                                        className="col-sm-3"
-                                      >
-                                        <select
-                                          aria-label="Repeat yearly on the day"
-                                          className="form-control"
-                                          disabled={true}
-                                          name="repeat.yearly.onThe.day"
-                                          onChange={[Function]}
-                                          value="Monday"
-                                        >
-                                          <option
-                                            key="Monday"
-                                            value="Monday"
-                                          >
-                                            Monday
-                                          </option>
-                                          <option
-                                            key="Tuesday"
-                                            value="Tuesday"
-                                          >
-                                            Tuesday
-                                          </option>
-                                          <option
-                                            key="Wednesday"
-                                            value="Wednesday"
-                                          >
-                                            Wednesday
-                                          </option>
-                                          <option
-                                            key="Thursday"
-                                            value="Thursday"
-                                          >
-                                            Thursday
-                                          </option>
-                                          <option
-                                            key="Friday"
-                                            value="Friday"
-                                          >
-                                            Friday
-                                          </option>
-                                          <option
-                                            key="Saturday"
-                                            value="Saturday"
-                                          >
-                                            Saturday
-                                          </option>
-                                          <option
-                                            key="Sunday"
-                                            value="Sunday"
-                                          >
-                                            Sunday
-                                          </option>
-                                          <option
-                                            key="Day"
-                                            value="Day"
-                                          >
-                                            Day
-                                          </option>
-                                          <option
-                                            key="Weekday"
-                                            value="Weekday"
-                                          >
-                                            Weekday
-                                          </option>
-                                          <option
-                                            key="Weekend day"
-                                            value="Weekend day"
-                                          >
-                                            Weekend day
-                                          </option>
-                                        </select>
-                                      </div>
-                                      <div
-                                        className="col-sm-1"
-                                      >
-                                        of
-                                      </div>
-                                      <div
-                                        className="col-sm-2"
-                                      >
-                                        <select
-                                          aria-label="Repeat yearly on the month"
-                                          className="form-control"
-                                          disabled={true}
-                                          name="repeat.yearly.onThe.month"
-                                          onChange={[Function]}
-                                          value="Jan"
-                                        >
-                                          <option
-                                            key="Jan"
-                                            value="Jan"
-                                          >
-                                            Jan
-                                          </option>
-                                          <option
-                                            key="Feb"
-                                            value="Feb"
-                                          >
-                                            Feb
-                                          </option>
-                                          <option
-                                            key="Mar"
-                                            value="Mar"
-                                          >
-                                            Mar
-                                          </option>
-                                          <option
-                                            key="Apr"
-                                            value="Apr"
-                                          >
-                                            Apr
-                                          </option>
-                                          <option
-                                            key="May"
-                                            value="May"
-                                          >
-                                            May
-                                          </option>
-                                          <option
-                                            key="Jun"
-                                            value="Jun"
-                                          >
-                                            Jun
-                                          </option>
-                                          <option
-                                            key="Jul"
-                                            value="Jul"
-                                          >
-                                            Jul
-                                          </option>
-                                          <option
-                                            key="Aug"
-                                            value="Aug"
-                                          >
-                                            Aug
-                                          </option>
-                                          <option
-                                            key="Sep"
-                                            value="Sep"
-                                          >
-                                            Sep
-                                          </option>
-                                          <option
-                                            key="Oct"
-                                            value="Oct"
-                                          >
-                                            Oct
-                                          </option>
-                                          <option
-                                            key="Nov"
-                                            value="Nov"
-                                          >
-                                            Nov
-                                          </option>
-                                          <option
-                                            key="Dec"
-                                            value="Dec"
-                                          >
-                                            Dec
-                                          </option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                  </d>
+                                    <input
+                                      aria-label="Repeat daily interval"
+                                      className="form-control"
+                                      name="repeat.daily.interval"
+                                      onChange={[Function]}
+                                      value={10}
+                                    />
+                                  </div>
+                                  <div
+                                    className="col-sm-1"
+                                  >
+                                    day(s)
+                                  </div>
                                 </div>
-                              </c>
+                              </l>
                             </div>
                           </M>
                         </div>
@@ -1814,10 +1327,10 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                         <c
                           end={
                             Object {
-                              "after": 1,
-                              "mode": "Never",
+                              "after": 12,
+                              "mode": "After",
                               "onDate": Object {
-                                "date": "2018-07-04",
+                                "date": "2018-07-05",
                                 "options": Object {
                                   "calendarComponent": null,
                                   "weekStartsOnSunday": undefined,
@@ -1856,7 +1369,7 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                                   id="End"
                                   name="end.mode"
                                   onChange={[Function]}
-                                  value="Never"
+                                  value="After"
                                 >
                                   <option
                                     value="Never"
@@ -1875,6 +1388,35 @@ exports[`containers/task/TasksList renders task form correctly 1`] = `
                                   </option>
                                 </select>
                               </div>
+                              <l
+                                after={12}
+                                handleChange={[Function]}
+                              >
+                                <div
+                                  className="col-sm-4"
+                                >
+                                  <div
+                                    className="form-group m-0 row d-flex align-items-center"
+                                  >
+                                    <div
+                                      className="col-3 col-sm-6 pl-0"
+                                    >
+                                      <input
+                                        aria-label="End after"
+                                        className="form-control"
+                                        name="end.after"
+                                        onChange={[Function]}
+                                        value={12}
+                                      />
+                                    </div>
+                                    <div
+                                      className="col-9 col-sm-6"
+                                    >
+                                      executions.
+                                    </div>
+                                  </div>
+                                </div>
+                              </l>
                             </div>
                           </div>
                         </c>
