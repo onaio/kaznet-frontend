@@ -42,3 +42,7 @@ export function getUnusedFormsById(state) {
 
   return formsById;
 }
+
+export function getFormById(state, id) {
+  return _.get(state.forms.formsById, id);
+}
