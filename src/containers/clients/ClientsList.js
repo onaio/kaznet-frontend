@@ -15,7 +15,7 @@ export class ClientsList extends Component {
     this.props.showListTitle();
     this.props.fetchClients();
     this.props.changePageTitle("Clients");
-    this.props.changePageTitleButton("+ Create Client");
+    this.props.changePageTitleButton("+ Add Client");
   }
 
   render() {
