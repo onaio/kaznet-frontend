@@ -7,7 +7,7 @@ import { TaskCreateForm } from "../TaskCreateForm";
 import FormView from "../../../components/FormView";
 import TaskForm from "../TaskForm";
 
-describe("containers/task/TaskCreation", () => {
+describe("containers/task/TaskCreateForm", () => {
   it("renders without crashing", () => {
     shallow(<TaskCreateForm noTitle={function() {}} />);
   });
