@@ -19,13 +19,17 @@ import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
 
 import TasksList from "./containers/tasks/TasksList";
-
 import TaskCreateForm from "./containers/tasks/TaskCreateForm";
 import TaskEditForm from "./containers/tasks/TaskEditForm";
 import TasksDetail from "./containers/tasks/TasksDetail";
+import TaskStatusChange from "./containers/tasks/TaskStatusChange";
+
 import TitleSection from "./containers/global/TitleSection";
+
 import UsersList from "./containers/users/UsersList";
+
 import LocationsList from "./containers/locations/LocationsList";
+
 import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
@@ -70,6 +74,11 @@ class App extends Component {
                           exact
                           path="/tasks/:id/edit"
                           component={TaskEditForm}
+                        />
+                        <Route
+                          exact
+                          path="/tasks/:id/status_change"
+                          component={TaskStatusChange}
                         />
                         <Route exact path="/users" component={UsersList} />
                         <Route
