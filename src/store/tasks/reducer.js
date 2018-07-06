@@ -34,13 +34,13 @@ export default function reduce(state = initialState, action = {}) {
         }
       });
     case types.TASK_EDITED:
-      return {
+      return Immutable({
         ...state,
         tasksById: {
           ...state.tasksById,
           [action.taskData.id]: action.taskData
         }
-      };
+      });
     default:
       return state;
   }
