@@ -138,6 +138,37 @@ class TaskService {
 
     return data;
   }
+
+  async cloneTask(task_data, id) {
+    const url = `${constants.API_ENDPOINT}/tasks/${id}/clone_task`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      },
+      body: JSON.stringify(task_data),
+      cache: "no-cache"
+    });
+
+    if (!response.ok && response.status !== 400) {
+      throw new Error(
+        `TaskService cloneTask failed, HTTP Response ${response.status}`
+      );
+    }
+
+    const apiResponse = response.json();
+    if (response.status === 400) {
+      throw apiResponse.errors;
+    }
+
+    const data = _.get(apiResponse, "data");
+    if (!data) {
+      throw new Element(`TaskService cloneTask failed, no data returned`);
+    }
+
+    return data;
+  }
 }
 
 export default new TaskService();
