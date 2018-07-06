@@ -90,6 +90,25 @@ class TaskService {
     return data;
   }
 
+  async deleteTask(task_id) {
+    const url = `${constants.API_ENDPOINT}/tasks/${task_id}/`;
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `TaskService deleteTask failed, HTTP Status ${response.status}`
+      );
+    }
+
+    return task_id;
+  }
+
   async getTask(id) {
     const url = `${constants.API_ENDPOINT}/tasks/${id}/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
