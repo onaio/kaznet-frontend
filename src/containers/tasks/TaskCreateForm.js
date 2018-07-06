@@ -25,7 +25,7 @@ export class TaskCreateForm extends Component {
       timing_rule: "",
       status: "d",
       user_submission_target: 10,
-      amount: ""
+      amount: undefined
     };
 
     return (
