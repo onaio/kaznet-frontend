@@ -127,15 +127,15 @@ export class TasksDetail extends Component {
         actionLinks = {
           EDIT: `/tasks/${this.task.id}/edit`,
           "CREATE A COPY": "/",
-          DEACTIVATE: `/tasks/${this.task.id}/status_change`,
-          "DELETE TASK": "/"
+          DEACTIVATE: "/",
+          "DELETE TASK": `/tasks/${this.task.id}/delete`
         };
       } else {
         actionLinks = {
           EDIT: `/tasks/${this.task.id}/edit`,
           "CREATE A COPY": "/",
           ACTIVATE: `/tasks/${this.task.id}/status_change`,
-          "DELETE TASK": "/"
+          "DELETE TASK": `/tasks/${this.task.id}/delete`
         };
       }
     }
