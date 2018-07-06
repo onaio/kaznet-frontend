@@ -41,6 +41,17 @@ export default function reduce(state = initialState, action = {}) {
           [action.taskData.id]: action.taskData
         }
       });
+    case types.TASK_DELETED:
+      const newTasks = _.filter(...state.tasksById, task => {
+        return task.id !== action.taskId;
+      });
+
+      const newTasksById = _.keyBy(newTasks, task => {
+        return task.id;
+      });
+      return state.set({
+        tasksById: newTasksById
+      });
     default:
       return state;
   }
