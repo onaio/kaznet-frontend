@@ -140,11 +140,12 @@ class TaskService {
   }
 
   async cloneTask(task_data, id) {
-    const url = `${constants.API_ENDPOINT}/tasks/${id}/clone_task`;
+    const url = `${constants.API_ENDPOINT}/tasks/${id}/clone_task/`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
         Accept: "application/vnd.api+json",
+        "content-type": "application/vnd.api+json",
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(task_data),
