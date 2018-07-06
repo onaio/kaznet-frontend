@@ -12,7 +12,10 @@ export function fetchTasks() {
       const tasksById = _.keyBy(taskArray, task => task.id);
       dispatch({ type: types.TASKS_FETCHED, tasksById });
     } catch (error) {
-      console.error(error);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
   };
 }

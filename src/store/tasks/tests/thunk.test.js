@@ -25,14 +25,17 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should fetch tasks and print to console on error", async () => {
+  it("should fetch tasks and dispatches on error", async () => {
     TaskService.getTaskList.mockImplementationOnce(() => {
       throw new Error("oops");
     });
-    console.error = jest.fn(); // mock the console side effect
     const dispatches = await Thunk(tasks.fetchTasks).execute();
-    expect(dispatches.length).toBe(0);
-    expect(console.error).toHaveBeenCalledWith(Error("oops"));
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_FAILURE,
+      errorMessage: Error("oops")
+    });
   });
 
   it("should fetch a tasks data from server", async () => {
