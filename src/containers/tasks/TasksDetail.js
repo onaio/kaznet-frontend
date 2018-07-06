@@ -126,15 +126,15 @@ export class TasksDetail extends Component {
       if (this.task.attributes.status_display === "Active") {
         actionLinks = {
           EDIT: `/tasks/${this.task.id}/edit`,
-          "CREATE A COPY": "/",
+          "CREATE A COPY": `/tasks/${this.task.id}/clone`,
           DEACTIVATE: "/",
           "DELETE TASK": `/tasks/${this.task.id}/delete`
         };
       } else {
         actionLinks = {
           EDIT: `/tasks/${this.task.id}/edit`,
-          "CREATE A COPY": "/",
           ACTIVATE: `/tasks/${this.task.id}/status_change`,
+          "CREATE A COPY": `/tasks/${this.task.id}/clone`,
           "DELETE TASK": `/tasks/${this.task.id}/delete`
         };
       }
