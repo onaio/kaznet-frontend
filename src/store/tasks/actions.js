@@ -82,3 +82,18 @@ export function deleteTask(task_id) {
     }
   };
 }
+
+export function cloneTask(task_data, task_id) {
+  return async (dispatch, getState) => {
+    try {
+      const taskData = await taskService.cloneTask(task_data, task_id);
+      dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+      dispatch({ type: types.TASK_CLONED, taskData });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}

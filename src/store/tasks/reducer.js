@@ -52,6 +52,14 @@ export default function reduce(state = initialState, action = {}) {
       return state.set({
         tasksById: newTasksById
       });
+    case types.TASK_CLONED:
+      return Immutable({
+        ...state,
+        tasksById: {
+          ...state.tasksById,
+          [action.taskData]: action.taskData
+        }
+      });
     default:
       return state;
   }
