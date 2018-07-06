@@ -23,7 +23,7 @@ describe("containers/task/TaskCreateForm", () => {
       timing_rule: "",
       status: "d",
       user_submission_target: 10,
-      amount: ""
+      amount: undefined
     };
     const wrapper = shallow(<TaskCreateForm noTitle={function() {}} />).dive();
     expect(wrapper.find(FormView)).toHaveLength(0);
