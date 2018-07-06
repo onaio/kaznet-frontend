@@ -25,6 +25,7 @@ import TaskEditForm from "./containers/tasks/TaskEditForm";
 import TasksDetail from "./containers/tasks/TasksDetail";
 import TaskStatusChange from "./containers/tasks/TaskStatusChange";
 import TaskDeletion from "./containers/tasks/TaskDeletion";
+import TaskClone from "./containers/tasks/TaskClone";
 
 import UsersList from "./containers/users/UsersList";
 
@@ -33,6 +34,7 @@ import LocationsList from "./containers/locations/LocationsList";
 import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
+
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
@@ -101,6 +103,11 @@ class App extends Component {
                           exact
                           path="/tasks/:id/delete"
                           component={TaskDeletion}
+                        />
+                        <Route
+                          exact
+                          path="/tasks/:id/clone"
+                          component={TaskClone}
                         />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />
