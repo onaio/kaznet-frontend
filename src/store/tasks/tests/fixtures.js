@@ -310,7 +310,7 @@ export const singleTaskById = _.keyBy(singleTaskArray, task => task.id);
 export const TaskFormInitialData = {
   amount: 55,
   client: "7",
-  descripton: undefined,
+  description: undefined,
   end: "2019-01-30",
   estimated_time: 15,
   form: 1,
