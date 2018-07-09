@@ -10,6 +10,7 @@ describe("containers/users/UsersList", () => {
     shallow(
       <UsersList
         fetchUsers={function() {}}
+        changePageNumber={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         showListTitle={function() {}}
@@ -21,6 +22,7 @@ describe("containers/users/UsersList", () => {
     const wrapper = mount(
       <UsersList
         fetchUsers={function() {}}
+        changePageNumber={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         showListTitle={function() {}}

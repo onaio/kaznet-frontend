@@ -22,9 +22,19 @@ class UserService {
     if (!data) {
       throw new Error(`UserService getUserList failed, data not returned`);
     }
-    return _.map(data, user => {
+    const userArray = _.map(data, user => {
       return user;
     });
+
+    const pageLinks = apiResponse.links;
+
+    const currentPage = apiResponse.meta.pagination.page;
+
+    return {
+      userArray,
+      pageLinks,
+      currentPage
+    };
   }
 }
 

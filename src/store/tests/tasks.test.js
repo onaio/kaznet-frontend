@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 import * as reducers from "../reducers";
 import * as taskActions from "../tasks/actions";
-import * as taskSelectors from "../tasks/reducer";
+import * as selectors from "../selectors";
 import * as fixtures from "../tasks/tests/fixtures";
 import TaskService from "../../services/tasks";
 
@@ -19,13 +19,17 @@ describe("store/tasks integration", () => {
   });
 
   it("should retrieve all tasks", async () => {
-    TaskService.getTaskList.mockReturnValueOnce(fixtures.tasksArray);
+    TaskService.getTaskList.mockReturnValueOnce({
+      tasksArray: fixtures.tasksArray,
+      pageLinks: fixtures.taskData.links,
+      currentPage: 1
+    });
 
     await store.dispatch(taskActions.fetchTasks());
-    expect(taskSelectors.getTasksById(store.getState())).toEqual(
+    expect(selectors.getTasksById(store.getState())).toEqual(
       fixtures.tasksById
     );
-    expect(taskSelectors.getTasksIdArray(store.getState())).toEqual(
+    expect(selectors.getTasksIdArray(store.getState())).toEqual(
       fixtures.tasksIdArray
     );
   });

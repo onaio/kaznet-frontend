@@ -46,11 +46,11 @@ function getUsersIdArray(state) {
 
 //common
 
-function getPageLinks(state, props) {
-  return state.tasks.pageLinks;
+function getPageLinks(tab, state, props) {
+  return state[tab].pageLinks;
 }
 
-function getCurrentPage(state, props) {
+function getCurrentPage(state, porseps) {
   return state.tasks.currentPage;
 }
 

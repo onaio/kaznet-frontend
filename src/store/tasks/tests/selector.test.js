@@ -2,7 +2,7 @@
 import Immutable from "seamless-immutable";
 import { Selector } from "redux-testkit";
 
-import * as tasks from "../reducer";
+import * as selectors from "../../selectors";
 import * as fixtures from "./fixtures";
 
 const emptyState = Immutable({
@@ -30,73 +30,73 @@ const fullState = Immutable({
 
 describe("store/tasks/selectors", () => {
   it("should get default tasks by id when empty", () => {
-    Selector(tasks.getTasksById)
+    Selector(selectors.getTasksById)
       .expect(emptyState)
       .toReturn({});
   });
 
   it("should get default task ids array when empty", () => {
-    Selector(tasks.getTasksIdArray)
+    Selector(selectors.getTasksIdArray)
       .expect(emptyState)
       .toReturn([]);
   });
 
   it("should get initial first page when empty", () => {
-    Selector(tasks.getFirstPage)
+    Selector(selectors.getFirstPage)
       .expect(emptyState)
       .toReturn(null);
   });
 
   it("should get initial next page when empty", () => {
-    Selector(tasks.getNextPage)
+    Selector(selectors.getNextPage)
       .expect(emptyState)
       .toReturn(null);
   });
 
   it("should get initial previous page when empty", () => {
-    Selector(tasks.getPreviousPage)
+    Selector(selectors.getPreviousPage)
       .expect(emptyState)
       .toReturn(null);
   });
 
   it("should get initial last page when empty", () => {
-    Selector(tasks.getLastPage)
+    Selector(selectors.getLastPage)
       .expect(emptyState)
       .toReturn(null);
   });
 
   it("should get tasks by id when full", () => {
-    Selector(tasks.getTasksById)
+    Selector(selectors.getTasksById)
       .expect(fullState)
       .toReturn(fixtures.tasksById);
   });
 
   it("should get task ids array when full", () => {
-    Selector(tasks.getTasksIdArray)
+    Selector(selectors.getTasksIdArray)
       .expect(fullState)
       .toReturn(fixtures.tasksIdArray);
   });
 
   it("should get first page when full", () => {
-    Selector(tasks.getFirstPage)
+    Selector(selectors.getFirstPage)
       .expect(fullState)
       .toReturn(fixtures.pageLinks.first);
   });
 
   it("should get next page when full", () => {
-    Selector(tasks.getNextPage)
+    Selector(selectors.getNextPage)
       .expect(fullState)
       .toReturn(fixtures.pageLinks.next);
   });
 
   it("should get previous page when full", () => {
-    Selector(tasks.getPreviousPage)
+    Selector(selectors.getPreviousPage)
       .expect(fullState)
       .toReturn(fixtures.pageLinks.prev);
   });
 
   it("should get last page when full", () => {
-    Selector(tasks.getLastPage)
+    Selector(selectors.getLastPage)
       .expect(fullState)
       .toReturn(fixtures.pageLinks.last);
   });

@@ -6,13 +6,12 @@ import { Reducer } from "redux-testkit";
 import tasks from "../reducer";
 import * as actionTypes from "../actionTypes";
 import * as fixtures from "./fixtures";
+import { defaultAppState } from "../../state";
 
-const initialState = {
+const initialState = _.merge(defaultAppState, {
   tasksById: {},
-  tasksIdArray: [],
-  currentPage: 1,
-  pageLinks: {}
-};
+  tasksIdArray: []
+});
 
 const fullState = {
   tasksById: fixtures.tasksById,
@@ -43,7 +42,13 @@ describe("store/tasks/reducer", () => {
   it("should store fetched tasks", () => {
     const tasksById = fixtures.tasksById;
     const pageLinks = fixtures.pageLinks;
-    const action = { type: actionTypes.TASKS_FETCHED, tasksById, pageLinks };
+    const currentPage = fixtures.taskData.meta.pagination.page;
+    const action = {
+      type: actionTypes.TASKS_FETCHED,
+      tasksById,
+      pageLinks,
+      currentPage
+    };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);

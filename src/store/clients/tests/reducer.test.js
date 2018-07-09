@@ -5,11 +5,12 @@ import { Reducer } from "redux-testkit";
 import clients from "../reducer";
 import * as actionTypes from "../actionTypes";
 import * as fixtures from "./fixtures";
+import { defaultAppState } from "../../state";
 
-const initialState = {
+const initialState = _.merge(defaultAppState, {
   clientsById: {},
   clientsIdArray: []
-};
+});
 
 describe("store/clients/reducer", () => {
   it("should have initial state", () => {

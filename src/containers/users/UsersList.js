@@ -73,7 +73,7 @@ function mapStateToProps(state) {
   return {
     rowsById: selectors.getUsersById(state),
     rowsIdArray: selectors.getUsersIdArray(state),
-    pageLinks: selectors.getPageLinks(state),
+    pageLinks: selectors.getPageLinks("users", state),
     currentPage: selectors.getCurrentPage(state)
   };
 }

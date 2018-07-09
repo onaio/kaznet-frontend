@@ -9,7 +9,11 @@ describe("services/users", () => {
   });
 
   it("should fetch users", async () => {
-    const data = fixtures.userData;
+    const data = {
+      userArray: fixtures.userData,
+      pageLinks: fixtures.userData.links,
+      currentPage: fixtures.userData.meta.pagination.page
+    };
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await UserService.getUserList();
     expect(response).toEqual(fixtures.usersArray);

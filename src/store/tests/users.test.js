@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 import * as reducers from "../reducers";
 import * as userActions from "../users/actions";
-import * as userSelectors from "../users/reducer";
+import * as selectors from "../selectors";
 import * as fixtures from "../users/tests/fixtures";
 import UserService from "../../services/users";
 
@@ -19,13 +19,17 @@ describe("store/users", () => {
   });
 
   it("should retrieve all users", async () => {
-    UserService.getUserList.mockReturnValueOnce(fixtures.usersArray);
+    UserService.getUserList.mockReturnValueOnce({
+      usersArray: fixtures.usersArray,
+      pageLinks: fixtures.userData.links,
+      currentPage: 1
+    });
 
     await store.dispatch(userActions.fetchUsers());
-    expect(userSelectors.getUsersById(store.getState())).toEqual(
+    expect(selectors.getUsersById(store.getState())).toEqual(
       fixtures.usersById
     );
-    expect(userSelectors.getUsersIdArray(store.getState())).toEqual(
+    expect(selectors.getUsersIdArray(store.getState())).toEqual(
       fixtures.usersIdArray
     );
   });

@@ -1,8 +1,8 @@
 import Immutable from "seamless-immutable";
 import { Selector } from "redux-testkit";
 
-import * as clients from "../reducer";
 import * as fixtures from "./fixtures";
+import * as selectors from "../../selectors";
 
 const emptyState = Immutable({
   clients: {
@@ -20,25 +20,25 @@ const fullState = Immutable({
 
 describe("store/clients/selectors", () => {
   it("should get default clients by id when empty", () => {
-    Selector(clients.getClientsById)
+    Selector(selectors.getClientsById)
       .expect(emptyState)
       .toReturn({});
   });
 
   it("should get default clients ids array when empty", () => {
-    Selector(clients.getClientsIdArray)
+    Selector(selectors.getClientsIdArray)
       .expect(emptyState)
       .toReturn([]);
   });
 
   it("should get clients by id when full", () => {
-    Selector(clients.getClientsById)
+    Selector(selectors.getClientsById)
       .expect(fullState)
       .toReturn(fixtures.clientsById);
   });
 
   it("should get clients ids array when full", () => {
-    Selector(clients.getClientsIdArray)
+    Selector(selectors.getClientsIdArray)
       .expect(fullState)
       .toReturn(fixtures.clientsIdArray);
   });

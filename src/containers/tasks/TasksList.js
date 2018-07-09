@@ -17,21 +17,15 @@ import ElementMap from "../ElementMap";
 export class TasksList extends Component {
   async componentDidMount() {
     const pageLinks = this.props.pageLinks;
-    // what if page is null because we are at the root i.e tasks/
-    const page = queryString.parse(this.props.location.search).page;
-    const currentPageURL = pageLinks[page];
 
     this.props.changePageNumber(1);
 
-    // under tasks/ these two do the same
-    if (!currentPageURL) {
+    if (this.props.location) {
+      const page = queryString.parse(this.props.location.search).page;
       await this.props.fetchTasks();
-    } else {
-      await this.props.fetchTasks(currentPageURL);
-    }
-
-    if (page) {
-      this.props.changePageNumber(Number(page));
+      if (page) {
+        this.props.changePageNumber(Number(page));
+      }
     }
 
     this.props.changePageTitle("Tasks");
@@ -46,6 +40,8 @@ export class TasksList extends Component {
       if (Number(page) !== this.props.currentPage) {
         this.props.fetchTasks(url);
       }
+    } else if (page === undefined) {
+      this.props.fetchTasks();
     } else {
       if (Number(page) !== this.props.currentPage) {
         this.props.fetchTasks(`${constants.API_ENDPOINT}/tasks/?page=${page}`);
@@ -111,7 +107,7 @@ function mapStateToProps(state) {
   return {
     rowsById: selectors.getTasksById(state),
     rowsIdArray: selectors.getTasksIdArray(state),
-    pageLinks: selectors.getPageLinks(state),
+    pageLinks: selectors.getPageLinks("tasks", state),
     currentPage: selectors.getCurrentPage(state)
   };
 }

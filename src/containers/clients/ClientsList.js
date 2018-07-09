@@ -62,7 +62,7 @@ function mapStateToProps(state) {
   return {
     rowsById: selectors.getClientsById(state),
     rowsIdArray: selectors.getClientsIdArray(state),
-    pageLinks: selectors.getPageLinks(state),
+    pageLinks: selectors.getPageLinks("clients", state),
     currentPage: selectors.getCurrentPage(state)
   };
 }

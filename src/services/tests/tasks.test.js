@@ -12,8 +12,8 @@ describe("services/tasks", () => {
   it("should fetch tasks", async () => {
     const data = fixtures.taskData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const response = await TaskService.getTaskList();
-    expect(response).toEqual(fixtures.tasksArray);
+    const { tasksArray } = await TaskService.getTaskList();
+    expect(tasksArray).toEqual(fixtures.tasksArray);
   });
 
   it("should handle fetch tasks http errors", async () => {
