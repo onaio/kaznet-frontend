@@ -12,8 +12,14 @@ describe("services/tasks", () => {
   it("should fetch tasks", async () => {
     const data = fixtures.taskData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const { tasksArray } = await TaskService.getTaskList();
+    const {
+      tasksArray,
+      pageLinks,
+      currentPage
+    } = await TaskService.getTaskList();
     expect(tasksArray).toEqual(fixtures.tasksArray);
+    expect(pageLinks).toEqual(fixtures.taskData.links);
+    expect(currentPage).toEqual(fixtures.taskData.meta.pagination.page);
   });
 
   it("should handle fetch tasks http errors", async () => {
