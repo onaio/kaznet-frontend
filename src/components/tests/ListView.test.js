@@ -12,6 +12,14 @@ describe("components/ListView", () => {
     const rowsById = { "0": "Bob", "1": "Jane" };
     const rowsIdArray = ["0", "1"];
 
+    const currentPage = { currentPage: 1 };
+    const pageLinks = {
+      first: null,
+      last: null,
+      prev: null,
+      next: null
+    };
+
     const renderHeader = function() {
       const headerItems = ["Name"];
       return <ElementMap items={headerItems} HTMLTag="th" />;
@@ -27,6 +35,8 @@ describe("components/ListView", () => {
         renderHeaders={renderHeader}
         rowsIdArray={rowsIdArray}
         rowsById={rowsById}
+        pageLinks={pageLinks}
+        currentPage={currentPage}
         renderRow={renderRow}
       />
     );

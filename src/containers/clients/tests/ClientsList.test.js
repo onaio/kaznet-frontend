@@ -6,6 +6,7 @@ import createBrowserHistory from "history/createBrowserHistory";
 
 import { ClientsList } from "../ClientsList";
 import * as fixtures from "../../../store/clients/tests/fixtures";
+const history = createBrowserHistory();
 
 const history = createBrowserHistory();
 
@@ -33,6 +34,8 @@ describe("containers/clients/ClientsList", () => {
           showListTitle={function() {}}
           rowsById={fixtures.clientsById}
           rowsIdArray={fixtures.clientsIdArray}
+          pageLinks={fixtures.clientData.links}
+          currentPage={fixtures.clientData.meta.pagination.page}
         />
       </Router>
     );

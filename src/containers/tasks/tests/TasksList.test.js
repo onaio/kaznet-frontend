@@ -35,6 +35,8 @@ describe("containers/task/TasksList", () => {
           changePageTarget={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.tasksById}
+          pageLinks={fixtures.taskData.links}
+          currentPage={fixtures.taskData.meta.pagination.page}
           rowsIdArray={fixtures.tasksIdArray}
         />
       </Router>
