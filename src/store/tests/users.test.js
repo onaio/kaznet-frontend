@@ -20,7 +20,7 @@ describe("store/users", () => {
 
   it("should retrieve all users", async () => {
     UserService.getUserList.mockReturnValueOnce({
-      usersArray: fixtures.usersArray,
+      userArray: fixtures.usersArray,
       pageLinks: fixtures.userData.links,
       currentPage: 1
     });
