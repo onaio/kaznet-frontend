@@ -24,9 +24,18 @@ class ClientService {
     if (!data) {
       throw new Error(`ClientService getClientList failed, data not returned`);
     }
-    return _.map(data, client => {
+    const pageLinks = apiResponse.links;
+
+    const currentPage = apiResponse.meta.pagination.page;
+
+    const clientArray = _.map(data, client => {
       return client;
     });
+    return {
+      clientArray,
+      pageLinks,
+      currentPage
+    };
   }
 
   async createClient(client_data) {

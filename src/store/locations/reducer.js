@@ -16,7 +16,9 @@ export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.LOCATIONS_FETCHED:
       return state.merge({
-        locationsById: action.locationsById
+        locationsById: action.locationsById,
+        pageLinks: action.pageLinks,
+        currentPage: action.currentPage
       });
     default:
       return state;

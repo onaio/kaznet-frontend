@@ -3,7 +3,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class TaskService {
-  async getTaskList(url = `${constants.API_ENDPOINT}/tasks/`) {
+  async getTaskList(
+    url = `${constants.API_ENDPOINT}/tasks/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {

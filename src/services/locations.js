@@ -26,9 +26,19 @@ class LocationService {
       );
     }
 
-    return _.map(data, location => {
+    const locationArray = _.map(data, location => {
       return location;
     });
+
+    const pageLinks = apiResponse.links;
+
+    const currentPage = apiResponse.meta.pagination.page;
+
+    return {
+      locationArray,
+      pageLinks,
+      currentPage
+    };
   }
 }
 
