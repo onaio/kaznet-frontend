@@ -22,7 +22,7 @@ describe("store/tasks integration", () => {
     TaskService.getTaskList.mockReturnValueOnce({
       tasksArray: fixtures.tasksArray,
       pageLinks: fixtures.taskData.links,
-      currentPage: 1
+      currentPage: fixtures.taskData.meta.pagination.page
     });
 
     await store.dispatch(taskActions.fetchTasks());

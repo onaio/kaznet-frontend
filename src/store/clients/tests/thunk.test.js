@@ -15,13 +15,20 @@ describe("store/clients/actions", () => {
   });
 
   it("should fetch clients from server", async () => {
-    ClientService.getClientList.mockReturnValueOnce(fixtures.clientsArray);
+    ClientService.getClientList.mockReturnValueOnce({
+      clientArray: fixtures.clientsById,
+      pageLinks: fixtures.clientData.links,
+      currentPage: fixtures.clientData.meta.pagination.page
+    });
+
     const dispatches = await Thunk(clients.fetchClients).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.CLIENTS_FETCHED,
-      clientsById: fixtures.clientsById
+      clientsById: fixtures.clientsById,
+      pageLinks: fixtures.clientData.links,
+      currentPage: fixtures.clientData.meta.pagination.page
     });
   });
 

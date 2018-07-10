@@ -18,7 +18,7 @@ describe("store/tasks/actions", () => {
     TaskService.getTaskList.mockReturnValueOnce({
       tasksArray: fixtures.tasksArray,
       pageLinks: fixtures.taskData.links,
-      currentPage: 1
+      currentPage: fixtures.taskData.meta.pagination.page
     });
     const dispatches = await Thunk(tasks.fetchTasks).execute();
 
@@ -28,7 +28,7 @@ describe("store/tasks/actions", () => {
       type: actionTypes.TASKS_FETCHED,
       tasksById: fixtures.tasksById,
       pageLinks: fixtures.taskData.links,
-      currentPage: 1
+      currentPage: fixtures.taskData.meta.pagination.page
     });
   });
 

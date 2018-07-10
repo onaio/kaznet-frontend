@@ -19,10 +19,19 @@ describe("store/locations/reducer", () => {
 
   it("should store fetched tasks", () => {
     const locationsById = fixtures.locationById;
-    const action = { type: actionTypes.LOCATIONS_FETCHED, locationsById };
+    const pageLinks = fixtures.locationData.links;
+    const currentPage = fixtures.locationData.meta.pagination.page;
+    const action = {
+      type: actionTypes.LOCATIONS_FETCHED,
+      locationsById,
+      pageLinks,
+      currentPage
+    };
 
     const existingState = Immutable(initialState);
-    const newState = _.clone(initialState);
+    const newState = _.merge(initialState, {
+      pageLinks: fixtures.locationData.links
+    });
     newState.locationsById = locationsById;
 
     Reducer(locations)

@@ -12,8 +12,14 @@ describe("services/locations", () => {
   it("should fetch locations", async () => {
     const data = fixtures.locationData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const response = await LocationService.getLocationList();
-    expect(response).toEqual(fixtures.locationArray);
+    const {
+      locationArray,
+      pageLinks,
+      currentPage
+    } = await LocationService.getLocationList();
+    expect(locationArray).toEqual(fixtures.locationArray);
+    expect(pageLinks).toEqual(fixtures.locationData.links);
+    expect(currentPage).toEqual(fixtures.locationData.meta.pagination.page);
   });
 
   it("should handle default locations http errors", async () => {
