@@ -1,9 +1,13 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
+import { Router } from "react-router";
+import createBrowserHistory from "history/createBrowserHistory";
 
 import { ClientsList } from "../ClientsList";
 import * as fixtures from "../../../store/clients/tests/fixtures";
+
+const history = createBrowserHistory();
 
 describe("containers/clients/ClientsList", () => {
   it("renders without crashing", () => {
@@ -12,6 +16,7 @@ describe("containers/clients/ClientsList", () => {
         fetchClients={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageTarget={function() {}}
         showListTitle={function() {}}
       />
     );
@@ -19,14 +24,17 @@ describe("containers/clients/ClientsList", () => {
 
   it("renders client list correctly", () => {
     const wrapper = mount(
-      <ClientsList
-        fetchClients={function() {}}
-        changePageTitle={function() {}}
-        changePageTitleButton={function() {}}
-        showListTitle={function() {}}
-        rowsById={fixtures.clientsById}
-        rowsIdArray={fixtures.clientsIdArray}
-      />
+      <Router history={history}>
+        <ClientsList
+          fetchClients={function() {}}
+          changePageTitle={function() {}}
+          changePageTitleButton={function() {}}
+          changePageTarget={function() {}}
+          showListTitle={function() {}}
+          rowsById={fixtures.clientsById}
+          rowsIdArray={fixtures.clientsIdArray}
+        />
+      </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

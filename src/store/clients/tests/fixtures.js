@@ -27,6 +27,26 @@ export const clientData = {
   }
 };
 
+export const singleClientData = {
+  data: {
+    type: "Client",
+    id: "1",
+    attributes: {
+      name: "Sol",
+      created: "2018-06-21T13:51:54.011373+03:00"
+    }
+  }
+};
+
+export const singleClient = {
+  type: "Client",
+  id: "1",
+  attributes: {
+    name: "Sol",
+    created: "2018-06-21T13:51:54.011373+03:00"
+  }
+};
+
 export const clientsArray = _.map(clientData.data, client => {
   return client;
 });
@@ -34,3 +54,5 @@ export const clientsArray = _.map(clientData.data, client => {
 export const clientsById = _.keyBy(clientsArray, client => client.id);
 
 export const clientsIdArray = _.keys(clientsById);
+
+export const clientById = _.get(clientsById, 1);

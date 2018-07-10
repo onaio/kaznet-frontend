@@ -11,10 +11,10 @@ const emptyState = Immutable({
 });
 
 describe("store/errorHandler/selectors", () => {
-  it("should get invert of default errors when empty", () => {
-    Selector(contentTypes.getIsRetrieving)
+  it("should get default errors when empty", () => {
+    Selector(contentTypes.getHasError)
       .expect(emptyState)
-      .toReturn(true);
+      .toReturn(false);
   });
 
   it("should get default errorMessage when empty", () => {

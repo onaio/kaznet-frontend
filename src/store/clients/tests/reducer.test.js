@@ -29,4 +29,46 @@ describe("store/clients/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
+
+  it("should store created client", () => {
+    const clientData = fixtures.singleClient;
+    const action = { type: actionTypes.CLIENT_CREATED, clientData };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(existingState);
+    newState.clientsById = fixtures.clientsById;
+
+    Reducer(clients)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should store fetched client", () => {
+    const clientData = fixtures.singleClient;
+    const action = { type: actionTypes.CLIENT_FETCHED, clientData };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(existingState);
+    newState.clientsById = fixtures.clientsById;
+
+    Reducer(clients)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should store edited client", () => {
+    const clientData = fixtures.singleClient;
+    const action = { type: actionTypes.CLIENT_EDITED, clientData };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(existingState);
+    newState.clientsById = fixtures.clientsById;
+
+    Reducer(clients)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });

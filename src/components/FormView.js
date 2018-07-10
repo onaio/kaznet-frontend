@@ -5,14 +5,11 @@ import "./FormView.css";
 
 export default class FormView extends Component {
   render() {
-    const FormElement = this.props.form;
     return (
       <section className="form-view">
         <Row>
           <Col sm="12" md={{ size: 8, offset: 2 }}>
-            <div>
-              <FormElement />
-            </div>
+            <div>{this.props.form}</div>
           </Col>
         </Row>
       </section>

@@ -1,95 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`containers/clients/ClientsList renders client list correctly 1`] = `
-<ClientsList
-  changePageTitle={[Function]}
-  changePageTitleButton={[Function]}
-  fetchClients={[Function]}
-  rowsById={
+<Router
+  history={
     Object {
-      "1": Object {
-        "attributes": Object {
-          "created": "2018-06-21T13:51:54.011373+03:00",
-          "name": "Sol",
-        },
-        "id": "1",
-        "type": "Client",
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
       },
+      "push": [Function],
+      "replace": [Function],
     }
   }
-  rowsIdArray={
-    Array [
-      "1",
-    ]
-  }
-  showListTitle={[Function]}
 >
-  <div
-    className="ClientsList"
-  >
-    <ListView
-      renderHeaders={[Function]}
-      renderRow={[Function]}
-      rowsById={
-        Object {
-          "1": Object {
-            "attributes": Object {
-              "created": "2018-06-21T13:51:54.011373+03:00",
-              "name": "Sol",
-            },
-            "id": "1",
-            "type": "Client",
+  <ClientsList
+    changePageTarget={[Function]}
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    fetchClients={[Function]}
+    rowsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "created": "2018-06-21T13:51:54.011373+03:00",
+            "name": "Sol",
           },
-        }
+          "id": "1",
+          "type": "Client",
+        },
       }
-      rowsIdArray={
-        Array [
-          "1",
-        ]
-      }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+      ]
+    }
+    showListTitle={[Function]}
+  >
+    <div
+      className="ClientsList"
     >
-      <Table
-        bordered={true}
-        className="kaznet-table"
-        responsiveTag="div"
-        tag="table"
+      <ListView
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "1": Object {
+              "attributes": Object {
+                "created": "2018-06-21T13:51:54.011373+03:00",
+                "name": "Sol",
+              },
+              "id": "1",
+              "type": "Client",
+            },
+          }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+          ]
+        }
       >
-        <table
-          className="kaznet-table table table-bordered"
+        <Table
+          bordered={true}
+          className="kaznet-table"
+          responsiveTag="div"
+          tag="table"
         >
-          <thead>
-            <tr>
-              <ElementMap
-                HTMLTag="th"
-                items={
-                  Array [
-                    "Name",
-                    "Created",
-                  ]
-                }
+          <table
+            className="kaznet-table table table-bordered"
+          >
+            <thead>
+              <tr>
+                <ElementMap
+                  HTMLTag="th"
+                  items={
+                    Array [
+                      "Name",
+                      "Created",
+                    ]
+                  }
+                >
+                  <th
+                    key="0"
+                  >
+                    Name
+                  </th>
+                  <th
+                    key="1"
+                  >
+                    Created
+                  </th>
+                </ElementMap>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                key="1"
               >
-                <th
-                  key="0"
+                <ElementMap
+                  HTMLTag="td"
+                  items={
+                    Array [
+                      <Link
+                        replace={false}
+                        to="/clients/edit/1"
+                    >
+                        Sol
+                    </Link>,
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                    >
+                        2018-06-21T13:51:54.011373+03:00
+                    </t>,
+                    ]
+                  }
                 >
-                  Name
-                </th>
-                <th
-                  key="1"
-                >
-                  Created
-                </th>
-              </ElementMap>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              key="1"
-            >
-              <ElementMap
-                HTMLTag="td"
-                items={
-                  Array [
-                    "Sol",
+                  <td
+                    key="0"
+                  >
+                    <Link
+                      key="link_to"
+                      replace={false}
+                      to="/clients/edit/1"
+                    >
+                      <a
+                        href="/clients/edit/1"
+                        onClick={[Function]}
+                      >
+                        Sol
+                      </a>
+                    </Link>
+                  </td>
+                  <td
+                    key="1"
+                  >
                     <t
                       ago={false}
                       calendar={false}
@@ -99,54 +166,27 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       format="DD-MM-YYYY"
                       fromNow={false}
                       interval={60000}
+                      key="1"
                       onChange={[Function]}
                       toNow={false}
                       unit={null}
                       unix={false}
                       utc={false}
-                  >
-                      2018-06-21T13:51:54.011373+03:00
-                  </t>,
-                  ]
-                }
-              >
-                <td
-                  key="0"
-                >
-                  Sol
-                </td>
-                <td
-                  key="1"
-                >
-                  <t
-                    ago={false}
-                    calendar={false}
-                    decimal={false}
-                    element="time"
-                    filter={[Function]}
-                    format="DD-MM-YYYY"
-                    fromNow={false}
-                    interval={60000}
-                    key="1"
-                    onChange={[Function]}
-                    toNow={false}
-                    unit={null}
-                    unix={false}
-                    utc={false}
-                  >
-                    <time
-                      dateTime={"2018-06-21T10:51:54.011Z"}
                     >
-                      21-06-2018
-                    </time>
-                  </t>
-                </td>
-              </ElementMap>
-            </tr>
-          </tbody>
-        </table>
-      </Table>
-    </ListView>
-  </div>
-</ClientsList>
+                      <time
+                        dateTime={"2018-06-21T10:51:54.011Z"}
+                      >
+                        21-06-2018
+                      </time>
+                    </t>
+                  </td>
+                </ElementMap>
+              </tr>
+            </tbody>
+          </table>
+        </Table>
+      </ListView>
+    </div>
+  </ClientsList>
+</Router>
 `;

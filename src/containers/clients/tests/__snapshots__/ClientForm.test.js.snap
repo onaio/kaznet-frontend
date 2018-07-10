@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/client/ClientForm renders client form correctly 1`] = `
+<ClientForm
+  formActionDispatch={[Function]}
+  initialData={
+    Object {
+      "name": "Hi",
+    }
+  }
+>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "name": "Hi",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  >
+    <div>
+      <Form
+        onSubmit={[Function]}
+        tag="form"
+      >
+        <form
+          className=""
+          onSubmit={[Function]}
+        >
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="12"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-12"
+                >
+                  <Input
+                    aria-label="name"
+                    bsSize="lg"
+                    className=""
+                    name="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Client Name"
+                    type="text"
+                    value="Hi"
+                  >
+                    <input
+                      aria-label="name"
+                      className="form-control-lg form-control"
+                      name="name"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Client Name"
+                      type="text"
+                      value="Hi"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <Button
+            className="btn btn-primary btn-block"
+            color="secondary"
+            disabled={false}
+            tag="button"
+            type="submit"
+          >
+            <button
+              className="btn btn-primary btn-block btn btn-secondary"
+              disabled={false}
+              onClick={[Function]}
+              type="submit"
+            >
+              Save Client
+            </button>
+          </Button>
+        </form>
+      </Form>
+    </div>
+  </Formik>
+</ClientForm>
+`;

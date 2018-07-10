@@ -42,4 +42,10 @@ describe("store/clients/selectors", () => {
       .expect(fullState)
       .toReturn(fixtures.clientsIdArray);
   });
+
+  it("should get client by id when full", () => {
+    Selector(clients.getClientById)
+      .expect(fullState, 1)
+      .toReturn(fixtures.clientById);
+  });
 });
