@@ -31,8 +31,9 @@ describe("containers/locations/LocationList", () => {
           rowsById={fixtures.locationById}
           endpoint={"locations"}
           rowsIdArray={fixtures.locationIdArray}
-          pageLinks={fixtures.locationData.links}
-          currentPage={fixtures.locationData.meta.pagination.page}
+          pageLinks={fixtures.pageLinks}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.currentPage}
         />
       </Router>
     );

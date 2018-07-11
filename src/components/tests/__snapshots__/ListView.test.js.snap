@@ -24,11 +24,7 @@ exports[`components/ListView renders a table 1`] = `
   }
 >
   <ListView
-    currentPage={
-      Object {
-        "currentPage": 1,
-      }
-    }
+    currentPage={1}
     pageLinks={
       Object {
         "first": null,
@@ -51,6 +47,7 @@ exports[`components/ListView renders a table 1`] = `
         "1",
       ]
     }
+    totalPages={2}
   >
     <div>
       <Table

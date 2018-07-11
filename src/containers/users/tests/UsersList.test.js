@@ -33,8 +33,9 @@ describe("containers/users/UsersList", () => {
           rowsById={fixtures.usersById}
           endpoint={"users"}
           rowsIdArray={fixtures.usersIdArray}
-          pageLinks={fixtures.userData.links}
-          currentPage={fixtures.userData.meta.pagination.page}
+          pageLinks={fixtures.pageLinks}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.currentPage}
         />
       </Router>
     );

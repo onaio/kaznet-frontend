@@ -18,14 +18,15 @@ class UserService {
       );
     }
 
+    const apiResponse = await response.json();
+
     const {
       data,
       links,
       meta: {
         pagination: { page, pages }
       }
-    } = await response.json();
-
+    } = apiResponse;
     if (!data) {
       throw new Error(`UserService getUserList failed, data not returned`);
     }

@@ -149,7 +149,7 @@ export const taskData = {
   meta: {
     pagination: {
       page: 1,
-      pages: 1,
+      pages: 2,
       count: 2
     }
   }
@@ -163,6 +163,8 @@ export const tasksById = _.keyBy(tasksArray, task => task.id);
 export const taskById = _.get(tasksById, 1);
 
 export const pageLinks = taskData.links;
+export const totalPages = taskData.meta.pagination.pages;
+export const currentPage = taskData.meta.pagination.page;
 
 export const singleTaskData = {
   data: {

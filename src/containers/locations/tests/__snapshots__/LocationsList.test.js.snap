@@ -99,6 +99,7 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
       ]
     }
     showListTitle={[Function]}
+    totalPages={2}
   >
     <div
       className="LocationList"
@@ -177,6 +178,7 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
             "1",
           ]
         }
+        totalPages={2}
       >
         <div>
           <Table

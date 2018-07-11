@@ -15,7 +15,8 @@ describe("components/ListView", () => {
     const rowsById = { "0": "Bob", "1": "Jane" };
     const rowsIdArray = ["0", "1"];
 
-    const currentPage = { currentPage: 1 };
+    const currentPage = 1;
+    const totalPages = 2;
     const pageLinks = {
       first: null,
       last: null,
@@ -40,6 +41,7 @@ describe("components/ListView", () => {
         rowsById={rowsById}
         pageLinks={pageLinks}
         currentPage={currentPage}
+        totalPages={totalPages}
         renderRow={renderRow}
       />
     );
@@ -48,7 +50,8 @@ describe("components/ListView", () => {
   it("renders a table", () => {
     const rowsById = { "0": "Bob", "1": "Jane" };
     const rowsIdArray = ["0", "1"];
-    const currentPage = { currentPage: 1 };
+    const currentPage = 1;
+    const totalPages = 2;
     const pageLinks = {
       first: null,
       last: null,
@@ -74,6 +77,7 @@ describe("components/ListView", () => {
           rowsById={rowsById}
           renderRow={renderRow}
           pageLinks={pageLinks}
+          totalPages={totalPages}
           currentPage={currentPage}
         />
       </Router>

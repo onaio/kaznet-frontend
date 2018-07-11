@@ -186,6 +186,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
       ]
     }
     showListTitle={[Function]}
+    totalPages={2}
   >
     <div
       className="TasksList"
@@ -349,6 +350,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             "2",
           ]
         }
+        totalPages={2}
       >
         <div>
           <Table

@@ -34,6 +34,7 @@ describe("containers/clients/ClientsList", () => {
           endpoint={"clients"}
           rowsIdArray={fixtures.clientsIdArray}
           pageLinks={fixtures.clientData.links}
+          totalPages={fixtures.totalPages}
           currentPage={fixtures.clientData.meta.pagination.page}
         />
       </Router>
