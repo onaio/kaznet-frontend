@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
+import { Col, Row, Card, CardBody } from "reactstrap";
 
 import "./FormView.css";
 
@@ -8,8 +8,12 @@ export default class FormView extends Component {
     return (
       <section className="form-view">
         <Row>
-          <Col sm="12" md={{ size: 8, offset: 2 }}>
-            <div>{this.props.form}</div>
+          <Col sm="12" md={{ size: 10, offset: 1 }}>
+            <Card className="kaznet-form">
+              <CardBody>
+                <div>{this.props.form}</div>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </section>

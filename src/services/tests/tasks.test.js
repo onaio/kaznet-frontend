@@ -36,6 +36,26 @@ describe("services/tasks", () => {
     expect(response).toEqual(fixtures.singleTask);
   });
 
+  it("should edit a task", async () => {
+    const data = fixtures.singleTaskData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await TaskService.editTask({}, 1);
+    expect(response).toEqual(fixtures.singleTask);
+  });
+
+  it("should handle edit task http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await TaskService.editTask();
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("TaskService editTask failed, HTTP status 500")
+    );
+  });
+
   it("should handle create task http errors", async () => {
     fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
     let error;
@@ -50,10 +70,10 @@ describe("services/tasks", () => {
   });
 
   it("should fetch task", async () => {
-    const data = fixtures.taskData;
+    const data = fixtures.singleTaskData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await TaskService.getTask(1);
-    expect(response).toEqual(fixtures.taskData);
+    expect(response).toEqual(fixtures.singleTask);
   });
 
   it("should handle get task http errors", async () => {

@@ -12,7 +12,10 @@ export function fetchTasks() {
       const tasksById = _.keyBy(taskArray, task => task.id);
       dispatch({ type: types.TASKS_FETCHED, tasksById });
     } catch (error) {
-      console.error(error);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
   };
 }
@@ -23,8 +26,28 @@ export function createTask(task_data) {
     try {
       const taskData = await taskService.createTask(task_data);
       dispatch({ type: types.TASK_CREATED, taskData });
+      dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
     } catch (error) {
-      console.error(error);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+// edits task
+export function editTask(task_data, id) {
+  return async (dispatch, getState) => {
+    try {
+      const taskData = await taskService.editTask(task_data, id);
+      dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+      dispatch({ type: types.TASK_EDITED, taskData });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
   };
 }

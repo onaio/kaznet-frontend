@@ -40,7 +40,9 @@ export function getUnusedFormsById(state) {
     return form.id;
   });
 
-  console.log(formsById);
-
   return formsById;
+}
+
+export function getFormById(state, id) {
+  return _.get(state.forms.formsById, id);
 }

@@ -20,11 +20,11 @@ import { Redirect } from "react-router-dom";
 import { OptionMap } from "../Select";
 import * as clientActions from "../../store/clients/actions";
 import * as formActions from "../../store/forms/actions";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as contentTypeActions from "../../store/contentTypes/actions";
 import * as clientSelectors from "../../store/clients/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
-import TaskService from "../../services/tasks";
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -44,6 +44,11 @@ const transformMyApiErrors = function(array) {
 };
 
 export class TaskForm extends Component {
+  constructor(props) {
+    super(props);
+    this.targetId = props.targetId || null;
+  }
+
   componentDidMount() {
     this.props.fetchForms();
     this.props.fetchClients();
@@ -53,23 +58,12 @@ export class TaskForm extends Component {
   render() {
     return (
       <Formik
-        initialValues={{
-          name: "",
-          estimated_time: "15",
-          start: moment().format("YYYY-MM-DD"),
-          end: moment().format("YYYY-MM-DD"),
-          description: "",
-          required_expertise: "1",
-          timing_rule: "",
-          status: "d",
-          user_submission_target: 10,
-          amount: ""
-        }}
+        initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
               type: "Task",
-              id: null,
+              id: this.targetId != null ? this.targetId : null,
               attributes: {
                 name: values.name,
                 estimated_time: values.estimated_time * 60,
@@ -81,9 +75,13 @@ export class TaskForm extends Component {
                   values.timing_rule !== "" ? values.timing_rule : undefined,
                 total_submission_target: undefined,
                 user_submission_target: values.user_submission_target,
-                status: values.status,
+                status:
+                  values.status !== this.props.initialData.status
+                    ? values.status
+                    : this.props.initialData.status,
                 target_id: values.form,
                 target_content_type: this.props.formContentTypeId,
+                amount: values.amount,
                 client:
                   values.client != null
                     ? { type: "Client", id: values.client }
@@ -92,12 +90,11 @@ export class TaskForm extends Component {
             }
           };
 
-          console.log(payload);
           try {
-            TaskService.createTask(payload).then(function(results) {
+            this.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
-              if (results.errors) {
-                setErrors(transformMyApiErrors(results.errors));
+              if (this.props.hasError) {
+                setErrors(transformMyApiErrors(this.props.errorMessage));
               } else {
                 setStatus("done");
               }
@@ -226,6 +223,7 @@ export class TaskForm extends Component {
                   >
                     <OptionMap
                       obj={this.props.unusedFormsById}
+                      additionalObj={this.props.currentForm}
                       titleField="title"
                     />
                   </Input>
@@ -408,6 +406,7 @@ export class TaskForm extends Component {
 
                   <RRuleGenerator
                     onChange={rrule => setFieldValue("timing_rule", rrule)}
+                    value={values.timing_rule}
                   />
                 </Col>
               </FormGroup>
@@ -419,7 +418,9 @@ export class TaskForm extends Component {
                 {isSubmitting ? "Activating" : "Activate"}
               </Button>
             </Form>
-            {status === "done" && <Redirect to={"/tasks"} />}
+            {status === "done" && (
+              <Redirect to={this.props.redirectAfterAction} />
+            )}
           </div>
         )}
       />
@@ -428,20 +429,21 @@ export class TaskForm extends Component {
 }
 
 // which props do we want to inject, given the global store state?
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
     clientsById: clientSelectors.getClientsById(state),
-    clientsIdArray: clientSelectors.getClientsIdArray(state),
-    formsById: formSelectors.getFormsById(state),
-    formsIdArray: formSelectors.getFormsIdArray(state),
     unusedFormsById: formSelectors.getUnusedFormsById(state),
-    formContentTypeId: contentTypeSelectors.getFormContentType(state)
+    currentForm: formSelectors.getFormById(state, ownProps.initialData.form),
+    formContentTypeId: contentTypeSelectors.getFormContentType(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return bindActionCreators(
     {
+      formActionDispatch: ownProps.action,
       fetchClients: clientActions.fetchClients,
       fetchForms: formActions.fetchForms,
       fetchContentTypes: contentTypeActions.fetchContentTypes

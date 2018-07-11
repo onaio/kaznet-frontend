@@ -42,4 +42,10 @@ describe("store/forms/selectors", () => {
       .expect(fullState)
       .toReturn(fixtures.formsIdArray);
   });
+
+  it("should get form by id when full", () => {
+    Selector(forms.getFormById)
+      .expect(fullState, 1)
+      .toReturn(fixtures.formIdOneById);
+  });
 });
