@@ -33,11 +33,6 @@ class UserService {
     const userArray = _.map(data, user => {
       return user;
     });
-
-    const pageLinks = apiResponse.links;
-
-    const currentPage = apiResponse.meta.pagination.page;
-
     return {
       userArray,
       pageLinks: links,

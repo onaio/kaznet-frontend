@@ -16,8 +16,6 @@ import ElementMap from "../ElementMap";
 
 export class TasksList extends Component {
   async componentDidMount() {
-    const pageLinks = this.props.pageLinks;
-
     this.props.changePageNumber(1);
 
     if (this.props.location) {
@@ -34,7 +32,6 @@ export class TasksList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger;
     const { page } = queryString.parse(this.props.location.search);
     if (isNaN(Number(page)) && !(page === undefined)) {
       const url = this.props.pageLinks[page];

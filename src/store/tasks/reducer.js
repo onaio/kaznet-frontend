@@ -76,6 +76,10 @@ export function getCurrentPage(state, porseps) {
   return state.tasks.currentPage;
 }
 
+export function getTotalPages(state, porseps) {
+  return state.tasks.totalPages;
+}
+
 export function getFirstPage(state, props) {
   return state.tasks.pageLinks.first;
 }
