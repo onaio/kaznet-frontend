@@ -27,11 +27,11 @@ exports[`components/DetailView renders a view 1`] = `
   <Col
     md={
       Object {
-        "offset": 2,
-        "size": 8,
+        "offset": 1,
+        "size": 10,
       }
     }
-    sm="15"
+    sm="12"
     tag="div"
     widths={
       Array [
@@ -44,7 +44,7 @@ exports[`components/DetailView renders a view 1`] = `
     }
   >
     <div
-      className="col-sm-15 col-md-8 offset-md-2"
+      className="col-sm-12 col-md-10 offset-md-1"
     >
       <Table
         borderless={true}

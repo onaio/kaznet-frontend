@@ -21,7 +21,11 @@ describe("containers/NestedElementMap", () => {
     };
 
     const wrapper = mount(
-      <NestedElementMap detailitems={detailItems} HTMLTag="td" />
+      <table>
+        <tbody>
+          <NestedElementMap detailitems={detailItems} HTMLTag="td" />
+        </tbody>
+      </table>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

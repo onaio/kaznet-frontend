@@ -1330,7 +1330,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               "after": 12,
                               "mode": "After",
                               "onDate": Object {
-                                "date": "2018-07-06",
+                                "date": "2018-07-11",
                                 "options": Object {
                                   "calendarComponent": null,
                                   "weekStartsOnSunday": undefined,
