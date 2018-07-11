@@ -31,6 +31,7 @@ describe("containers/users/UsersList", () => {
           changePageTitleButton={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.usersById}
+          endpoint={"users"}
           rowsIdArray={fixtures.usersIdArray}
           pageLinks={fixtures.userData.links}
           currentPage={fixtures.userData.meta.pagination.page}

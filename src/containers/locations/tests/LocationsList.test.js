@@ -29,6 +29,7 @@ describe("containers/locations/LocationList", () => {
           changePageTitleButton={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.locationById}
+          endpoint={"locations"}
           rowsIdArray={fixtures.locationIdArray}
           pageLinks={fixtures.locationData.links}
           currentPage={fixtures.locationData.meta.pagination.page}

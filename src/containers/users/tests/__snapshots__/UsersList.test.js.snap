@@ -28,6 +28,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
     currentPage={1}
+    endpoint="users"
     fetchUsers={[Function]}
     pageLinks={
       Object {
@@ -84,6 +85,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
     >
       <ListView
         currentPage={1}
+        endpoint="users"
         pageLinks={
           Object {
             "first": "http://localhost:8000/api/v1/userprofiles/?page=1",
@@ -317,12 +319,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?page=first"
+                      to="/users/?page=first"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/tasks/?page=first"
+                        href="/users/?page=first"
                         onClick={[Function]}
                       >
                         First
@@ -389,12 +391,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?page=last"
+                      to="/users/?page=last"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/tasks/?page=last"
+                        href="/users/?page=last"
                         onClick={[Function]}
                       >
                         Last

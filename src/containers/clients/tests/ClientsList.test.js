@@ -33,6 +33,7 @@ describe("containers/clients/ClientsList", () => {
           changePageTarget={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.clientsById}
+          endpoint={"clients"}
           rowsIdArray={fixtures.clientsIdArray}
           pageLinks={fixtures.clientData.links}
           currentPage={fixtures.clientData.meta.pagination.page}

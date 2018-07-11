@@ -27,6 +27,7 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
     currentPage={1}
+    endpoint="locations"
     fetchLocations={[Function]}
     pageLinks={
       Object {
@@ -104,6 +105,7 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
     >
       <ListView
         currentPage={1}
+        endpoint="locations"
         pageLinks={
           Object {
             "first": "http://localhost:8000/api/v1/locations/?page=1",
@@ -285,12 +287,12 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?page=first"
+                      to="/locations/?page=first"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/tasks/?page=first"
+                        href="/locations/?page=first"
                         onClick={[Function]}
                       >
                         First
@@ -357,12 +359,12 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?page=last"
+                      to="/locations/?page=last"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/tasks/?page=last"
+                        href="/locations/?page=last"
                         onClick={[Function]}
                       >
                         Last
