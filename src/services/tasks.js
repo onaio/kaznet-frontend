@@ -18,8 +18,14 @@ class TaskService {
         `TaskService getTaskList failed, HTTP status ${response.status}`
       );
     }
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(`TaskService getTaskList failed, data not returned`);
     }
@@ -28,15 +34,11 @@ class TaskService {
       return task;
     });
 
-    const pageLinks = apiResponse.links;
-    const currentPage = apiResponse.meta.pagination.page;
-    const totalPages = apiResponse.meta.pagination.pages;
-
     return {
       tasksArray,
-      pageLinks,
-      currentPage,
-      totalPages
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
     };
   }
 

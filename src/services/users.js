@@ -17,8 +17,15 @@ class UserService {
         `UserService getUserList failed, HTTP status ${response.status}`
       );
     }
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(`UserService getUserList failed, data not returned`);
     }
@@ -32,8 +39,9 @@ class UserService {
 
     return {
       userArray,
-      pageLinks,
-      currentPage
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
     };
   }
 }

@@ -18,23 +18,27 @@ class ClientService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
 
     if (!data) {
       throw new Error(`ClientService getClientList failed, data not returned`);
     }
-    const pageLinks = apiResponse.links;
-
-    const currentPage = apiResponse.meta.pagination.page;
 
     const clientArray = _.map(data, client => {
       return client;
     });
+
     return {
       clientArray,
-      pageLinks,
-      currentPage
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
     };
   }
 

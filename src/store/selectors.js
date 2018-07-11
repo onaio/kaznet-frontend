@@ -58,6 +58,10 @@ function getPageLinks(tab, state, props) {
   return state[tab].pageLinks;
 }
 
+function getTotalPages(tab, state, props) {
+  return state[tab].totalPages;
+}
+
 function getCurrentPage(state, porseps) {
   return state.tasks.currentPage;
 }
@@ -95,6 +99,7 @@ export {
   getUsersIdArray,
   // common
   getPageLinks,
+  getTotalPages,
   getCurrentPage,
   getFirstPage,
   getNextPage,

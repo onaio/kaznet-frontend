@@ -61,6 +61,7 @@ export class TasksList extends Component {
           renderRow={this.renderRow}
           endpoint={"tasks"}
           pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
         />
       </div>
@@ -110,6 +111,7 @@ function mapStateToProps(state) {
     rowsById: selectors.getTasksById(state),
     rowsIdArray: selectors.getTasksIdArray(state),
     pageLinks: selectors.getPageLinks("tasks", state),
+    totalPages: selectors.getTotalPages("tasks", state),
     currentPage: selectors.getCurrentPage(state)
   };
 }

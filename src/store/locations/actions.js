@@ -8,7 +8,8 @@ export function fetchLocations() {
       const {
         locationArray,
         pageLinks,
-        currentPage
+        currentPage,
+        totalPages
       } = await locationService.getLocationList();
       const locationsById = _.keyBy(locationArray, location => location.id);
 
@@ -16,6 +17,7 @@ export function fetchLocations() {
         type: types.LOCATIONS_FETCHED,
         locationsById,
         pageLinks,
+        totalPages,
         currentPage
       });
     } catch (error) {

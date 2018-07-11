@@ -16,7 +16,7 @@ export default class ListView extends Component {
             {_.map(this.props.rowsIdArray, this.renderRowById.bind(this))}
           </tbody>
         </Table>
-        {this.renderPagination()}
+        {this.props.totalPages > 1 ? this.renderPagination() : null}
       </div>
     );
   }

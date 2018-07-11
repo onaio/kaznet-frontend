@@ -18,8 +18,14 @@ class LocationService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(
         `LocationService getLocationList failed, data not returned`
@@ -30,14 +36,11 @@ class LocationService {
       return location;
     });
 
-    const pageLinks = apiResponse.links;
-
-    const currentPage = apiResponse.meta.pagination.page;
-
     return {
       locationArray,
-      pageLinks,
-      currentPage
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
     };
   }
 }

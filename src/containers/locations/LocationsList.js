@@ -30,6 +30,7 @@ export class LocationsList extends Component {
           renderRow={this.renderRow}
           endpoint={"locations"}
           pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
         />
       </div>
@@ -61,6 +62,7 @@ function mapStateToProps(state) {
     rowsById: selectors.getLocationsById(state),
     rowsIdArray: selectors.getLocationsIdArray(state),
     pageLinks: selectors.getPageLinks("locations", state),
+    totalPages: selectors.getTotalPages("locations", state),
     currentPage: selectors.getCurrentPage(state)
   };
 }

@@ -8,13 +8,15 @@ export function fetchUsers() {
       const {
         userArray,
         pageLinks,
-        currentPage
+        currentPage,
+        totalPages
       } = await userService.getUserList();
       const usersById = _.keyBy(userArray, user => user.id);
       dispatch({
         type: types.USERS_FETCHED,
         usersById,
         pageLinks,
+        totalPages,
         currentPage
       });
     } catch (error) {

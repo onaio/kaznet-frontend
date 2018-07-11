@@ -18,7 +18,8 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         locationsById: action.locationsById,
         pageLinks: action.pageLinks,
-        currentPage: action.currentPage
+        currentPage: action.currentPage,
+        totalPages: action.totalPages
       });
     default:
       return state;

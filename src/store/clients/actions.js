@@ -11,13 +11,15 @@ export function fetchClients() {
       const {
         clientArray,
         pageLinks,
-        currentPage
+        currentPage,
+        totalPages
       } = await clientService.getClientList(); // reason we are using async
       const clientsById = _.keyBy(clientArray, task => task.id); // Sorts the items ???
       dispatch({
         type: types.CLIENTS_FETCHED,
         clientsById,
         pageLinks,
+        totalPages,
         currentPage
       }); // Returns an object for the action which is {}
     } catch (error) {
