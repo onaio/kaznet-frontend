@@ -133,7 +133,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Sol",
+                        <Link
+                          replace={false}
+                          to="/clients/edit/1"
+                      >
+                          Sol
+                      </Link>,
                         <t
                           ago={false}
                           calendar={false}
@@ -157,7 +162,18 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Sol
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/clients/edit/1"
+                      >
+                        <a
+                          href="/clients/edit/1"
+                          onClick={[Function]}
+                        >
+                          Sol
+                        </a>
+                      </Link>
                     </td>
                     <td
                       key="1"
