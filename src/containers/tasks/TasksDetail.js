@@ -8,7 +8,6 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import * as selectors from "../../store/selectors";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
 import DetailView from "../../components/DetailView";
 import StatisticsSection from "./StatisticsSection";
@@ -147,9 +146,8 @@ export class TasksDetail extends Component {
 function mapStateToProps(state, props) {
   return {
     taskById: selectors.getTaskById(state, props.match.params.id),
-    hasError: errorHandlerSelectors.getHasError(state),
-    isRetrieving: errorHandlerSelectors.getIsRetrieving(state),
-    errorMessage: errorHandlerSelectors.getErrorMessage(state)
+    hasError: selectors.getHasError(state),
+    errorMessage: selectors.getErrorMessage(state)
   };
 }
 

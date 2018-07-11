@@ -46,6 +46,14 @@ function getUsersIdArray(state) {
 
 //common
 
+export function getHasError(state) {
+  return state.errorHandler.errors;
+}
+
+export function getErrorMessage(state) {
+  return state.errorHandler.errorMessage;
+}
+
 function getPageLinks(tab, state, props) {
   return state[tab].pageLinks;
 }

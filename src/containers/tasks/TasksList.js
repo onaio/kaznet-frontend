@@ -34,6 +34,7 @@ export class TasksList extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    debugger;
     const { page } = queryString.parse(this.props.location.search);
     if (isNaN(Number(page)) && !(page === undefined)) {
       const url = this.props.pageLinks[page];

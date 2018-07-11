@@ -4,9 +4,8 @@ import { bindActionCreators } from "redux";
 
 import ClientForm from "./ClientForm";
 import FormView from "../../components/FormView";
-import * as clientSelectors from "../../store/clients/reducer";
+import * as selectors from "../../store/selectors";
 import * as clientActions from "../../store/clients/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as globalActions from "../../store/global/actions";
 
 export class ClientEditForm extends Component {
@@ -47,9 +46,9 @@ export class ClientEditForm extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    clientById: clientSelectors.getClientById(state, ownProps.match.params.id),
-    hasError: errorHandlerSelectors.getHasError,
-    errorMessage: errorHandlerSelectors.getErrorMessage
+    clientById: selectors.getClientById(state, ownProps.match.params.id),
+    hasError: selectors.getHasError,
+    errorMessage: selectors.getErrorMessage
   };
 }
 
