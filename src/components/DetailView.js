@@ -4,7 +4,7 @@ import { Table, Col } from "reactstrap";
 export default class DetailView extends Component {
   render() {
     return (
-      <Col sm="12" md={{ size: 10, offset: 1 }}>
+      <Col sm="12" md={{ size: 8, offset: 2 }}>
         <Table borderless className="kaznet-table details">
           <tbody>
             {this.props.renderMainDetails}
