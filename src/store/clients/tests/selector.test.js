@@ -44,7 +44,7 @@ describe("store/clients/selectors", () => {
   });
 
   it("should get client by id when full", () => {
-    Selector(clients.getClientById)
+    Selector(selectors.getClientById)
       .expect(fullState, 1)
       .toReturn(fixtures.clientById);
   });
