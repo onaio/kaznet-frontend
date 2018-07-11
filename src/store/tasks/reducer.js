@@ -28,7 +28,7 @@ export default function reduce(state = initialState, action = {}) {
           ...state.tasksById,
           [action.taskData.id]: action.taskData
         }
-      };
+      });
     case types.TASK_CHANGE_PAGE:
       return state.merge({
         currentPage: action.pageNumber
