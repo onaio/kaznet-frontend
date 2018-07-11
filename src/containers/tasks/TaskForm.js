@@ -46,7 +46,6 @@ const transformMyApiErrors = function(array) {
 export class TaskForm extends Component {
   constructor(props) {
     super(props);
-
     this.targetId = props.targetId || null;
   }
 

@@ -18,7 +18,9 @@ export class TaskEditForm extends Component {
 
   render() {
     this.task = this.props.taskById;
-    if (!this.task) return this.renderLoading();
+    if (!this.task) {
+      return this.renderLoading();
+    }
     const action = taskActions.editTask;
     var status = this.task.attributes.status;
 
