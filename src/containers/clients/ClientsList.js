@@ -28,6 +28,7 @@ export class ClientsList extends Component {
           renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
+          endpoint={"clients"}
           renderRow={this.renderRow}
           pageLinks={this.props.pageLinks}
           currentPage={this.props.currentPage}

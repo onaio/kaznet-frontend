@@ -58,6 +58,7 @@ export class TasksList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          endpoint={"tasks"}
           pageLinks={this.props.pageLinks}
           currentPage={this.props.currentPage}
         />

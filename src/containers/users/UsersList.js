@@ -24,6 +24,7 @@ export class UsersList extends Component {
       <div className="UsersList">
         <ListView
           renderHeaders={this.renderHeaders}
+          endpoint={"users"}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
