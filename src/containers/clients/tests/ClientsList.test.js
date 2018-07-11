@@ -8,8 +8,6 @@ import { ClientsList } from "../ClientsList";
 import * as fixtures from "../../../store/clients/tests/fixtures";
 const history = createBrowserHistory();
 
-const history = createBrowserHistory();
-
 describe("containers/clients/ClientsList", () => {
   it("renders without crashing", () => {
     shallow(
