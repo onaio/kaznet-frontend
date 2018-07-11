@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 import * as reducers from "../reducers";
 import * as userActions from "../users/actions";
-import * as selectors from "../selectors";
+import * as userSelectors from "../users/reducer";
 import * as fixtures from "../users/tests/fixtures";
 import UserService from "../../services/users";
 
@@ -26,10 +26,10 @@ describe("store/users", () => {
     });
 
     await store.dispatch(userActions.fetchUsers());
-    expect(selectors.getUsersById(store.getState())).toEqual(
+    expect(userSelectors.getUsersById(store.getState())).toEqual(
       fixtures.usersById
     );
-    expect(selectors.getUsersIdArray(store.getState())).toEqual(
+    expect(userSelectors.getUsersIdArray(store.getState())).toEqual(
       fixtures.usersIdArray
     );
   });

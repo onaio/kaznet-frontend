@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import * as locationActions from "../../store/locations/actions";
-import * as selectors from "../../store/selectors";
+import * as locationSelectors from "../../store/locations/reducer";
 import * as globalActions from "../../store/global/actions";
 
 import ListView from "../../components/ListView";
@@ -59,11 +59,11 @@ export class LocationsList extends Component {
 
 function mapStateToProps(state) {
   return {
-    rowsById: selectors.getLocationsById(state),
-    rowsIdArray: selectors.getLocationsIdArray(state),
-    pageLinks: selectors.getPageLinks("locations", state),
-    totalPages: selectors.getTotalPages("locations", state),
-    currentPage: selectors.getCurrentPage(state)
+    rowsById: locationSelectors.getLocationsById(state),
+    rowsIdArray: locationSelectors.getLocationsIdArray(state),
+    pageLinks: locationSelectors.getPageLinks(state),
+    totalPages: locationSelectors.getTotalPages(state),
+    currentPage: locationSelectors.getCurrentPage(state)
   };
 }
 

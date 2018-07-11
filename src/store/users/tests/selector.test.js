@@ -1,7 +1,7 @@
 import Immutable from "seamless-immutable";
 import { Selector } from "redux-testkit";
 
-import * as selectors from "../../selectors";
+import * as users from "../reducer";
 import * as fixtures from "./fixtures";
 
 const emptyState = Immutable({
@@ -27,25 +27,25 @@ const fullState = Immutable({
 
 describe("store/users/selectors", () => {
   it("should get default users by id when empty", () => {
-    Selector(selectors.getUsersById)
+    Selector(users.getUsersById)
       .expect(emptyState)
       .toReturn({});
   });
 
   it("should get default tasks id array when empty", () => {
-    Selector(selectors.getUsersIdArray)
+    Selector(users.getUsersIdArray)
       .expect(emptyState)
       .toReturn([]);
   });
 
   it("should get users by id when full", () => {
-    Selector(selectors.getUsersById)
+    Selector(users.getUsersById)
       .expect(fullState)
       .toReturn(fixtures.usersById);
   });
 
   it("should get users id array when full", () => {
-    Selector(selectors.getUsersIdArray)
+    Selector(users.getUsersIdArray)
       .expect(fullState)
       .toReturn(fixtures.usersIdArray);
   });

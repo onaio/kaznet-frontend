@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 import * as reducers from "../reducers";
 import * as taskActions from "../tasks/actions";
-import * as selectors from "../selectors";
+import * as taskSelectors from "../tasks/reducer";
 import * as fixtures from "../tasks/tests/fixtures";
 import TaskService from "../../services/tasks";
 
@@ -26,10 +26,10 @@ describe("store/tasks integration", () => {
     });
 
     await store.dispatch(taskActions.fetchTasks());
-    expect(selectors.getTasksById(store.getState())).toEqual(
+    expect(taskSelectors.getTasksById(store.getState())).toEqual(
       fixtures.tasksById
     );
-    expect(selectors.getTasksIdArray(store.getState())).toEqual(
+    expect(taskSelectors.getTasksIdArray(store.getState())).toEqual(
       fixtures.tasksIdArray
     );
   });

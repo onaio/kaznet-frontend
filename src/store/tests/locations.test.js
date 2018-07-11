@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 import * as reducers from "../reducers";
 import * as locationActions from "../locations/actions";
-import * as selectors from "../selectors";
+import * as locationSelectors from "../locations/reducer";
 import * as fixtures from "../locations/tests/fixtures";
 import LocationService from "../../services/locations";
 
@@ -26,10 +26,10 @@ describe("store/locations integration", () => {
     });
 
     await store.dispatch(locationActions.fetchLocations());
-    expect(selectors.getLocationsById(store.getState())).toEqual(
+    expect(locationSelectors.getLocationsById(store.getState())).toEqual(
       fixtures.locationById
     );
-    expect(selectors.getLocationsIdArray(store.getState())).toEqual(
+    expect(locationSelectors.getLocationsIdArray(store.getState())).toEqual(
       fixtures.locationIdArray
     );
   });

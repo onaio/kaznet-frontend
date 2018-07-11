@@ -8,7 +8,7 @@ import queryString from "query-string";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
-import * as selectors from "../../store/selectors";
+import * as taskSelectors from "../../store/tasks/reducer";
 import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
@@ -108,11 +108,11 @@ export class TasksList extends Component {
 // which props do we want to inject, given the global store state?
 function mapStateToProps(state) {
   return {
-    rowsById: selectors.getTasksById(state),
-    rowsIdArray: selectors.getTasksIdArray(state),
-    pageLinks: selectors.getPageLinks("tasks", state),
-    totalPages: selectors.getTotalPages("tasks", state),
-    currentPage: selectors.getCurrentPage(state)
+    rowsById: taskSelectors.getTasksById(state),
+    rowsIdArray: taskSelectors.getTasksIdArray(state),
+    pageLinks: taskSelectors.getPageLinks(state),
+    totalPages: taskSelectors.getTotalPages(state),
+    currentPage: taskSelectors.getCurrentPage(state)
   };
 }
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 import * as clientActions from "../../store/clients/actions";
-import * as selectors from "../../store/selectors";
+import * as clientSelectors from "../../store/clients/reducer";
 import * as globalActions from "../../store/global/actions";
 
 import ListView from "../../components/ListView";
@@ -62,11 +62,11 @@ export class ClientsList extends Component {
 
 function mapStateToProps(state) {
   return {
-    rowsById: selectors.getClientsById(state),
-    rowsIdArray: selectors.getClientsIdArray(state),
-    pageLinks: selectors.getPageLinks("clients", state),
-    totalPages: selectors.getTotalPages("clients", state),
-    currentPage: selectors.getCurrentPage(state)
+    rowsById: clientSelectors.getClientsById(state),
+    rowsIdArray: clientSelectors.getClientsIdArray(state),
+    pageLinks: clientSelectors.getPageLinks(state),
+    totalPages: clientSelectors.getTotalPages(state),
+    currentPage: clientSelectors.getCurrentPage(state)
   };
 }
 

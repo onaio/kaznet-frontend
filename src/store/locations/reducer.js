@@ -25,3 +25,39 @@ export default function reduce(state = initialState, action = {}) {
       return state;
   }
 }
+
+export function getLocationsById(state) {
+  return state.locations.locationsById;
+}
+
+export function getLocationsIdArray(state) {
+  return _.keys(state.locations.locationsById);
+}
+
+export function getPageLinks(state, props) {
+  return state.locations.pageLinks;
+}
+
+export function getTotalPages(state, props) {
+  return state.locations.totalPages;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.locations.currentPage;
+}
+
+export function getFirstPage(state, props) {
+  return state.locations.pageLinks.first;
+}
+
+export function getNextPage(state, props) {
+  return state.locations.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.locations.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  return state.locations.pageLinks.last;
+}

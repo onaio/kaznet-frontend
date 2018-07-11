@@ -49,3 +49,43 @@ export default function reduce(state = initialState, action = {}) {
       return state;
   }
 }
+
+export function getClientsById(state) {
+  return state.clients.clientsById;
+}
+
+export function getClientById(state, id) {
+  return _.get(state.clients.clientsById, id);
+}
+
+export function getClientsIdArray(state) {
+  return _.keys(state.clients.clientsById);
+}
+
+export function getPageLinks(state, props) {
+  return state.clients.pageLinks;
+}
+
+export function getTotalPages(state, props) {
+  return state.clients.totalPages;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.clients.currentPage;
+}
+
+export function getFirstPage(state, props) {
+  return state.clients.pageLinks.first;
+}
+
+export function getNextPage(state, props) {
+  return state.clients.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.clients.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  return state.clients.pageLinks.last;
+}

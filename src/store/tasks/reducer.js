@@ -55,3 +55,39 @@ export default function reduce(state = initialState, action = {}) {
       return state;
   }
 }
+
+export function getTasksById(state) {
+  return state.tasks.tasksById;
+}
+
+export function getTasksIdArray(state) {
+  return _.keys(state.tasks.tasksById);
+}
+
+export function getTaskById(state, id) {
+  return _.get(state.tasks.tasksById, id);
+}
+
+export function getPageLinks(state, props) {
+  return state.tasks.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.tasks.currentPage;
+}
+
+export function getFirstPage(state, props) {
+  return state.tasks.pageLinks.first;
+}
+
+export function getNextPage(state, props) {
+  return state.tasks.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.tasks.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  return state.tasks.pageLinks.last;
+}

@@ -5,9 +5,10 @@ import Moment from "react-moment";
 import { rrulestr } from "rrule";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
-import * as selectors from "../../store/selectors";
+import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
 import DetailView from "../../components/DetailView";
 import StatisticsSection from "./StatisticsSection";
@@ -145,9 +146,9 @@ export class TasksDetail extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    taskById: selectors.getTaskById(state, props.match.params.id),
-    hasError: selectors.getHasError(state),
-    errorMessage: selectors.getErrorMessage(state)
+    taskById: taskSelectors.getTaskById(state, props.match.params.id),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 

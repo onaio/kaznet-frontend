@@ -25,3 +25,35 @@ export default function reduce(state = initialState, action = {}) {
       return state;
   }
 }
+
+export function getUsersById(state) {
+  return state.users.usersById;
+}
+
+export function getUsersIdArray(state) {
+  return _.keys(state.users.usersById);
+}
+
+export function getPageLinks(state, props) {
+  return state.users.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.users.currentPage;
+}
+
+export function getFirstPage(state, props) {
+  return state.users.pageLinks.first;
+}
+
+export function getNextPage(state, props) {
+  return state.users.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.users.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  return state.users.pageLinks.last;
+}
