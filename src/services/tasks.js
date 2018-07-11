@@ -29,13 +29,14 @@ class TaskService {
     });
 
     const pageLinks = apiResponse.links;
-
     const currentPage = apiResponse.meta.pagination.page;
+    const totalPages = apiResponse.meta.pagination.pages;
 
     return {
-      tasksArray: tasksArray,
-      pageLinks: pageLinks,
-      currentPage: currentPage
+      tasksArray,
+      pageLinks,
+      currentPage,
+      totalPages
     };
   }
 
