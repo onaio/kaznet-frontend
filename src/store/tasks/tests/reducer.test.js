@@ -94,4 +94,19 @@ describe("store/tasks/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
+
+  it("should remove deleted task from store", () => {
+    const taskId = "10";
+    const action = { type: actionTypes.TASK_DELETED, taskId };
+
+    const existingState = Immutable(fullState);
+    const newState = _.clone(fullState);
+
+    newState.tasksById = _.omit(newState.tasksById, taskId);
+
+    Reducer(tasks)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });
