@@ -3,7 +3,7 @@ import * as types from "./actionTypes";
 import * as errorHandlerTypes from "../errorHandler/actionTypes";
 import clientService from "../../services/clients";
 
-export function fetchClients() {
+export function fetchClients(url) {
   // Enables other modules to use/call this function its kind of like a private / public thing
 
   return async (dispatch, getState) => {
@@ -13,7 +13,7 @@ export function fetchClients() {
         pageLinks,
         currentPage,
         totalPages
-      } = await clientService.getClientList(); // reason we are using async
+      } = await clientService.getClientList(url); // reason we are using async
       const clientsById = _.keyBy(clientArray, task => task.id); // Sorts the items ???
       dispatch({
         type: types.CLIENTS_FETCHED,
