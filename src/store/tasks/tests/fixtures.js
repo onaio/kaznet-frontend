@@ -319,7 +319,7 @@ export const singleTask = {
     pending_submissions_count: 0,
     rejected_submissions_count: 0,
     total_bounty_payout: "0 KES",
-    current_bounty_amount: null,
+    current_bounty_amount: "55 KES",
     required_expertise: "1",
     description: "This is an awesome task",
     xform_title: "Baseline_Questionnaire",
@@ -402,7 +402,7 @@ export const tasksArray = _.map(taskData.data, task => {
   return task;
 });
 export const tasksById = _.keyBy(tasksArray, task => task.id);
-export const taskById = _.get(tasksById, 1);
+export const taskById = _.get(tasksById, 4);
 
 export const singleTaskData = {
   data: singleTask
@@ -415,15 +415,15 @@ export const singleTaskById = _.keyBy(singleTaskArray, task => task.id);
 
 export const TaskFormInitialData = {
   amount: 55,
-  client: "7",
+  client: "1",
   description: undefined,
-  end: "2019-01-30",
+  end: "2020-07-10",
   estimated_time: 15,
-  form: 1,
-  name: "Awesome Task",
+  form: 20,
+  name: "Kaznet",
   required_expertise: "1",
-  start: "2018-06-21",
+  start: "2018-07-10",
   status: "a",
-  timing_rule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-  user_submission_target: 100
+  timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+  user_submission_target: 10
 };
