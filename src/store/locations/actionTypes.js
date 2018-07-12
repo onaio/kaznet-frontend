@@ -1,1 +1,2 @@
-export const LOCATIONS_FETCHED = 'locations.LOCATIONS_FETCHED'
+export const LOCATIONS_FETCHED = "locations.LOCATIONS_FETCHED";
+export const LOCATIONS_CHANGE_PAGE = "locations.LOCATIONS_CHANGE_PAGE";

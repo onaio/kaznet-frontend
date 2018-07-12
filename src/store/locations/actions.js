@@ -25,3 +25,9 @@ export function fetchLocations() {
     }
   };
 }
+
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.LOCATIONS_CHANGE_PAGE, pageNumber });
+  };
+}
