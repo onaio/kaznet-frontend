@@ -87,6 +87,7 @@ class App extends Component {
                           component={TaskStatusChange}
                         />
                         <Route exact path="/users" component={UsersList} />
+                        <Route exact path="/users:page" component={UsersList} />
                         <Route
                           exact
                           path="/locations"
