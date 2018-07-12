@@ -4,8 +4,8 @@ import { tasksArray } from "../../tasks/tests/fixtures";
 export const clientData = {
   links: {
     first: "http://localhost:8000/api/v1/clients/?page=1",
-    last: "http://localhost:8000/api/v1/clients/?page=1",
-    next: null,
+    last: "http://localhost:8000/api/v1/clients/?page=2",
+    next: "http://localhost:8000/api/v1/clients/?page=2",
     prev: null
   },
   data: [
@@ -22,7 +22,33 @@ export const clientData = {
     pagination: {
       page: 1,
       pages: 2,
-      count: 1
+      count: 2
+    }
+  }
+};
+
+export const clientData2 = {
+  links: {
+    first: "http://localhost:8000/api/v1/clients/?page=1",
+    last: "http://localhost:8000/api/v1/clients/?page=2",
+    next: null,
+    prev: "http://localhost:8000/api/v1/clients/?page=1"
+  },
+  data: [
+    {
+      type: "Client",
+      id: "2",
+      attributes: {
+        name: "Seconder",
+        created: "2018-06-21T13:51:54.011373+03:00"
+      }
+    }
+  ],
+  meta: {
+    pagination: {
+      page: 2,
+      pages: 2,
+      count: 2
     }
   }
 };

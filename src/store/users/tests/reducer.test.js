@@ -5,14 +5,18 @@ import { Reducer } from "redux-testkit";
 import users from "../reducer";
 import * as fixtures from "./fixtures";
 import * as actionTypes from "../actionTypes";
-import { defaultAppState } from "../../state";
 
-const initialState = Immutable(
-  _.merge(defaultAppState, {
-    usersById: {},
-    usersIdArray: []
-  })
-);
+const initialState = Immutable({
+  usersById: {},
+  usersIdArray: [],
+  currentPage: 1,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
+});
 
 describe("store/users/reducer", () => {
   it("should have initial state", () => {

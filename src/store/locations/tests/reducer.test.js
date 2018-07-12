@@ -5,12 +5,18 @@ import { Reducer } from "redux-testkit";
 import locations from "../reducer";
 import * as actionTypes from "../actionTypes";
 import * as fixtures from "./fixtures";
-import { defaultAppState } from "../../state";
 
-const initialState = _.merge(defaultAppState, {
+const initialState = {
   locationsById: {},
-  locationsIdArray: []
-});
+  locationsIdArray: [],
+  currentPage: 1,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
+};
 
 describe("store/locations/reducer", () => {
   it("should have initial state", () => {

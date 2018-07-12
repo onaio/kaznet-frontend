@@ -1,16 +1,20 @@
 // Client reducer
 import _ from "lodash";
 import Immutable from "seamless-immutable";
+
 import * as types from "./actionTypes";
 
-import { defaultAppState } from "../state";
-
-const initialState = Immutable(
-  _.merge(defaultAppState, {
-    clientsById: {},
-    clientsIdArray: []
-  })
-);
+const initialState = Immutable({
+  clientsById: {},
+  clientsIdArray: [],
+  currentPage: 1,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
+});
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {

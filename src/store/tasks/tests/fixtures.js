@@ -4,8 +4,8 @@ import _ from "lodash";
 export const taskData = {
   links: {
     first: "http://localhost:8000/api/v1/tasks/?page=1",
-    last: "http://localhost:8000/api/v1/tasks/?page=1",
-    next: null,
+    last: "http://localhost:8000/api/v1/tasks/?page=2",
+    next: "http://localhost:8000/api/v1/tasks/?page=2",
     prev: null
   },
   data: [
