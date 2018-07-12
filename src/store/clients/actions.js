@@ -29,6 +29,12 @@ export function fetchClients() {
   };
 }
 
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.CLIENTS_CHANGE_PAGE, pageNumber });
+  };
+}
+
 export function createClient(client_data) {
   return async (dispatch, getState) => {
     try {

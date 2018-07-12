@@ -21,6 +21,10 @@ export default function reduce(state = initialState, action = {}) {
         currentPage: action.currentPage,
         totalPages: action.totalPages
       });
+    case types.CLIENTS_CHANGE_PAGE:
+      return state.merge({
+        currentPage: action.pageNumber
+      });
     case types.CLIENT_CREATED:
       return Immutable({
         ...state,
