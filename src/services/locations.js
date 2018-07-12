@@ -2,8 +2,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class LocationService {
-  async getLocationList() {
-    const url = `${constants.API_ENDPOINT}/locations/?format=vnd.api%2Bjson`;
+  async getLocationList(
+    url = `${constants.API_ENDPOINT}/locations/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
