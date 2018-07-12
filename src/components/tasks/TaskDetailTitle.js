@@ -87,7 +87,7 @@ export default class TaskDetailTitle extends Component {
                   EDIT
                 </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
                 {this.props.task.attributes.status !== TASK_ACTIVE &&
-                  this.props.task.attributes.target_id !== null && (
+                  this.props.task.attributes.xform_title !== "" && (
                     <span>
                       <Link
                         to={`/tasks/${
@@ -106,7 +106,7 @@ export default class TaskDetailTitle extends Component {
                   CREATE A COPY
                 </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
                 {this.props.task.attributes.status !== TASK_DEACTIVATED &&
-                  this.props.task.attributes.target_id !== null && (
+                  this.props.task.attributes.xform_title !== "" && (
                     <span>
                       <Link
                         to={`/tasks/${
@@ -147,7 +147,7 @@ export default class TaskDetailTitle extends Component {
                   </ModalFooter>
                 </Modal>
                 {this.props.task.attributes.status !== TASK_ARCHIVED &&
-                  this.props.task.attributes.target_id !== null && (
+                  this.props.task.attributes.xform_title !== "" && (
                     <Link
                       to={`/tasks/${
                         this.props.task.id
