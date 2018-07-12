@@ -57,7 +57,7 @@ export default function reduce(state = initialState, action = {}) {
         ...state,
         tasksById: {
           ...state.tasksById,
-          [action.taskData]: action.taskData
+          [action.taskData.id]: action.taskData
         }
       });
     default:
