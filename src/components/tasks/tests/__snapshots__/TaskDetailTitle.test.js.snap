@@ -271,19 +271,37 @@ exports[`components/tasks/TaskDetailTitle renders the correct html 1`] = `
                         </Link>
                           |  
                       </span>
-                      <Link
+                      <a
                         className="action-link action-link-alert"
-                        replace={false}
-                        to="/tasks/999/delete"
+                        href="#"
+                        onClick={[Function]}
                       >
-                        <a
-                          className="action-link action-link-alert"
-                          href="/tasks/999/delete"
-                          onClick={[Function]}
-                        >
-                          DELETE TASK
-                        </a>
-                      </Link>
+                        DELETE TASK
+                      </a>
+                      <Modal
+                        autoFocus={true}
+                        backdrop={true}
+                        backdropTransition={
+                          Object {
+                            "mountOnEnter": true,
+                            "timeout": 150,
+                          }
+                        }
+                        centered={false}
+                        fade={true}
+                        isOpen={false}
+                        keyboard={true}
+                        modalTransition={
+                          Object {
+                            "timeout": 300,
+                          }
+                        }
+                        onClosed={[Function]}
+                        onOpened={[Function]}
+                        role="dialog"
+                        toggle={[Function]}
+                        zIndex={1050}
+                      />
                       <Link
                         className="action-link archive-button"
                         replace={false}

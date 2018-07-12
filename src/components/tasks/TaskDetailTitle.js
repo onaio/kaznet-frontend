@@ -1,7 +1,16 @@
 // Renders the detail page title section
 import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { Row, Col, Badge } from "reactstrap";
+import {
+  Row,
+  Col,
+  Badge,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button
+} from "reactstrap";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
@@ -16,6 +25,21 @@ import {
 import "../page/DetailTitle.css";
 
 export default class TaskDetailTitle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     return (
       <section className="detail-page-title">
@@ -95,12 +119,34 @@ export default class TaskDetailTitle extends Component {
                       </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
                     </span>
                   )}
-                <Link
-                  to={`/tasks/${this.props.task.id}/delete`}
+                <a
+                  href="#"
                   className="action-link action-link-alert"
+                  onClick={this.toggle}
                 >
                   DELETE TASK
-                </Link>
+                </a>
+                <Modal
+                  isOpen={this.state.modal}
+                  toggle={this.toggle}
+                  className={this.props.className}
+                >
+                  <ModalHeader toggle={this.toggle}>
+                    Are you sure you want to delete this task?
+                  </ModalHeader>
+                  <ModalFooter>
+                    <Link
+                      to={`/tasks/${this.props.task.id}/delete`}
+                      className="btn btn-danger"
+                      onClick={this.toggle}
+                    >
+                      Delete Task
+                    </Link>
+                    <Button color="secondary" onClick={this.toggle}>
+                      Cancel
+                    </Button>
+                  </ModalFooter>
+                </Modal>
                 {this.props.task.attributes.status !== TASK_ARCHIVED &&
                   this.props.task.attributes.target_id !== null && (
                     <Link
