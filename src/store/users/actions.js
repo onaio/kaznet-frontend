@@ -24,3 +24,8 @@ export function fetchUsers() {
     }
   };
 }
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.USERS_CHANGE_PAGE, pageNumber });
+  };
+}
