@@ -92,6 +92,11 @@ class App extends Component {
                           path="/locations"
                           component={LocationsList}
                         />
+                        <Route
+                          exact
+                          path="/locations:page"
+                          component={LocationsList}
+                        />
                         <Route exact path="/clients" component={ClientsList} />
                         <Route
                           exact
