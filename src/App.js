@@ -108,6 +108,11 @@ class App extends Component {
                           path="/clients/edit/:id"
                           component={ClientEditForm}
                         />
+                        <Route
+                          exact
+                          path="/clients:page"
+                          component={ClientsList}
+                        />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />
                       </Switch>
