@@ -16,6 +16,7 @@ describe("containers/users/UsersList", () => {
         changePageNumber={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageNumber={function() {}}
         showListTitle={function() {}}
       />
     );
@@ -29,6 +30,7 @@ describe("containers/users/UsersList", () => {
           changePageNumber={function() {}}
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
+          changePageNumber={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.usersById}
           endpoint={"users"}

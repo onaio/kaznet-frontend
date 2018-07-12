@@ -24,6 +24,7 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
   }
 >
   <ClientsList
+    changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}

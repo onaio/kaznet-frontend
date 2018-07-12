@@ -16,6 +16,7 @@ describe("containers/clients/ClientsList", () => {
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
+        changePageNumber={function() {}}
         showListTitle={function() {}}
       />
     );
@@ -29,6 +30,7 @@ describe("containers/clients/ClientsList", () => {
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
           changePageTarget={function() {}}
+          changePageNumber={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.clientsById}
           endpoint={"clients"}
