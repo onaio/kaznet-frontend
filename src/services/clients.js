@@ -2,8 +2,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class ClientService {
-  async getClientList() {
-    const url = `${constants.API_ENDPOINT}/clients/?format=vnd.api%2Bjson`;
+  async getClientList(
+    url = `${constants.API_ENDPOINT}/clients/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
