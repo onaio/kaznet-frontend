@@ -21,7 +21,6 @@ export class LocationsList extends Component {
     this.props.changePageTitleButton("+ Create Location");
 
     this.props.changePageNumber(1);
-
     if (this.props.location) {
       const page = queryString.parse(this.props.location.search).page;
       await this.props.fetchLocations();
