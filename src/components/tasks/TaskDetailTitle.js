@@ -7,7 +7,6 @@ import {
   Badge,
   Modal,
   ModalHeader,
-  ModalBody,
   ModalFooter,
   Button
 } from "reactstrap";
@@ -119,13 +118,13 @@ export default class TaskDetailTitle extends Component {
                       </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
                     </span>
                   )}
-                <a
-                  href="#"
-                  className="action-link action-link-alert"
+                <Button
+                  color="link"
+                  className="remove_button_css action-link action-link-alert"
                   onClick={this.toggle}
                 >
                   DELETE TASK
-                </a>
+                </Button>
                 <Modal
                   isOpen={this.state.modal}
                   toggle={this.toggle}

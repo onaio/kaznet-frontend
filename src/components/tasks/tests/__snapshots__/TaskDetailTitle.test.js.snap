@@ -271,13 +271,20 @@ exports[`components/tasks/TaskDetailTitle renders the correct html 1`] = `
                         </Link>
                           |  
                       </span>
-                      <a
-                        className="action-link action-link-alert"
-                        href="#"
+                      <Button
+                        className="remove_button_css action-link action-link-alert"
+                        color="link"
                         onClick={[Function]}
+                        tag="button"
                       >
-                        DELETE TASK
-                      </a>
+                        <button
+                          className="remove_button_css action-link action-link-alert btn btn-link"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          DELETE TASK
+                        </button>
+                      </Button>
                       <Modal
                         autoFocus={true}
                         backdrop={true}

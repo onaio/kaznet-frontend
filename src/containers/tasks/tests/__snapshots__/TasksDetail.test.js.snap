@@ -376,19 +376,44 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           </Link>
                             |  
                         </span>
-                        <Link
-                          className="action-link action-link-alert"
-                          replace={false}
-                          to="/tasks/4/delete"
+                        <Button
+                          className="remove_button_css action-link action-link-alert"
+                          color="link"
+                          onClick={[Function]}
+                          tag="button"
                         >
-                          <a
-                            className="action-link action-link-alert"
-                            href="/tasks/4/delete"
+                          <button
+                            className="remove_button_css action-link action-link-alert btn btn-link"
                             onClick={[Function]}
+                            type="button"
                           >
                             DELETE TASK
-                          </a>
-                        </Link>
+                          </button>
+                        </Button>
+                        <Modal
+                          autoFocus={true}
+                          backdrop={true}
+                          backdropTransition={
+                            Object {
+                              "mountOnEnter": true,
+                              "timeout": 150,
+                            }
+                          }
+                          centered={false}
+                          fade={true}
+                          isOpen={false}
+                          keyboard={true}
+                          modalTransition={
+                            Object {
+                              "timeout": 300,
+                            }
+                          }
+                          onClosed={[Function]}
+                          onOpened={[Function]}
+                          role="dialog"
+                          toggle={[Function]}
+                          zIndex={1050}
+                        />
                         <Link
                           className="action-link archive-button"
                           replace={false}
