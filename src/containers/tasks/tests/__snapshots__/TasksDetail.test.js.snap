@@ -36,41 +36,63 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
     taskById={
       Object {
         "attributes": Object {
-          "approved_submissions_count": 1,
-          "created": "2018-06-21T12:15:45.349936+03:00",
-          "current_bounty_amount": "55.00 KES",
-          "description": "This is pure joy.",
-          "end": "2019-01-30T12:17:40+03:00",
-          "estimated_time": "4 01:15:20",
-          "modified": "2018-06-21T12:22:09.703447+03:00",
-          "name": "Awesome Task",
+          "approved_submissions_count": 0,
+          "created": "2018-07-10T16:50:20.165320+03:00",
+          "created_by_name": "Ona User",
+          "current_bounty_amount": null,
+          "description": "This is an awesome task",
+          "end": "2020-07-10T12:00:00+03:00",
+          "estimated_time": "00:15:00",
+          "modified": "2018-07-12T17:08:58.621899+03:00",
+          "name": "Kaznet",
           "pending_submissions_count": 0,
           "rejected_submissions_count": 0,
           "required_expertise": "1",
           "required_expertise_display": "Beginner",
-          "start": "2018-06-21T12:15:45+03:00",
+          "start": "2018-07-10T12:00:00+03:00",
           "status": "a",
           "status_display": "Active",
-          "submission_count": 1,
-          "target_id": 1,
-          "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-          "total_bounty_payout": "55.00 KES",
-          "total_submission_target": 100,
-          "user_submission_target": 100,
-          "xform_title": "Form 1",
+          "submission_count": 0,
+          "target_id": 20,
+          "task_locations": Array [
+            Object {
+              "created": "2018-07-12T17:38:21.527548+03:00",
+              "end": "18:00:00",
+              "location": Object {
+                "id": "1",
+                "type": "Location",
+              },
+              "modified": "2018-07-12T17:38:21.527572+03:00",
+              "start": "06:00:00",
+              "task": Object {
+                "id": "4",
+                "type": "Task",
+              },
+              "timing_rule": "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+            },
+          ],
+          "timing_rule": "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+          "total_bounty_payout": "0 KES",
+          "total_submission_target": null,
+          "user_submission_target": 10,
+          "xform_id_string": "Baseline_Questionnaire",
+          "xform_title": "Baseline_Questionnaire",
         },
-        "id": "1",
+        "id": "4",
         "relationships": Object {
           "bounty": Object {
-            "data": Object {
-              "id": "2",
-              "type": "Bounty",
-            },
+            "data": null,
           },
           "client": Object {
             "data": Object {
-              "id": "7",
+              "id": "1",
               "type": "Client",
+            },
+          },
+          "created_by": Object {
+            "data": Object {
+              "id": "3",
+              "type": "User",
             },
           },
           "locations": Object {
@@ -111,41 +133,63 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
         task={
           Object {
             "attributes": Object {
-              "approved_submissions_count": 1,
-              "created": "2018-06-21T12:15:45.349936+03:00",
-              "current_bounty_amount": "55.00 KES",
-              "description": "This is pure joy.",
-              "end": "2019-01-30T12:17:40+03:00",
-              "estimated_time": "4 01:15:20",
-              "modified": "2018-06-21T12:22:09.703447+03:00",
-              "name": "Awesome Task",
+              "approved_submissions_count": 0,
+              "created": "2018-07-10T16:50:20.165320+03:00",
+              "created_by_name": "Ona User",
+              "current_bounty_amount": null,
+              "description": "This is an awesome task",
+              "end": "2020-07-10T12:00:00+03:00",
+              "estimated_time": "00:15:00",
+              "modified": "2018-07-12T17:08:58.621899+03:00",
+              "name": "Kaznet",
               "pending_submissions_count": 0,
               "rejected_submissions_count": 0,
               "required_expertise": "1",
               "required_expertise_display": "Beginner",
-              "start": "2018-06-21T12:15:45+03:00",
+              "start": "2018-07-10T12:00:00+03:00",
               "status": "a",
               "status_display": "Active",
-              "submission_count": 1,
-              "target_id": 1,
-              "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-              "total_bounty_payout": "55.00 KES",
-              "total_submission_target": 100,
-              "user_submission_target": 100,
-              "xform_title": "Form 1",
+              "submission_count": 0,
+              "target_id": 20,
+              "task_locations": Array [
+                Object {
+                  "created": "2018-07-12T17:38:21.527548+03:00",
+                  "end": "18:00:00",
+                  "location": Object {
+                    "id": "1",
+                    "type": "Location",
+                  },
+                  "modified": "2018-07-12T17:38:21.527572+03:00",
+                  "start": "06:00:00",
+                  "task": Object {
+                    "id": "4",
+                    "type": "Task",
+                  },
+                  "timing_rule": "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+                },
+              ],
+              "timing_rule": "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+              "total_bounty_payout": "0 KES",
+              "total_submission_target": null,
+              "user_submission_target": 10,
+              "xform_id_string": "Baseline_Questionnaire",
+              "xform_title": "Baseline_Questionnaire",
             },
-            "id": "1",
+            "id": "4",
             "relationships": Object {
               "bounty": Object {
-                "data": Object {
-                  "id": "2",
-                  "type": "Bounty",
-                },
+                "data": null,
               },
               "client": Object {
                 "data": Object {
-                  "id": "7",
+                  "id": "1",
                   "type": "Client",
+                },
+              },
+              "created_by": Object {
+                "data": Object {
+                  "id": "3",
+                  "type": "User",
                 },
               },
               "locations": Object {
@@ -223,7 +267,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   </Link>
                    
                   &gt; 
-                  Awesome Task
+                  Kaznet
                   <Badge
                     className="kaznet-badge badge-active"
                     color="secondary"
@@ -240,6 +284,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                 <p
                   className="kaznet-creation-detail"
                 >
+                  Ona User
                   ,
                    
                   <t
@@ -258,9 +303,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     utc={false}
                   >
                     <time
-                      dateTime={"2018-06-21T09:15:45.349Z"}
+                      dateTime={"2018-07-10T13:50:20.165Z"}
                     >
-                      21-06-2018
+                      10-07-2018
                     </time>
                   </t>
                 </p>
@@ -290,11 +335,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <Link
                           className="action-link"
                           replace={false}
-                          to="/tasks/1/edit"
+                          to="/tasks/4/edit"
                         >
                           <a
                             className="action-link"
-                            href="/tasks/1/edit"
+                            href="/tasks/4/edit"
                             onClick={[Function]}
                           >
                             EDIT
@@ -304,11 +349,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <Link
                           className="action-link"
                           replace={false}
-                          to="/tasks/1/clone"
+                          to="/tasks/4/clone"
                         >
                           <a
                             className="action-link"
-                            href="/tasks/1/clone"
+                            href="/tasks/4/clone"
                             onClick={[Function]}
                           >
                             CREATE A COPY
@@ -319,11 +364,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           <Link
                             className="action-link"
                             replace={false}
-                            to="/tasks/1/status_change/?status=b"
+                            to="/tasks/4/status_change/?status=b"
                           >
                             <a
                               className="action-link"
-                              href="/tasks/1/status_change/?status=b"
+                              href="/tasks/4/status_change/?status=b"
                               onClick={[Function]}
                             >
                               DEACTIVATE
@@ -334,11 +379,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <Link
                           className="action-link action-link-alert"
                           replace={false}
-                          to="/tasks/1/delete"
+                          to="/tasks/4/delete"
                         >
                           <a
                             className="action-link action-link-alert"
-                            href="/tasks/1/delete"
+                            href="/tasks/4/delete"
                             onClick={[Function]}
                           >
                             DELETE TASK
@@ -347,11 +392,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <Link
                           className="action-link archive-button"
                           replace={false}
-                          to="/tasks/1/status_change/?status=e"
+                          to="/tasks/4/status_change/?status=e"
                         >
                           <a
                             className="action-link archive-button"
-                            href="/tasks/1/status_change/?status=e"
+                            href="/tasks/4/status_change/?status=e"
                             onClick={[Function]}
                           >
                             <FontAwesomeIcon
@@ -401,11 +446,11 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
         </section>
       </TaskDetailTitle>
       <StatisticsSection
-        accepted={1}
+        accepted={0}
         rejected={0}
         review={0}
-        reward="55.00 KES"
-        totalSubmissions={1}
+        reward="0 KES"
+        totalSubmissions={0}
       >
         <Col
           md={
@@ -455,7 +500,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     <p
                       className="kaznet-stats-count"
                     >
-                      1
+                      0
                        Submissions
                     </p>
                   </div>
@@ -577,7 +622,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               <p
                                 className="stats-data"
                               >
-                                1
+                                0
                               </p>
                               <p
                                 className="stats-header"
@@ -644,7 +689,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               <p
                                 className="stats-data"
                               >
-                                55.00 KES
+                                0 KES
                               </p>
                               <p
                                 className="stats-header"
@@ -881,7 +926,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     unix={false}
                     utc={false}
               >
-                    2018-06-21T12:15:45+03:00
+                    2018-07-10T12:00:00+03:00
               </t>,
                   " to ",
                   <t
@@ -899,13 +944,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     unix={false}
                     utc={false}
               >
-                    2019-01-30T12:17:40+03:00
+                    2020-07-10T12:00:00+03:00
               </t>,
                 ],
                 "Location": "Location Here",
                 "Minimum Contributor Level": "Beginner",
-                "Recurring": "every 10 days for 12 times",
-                "Submission Limit": 100,
+                "Recurring": "every week on Friday, Saturday",
+                "Submission Limit": 10,
               }
             }
           />
@@ -915,9 +960,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
             HTMLTag="td"
             detailitems={
               Object {
-                "Description": "This is pure joy.",
+                "Description": "This is an awesome task",
                 "Form": Array [
-                  "Form 1",
+                  "Baseline_Questionnaire",
                   <a
                     className="link withspace"
                     href="/"
@@ -943,8 +988,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     VIEW IN ONA
               </a>,
                 ],
-                "Name": "Awesome Task",
-                "Unit Reward Amount": "55.00 KES",
+                "Name": "Kaznet",
+                "Unit Reward Amount": null,
               }
             }
           />
@@ -986,9 +1031,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     HTMLTag="td"
                     detailitems={
                       Object {
-                        "Description": "This is pure joy.",
+                        "Description": "This is an awesome task",
                         "Form": Array [
-                          "Form 1",
+                          "Baseline_Questionnaire",
                           <a
                             className="link withspace"
                             href="/"
@@ -1014,8 +1059,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             VIEW IN ONA
                       </a>,
                         ],
-                        "Name": "Awesome Task",
-                        "Unit Reward Amount": "55.00 KES",
+                        "Name": "Kaznet",
+                        "Unit Reward Amount": null,
                       }
                     }
                   >
@@ -1043,7 +1088,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         HTMLTag="td"
                         items={
                           Array [
-                            "This is pure joy.",
+                            "This is an awesome task",
                           ]
                         }
                         key="20"
@@ -1051,7 +1096,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <td
                           key="0"
                         >
-                          This is pure joy.
+                          This is an awesome task
                         </td>
                       </ElementMap>
                     </tr>
@@ -1079,7 +1124,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         HTMLTag="td"
                         items={
                           Array [
-                            "Awesome Task",
+                            "Kaznet",
                           ]
                         }
                         key="40"
@@ -1087,7 +1132,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <td
                           key="0"
                         >
-                          Awesome Task
+                          Kaznet
                         </td>
                       </ElementMap>
                     </tr>
@@ -1115,16 +1160,14 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         HTMLTag="td"
                         items={
                           Array [
-                            "55.00 KES",
+                            null,
                           ]
                         }
                         key="60"
                       >
                         <td
                           key="0"
-                        >
-                          55.00 KES
-                        </td>
+                        />
                       </ElementMap>
                     </tr>
                     <tr
@@ -1152,7 +1195,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         items={
                           Array [
                             Array [
-                              "Form 1",
+                              "Baseline_Questionnaire",
                               <a
                                 className="link withspace"
                                 href="/"
@@ -1185,7 +1228,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <td
                           key="0"
                         >
-                          Form 1
+                          Baseline_Questionnaire
                           <a
                             className="link withspace"
                             href="/"
@@ -1260,7 +1303,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             unix={false}
                             utc={false}
                       >
-                            2018-06-21T12:15:45+03:00
+                            2018-07-10T12:00:00+03:00
                       </t>,
                           " to ",
                           <t
@@ -1278,13 +1321,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             unix={false}
                             utc={false}
                       >
-                            2019-01-30T12:17:40+03:00
+                            2020-07-10T12:00:00+03:00
                       </t>,
                         ],
                         "Location": "Location Here",
                         "Minimum Contributor Level": "Beginner",
-                        "Recurring": "every 10 days for 12 times",
-                        "Submission Limit": 100,
+                        "Recurring": "every week on Friday, Saturday",
+                        "Submission Limit": 10,
                       }
                     }
                   >
@@ -1328,7 +1371,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 unix={false}
                                 utc={false}
                           >
-                                2018-06-21T12:15:45+03:00
+                                2018-07-10T12:00:00+03:00
                           </t>,
                               " to ",
                               <t
@@ -1346,7 +1389,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 unix={false}
                                 utc={false}
                           >
-                                2019-01-30T12:17:40+03:00
+                                2020-07-10T12:00:00+03:00
                           </t>,
                             ],
                           ]
@@ -1373,9 +1416,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             utc={false}
                           >
                             <time
-                              dateTime={"2018-06-21T09:15:45.000Z"}
+                              dateTime={"2018-07-10T09:00:00.000Z"}
                             >
-                              21-06-2018
+                              10-07-2018
                             </time>
                           </t>
                            to 
@@ -1396,9 +1439,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             utc={false}
                           >
                             <time
-                              dateTime={"2019-01-30T09:17:40.000Z"}
+                              dateTime={"2020-07-10T09:00:00.000Z"}
                             >
-                              30-01-2019
+                              10-07-2020
                             </time>
                           </t>
                         </td>
@@ -1464,7 +1507,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         HTMLTag="td"
                         items={
                           Array [
-                            "every 10 days for 12 times",
+                            "every week on Friday, Saturday",
                           ]
                         }
                         key="60"
@@ -1472,7 +1515,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <td
                           key="0"
                         >
-                          every 10 days for 12 times
+                          every week on Friday, Saturday
                         </td>
                       </ElementMap>
                     </tr>
@@ -1500,7 +1543,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         HTMLTag="td"
                         items={
                           Array [
-                            100,
+                            10,
                           ]
                         }
                         key="80"
@@ -1508,7 +1551,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <td
                           key="0"
                         >
-                          100
+                          10
                         </td>
                       </ElementMap>
                     </tr>
