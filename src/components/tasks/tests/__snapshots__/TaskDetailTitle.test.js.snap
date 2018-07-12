@@ -31,7 +31,7 @@ exports[`components/tasks/TaskDetailTitle renders the correct html 1`] = `
             "approved_submissions_count": 0,
             "created": "2018-07-10T16:50:20.165320+03:00",
             "created_by_name": "Ona User",
-            "current_bounty_amount": null,
+            "current_bounty_amount": "55 KES",
             "description": "This is an awesome task",
             "end": "2020-07-10T12:00:00+03:00",
             "estimated_time": "00:15:00",
