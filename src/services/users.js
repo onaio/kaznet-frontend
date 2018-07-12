@@ -3,8 +3,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class UserService {
-  async getUserList() {
-    const url = `${constants.API_ENDPOINT}/userprofiles/?format=vnd.api%2Bjson`;
+  async getUserList(
+    url = `${constants.API_ENDPOINT}/userprofiles/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
