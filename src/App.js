@@ -35,7 +35,6 @@ import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
 
-
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
   faSearch,
@@ -45,7 +44,6 @@ fontawesome.library.add(
   faLaptop,
   faFolderOpen
 );
-moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
