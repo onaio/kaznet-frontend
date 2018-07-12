@@ -2,8 +2,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class LocationService {
-  async getLocationList() {
-    const url = `${constants.API_ENDPOINT}/locations/?format=vnd.api%2Bjson`;
+  async getLocationList(
+    url = `${constants.API_ENDPOINT}/locations/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -18,17 +19,30 @@ class LocationService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(
         `LocationService getLocationList failed, data not returned`
       );
     }
 
-    return _.map(data, location => {
+    const locationArray = _.map(data, location => {
       return location;
     });
+
+    return {
+      locationArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 }
 

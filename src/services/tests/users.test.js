@@ -11,8 +11,14 @@ describe("services/users", () => {
   it("should fetch users", async () => {
     const data = fixtures.userData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const response = await UserService.getUserList();
-    expect(response).toEqual(fixtures.usersArray);
+    const {
+      userArray,
+      pageLinks,
+      currentPage
+    } = await UserService.getUserList();
+    expect(userArray).toEqual(fixtures.usersArray);
+    expect(pageLinks).toEqual(fixtures.userData.links);
+    expect(currentPage).toEqual(fixtures.userData.meta.pagination.page);
   });
 
   it("should handle default users http errors", async () => {

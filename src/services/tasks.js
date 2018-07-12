@@ -3,8 +3,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class TaskService {
-  async getTaskList() {
-    const url = `${constants.API_ENDPOINT}/tasks/`;
+  async getTaskList(
+    url = `${constants.API_ENDPOINT}/tasks/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -17,15 +18,28 @@ class TaskService {
         `TaskService getTaskList failed, HTTP status ${response.status}`
       );
     }
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(`TaskService getTaskList failed, data not returned`);
     }
 
-    return _.map(data, task => {
+    const tasksArray = _.map(data, task => {
       return task;
     });
+
+    return {
+      tasksArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 
   async createTask(task_data) {

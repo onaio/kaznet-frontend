@@ -1,227 +1,386 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`containers/locations/LocationList renders location list correctly 1`] = `
-<LocationsList
-  changePageTitle={[Function]}
-  changePageTitleButton={[Function]}
-  fetchLocations={[Function]}
-  rowsById={
+<Router
+  history={
     Object {
-      "1": Object {
-        "attributes": Object {
-          "country": "KE",
-          "created": "2018-06-20T12:09:02.916318+03:00",
-          "description": "Such Big City , Much wow",
-          "geopoint": null,
-          "location_type_name": "None",
-          "modified": "2018-06-20T12:09:02.916345+03:00",
-          "name": "Nairobi",
-          "parent_name": "None",
-          "radius": null,
-          "shapefile": Object {
-            "coordinates": Array [
-              Array [
-                Array [
-                  Array [
-                    -0.038795471191406,
-                    0.030555723649271,
-                  ],
-                  Array [
-                    0.049095153808594,
-                    0.013389587280456,
-                  ],
-                  Array [
-                    0.015106201171875,
-                    -0.063171373920095,
-                  ],
-                  Array [
-                    -0.044288635253906,
-                    -0.032615659859611,
-                  ],
-                  Array [
-                    -0.038795471191406,
-                    0.030555723649271,
-                  ],
-                ],
-              ],
-            ],
-            "type": "MultiPolygon",
-          },
-        },
-        "id": "1",
-        "relationships": Object {
-          "location_type": Object {
-            "data": null,
-          },
-          "parent": Object {
-            "data": null,
-          },
-        },
-        "type": "Location",
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
       },
+      "push": [Function],
+      "replace": [Function],
     }
   }
-  rowsIdArray={
-    Array [
-      "1",
-    ]
-  }
-  showListTitle={[Function]}
 >
-  <div
-    className="LocationList"
-  >
-    <ListView
-      renderHeaders={[Function]}
-      renderRow={[Function]}
-      rowsById={
-        Object {
-          "1": Object {
-            "attributes": Object {
-              "country": "KE",
-              "created": "2018-06-20T12:09:02.916318+03:00",
-              "description": "Such Big City , Much wow",
-              "geopoint": null,
-              "location_type_name": "None",
-              "modified": "2018-06-20T12:09:02.916345+03:00",
-              "name": "Nairobi",
-              "parent_name": "None",
-              "radius": null,
-              "shapefile": Object {
-                "coordinates": Array [
+  <LocationsList
+    changePageNumber={[Function]}
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="locations"
+    fetchLocations={[Function]}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/locations/?page=1",
+        "last": "http://localhost:8000/api/v1/locations/?page=1",
+        "next": null,
+        "prev": null,
+      }
+    }
+    rowsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "country": "KE",
+            "created": "2018-06-20T12:09:02.916318+03:00",
+            "description": "Such Big City , Much wow",
+            "geopoint": null,
+            "location_type_name": "None",
+            "modified": "2018-06-20T12:09:02.916345+03:00",
+            "name": "Nairobi",
+            "parent_name": "None",
+            "radius": null,
+            "shapefile": Object {
+              "coordinates": Array [
+                Array [
                   Array [
                     Array [
-                      Array [
-                        -0.038795471191406,
-                        0.030555723649271,
-                      ],
-                      Array [
-                        0.049095153808594,
-                        0.013389587280456,
-                      ],
-                      Array [
-                        0.015106201171875,
-                        -0.063171373920095,
-                      ],
-                      Array [
-                        -0.044288635253906,
-                        -0.032615659859611,
-                      ],
-                      Array [
-                        -0.038795471191406,
-                        0.030555723649271,
-                      ],
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
+                    Array [
+                      0.049095153808594,
+                      0.013389587280456,
+                    ],
+                    Array [
+                      0.015106201171875,
+                      -0.063171373920095,
+                    ],
+                    Array [
+                      -0.044288635253906,
+                      -0.032615659859611,
+                    ],
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
                     ],
                   ],
                 ],
-                "type": "MultiPolygon",
-              },
+              ],
+              "type": "MultiPolygon",
             },
-            "id": "1",
-            "relationships": Object {
-              "location_type": Object {
-                "data": null,
-              },
-              "parent": Object {
-                "data": null,
-              },
-            },
-            "type": "Location",
           },
-        }
+          "id": "1",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
+        },
       }
-      rowsIdArray={
-        Array [
-          "1",
-        ]
-      }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+      ]
+    }
+    showListTitle={[Function]}
+    totalPages={2}
+  >
+    <div
+      className="LocationList"
     >
-      <Table
-        bordered={true}
-        className="kaznet-table"
-        responsiveTag="div"
-        tag="table"
+      <ListView
+        currentPage={1}
+        endpoint="locations"
+        pageLinks={
+          Object {
+            "first": "http://localhost:8000/api/v1/locations/?page=1",
+            "last": "http://localhost:8000/api/v1/locations/?page=1",
+            "next": null,
+            "prev": null,
+          }
+        }
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "1": Object {
+              "attributes": Object {
+                "country": "KE",
+                "created": "2018-06-20T12:09:02.916318+03:00",
+                "description": "Such Big City , Much wow",
+                "geopoint": null,
+                "location_type_name": "None",
+                "modified": "2018-06-20T12:09:02.916345+03:00",
+                "name": "Nairobi",
+                "parent_name": "None",
+                "radius": null,
+                "shapefile": Object {
+                  "coordinates": Array [
+                    Array [
+                      Array [
+                        Array [
+                          -0.038795471191406,
+                          0.030555723649271,
+                        ],
+                        Array [
+                          0.049095153808594,
+                          0.013389587280456,
+                        ],
+                        Array [
+                          0.015106201171875,
+                          -0.063171373920095,
+                        ],
+                        Array [
+                          -0.044288635253906,
+                          -0.032615659859611,
+                        ],
+                        Array [
+                          -0.038795471191406,
+                          0.030555723649271,
+                        ],
+                      ],
+                    ],
+                  ],
+                  "type": "MultiPolygon",
+                },
+              },
+              "id": "1",
+              "relationships": Object {
+                "location_type": Object {
+                  "data": null,
+                },
+                "parent": Object {
+                  "data": null,
+                },
+              },
+              "type": "Location",
+            },
+          }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+          ]
+        }
+        totalPages={2}
       >
-        <table
-          className="kaznet-table table table-bordered"
-        >
-          <thead>
-            <tr>
-              <ElementMap
-                HTMLTag="th"
-                items={
-                  Array [
-                    "Name",
-                    "Parent",
-                    "Type",
-                    "Description",
-                  ]
-                }
-              >
-                <th
-                  key="0"
-                >
-                  Name
-                </th>
-                <th
-                  key="1"
-                >
-                  Parent
-                </th>
-                <th
-                  key="2"
-                >
-                  Type
-                </th>
-                <th
-                  key="3"
-                >
-                  Description
-                </th>
-              </ElementMap>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              key="1"
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
+          >
+            <table
+              className="kaznet-table table table-bordered"
             >
-              <ElementMap
-                HTMLTag="td"
-                items={
-                  Array [
-                    "Nairobi",
-                    "None",
-                    "None",
-                    "Such Big City , Much wow",
-                  ]
-                }
-              >
-                <td
-                  key="0"
-                >
-                  Nairobi
-                </td>
-                <td
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Name",
+                        "Parent",
+                        "Type",
+                        "Description",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Name
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Parent
+                    </th>
+                    <th
+                      key="2"
+                    >
+                      Type
+                    </th>
+                    <th
+                      key="3"
+                    >
+                      Description
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
                   key="1"
                 >
-                  None
-                </td>
-                <td
-                  key="2"
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Nairobi",
+                        "None",
+                        "None",
+                        "Such Big City , Much wow",
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      Nairobi
+                    </td>
+                    <td
+                      key="1"
+                    >
+                      None
+                    </td>
+                    <td
+                      key="2"
+                    >
+                      None
+                    </td>
+                    <td
+                      key="3"
+                    >
+                      Such Big City , Much wow
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
                 >
-                  None
-                </td>
-                <td
-                  key="3"
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="First"
+                      className="page-link"
+                      replace={false}
+                      to="/locations/?page=first"
+                    >
+                      <a
+                        aria-label="First"
+                        className="page-link"
+                        href="/locations/?page=first"
+                        onClick={[Function]}
+                      >
+                        First
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
                 >
-                  Such Big City , Much wow
-                </td>
-              </ElementMap>
-            </tr>
-          </tbody>
-        </table>
-      </Table>
-    </ListView>
-  </div>
-</LocationsList>
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/locations/?page=last"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/locations/?page=last"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
+        </div>
+      </ListView>
+    </div>
+  </LocationsList>
+</Router>
 `;

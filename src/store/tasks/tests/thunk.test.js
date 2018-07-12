@@ -15,13 +15,20 @@ describe("store/tasks/actions", () => {
   });
 
   it("should fetch tasks from server", async () => {
-    TaskService.getTaskList.mockReturnValueOnce(fixtures.tasksArray);
+    TaskService.getTaskList.mockReturnValueOnce({
+      tasksArray: fixtures.tasksArray,
+      pageLinks: fixtures.taskData.links,
+      currentPage: fixtures.taskData.meta.pagination.page
+    });
     const dispatches = await Thunk(tasks.fetchTasks).execute();
+
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.TASKS_FETCHED,
-      tasksById: fixtures.tasksById
+      tasksById: fixtures.tasksById,
+      pageLinks: fixtures.taskData.links,
+      currentPage: fixtures.taskData.meta.pagination.page
     });
   });
 

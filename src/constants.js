@@ -1,2 +1,4 @@
-export const API_ENDPOINT = process.env.REACT_APP_KAZNET_ENDPOINT;
-export const API_TOKEN = process.env.REACT_APP_API_TOKEN;
+const API_ENDPOINT = process.env.REACT_APP_KAZNET_ENDPOINT;
+const API_TOKEN = process.env.REACT_APP_API_TOKEN;
+
+export { API_ENDPOINT, API_TOKEN };

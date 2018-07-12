@@ -4,9 +4,9 @@ import { bindActionCreators } from "redux";
 
 import ClientForm from "./ClientForm";
 import FormView from "../../components/FormView";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as clientSelectors from "../../store/clients/reducer";
 import * as clientActions from "../../store/clients/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as globalActions from "../../store/global/actions";
 
 export class ClientEditForm extends Component {

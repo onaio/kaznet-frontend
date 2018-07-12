@@ -12,8 +12,14 @@ describe("services/clients", () => {
   it("should fetch clients", async () => {
     const data = fixtures.clientData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const response = await ClientService.getClientList();
-    expect(response).toEqual(fixtures.clientsArray);
+    const {
+      clientArray,
+      pageLinks,
+      currentPage
+    } = await ClientService.getClientList();
+    expect(clientArray).toEqual(fixtures.clientsArray);
+    expect(pageLinks).toEqual(fixtures.clientData.links);
+    expect(currentPage).toEqual(fixtures.clientData.meta.pagination.page);
   });
 
   it("should handle default clients http errors", async () => {

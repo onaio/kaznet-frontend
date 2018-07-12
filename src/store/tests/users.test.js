@@ -19,7 +19,11 @@ describe("store/users", () => {
   });
 
   it("should retrieve all users", async () => {
-    UserService.getUserList.mockReturnValueOnce(fixtures.usersArray);
+    UserService.getUserList.mockReturnValueOnce({
+      userArray: fixtures.usersArray,
+      pageLinks: fixtures.userData.links,
+      currentPage: 1
+    });
 
     await store.dispatch(userActions.fetchUsers());
     expect(userSelectors.getUsersById(store.getState())).toEqual(

@@ -5,11 +5,12 @@ import { Reducer } from "redux-testkit";
 import clients from "../reducer";
 import * as actionTypes from "../actionTypes";
 import * as fixtures from "./fixtures";
+import { defaultAppState } from "../../state";
 
-const initialState = {
+const initialState = _.merge(defaultAppState, {
   clientsById: {},
   clientsIdArray: []
-};
+});
 
 describe("store/clients/reducer", () => {
   it("should have initial state", () => {
@@ -17,11 +18,20 @@ describe("store/clients/reducer", () => {
   });
 
   it("should store fetched clients", () => {
+    const pageLinks = fixtures.clientData.links;
+    const currentPage = fixtures.clientData.meta.pagination.page;
     const clientsById = fixtures.clientsById;
-    const action = { type: actionTypes.CLIENTS_FETCHED, clientsById };
+    const action = {
+      type: actionTypes.CLIENTS_FETCHED,
+      clientsById,
+      pageLinks,
+      currentPage
+    };
 
     const existingState = Immutable(initialState);
-    const newState = _.clone(existingState);
+    const newState = _.merge(initialState, {
+      pageLinks: fixtures.clientData.links
+    });
     newState.clientsById = clientsById;
 
     Reducer(clients)

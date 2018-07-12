@@ -15,6 +15,7 @@ describe("containers/task/TasksList", () => {
     shallow(
       <TasksList
         fetchTasks={function() {}}
+        changePageNumber={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
@@ -28,12 +29,17 @@ describe("containers/task/TasksList", () => {
       <Router history={history}>
         <TasksList
           fetchTasks={function() {}}
+          changePageNumber={function() {}}
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
           changePageTarget={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.tasksById}
           rowsIdArray={fixtures.tasksIdArray}
+          endpoint={"tasks"}
+          pageLinks={fixtures.pageLinks}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.currentPage}
         />
       </Router>
     );

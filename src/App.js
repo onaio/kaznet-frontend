@@ -60,6 +60,12 @@ class App extends Component {
                     <Col>
                       <Switch>
                         <Route exact path="/tasks" component={TasksList} />
+                        <Route exact path="/tasks:page" component={TasksList} />
+                        <Route
+                          exact
+                          path="/tasks/:id"
+                          component={TasksDetail}
+                        />
                         <Route
                           exact
                           path="/tasks/new"
@@ -81,9 +87,15 @@ class App extends Component {
                           component={TaskStatusChange}
                         />
                         <Route exact path="/users" component={UsersList} />
+                        <Route exact path="/users:page" component={UsersList} />
                         <Route
                           exact
                           path="/locations"
+                          component={LocationsList}
+                        />
+                        <Route
+                          exact
+                          path="/locations:page"
                           component={LocationsList}
                         />
                         <Route exact path="/clients" component={ClientsList} />
@@ -96,6 +108,11 @@ class App extends Component {
                           exact
                           path="/clients/edit/:id"
                           component={ClientEditForm}
+                        />
+                        <Route
+                          exact
+                          path="/clients:page"
+                          component={ClientsList}
                         />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />

@@ -3,21 +3,48 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import queryString from "query-string";
 
+import * as constants from "../../constants.js";
 import * as clientActions from "../../store/clients/actions";
-import * as clientSelectiors from "../../store/clients/reducer";
+import * as clientSelectors from "../../store/clients/reducer";
 import * as globalActions from "../../store/global/actions";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class ClientsList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     this.props.showListTitle();
     this.props.fetchClients();
     this.props.changePageTitle("Clients");
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
+
+    this.props.changePageNumber(1);
+    if (this.props.location) {
+      const page = queryString.parse(this.props.location.search).page;
+      await this.props.fetchClients();
+      if (page) {
+        this.props.changePageNumber(Number(page));
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { page } = queryString.parse(this.props.location.search);
+    if (isNaN(Number(page)) && !(page === undefined)) {
+      const url = this.props.pageLinks[page];
+      this.props.fetchClients(url);
+    } else if (page === undefined) {
+      this.props.fetchClients();
+    } else {
+      if (Number(page) !== this.props.currentPage) {
+        this.props.fetchClients(
+          `${constants.API_ENDPOINT}/clients/?page=${page}`
+        );
+      }
+    }
   }
 
   render() {
@@ -28,7 +55,11 @@ export class ClientsList extends Component {
           renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
+          endpoint={"clients"}
           renderRow={this.renderRow}
+          pageLinks={this.props.pageLinks}
+          currentPage={this.props.currentPage}
+          totalPages={this.props.totalPages}
         />
       </div>
     );
@@ -58,8 +89,11 @@ export class ClientsList extends Component {
 
 function mapStateToProps(state) {
   return {
-    rowsById: clientSelectiors.getClientsById(state),
-    rowsIdArray: clientSelectiors.getClientsIdArray(state)
+    rowsById: clientSelectors.getClientsById(state),
+    rowsIdArray: clientSelectors.getClientsIdArray(state),
+    pageLinks: clientSelectors.getPageLinks(state),
+    totalPages: clientSelectors.getTotalPages(state),
+    currentPage: clientSelectors.getCurrentPage(state)
   };
 }
 
@@ -67,6 +101,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchClients: clientActions.fetchClients,
+      changePageNumber: clientActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,

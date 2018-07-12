@@ -4,21 +4,47 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
+import queryString from "query-string";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as taskSelectors from "../../store/tasks/reducer";
+import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class TasksList extends Component {
-  componentDidMount() {
-    this.props.showListTitle();
-    this.props.fetchTasks();
+  async componentDidMount() {
+    this.props.changePageNumber(1);
+
+    if (this.props.location) {
+      const page = queryString.parse(this.props.location.search).page;
+      await this.props.fetchTasks();
+      if (page) {
+        this.props.changePageNumber(Number(page));
+      }
+    }
+
     this.props.changePageTitle("Tasks");
     this.props.changePageTitleButton("+ Create Task");
     this.props.changePageTarget("/tasks/new");
+  }
+
+  componentDidUpdate(prevProps) {
+    const { page } = queryString.parse(this.props.location.search);
+    if (isNaN(Number(page)) && !(page === undefined)) {
+      const url = this.props.pageLinks[page];
+      if (Number(page) !== this.props.currentPage) {
+        this.props.fetchTasks(url);
+      }
+    } else if (page === undefined) {
+      this.props.fetchTasks();
+    } else {
+      if (Number(page) !== this.props.currentPage) {
+        this.props.fetchTasks(`${constants.API_ENDPOINT}/tasks/?page=${page}`);
+      }
+    }
   }
 
   render() {
@@ -30,6 +56,10 @@ export class TasksList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          endpoint={"tasks"}
+          pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
+          currentPage={this.props.currentPage}
         />
       </div>
     );
@@ -76,7 +106,10 @@ export class TasksList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: taskSelectors.getTasksById(state),
-    rowsIdArray: taskSelectors.getTasksIdArray(state)
+    rowsIdArray: taskSelectors.getTasksIdArray(state),
+    pageLinks: taskSelectors.getPageLinks(state),
+    totalPages: taskSelectors.getTotalPages(state),
+    currentPage: taskSelectors.getCurrentPage(state)
   };
 }
 
@@ -84,6 +117,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchTasks: taskActions.fetchTasks,
+      changePageNumber: taskActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,

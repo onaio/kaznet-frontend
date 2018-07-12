@@ -24,10 +24,21 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
   }
 >
   <ClientsList
+    changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="clients"
     fetchClients={[Function]}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/clients/?page=1",
+        "last": "http://localhost:8000/api/v1/clients/?page=1",
+        "next": null,
+        "prev": null,
+      }
+    }
     rowsById={
       Object {
         "1": Object {
@@ -46,11 +57,22 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
       ]
     }
     showListTitle={[Function]}
+    totalPages={2}
   >
     <div
       className="ClientsList"
     >
       <ListView
+        currentPage={1}
+        endpoint="clients"
+        pageLinks={
+          Object {
+            "first": "http://localhost:8000/api/v1/clients/?page=1",
+            "last": "http://localhost:8000/api/v1/clients/?page=1",
+            "next": null,
+            "prev": null,
+          }
+        }
         renderHeaders={[Function]}
         renderRow={[Function]}
         rowsById={
@@ -70,54 +92,95 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
             "1",
           ]
         }
+        totalPages={2}
       >
-        <Table
-          bordered={true}
-          className="kaznet-table"
-          responsiveTag="div"
-          tag="table"
-        >
-          <table
-            className="kaznet-table table table-bordered"
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
           >
-            <thead>
-              <tr>
-                <ElementMap
-                  HTMLTag="th"
-                  items={
-                    Array [
-                      "Name",
-                      "Created",
-                    ]
-                  }
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Name",
+                        "Created",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Name
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Created
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="1"
                 >
-                  <th
-                    key="0"
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/clients/edit/1"
+                      >
+                          Sol
+                      </Link>,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-21T13:51:54.011373+03:00
+                      </t>,
+                      ]
+                    }
                   >
-                    Name
-                  </th>
-                  <th
-                    key="1"
-                  >
-                    Created
-                  </th>
-                </ElementMap>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                key="1"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
+                    <td
+                      key="0"
+                    >
                       <Link
+                        key="link_to"
                         replace={false}
                         to="/clients/edit/1"
+                      >
+                        <a
+                          href="/clients/edit/1"
+                          onClick={[Function]}
+                        >
+                          Sol
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
                     >
-                        Sol
-                    </Link>,
                       <t
                         ago={false}
                         calendar={false}
@@ -127,64 +190,137 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="1"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
-                    >
-                        2018-06-21T13:51:54.011373+03:00
-                    </t>,
-                    ]
-                  }
+                      >
+                        <time
+                          dateTime={"2018-06-21T10:51:54.011Z"}
+                        >
+                          21-06-2018
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
                 >
-                  <td
-                    key="0"
+                  <li
+                    className="page-item"
                   >
                     <Link
-                      key="link_to"
+                      aria-label="First"
+                      className="page-link"
                       replace={false}
-                      to="/clients/edit/1"
+                      to="/clients/?page=first"
                     >
                       <a
-                        href="/clients/edit/1"
+                        aria-label="First"
+                        className="page-link"
+                        href="/clients/?page=first"
                         onClick={[Function]}
                       >
-                        Sol
+                        First
                       </a>
                     </Link>
-                  </td>
-                  <td
-                    key="1"
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
                   >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="1"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
                     >
-                      <time
-                        dateTime={"2018-06-21T10:51:54.011Z"}
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
                       >
-                        21-06-2018
-                      </time>
-                    </t>
-                  </td>
-                </ElementMap>
-              </tr>
-            </tbody>
-          </table>
-        </Table>
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/clients/?page=last"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/clients/?page=last"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
+        </div>
       </ListView>
     </div>
   </ClientsList>

@@ -1,8 +1,8 @@
 import Immutable from "seamless-immutable";
 import { Selector } from "redux-testkit";
 
-import * as clients from "../reducer";
 import * as fixtures from "./fixtures";
+import * as clients from "../reducer";
 
 const emptyState = Immutable({
   clients: {

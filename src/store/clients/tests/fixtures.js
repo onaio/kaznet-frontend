@@ -21,7 +21,7 @@ export const clientData = {
   meta: {
     pagination: {
       page: 1,
-      pages: 1,
+      pages: 2,
       count: 1
     }
   }
@@ -56,3 +56,6 @@ export const clientsById = _.keyBy(clientsArray, client => client.id);
 export const clientsIdArray = _.keys(clientsById);
 
 export const clientById = _.get(clientsById, 1);
+export const pageLinks = clientData.links;
+export const totalPages = clientData.meta.pagination.pages;
+export const currentPage = clientData.meta.pagination.page;

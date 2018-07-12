@@ -6,7 +6,6 @@ import createBrowserHistory from "history/createBrowserHistory";
 
 import { ClientsList } from "../ClientsList";
 import * as fixtures from "../../../store/clients/tests/fixtures";
-
 const history = createBrowserHistory();
 
 describe("containers/clients/ClientsList", () => {
@@ -17,6 +16,7 @@ describe("containers/clients/ClientsList", () => {
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
+        changePageNumber={function() {}}
         showListTitle={function() {}}
       />
     );
@@ -30,9 +30,14 @@ describe("containers/clients/ClientsList", () => {
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
           changePageTarget={function() {}}
+          changePageNumber={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.clientsById}
+          endpoint={"clients"}
           rowsIdArray={fixtures.clientsIdArray}
+          pageLinks={fixtures.clientData.links}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.clientData.meta.pagination.page}
         />
       </Router>
     );
