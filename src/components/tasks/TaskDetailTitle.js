@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Row, Col, Badge } from "reactstrap";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
 
 import {
   TASK_ACTIVE,
@@ -50,7 +51,9 @@ export default class TaskDetailTitle extends Component {
             </h1>
             <p className="kaznet-creation-detail">
               {this.props.task.attributes.created_by_name},{" "}
-              {this.props.task.attributes.created}
+              <Moment format="DD-MM-YYYY">
+                {this.props.task.attributes.created}
+              </Moment>
             </p>
             <Col md="12">
               <Row className="kaznet-action-links">
