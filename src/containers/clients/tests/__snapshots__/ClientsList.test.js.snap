@@ -34,8 +34,8 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
     pageLinks={
       Object {
         "first": "http://localhost:8000/api/v1/clients/?page=1",
-        "last": "http://localhost:8000/api/v1/clients/?page=1",
-        "next": null,
+        "last": "http://localhost:8000/api/v1/clients/?page=2",
+        "next": "http://localhost:8000/api/v1/clients/?page=2",
         "prev": null,
       }
     }
@@ -68,8 +68,8 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
         pageLinks={
           Object {
             "first": "http://localhost:8000/api/v1/clients/?page=1",
-            "last": "http://localhost:8000/api/v1/clients/?page=1",
-            "next": null,
+            "last": "http://localhost:8000/api/v1/clients/?page=2",
+            "next": "http://localhost:8000/api/v1/clients/?page=2",
             "prev": null,
           }
         }
@@ -270,22 +270,22 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                   </li>
                 </PaginationItem>
                 <PaginationItem
-                  disabled={true}
+                  disabled={false}
                   tag="li"
                 >
                   <li
-                    className="page-item disabled"
+                    className="page-item"
                   >
                     <Link
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="#"
+                      to="/clients/?page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/"
+                        href="/clients/?page=2"
                         onClick={[Function]}
                       >
                         »
