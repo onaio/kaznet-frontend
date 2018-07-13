@@ -1,16 +1,106 @@
-import _ from 'lodash';
-import * as types from './actionTypes';
-import locationService from '../../services/locations';
+import _ from "lodash";
+import * as types from "./actionTypes";
+import locationService from "../../services/locations";
 
 export function fetchLocations() {
-    return async(dispatch, getState) => {
-        try {
-            const locationArray = await locationService.getLocationList();
-            const locationsById = _.keyBy(locationArray, (location) => location.id);
+  return async (dispatch, getState) => {
+    try {
+      const locationArray = await locationService.getLocationList();
+      const locationsById = _.keyBy(locationArray, location => location.id);
 
-            dispatch({type: types.LOCATIONS_FETCHED, locationsById});
-        } catch (error) {
-            console.error(error);
-        }
-    };
+      dispatch({
+        type: types.LOCATIONS_FETCHED,
+        locationsById
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+
+// create a new location
+export function createLocation(location_data) {
+  return async (dispatch, getState) => {
+    try {
+      const locationData = await locationService.createLocation(location_data);
+      dispatch({
+        type: types.LOCATION_CREATED,
+        locationData
+      });
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+// edits location
+export function editLocation(location_data, id) {
+  return async (dispatch, getState) => {
+    try {
+      const locationData = await locationService.editLocation(
+        location_data,
+        id
+      );
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.LOCATION_EDITED,
+        locationData
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+// fetch a specific location
+export function fetchLocation(id) {
+  return async (dispatch, getState) => {
+    try {
+      const locationData = await locationService.getLocation(id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.LOCATION_FETCHED,
+        locationData
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+// delete location
+export function deleteLocation(location_id) {
+  return async (dispatch, getState) => {
+    try {
+      const locationId = await locationService.deleteLocation(location_id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.LOCATION_DELETED,
+        locationId
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
 }
