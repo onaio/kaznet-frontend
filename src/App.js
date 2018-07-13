@@ -17,14 +17,15 @@ import Home from "./components/Home";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
+import TitleSection from "./containers/global/TitleSection";
 
 import TasksList from "./containers/tasks/TasksList";
 import TaskCreateForm from "./containers/tasks/TaskCreateForm";
 import TaskEditForm from "./containers/tasks/TaskEditForm";
 import TasksDetail from "./containers/tasks/TasksDetail";
 import TaskStatusChange from "./containers/tasks/TaskStatusChange";
-
-import TitleSection from "./containers/global/TitleSection";
+import TaskDeletion from "./containers/tasks/TaskDeletion";
+import TaskClone from "./containers/tasks/TaskClone";
 
 import UsersList from "./containers/users/UsersList";
 
@@ -43,7 +44,6 @@ fontawesome.library.add(
   faLaptop,
   faFolderOpen
 );
-moment.updateLocale(moment.locale(), { invalidDate: "" });
 
 class App extends Component {
   render() {
@@ -96,6 +96,16 @@ class App extends Component {
                           exact
                           path="/clients/edit/:id"
                           component={ClientEditForm}
+                        />
+                        <Route
+                          exact
+                          path="/tasks/:id/delete"
+                          component={TaskDeletion}
+                        />
+                        <Route
+                          exact
+                          path="/tasks/:id/clone"
+                          component={TaskClone}
                         />
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />

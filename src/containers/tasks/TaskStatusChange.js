@@ -4,11 +4,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Redirect } from "react-router-dom";
+import * as queryString from "query-string";
 
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as globalAction from "../../store/global/actions";
+import { TASK_STATUSES } from "../../constants";
 
 export class TaskStatusChange extends Component {
   componentDidMount() {
@@ -18,33 +20,34 @@ export class TaskStatusChange extends Component {
   render() {
     this.task = this.props.taskById;
     if (!this.task) return this.renderLoading();
-    var status = this.task.attributes.status;
+    const currentStatus = this.task.attributes.status;
+    const { status } = queryString.parse(this.props.location.search);
 
-    if (status === "Active") {
-      status = "b";
+    if (status && TASK_STATUSES.includes(status) && currentStatus !== status) {
+      const payload = {
+        data: {
+          type: "Task",
+          id: this.task.id,
+          attributes: {
+            status: status
+          }
+        }
+      };
+      this.props.editTask(payload, this.task.id);
     } else {
-      status = "a";
+      // this status is not valid
+      console.log("Invalid status");
     }
 
-    const payload = {
-      data: {
-        type: "Task",
-        id: this.task.id,
-        data: {
-          status: status
-        }
-      }
-    };
-
-    this.props.editTask(payload, this.task.id);
+    // no matter what, redirect back to the task
     return <Redirect to={`/tasks/${this.task.id}`} />;
   }
 
   renderLoading() {
     if (this.props.hasError) {
-      return <p>Task cloning failed</p>;
+      return <p>Task edit failed</p>;
     } else {
-      return <p>Task cloning in progress..</p>;
+      return <p>Task edit in progress..</p>;
     }
   }
 }

@@ -18,17 +18,17 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
   initialData={
     Object {
       "amount": 55,
-      "client": "7",
+      "client": "1",
       "description": undefined,
-      "end": "2019-01-30",
+      "end": "2020-07-10",
       "estimated_time": 15,
-      "form": 1,
-      "name": "Awesome Task",
+      "form": 20,
+      "name": "Kaznet",
       "required_expertise": "1",
-      "start": "2018-06-21",
+      "start": "2018-07-10",
       "status": "a",
-      "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-      "user_submission_target": 100,
+      "timing_rule": "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+      "user_submission_target": 10,
     }
   }
   unusedFormsById={
@@ -46,17 +46,17 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
     initialValues={
       Object {
         "amount": 55,
-        "client": "7",
+        "client": "1",
         "description": undefined,
-        "end": "2019-01-30",
+        "end": "2020-07-10",
         "estimated_time": 15,
-        "form": 1,
-        "name": "Awesome Task",
+        "form": 20,
+        "name": "Kaznet",
         "required_expertise": "1",
-        "start": "2018-06-21",
+        "start": "2018-07-10",
         "status": "a",
-        "timing_rule": "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-        "user_submission_target": 100,
+        "timing_rule": "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+        "user_submission_target": 10,
       }
     }
     isInitialValid={false}
@@ -106,7 +106,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Title"
                     type="text"
-                    value="Awesome Task"
+                    value="Kaznet"
                   >
                     <input
                       aria-label="title"
@@ -116,7 +116,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Title"
                       type="text"
-                      value="Awesome Task"
+                      value="Kaznet"
                     />
                   </Input>
                 </div>
@@ -476,7 +476,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Form"
                     type="select"
-                    value={1}
+                    value={20}
                   >
                     <select
                       aria-label="form"
@@ -485,7 +485,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Form"
-                      value={1}
+                      value={20}
                     >
                       <OptionMap
                         obj={
@@ -609,7 +609,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                             onChange={[Function]}
                             placeholder="Start Date"
                             type="date"
-                            value="2018-06-21"
+                            value="2018-07-10"
                           >
                             <input
                               aria-label="start"
@@ -619,7 +619,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               onChange={[Function]}
                               placeholder="Start Date"
                               type="date"
-                              value="2018-06-21"
+                              value="2018-07-10"
                             />
                           </Input>
                         </div>
@@ -649,7 +649,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                             onChange={[Function]}
                             placeholder="End Date"
                             type="date"
-                            value="2019-01-30"
+                            value="2020-07-10"
                           >
                             <input
                               aria-label="end"
@@ -659,7 +659,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               onChange={[Function]}
                               placeholder="End Date"
                               type="date"
-                              value="2019-01-30"
+                              value="2020-07-10"
                             />
                           </Input>
                         </div>
@@ -837,7 +837,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Client"
                     type="select"
-                    value="7"
+                    value="1"
                   >
                     <select
                       aria-label="client"
@@ -846,7 +846,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Client"
-                      value="7"
+                      value="1"
                     >
                       <OptionMap
                         obj={
@@ -948,7 +948,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Contributor Submission Target"
                     type="number"
-                    value={100}
+                    value={10}
                   >
                     <input
                       aria-label="contributor submission target"
@@ -958,7 +958,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Contributor Submission Target"
                       type="number"
-                      value={100}
+                      value={10}
                     />
                   </Input>
                 </div>
@@ -1145,7 +1145,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Timing Rule"
                     type="hidden"
-                    value="RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12"
+                    value="FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA"
                   >
                     <input
                       aria-label="timing rule"
@@ -1155,14 +1155,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Timing Rule"
                       type="hidden"
-                      value="RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12"
+                      value="FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA"
                     />
                   </Input>
                   <t
                     calendarComponent={null}
                     config={Object {}}
                     onChange={[Function]}
-                    value="RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12"
+                    value="FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA"
                   >
                     <div>
                       <div
@@ -1174,9 +1174,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                             repeat={
                               Object {
                                 "daily": Object {
-                                  "interval": 10,
+                                  "interval": 1,
                                 },
-                                "frequency": "Daily",
+                                "frequency": "Weekly",
                                 "hourly": Object {
                                   "interval": 1,
                                 },
@@ -1199,9 +1199,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 },
                                 "weekly": Object {
                                   "days": Object {
-                                    "fri": false,
+                                    "fri": true,
                                     "mon": false,
-                                    "sat": false,
+                                    "sat": true,
                                     "sun": false,
                                     "thu": false,
                                     "tue": false,
@@ -1256,7 +1256,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     id="Repeat frequency"
                                     name="repeat.frequency"
                                     onChange={[Function]}
-                                    value="Daily"
+                                    value="Weekly"
                                   >
                                     <option
                                       value="Yearly"
@@ -1286,40 +1286,170 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                   </select>
                                 </div>
                               </div>
-                              <l
-                                daily={
+                              <m
+                                handleChange={[Function]}
+                                weekly={
                                   Object {
-                                    "interval": 10,
+                                    "days": Object {
+                                      "fri": true,
+                                      "mon": false,
+                                      "sat": true,
+                                      "sun": false,
+                                      "thu": false,
+                                      "tue": false,
+                                      "wed": false,
+                                    },
+                                    "interval": 1,
+                                    "options": Object {
+                                      "weekStartsOnSunday": undefined,
+                                    },
                                   }
                                 }
-                                handleChange={[Function]}
                               >
                                 <div
-                                  className="form-group row d-flex align-items-sm-center"
+                                  className="px-3"
                                 >
                                   <div
-                                    className="col-sm-1 offset-sm-2"
+                                    className="form-group row d-flex align-items-sm-center"
                                   >
-                                    every
+                                    <div
+                                      className="col-sm-1 offset-sm-2"
+                                    >
+                                      every
+                                    </div>
+                                    <div
+                                      className="col-sm-3"
+                                    >
+                                      <input
+                                        aria-label="Repeat weekly interval"
+                                        className="form-control"
+                                        name="repeat.weekly.interval"
+                                        onChange={[Function]}
+                                        value={1}
+                                      />
+                                    </div>
+                                    <div
+                                      className="col-sm-1"
+                                    >
+                                      week(s)
+                                    </div>
                                   </div>
                                   <div
-                                    className="col-sm-2"
+                                    className="form-group row"
                                   >
-                                    <input
-                                      aria-label="Repeat daily interval"
-                                      className="form-control"
-                                      name="repeat.daily.interval"
-                                      onChange={[Function]}
-                                      value={10}
-                                    />
-                                  </div>
-                                  <div
-                                    className="col-sm-1"
-                                  >
-                                    day(s)
+                                    <div
+                                      className="btn-group offset-sm-2"
+                                      data-toggle="buttons"
+                                    >
+                                      <label
+                                        className="btn btn-primary false"
+                                        htmlFor="Repeat weekly on mon"
+                                        key="mon"
+                                      >
+                                        <input
+                                          checked={false}
+                                          className="form-control"
+                                          id="Repeat weekly on mon"
+                                          name="repeat.weekly.days[mon]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        mon
+                                      </label>
+                                      <label
+                                        className="btn btn-primary false"
+                                        htmlFor="Repeat weekly on tue"
+                                        key="tue"
+                                      >
+                                        <input
+                                          checked={false}
+                                          className="form-control"
+                                          id="Repeat weekly on tue"
+                                          name="repeat.weekly.days[tue]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        tue
+                                      </label>
+                                      <label
+                                        className="btn btn-primary false"
+                                        htmlFor="Repeat weekly on wed"
+                                        key="wed"
+                                      >
+                                        <input
+                                          checked={false}
+                                          className="form-control"
+                                          id="Repeat weekly on wed"
+                                          name="repeat.weekly.days[wed]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        wed
+                                      </label>
+                                      <label
+                                        className="btn btn-primary false"
+                                        htmlFor="Repeat weekly on thu"
+                                        key="thu"
+                                      >
+                                        <input
+                                          checked={false}
+                                          className="form-control"
+                                          id="Repeat weekly on thu"
+                                          name="repeat.weekly.days[thu]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        thu
+                                      </label>
+                                      <label
+                                        className="btn btn-primary active"
+                                        htmlFor="Repeat weekly on fri"
+                                        key="fri"
+                                      >
+                                        <input
+                                          checked={true}
+                                          className="form-control"
+                                          id="Repeat weekly on fri"
+                                          name="repeat.weekly.days[fri]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        fri
+                                      </label>
+                                      <label
+                                        className="btn btn-primary active"
+                                        htmlFor="Repeat weekly on sat"
+                                        key="sat"
+                                      >
+                                        <input
+                                          checked={true}
+                                          className="form-control"
+                                          id="Repeat weekly on sat"
+                                          name="repeat.weekly.days[sat]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        sat
+                                      </label>
+                                      <label
+                                        className="btn btn-primary false"
+                                        htmlFor="Repeat weekly on sun"
+                                        key="sun"
+                                      >
+                                        <input
+                                          checked={false}
+                                          className="form-control"
+                                          id="Repeat weekly on sun"
+                                          name="repeat.weekly.days[sun]"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                        />
+                                        sun
+                                      </label>
+                                    </div>
                                   </div>
                                 </div>
-                              </l>
+                              </m>
                             </div>
                           </M>
                         </div>
@@ -1327,10 +1457,10 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                         <c
                           end={
                             Object {
-                              "after": 12,
-                              "mode": "After",
+                              "after": 1,
+                              "mode": "Never",
                               "onDate": Object {
-                                "date": "2018-07-11",
+                                "date": "2018-07-13",
                                 "options": Object {
                                   "calendarComponent": null,
                                   "weekStartsOnSunday": undefined,
@@ -1369,7 +1499,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                   id="End"
                                   name="end.mode"
                                   onChange={[Function]}
-                                  value="After"
+                                  value="Never"
                                 >
                                   <option
                                     value="Never"
@@ -1388,35 +1518,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                   </option>
                                 </select>
                               </div>
-                              <l
-                                after={12}
-                                handleChange={[Function]}
-                              >
-                                <div
-                                  className="col-sm-4"
-                                >
-                                  <div
-                                    className="form-group m-0 row d-flex align-items-center"
-                                  >
-                                    <div
-                                      className="col-3 col-sm-6 pl-0"
-                                    >
-                                      <input
-                                        aria-label="End after"
-                                        className="form-control"
-                                        name="end.after"
-                                        onChange={[Function]}
-                                        value={12}
-                                      />
-                                    </div>
-                                    <div
-                                      className="col-9 col-sm-6"
-                                    >
-                                      executions.
-                                    </div>
-                                  </div>
-                                </div>
-                              </l>
                             </div>
                           </div>
                         </c>
@@ -1440,7 +1541,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
               onClick={[Function]}
               type="submit"
             >
-              Activate
+              Submit
             </button>
           </Button>
         </form>

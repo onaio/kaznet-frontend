@@ -87,6 +87,20 @@
   text-transform: capitalize;
 }
 
+.remove_button_css {
+  outline: none;
+  padding: 0px;
+  border: 0px;
+  box-sizing: none;
+  background-color: transparent;
+}
+
+.remove_button_css:focus,
+.remove_button_css:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
 /** Media Queries **/
 @media (min-width: 768px) {
   .navbar-collapse {

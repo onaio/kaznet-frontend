@@ -5,7 +5,6 @@ import toJson from "enzyme-to-json";
 
 import DetailView from "../DetailView";
 import NestedElementMap from "../../containers/NestedElementMap";
-import ErrorBoundary from "../ErrorBoundary";
 
 describe("components/DetailView", () => {
   it("renders without crashing", () => {

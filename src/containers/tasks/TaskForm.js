@@ -415,7 +415,7 @@ export class TaskForm extends Component {
                 className="btn btn-primary btn-block"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Activating" : "Activate"}
+                {isSubmitting ? "Submitting" : "Submit"}
               </Button>
             </Form>
             {status === "done" && (

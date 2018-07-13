@@ -32,7 +32,7 @@ describe("containers/task/TaskEditForm", () => {
         }}
         fetchTask={function() {}}
         noTitle={function() {}}
-        taskById={fixtures.taskById}
+        taskById={fixtures.singleTask}
       />
     ).dive();
 

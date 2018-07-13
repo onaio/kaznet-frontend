@@ -39,20 +39,61 @@ describe("services/tasks", () => {
   it("should edit a task", async () => {
     const data = fixtures.singleTaskData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const response = await TaskService.editTask({}, 1);
+    const response = await TaskService.editTask(data, "999");
     expect(response).toEqual(fixtures.singleTask);
   });
 
+  it("should clone a task", async () => {
+    const data = fixtures.singleTaskData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await TaskService.cloneTask(data, "999");
+    expect(response).toEqual(fixtures.singleTask);
+  });
+
+  it("should delete a task", async () => {
+    fetch.mockResponseOnce("999");
+    const response = await TaskService.deleteTask("999");
+    expect(response).toEqual("999");
+  });
+
   it("should handle edit task http errors", async () => {
+    const data = fixtures.singleTaskData;
     fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
     let error;
     try {
-      await TaskService.editTask();
+      await TaskService.editTask(data, "999");
     } catch (e) {
       error = e;
     }
     expect(error).toEqual(
       new Error("TaskService editTask failed, HTTP status 500")
+    );
+  });
+
+  it("should handle clone task http errors", async () => {
+    const data = fixtures.singleTaskData;
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await TaskService.cloneTask(data, "999");
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("TaskService cloneTask failed, HTTP status 500")
+    );
+  });
+
+  it("should handle delete task http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await TaskService.deleteTask("999");
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("TaskService deleteTask failed, HTTP status 500")
     );
   });
 

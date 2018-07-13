@@ -51,7 +51,13 @@
   margin-right: 17px;
 }
 
-.action-link-alert {
+.action-link,
+.action-link.remove_button_css {
+  font-weight: 600;
+}
+
+.action-link-alert,
+.action-link.remove_button_css {
   color: #ac451e;
 }
 

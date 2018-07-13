@@ -11,33 +11,15 @@ import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
 import DetailView from "../../components/DetailView";
+import TaskDetailTitle from "../../components/tasks/TaskDetailTitle";
 import StatisticsSection from "./StatisticsSection";
 import NestedElementMap from "../NestedElementMap";
-import LinkMap from "../LinkMap";
 import "./TasksDetail.css";
 
 export class TasksDetail extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
-    this.props.changePageTitle(`Tasks`);
-    this.props.changePageTarget("/tasks");
-    if (this.task) {
-      this.props.showDetailTitle(this.task.attributes.name);
-      this.props.changeTaskStatus(this.task.attributes.status_display);
-      this.props.setActionLinks(this.renderActionLinks());
-    } else {
-      this.props.showDetailTitle();
-      this.props.changeTaskStatus();
-    }
-    this.props.setActionLinks(this.renderActionLinks());
-  }
-
-  componentDidUpdate() {
-    if (this.task) {
-      this.props.showDetailTitle(this.task.attributes.name);
-      this.props.changeTaskStatus(this.task.attributes.status_display);
-      this.props.setActionLinks(this.renderActionLinks());
-    }
+    this.props.noTitle();
   }
 
   render() {
@@ -45,6 +27,7 @@ export class TasksDetail extends Component {
     if (!this.task) return this.renderLoading();
     return (
       <div className="TasksList">
+        <TaskDetailTitle task={this.task} />
         <StatisticsSection
           accepted={this.task.attributes.approved_submissions_count}
           reward={this.task.attributes.total_bounty_payout}
@@ -118,30 +101,6 @@ export class TasksDetail extends Component {
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
-
-  renderActionLinks() {
-    var actionLinks = {};
-
-    if (this.task) {
-      if (this.task.attributes.status_display === "Active") {
-        actionLinks = {
-          EDIT: `/tasks/${this.task.id}/edit`,
-          "CREATE A COPY": "/",
-          DEACTIVATE: `/tasks/${this.task.id}/status_change`,
-          "DELETE TASK": "/"
-        };
-      } else {
-        actionLinks = {
-          EDIT: `/tasks/${this.task.id}/edit`,
-          "CREATE A COPY": "/",
-          ACTIVATE: `/tasks/${this.task.id}/status_change`,
-          "DELETE TASK": "/"
-        };
-      }
-    }
-
-    return <LinkMap links={actionLinks} />;
-  }
 }
 
 function mapStateToProps(state, props) {
@@ -156,11 +115,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchTask: taskActions.fetchTask,
-      changePageTitle: globalActions.changePageTitle,
-      showDetailTitle: globalActions.toggleDetailTitleOn,
-      changePageTarget: globalActions.changePageTarget,
-      setActionLinks: globalActions.setPageActionLinks,
-      changeTaskStatus: globalActions.changeDetailStatus
+      changeTaskStatus: globalActions.changeDetailStatus,
+      noTitle: globalActions.toggleTitleOff
     },
     dispatch
   );

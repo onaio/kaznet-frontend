@@ -24,8 +24,6 @@ export default function reduce(state = initialState, action = {}) {
         }
       });
     case types.TASK_FETCHED:
-      // Have to turn state back to immutable
-      // Seems the reduces does not do that for us
       return Immutable({
         ...state,
         tasksById: {
@@ -34,6 +32,17 @@ export default function reduce(state = initialState, action = {}) {
         }
       });
     case types.TASK_EDITED:
+      return Immutable({
+        ...state,
+        tasksById: {
+          ...state.tasksById,
+          [action.taskData.id]: action.taskData
+        }
+      });
+    case types.TASK_DELETED:
+      const newTasksById = _.omit(state.tasksById, action.taskId);
+      return state.set("tasksById", newTasksById);
+    case types.TASK_CLONED:
       return Immutable({
         ...state,
         tasksById: {

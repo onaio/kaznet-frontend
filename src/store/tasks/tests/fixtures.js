@@ -3,54 +3,76 @@ import _ from "lodash";
 
 export const taskData = {
   links: {
-    first: "http://localhost:8000/api/v1/tasks/?page=1",
-    last: "http://localhost:8000/api/v1/tasks/?page=1",
+    first: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+    last: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
     next: null,
     prev: null
   },
   data: [
     {
       type: "Task",
-      id: "1",
+      id: "4",
       attributes: {
-        created: "2018-06-21T12:15:45.349936+03:00",
-        modified: "2018-06-21T12:22:09.703447+03:00",
-        name: "Awesome Task",
-        estimated_time: "4 01:15:20",
-        approved_submissions_count: 1,
+        created: "2018-07-10T16:50:20.165320+03:00",
+        modified: "2018-07-12T17:08:58.621899+03:00",
+        name: "Kaznet",
+        estimated_time: "00:15:00",
+        approved_submissions_count: 0,
         pending_submissions_count: 0,
         rejected_submissions_count: 0,
-        total_bounty_payout: "55.00 KES",
-        current_bounty_amount: "55.00 KES",
+        total_bounty_payout: "0 KES",
+        current_bounty_amount: null,
         required_expertise: "1",
-        description: "This is pure joy.",
-        xform_title: "Form 1",
+        description: "This is an awesome task",
+        xform_title: "Baseline_Questionnaire",
+        xform_id_string: "Baseline_Questionnaire",
         status_display: "Active",
         required_expertise_display: "Beginner",
-        start: "2018-06-21T12:15:45+03:00",
-        end: "2019-01-30T12:17:40+03:00",
-        timing_rule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-        total_submission_target: 100,
-        user_submission_target: 100,
+        start: "2018-07-10T12:00:00+03:00",
+        end: "2020-07-10T12:00:00+03:00",
+        timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+        total_submission_target: null,
+        user_submission_target: 10,
         status: "a",
-        submission_count: 1,
-        target_id: 1
+        submission_count: 0,
+        target_id: 20,
+        created_by_name: "Ona User",
+        task_locations: [
+          {
+            task: {
+              type: "Task",
+              id: "4"
+            },
+            created: "2018-07-12T17:38:21.527548+03:00",
+            modified: "2018-07-12T17:38:21.527572+03:00",
+            location: {
+              type: "Location",
+              id: "1"
+            },
+            timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+            start: "06:00:00",
+            end: "18:00:00"
+          }
+        ]
       },
       relationships: {
+        created_by: {
+          data: {
+            type: "User",
+            id: "3"
+          }
+        },
         parent: {
           data: null
         },
         client: {
           data: {
             type: "Client",
-            id: "7"
+            id: "1"
           }
         },
         bounty: {
-          data: {
-            type: "Bounty",
-            id: "2"
-          }
+          data: null
         },
         target_content_type: {
           data: {
@@ -79,46 +101,118 @@ export const taskData = {
     },
     {
       type: "Task",
-      id: "2",
+      id: "10",
       attributes: {
-        created: "2018-06-21T12:15:45.363700+03:00",
-        modified: "2018-06-21T12:25:06.164454+03:00",
-        name: "Kill Bill",
-        estimated_time: "00:00:19",
-        approved_submissions_count: 2,
+        created: "2018-07-12T16:48:50.829735+03:00",
+        modified: "2018-07-12T16:48:50.894406+03:00",
+        name: "Coconut Quest",
+        estimated_time: "00:15:00",
+        approved_submissions_count: 0,
         pending_submissions_count: 0,
         rejected_submissions_count: 0,
-        total_bounty_payout: "300000.00 KES",
-        current_bounty_amount: "150000.00 KES",
-        required_expertise: "3",
-        description: "The best and most delicious task ever.",
-        xform_title: "Form 2",
-        status_display: "Scheduled",
-        required_expertise_display: "Advanced",
-        start: "2018-08-17T12:15:45+03:00",
-        end: null,
-        timing_rule: "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
-        total_submission_target: 200,
-        user_submission_target: 2,
-        status: "s",
-        submission_count: 2,
-        target_id: 2
+        total_bounty_payout: "0 KES",
+        current_bounty_amount: null,
+        required_expertise: "1",
+        description: "This is an awesome task",
+        xform_title: "",
+        xform_id_string: "",
+        status_display: "Draft",
+        required_expertise_display: "Beginner",
+        start: "2018-07-10T12:00:00+03:00",
+        end: "2020-07-10T12:00:00+03:00",
+        timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+        total_submission_target: null,
+        user_submission_target: 10,
+        status: "d",
+        submission_count: 0,
+        target_id: 20,
+        created_by_name: "Ona User",
+        task_locations: []
       },
       relationships: {
+        created_by: {
+          data: {
+            type: "User",
+            id: "3"
+          }
+        },
         parent: {
           data: null
         },
         client: {
           data: {
             type: "Client",
-            id: "2"
+            id: "1"
           }
         },
         bounty: {
+          data: null
+        },
+        target_content_type: {
+          data: null
+        },
+        segment_rules: {
+          data: [],
+          meta: {
+            count: 0
+          }
+        },
+        locations: {
+          data: [],
+          meta: {
+            count: 0
+          }
+        }
+      }
+    },
+    {
+      type: "Task",
+      id: "6",
+      attributes: {
+        created: "2018-07-10T19:38:07.391811+03:00",
+        modified: "2018-07-12T17:11:01.785628+03:00",
+        name: "Coconut Quest2",
+        estimated_time: "00:15:00",
+        approved_submissions_count: 0,
+        pending_submissions_count: 0,
+        rejected_submissions_count: 0,
+        total_bounty_payout: "0 KES",
+        current_bounty_amount: null,
+        required_expertise: "1",
+        description: "This is an awesome task",
+        xform_title: "bike_trip_repeat",
+        xform_id_string: "bike_trip_repeat",
+        status_display: "Draft",
+        required_expertise_display: "Beginner",
+        start: "2018-07-10T12:00:00+03:00",
+        end: "2020-07-10T12:00:00+03:00",
+        timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+        total_submission_target: null,
+        user_submission_target: 10,
+        status: "d",
+        submission_count: 0,
+        target_id: 168,
+        created_by_name: "Ona User",
+        task_locations: []
+      },
+      relationships: {
+        created_by: {
           data: {
-            type: "Bounty",
+            type: "User",
+            id: "3"
+          }
+        },
+        parent: {
+          data: null
+        },
+        client: {
+          data: {
+            type: "Client",
             id: "1"
           }
+        },
+        bounty: {
+          data: null
         },
         target_content_type: {
           data: {
@@ -133,14 +227,72 @@ export const taskData = {
           }
         },
         locations: {
-          data: [
-            {
-              type: "Location",
-              id: "2"
-            }
-          ],
+          data: [],
           meta: {
-            count: 1
+            count: 0
+          }
+        }
+      }
+    },
+    {
+      type: "Task",
+      id: "8",
+      attributes: {
+        created: "2018-07-11T10:13:41.385184+03:00",
+        modified: "2018-07-12T17:15:49.202427+03:00",
+        name: "Kill Bill",
+        estimated_time: "00:15:00",
+        approved_submissions_count: 0,
+        pending_submissions_count: 0,
+        rejected_submissions_count: 0,
+        total_bounty_payout: "0 KES",
+        current_bounty_amount: null,
+        required_expertise: "1",
+        description: "",
+        xform_title: "BRCiS - TARGETED COMMUNITIES (March 2015)",
+        xform_id_string: "brcis_targ_comm_march2015",
+        status_display: "Archived",
+        required_expertise_display: "Beginner",
+        start: "2018-07-10T12:00:00+03:00",
+        end: "2018-07-12T12:00:00+03:00",
+        timing_rule: "",
+        total_submission_target: null,
+        user_submission_target: null,
+        status: "e",
+        submission_count: 0,
+        target_id: 7,
+        created_by_name: "",
+        task_locations: []
+      },
+      relationships: {
+        created_by: {
+          data: null
+        },
+        parent: {
+          data: null
+        },
+        client: {
+          data: null
+        },
+        bounty: {
+          data: null
+        },
+        target_content_type: {
+          data: {
+            type: "ContentType",
+            id: "16"
+          }
+        },
+        segment_rules: {
+          data: [],
+          meta: {
+            count: 0
+          }
+        },
+        locations: {
+          data: [],
+          meta: {
+            count: 0
           }
         }
       }
@@ -150,84 +302,7 @@ export const taskData = {
     pagination: {
       page: 1,
       pages: 1,
-      count: 2
-    }
-  }
-};
-
-export const tasksArray = _.map(taskData.data, task => {
-  return task;
-});
-
-export const tasksById = _.keyBy(tasksArray, task => task.id);
-export const taskById = _.get(tasksById, 1);
-
-export const singleTaskData = {
-  data: {
-    type: "Task",
-    id: "999",
-    attributes: {
-      created: "2018-06-21T12:15:45.363700+03:00",
-      modified: "2018-06-21T12:25:06.164454+03:00",
-      name: "Kill Bill",
-      estimated_time: "00:00:19",
-      approved_submissions_count: 0,
-      pending_submissions_count: 0,
-      rejected_submissions_count: 0,
-      total_bounty_payout: "0 KES",
-      current_bounty_amount: "150000.00 KES",
-      required_expertise: "3",
-      description: "The best and most delicious task ever.",
-      xform_title: "Form 2",
-      status_display: "Scheduled",
-      start: "2018-08-17T12:15:45+03:00",
-      end: null,
-      timing_rule: "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
-      total_submission_target: 200,
-      user_submission_target: 2,
-      status: "s",
-      submission_count: 0,
-      target_id: 2
-    },
-    relationships: {
-      parent: {
-        data: null
-      },
-      client: {
-        data: {
-          type: "Client",
-          id: "2"
-        }
-      },
-      bounty: {
-        data: {
-          type: "Bounty",
-          id: "1"
-        }
-      },
-      target_content_type: {
-        data: {
-          type: "ContentType",
-          id: "16"
-        }
-      },
-      segment_rules: {
-        data: [],
-        meta: {
-          count: 0
-        }
-      },
-      locations: {
-        data: [
-          {
-            type: "Location",
-            id: "2"
-          }
-        ],
-        meta: {
-          count: 1
-        }
-      }
+      count: 4
     }
   }
 };
@@ -236,43 +311,66 @@ export const singleTask = {
   type: "Task",
   id: "999",
   attributes: {
-    created: "2018-06-21T12:15:45.363700+03:00",
-    modified: "2018-06-21T12:25:06.164454+03:00",
-    name: "Kill Bill",
-    estimated_time: "00:00:19",
+    created: "2018-07-10T16:50:20.165320+03:00",
+    modified: "2018-07-12T17:08:58.621899+03:00",
+    name: "Kaznet",
+    estimated_time: "00:15:00",
     approved_submissions_count: 0,
     pending_submissions_count: 0,
     rejected_submissions_count: 0,
     total_bounty_payout: "0 KES",
-    current_bounty_amount: "150000.00 KES",
-    required_expertise: "3",
-    description: "The best and most delicious task ever.",
-    xform_title: "Form 2",
-    status_display: "Scheduled",
-    start: "2018-08-17T12:15:45+03:00",
-    end: null,
-    timing_rule: "RRULE:FREQ=DAILY;INTERVAL=1;COUNT=500",
-    total_submission_target: 200,
-    user_submission_target: 2,
-    status: "s",
+    current_bounty_amount: "55 KES",
+    required_expertise: "1",
+    description: "This is an awesome task",
+    xform_title: "Baseline_Questionnaire",
+    xform_id_string: "Baseline_Questionnaire",
+    status_display: "Active",
+    required_expertise_display: "Beginner",
+    start: "2018-07-10T12:00:00+03:00",
+    end: "2020-07-10T12:00:00+03:00",
+    timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+    total_submission_target: null,
+    user_submission_target: 10,
+    status: "a",
     submission_count: 0,
-    target_id: 2
+    target_id: 20,
+    created_by_name: "Ona User",
+    task_locations: [
+      {
+        task: {
+          type: "Task",
+          id: "4"
+        },
+        created: "2018-07-12T17:38:21.527548+03:00",
+        modified: "2018-07-12T17:38:21.527572+03:00",
+        location: {
+          type: "Location",
+          id: "1"
+        },
+        timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+        start: "06:00:00",
+        end: "18:00:00"
+      }
+    ]
   },
   relationships: {
+    created_by: {
+      data: {
+        type: "User",
+        id: "3"
+      }
+    },
     parent: {
       data: null
     },
     client: {
       data: {
         type: "Client",
-        id: "2"
+        id: "1"
       }
     },
     bounty: {
-      data: {
-        type: "Bounty",
-        id: "1"
-      }
+      data: null
     },
     target_content_type: {
       data: {
@@ -290,7 +388,7 @@ export const singleTask = {
       data: [
         {
           type: "Location",
-          id: "2"
+          id: "1"
         }
       ],
       meta: {
@@ -300,24 +398,32 @@ export const singleTask = {
   }
 };
 
+export const tasksArray = _.map(taskData.data, task => {
+  return task;
+});
+export const tasksById = _.keyBy(tasksArray, task => task.id);
+export const taskById = _.get(tasksById, 4);
+
+export const singleTaskData = {
+  data: singleTask
+};
 export const tasksIdArray = _.keys(tasksById);
 export const singleTaskArray = _.map(singleTaskData, task => {
   return task;
 });
-
 export const singleTaskById = _.keyBy(singleTaskArray, task => task.id);
 
 export const TaskFormInitialData = {
   amount: 55,
-  client: "7",
+  client: "1",
   description: undefined,
-  end: "2019-01-30",
+  end: "2020-07-10",
   estimated_time: 15,
-  form: 1,
-  name: "Awesome Task",
+  form: 20,
+  name: "Kaznet",
   required_expertise: "1",
-  start: "2018-06-21",
+  start: "2018-07-10",
   status: "a",
-  timing_rule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=12",
-  user_submission_target: 100
+  timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+  user_submission_target: 10
 };

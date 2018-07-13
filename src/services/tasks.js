@@ -90,6 +90,25 @@ class TaskService {
     return data;
   }
 
+  async deleteTask(task_id) {
+    const url = `${constants.API_ENDPOINT}/tasks/${task_id}/`;
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `TaskService deleteTask failed, HTTP status ${response.status}`
+      );
+    }
+
+    return task_id;
+  }
+
   async getTask(id) {
     const url = `${constants.API_ENDPOINT}/tasks/${id}/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
@@ -115,6 +134,38 @@ class TaskService {
     const data = _.get(apiResponse, "data");
     if (!data) {
       throw new Error("TaskService getTask failed, data not returned");
+    }
+
+    return data;
+  }
+
+  async cloneTask(task_data, id) {
+    const url = `${constants.API_ENDPOINT}/tasks/${id}/clone_task/`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/vnd.api+json",
+        "content-type": "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      },
+      body: JSON.stringify(task_data),
+      cache: "no-cache"
+    });
+
+    if (!response.ok && response.status !== 400) {
+      throw new Error(
+        `TaskService cloneTask failed, HTTP status ${response.status}`
+      );
+    }
+
+    const apiResponse = await response.json();
+    if (response.status === 400) {
+      throw apiResponse.errors;
+    }
+
+    const data = _.get(apiResponse, "data");
+    if (!data) {
+      throw new Element(`TaskService cloneTask failed, no data returned`);
     }
 
     return data;
