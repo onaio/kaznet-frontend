@@ -17,6 +17,7 @@ export class LocationsList extends Component {
     this.props.fetchLocations();
     this.props.changePageTitle("Locations");
     this.props.changePageTitleButton("+ Create Location");
+    this.props.changePageTarget("/locations/new");
   }
 
   render() {
@@ -66,7 +67,8 @@ function mapDispatchToProps(dispatch) {
       fetchLocations: locationActions.fetchLocations,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
-      showListTitle: globalActions.toggleDetailTitleOff
+      showListTitle: globalActions.toggleDetailTitleOff,
+      changePageTarget: globalActions.changePageTarget
     },
     dispatch
   );
