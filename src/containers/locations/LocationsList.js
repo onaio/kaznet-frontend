@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import voca from "voca";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
 import * as locationActions from "../../store/locations/actions";
@@ -40,7 +41,9 @@ export class LocationsList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      row.attributes.name,
+      <Link to={`/locations/edit/${row.id}`} key="link_to">
+        {row.attributes.name}
+      </Link>,
       row.attributes.parent_name,
       row.attributes.location_type_name,
       voca.truncate(row.attributes.description, 60)

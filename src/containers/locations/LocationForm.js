@@ -26,11 +26,6 @@ const transformMyApiErrors = function(array) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split("/").pop();
-
-    if (field === "target_id" || field === "target_content_type") {
-      errors.form = "Please select a valid form.";
-    }
-
     errors[field] = msg;
   }
 
@@ -52,29 +47,7 @@ export class LocationForm extends Component {
   render() {
     return (
       <Formik
-        initialValues={{
-          name:
-            this.props.initialData.name != null
-              ? this.props.initialData.name
-              : "",
-          parent:
-            this.props.initialData.parent != null
-              ? this.props.initialData.parent
-              : "",
-          location_type:
-            this.props.initialData.location_type != null
-              ? this.props.initialData.location_type
-              : "",
-          geopoint:
-            this.props.initialData.geopoint != null
-              ? this.props.initialData.geopoint
-              : "",
-          radius:
-            this.props.initialData.radius != null
-              ? this.props.initialData.radius
-              : "",
-          shapefile: ""
-        }}
+        initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -121,7 +94,7 @@ export class LocationForm extends Component {
           isSubmitting
         }) => (
           <div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} encType="multipart/form-data">
               <FormGroup className="row">
                 <Col sm="12">
                   <Input
@@ -175,7 +148,7 @@ export class LocationForm extends Component {
                     aria-label="Parent Location"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.parentLocation}
+                    value={values.parent}
                     className={errors.parent ? "is-invalid" : ""}
                   >
                     <OptionMap

@@ -15,7 +15,12 @@ export class LocationCreateForm extends Component {
   render() {
     const action = locationActions.createLocation;
     const initialData = {
-      name: ""
+      name: "",
+      parent: "",
+      location_type: "",
+      geopoint: "",
+      radius: "",
+      shapefile: ""
     };
     return (
       <FormView
