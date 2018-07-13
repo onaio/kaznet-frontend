@@ -58,3 +58,10 @@ export function getLocationsIdArray(state) {
 export function getLocationById(state, id) {
   return _.get(state.locations.locationsById, id);
 }
+
+export function getParentLocationChoicesById(state, id) {
+  if (id) {
+    return _.omit(state.locations.locationsById, id);
+  }
+  return state.locations.locationsById;
+}

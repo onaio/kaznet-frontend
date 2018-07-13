@@ -1,8 +1,9 @@
-import * as locations from "../reducer";
-import * as fixtures from "./fixtures";
-
+import _ from "lodash";
 import Immutable from "seamless-immutable";
 import { Selector } from "redux-testkit";
+
+import * as locations from "../reducer";
+import * as fixtures from "./fixtures";
 
 const emptyState = Immutable({
   locations: {
@@ -47,5 +48,15 @@ describe("store/locations/selectors", () => {
     Selector(locations.getLocationsIdArray)
       .expect(fullState)
       .toReturn(fixtures.locationsIdArray);
+  });
+
+  it("should get parent location choices when full", () => {
+    Selector(locations.getParentLocationChoicesById)
+      .expect(fullState)
+      .toReturn(fixtures.locationsById);
+
+    Selector(locations.getParentLocationChoicesById)
+      .expect(fullState, 7)
+      .toReturn(_.omit(fixtures.locationsById, 7));
   });
 });
