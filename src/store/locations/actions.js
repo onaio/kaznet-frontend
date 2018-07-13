@@ -1,5 +1,8 @@
 import _ from "lodash";
+
+import * as errorHandlerTypes from "../errorHandler/actionTypes";
 import * as types from "./actionTypes";
+
 import locationService from "../../services/locations";
 
 export function fetchLocations() {
@@ -13,7 +16,10 @@ export function fetchLocations() {
         locationsById
       });
     } catch (error) {
-      console.error(error);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
   };
 }
@@ -24,11 +30,11 @@ export function createLocation(location_data) {
     try {
       const locationData = await locationService.createLocation(location_data);
       dispatch({
-        type: types.LOCATION_CREATED,
-        locationData
+        type: errorHandlerTypes.REQUEST_SUCCESS
       });
       dispatch({
-        type: errorHandlerTypes.REQUEST_SUCCESS
+        type: types.LOCATION_CREATED,
+        locationData
       });
     } catch (error) {
       dispatch({
