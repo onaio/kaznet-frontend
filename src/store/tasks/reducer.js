@@ -42,7 +42,6 @@ export default function reduce(state = initialState, action = {}) {
     case types.TASK_DELETED:
       const newTasksById = _.omit(state.tasksById, action.taskId);
       return state.set("tasksById", newTasksById);
-
     case types.TASK_CLONED:
       return Immutable({
         ...state,
