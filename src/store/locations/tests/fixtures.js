@@ -116,3 +116,10 @@ export const singleLocationData = {
 };
 
 export const locationsIdArray = _.keys(locationsById);
+export const singleLocationArray = _.map(singleLocationData, location => {
+  return location;
+});
+export const singleLocationById = _.keyBy(
+  singleLocationArray,
+  location => location.id
+);
