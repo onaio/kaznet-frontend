@@ -102,7 +102,7 @@ class TaskService {
 
     if (!response.ok) {
       throw new Error(
-        `TaskService deleteTask failed, HTTP Status ${response.status}`
+        `TaskService deleteTask failed, HTTP status ${response.status}`
       );
     }
 
@@ -154,11 +154,11 @@ class TaskService {
 
     if (!response.ok && response.status !== 400) {
       throw new Error(
-        `TaskService cloneTask failed, HTTP Response ${response.status}`
+        `TaskService cloneTask failed, HTTP status ${response.status}`
       );
     }
 
-    const apiResponse = response.json();
+    const apiResponse = await response.json();
     if (response.status === 400) {
       throw apiResponse.errors;
     }
