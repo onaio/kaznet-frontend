@@ -10,10 +10,10 @@ describe("services/locations", () => {
   });
 
   it("should fetch locations", async () => {
-    const data = fixtures.locationData;
+    const data = fixtures.locationsData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await LocationService.getLocationList();
-    expect(response).toEqual(fixtures.locationArray);
+    expect(response).toEqual(fixtures.locationsArray);
   });
 
   it("should handle default locations http errors", async () => {
@@ -26,6 +26,86 @@ describe("services/locations", () => {
     }
     expect(error).toEqual(
       new Error("LocationService getLocationList failed, HTTP status 500")
+    );
+  });
+
+  it("should create a location", async () => {
+    const data = fixtures.singleLocationData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await LocationService.createLocation({});
+    expect(response).toEqual(fixtures.singleLocation);
+  });
+
+  it("should edit a location", async () => {
+    const data = fixtures.singleLocationData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await LocationService.editLocation(data, "999");
+    expect(response).toEqual(fixtures.singleLocation);
+  });
+
+  it("should delete a location", async () => {
+    fetch.mockResponseOnce("999");
+    const response = await LocationService.deleteLocation("999");
+    expect(response).toEqual("999");
+  });
+
+  it("should handle edit location http errors", async () => {
+    const data = fixtures.singleLocationData;
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await LocationService.editLocation(data, "999");
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("LocationService editLocation failed, HTTP status 500")
+    );
+  });
+
+  it("should handle delete location http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await LocationService.deleteLocation("999");
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("LocationService deleteLocation failed, HTTP status 500")
+    );
+  });
+
+  it("should handle create location http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await LocationService.createLocation();
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("LocationService createLocation failed, HTTP status 500")
+    );
+  });
+
+  it("should fetch location", async () => {
+    const data = fixtures.singleLocationData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await LocationService.getLocation(1);
+    expect(response).toEqual(fixtures.singleLocation);
+  });
+
+  it("should handle get location http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await LocationService.getLocation(1);
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("LocationService getLocation failed, HTTP status 500")
     );
   });
 });
