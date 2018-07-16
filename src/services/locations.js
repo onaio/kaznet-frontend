@@ -65,6 +65,7 @@ class LocationService {
 
   async editLocation(location_data, id) {
     const url = `${constants.API_ENDPOINT}/locations/${id}/`;
+
     const response = await fetch(url, {
       method: "PATCH",
       headers: {
