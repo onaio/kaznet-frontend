@@ -2,6 +2,7 @@
 
 exports[`containers/locations/LocationList renders location list correctly 1`] = `
 <LocationsList
+  changePageTarget={[Function]}
   changePageTitle={[Function]}
   changePageTitleButton={[Function]}
   fetchLocations={[Function]}
