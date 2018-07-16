@@ -2,6 +2,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
+import MockDate from "mockdate";
 
 import { TaskForm } from "../TaskForm";
 import * as fixtures from "../../../store/tasks/tests/fixtures";
@@ -19,6 +20,8 @@ describe("containers/task/TaskForm", () => {
   });
 
   it("renders task form correctly", () => {
+    MockDate.set("1/2/1986");
+
     const forms = {
       1: { attributes: { title: "name" } }
     };
