@@ -13,11 +13,6 @@ const transformMyApiErrors = function(array) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split("/").pop();
-
-    if (field === "target_id" || field === "target_content_type") {
-      errors.form = "Please select a valid form.";
-    }
-
     errors[field] = msg;
   }
 

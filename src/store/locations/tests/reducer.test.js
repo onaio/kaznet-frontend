@@ -1,31 +1,95 @@
-import _ from 'lodash';
-import Immutable from 'seamless-immutable';
-import { Reducer } from 'redux-testkit';
+import _ from "lodash";
+import Immutable from "seamless-immutable";
+import { Reducer } from "redux-testkit";
 
-import locations from '../reducer';
-import * as actionTypes from '../actionTypes';
-import * as fixtures from './fixtures';
+import locations from "../reducer";
+import * as actionTypes from "../actionTypes";
+import * as fixtures from "./fixtures";
 
 const initialState = {
-    "locationsById": {},
-    "locationsIdArray": []
-}
+  locationsById: {},
+  locationsIdArray: []
+};
 
-describe('store/locations/reducer', () => {
+const fullState = {
+  locationsById: fixtures.locationsById,
+  locationsIdArray: fixtures.locationsIdArray
+};
 
-    it('should have initial state', () => {
-        expect(locations()).toEqual(initialState);
-    });
+describe("store/locations/reducer", () => {
+  it("should have initial state", () => {
+    expect(locations()).toEqual(initialState);
+  });
 
-    it('should store fetched tasks', () => {
-        const locationsById = fixtures.locationById;
-        const action = {type: actionTypes.LOCATIONS_FETCHED, locationsById};
+  it("should store fetched locations", () => {
+    const locationsById = fixtures.locationById;
+    const action = {
+      type: actionTypes.LOCATIONS_FETCHED,
+      locationsById
+    };
 
-        const existingState = Immutable(initialState);
-        const newState= _.clone(initialState);
-        newState.locationsById = locationsById
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    newState.locationsById = locationsById;
 
-        Reducer(locations).withState(existingState).expect(action).toReturnState(newState);
-    });
+    Reducer(locations)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 
+  it("should store created location", () => {
+    const locationData = fixtures.singleLocation;
+    const action = {
+      type: actionTypes.LOCATION_CREATED,
+      locationData
+    };
+
+    const locationsById = {};
+    locationsById[locationData.id] = locationData;
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    newState.locationsById = locationsById;
+
+    Reducer(locations)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should store fetched single location in empty state", () => {
+    const locationData = fixtures.singleLocation;
+    const action = {
+      type: actionTypes.LOCATION_FETCHED,
+      locationData
+    };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    newState.locationsById = fixtures.singleLocationById;
+
+    Reducer(locations)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should remove deleted location from store", () => {
+    const locationId = "7";
+    const action = {
+      type: actionTypes.LOCATION_DELETED,
+      locationId
+    };
+
+    const existingState = Immutable(fullState);
+    const newState = _.clone(fullState);
+
+    newState.locationsById = _.omit(newState.locationsById, locationId);
+
+    Reducer(locations)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });

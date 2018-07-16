@@ -30,6 +30,8 @@ import TaskClone from "./containers/tasks/TaskClone";
 import UsersList from "./containers/users/UsersList";
 
 import LocationsList from "./containers/locations/LocationsList";
+import LocationCreateForm from "./containers/locations/LocationCreateForm";
+import LocationEditForm from "./containers/locations/LocationEditForm";
 
 import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
@@ -85,6 +87,16 @@ class App extends Component {
                           exact
                           path="/locations"
                           component={LocationsList}
+                        />
+                        <Route
+                          exact
+                          path="/locations/new"
+                          component={LocationCreateForm}
+                        />
+                        <Route
+                          exact
+                          path="/locations/edit/:id"
+                          component={LocationEditForm}
                         />
                         <Route exact path="/clients" component={ClientsList} />
                         <Route

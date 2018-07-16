@@ -19,14 +19,16 @@ describe("store/locations integration", () => {
   });
 
   it("should retrieve all locations", async () => {
-    LocationService.getLocationList.mockReturnValueOnce(fixtures.locationArray);
+    LocationService.getLocationList.mockReturnValueOnce(
+      fixtures.locationsArray
+    );
 
     await store.dispatch(locationActions.fetchLocations());
     expect(locationSelectors.getLocationsById(store.getState())).toEqual(
-      fixtures.locationById
+      fixtures.locationsById
     );
     expect(locationSelectors.getLocationsIdArray(store.getState())).toEqual(
-      fixtures.locationIdArray
+      fixtures.locationsIdArray
     );
   });
 });

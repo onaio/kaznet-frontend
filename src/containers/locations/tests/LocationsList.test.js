@@ -11,6 +11,7 @@ describe("containers/locations/LocationList", () => {
       <LocationsList
         fetchLocations={function() {}}
         changePageTitle={function() {}}
+        changePageTarget={function() {}}
         changePageTitleButton={function() {}}
         showListTitle={function() {}}
       />
@@ -22,6 +23,7 @@ describe("containers/locations/LocationList", () => {
       <LocationsList
         fetchLocations={function() {}}
         changePageTitle={function() {}}
+        changePageTarget={function() {}}
         changePageTitleButton={function() {}}
         showListTitle={function() {}}
         rowsById={fixtures.locationById}

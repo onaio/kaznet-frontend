@@ -1,0 +1,820 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/location/LocationForm renders location form correctly 1`] = `
+<ErrorBoundary>
+  <LocationForm
+    fetchLocationTypes={[Function]}
+    fetchLocations={[Function]}
+    formActionDispatch={[Function]}
+    initialData={
+      Object {
+        "geopoint": "36,-1",
+        "location_type": "",
+        "name": "Kitui",
+        "parent": "",
+        "radius": "9",
+        "shapefile": "",
+      }
+    }
+    locationTypesById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "created": "2018-07-13T17:34:14.408576+03:00",
+            "modified": "2018-07-13T17:34:14.408599+03:00",
+            "name": "Market",
+          },
+          "id": "1",
+          "type": "LocationType",
+        },
+        "2": Object {
+          "attributes": Object {
+            "created": "2018-07-13T17:34:27.023947+03:00",
+            "modified": "2018-07-13T17:34:27.023970+03:00",
+            "name": "Hospital",
+          },
+          "id": "2",
+          "type": "LocationType",
+        },
+      }
+    }
+    locationsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "country": "KE",
+            "created": "2018-06-20T12:09:02.916318+03:00",
+            "description": "Such Big City , Much wow",
+            "geopoint": null,
+            "location_type_name": "None",
+            "modified": "2018-06-20T12:09:02.916345+03:00",
+            "name": "Nairobi",
+            "parent_name": "None",
+            "radius": null,
+            "shapefile": Object {
+              "coordinates": Array [
+                Array [
+                  Array [
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
+                    Array [
+                      0.049095153808594,
+                      0.013389587280456,
+                    ],
+                    Array [
+                      0.015106201171875,
+                      -0.063171373920095,
+                    ],
+                    Array [
+                      -0.044288635253906,
+                      -0.032615659859611,
+                    ],
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
+                  ],
+                ],
+              ],
+              "type": "MultiPolygon",
+            },
+          },
+          "id": "1",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
+        },
+        "7": Object {
+          "attributes": Object {
+            "country": "CK",
+            "created": "2018-07-09T14:53:09.732230+03:00",
+            "description": "Something",
+            "geopoint": null,
+            "location_type_name": null,
+            "modified": "2018-07-09T14:53:09.732261+03:00",
+            "name": "Sol Point",
+            "parent_name": null,
+            "radius": null,
+            "shapefile": null,
+          },
+          "id": "7",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
+        },
+      }
+    }
+  >
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "geopoint": "36,-1",
+          "location_type": "",
+          "name": "Kitui",
+          "parent": "",
+          "radius": "9",
+          "shapefile": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    >
+      <div>
+        <Form
+          encType="multipart/form-data"
+          onSubmit={[Function]}
+          tag="form"
+        >
+          <form
+            className=""
+            encType="multipart/form-data"
+            onSubmit={[Function]}
+          >
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="12"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-12"
+                  >
+                    <Input
+                      aria-label="name"
+                      bsSize="lg"
+                      className=""
+                      name="name"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Location Name"
+                      type="text"
+                      value="Kitui"
+                    >
+                      <input
+                        aria-label="name"
+                        className="form-control-lg form-control"
+                        name="name"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Location Name"
+                        type="text"
+                        value="Kitui"
+                      />
+                    </Input>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="description"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="description"
+                      >
+                        Location Description
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="description"
+                      bsSize="lg"
+                      className=""
+                      cols="2"
+                      name="description"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Description"
+                      type="textarea"
+                    >
+                      <textarea
+                        aria-label="description"
+                        className="form-control-lg form-control"
+                        cols="2"
+                        name="description"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Description"
+                      />
+                    </Input>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="parent"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="parent"
+                      >
+                        Parent Location
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="Parent Location"
+                      bsSize="lg"
+                      className=""
+                      name="parent"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Parent Location"
+                      type="select"
+                      value=""
+                    >
+                      <select
+                        aria-label="Parent Location"
+                        className="form-control-lg form-control"
+                        name="parent"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Parent Location"
+                        value=""
+                      >
+                        <OptionMap
+                          obj={
+                            Object {
+                              "1": Object {
+                                "attributes": Object {
+                                  "country": "KE",
+                                  "created": "2018-06-20T12:09:02.916318+03:00",
+                                  "description": "Such Big City , Much wow",
+                                  "geopoint": null,
+                                  "location_type_name": "None",
+                                  "modified": "2018-06-20T12:09:02.916345+03:00",
+                                  "name": "Nairobi",
+                                  "parent_name": "None",
+                                  "radius": null,
+                                  "shapefile": Object {
+                                    "coordinates": Array [
+                                      Array [
+                                        Array [
+                                          Array [
+                                            -0.038795471191406,
+                                            0.030555723649271,
+                                          ],
+                                          Array [
+                                            0.049095153808594,
+                                            0.013389587280456,
+                                          ],
+                                          Array [
+                                            0.015106201171875,
+                                            -0.063171373920095,
+                                          ],
+                                          Array [
+                                            -0.044288635253906,
+                                            -0.032615659859611,
+                                          ],
+                                          Array [
+                                            -0.038795471191406,
+                                            0.030555723649271,
+                                          ],
+                                        ],
+                                      ],
+                                    ],
+                                    "type": "MultiPolygon",
+                                  },
+                                },
+                                "id": "1",
+                                "relationships": Object {
+                                  "location_type": Object {
+                                    "data": null,
+                                  },
+                                  "parent": Object {
+                                    "data": null,
+                                  },
+                                },
+                                "type": "Location",
+                              },
+                              "7": Object {
+                                "attributes": Object {
+                                  "country": "CK",
+                                  "created": "2018-07-09T14:53:09.732230+03:00",
+                                  "description": "Something",
+                                  "geopoint": null,
+                                  "location_type_name": null,
+                                  "modified": "2018-07-09T14:53:09.732261+03:00",
+                                  "name": "Sol Point",
+                                  "parent_name": null,
+                                  "radius": null,
+                                  "shapefile": null,
+                                },
+                                "id": "7",
+                                "relationships": Object {
+                                  "location_type": Object {
+                                    "data": null,
+                                  },
+                                  "parent": Object {
+                                    "data": null,
+                                  },
+                                },
+                                "type": "Location",
+                              },
+                            }
+                          }
+                          titleField="name"
+                        >
+                          <option
+                            key="0"
+                          >
+                            ----
+                          </option>
+                          <option
+                            key="1"
+                            value="1"
+                          >
+                            Nairobi
+                          </option>
+                          <option
+                            key="7"
+                            value="7"
+                          >
+                            Sol Point
+                          </option>
+                        </OptionMap>
+                      </select>
+                    </Input>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="location_type"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="location_type"
+                      >
+                        Location Type
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="Location Type"
+                      bsSize="lg"
+                      className=""
+                      name="location_type"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Location Type"
+                      type="select"
+                      value=""
+                    >
+                      <select
+                        aria-label="Location Type"
+                        className="form-control-lg form-control"
+                        name="location_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Location Type"
+                        value=""
+                      >
+                        <OptionMap
+                          obj={
+                            Object {
+                              "1": Object {
+                                "attributes": Object {
+                                  "created": "2018-07-13T17:34:14.408576+03:00",
+                                  "modified": "2018-07-13T17:34:14.408599+03:00",
+                                  "name": "Market",
+                                },
+                                "id": "1",
+                                "type": "LocationType",
+                              },
+                              "2": Object {
+                                "attributes": Object {
+                                  "created": "2018-07-13T17:34:27.023947+03:00",
+                                  "modified": "2018-07-13T17:34:27.023970+03:00",
+                                  "name": "Hospital",
+                                },
+                                "id": "2",
+                                "type": "LocationType",
+                              },
+                            }
+                          }
+                          titleField="name"
+                        >
+                          <option
+                            key="0"
+                          >
+                            ----
+                          </option>
+                          <option
+                            key="1"
+                            value="1"
+                          >
+                            Market
+                          </option>
+                          <option
+                            key="2"
+                            value="2"
+                          >
+                            Hospital
+                          </option>
+                        </OptionMap>
+                      </select>
+                    </Input>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="geopoint"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="geopoint"
+                      >
+                        Geopoint
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="Geopoint"
+                      bsSize="lg"
+                      className=""
+                      name="geopoint"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Geopoint"
+                      type="text"
+                      value="36,-1"
+                    >
+                      <input
+                        aria-label="Geopoint"
+                        className="form-control-lg form-control"
+                        name="geopoint"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Geopoint"
+                        type="text"
+                        value="36,-1"
+                      />
+                    </Input>
+                    <FormText
+                      color="muted"
+                      tag="small"
+                    >
+                      <small
+                        className="form-text text-muted"
+                      >
+                        The geopoint coordinates in "longitude,latitude" format
+                      </small>
+                    </FormText>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="radius"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="radius"
+                      >
+                        Radius
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="Radius"
+                      bsSize="lg"
+                      className=""
+                      name="radius"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Radius"
+                      type="number"
+                      value="9"
+                    >
+                      <input
+                        aria-label="Radius"
+                        className="form-control-lg form-control"
+                        name="radius"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Radius"
+                        type="number"
+                        value="9"
+                      />
+                    </Input>
+                    <FormText
+                      color="muted"
+                      tag="small"
+                    >
+                      <small
+                        className="form-text text-muted"
+                      >
+                        The radius from the geopoint in metres
+                      </small>
+                    </FormText>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <Button
+              className="btn btn-primary btn-block"
+              color="secondary"
+              disabled={false}
+              tag="button"
+              type="submit"
+            >
+              <button
+                className="btn btn-primary btn-block btn btn-secondary"
+                disabled={false}
+                onClick={[Function]}
+                type="submit"
+              >
+                Save Location
+              </button>
+            </Button>
+          </form>
+        </Form>
+      </div>
+    </Formik>
+  </LocationForm>
+</ErrorBoundary>
+`;
