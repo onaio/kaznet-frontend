@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { Component } from "react";
 import { Formik } from "formik";
 import { bindActionCreators } from "redux";
@@ -35,7 +36,6 @@ const transformMyApiErrors = function(array) {
 export class LocationForm extends Component {
   constructor(props) {
     super(props);
-
     this.targetId = props.targetId || null;
   }
 
@@ -56,17 +56,15 @@ export class LocationForm extends Component {
               attributes: {
                 name: values.name,
                 description: values.description,
-                parent:
-                  values.parent != null
-                    ? { type: "Location", id: values.parent }
-                    : undefined,
-                location_type:
-                  values.location_type != null
-                    ? { type: "LocationType", id: values.location_type }
-                    : undefined,
-                geopoint: values.geopoint,
+                parent: values.parent
+                  ? { type: "Location", id: values.parent }
+                  : undefined,
+                location_type: values.location_type
+                  ? { type: "LocationType", id: values.location_type }
+                  : undefined,
+                geopoint: _.toString(values.geopoint),
                 radius: values.radius,
-                shapefile: values.shapefile
+                shapefile: values.shapefile ? values.shapefile : undefined
               }
             }
           };
@@ -152,7 +150,14 @@ export class LocationForm extends Component {
                     className={errors.parent ? "is-invalid" : ""}
                   >
                     <OptionMap
-                      obj={this.props.parentLocationChoicesById}
+                      obj={
+                        this.props.targetId
+                          ? _.omit(
+                              this.props.locationsById,
+                              this.props.targetId
+                            )
+                          : this.props.locationsById
+                      }
                       titleField="name"
                     />
                   </Input>
@@ -230,34 +235,10 @@ export class LocationForm extends Component {
                     className={errors.radius ? "is-invalid" : ""}
                   />
                   <FormText color="muted">
-                    The radius from the geopoint
+                    The radius from the geopoint in metres
                   </FormText>
                   {errors.radius && (
                     <div className="invalid-feedback">{errors.radius}</div>
-                  )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col sm="3">
-                  <Label for="shapefile">Shapefile</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="shapefile"
-                    type="file"
-                    bsSize="lg"
-                    placeholder="Shapefile"
-                    aria-label="Shapefile"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.shapefile}
-                    className={errors.shapefile ? "is-invalid" : ""}
-                  />
-                  <FormText color="muted">
-                    The shapefile of the location
-                  </FormText>
-                  {errors.shapefile && (
-                    <div className="invalid-feedback">{errors.shapefile}</div>
                   )}
                 </Col>
               </FormGroup>
@@ -281,9 +262,7 @@ function mapStateToProps(state, ownProps) {
   return {
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state),
-    parentLocationChoicesById: locationSelectors.getParentLocationChoicesById(
-      state
-    ),
+    locationsById: locationSelectors.getLocationsById(state),
     locationTypesById: locationTypeSelectors.getLocationTypesById(state)
   };
 }
