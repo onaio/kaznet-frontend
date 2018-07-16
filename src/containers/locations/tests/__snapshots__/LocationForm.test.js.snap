@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/client/LocationForm renders client form correctly 1`] = `
+exports[`containers/location/LocationForm renders location form correctly 1`] = `
 <ErrorBoundary>
   <LocationForm
     fetchLocationTypes={[Function]}
@@ -11,7 +11,7 @@ exports[`containers/client/LocationForm renders client form correctly 1`] = `
         "geopoint": "36,-1",
         "location_type": "",
         "name": "Kitui",
-        "parent": "A county",
+        "parent": "",
         "radius": "9",
         "shapefile": "",
       }
@@ -126,7 +126,7 @@ exports[`containers/client/LocationForm renders client form correctly 1`] = `
           "geopoint": "36,-1",
           "location_type": "",
           "name": "Kitui",
-          "parent": "A county",
+          "parent": "",
           "radius": "9",
           "shapefile": "",
         }
@@ -353,7 +353,7 @@ exports[`containers/client/LocationForm renders client form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Parent Location"
                       type="select"
-                      value="A county"
+                      value=""
                     >
                       <select
                         aria-label="Parent Location"
@@ -362,7 +362,7 @@ exports[`containers/client/LocationForm renders client form correctly 1`] = `
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="Parent Location"
-                        value="A county"
+                        value=""
                       >
                         <OptionMap
                           obj={

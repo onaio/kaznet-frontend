@@ -8,11 +8,11 @@ import { LocationForm } from "../LocationForm";
 import * as fixtures from "../../../store/locations/tests/fixtures";
 import { locationTypesById } from "../../../store/locationTypes/tests/fixtures";
 
-describe("containers/client/LocationForm", () => {
+describe("containers/location/LocationForm", () => {
   it("renders without crashing", () => {
     const initialData = {
       name: "Kitui",
-      parent: "A county",
+      parent: "",
       location_type: "",
       geopoint: "36,-1",
       radius: "9",
@@ -30,10 +30,10 @@ describe("containers/client/LocationForm", () => {
     );
   });
 
-  it("renders client form correctly", () => {
+  it("renders location form correctly", () => {
     const initialData = {
       name: "Kitui",
-      parent: "A county",
+      parent: "",
       location_type: "",
       geopoint: "36,-1",
       radius: "9",
