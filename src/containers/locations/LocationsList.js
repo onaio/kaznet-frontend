@@ -20,29 +20,38 @@ export class LocationsList extends Component {
     this.props.changePageTitle("Locations");
     this.props.changePageTitleButton("+ Create Location");
 
-    this.props.changePageNumber(1);
-    if (this.props.location) {
-      const page = queryString.parse(this.props.location.search).page;
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchLocations();
-      if (page) {
-        this.props.changePageNumber(Number(page));
-      }
+      this.props.changePageNumber(Number(page));
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { page } = queryString.parse(this.props.location.search);
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const urlF = `${constants.API_ENDPOINT}/locations/?page=`;
+      const { page } = queryString.parse(this.props.location.search);
 
-    if (isNaN(Number(page)) && !(page === undefined)) {
-      const url = this.props.pageLinks[page];
-      this.props.fetchLocations(url);
-    } else if (page === undefined) {
-      this.props.fetchLocations();
-    } else {
-      if (Number(page) !== this.props.currentPage) {
-        this.props.fetchLocations(
-          `${constants.API_ENDPOINT}/locations/?page=${page}`
-        );
+      if (isNaN(Number(page)) && page !== undefined) {
+        const url = this.props.pageLinks[page];
+
+        let p;
+        if (queryString.parse(url).page) {
+          p = queryString.parse(url).page;
+        } else {
+          p = Object.values(queryString.parse(url))[0];
+        }
+
+        const pageNumber = Number(p);
+        const url2 = urlF + pageNumber;
+        if (Number(pageNumber) !== this.props.currentPage) {
+          this.props.fetchLocations(url2);
+          this.props.changePageNumber(pageNumber);
+        }
+      } else if (Number(page) !== this.props.currentPage) {
+        const url = urlF + page;
+        this.props.fetchLocations(url);
+        this.props.changePageNumber(Number(page));
       }
     }
   }
