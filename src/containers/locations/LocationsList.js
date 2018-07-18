@@ -16,7 +16,6 @@ import ElementMap from "../ElementMap";
 export class LocationsList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.fetchLocations();
     this.props.changePageTitle("Locations");
     this.props.changePageTitleButton("+ Create Location");
 
@@ -24,6 +23,8 @@ export class LocationsList extends Component {
       const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchLocations();
       this.props.changePageNumber(Number(page));
+    } else {
+      this.props.fetchLocations();
     }
   }
 

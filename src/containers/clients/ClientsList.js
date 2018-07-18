@@ -16,7 +16,6 @@ import ElementMap from "../ElementMap";
 export class ClientsList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.fetchClients();
     this.props.changePageTitle("Clients");
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
@@ -25,6 +24,8 @@ export class ClientsList extends Component {
       const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchClients();
       this.props.changePageNumber(Number(page));
+    } else {
+      this.props.fetchClients();
     }
   }
 
@@ -45,7 +46,7 @@ export class ClientsList extends Component {
       }
 
       if (Number(pageNumber) !== this.props.currentPage && !isNaN(pageNumber)) {
-        this.props.fetchLocations(
+        this.props.fetchClients(
           `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
         );
         this.props.changePageNumber(pageNumber);

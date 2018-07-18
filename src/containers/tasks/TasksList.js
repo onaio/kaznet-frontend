@@ -24,6 +24,8 @@ export class TasksList extends Component {
       const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchTasks();
       this.props.changePageNumber(Number(page));
+    } else {
+      this.props.fetchTasks();
     }
   }
 
@@ -44,7 +46,7 @@ export class TasksList extends Component {
       }
 
       if (Number(pageNumber) !== this.props.currentPage && !isNaN(pageNumber)) {
-        this.props.fetchLocations(
+        this.props.fetchTasks(
           `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
         );
         this.props.changePageNumber(pageNumber);

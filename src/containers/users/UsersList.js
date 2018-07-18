@@ -15,7 +15,6 @@ import ElementMap from "../ElementMap";
 export class UsersList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.fetchUsers();
     this.props.changePageTitle("Users");
     this.props.changePageTitleButton("+ Create User");
 
@@ -23,6 +22,9 @@ export class UsersList extends Component {
       const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchUsers();
       this.props.changePageNumber(Number(page));
+      this.props.fetchUsers();
+    } else {
+      this.props.fetchUsers();
     }
   }
 
@@ -43,7 +45,7 @@ export class UsersList extends Component {
       }
 
       if (Number(pageNumber) !== this.props.currentPage && !isNaN(pageNumber)) {
-        this.props.fetchLocations(
+        this.props.fetchUsers(
           `${constants.API_ENDPOINT}/users/?page=${pageNumber}`
         );
         this.props.changePageNumber(pageNumber);
