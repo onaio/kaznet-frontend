@@ -7,6 +7,10 @@ import ErrorBoundary from "../ErrorBoundary";
 import ElementMap from "../../containers/ElementMap";
 import ListView from "../ListView";
 
+import { Router } from "react-router";
+import createBrowserHistory from "history/createBrowserHistory";
+const history = createBrowserHistory();
+
 describe("components/ListView", () => {
   it("renders without crashing", () => {
     const rowsById = { "0": "Bob", "1": "Jane" };
