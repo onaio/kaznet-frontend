@@ -71,53 +71,93 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
           ]
         }
       >
-        <Table
-          bordered={true}
-          className="kaznet-table"
-          responsiveTag="div"
-          tag="table"
-        >
-          <table
-            className="kaznet-table table table-bordered"
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
           >
-            <thead>
-              <tr>
-                <ElementMap
-                  HTMLTag="th"
-                  items={
-                    Array [
-                      "Name",
-                      "Created",
-                    ]
-                  }
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Name",
+                        "Created",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Name
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Created
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="1"
                 >
-                  <th
-                    key="0"
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/clients/edit/1"
+                      >
+                          Sol
+                      </Link>,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-21T13:51:54.011373+03:00
+                      </t>,
+                      ]
+                    }
                   >
-                    Name
-                  </th>
-                  <th
-                    key="1"
-                  >
-                    Created
-                  </th>
-                </ElementMap>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                key="1"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
+                    <td
+                      key="0"
+                    >
                       <Link
+                        key="link_to"
                         replace={false}
                         to="/clients/edit/1"
+                      >
+                        <a
+                          href="/clients/edit/1"
+                          onClick={[Function]}
+                        >
+                          Sol
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
                     >
-                        Sol
-                    </Link>,
                       <t
                         ago={false}
                         calendar={false}
@@ -127,64 +167,26 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="1"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
-                    >
-                        2018-06-21T13:51:54.011373+03:00
-                    </t>,
-                    ]
-                  }
-                >
-                  <td
-                    key="0"
-                  >
-                    <Link
-                      key="link_to"
-                      replace={false}
-                      to="/clients/edit/1"
-                    >
-                      <a
-                        href="/clients/edit/1"
-                        onClick={[Function]}
                       >
-                        Sol
-                      </a>
-                    </Link>
-                  </td>
-                  <td
-                    key="1"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="1"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-06-21T10:51:54.011Z"}
-                      >
-                        21-06-2018
-                      </time>
-                    </t>
-                  </td>
-                </ElementMap>
-              </tr>
-            </tbody>
-          </table>
-        </Table>
+                        <time
+                          dateTime={"2018-06-21T10:51:54.011Z"}
+                        >
+                          21-06-2018
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+        </div>
       </ListView>
     </div>
   </ClientsList>

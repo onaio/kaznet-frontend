@@ -18,73 +18,75 @@ exports[`components/ListView renders a table 1`] = `
       ]
     }
   >
-    <Table
-      bordered={true}
-      className="kaznet-table"
-      responsiveTag="div"
-      tag="table"
-    >
-      <table
-        className="kaznet-table table table-bordered"
+    <div>
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
       >
-        <thead>
-          <tr>
-            <ElementMap
-              HTMLTag="th"
-              items={
-                Array [
-                  "Name",
-                ]
-              }
-            >
-              <th
-                key="0"
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                  ]
+                }
               >
-                Name
-              </th>
-            </ElementMap>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            key="0"
-          >
-            <ElementMap
-              HTMLTag="td"
-              items={
-                Array [
-                  "Bob",
-                ]
-              }
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="0"
             >
-              <td
-                key="0"
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Bob",
+                  ]
+                }
               >
-                Bob
-              </td>
-            </ElementMap>
-          </tr>
-          <tr
-            key="1"
-          >
-            <ElementMap
-              HTMLTag="td"
-              items={
-                Array [
-                  "Jane",
-                ]
-              }
+                <td
+                  key="0"
+                >
+                  Bob
+                </td>
+              </ElementMap>
+            </tr>
+            <tr
+              key="1"
             >
-              <td
-                key="0"
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Jane",
+                  ]
+                }
               >
-                Jane
-              </td>
-            </ElementMap>
-          </tr>
-        </tbody>
-      </table>
-    </Table>
+                <td
+                  key="0"
+                >
+                  Jane
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </div>
   </ListView>
 </ErrorBoundary>
 `;
