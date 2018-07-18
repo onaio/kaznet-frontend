@@ -275,7 +275,7 @@ export class TaskForm extends Component {
                         )}
                     </Col>
                     <Col md="2">
-                      <p>to</p>
+                      <p className="text-center align-middle">to</p>
                     </Col>
                     <Col md="5">
                       <Input
@@ -471,7 +471,7 @@ export class TaskForm extends Component {
                           )}
                       </Col>
                       <Col md="2">
-                        <p>to</p>
+                        <p className="text-center align-middle">to</p>
                       </Col>
                       <Col md="5">
                         <Input
