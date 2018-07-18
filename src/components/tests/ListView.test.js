@@ -114,4 +114,52 @@ describe("components/ListView", () => {
 
     wrapper.unmount();
   });
+
+  it("does not render pagination when totalPages <= 1", () => {
+    const rowsById = { "0": "Bob", "1": "Jane" };
+    const rowsIdArray = ["0", "1"];
+
+    const renderHeader = function() {
+      const headerItems = ["Name"];
+      return <ElementMap items={headerItems} HTMLTag="th" />;
+    };
+
+    const renderRow = function(row) {
+      const rowItems = [row];
+      return <ElementMap items={rowItems} HTMLTag="td" />;
+    };
+
+    const endpoint = `${constants.API_ENDPOINT}`;
+    const currentPage = 1;
+    const totalPages = 1;
+    const firstPage = 1;
+    const lastPage = 1;
+    const pageLinks = {
+      first: "http://localhost:8000/api/v1/clients/?page=1",
+      last: null,
+      next: null,
+      prev: null
+    };
+
+    const wrapper = mount(
+      <Router history={history}>
+        <ListView
+          endpoint={endpoint}
+          renderHeaders={renderHeader}
+          rowsIdArray={rowsIdArray}
+          rowsById={rowsById}
+          renderRow={renderRow}
+          firstPage={firstPage}
+          lastpage={lastPage}
+          pageLinks={pageLinks}
+          totalPages={totalPages}
+          currentPage={currentPage}
+        />
+      </Router>
+    );
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+
+    wrapper.unmount();
+  });
 });

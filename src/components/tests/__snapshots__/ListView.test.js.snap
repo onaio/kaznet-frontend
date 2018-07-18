@@ -1,5 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/ListView does not render pagination when totalPages <= 1 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ListView
+    currentPage={1}
+    endpoint="http://127.0.0.1:8000/api/v1"
+    firstPage={1}
+    lastpage={1}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/clients/?page=1",
+        "last": null,
+        "next": null,
+        "prev": null,
+      }
+    }
+    renderHeaders={[Function]}
+    renderRow={[Function]}
+    rowsById={
+      Object {
+        "0": "Bob",
+        "1": "Jane",
+      }
+    }
+    rowsIdArray={
+      Array [
+        "0",
+        "1",
+      ]
+    }
+    totalPages={1}
+  >
+    <div>
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="0"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Bob",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Bob
+                </td>
+              </ElementMap>
+            </tr>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Jane",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Jane
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </div>
+  </ListView>
+</Router>
+`;
+
 exports[`components/ListView renders a table 1`] = `
 <ErrorBoundary>
   <ListView
