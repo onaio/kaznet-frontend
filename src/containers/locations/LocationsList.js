@@ -29,29 +29,25 @@ export class LocationsList extends Component {
 
   componentDidUpdate(prevProps) {
     if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const urlF = `${constants.API_ENDPOINT}/locations/?page=`;
       const { page } = queryString.parse(this.props.location.search);
+      let pageNumber;
 
       if (isNaN(Number(page)) && page !== undefined) {
         const url = this.props.pageLinks[page];
-
-        let p;
         if (queryString.parse(url).page) {
-          p = queryString.parse(url).page;
+          pageNumber = Number(queryString.parse(url).page);
         } else {
-          p = Object.values(queryString.parse(url))[0];
-        }
-
-        const pageNumber = Number(p);
-        const url2 = urlF + pageNumber;
-        if (Number(pageNumber) !== this.props.currentPage) {
-          this.props.fetchLocations(url2);
-          this.props.changePageNumber(pageNumber);
+          pageNumber = Number(Object.values(queryString.parse(url))[0]);
         }
       } else if (Number(page) !== this.props.currentPage) {
-        const url = urlF + page;
-        this.props.fetchLocations(url);
-        this.props.changePageNumber(Number(page));
+        pageNumber = Number(page);
+      }
+
+      if (Number(pageNumber) !== this.props.currentPage && !isNaN(pageNumber)) {
+        this.props.fetchLocations(
+          `${constants.API_ENDPOINT}/locations/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
       }
     }
   }

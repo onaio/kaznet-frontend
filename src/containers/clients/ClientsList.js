@@ -21,28 +21,34 @@ export class ClientsList extends Component {
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
 
-    this.props.changePageNumber(1);
-    if (this.props.location) {
-      const page = queryString.parse(this.props.location.search).page;
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchClients();
-      if (page) {
-        this.props.changePageNumber(Number(page));
-      }
+      this.props.changePageNumber(Number(page));
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { page } = queryString.parse(this.props.location.search);
-    if (isNaN(Number(page)) && !(page === undefined)) {
-      const url = this.props.pageLinks[page];
-      this.props.fetchClients(url);
-    } else if (page === undefined) {
-      this.props.fetchClients();
-    } else {
-      if (Number(page) !== this.props.currentPage) {
-        this.props.fetchClients(
-          `${constants.API_ENDPOINT}/clients/?page=${page}`
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      let pageNumber;
+
+      if (isNaN(Number(page)) && page !== undefined) {
+        const url = this.props.pageLinks[page];
+        if (queryString.parse(url).page) {
+          pageNumber = Number(queryString.parse(url).page);
+        } else {
+          pageNumber = Number(Object.values(queryString.parse(url))[0]);
+        }
+      } else if (Number(page) !== this.props.currentPage) {
+        pageNumber = Number(page);
+      }
+
+      if (Number(pageNumber) !== this.props.currentPage && !isNaN(pageNumber)) {
+        this.props.fetchLocations(
+          `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
         );
+        this.props.changePageNumber(pageNumber);
       }
     }
   }

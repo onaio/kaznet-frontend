@@ -19,28 +19,34 @@ export class UsersList extends Component {
     this.props.changePageTitle("Users");
     this.props.changePageTitleButton("+ Create User");
 
-    this.props.changePageNumber(1);
-    if (this.props.location) {
-      const page = queryString.parse(this.props.location.search).page;
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
       await this.props.fetchUsers();
-      if (page) {
-        this.props.changePageNumber(Number(page));
-      }
+      this.props.changePageNumber(Number(page));
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { page } = queryString.parse(this.props.location.search);
-    if (isNaN(Number(page)) && !(page === undefined)) {
-      const url = this.props.pageLinks[page];
-      this.props.fetchUsers(url);
-    } else if (page === undefined) {
-      this.props.fetchUsers();
-    } else {
-      if (Number(page) !== this.props.currentPage) {
-        this.props.fetchClients(
-          `${constants.API_ENDPOINT}/clients/?page=${page}`
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      let pageNumber;
+
+      if (isNaN(Number(page)) && page !== undefined) {
+        const url = this.props.pageLinks[page];
+        if (queryString.parse(url).page) {
+          pageNumber = Number(queryString.parse(url).page);
+        } else {
+          pageNumber = Number(Object.values(queryString.parse(url))[0]);
+        }
+      } else if (Number(page) !== this.props.currentPage) {
+        pageNumber = Number(page);
+      }
+
+      if (Number(pageNumber) !== this.props.currentPage && !isNaN(pageNumber)) {
+        this.props.fetchLocations(
+          `${constants.API_ENDPOINT}/users/?page=${pageNumber}`
         );
+        this.props.changePageNumber(pageNumber);
       }
     }
   }
