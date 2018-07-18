@@ -110,6 +110,11 @@ class App extends Component {
                         />
                         <Route
                           exact
+                          path="/clients:page"
+                          component={ClientsList}
+                        />
+                        <Route
+                          exact
                           path="/tasks/:id/delete"
                           component={TaskDeletion}
                         />
