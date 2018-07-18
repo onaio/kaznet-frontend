@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { Col, Row, Button } from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 export default class StatisticsSection extends Component {
   render() {
@@ -13,9 +13,17 @@ export default class StatisticsSection extends Component {
             </p>
           </Col>
           <Col sm="9" className="kaznet-sub">
-            <Button color="primary">
-              <FontAwesomeIcon icon="clone" /> Review all submissions
-            </Button>
+            {this.props.task && this.props.task.attributes.xform_title ? (
+              <a
+                href={this.props.formURL}
+                className="btn btn-primary text-white"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon="clone" /> Review all submissions
+              </a>
+            ) : (
+              ""
+            )}
           </Col>
         </Row>
         <Row>
