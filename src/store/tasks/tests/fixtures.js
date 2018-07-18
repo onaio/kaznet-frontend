@@ -424,6 +424,10 @@ export const TaskFormInitialData = {
   required_expertise: "1",
   start: "2018-07-10",
   status: "a",
+  tasklocation_end: "18:00:00",
+  tasklocation_location: "1",
+  tasklocation_start: "06:00:00",
+  tasklocation_timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
   timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
   user_submission_target: 10
 };
