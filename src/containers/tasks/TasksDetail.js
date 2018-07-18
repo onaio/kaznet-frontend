@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
-import { rrulestr } from "rrule";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import * as taskSelectors from "../../store/tasks/reducer";
@@ -10,6 +9,7 @@ import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
+import ElementMap from "../ElementMap";
 import DetailView from "../../components/DetailView";
 import TaskDetailTitle from "../../components/tasks/TaskDetailTitle";
 import StatisticsSection from "./StatisticsSection";
@@ -75,12 +75,18 @@ export class TasksDetail extends Component {
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
 
+  renderLocations(locations) {
+    return (
+      <ul key={1} className="list-unstyled">
+        <ElementMap items={locations} HTMLTag="li" />
+      </ul>
+    );
+  }
+
   renderAdditionalDetails() {
-    const timingRule =
-      this.task.attributes.timing_rule != null &&
-      this.task.attributes.timing_rule !== ""
-        ? rrulestr(this.task.attributes.timing_rule).toText()
-        : "";
+    const locations = this.task.attributes.task_locations.map(function(el) {
+      return `${el.location_name}`;
+    });
 
     const headerItems = {
       "Active dates": [
@@ -92,8 +98,7 @@ export class TasksDetail extends Component {
           {this.task.attributes.end}
         </Moment>
       ],
-      Location: "Location Here",
-      Recurring: timingRule,
+      Locations: this.renderLocations(locations),
       "Submission Limit": this.task.attributes.user_submission_target,
       "Minimum Contributor Level": this.task.attributes
         .required_expertise_display
