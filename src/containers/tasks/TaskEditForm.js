@@ -72,7 +72,19 @@ export class TaskEditForm extends Component {
       client:
         this.task.relationships.client.data != null
           ? this.task.relationships.client.data.id
-          : undefined
+          : undefined,
+      tasklocation_location: this.task.attributes.task_locations[0]
+        ? this.task.attributes.task_locations[0].location.id
+        : "",
+      tasklocation_timing_rule: this.task.attributes.task_locations[0]
+        ? this.task.attributes.task_locations[0].timing_rule
+        : "FREQ=DAILY;INTERVAL=1;COUNT=1",
+      tasklocation_start: this.task.attributes.task_locations[0]
+        ? this.task.attributes.task_locations[0].start
+        : "09:00",
+      tasklocation_end: this.task.attributes.task_locations[0]
+        ? this.task.attributes.task_locations[0].end
+        : "17:00"
     };
 
     return (

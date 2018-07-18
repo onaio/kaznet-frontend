@@ -23,7 +23,11 @@ describe("containers/task/TaskCreateForm", () => {
       timing_rule: "",
       status: "d",
       user_submission_target: 10,
-      amount: undefined
+      amount: "",
+      tasklocation_end: "17:00",
+      tasklocation_location: "",
+      tasklocation_start: "09:00",
+      tasklocation_timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1"
     };
     const wrapper = shallow(<TaskCreateForm noTitle={function() {}} />).dive();
     expect(wrapper.find(FormView)).toHaveLength(0);

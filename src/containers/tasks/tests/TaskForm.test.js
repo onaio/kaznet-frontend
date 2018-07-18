@@ -6,6 +6,8 @@ import MockDate from "mockdate";
 
 import { TaskForm } from "../TaskForm";
 import * as fixtures from "../../../store/tasks/tests/fixtures";
+import { clientsById } from "../../../store/clients/tests/fixtures";
+import { locationsById } from "../../../store/locations/tests/fixtures";
 
 describe("containers/task/TaskForm", () => {
   it("renders without crashing", () => {
@@ -13,6 +15,7 @@ describe("containers/task/TaskForm", () => {
       <TaskForm
         formActionDispatch={function() {}}
         fetchClients={function() {}}
+        fetchLocations={function() {}}
         fetchForms={function() {}}
         fetchContentTypes={function() {}}
       />
@@ -26,17 +29,16 @@ describe("containers/task/TaskForm", () => {
       1: { attributes: { title: "name" } }
     };
 
-    const clients = {
-      1: { attributes: { name: "title" } }
-    };
     const wrapper = mount(
       <TaskForm
         formActionDispatch={function() {}}
         fetchClients={function() {}}
+        fetchLocations={function() {}}
         fetchForms={function() {}}
         fetchContentTypes={function() {}}
         unusedFormsById={forms}
-        clientsById={clients}
+        clientsById={clientsById}
+        locationsById={locationsById}
         initialData={fixtures.TaskFormInitialData}
       />
     );

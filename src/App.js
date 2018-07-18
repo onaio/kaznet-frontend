@@ -119,7 +119,7 @@ class App extends Component {
                           path="/tasks/:id/clone"
                           component={TaskClone}
                         />
-                        <Route exact path="/" component={Home} />
+                        <Route exact path="/" component={TasksList} />
                         <Route component={NoMatch} />
                       </Switch>
                     </Col>
