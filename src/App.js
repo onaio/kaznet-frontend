@@ -13,7 +13,6 @@ import moment from "moment";
 
 import "./App.css";
 
-import Home from "./components/Home";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/page/Header";
 import NoMatch from "./components/NoMatch";
