@@ -5,18 +5,36 @@ import * as errorHandlerTypes from "../errorHandler/actionTypes";
 import taskService from "../../services/tasks";
 
 // get list of tasks
-export function fetchTasks() {
+export function fetchTasks(url) {
   return async (dispatch, getState) => {
     try {
-      const taskArray = await taskService.getTaskList();
-      const tasksById = _.keyBy(taskArray, task => task.id);
-      dispatch({ type: types.TASKS_FETCHED, tasksById });
+      const {
+        tasksArray,
+        pageLinks,
+        currentPage,
+        totalPages
+      } = await taskService.getTaskList(url);
+      const tasksById = _.keyBy(tasksArray, task => task.id);
+      dispatch({
+        type: types.TASKS_FETCHED,
+        tasksById,
+        pageLinks,
+        currentPage,
+        totalPages
+      });
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
         errorMessage: error
       });
     }
+  };
+}
+
+// Change the current Page on the task list
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.TASK_CHANGE_PAGE, pageNumber });
   };
 }
 

@@ -27,7 +27,19 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="tasks"
     fetchTasks={[Function]}
+    firstPage={1}
+    lastPage={2}
+    pageLinks={
+      Object {
+        "first": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+        "last": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+        "next": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=2",
+        "prev": null,
+      }
+    }
     rowsById={
       Object {
         "10": Object {
@@ -329,11 +341,24 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
       ]
     }
     showListTitle={[Function]}
+    totalPages={2}
   >
     <div
       className="TasksList"
     >
       <ListView
+        currentPage={1}
+        endpoint="tasks"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+            "last": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+            "next": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=2",
+            "prev": null,
+          }
+        }
         renderHeaders={[Function]}
         renderRow={[Function]}
         rowsById={
@@ -636,6 +661,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             "10",
           ]
         }
+        totalPages={2}
       >
         <div>
           <Table
@@ -1249,6 +1275,117 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
               </tbody>
             </table>
           </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="First"
+                      className="page-link"
+                      replace={false}
+                      to="/tasks/?page=1"
+                    >
+                      <a
+                        aria-label="First"
+                        className="page-link"
+                        href="/tasks/?page=1"
+                        onClick={[Function]}
+                      >
+                        First
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="/tasks/?page=2"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/tasks/?page=2"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/tasks/?page=2"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/tasks/?page=2"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
         </div>
       </ListView>
     </div>

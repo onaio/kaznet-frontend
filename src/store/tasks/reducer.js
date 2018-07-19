@@ -1,19 +1,35 @@
 // Tasks reducer
 import _ from "lodash";
 import Immutable from "seamless-immutable";
+import queryString from "query-string";
 
 import * as types from "./actionTypes";
 
 const initialState = Immutable({
   tasksById: {},
-  tasksIdArray: []
+  tasksIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 });
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.TASKS_FETCHED:
       return state.merge({
-        tasksById: action.tasksById
+        tasksById: action.tasksById,
+        pageLinks: action.pageLinks,
+        currentPage: action.currentPage,
+        totalPages: action.totalPages
+      });
+    case types.TASK_CHANGE_PAGE:
+      return state.merge({
+        currentPage: action.pageNumber
       });
     case types.TASK_CREATED:
       return Immutable({
@@ -67,4 +83,34 @@ export function getTasksIdArray(state) {
 
 export function getTaskById(state, id) {
   return _.get(state.tasks.tasksById, id);
+}
+
+export function getPageLinks(state, props) {
+  return state.tasks.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.tasks.currentPage;
+}
+
+export function getTotalPages(state, porseps) {
+  return state.tasks.totalPages;
+}
+
+export function getFirstPage(state, props) {
+  const url = state.tasks.pageLinks.first;
+  return Number(Object.values(queryString.parse(url))[0]);
+}
+
+export function getNextPage(state, props) {
+  return state.tasks.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.tasks.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  const url = state.tasks.pageLinks.last;
+  return Number(Object.values(queryString.parse(url))[0]);
 }

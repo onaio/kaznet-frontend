@@ -81,6 +81,12 @@ class App extends Component {
                           path="/tasks/:id/status_change"
                           component={TaskStatusChange}
                         />
+                        <Route exact path="/tasks:page" component={TasksList} />
+                        <Route
+                          exact
+                          path="/tasks/:id"
+                          component={TasksDetail}
+                        />
                         <Route exact path="/users" component={UsersList} />
                         <Route
                           exact

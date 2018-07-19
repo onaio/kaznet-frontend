@@ -19,7 +19,12 @@ describe("store/tasks integration", () => {
   });
 
   it("should retrieve all tasks", async () => {
-    TaskService.getTaskList.mockReturnValueOnce(fixtures.tasksArray);
+    TaskService.getTaskList.mockReturnValueOnce({
+      tasksArray: fixtures.tasksArray,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
+    });
 
     await store.dispatch(taskActions.fetchTasks());
     expect(taskSelectors.getTasksById(store.getState())).toEqual(
