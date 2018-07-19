@@ -637,79 +637,147 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
           ]
         }
       >
-        <Table
-          bordered={true}
-          className="kaznet-table"
-          responsiveTag="div"
-          tag="table"
-        >
-          <table
-            className="kaznet-table table table-bordered"
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
           >
-            <thead>
-              <tr>
-                <ElementMap
-                  HTMLTag="th"
-                  items={
-                    Array [
-                      "Status",
-                      "Name",
-                      "Need Review",
-                      "Created",
-                      "Expires",
-                      "Form",
-                    ]
-                  }
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Status",
+                        "Name",
+                        "Need Review",
+                        "Created",
+                        "Expires",
+                        "Form",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Status
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Name
+                    </th>
+                    <th
+                      key="2"
+                    >
+                      Need Review
+                    </th>
+                    <th
+                      key="3"
+                    >
+                      Created
+                    </th>
+                    <th
+                      key="4"
+                    >
+                      Expires
+                    </th>
+                    <th
+                      key="5"
+                    >
+                      Form
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="4"
                 >
-                  <th
-                    key="0"
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Active",
+                        <Link
+                          replace={false}
+                          to="/tasks/4"
+                      >
+                          Kaznet
+                      </Link>,
+                        "0/0",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-07-10T12:00:00+03:00
+                      </t>,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2020-07-10T12:00:00+03:00
+                      </t>,
+                        "Baseline_Questionnaire",
+                      ]
+                    }
                   >
-                    Status
-                  </th>
-                  <th
-                    key="1"
-                  >
-                    Name
-                  </th>
-                  <th
-                    key="2"
-                  >
-                    Need Review
-                  </th>
-                  <th
-                    key="3"
-                  >
-                    Created
-                  </th>
-                  <th
-                    key="4"
-                  >
-                    Expires
-                  </th>
-                  <th
-                    key="5"
-                  >
-                    Form
-                  </th>
-                </ElementMap>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                key="4"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
-                      "Active",
+                    <td
+                      key="0"
+                    >
+                      Active
+                    </td>
+                    <td
+                      key="1"
+                    >
                       <Link
+                        key="link_to"
                         replace={false}
                         to="/tasks/4"
+                      >
+                        <a
+                          href="/tasks/4"
+                          onClick={[Function]}
+                        >
+                          Kaznet
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="2"
                     >
-                        Kaznet
-                    </Link>,
-                      "0/0",
+                      0/0
+                    </td>
+                    <td
+                      key="3"
+                    >
                       <t
                         ago={false}
                         calendar={false}
@@ -719,14 +787,23 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="4"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2018-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2018
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="4"
                     >
-                        2018-07-10T12:00:00+03:00
-                    </t>,
                       <t
                         ago={false}
                         calendar={false}
@@ -736,118 +813,109 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="4"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2020-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2020
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="5"
                     >
-                        2020-07-10T12:00:00+03:00
-                    </t>,
-                      "Baseline_Questionnaire",
-                    ]
-                  }
+                      Baseline_Questionnaire
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="6"
                 >
-                  <td
-                    key="0"
-                  >
-                    Active
-                  </td>
-                  <td
-                    key="1"
-                  >
-                    <Link
-                      key="link_to"
-                      replace={false}
-                      to="/tasks/4"
-                    >
-                      <a
-                        href="/tasks/4"
-                        onClick={[Function]}
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Draft",
+                        <Link
+                          replace={false}
+                          to="/tasks/6"
                       >
-                        Kaznet
-                      </a>
-                    </Link>
-                  </td>
-                  <td
-                    key="2"
-                  >
-                    0/0
-                  </td>
-                  <td
-                    key="3"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="4"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-07-10T09:00:00.000Z"}
+                          Coconut Quest2
+                      </Link>,
+                        "0/0",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
                       >
-                        10-07-2018
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="4"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="4"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2020-07-10T09:00:00.000Z"}
+                          2018-07-10T12:00:00+03:00
+                      </t>,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
                       >
-                        10-07-2020
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="5"
+                          2020-07-10T12:00:00+03:00
+                      </t>,
+                        "bike_trip_repeat",
+                      ]
+                    }
                   >
-                    Baseline_Questionnaire
-                  </td>
-                </ElementMap>
-              </tr>
-              <tr
-                key="6"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
-                      "Draft",
+                    <td
+                      key="0"
+                    >
+                      Draft
+                    </td>
+                    <td
+                      key="1"
+                    >
                       <Link
+                        key="link_to"
                         replace={false}
                         to="/tasks/6"
+                      >
+                        <a
+                          href="/tasks/6"
+                          onClick={[Function]}
+                        >
+                          Coconut Quest2
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="2"
                     >
-                        Coconut Quest2
-                    </Link>,
-                      "0/0",
+                      0/0
+                    </td>
+                    <td
+                      key="3"
+                    >
                       <t
                         ago={false}
                         calendar={false}
@@ -857,14 +925,23 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="6"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2018-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2018
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="4"
                     >
-                        2018-07-10T12:00:00+03:00
-                    </t>,
                       <t
                         ago={false}
                         calendar={false}
@@ -874,118 +951,109 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="6"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2020-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2020
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="5"
                     >
-                        2020-07-10T12:00:00+03:00
-                    </t>,
-                      "bike_trip_repeat",
-                    ]
-                  }
+                      bike_trip_repeat
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="8"
                 >
-                  <td
-                    key="0"
-                  >
-                    Draft
-                  </td>
-                  <td
-                    key="1"
-                  >
-                    <Link
-                      key="link_to"
-                      replace={false}
-                      to="/tasks/6"
-                    >
-                      <a
-                        href="/tasks/6"
-                        onClick={[Function]}
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Archived",
+                        <Link
+                          replace={false}
+                          to="/tasks/8"
                       >
-                        Coconut Quest2
-                      </a>
-                    </Link>
-                  </td>
-                  <td
-                    key="2"
-                  >
-                    0/0
-                  </td>
-                  <td
-                    key="3"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="6"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-07-10T09:00:00.000Z"}
+                          Kill Bill
+                      </Link>,
+                        "0/0",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
                       >
-                        10-07-2018
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="4"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="6"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2020-07-10T09:00:00.000Z"}
+                          2018-07-10T12:00:00+03:00
+                      </t>,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
                       >
-                        10-07-2020
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="5"
+                          2018-07-12T12:00:00+03:00
+                      </t>,
+                        "BRCiS - TARGETED COMMUNITIES (March 2015)",
+                      ]
+                    }
                   >
-                    bike_trip_repeat
-                  </td>
-                </ElementMap>
-              </tr>
-              <tr
-                key="8"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
-                      "Archived",
+                    <td
+                      key="0"
+                    >
+                      Archived
+                    </td>
+                    <td
+                      key="1"
+                    >
                       <Link
+                        key="link_to"
                         replace={false}
                         to="/tasks/8"
+                      >
+                        <a
+                          href="/tasks/8"
+                          onClick={[Function]}
+                        >
+                          Kill Bill
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="2"
                     >
-                        Kill Bill
-                    </Link>,
-                      "0/0",
+                      0/0
+                    </td>
+                    <td
+                      key="3"
+                    >
                       <t
                         ago={false}
                         calendar={false}
@@ -995,14 +1063,23 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="8"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2018-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2018
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="4"
                     >
-                        2018-07-10T12:00:00+03:00
-                    </t>,
                       <t
                         ago={false}
                         calendar={false}
@@ -1012,118 +1089,109 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="8"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2018-07-12T09:00:00.000Z"}
+                        >
+                          12-07-2018
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="5"
                     >
-                        2018-07-12T12:00:00+03:00
-                    </t>,
-                      "BRCiS - TARGETED COMMUNITIES (March 2015)",
-                    ]
-                  }
+                      BRCiS - TARGETED COMMUNITIES (March 2015)
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="10"
                 >
-                  <td
-                    key="0"
-                  >
-                    Archived
-                  </td>
-                  <td
-                    key="1"
-                  >
-                    <Link
-                      key="link_to"
-                      replace={false}
-                      to="/tasks/8"
-                    >
-                      <a
-                        href="/tasks/8"
-                        onClick={[Function]}
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Draft",
+                        <Link
+                          replace={false}
+                          to="/tasks/10"
                       >
-                        Kill Bill
-                      </a>
-                    </Link>
-                  </td>
-                  <td
-                    key="2"
-                  >
-                    0/0
-                  </td>
-                  <td
-                    key="3"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="8"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-07-10T09:00:00.000Z"}
+                          Coconut Quest
+                      </Link>,
+                        "0/0",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
                       >
-                        10-07-2018
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="4"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="8"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-07-12T09:00:00.000Z"}
+                          2018-07-10T12:00:00+03:00
+                      </t>,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
                       >
-                        12-07-2018
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="5"
+                          2020-07-10T12:00:00+03:00
+                      </t>,
+                        "",
+                      ]
+                    }
                   >
-                    BRCiS - TARGETED COMMUNITIES (March 2015)
-                  </td>
-                </ElementMap>
-              </tr>
-              <tr
-                key="10"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
-                      "Draft",
+                    <td
+                      key="0"
+                    >
+                      Draft
+                    </td>
+                    <td
+                      key="1"
+                    >
                       <Link
+                        key="link_to"
                         replace={false}
                         to="/tasks/10"
+                      >
+                        <a
+                          href="/tasks/10"
+                          onClick={[Function]}
+                        >
+                          Coconut Quest
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="2"
                     >
-                        Coconut Quest
-                    </Link>,
-                      "0/0",
+                      0/0
+                    </td>
+                    <td
+                      key="3"
+                    >
                       <t
                         ago={false}
                         calendar={false}
@@ -1133,14 +1201,23 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="10"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
+                      >
+                        <time
+                          dateTime={"2018-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2018
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="4"
                     >
-                        2018-07-10T12:00:00+03:00
-                    </t>,
                       <t
                         ago={false}
                         calendar={false}
@@ -1150,104 +1227,29 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="10"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
-                    >
-                        2020-07-10T12:00:00+03:00
-                    </t>,
-                      "",
-                    ]
-                  }
-                >
-                  <td
-                    key="0"
-                  >
-                    Draft
-                  </td>
-                  <td
-                    key="1"
-                  >
-                    <Link
-                      key="link_to"
-                      replace={false}
-                      to="/tasks/10"
-                    >
-                      <a
-                        href="/tasks/10"
-                        onClick={[Function]}
                       >
-                        Coconut Quest
-                      </a>
-                    </Link>
-                  </td>
-                  <td
-                    key="2"
-                  >
-                    0/0
-                  </td>
-                  <td
-                    key="3"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="10"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-07-10T09:00:00.000Z"}
-                      >
-                        10-07-2018
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="4"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="10"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2020-07-10T09:00:00.000Z"}
-                      >
-                        10-07-2020
-                      </time>
-                    </t>
-                  </td>
-                  <td
-                    key="5"
-                  />
-                </ElementMap>
-              </tr>
-            </tbody>
-          </table>
-        </Table>
+                        <time
+                          dateTime={"2020-07-10T09:00:00.000Z"}
+                        >
+                          10-07-2020
+                        </time>
+                      </t>
+                    </td>
+                    <td
+                      key="5"
+                    />
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+        </div>
       </ListView>
     </div>
   </TasksList>

@@ -1,5 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/ListView does not render pagination when totalPages <= 1 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ListView
+    currentPage={1}
+    endpoint="http://127.0.0.1:8000/api/v1"
+    firstPage={1}
+    lastpage={1}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/clients/?page=1",
+        "last": null,
+        "next": null,
+        "prev": null,
+      }
+    }
+    renderHeaders={[Function]}
+    renderRow={[Function]}
+    rowsById={
+      Object {
+        "0": "Bob",
+        "1": "Jane",
+      }
+    }
+    rowsIdArray={
+      Array [
+        "0",
+        "1",
+      ]
+    }
+    totalPages={1}
+  >
+    <div>
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="0"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Bob",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Bob
+                </td>
+              </ElementMap>
+            </tr>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Jane",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Jane
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </div>
+  </ListView>
+</Router>
+`;
+
 exports[`components/ListView renders a table 1`] = `
 <ErrorBoundary>
   <ListView
@@ -18,73 +143,311 @@ exports[`components/ListView renders a table 1`] = `
       ]
     }
   >
-    <Table
-      bordered={true}
-      className="kaznet-table"
-      responsiveTag="div"
-      tag="table"
-    >
-      <table
-        className="kaznet-table table table-bordered"
+    <div>
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
       >
-        <thead>
-          <tr>
-            <ElementMap
-              HTMLTag="th"
-              items={
-                Array [
-                  "Name",
-                ]
-              }
-            >
-              <th
-                key="0"
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                  ]
+                }
               >
-                Name
-              </th>
-            </ElementMap>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            key="0"
-          >
-            <ElementMap
-              HTMLTag="td"
-              items={
-                Array [
-                  "Bob",
-                ]
-              }
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="0"
             >
-              <td
-                key="0"
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Bob",
+                  ]
+                }
               >
-                Bob
-              </td>
-            </ElementMap>
-          </tr>
-          <tr
-            key="1"
-          >
-            <ElementMap
-              HTMLTag="td"
-              items={
-                Array [
-                  "Jane",
-                ]
-              }
+                <td
+                  key="0"
+                >
+                  Bob
+                </td>
+              </ElementMap>
+            </tr>
+            <tr
+              key="1"
             >
-              <td
-                key="0"
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Jane",
+                  ]
+                }
               >
-                Jane
-              </td>
-            </ElementMap>
-          </tr>
-        </tbody>
-      </table>
-    </Table>
+                <td
+                  key="0"
+                >
+                  Jane
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+    </div>
   </ListView>
 </ErrorBoundary>
+`;
+
+exports[`components/ListView renders pagination when totalPages > 1 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ListView
+    currentPage={1}
+    endpoint="http://127.0.0.1:8000/api/v1"
+    firstPage={1}
+    lastpage={2}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/clients/?page=1",
+        "last": "http://localhost:8000/api/v1/clients/?page=2",
+        "next": "http://localhost:8000/api/v1/clients/?page=2",
+        "prev": null,
+      }
+    }
+    renderHeaders={[Function]}
+    renderRow={[Function]}
+    rowsById={
+      Object {
+        "0": "Bob",
+        "1": "Jane",
+      }
+    }
+    rowsIdArray={
+      Array [
+        "0",
+        "1",
+      ]
+    }
+    totalPages={2}
+  >
+    <div>
+      <Table
+        bordered={true}
+        className="kaznet-table"
+        responsiveTag="div"
+        tag="table"
+      >
+        <table
+          className="kaznet-table table table-bordered"
+        >
+          <thead>
+            <tr>
+              <ElementMap
+                HTMLTag="th"
+                items={
+                  Array [
+                    "Name",
+                  ]
+                }
+              >
+                <th
+                  key="0"
+                >
+                  Name
+                </th>
+              </ElementMap>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="0"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Bob",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Bob
+                </td>
+              </ElementMap>
+            </tr>
+            <tr
+              key="1"
+            >
+              <ElementMap
+                HTMLTag="td"
+                items={
+                  Array [
+                    "Jane",
+                  ]
+                }
+              >
+                <td
+                  key="0"
+                >
+                  Jane
+                </td>
+              </ElementMap>
+            </tr>
+          </tbody>
+        </table>
+      </Table>
+      <Pagination
+        aria-label="Page navigation example"
+        listTag="ul"
+        tag="nav"
+      >
+        <nav
+          aria-label="Page navigation example"
+          className=""
+        >
+          <ul
+            className="pagination"
+          >
+            <PaginationItem
+              disabled={false}
+              tag="li"
+            >
+              <li
+                className="page-item"
+              >
+                <Link
+                  aria-label="First"
+                  className="page-link"
+                  replace={false}
+                  to="/http://127.0.0.1:8000/api/v1/?page=1"
+                >
+                  <a
+                    aria-label="First"
+                    className="page-link"
+                    href="/http://127.0.0.1:8000/api/v1/?page=1"
+                    onClick={[Function]}
+                  >
+                    First
+                  </a>
+                </Link>
+              </li>
+            </PaginationItem>
+            <PaginationItem
+              disabled={true}
+              tag="li"
+            >
+              <li
+                className="page-item disabled"
+              >
+                <Link
+                  aria-label="Previous"
+                  className="page-link"
+                  replace={false}
+                  to="#"
+                >
+                  <a
+                    aria-label="Previous"
+                    className="page-link"
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    «
+                  </a>
+                </Link>
+              </li>
+            </PaginationItem>
+            <PaginationItem
+              disabled={false}
+              tag="li"
+            >
+              <li
+                className="page-item"
+              >
+                <Link
+                  aria-label="Next"
+                  className="page-link"
+                  replace={false}
+                  to="/http://127.0.0.1:8000/api/v1/?page=2"
+                >
+                  <a
+                    aria-label="Next"
+                    className="page-link"
+                    href="/http://127.0.0.1:8000/api/v1/?page=2"
+                    onClick={[Function]}
+                  >
+                    »
+                  </a>
+                </Link>
+              </li>
+            </PaginationItem>
+            <PaginationItem
+              disabled={false}
+              tag="li"
+            >
+              <li
+                className="page-item"
+              >
+                <Link
+                  aria-label="Last"
+                  className="page-link"
+                  replace={false}
+                  to="/http://127.0.0.1:8000/api/v1/?page=undefined"
+                >
+                  <a
+                    aria-label="Last"
+                    className="page-link"
+                    href="/http://127.0.0.1:8000/api/v1/?page=undefined"
+                    onClick={[Function]}
+                  >
+                    Last
+                  </a>
+                </Link>
+              </li>
+            </PaginationItem>
+          </ul>
+        </nav>
+      </Pagination>
+    </div>
+  </ListView>
+</Router>
 `;
