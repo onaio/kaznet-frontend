@@ -31,6 +31,13 @@ export function fetchTasks(url) {
   };
 }
 
+// Change the current Page on the task list
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.TASK_CHANGE_PAGE, pageNumber });
+  };
+}
+
 // create a new task
 export function createTask(task_data) {
   return async (dispatch, getState) => {

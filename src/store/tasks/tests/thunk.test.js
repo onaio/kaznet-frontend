@@ -35,6 +35,16 @@ describe("store/tasks/actions", () => {
 
   it("should fetch tasks from server given a url", async () => {});
 
+  it("should change the current page", async () => {
+    const dispatches = await Thunk(tasks.changePageNumber).execute(2);
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.TASK_CHANGE_PAGE,
+      pageNumber: 2
+    });
+  });
+
   it("should fetch tasks and dispatches on error", async () => {
     TaskService.getTaskList.mockImplementationOnce(() => {
       throw new Error("oops");
