@@ -5,7 +5,15 @@ import * as types from "./actionTypes";
 
 const initialState = Immutable({
   clientsById: {},
-  clientsIdArray: []
+  clientsIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 });
 
 export default function reduce(state = initialState, action = {}) {
