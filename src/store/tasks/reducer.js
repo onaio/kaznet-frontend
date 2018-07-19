@@ -26,6 +26,10 @@ export default function reduce(state = initialState, action = {}) {
         currentPage: action.currentPage,
         totalPages: action.totalPages
       });
+    case types.TASK_CHANGE_PAGE:
+      return state.merge({
+        currentPage: action.pageNumber
+      });
     case types.TASK_CREATED:
       return Immutable({
         ...state,
