@@ -5,7 +5,7 @@ export const taskData = {
   links: {
     first: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
     last: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
-    next: null,
+    next: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=2",
     prev: null
   },
   data: [
@@ -301,8 +301,116 @@ export const taskData = {
   meta: {
     pagination: {
       page: 1,
-      pages: 1,
+      pages: 2,
       count: 4
+    }
+  }
+};
+
+export const taskDataSecondPage = {
+  links: {
+    first: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+    last: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",
+    next: null,
+    prev: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1"
+  },
+  data: [
+    {
+      type: "Task",
+      id: "4",
+      attributes: {
+        created: "2018-07-10T16:50:20.165320+03:00",
+        modified: "2018-07-12T17:08:58.621899+03:00",
+        name: "Kaznet",
+        estimated_time: "00:15:00",
+        approved_submissions_count: 0,
+        pending_submissions_count: 0,
+        rejected_submissions_count: 0,
+        total_bounty_payout: "0 KES",
+        current_bounty_amount: null,
+        required_expertise: "1",
+        description: "This is an awesome task",
+        xform_title: "Baseline_Questionnaire",
+        xform_id_string: "Baseline_Questionnaire",
+        status_display: "Active",
+        required_expertise_display: "Beginner",
+        start: "2018-07-10T12:00:00+03:00",
+        end: "2020-07-10T12:00:00+03:00",
+        timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
+        total_submission_target: null,
+        user_submission_target: 10,
+        status: "a",
+        submission_count: 0,
+        target_id: 20,
+        created_by_name: "Ona User",
+        task_locations: [
+          {
+            task: {
+              type: "Task",
+              id: "4"
+            },
+            created: "2018-07-12T17:38:21.527548+03:00",
+            modified: "2018-07-12T17:38:21.527572+03:00",
+            location: {
+              type: "Location",
+              id: "1"
+            },
+            timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+            start: "06:00:00",
+            end: "18:00:00"
+          }
+        ]
+      },
+      relationships: {
+        created_by: {
+          data: {
+            type: "User",
+            id: "3"
+          }
+        },
+        parent: {
+          data: null
+        },
+        client: {
+          data: {
+            type: "Client",
+            id: "1"
+          }
+        },
+        bounty: {
+          data: null
+        },
+        target_content_type: {
+          data: {
+            type: "ContentType",
+            id: "16"
+          }
+        },
+        segment_rules: {
+          data: [],
+          meta: {
+            count: 0
+          }
+        },
+        locations: {
+          data: [
+            {
+              type: "Location",
+              id: "1"
+            }
+          ],
+          meta: {
+            count: 1
+          }
+        }
+      }
+    }
+  ],
+  meta: {
+    pagination: {
+      page: 2,
+      pages: 2,
+      count: 1
     }
   }
 };
@@ -401,6 +509,12 @@ export const singleTask = {
 export const tasksArray = _.map(taskData.data, task => {
   return task;
 });
+
+export const tasksArraySecondPage = _.map(
+  taskDataSecondPage.data,
+  task => task
+);
+
 export const tasksById = _.keyBy(tasksArray, task => task.id);
 export const taskById = _.get(tasksById, 4);
 
