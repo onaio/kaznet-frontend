@@ -4,23 +4,49 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
+import queryString from "query-string";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as taskSelectors from "../../store/tasks/reducer";
+import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class TasksList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     this.props.showListTitle();
-    this.props.fetchTasks();
     this.props.changePageTitle("Tasks");
     this.props.changePageTitleButton("+ Create Task");
     this.props.changePageTarget("/tasks/new");
+
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      const pageNumber = Number(page);
+      if (!isNaN(pageNumber)) {
+        await this.props.fetchTasks(
+          `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
+      }
+    } else {
+      this.props.fetchTasks();
+    }
   }
 
+  componentDidUpdate(prevProps) {
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+        const pageNumber = Number(page);
+        this.props.fetchTasks(
+          `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
+      }
+    }
+  }
   render() {
     if (!this.props.rowsById) return this.renderLoading();
     return (
