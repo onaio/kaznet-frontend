@@ -34,6 +34,12 @@ describe("containers/task/TasksList", () => {
           showListTitle={function() {}}
           rowsById={fixtures.tasksById}
           rowsIdArray={fixtures.tasksIdArray}
+          endpoint={"tasks"}
+          pageLinks={fixtures.pageLinks}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.currentPage}
+          firstPage={fixtures.firstPage}
+          lastPage={fixtures.lastPage}
         />
       </Router>
     );

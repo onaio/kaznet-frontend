@@ -521,6 +521,8 @@ export const taskById = _.get(tasksById, 4);
 export const currentPage = taskData.meta.pagination.page;
 export const totalPages = taskData.meta.pagination.pages;
 export const pageLinks = taskData.links;
+export const firstPage = 1;
+export const lastPage = 2;
 
 export const singleTaskData = {
   data: singleTask

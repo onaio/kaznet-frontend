@@ -30,6 +30,12 @@ export class TasksList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          endpoint={"tasks"}
+          pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
+          currentPage={this.props.currentPage}
+          firstPage={this.props.firstPage}
+          lastPage={this.props.lastPage}
         />
       </div>
     );
@@ -76,7 +82,12 @@ export class TasksList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: taskSelectors.getTasksById(state),
-    rowsIdArray: taskSelectors.getTasksIdArray(state)
+    rowsIdArray: taskSelectors.getTasksIdArray(state),
+    totalPages: taskSelectors.getTotalPages(state),
+    currentPage: taskSelectors.getCurrentPage(state),
+    pageLinks: taskSelectors.getPageLinks(state),
+    firstPage: taskSelectors.getFirstPage(state),
+    lastPage: taskSelectors.getLastPage(state)
   };
 }
 
@@ -84,6 +95,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchTasks: taskActions.fetchTasks,
+      changePageNumber: taskActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
