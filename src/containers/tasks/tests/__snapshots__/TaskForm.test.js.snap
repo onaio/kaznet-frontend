@@ -23,7 +23,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
     Object {
       "amount": 55,
       "client": "1",
-      "description": undefined,
+      "description": "This is an awesome task",
       "end": "2020-07-10",
       "estimated_time": 15,
       "form": 20,
@@ -135,7 +135,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
       Object {
         "amount": 55,
         "client": "1",
-        "description": undefined,
+        "description": "This is an awesome task",
         "end": "2020-07-10",
         "estimated_time": 15,
         "form": 20,
@@ -386,6 +386,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     onChange={[Function]}
                     placeholder="Description"
                     type="textarea"
+                    value="This is an awesome task"
                   >
                     <textarea
                       aria-label="description"
@@ -395,6 +396,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="Description"
+                      value="This is an awesome task"
                     />
                   </Input>
                 </div>

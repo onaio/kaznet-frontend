@@ -48,9 +48,9 @@ export class TaskEditForm extends Component {
         this.task.attributes.end != null ? this.task.attributes.end : undefined
       ).format("YYYY-MM-DD"),
       description:
-        this.task.attributes.descripton != null
-          ? this.task.attributes.descripton
-          : undefined,
+        this.task.attributes.description != null
+          ? this.task.attributes.description
+          : "",
       required_expertise: this.task.attributes.required_expertise,
       timing_rule:
         this.task.attributes.timing_rule != null
@@ -60,19 +60,19 @@ export class TaskEditForm extends Component {
       user_submission_target:
         this.task.attributes.user_submission_target != null
           ? this.task.attributes.user_submission_target
-          : undefined,
+          : "",
       amount:
         this.task.attributes.current_bounty_amount != null
           ? parseInt(this.task.attributes.current_bounty_amount, 10)
-          : undefined,
+          : "",
       form:
         this.task.attributes.target_id != null
           ? this.task.attributes.target_id
-          : undefined,
+          : "",
       client:
         this.task.relationships.client.data != null
           ? this.task.relationships.client.data.id
-          : undefined,
+          : "",
       tasklocation_location: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].location.id
         : "",
