@@ -16,15 +16,27 @@ class TaskService {
         `TaskService getTaskList failed, HTTP status ${response.status}`
       );
     }
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(`TaskService getTaskList failed, data not returned`);
     }
 
-    return _.map(data, task => {
-      return task;
-    });
+    const tasksArray = _.map(data, task => task);
+
+    return {
+      tasksArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 
   async createTask(task_data) {

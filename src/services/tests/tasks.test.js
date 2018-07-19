@@ -13,7 +13,22 @@ describe("services/tasks", () => {
     const data = fixtures.taskData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await TaskService.getTaskList();
-    expect(response).toEqual(fixtures.tasksArray);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      tasksArray: fixtures.tasksArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should fetch tasks when passed a url", async () => {
@@ -21,7 +36,22 @@ describe("services/tasks", () => {
     const nextUrl = fixtures.taskData.links.next;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await TaskService.getTaskList(nextUrl);
-    expect(response).toEqual(fixtures.tasksArraySecondPage);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      tasksArray: fixtures.tasksArraySecondPage,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should handle fetch tasks http errors", async () => {
