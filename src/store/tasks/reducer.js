@@ -1,6 +1,7 @@
 // Tasks reducer
 import _ from "lodash";
 import Immutable from "seamless-immutable";
+import queryString from "query-string";
 
 import * as types from "./actionTypes";
 
@@ -82,4 +83,34 @@ export function getTasksIdArray(state) {
 
 export function getTaskById(state, id) {
   return _.get(state.tasks.tasksById, id);
+}
+
+export function getPageLinks(state, props) {
+  return state.tasks.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.tasks.currentPage;
+}
+
+export function getTotalPages(state, porseps) {
+  return state.tasks.totalPages;
+}
+
+export function getFirstPage(state, props) {
+  const url = state.tasks.pageLinks.first;
+  return Number(Object.values(queryString.parse(url))[0]);
+}
+
+export function getNextPage(state, props) {
+  return state.tasks.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.tasks.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  const url = state.tasks.pageLinks.last;
+  return Number(Object.values(queryString.parse(url))[0]);
 }
