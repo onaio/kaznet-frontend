@@ -17,15 +17,25 @@ class ClientService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
 
     if (!data) {
       throw new Error(`ClientService getClientList failed, data not returned`);
     }
-    return _.map(data, client => {
-      return client;
-    });
+    const clientArray = _.map(data, client => client);
+
+    return {
+      clientArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 
   async createClient(client_data) {

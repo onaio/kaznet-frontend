@@ -13,7 +13,45 @@ describe("services/clients", () => {
     const data = fixtures.clientData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await ClientService.getClientList();
-    expect(response).toEqual(fixtures.clientsArray);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      clientArray: fixtures.clientsArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
+  });
+
+  it("should fetch tasks when passed a url", async () => {
+    const data = fixtures.clientDataSecondPage;
+    const nextUrl = fixtures.clientData.links.next;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await ClientService.getClientList(nextUrl);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      clientArray: fixtures.clientsArraySecondPage,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should handle default clients http errors", async () => {
