@@ -6,14 +6,25 @@ import * as types from "./actionTypes";
 
 const initialState = Immutable({
   tasksById: {},
-  tasksIdArray: []
+  tasksIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 });
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.TASKS_FETCHED:
       return state.merge({
-        tasksById: action.tasksById
+        tasksById: action.tasksById,
+        pageLinks: action.pageLinks,
+        currentPage: action.currentPage,
+        totalPages: action.totalPages
       });
     case types.TASK_CREATED:
       return Immutable({

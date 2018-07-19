@@ -9,7 +9,15 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   tasksById: {},
-  tasksIdArray: []
+  tasksIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 };
 
 const fullState = {
@@ -52,11 +60,23 @@ describe("store/tasks/reducer", () => {
 
   it("should store fetched tasks", () => {
     const tasksById = fixtures.tasksById;
-    const action = { type: actionTypes.TASKS_FETCHED, tasksById };
+    const pageLinks = fixtures.pageLinks;
+    const currentPage = fixtures.currentPage;
+    const totalPages = fixtures.totalPages;
+    const action = {
+      type: actionTypes.TASKS_FETCHED,
+      tasksById,
+      pageLinks,
+      currentPage,
+      totalPages
+    };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     newState.tasksById = tasksById;
+    newState.pageLinks = pageLinks;
+    newState.currentPage = currentPage;
+    newState.totalPages = totalPages;
 
     Reducer(tasks)
       .withState(existingState)
@@ -69,6 +89,7 @@ describe("store/tasks/reducer", () => {
     const action = { type: actionTypes.TASK_CREATED, taskData };
 
     const tasksById = {};
+
     tasksById[taskData.id] = taskData;
 
     const existingState = Immutable(initialState);
