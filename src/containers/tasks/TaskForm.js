@@ -82,7 +82,7 @@ export class TaskForm extends Component {
           const payload = {
             data: {
               type: "Task",
-              id: this.targetId != null ? this.targetId : null,
+              id: this.targetId !== null ? this.targetId : null,
               attributes: {
                 name: values.name,
                 estimated_time: values.estimated_time * 60,
@@ -92,16 +92,23 @@ export class TaskForm extends Component {
                 end: moment(values.end).format("YYYY-MM-DD") + "T12:00",
                 timing_rule: undefined,
                 total_submission_target: undefined,
-                user_submission_target: values.user_submission_target,
+                user_submission_target:
+                  (values.user_submission_target !== null) &
+                  (values.user_submission_target !== "")
+                    ? values.user_submission_target
+                    : undefined,
                 status:
                   values.status !== this.props.initialData.status
                     ? values.status
                     : this.props.initialData.status,
                 target_id: values.form,
                 target_content_type: this.props.formContentTypeId,
-                amount: values.amount,
+                amount:
+                  values.amount != null && values.amount !== ""
+                    ? values.amount
+                    : undefined,
                 client:
-                  values.client != null
+                  values.client !== null && values.client !== ""
                     ? { type: "Client", id: values.client }
                     : undefined,
                 locations_input: locations_input
