@@ -41,7 +41,7 @@ describe("store/clients/actions", () => {
       totalPages: fixtures.totalPagesSecondPage
     });
     const dispatches = await Thunk(clients.fetchClients).execute(
-      fixtures.pageLinks.first
+      fixtures.pageLinks.next
     );
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
