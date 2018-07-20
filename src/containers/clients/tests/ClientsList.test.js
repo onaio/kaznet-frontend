@@ -33,6 +33,12 @@ describe("containers/clients/ClientsList", () => {
           showListTitle={function() {}}
           rowsById={fixtures.clientsById}
           rowsIdArray={fixtures.clientsIdArray}
+          endpoint={"tasks"}
+          pageLinks={fixtures.pageLinks}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.currentPage}
+          firstPage={fixtures.firstPage}
+          lastPage={fixtures.lastPage}
         />
       </Router>
     );
