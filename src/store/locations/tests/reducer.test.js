@@ -31,14 +31,23 @@ describe("store/locations/reducer", () => {
 
   it("should store fetched locations", () => {
     const locationsById = fixtures.locationById;
+    const pageLinks = fixtures.pageLinks;
+    const currentPage = fixtures.currentPage;
+    const totalPages = fixtures.totalPages;
     const action = {
       type: actionTypes.LOCATIONS_FETCHED,
-      locationsById
+      locationsById,
+      pageLinks,
+      currentPage,
+      totalPages
     };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     newState.locationsById = locationsById;
+    newState.pageLinks = pageLinks;
+    newState.currentPage = currentPage;
+    newState.totalPages = totalPages;
 
     Reducer(locations)
       .withState(existingState)
