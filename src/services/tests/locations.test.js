@@ -13,7 +13,45 @@ describe("services/locations", () => {
     const data = fixtures.locationsData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await LocationService.getLocationList();
-    expect(response).toEqual(fixtures.locationsArray);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      locationArray: fixtures.locationsArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
+  });
+
+  it("should fetch locations when passed a url", async () => {
+    const data = fixtures.locationsDataSecondPage;
+    const nextUrl = fixtures.locationsData.links.next;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await LocationService.getLocationList(nextUrl);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      locationArray: fixtures.locationsArraySecondPage,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should handle default locations http errors", async () => {
