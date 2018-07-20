@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/LocationTypesLists/LocationTypesList renders LocationTypesList list correctly 1`] = `
+<LocationTypesList
+  changePageTarget={[Function]}
+  changePageTitle={[Function]}
+  changePageTitleButton={[Function]}
+  fetchLocationTypes={[Function]}
+  showListTitle={[Function]}
+>
+  <p>
+    Loading...
+  </p>
+</LocationTypesList>
+`;
