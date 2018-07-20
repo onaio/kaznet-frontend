@@ -33,7 +33,26 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should fetch tasks from server given a url", async () => {});
+  it("should fetch tasks from server given a url", async () => {
+    TaskService.getTaskList.mockReturnValueOnce({
+      tasksArray: fixtures.tasksArraySecondPage,
+      pageLinks: fixtures.pageLinksSecondPage,
+      currentPage: fixtures.currentPageSecondPage,
+      totalPages: fixtures.totalPagesSecondPage
+    });
+    const dispatches = await Thunk(tasks.fetchTasks).execute(
+      fixtures.pageLinks.first
+    );
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.TASKS_FETCHED,
+      tasksById: fixtures.tasksByIdSecondPage,
+      pageLinks: fixtures.pageLinksSecondPage,
+      currentPage: fixtures.currentPageSecondPage,
+      totalPages: fixtures.totalPagesSecondPage
+    });
+  });
 
   it("should change the current page", async () => {
     const dispatches = await Thunk(tasks.changePageNumber).execute(2);

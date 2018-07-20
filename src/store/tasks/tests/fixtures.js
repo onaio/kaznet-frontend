@@ -524,6 +524,14 @@ export const pageLinks = taskData.links;
 export const firstPage = 1;
 export const lastPage = 2;
 
+export const tasksByIdSecondPage = _.keyBy(
+  tasksArraySecondPage,
+  task => task.id
+);
+export const pageLinksSecondPage = taskDataSecondPage.links;
+export const currentPageSecondPage = taskDataSecondPage.meta.pagination.page;
+export const totalPagesSecondPage = taskDataSecondPage.meta.pagination.pages;
+
 export const singleTaskData = {
   data: singleTask
 };
