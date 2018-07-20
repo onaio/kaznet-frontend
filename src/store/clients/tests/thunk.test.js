@@ -33,7 +33,7 @@ describe("store/clients/actions", () => {
     });
   });
 
-  it("should fetch tasks from server given a url", async () => {
+  it("should fetch clients given a url", async () => {
     ClientService.getClientList.mockReturnValueOnce({
       clientArray: fixtures.clientsArraySecondPage,
       pageLinks: fixtures.pageLinksSecondPage,
