@@ -8,7 +8,15 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   locationsById: {},
-  locationsIdArray: []
+  locationsIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 };
 
 const fullState = {

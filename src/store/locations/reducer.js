@@ -1,12 +1,21 @@
 // Locations reducer
 import _ from "lodash";
 import Immutable from "seamless-immutable";
+import queryString from "query-string";
 
 import * as types from "./actionTypes";
 
 const initialState = Immutable({
   locationsById: {},
-  locationsIdArray: []
+  locationsIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -64,4 +73,34 @@ export function getParentLocationChoicesById(state, id) {
     return _.omit(state.locations.locationsById, id);
   }
   return state.locations.locationsById;
+}
+
+export function getPageLinks(state, props) {
+  return state.locations.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.locations.currentPage;
+}
+
+export function getTotalPages(state, porseps) {
+  return state.locations.totalPages;
+}
+
+export function getFirstPage(state, props) {
+  const url = state.locations.pageLinks.first;
+  return Number(Object.values(queryString.parse(url))[0]);
+}
+
+export function getNextPage(state, props) {
+  return state.locations.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.locations.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  const url = state.locations.pageLinks.last;
+  return Number(Object.values(queryString.parse(url))[0]);
 }
