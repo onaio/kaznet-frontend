@@ -59,7 +59,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      fetchLocationType: locationTypeActions.getLocationType,
+      fetchLocationType: locationTypeActions.fetchLocationType,
       noTitle: globalActions.toggleTitleOff
     },
     dispatch
