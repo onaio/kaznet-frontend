@@ -29,6 +29,7 @@ export class TasksDetail extends Component {
     const xformURL = `${constants.ONA_WEBSITE}/${constants.ONA_USERNAME}/${
       this.task.attributes.xform_project_id
     }/${this.task.attributes.xform_ona_id}`;
+    const xformTableURL = `${xformURL}#/table`;
     return (
       <div className="TasksList">
         <TaskDetailTitle task={this.task} />
@@ -39,7 +40,7 @@ export class TasksDetail extends Component {
           rejected={this.task.attributes.rejected_submissions_count}
           totalSubmissions={this.task.attributes.submission_count}
           task={this.task}
-          formURL={xformURL}
+          formURL={xformTableURL}
         />
         <DetailView
           renderMainDetails={this.renderMainDetails(xformURL)}
