@@ -40,7 +40,7 @@ export class ClientsList extends Component {
       if (Number(page) !== this.props.currentPage && !isNaN(page)) {
         const pageNumber = Number(page);
         this.props.fetchClients(
-          `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
+          `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
         );
         this.props.changePageNumber(pageNumber);
       }
