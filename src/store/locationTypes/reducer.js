@@ -15,6 +15,36 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         locationTypesById: action.locationTypesById
       });
+    case types.LOCATIONTYPE_CREATED:
+      return Immutable({
+        ...state,
+        locationTypesById: {
+          ...state.locationTypesById,
+          [action.locationTypeData.id]: action.locationTypeData
+        }
+      });
+    case types.LOCATIONTYPE_FETCHED:
+      return Immutable({
+        ...state,
+        locationTypesById: {
+          ...state.locationTypesById,
+          [action.locationTypeData.id]: action.locationTypeData
+        }
+      });
+    case types.LOCATIONTYPE_EDITED:
+      return Immutable({
+        ...state,
+        locationTypesById: {
+          ...state.locationTypesById,
+          [action.locationTypeData.id]: action.locationTypeData
+        }
+      });
+    case types.LOCATIONTYPE_DELETED:
+      const newlocationTypesById = _.omit(
+        state.locationTypesById,
+        action.locationTypeId
+      );
+      return state.set("locationTypesById", newlocationTypesById);
     default:
       return state;
   }

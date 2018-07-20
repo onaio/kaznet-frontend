@@ -64,3 +64,13 @@ export const singleLocationType = {
 export const singleLocationTypeData = {
   data: singleLocationType
 };
+export const singleLocationTypeArray = _.map(
+  singleLocationTypeData,
+  locationType => {
+    return locationType;
+  }
+);
+export const singleLocationTypeById = _.keyBy(
+  singleLocationTypeArray,
+  locationType => locationType.id
+);
