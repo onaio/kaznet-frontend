@@ -1,5 +1,4 @@
 import _ from "lodash";
-import { tasksArray } from "../../tasks/tests/fixtures";
 
 export const singleClient = {
   type: "Client",
