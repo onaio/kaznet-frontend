@@ -3,9 +3,9 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { ClientEditForm } from "../ClientEditForm";
-import * as fixtures from "../../../store/clients/tests/fixtures";
 import FormView from "../../../components/FormView";
 import ClientForm from "../ClientForm";
+import * as fixtures from "../../../store/clients/tests/fixtures";
 
 describe("containers/client/ClientEditForm", () => {
   it("renders without crashing", () => {
@@ -32,8 +32,17 @@ describe("containers/client/ClientEditForm", () => {
         }}
         noTitle={function() {}}
         fetchClient={function() {}}
-        clientById={fixtures.clientById}
+        clientById={fixtures.singleClient}
       />
     ).dive();
+
+    const expected = {
+      name: "Sol"
+    };
+
+    expect(wrapper.find(FormView)).toHaveLength(0);
+    expect(wrapper.find(ClientForm)).toHaveLength(1);
+    const data = wrapper.find(ClientForm).props().initialData;
+    expect(data).toEqual(expected);
   });
 });
