@@ -1,6 +1,7 @@
 // Users reducer
 import _ from "lodash";
 import Immutable from "seamless-immutable";
+import queryString from "query-string";
 
 import * as types from "./actionTypes";
 
@@ -43,4 +44,34 @@ export function getUsersById(state) {
 
 export function getUsersIdArray(state) {
   return _.keys(state.users.usersById);
+}
+
+export function getPageLinks(state, props) {
+  return state.users.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.users.currentPage;
+}
+
+export function getTotalPages(state, porseps) {
+  return state.users.totalPages;
+}
+
+export function getFirstPage(state, props) {
+  const url = state.users.pageLinks.first;
+  return Number(Object.values(queryString.parse(url))[0]);
+}
+
+export function getNextPage(state, props) {
+  return state.users.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.users.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  const url = state.users.pageLinks.last;
+  return Number(Object.values(queryString.parse(url))[0]);
 }
