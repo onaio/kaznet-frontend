@@ -19,6 +19,7 @@ describe("containers/task/TasksList", () => {
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
         showListTitle={function() {}}
+        location={history.location}
       />
     );
   });
@@ -40,6 +41,7 @@ describe("containers/task/TasksList", () => {
           currentPage={fixtures.currentPage}
           firstPage={fixtures.firstPage}
           lastPage={fixtures.lastPage}
+          location={history.location}
         />
       </Router>
     );
