@@ -31,7 +31,7 @@ describe("services/clients", () => {
     expect(response).toEqual(expectedResponse);
   });
 
-  it("should fetch tasks when passed a url", async () => {
+  it("should fetch clients when passed a url", async () => {
     const data = fixtures.clientDataSecondPage;
     const nextUrl = fixtures.clientData.links.next;
     fetch.mockResponseOnce(JSON.stringify(data));

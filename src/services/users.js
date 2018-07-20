@@ -3,8 +3,7 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class UserService {
-  async getUserList() {
-    const url = `${constants.API_ENDPOINT}/userprofiles/?format=vnd.api%2Bjson`;
+  async getUserList(url = `${constants.API_ENDPOINT}/userprofiles/`) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -17,14 +16,26 @@ class UserService {
         `UserService getUserList failed, HTTP status ${response.status}`
       );
     }
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
+
     if (!data) {
       throw new Error(`UserService getUserList failed, data not returned`);
     }
-    return _.map(data, user => {
-      return user;
-    });
+    const userArray = _.map(data, user => user);
+
+    return {
+      userArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 }
 
