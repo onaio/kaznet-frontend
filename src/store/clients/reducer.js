@@ -1,5 +1,6 @@
 import _ from "lodash";
 import Immutable from "seamless-immutable";
+import queryString from "query-string";
 
 import * as types from "./actionTypes";
 
@@ -68,4 +69,34 @@ export function getClientsIdArray(state) {
 
 export function getClientById(state, id) {
   return _.get(state.clients.clientsById, id);
+}
+
+export function getPageLinks(state, props) {
+  return state.clients.pageLinks;
+}
+
+export function getCurrentPage(state, porseps) {
+  return state.clients.currentPage;
+}
+
+export function getTotalPages(state, porseps) {
+  return state.clients.totalPages;
+}
+
+export function getFirstPage(state, props) {
+  const url = state.clients.pageLinks.first;
+  return Number(Object.values(queryString.parse(url))[0]);
+}
+
+export function getNextPage(state, props) {
+  return state.clients.pageLinks.next;
+}
+
+export function getPreviousPage(state, props) {
+  return state.clients.pageLinks.prev;
+}
+
+export function getLastPage(state, props) {
+  const url = state.clients.pageLinks.last;
+  return Number(Object.values(queryString.parse(url))[0]);
 }
