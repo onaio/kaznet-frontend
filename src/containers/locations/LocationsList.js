@@ -4,21 +4,48 @@ import voca from "voca";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
+import queryString from "query-string";
 
 import * as locationActions from "../../store/locations/actions";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as globalActions from "../../store/global/actions";
+import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class LocationsList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     this.props.showListTitle();
-    this.props.fetchLocations();
     this.props.changePageTitle("Locations");
     this.props.changePageTitleButton("+ Create Location");
     this.props.changePageTarget("/locations/new");
+
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      const pageNumber = Number(page);
+      if (!isNaN(pageNumber)) {
+        await this.props.fetchLocations(
+          `${constants.API_ENDPOINT}/locations/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
+      }
+    } else {
+      this.props.fetchLocations();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+        const pageNumber = Number(page);
+        this.props.fetchLocations(
+          `${constants.API_ENDPOINT}/locations/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
+      }
+    }
   }
 
   render() {
@@ -30,6 +57,12 @@ export class LocationsList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          endpoint={"locations"}
+          pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
+          currentPage={this.props.currentPage}
+          firstPage={this.props.firstPage}
+          lastPage={this.props.lastPage}
         />
       </div>
     );
@@ -60,7 +93,12 @@ export class LocationsList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: locationSelectors.getLocationsById(state),
-    rowsIdArray: locationSelectors.getLocationsIdArray(state)
+    rowsIdArray: locationSelectors.getLocationsIdArray(state),
+    totalPages: locationSelectors.getTotalPages(state),
+    currentPage: locationSelectors.getCurrentPage(state),
+    pageLinks: locationSelectors.getPageLinks(state),
+    firstPage: locationSelectors.getFirstPage(state),
+    lastPage: locationSelectors.getLastPage(state)
   };
 }
 
@@ -68,6 +106,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchLocations: locationActions.fetchLocations,
+      changePageNumber: locationActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       showListTitle: globalActions.toggleDetailTitleOff,
