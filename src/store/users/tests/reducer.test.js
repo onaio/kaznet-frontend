@@ -49,4 +49,20 @@ describe("store/users/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
+
+  it("should change page", () => {
+    const pageNumber = 2;
+    const action = {
+      type: actionTypes.USER_CHANGE_PAGE,
+      pageNumber
+    };
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    newState.currentPage = pageNumber;
+
+    Reducer(users)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });

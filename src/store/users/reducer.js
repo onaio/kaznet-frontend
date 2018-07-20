@@ -26,6 +26,10 @@ export default function reduce(state = initialState, action = {}) {
         currentPage: action.currentPage,
         totalPages: action.totalPages
       });
+    case types.USER_CHANGE_PAGE:
+      return state.merge({
+        currentPage: action.pageNumber
+      });
     default:
       return state;
   }

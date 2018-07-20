@@ -106,11 +106,20 @@ export const usersById = _.keyBy(usersArray, user => user.id);
 
 export const usersIdArray = _.keys(usersById);
 
-export const usersArraySecondPage = _.map(userDataSecondPage.data, user => {
-  return user;
-});
 export const currentPage = userData.meta.pagination.page;
 export const totalPages = userData.meta.pagination.pages;
 export const pageLinks = userData.links;
 export const firstPage = 1;
 export const lastPage = 2;
+
+export const usersArraySecondPage = _.map(userDataSecondPage.data, user => {
+  return user;
+});
+
+export const usersByIdSecondPage = _.keyBy(
+  usersArraySecondPage,
+  user => user.id
+);
+export const currentPageSecondPage = userDataSecondPage.meta.pagination.page;
+export const totalPagesSecondPage = userDataSecondPage.meta.pagination.pages;
+export const pageLinksSecondPage = userDataSecondPage.links;
