@@ -472,7 +472,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       </TaskDetailTitle>
       <StatisticsSection
         accepted={0}
-        formURL="https://ona.io/kaznettest/undefined/undefined"
+        formURL="https://ona.io/kaznettest/undefined/undefined#/table"
         rejected={0}
         review={0}
         reward="0 KES"
@@ -642,7 +642,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   >
                     <a
                       className="btn btn-primary text-white"
-                      href="https://ona.io/kaznettest/undefined/undefined"
+                      href="https://ona.io/kaznettest/undefined/undefined#/table"
                       target="_blank"
                     >
                       <FontAwesomeIcon
