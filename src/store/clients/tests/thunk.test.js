@@ -15,13 +15,52 @@ describe("store/clients/actions", () => {
   });
 
   it("should fetch clients from server", async () => {
-    ClientService.getClientList.mockReturnValueOnce(fixtures.clientsArray);
+    ClientService.getClientList.mockReturnValueOnce({
+      clientArray: fixtures.clientsArray,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
+    });
     const dispatches = await Thunk(clients.fetchClients).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.CLIENTS_FETCHED,
-      clientsById: fixtures.clientsById
+      clientsById: fixtures.clientsById,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
+    });
+  });
+
+  it("should fetch tasks from server given a url", async () => {
+    ClientService.getClientList.mockReturnValueOnce({
+      clientArray: fixtures.clientsArraySecondPage,
+      pageLinks: fixtures.pageLinksSecondPage,
+      currentPage: fixtures.currentPageSecondPage,
+      totalPages: fixtures.totalPagesSecondPage
+    });
+    const dispatches = await Thunk(clients.fetchClients).execute(
+      fixtures.pageLinks.first
+    );
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.CLIENTS_FETCHED,
+      clientsById: fixtures.clientsByIdSecondPage,
+      pageLinks: fixtures.pageLinksSecondPage,
+      currentPage: fixtures.currentPageSecondPage,
+      totalPages: fixtures.totalPagesSecondPage
+    });
+  });
+
+  it("should change the current page", async () => {
+    const dispatches = await Thunk(clients.changePageNumber).execute(2);
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.CLIENT_CHANGE_PAGE,
+      pageNumber: 2
     });
   });
 

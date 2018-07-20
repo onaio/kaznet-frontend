@@ -27,7 +27,19 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="tasks"
     fetchClients={[Function]}
+    firstPage={1}
+    lastPage={2}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/clients/?page=1",
+        "last": "http://localhost:8000/api/v1/clients/?page=2",
+        "next": "http://localhost:8000/api/v1/clients/?page=2",
+        "prev": null,
+      }
+    }
     rowsById={
       Object {
         "1": Object {
@@ -46,11 +58,24 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
       ]
     }
     showListTitle={[Function]}
+    totalPages={2}
   >
     <div
       className="ClientsList"
     >
       <ListView
+        currentPage={1}
+        endpoint="clients"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://localhost:8000/api/v1/clients/?page=1",
+            "last": "http://localhost:8000/api/v1/clients/?page=2",
+            "next": "http://localhost:8000/api/v1/clients/?page=2",
+            "prev": null,
+          }
+        }
         renderHeaders={[Function]}
         renderRow={[Function]}
         rowsById={
@@ -70,6 +95,7 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
             "1",
           ]
         }
+        totalPages={2}
       >
         <div>
           <Table
@@ -186,6 +212,117 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
               </tbody>
             </table>
           </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="First"
+                      className="page-link"
+                      replace={false}
+                      to="/clients/?page=1"
+                    >
+                      <a
+                        aria-label="First"
+                        className="page-link"
+                        href="/clients/?page=1"
+                        onClick={[Function]}
+                      >
+                        First
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="/clients/?page=2"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/clients/?page=2"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/clients/?page=2"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/clients/?page=2"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
         </div>
       </ListView>
     </div>

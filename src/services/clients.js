@@ -2,8 +2,7 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class ClientService {
-  async getClientList() {
-    const url = `${constants.API_ENDPOINT}/clients/?format=vnd.api%2Bjson`;
+  async getClientList(url = `${constants.API_ENDPOINT}/clients/`) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -18,15 +17,25 @@ class ClientService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
 
     if (!data) {
       throw new Error(`ClientService getClientList failed, data not returned`);
     }
-    return _.map(data, client => {
-      return client;
-    });
+    const clientArray = _.map(data, client => client);
+
+    return {
+      clientArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 
   async createClient(client_data) {
