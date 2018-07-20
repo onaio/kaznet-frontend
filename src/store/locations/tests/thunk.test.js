@@ -14,15 +14,52 @@ describe("store/locations/actions", () => {
   });
 
   it("should fetch locations from server", async () => {
-    LocationService.getLocationList.mockReturnValueOnce(
-      fixtures.locationsArray
-    );
+    LocationService.getLocationList.mockReturnValueOnce({
+      locationArray: fixtures.locationsArray,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
+    });
     const dispatches = await Thunk(locations.fetchLocations).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.LOCATIONS_FETCHED,
-      locationsById: fixtures.locationsById
+      locationsById: fixtures.locationsById,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
+    });
+  });
+
+  it("should fetch locations given a url", async () => {
+    LocationService.getLocationList.mockReturnValueOnce({
+      locationArray: fixtures.locationsArraySecondPage,
+      pageLinks: fixtures.pageLinksSecondPage,
+      currentPage: fixtures.currentPageSecondPage,
+      totalPages: fixtures.totalPagesSecondPage
+    });
+    const dispatches = await Thunk(locations.fetchLocations).execute(
+      fixtures.pageLinks.next
+    );
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.LOCATIONS_FETCHED,
+      locationsById: fixtures.locationsByIdSecondPage,
+      pageLinks: fixtures.pageLinksSecondPage,
+      currentPage: fixtures.currentPageSecondPage,
+      totalPages: fixtures.totalPagesSecondPage
+    });
+  });
+
+  it("should change the current page", async () => {
+    const dispatches = await Thunk(locations.changePageNumber).execute(2);
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.LOCATION_CHANGE_PAGE,
+      pageNumber: 2
     });
   });
 

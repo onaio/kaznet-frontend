@@ -5,15 +5,23 @@ import * as types from "./actionTypes";
 
 import locationService from "../../services/locations";
 
-export function fetchLocations() {
+export function fetchLocations(url) {
   return async (dispatch, getState) => {
     try {
-      const locationArray = await locationService.getLocationList();
+      const {
+        locationArray,
+        pageLinks,
+        currentPage,
+        totalPages
+      } = await locationService.getLocationList(url);
       const locationsById = _.keyBy(locationArray, location => location.id);
 
       dispatch({
         type: types.LOCATIONS_FETCHED,
-        locationsById
+        locationsById,
+        pageLinks,
+        currentPage,
+        totalPages
       });
     } catch (error) {
       dispatch({
@@ -21,6 +29,12 @@ export function fetchLocations() {
         errorMessage: error
       });
     }
+  };
+}
+
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.LOCATION_CHANGE_PAGE, pageNumber });
   };
 }
 
