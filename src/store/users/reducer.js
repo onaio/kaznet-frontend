@@ -1,12 +1,20 @@
 // Users reducer
-import _ from 'lodash';
-import Immutable from 'seamless-immutable';
+import _ from "lodash";
+import Immutable from "seamless-immutable";
 
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = Immutable({
-  "usersById": {},
-  "usersIdArray": []
+  usersById: {},
+  usersIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 });
 
 export default function reduce(state = initialState, action = {}) {
