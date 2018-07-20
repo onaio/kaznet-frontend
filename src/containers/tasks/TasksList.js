@@ -47,6 +47,7 @@ export class TasksList extends Component {
       }
     }
   }
+
   render() {
     if (!this.props.rowsById) return this.renderLoading();
     return (
