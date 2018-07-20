@@ -57,19 +57,30 @@ export const singleClientData = {
   data: singleClient
 };
 
-export const clientsArray = _.map(clientData.data, client => {
-  return client;
-});
+export const clientsArray = _.map(clientData.data, client => client);
 
 export const clientsArraySecondPage = _.map(
   clientDataSecondPage.data,
-  client => {
-    return client;
-  }
+  client => client
 );
 
+export const currentPage = clientData.meta.pagination.page;
+export const totalPages = clientData.meta.pagination.pages;
+export const pageLinks = clientData.links;
+export const firstPage = 1;
+export const lastPage = 2;
+
 export const clientsById = _.keyBy(clientsArray, client => client.id);
-
 export const clientsIdArray = _.keys(clientsById);
-
 export const clientById = _.get(clientsById, 1);
+
+export const currentPageSecondPage = clientDataSecondPage.meta.pagination.page;
+export const totalPagesSecondPage = clientDataSecondPage.meta.pagination.pages;
+export const pageLinksSecondPage = clientDataSecondPage.links;
+
+export const clientsByIdSecondPage = _.keyBy(
+  clientsArraySecondPage,
+  client => client.id
+);
+export const clientsIdArraySecondPage = _.keys(clientsByIdSecondPage);
+export const clientByIdSecondPage = _.get(clientsByIdSecondPage, 1);

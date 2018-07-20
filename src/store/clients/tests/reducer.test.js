@@ -8,7 +8,15 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   clientsById: {},
-  clientsIdArray: []
+  clientsIdArray: [],
+  currentPage: null,
+  totalPages: null,
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 };
 
 describe("store/clients/reducer", () => {
@@ -18,11 +26,23 @@ describe("store/clients/reducer", () => {
 
   it("should store fetched clients", () => {
     const clientsById = fixtures.clientsById;
-    const action = { type: actionTypes.CLIENTS_FETCHED, clientsById };
+    const pageLinks = fixtures.pageLinks;
+    const currentPage = fixtures.currentPage;
+    const totalPages = fixtures.totalPages;
+    const action = {
+      type: actionTypes.CLIENTS_FETCHED,
+      clientsById,
+      pageLinks,
+      currentPage,
+      totalPages
+    };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(existingState);
     newState.clientsById = clientsById;
+    newState.pageLinks = pageLinks;
+    newState.currentPage = currentPage;
+    newState.totalPages = totalPages;
 
     Reducer(clients)
       .withState(existingState)

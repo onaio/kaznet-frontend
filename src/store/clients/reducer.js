@@ -20,7 +20,14 @@ export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.CLIENTS_FETCHED:
       return state.merge({
-        clientsById: action.clientsById
+        clientsById: action.clientsById,
+        pageLinks: action.pageLinks,
+        currentPage: action.currentPage,
+        totalPages: action.totalPages
+      });
+    case types.CLIENT_CHANGE_PAGE:
+      return state.merge({
+        currentPage: action.pageNumber
       });
     case types.CLIENT_CREATED:
       return Immutable({
