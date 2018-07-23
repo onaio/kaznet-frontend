@@ -54,7 +54,7 @@ export class UsersList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
-          endpoint={"userprofiles"}
+          endpoint={"users"}
           pageLinks={this.props.pageLinks}
           totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
