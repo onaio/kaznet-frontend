@@ -12,7 +12,45 @@ describe("services/users", () => {
     const data = fixtures.userData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await UserService.getUserList();
-    expect(response).toEqual(fixtures.usersArray);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      userArray: fixtures.usersArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
+  });
+
+  it("should fetch users when passed a url", async () => {
+    const data = fixtures.userDataSecondPage;
+    const nextUrl = fixtures.userData.links.next;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await UserService.getUserList(nextUrl);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      userArray: fixtures.usersArraySecondPage,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should handle default users http errors", async () => {

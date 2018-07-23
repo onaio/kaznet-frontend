@@ -2,20 +2,47 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
+import queryString from "query-string";
 
 import * as userActions from "../../store/users/actions";
 import * as globalActions from "../../store/global/actions";
 import * as userSelectors from "../../store/users/reducer";
+import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class UsersList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     this.props.showListTitle();
-    this.props.fetchUsers();
     this.props.changePageTitle("Users");
     this.props.changePageTitleButton("+ Create User");
+
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      const pageNumber = Number(page);
+      if (!isNaN(pageNumber)) {
+        await this.props.fetchUsers(
+          `${constants.API_ENDPOINT}/userprofiles/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
+      }
+    } else {
+      this.props.fetchUsers();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+        const pageNumber = Number(page);
+        this.props.fetchUsers(
+          `${constants.API_ENDPOINT}/userprofiles/?page=${pageNumber}`
+        );
+        this.props.changePageNumber(pageNumber);
+      }
+    }
   }
 
   render() {
@@ -27,6 +54,12 @@ export class UsersList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          endpoint={"users"}
+          pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
+          currentPage={this.props.currentPage}
+          firstPage={this.props.firstPage}
+          lastPage={this.props.lastPage}
         />
       </div>
     );
@@ -70,7 +103,12 @@ export class UsersList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: userSelectors.getUsersById(state),
-    rowsIdArray: userSelectors.getUsersIdArray(state)
+    rowsIdArray: userSelectors.getUsersIdArray(state),
+    totalPages: userSelectors.getTotalPages(state),
+    currentPage: userSelectors.getCurrentPage(state),
+    pageLinks: userSelectors.getPageLinks(state),
+    firstPage: userSelectors.getFirstPage(state),
+    lastPage: userSelectors.getLastPage(state)
   };
 }
 
@@ -78,6 +116,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchUsers: userActions.fetchUsers,
+      changePageNumber: userActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       showListTitle: globalActions.toggleDetailTitleOff

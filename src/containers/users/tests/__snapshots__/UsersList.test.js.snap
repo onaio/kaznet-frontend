@@ -1,177 +1,278 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`containers/users/UsersList renders user list correctly 1`] = `
-<UsersList
-  changePageTitle={[Function]}
-  changePageTitleButton={[Function]}
-  fetchUsers={[Function]}
-  rowsById={
+<Router
+  history={
     Object {
-      "1": Object {
-        "attributes": Object {
-          "amount_earned": "0 KES",
-          "approval_rate": 0,
-          "approved_submissions": 0,
-          "avg_amount_earned": 0,
-          "avg_approval_rate": 0,
-          "avg_approved_submissions": 0,
-          "avg_rejected_submissions": 0,
-          "avg_submissions": 0,
-          "created": "2018-06-19T16:03:10.184043+03:00",
-          "email": "sol@admin.me",
-          "expertise": "1",
-          "first_name": "Davis",
-          "gender": "1",
-          "last_login": "2018-06-19T16:03:22+03:00",
-          "last_name": "Raymond",
-          "modified": "2018-06-20T08:45:12.976916+03:00",
-          "national_id": null,
-          "ona_pk": null,
-          "ona_username": "davisraym",
-          "payment_number": "",
-          "phone_number": "",
-          "rejected_submissions": 0,
-          "role": "1",
-          "role_display": "Admin",
-          "submission_count": 0,
-        },
-        "id": "1",
-        "type": "UserProfile",
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
       },
+      "push": [Function],
+      "replace": [Function],
     }
   }
-  rowsIdArray={
-    Array [
-      "1",
-    ]
-  }
-  showListTitle={[Function]}
 >
-  <div
-    className="UsersList"
-  >
-    <ListView
-      renderHeaders={[Function]}
-      renderRow={[Function]}
-      rowsById={
-        Object {
-          "1": Object {
-            "attributes": Object {
-              "amount_earned": "0 KES",
-              "approval_rate": 0,
-              "approved_submissions": 0,
-              "avg_amount_earned": 0,
-              "avg_approval_rate": 0,
-              "avg_approved_submissions": 0,
-              "avg_rejected_submissions": 0,
-              "avg_submissions": 0,
-              "created": "2018-06-19T16:03:10.184043+03:00",
-              "email": "sol@admin.me",
-              "expertise": "1",
-              "first_name": "Davis",
-              "gender": "1",
-              "last_login": "2018-06-19T16:03:22+03:00",
-              "last_name": "Raymond",
-              "modified": "2018-06-20T08:45:12.976916+03:00",
-              "national_id": null,
-              "ona_pk": null,
-              "ona_username": "davisraym",
-              "payment_number": "",
-              "phone_number": "",
-              "rejected_submissions": 0,
-              "role": "1",
-              "role_display": "Admin",
-              "submission_count": 0,
-            },
-            "id": "1",
-            "type": "UserProfile",
+  <UsersList
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="userprofiles"
+    fetchUsers={[Function]}
+    firstPage={1}
+    lastPage={2}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/userprofiles/?page=1",
+        "last": "http://localhost:8000/api/v1/userprofiles/?page=1",
+        "next": "http://localhost:8000/api/v1/userprofiles/?page=2",
+        "prev": null,
+      }
+    }
+    rowsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "amount_earned": "0 KES",
+            "approval_rate": 0,
+            "approved_submissions": 0,
+            "avg_amount_earned": 0,
+            "avg_approval_rate": 0,
+            "avg_approved_submissions": 0,
+            "avg_rejected_submissions": 0,
+            "avg_submissions": 0,
+            "created": "2018-06-19T16:03:10.184043+03:00",
+            "email": "sol@admin.me",
+            "expertise": "1",
+            "first_name": "Davis",
+            "gender": "1",
+            "last_login": "2018-06-19T16:03:22+03:00",
+            "last_name": "Raymond",
+            "modified": "2018-06-20T08:45:12.976916+03:00",
+            "national_id": null,
+            "ona_pk": null,
+            "ona_username": "davisraym",
+            "payment_number": "",
+            "phone_number": "",
+            "rejected_submissions": 0,
+            "role": "1",
+            "role_display": "Admin",
+            "submission_count": 0,
           },
-        }
+          "id": "1",
+          "type": "UserProfile",
+        },
       }
-      rowsIdArray={
-        Array [
-          "1",
-        ]
-      }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+      ]
+    }
+    showListTitle={[Function]}
+    totalPages={2}
+  >
+    <div
+      className="UsersList"
     >
-      <div>
-        <Table
-          bordered={true}
-          className="kaznet-table"
-          responsiveTag="div"
-          tag="table"
-        >
-          <table
-            className="kaznet-table table table-bordered"
+      <ListView
+        currentPage={1}
+        endpoint="users"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://localhost:8000/api/v1/userprofiles/?page=1",
+            "last": "http://localhost:8000/api/v1/userprofiles/?page=1",
+            "next": "http://localhost:8000/api/v1/userprofiles/?page=2",
+            "prev": null,
+          }
+        }
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "1": Object {
+              "attributes": Object {
+                "amount_earned": "0 KES",
+                "approval_rate": 0,
+                "approved_submissions": 0,
+                "avg_amount_earned": 0,
+                "avg_approval_rate": 0,
+                "avg_approved_submissions": 0,
+                "avg_rejected_submissions": 0,
+                "avg_submissions": 0,
+                "created": "2018-06-19T16:03:10.184043+03:00",
+                "email": "sol@admin.me",
+                "expertise": "1",
+                "first_name": "Davis",
+                "gender": "1",
+                "last_login": "2018-06-19T16:03:22+03:00",
+                "last_name": "Raymond",
+                "modified": "2018-06-20T08:45:12.976916+03:00",
+                "national_id": null,
+                "ona_pk": null,
+                "ona_username": "davisraym",
+                "payment_number": "",
+                "phone_number": "",
+                "rejected_submissions": 0,
+                "role": "1",
+                "role_display": "Admin",
+                "submission_count": 0,
+              },
+              "id": "1",
+              "type": "UserProfile",
+            },
+          }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+          ]
+        }
+        totalPages={2}
+      >
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
           >
-            <thead>
-              <tr>
-                <ElementMap
-                  HTMLTag="th"
-                  items={
-                    Array [
-                      "Role",
-                      "Username",
-                      "Last Name",
-                      "First Name",
-                      "Submissions",
-                      "Approved %",
-                      "Last Active Date",
-                    ]
-                  }
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Role",
+                        "Username",
+                        "Last Name",
+                        "First Name",
+                        "Submissions",
+                        "Approved %",
+                        "Last Active Date",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Role
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Username
+                    </th>
+                    <th
+                      key="2"
+                    >
+                      Last Name
+                    </th>
+                    <th
+                      key="3"
+                    >
+                      First Name
+                    </th>
+                    <th
+                      key="4"
+                    >
+                      Submissions
+                    </th>
+                    <th
+                      key="5"
+                    >
+                      Approved %
+                    </th>
+                    <th
+                      key="6"
+                    >
+                      Last Active Date
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="1"
                 >
-                  <th
-                    key="0"
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Admin",
+                        "davisraym",
+                        "Raymond",
+                        "Davis",
+                        0,
+                        "0%",
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-19T16:03:22+03:00
+                      </t>,
+                      ]
+                    }
                   >
-                    Role
-                  </th>
-                  <th
-                    key="1"
-                  >
-                    Username
-                  </th>
-                  <th
-                    key="2"
-                  >
-                    Last Name
-                  </th>
-                  <th
-                    key="3"
-                  >
-                    First Name
-                  </th>
-                  <th
-                    key="4"
-                  >
-                    Submissions
-                  </th>
-                  <th
-                    key="5"
-                  >
-                    Approved %
-                  </th>
-                  <th
-                    key="6"
-                  >
-                    Last Active Date
-                  </th>
-                </ElementMap>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                key="1"
-              >
-                <ElementMap
-                  HTMLTag="td"
-                  items={
-                    Array [
-                      "Admin",
-                      "davisraym",
-                      "Raymond",
-                      "Davis",
-                      0,
-                      "0%",
+                    <td
+                      key="0"
+                    >
+                      Admin
+                    </td>
+                    <td
+                      key="1"
+                    >
+                      davisraym
+                    </td>
+                    <td
+                      key="2"
+                    >
+                      Raymond
+                    </td>
+                    <td
+                      key="3"
+                    >
+                      Davis
+                    </td>
+                    <td
+                      key="4"
+                    >
+                      0
+                    </td>
+                    <td
+                      key="5"
+                    >
+                      0%
+                    </td>
+                    <td
+                      key="6"
+                    >
                       <t
                         ago={false}
                         calendar={false}
@@ -181,80 +282,139 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
+                        key="1"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
                         unix={false}
                         utc={false}
-                    >
-                        2018-06-19T16:03:22+03:00
-                    </t>,
-                    ]
-                  }
-                >
-                  <td
-                    key="0"
-                  >
-                    Admin
-                  </td>
-                  <td
-                    key="1"
-                  >
-                    davisraym
-                  </td>
-                  <td
-                    key="2"
-                  >
-                    Raymond
-                  </td>
-                  <td
-                    key="3"
-                  >
-                    Davis
-                  </td>
-                  <td
-                    key="4"
-                  >
-                    0
-                  </td>
-                  <td
-                    key="5"
-                  >
-                    0%
-                  </td>
-                  <td
-                    key="6"
-                  >
-                    <t
-                      ago={false}
-                      calendar={false}
-                      decimal={false}
-                      element="time"
-                      filter={[Function]}
-                      format="DD-MM-YYYY"
-                      fromNow={false}
-                      interval={60000}
-                      key="1"
-                      onChange={[Function]}
-                      toNow={false}
-                      unit={null}
-                      unix={false}
-                      utc={false}
-                    >
-                      <time
-                        dateTime={"2018-06-19T13:03:22.000Z"}
                       >
-                        19-06-2018
-                      </time>
-                    </t>
-                  </td>
-                </ElementMap>
-              </tr>
-            </tbody>
-          </table>
-        </Table>
-      </div>
-    </ListView>
-  </div>
-</UsersList>
+                        <time
+                          dateTime={"2018-06-19T13:03:22.000Z"}
+                        >
+                          19-06-2018
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="First"
+                      className="page-link"
+                      replace={false}
+                      to="/users/?page=1"
+                    >
+                      <a
+                        aria-label="First"
+                        className="page-link"
+                        href="/users/?page=1"
+                        onClick={[Function]}
+                      >
+                        First
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="/users/?page=2"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/users/?page=2"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/users/?page=2"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/users/?page=2"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
+        </div>
+      </ListView>
+    </div>
+  </UsersList>
+</Router>
 `;

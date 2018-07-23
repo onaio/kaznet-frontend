@@ -93,6 +93,7 @@ class App extends Component {
                           component={TasksDetail}
                         />
                         <Route exact path="/users" component={UsersList} />
+                        <Route exact path="/users:page" component={UsersList} />
                         <Route
                           exact
                           path="/locations"
