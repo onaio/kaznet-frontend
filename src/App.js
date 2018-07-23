@@ -32,6 +32,11 @@ import LocationsList from "./containers/locations/LocationsList";
 import LocationCreateForm from "./containers/locations/LocationCreateForm";
 import LocationEditForm from "./containers/locations/LocationEditForm";
 
+import LocationTypesList from "./containers/locationTypes/LocationTypesList";
+import LocationTypeCreateForm from "./containers/locationTypes/LocationTypeCreateForm";
+import LocationTypeEditForm from "./containers/locationTypes/LocationTypeEditForm";
+import LocationTypeDeletion from "./containers/locationTypes/LocationTypeDeletion";
+
 import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
@@ -128,6 +133,26 @@ class App extends Component {
                           exact
                           path="/tasks/:id/clone"
                           component={TaskClone}
+                        />
+                        <Route
+                          exact
+                          path="/locationTypes"
+                          component={LocationTypesList}
+                        />
+                        <Route
+                          exact
+                          path="/locationTypes/new"
+                          component={LocationTypeCreateForm}
+                        />
+                        <Route
+                          exact
+                          path="/locationTypes/edit/:id"
+                          component={LocationTypeEditForm}
+                        />
+                        <Route
+                          exact
+                          path="/locationTypes/:id/delete"
+                          component={LocationTypeDeletion}
                         />
                         <Route exact path="/" component={TasksList} />
                         <Route component={NoMatch} />

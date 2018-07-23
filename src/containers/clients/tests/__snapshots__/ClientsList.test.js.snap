@@ -28,10 +28,18 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
     currentPage={1}
-    endpoint="tasks"
+    endpoint="clients"
     fetchClients={[Function]}
     firstPage={1}
     lastPage={2}
+    location={
+      Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      }
+    }
     pageLinks={
       Object {
         "first": "http://localhost:8000/api/v1/clients/?page=1",

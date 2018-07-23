@@ -32,6 +32,14 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
     fetchTasks={[Function]}
     firstPage={1}
     lastPage={2}
+    location={
+      Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      }
+    }
     pageLinks={
       Object {
         "first": "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",

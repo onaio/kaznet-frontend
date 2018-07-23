@@ -50,3 +50,27 @@ export const locationTypesById = _.keyBy(
 export const locationTypesIdArray = _.keys(locationTypesById);
 
 export const locationTypeIdOneById = _.get(locationTypesById, 1);
+
+export const singleLocationType = {
+  type: "LocationType",
+  id: "999",
+  attributes: {
+    created: "2018-07-13T17:34:14.408576+03:00",
+    name: "Office",
+    modified: "2018-07-13T17:34:14.408599+03:00"
+  }
+};
+
+export const singleLocationTypeData = {
+  data: singleLocationType
+};
+export const singleLocationTypeArray = _.map(
+  singleLocationTypeData,
+  locationType => {
+    return locationType;
+  }
+);
+export const singleLocationTypeById = _.keyBy(
+  singleLocationTypeArray,
+  locationType => locationType.id
+);

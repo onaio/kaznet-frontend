@@ -40,8 +40,8 @@ export default function reduce(state = initialState, action = {}) {
         }
       });
     case types.LOCATION_DELETED:
-      const newTasksById = _.omit(state.locationsById, action.locationId);
-      return state.set("locationsById", newTasksById);
+      const newLocationsById = _.omit(state.locationsById, action.locationId);
+      return state.set("locationsById", newLocationsById);
     default:
       return state;
   }
