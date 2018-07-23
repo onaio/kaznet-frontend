@@ -1,123 +1,283 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`containers/locations/LocationList renders location list correctly 1`] = `
-<LocationsList
-  changePageTarget={[Function]}
-  changePageTitle={[Function]}
-  changePageTitleButton={[Function]}
-  fetchLocations={[Function]}
-  rowsById={
+<Router
+  history={
     Object {
-      "attributes": Object {
-        "country": "CK",
-        "created": "2018-07-09T14:53:09.732230+03:00",
-        "description": "Something",
-        "geopoint": null,
-        "location_type_name": null,
-        "modified": "2018-07-09T14:53:09.732261+03:00",
-        "name": "Sol Point",
-        "parent_name": null,
-        "radius": null,
-        "shapefile": null,
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
       },
-      "id": "7",
-      "relationships": Object {
-        "location_type": Object {
-          "data": null,
-        },
-        "parent": Object {
-          "data": null,
-        },
-      },
-      "type": "Location",
+      "push": [Function],
+      "replace": [Function],
     }
   }
-  showListTitle={[Function]}
 >
-  <div
-    className="LocationList"
-  >
-    <ListView
-      renderHeaders={[Function]}
-      renderRow={[Function]}
-      rowsById={
-        Object {
-          "attributes": Object {
-            "country": "CK",
-            "created": "2018-07-09T14:53:09.732230+03:00",
-            "description": "Something",
-            "geopoint": null,
-            "location_type_name": null,
-            "modified": "2018-07-09T14:53:09.732261+03:00",
-            "name": "Sol Point",
-            "parent_name": null,
-            "radius": null,
-            "shapefile": null,
-          },
-          "id": "7",
-          "relationships": Object {
-            "location_type": Object {
-              "data": null,
-            },
-            "parent": Object {
-              "data": null,
-            },
-          },
-          "type": "Location",
-        }
+  <LocationsList
+    changePageTarget={[Function]}
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="locations"
+    fetchLocations={[Function]}
+    firstPage={1}
+    lastPage={2}
+    pageLinks={
+      Object {
+        "first": "http://localhost:8000/api/v1/locations/?page=1",
+        "last": "http://localhost:8000/api/v1/locations/?page=1",
+        "next": "http://localhost:8000/api/v1/locations/?page=2",
+        "prev": null,
       }
+    }
+    rowsById={
+      Object {
+        "attributes": Object {
+          "country": "CK",
+          "created": "2018-07-09T14:53:09.732230+03:00",
+          "description": "Something",
+          "geopoint": null,
+          "location_type_name": null,
+          "modified": "2018-07-09T14:53:09.732261+03:00",
+          "name": "Sol Point",
+          "parent_name": null,
+          "radius": null,
+          "shapefile": null,
+        },
+        "id": "7",
+        "relationships": Object {
+          "location_type": Object {
+            "data": null,
+          },
+          "parent": Object {
+            "data": null,
+          },
+        },
+        "type": "Location",
+      }
+    }
+    showListTitle={[Function]}
+    totalPages={2}
+  >
+    <div
+      className="LocationList"
     >
-      <div>
-        <Table
-          bordered={true}
-          className="kaznet-table"
-          responsiveTag="div"
-          tag="table"
-        >
-          <table
-            className="kaznet-table table table-bordered"
+      <ListView
+        currentPage={1}
+        endpoint="locations"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://localhost:8000/api/v1/locations/?page=1",
+            "last": "http://localhost:8000/api/v1/locations/?page=1",
+            "next": "http://localhost:8000/api/v1/locations/?page=2",
+            "prev": null,
+          }
+        }
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "attributes": Object {
+              "country": "CK",
+              "created": "2018-07-09T14:53:09.732230+03:00",
+              "description": "Something",
+              "geopoint": null,
+              "location_type_name": null,
+              "modified": "2018-07-09T14:53:09.732261+03:00",
+              "name": "Sol Point",
+              "parent_name": null,
+              "radius": null,
+              "shapefile": null,
+            },
+            "id": "7",
+            "relationships": Object {
+              "location_type": Object {
+                "data": null,
+              },
+              "parent": Object {
+                "data": null,
+              },
+            },
+            "type": "Location",
+          }
+        }
+        totalPages={2}
+      >
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
           >
-            <thead>
-              <tr>
-                <ElementMap
-                  HTMLTag="th"
-                  items={
-                    Array [
-                      "Name",
-                      "Parent",
-                      "Type",
-                      "Description",
-                    ]
-                  }
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Name",
+                        "Parent",
+                        "Type",
+                        "Description",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Name
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Parent
+                    </th>
+                    <th
+                      key="2"
+                    >
+                      Type
+                    </th>
+                    <th
+                      key="3"
+                    >
+                      Description
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody />
+            </table>
+          </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
                 >
-                  <th
-                    key="0"
+                  <li
+                    className="page-item"
                   >
-                    Name
-                  </th>
-                  <th
-                    key="1"
+                    <Link
+                      aria-label="First"
+                      className="page-link"
+                      replace={false}
+                      to="/locations/?page=1"
+                    >
+                      <a
+                        aria-label="First"
+                        className="page-link"
+                        href="/locations/?page=1"
+                        onClick={[Function]}
+                      >
+                        First
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
                   >
-                    Parent
-                  </th>
-                  <th
-                    key="2"
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
                   >
-                    Type
-                  </th>
-                  <th
-                    key="3"
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="/locations/?page=2"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/locations/?page=2"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
                   >
-                    Description
-                  </th>
-                </ElementMap>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
-        </Table>
-      </div>
-    </ListView>
-  </div>
-</LocationsList>
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/locations/?page=2"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/locations/?page=2"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
+        </div>
+      </ListView>
+    </div>
+  </LocationsList>
+</Router>
 `;

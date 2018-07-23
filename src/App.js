@@ -100,6 +100,11 @@ class App extends Component {
                         />
                         <Route
                           exact
+                          path="/locations:page"
+                          component={LocationsList}
+                        />
+                        <Route
+                          exact
                           path="/locations/new"
                           component={LocationCreateForm}
                         />
