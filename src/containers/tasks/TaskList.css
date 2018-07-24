@@ -1,0 +1,35 @@
+.badge-active,
+.status-a {
+  background-color: #99c84d !important;
+}
+
+.badge-draft,
+.status-d {
+  background-color: #bbc7dd !important;
+}
+
+.badge-scheduled,
+.status-s {
+  background-color: #72a3fc !important;
+}
+
+.badge-expired,
+.status-c {
+  background-color: #e09b4e !important;
+}
+
+.badge-archived,
+.status-e {
+  background-color: #565656 !important;
+}
+
+.badge-deactivated,
+.status-b {
+  background-color: #937c5e !important;
+}
+
+.task-badge {
+  padding: 5px !important;
+  padding: 10px !important;
+  font-size: large !important;
+}
