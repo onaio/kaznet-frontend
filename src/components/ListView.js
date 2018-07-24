@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import { Table, Pagination, PaginationItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
+import "./ListView.css";
+
 export default class ListView extends Component {
   render() {
     return (

@@ -737,7 +737,14 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Active",
+                        <Badge
+                          className="task-badge status-a"
+                          color="secondary"
+                          pill={false}
+                          tag="span"
+                      >
+                          Active
+                      </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/4"
@@ -786,7 +793,19 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Active
+                      <Badge
+                        className="task-badge status-a"
+                        color="secondary"
+                        key="4"
+                        pill={false}
+                        tag="span"
+                      >
+                        <span
+                          className="task-badge status-a badge badge-secondary"
+                        >
+                          Active
+                        </span>
+                      </Badge>
                     </td>
                     <td
                       key="1"
@@ -875,7 +894,14 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Draft",
+                        <Badge
+                          className="task-badge status-d"
+                          color="secondary"
+                          pill={false}
+                          tag="span"
+                      >
+                          Draft
+                      </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/6"
@@ -924,7 +950,19 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Draft
+                      <Badge
+                        className="task-badge status-d"
+                        color="secondary"
+                        key="6"
+                        pill={false}
+                        tag="span"
+                      >
+                        <span
+                          className="task-badge status-d badge badge-secondary"
+                        >
+                          Draft
+                        </span>
+                      </Badge>
                     </td>
                     <td
                       key="1"
@@ -1013,7 +1051,14 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Archived",
+                        <Badge
+                          className="task-badge status-e"
+                          color="secondary"
+                          pill={false}
+                          tag="span"
+                      >
+                          Archived
+                      </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/8"
@@ -1062,7 +1107,19 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Archived
+                      <Badge
+                        className="task-badge status-e"
+                        color="secondary"
+                        key="8"
+                        pill={false}
+                        tag="span"
+                      >
+                        <span
+                          className="task-badge status-e badge badge-secondary"
+                        >
+                          Archived
+                        </span>
+                      </Badge>
                     </td>
                     <td
                       key="1"
@@ -1151,7 +1208,14 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Draft",
+                        <Badge
+                          className="task-badge status-d"
+                          color="secondary"
+                          pill={false}
+                          tag="span"
+                      >
+                          Draft
+                      </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/10"
@@ -1200,7 +1264,19 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Draft
+                      <Badge
+                        className="task-badge status-d"
+                        color="secondary"
+                        key="10"
+                        pill={false}
+                        tag="span"
+                      >
+                        <span
+                          className="task-badge status-d badge badge-secondary"
+                        >
+                          Draft
+                        </span>
+                      </Badge>
                     </td>
                     <td
                       key="1"

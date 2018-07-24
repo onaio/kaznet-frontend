@@ -35,25 +35,25 @@ exports[`components/page/Header renders header correctly 1`] = `
           className="container-fluid"
         >
           <Navbar
-            color="dark"
-            dark={true}
+            color="white"
             expand="md"
+            light={true}
             tag="nav"
           >
             <nav
-              className="navbar navbar-expand-md navbar-dark bg-dark"
+              className="navbar navbar-expand-md navbar-light bg-white"
             >
               <Link
-                className="navbar-brand"
+                className="navbar-brand logo"
                 replace={false}
                 to="/"
               >
                 <a
-                  className="navbar-brand"
+                  className="navbar-brand logo"
                   href="/"
                   onClick={[Function]}
                 >
-                  [Kaznet Logo]
+                  KAZNET
                 </a>
               </Link>
               <NavbarToggler
