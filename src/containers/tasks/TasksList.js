@@ -89,7 +89,10 @@ export class TasksList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      <Badge className={"task-badge status-" + row.attributes.status}>
+      <Badge
+        key={row.id}
+        className={"task-badge status-" + row.attributes.status}
+      >
         {row.attributes.status_display}
       </Badge>,
       <Link to={`/tasks/${row.id}`} key="link_to">
