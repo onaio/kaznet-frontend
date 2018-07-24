@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import queryString from "query-string";
+import { Badge } from "reactstrap";
 
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -13,6 +14,8 @@ import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
+
+import "./TaskList.css";
 
 export class TasksList extends Component {
   async componentDidMount() {
@@ -86,7 +89,9 @@ export class TasksList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      row.attributes.status_display,
+      <Badge className={"task-badge status-" + row.attributes.status}>
+        {row.attributes.status_display}
+      </Badge>,
       <Link to={`/tasks/${row.id}`} key="link_to">
         {row.attributes.name}
       </Link>,
