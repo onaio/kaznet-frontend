@@ -16,16 +16,45 @@ describe("containers/task/TaskStatusChange", () => {
       <TaskStatusChange
         match={{
           params: {
-            id: "1"
+            id: "2"
           }
         }}
-        taskById={fixtures.taskById}
-        location={{
-          search: "?status=b"
-        }}
         fetchTask={function() {}}
-        editTask={function() {}}
       />
     );
+  });
+  it("weather editTask Works", () => {
+    const mockEditTask = jest.fn();
+    const payload = {
+      data: {
+        type: "Task",
+        id: "4",
+        attributes: {
+          status: "b"
+        }
+      }
+    };
+
+    const wrapper = mount(
+      <Router history={history}>
+        <TaskStatusChange
+          match={{
+            params: {
+              id: "4"
+            }
+          }}
+          taskById={fixtures.taskById}
+          location={{
+            search: "?status=b"
+          }}
+          fetchTask={function() {}}
+          editTask={mockEditTask}
+        />
+      </Router>
+    );
+
+    expect(mockEditTask.mock.calls[0][0]).toEqual(payload);
+    expect(mockEditTask.mock.calls[0][1]).toBe("4");
+    expect(mockEditTask.mock.calls.length).toBe(2);
   });
 });
