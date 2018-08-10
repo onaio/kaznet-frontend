@@ -11,6 +11,7 @@ import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as globalActions from "../../store/global/actions";
 import Constants from "../../constants.js";
 
+//without magic strings
 export class TaskEditForm extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
