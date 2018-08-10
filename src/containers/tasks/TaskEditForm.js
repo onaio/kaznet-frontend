@@ -14,7 +14,7 @@ import { TASK_DEACTIVATED } from "../../constants";
 import { TASK_EXPIRED } from "../../constants";
 import { TASK_SCHEDULED } from "../../constants";
 import { TASK_ARCHIVED } from "../../constants";
-
+//removed magic strings
 export class TaskEditForm extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
