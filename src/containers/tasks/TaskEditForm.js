@@ -9,6 +9,7 @@ import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as globalActions from "../../store/global/actions";
+import Constants from "../../constants.js";
 
 export class TaskEditForm extends Component {
   componentDidMount() {
@@ -24,14 +25,14 @@ export class TaskEditForm extends Component {
     const action = taskActions.editTask;
     var status = this.task.attributes.status;
 
-    if (status === "Deactivated") {
-      status = "b";
-    } else if (status === "Expired") {
-      status = "c";
-    } else if (status === "Scheduled") {
-      status = "s";
-    } else if (status === "Archived") {
-      status = "e";
+    if (status === Constants.deactivated) {
+      status = Constants.TASK_DEACTIVATED;
+    } else if (status === Constants.expired) {
+      status = Constants.TASK_EXPIRED;
+    } else if (status === Constants.scheduled) {
+      status = Constants.TASK_SCHEDULED;
+    } else if (status === Constants.archived) {
+      status = Constants.TASK_ARCHIVED;
     }
 
     const initialData = {
@@ -40,13 +41,15 @@ export class TaskEditForm extends Component {
         .duration(
           this.task.attributes.estimated_time != null
             ? this.task.attributes.estimated_time
-            : "00:15"
+            : Constants.estimated_time
         )
         .minutes(),
-      start: moment(this.task.attributes.start).format("YYYY-MM-DD"),
+      start: moment(this.task.attributes.start).format(
+        Constants.taskDateFormat
+      ),
       end: moment(
         this.task.attributes.end != null ? this.task.attributes.end : undefined
-      ).format("YYYY-MM-DD"),
+      ).format(Constants.taskDateFormat),
       description:
         this.task.attributes.description != null
           ? this.task.attributes.description
@@ -78,13 +81,13 @@ export class TaskEditForm extends Component {
         : "",
       tasklocation_timing_rule: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].timing_rule
-        : "FREQ=DAILY;INTERVAL=1;COUNT=1",
+        : Constants.taskLocationTimingRule,
       tasklocation_start: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].start
-        : "09:00",
+        : Constants.taskLocationStart,
       tasklocation_end: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].end
-        : "17:00"
+        : Constant.taskLocationEnd
     };
 
     return (
