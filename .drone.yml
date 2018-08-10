@@ -5,10 +5,9 @@ pipeline:
       - npm install yarn
       - yarn
       - yarn test --verbose --coverage=true --forceExit
-  slack:
+  notify:
     image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    username: drone
-    channel: tech-logs
+    secrets: [ slack_webhook ]
     when:
       status: [success, failure]
+      event: [push, tag]
