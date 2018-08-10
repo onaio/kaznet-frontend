@@ -9,9 +9,12 @@ import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as globalActions from "../../store/global/actions";
-import Constants from "../../constants.js";
+import { Constants } from "../../constants";
+import { TASK_DEACTIVATED } from "../../constants";
+import { TASK_EXPIRED } from "../../constants";
+import { TASK_SCHEDULED } from "../../constants";
+import { TASK_ARCHIVED } from "../../constants";
 
-//without magic strings
 export class TaskEditForm extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
@@ -27,13 +30,13 @@ export class TaskEditForm extends Component {
     var status = this.task.attributes.status;
 
     if (status === Constants.deactivated) {
-      status = Constants.TASK_DEACTIVATED;
+      status = TASK_DEACTIVATED;
     } else if (status === Constants.expired) {
-      status = Constants.TASK_EXPIRED;
+      status = TASK_EXPIRED;
     } else if (status === Constants.scheduled) {
-      status = Constants.TASK_SCHEDULED;
+      status = TASK_SCHEDULED;
     } else if (status === Constants.archived) {
-      status = Constants.TASK_ARCHIVED;
+      status = TASK_ARCHIVED;
     }
 
     const initialData = {
