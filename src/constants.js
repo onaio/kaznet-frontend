@@ -8,6 +8,15 @@ export const TASK_EXPIRED = "c";
 export const TASK_DRAFT = "d";
 export const TASK_SCHEDULED = "s";
 export const TASK_ARCHIVED = "e";
+export const deactivated = "Deactivated";
+export const expired = "Expired";
+export const scheduled = "Scheduled";
+export const archived = "Archived";
+export const estimated_time = "00:15";
+export const taskDateFormat = "YYYY-MM-DD";
+export const taskLocationStart = "09:00";
+export const taskLocationEnd = "17:00";
+export const taskLocationTimingRule = "FREQ=DAILY;INTERVAL=1;COUNT=1";
 export const TASK_STATUSES = [
   TASK_ACTIVE,
   TASK_DEACTIVATED,
