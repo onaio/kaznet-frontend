@@ -7,12 +7,31 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Container
+  Container,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from "reactstrap";
 
 import profile_image from "../../images/profile.png";
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
+
   render() {
     return (
       <header>
@@ -37,19 +56,42 @@ export default class Header extends Component {
                   <NavLink
                     to="/clients"
                     className="nav-link"
+                    idName
                     activeClassName="active"
                   >
                     Clients
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink
-                    to="/locations"
-                    className="nav-link"
-                    activeClassName="active"
+                  <Dropdown
+                    isOpen={this.state.dropdownOpen}
+                    toggle={this.toggle}
                   >
-                    Locations
-                  </NavLink>
+                    <DropdownToggle caret tag="span" className="nav-link">
+                      Locations
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <NavItem>
+                        <NavLink
+                          to="/locations"
+                          className="nav-link"
+                          activeClassName=""
+                        >
+                          Locations
+                        </NavLink>
+                      </NavItem>
+                      <DropdownItem />
+                      <NavItem>
+                        <NavLink
+                          to="/locationstypes"
+                          className="nav-link"
+                          activeClassName=""
+                        >
+                          Location Types
+                        </NavLink>
+                      </NavItem>
+                    </DropdownMenu>
+                  </Dropdown>
                 </NavItem>
                 <NavItem>
                   <NavLink
