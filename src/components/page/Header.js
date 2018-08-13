@@ -56,6 +56,7 @@ export default class Header extends Component {
                   <NavLink
                     to="/clients"
                     className="nav-link"
+                    idName
                     activeClassName="active"
                   >
                     Clients
@@ -70,25 +71,25 @@ export default class Header extends Component {
                       Locations
                     </DropdownToggle>
                     <DropdownMenu>
-                      <NavLink
-                        to="/locations"
-                        className="nav-link"
-                        activeClassName=""
-                      >
-                        <DropdownItem className="nav-link">
+                      <NavItem>
+                        <NavLink
+                          to="/locations"
+                          className="nav-link"
+                          activeClassName=""
+                        >
                           Locations
-                        </DropdownItem>
-                      </NavLink>
+                        </NavLink>
+                      </NavItem>
                       <DropdownItem />
-                      <NavLink
-                        to="/locationstypes"
-                        className="nav-link"
-                        activeClassName=""
-                      >
-                        <DropdownItem className="nav-link">
+                      <NavItem>
+                        <NavLink
+                          to="/locationstypes"
+                          className="nav-link"
+                          activeClassName=""
+                        >
                           Location Types
-                        </DropdownItem>
-                      </NavLink>
+                        </NavLink>
+                      </NavItem>
                     </DropdownMenu>
                   </Dropdown>
                 </NavItem>
