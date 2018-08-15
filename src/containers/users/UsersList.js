@@ -17,6 +17,7 @@ export class UsersList extends Component {
     this.props.showListTitle();
     this.props.changePageTitle("Users");
     this.props.changePageTitleButton("+ Create User");
+    this.props.changePageTarget("/users/new");
 
     if (/\?page=(\d|\w)/.test(this.props.location.search)) {
       const { page } = queryString.parse(this.props.location.search);
@@ -119,6 +120,7 @@ function mapDispatchToProps(dispatch) {
       changePageNumber: userActions.changePageNumber,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
+      changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff
     },
     dispatch

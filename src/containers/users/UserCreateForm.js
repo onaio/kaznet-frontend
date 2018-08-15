@@ -13,12 +13,13 @@ export class UserCreateForm extends Component {
   }
 
   render() {
-    const action = userActions.fetchUsers;
+    const action = userActions.createUser;
     const initialData = {
       first_name: "",
       last_name: "",
       email: "",
       password: "",
+      confirmation: "",
       gender: "",
       role: "",
       expertise: "",

@@ -37,7 +37,7 @@ export class UserForm extends Component {
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
-              type: "Task",
+              type: "UserProfile",
               id: this.targetId !== null ? this.targetId : null,
               attributes: {
                 first_name: values.first_name,
@@ -55,17 +55,25 @@ export class UserForm extends Component {
             }
           };
 
-          try {
-            this.props.formActionDisptach(payload, this.targetId).then(() => {
-              setSubmitting(false);
-              if (this.props.hasError) {
-                setErrors(transformMyApiErrors(this.props.errorMessage));
-              } else {
-                setStatus("done");
-              }
+          if (values.password === values.confirmation) {
+            setErrors({});
+            try {
+              this.props.formActionDisptach(payload, this.targetId).then(() => {
+                setSubmitting(false);
+                if (this.props.hasError) {
+                  setErrors(transformMyApiErrors(this.props.errorMessage));
+                } else {
+                  setStatus("done");
+                }
+              });
+            } catch (error) {
+              console.error(error);
+            }
+          } else {
+            setErrors({
+              confirmation: "Password's don't match."
             });
-          } catch (error) {
-            console.error(error);
+            setSubmitting(false);
           }
         }}
         render={({
@@ -76,7 +84,8 @@ export class UserForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setStatus
+          setStatus,
+          setValues
         }) => (
           <div>
             <Form onSubmit={handleSubmit}>
@@ -125,11 +134,10 @@ export class UserForm extends Component {
                     aria-label="admin"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    onClick={() => {
-                      values.role = "1";
+                    onClick={e => {
+                      setValues({ role: "1" });
                     }}
                     value={values.role}
-                    checked={values.role === "1"}
                     className={errors.role ? "is-invalid" : ""}
                   />{" "}
                   Admin
@@ -140,7 +148,6 @@ export class UserForm extends Component {
                     type="radio"
                     aria-label="contributor"
                     onChange={handleChange}
-                    checked={values.role === "1"}
                     onClick={() => {
                       values.role = "2";
                     }}
@@ -187,8 +194,10 @@ export class UserForm extends Component {
                     value={values.ona_username}
                     className={errors.ona_username ? "is-invalid" : ""}
                   />
-                  {errors.username && (
-                    <div className="invalid-feedback">{errors.username}</div>
+                  {errors.ona_username && (
+                    <div className="invalid-feedback">
+                      {errors.ona_username}
+                    </div>
                   )}
                 </Col>
               </FormGroup>
@@ -235,6 +244,59 @@ export class UserForm extends Component {
 
               <h4 className="title"> DETAILS </h4>
 
+              <FormGroup className="row">
+                <Col md="3">
+                  <Label for="gender">Gender</Label>
+                </Col>
+                <Col md="2">
+                  <Input
+                    name="gender"
+                    type="radio"
+                    aria-label="Male"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onClick={() => {
+                      values.gender = "0";
+                    }}
+                    value={values.gender}
+                    className={errors.gender ? "is-invalid" : ""}
+                  />{" "}
+                  Male
+                </Col>
+                <Col md="2">
+                  <Input
+                    name="gender"
+                    type="radio"
+                    aria-label="female"
+                    onChange={handleChange}
+                    onClick={() => {
+                      values.gender = "1";
+                    }}
+                    onBlur={handleBlur}
+                    value={values.gender}
+                    className={errors.gender ? "is-invalid" : ""}
+                  />{" "}
+                  Female
+                </Col>
+                <Col md="2">
+                  <Input
+                    name="gender"
+                    type="radio"
+                    aria-label="other"
+                    onChange={handleChange}
+                    onClick={() => {
+                      values.gender = "2";
+                    }}
+                    onBlur={handleBlur}
+                    value={values.gender}
+                    className={errors.gender ? "is-invalid" : ""}
+                  />{" "}
+                  Other
+                </Col>
+              </FormGroup>
+              {errors.role && (
+                <div className="invalid-feedback">{errors.role}</div>
+              )}
               <FormGroup className="row">
                 <Col md="3">
                   <Label for="address">Address</Label>
