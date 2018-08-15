@@ -20,9 +20,24 @@ export class ClientsList extends Component {
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
 
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+    //invoke the search
+
+    //perform the search
+
+    //get the results
+    if (/\?search=(\d|\w)/.test(this.props.location.search)) {
+      const { search } = queryString.parse(this.props.location.search);
+
+      if (search !== "") {
+        await this.props.fetchClients(
+          `${constants.API_ENDPOINT}/clients/?search=${search}`
+        );
+      }
+    } else if (/\?page=(\d|\w)/.test(this.props.location.search)) {
       const { page } = queryString.parse(this.props.location.search);
+
       const pageNumber = Number(page);
+
       if (!isNaN(pageNumber)) {
         await this.props.fetchClients(
           `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
