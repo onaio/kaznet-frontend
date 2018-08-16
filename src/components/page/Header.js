@@ -56,7 +56,6 @@ export default class Header extends Component {
                   <NavLink
                     to="/clients"
                     className="nav-link"
-                    idName
                     activeClassName="active"
                   >
                     Clients
