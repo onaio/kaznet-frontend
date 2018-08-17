@@ -28,24 +28,36 @@ export class ClientsList extends Component {
     if (/\?search=(\d|\w)/.test(this.props.location.search)) {
       const { search } = queryString.parse(this.props.location.search);
 
-      if (search !== "") {
-        await this.props.fetchClients(
-          `${constants.API_ENDPOINT}/clients/?search=${search}`
-        );
-      }
-    } else if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
+      await this.props.fetchClients(
+        `${constants.API_ENDPOINT}/clients/?search=${search}`
+      );
+      if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+        const { page } = queryString.parse(this.props.location.search);
 
-      const pageNumber = Number(page);
+        const pageNumber = Number(page);
 
-      if (!isNaN(pageNumber)) {
-        await this.props.fetchClients(
-          `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
+        if (!isNaN(pageNumber)) {
+          await this.props.fetchClients(
+            `${
+              constants.API_ENDPOINT
+            }/clients/?search=${search}&page=${pageNumber}`
+          );
+          this.props.changePageNumber(pageNumber);
+        }
       }
-    } else {
-      this.props.fetchClients();
+      // } else if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      //   const { page } = queryString.parse(this.props.location.search);
+
+      //   const pageNumber = Number(page);
+
+      //   if (!isNaN(pageNumber)) {
+      //     await this.props.fetchClients(
+      //       `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
+      //     );
+      //     this.props.changePageNumber(pageNumber);
+      //   }
+      // } else {
+      //   this.props.fetchClients();
     }
   }
 
