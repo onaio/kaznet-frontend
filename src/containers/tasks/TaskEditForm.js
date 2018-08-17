@@ -45,11 +45,11 @@ export class TaskEditForm extends Component {
         )
         .minutes(),
       start: moment(this.task.attributes.start).format(
-        constants.TASKDATE_FORMAT
+        constants.TASK_DATE_FORMAT
       ),
       end: moment(
         this.task.attributes.end != null ? this.task.attributes.end : undefined
-      ).format(constants.TASKDATE_FORMAT),
+      ).format(constants.TASK_DATE_FORMAT),
       description:
         this.task.attributes.description != null
           ? this.task.attributes.description
@@ -81,13 +81,13 @@ export class TaskEditForm extends Component {
         : "",
       tasklocation_timing_rule: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].timing_rule
-        : constants.TASKLOCATIONTIMINGRULE,
+        : constants.TASK_LOCATION_TIMING_RULE,
       tasklocation_start: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].start
-        : constants.TASKLOCATIONTIMINGRULE,
+        : constants.TASK_LOCATION_TIMING_RULE,
       tasklocation_end: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].end
-        : constants.TASKLOCATIONEND
+        : constants.TASK_LOCATION_END
     };
 
     return (
