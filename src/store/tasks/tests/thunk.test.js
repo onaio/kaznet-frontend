@@ -130,4 +130,46 @@ describe("store/tasks/actions", () => {
       errorMessage: Error("oops")
     });
   });
+
+  it("should clone task", async () => {
+    TaskService.cloneTask.mockReturnValueOnce(fixtures.singleTask);
+    const dispatches = await Thunk(tasks.cloneTask).execute();
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[1].getAction()).toEqual({
+      type: actionTypes.TASK_CLONED,
+      taskData: fixtures.singleTask
+    });
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+  });
+
+  it("should edit task", async () => {
+    TaskService.editTask.mockReturnValueOnce(fixtures.singleTask);
+    const dispatches = await Thunk(tasks.editTask).execute();
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[1].getAction()).toEqual({
+      type: actionTypes.TASK_EDITED,
+      taskData: fixtures.singleTask
+    });
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+  });
+
+  it("should delete a task", async () => {
+    TaskService.deleteTask.mockReturnValueOnce(fixtures.taskData.data.id);
+    const dispatches = await Thunk(tasks.deleteTask).execute(1);
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+    expect(dispatches[1].getAction()).toEqual({
+      type: actionTypes.TASK_DELETED,
+      taskData: fixtures.taskData.data.id
+    });
+  });
 });
