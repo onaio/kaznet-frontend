@@ -25,13 +25,13 @@ export class TaskEditForm extends Component {
     const action = taskActions.editTask;
     var status = this.task.attributes.status;
 
-    if (status === constants.deactivated) {
+    if (status === constants.DEACTIVATED) {
       status = constants.TASK_DEACTIVATED;
-    } else if (status === constants.expired) {
+    } else if (status === constants.EXPIRED) {
       status = constants.TASK_EXPIRED;
-    } else if (status === constants.scheduled) {
+    } else if (status === constants.SCHEDULED) {
       status = constants.TASK_SCHEDULED;
-    } else if (status === constants.archived) {
+    } else if (status === constants.ARCHIVED) {
       status = constants.TASK_ARCHIVED;
     }
 
@@ -41,15 +41,15 @@ export class TaskEditForm extends Component {
         .duration(
           this.task.attributes.estimated_time != null
             ? this.task.attributes.estimated_time
-            : constants.estimated_time
+            : constants.ESTIMATED_TIME
         )
         .minutes(),
       start: moment(this.task.attributes.start).format(
-        constants.taskDateFormat
+        constants.TASKDATE_FORMAT
       ),
       end: moment(
         this.task.attributes.end != null ? this.task.attributes.end : undefined
-      ).format(constants.taskDateFormat),
+      ).format(constants.TASKDATE_FORMAT),
       description:
         this.task.attributes.description != null
           ? this.task.attributes.description
@@ -81,13 +81,13 @@ export class TaskEditForm extends Component {
         : "",
       tasklocation_timing_rule: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].timing_rule
-        : constants.taskLocationTimingRule,
+        : constants.TASKLOCATIONTIMINGRULE,
       tasklocation_start: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].start
-        : constants.taskLocationStart,
+        : constants.TASKLOCATIONTIMINGRULE,
       tasklocation_end: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].end
-        : constants.taskLocationEnd
+        : constants.TASKLOCATIONEND
     };
 
     return (
