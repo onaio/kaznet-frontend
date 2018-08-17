@@ -38,6 +38,7 @@ export default class PageTitle extends Component {
                         className="border-left-0"
                         placeholder="Search"
                         aria-label="Search"
+                        name="search"
                       />
                     </InputGroup>
                   </Form>

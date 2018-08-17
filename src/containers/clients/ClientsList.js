@@ -25,41 +25,49 @@ export class ClientsList extends Component {
     //perform the search
 
     //get the results
+    var search;
+    var pageNumber;
     if (/\?search=(\d|\w)/.test(this.props.location.search)) {
-      const { search } = queryString.parse(this.props.location.search);
+      const { name } = queryString.parse(this.props.location.search);
+      search = name;
+      debugger;
+    }
 
+    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
+      const { page } = queryString.parse(this.props.location.search);
+      pageNumber = Number(page);
+      debugger;
+    }
+
+    if (search || pageNumber) {
       await this.props.fetchClients(
-        `${constants.API_ENDPOINT}/clients/?search=${search}`
+        `${constants.API_ENDPOINT}/clients/?search=${search}page=${pageNumber}`
       );
-      if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-        const { page } = queryString.parse(this.props.location.search);
-
-        const pageNumber = Number(page);
-
-        if (!isNaN(pageNumber)) {
-          await this.props.fetchClients(
-            `${
-              constants.API_ENDPOINT
-            }/clients/?search=${search}&page=${pageNumber}`
-          );
-          this.props.changePageNumber(pageNumber);
-        }
-      }
-      // } else if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      //   const { page } = queryString.parse(this.props.location.search);
-
-      //   const pageNumber = Number(page);
-
-      //   if (!isNaN(pageNumber)) {
-      //     await this.props.fetchClients(
-      //       `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
-      //     );
-      //     this.props.changePageNumber(pageNumber);
-      //   }
-      // } else {
-      //   this.props.fetchClients();
+      this.props.changePageNumber(pageNumber);
+    } else {
+      this.props.fetchClients();
     }
   }
+
+  // if (!isNaN(pageNumber)) {
+  //   await this.props.fetchClients(
+  //     `${
+  //       constants.API_ENDPOINT
+  //     }/clients/?page=${pageNumber}`
+  //   );
+  //   this.props.changePageNumber(pageNumber);
+  // }
+  // }if(search && pageNumber){
+  //   await this.props.fetchClients(
+  //     `${
+  //       constants.API_ENDPOINT
+  //     }/clients/?search=${search}&page=${pageNumber}`
+  //   );
+  //   this.props.changePageNumber(pageNumber);
+  // }
+  // {
+  //   this.props.fetchClients();
+  // }
 
   componentDidUpdate(prevProps) {
     if (/\?page=(\d|\w)/.test(this.props.location.search)) {
