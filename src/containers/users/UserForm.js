@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
+import Yup from "yup";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -19,6 +20,40 @@ const transformMyApiErrors = function(array) {
   return errors;
 };
 
+function getValidationSchema(values) {
+  return Yup.object().shape({
+    national_id: Yup.string().required("National ID is required."),
+    username: Yup.string().required("Username is required!"),
+    password: Yup.string().required("Password is required."),
+    email: Yup.string().email("E-mail is not valid!"),
+    passwordConfirmation: Yup.string()
+      .oneOf([values.password], "Passwords are don't match!")
+      .required("Password confirmation is required!")
+  });
+}
+
+function getErrorsFromValidationError(validationError) {
+  const FIRST_ERROR = 0;
+  return validationError.inner.reduce((errors, error) => {
+    return {
+      ...errors,
+      [error.path]: error.errors[FIRST_ERROR]
+    };
+  }, {});
+}
+
+function validate(getValidationSchema) {
+  return values => {
+    const validationSchema = getValidationSchema(values);
+    try {
+      validationSchema.validateSync(values, { abortEarly: false });
+      return {};
+    } catch (error) {
+      return getErrorsFromValidationError(error);
+    }
+  };
+}
+
 export class UserForm extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +69,7 @@ export class UserForm extends Component {
     return (
       <Formik
         initialValues={this.props.initialData}
+        validate={validate(getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -55,25 +91,17 @@ export class UserForm extends Component {
             }
           };
 
-          if (values.password === values.confirmation) {
-            setErrors({});
-            try {
-              this.props.formActionDisptach(payload, this.targetId).then(() => {
-                setSubmitting(false);
-                if (this.props.hasError) {
-                  setErrors(transformMyApiErrors(this.props.errorMessage));
-                } else {
-                  setStatus("done");
-                }
-              });
-            } catch (error) {
-              console.error(error);
-            }
-          } else {
-            setErrors({
-              confirmation: "Password's don't match."
+          try {
+            this.props.formActionDisptach(payload, this.targetId).then(() => {
+              setSubmitting(false);
+              if (this.props.hasError) {
+                setErrors(transformMyApiErrors(this.props.errorMessage));
+              } else {
+                setStatus("done");
+              }
             });
-            setSubmitting(false);
+          } catch (error) {
+            console.error(error);
           }
         }}
         render={({
@@ -208,7 +236,7 @@ export class UserForm extends Component {
                 <Col md="9">
                   <Input
                     name="password"
-                    type="text"
+                    type="password"
                     aria-label="password"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -227,7 +255,7 @@ export class UserForm extends Component {
                 <Col md="9">
                   <Input
                     name="comfirmation"
-                    type="text"
+                    type="password"
                     aria-label="confirmation"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -349,7 +377,7 @@ export class UserForm extends Component {
                 <Col md="9">
                   <Input
                     name="email"
-                    type="text"
+                    type="email"
                     aria-label="email"
                     onChange={handleChange}
                     onBlur={handleBlur}
