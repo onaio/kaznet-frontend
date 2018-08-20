@@ -3,3 +3,4 @@ export const CLIENT_CREATED = "clients.CLIENT_CREATED";
 export const CLIENT_EDITED = "clients.CLIENT_EDITED";
 export const CLIENT_FETCHED = "clients.CLIENT_FETCHED";
 export const CLIENT_CHANGE_PAGE = "clients.CLIENT_CHANGE_PAGE";
+export const CLIENT_SEARCH_VAL = "clients.CLIENT_SEARCH_VAL";

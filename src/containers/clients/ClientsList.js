@@ -26,19 +26,20 @@ export class ClientsList extends Component {
 
     //get the results
     const { search } = queryString.parse(this.props.location.search);
+    this.props.searchVal(search);
+
     let pageNumber = 1;
     console.log(search);
     console.log(pageNumber);
     if (/\?search=(\d|\w)/.test(this.props.location.search)) {
       console.log(search);
     }
-
     if (/\?page=(\d|\w)/.test(this.props.location.search)) {
       const { page } = queryString.parse(this.props.location.search);
       let pageNumber = Number(page);
       console.log(pageNumber);
     }
-    if (search !== undefined || pageNumber < 1) {
+    if (search !== undefined || pageNumber > 1) {
       await this.props.fetchClients(
         `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
       );
@@ -47,26 +48,6 @@ export class ClientsList extends Component {
       this.props.fetchClients();
     }
   }
-
-  // if (!isNaN(pageNumber)) {
-  //   await this.props.fetchClients(
-  //     `${
-  //       constants.API_ENDPOINT
-  //     }/clients/?page=${pageNumber}`
-  //   );
-  //   this.props.changePageNumber(pageNumber);
-  // }
-  // }if(search && pageNumber){
-  //   await this.props.fetchClients(
-  //     `${
-  //       constants.API_ENDPOINT
-  //     }/clients/?search=${search}&page=${pageNumber}`
-  //   );
-  //   this.props.changePageNumber(pageNumber);
-  // }
-  // {
-  //   this.props.fetchClients();
-  // }
 
   componentDidUpdate(prevProps) {
     if (/\?page=(\d|\w)/.test(this.props.location.search)) {
@@ -96,6 +77,7 @@ export class ClientsList extends Component {
           currentPage={this.props.currentPage}
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
+          searchVal={this.props.searchParam}
         />
       </div>
     );
@@ -124,6 +106,7 @@ export class ClientsList extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log("state>>>>>>>>", state);
   return {
     rowsById: clientSelectors.getClientsById(state),
     rowsIdArray: clientSelectors.getClientsIdArray(state),
@@ -131,7 +114,8 @@ function mapStateToProps(state) {
     currentPage: clientSelectors.getCurrentPage(state),
     pageLinks: clientSelectors.getPageLinks(state),
     firstPage: clientSelectors.getFirstPage(state),
-    lastPage: clientSelectors.getLastPage(state)
+    lastPage: clientSelectors.getLastPage(state),
+    searchParam: state.clients.searchVal
   };
 }
 
@@ -143,7 +127,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
-      showListTitle: globalActions.toggleDetailTitleOff
+      showListTitle: globalActions.toggleDetailTitleOff,
+      searchVal: clientActions.getSearchVal
     },
     dispatch
   );

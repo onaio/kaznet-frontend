@@ -32,13 +32,16 @@ export default class ListView extends Component {
   }
 
   renderPagination() {
+    console.log("props??????", this.props);
     return (
       <Pagination aria-label="Page navigation example">
         <PaginationItem disabled={this.props.pageLinks.first ? false : true}>
           <Link
             to={
               this.props.pageLinks.first
-                ? `/${this.props.endpoint}/?page=${this.props.firstPage}`
+                ? `/${this.props.endpoint}/?search=${
+                    this.props.searchVal
+                  }&page=${this.props.firstPage}`
                 : "#"
             }
             className="page-link"
@@ -51,7 +54,9 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.prev
-                ? `/${this.props.endpoint}/?page=${this.props.currentPage - 1}`
+                ? `/${this.props.endpoint}/?search=${
+                    this.props.searchVal
+                  }&page=${this.props.currentPage - 1}`
                 : "#"
             }
             className="page-link"
@@ -64,7 +69,9 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.next
-                ? `/${this.props.endpoint}/?page=${this.props.currentPage + 1}`
+                ? `/${this.props.endpoint}/?search=${
+                    this.props.searchVal
+                  }&page=${this.props.currentPage + 1}`
                 : "#"
             }
             className="page-link"
@@ -77,7 +84,9 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.last
-                ? `/${this.props.endpoint}/?page=${this.props.lastPage}`
+                ? `/${this.props.endpoint}/?search=${
+                    this.props.searchVal
+                  }&page=${this.props.lastPage}`
                 : "#"
             }
             className="page-link"
