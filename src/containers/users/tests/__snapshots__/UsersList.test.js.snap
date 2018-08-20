@@ -324,12 +324,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/users/?page=1"
+                      to="/users/?search=undefined&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/users/?page=1"
+                        href="/users/?search=undefined&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -372,12 +372,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/users/?page=2"
+                      to="/users/?search=undefined&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/users/?page=2"
+                        href="/users/?search=undefined&page=2"
                         onClick={[Function]}
                       >
                         »
@@ -396,12 +396,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/users/?page=2"
+                      to="/users/?search=undefined&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/users/?page=2"
+                        href="/users/?search=undefined&page=2"
                         onClick={[Function]}
                       >
                         Last

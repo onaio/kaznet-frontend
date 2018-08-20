@@ -155,12 +155,14 @@ exports[`components/page/PageTitle renders header correctly 1`] = `
                                   aria-label="Search"
                                   bsSize="lg"
                                   className="border-left-0"
+                                  name="search"
                                   placeholder="Search"
                                   type="text"
                                 >
                                   <input
                                     aria-label="Search"
                                     className="border-left-0 form-control-lg form-control"
+                                    name="search"
                                     placeholder="Search"
                                     type="text"
                                   />
