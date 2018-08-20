@@ -25,23 +25,22 @@ export class ClientsList extends Component {
     //perform the search
 
     //get the results
-    var search;
-    var pageNumber;
+    const { search } = queryString.parse(this.props.location.search);
+    let pageNumber = 1;
+    console.log(search);
+    console.log(pageNumber);
     if (/\?search=(\d|\w)/.test(this.props.location.search)) {
-      const { name } = queryString.parse(this.props.location.search);
-      search = name;
-      debugger;
+      console.log(search);
     }
 
     if (/\?page=(\d|\w)/.test(this.props.location.search)) {
       const { page } = queryString.parse(this.props.location.search);
-      pageNumber = Number(page);
-      debugger;
+      let pageNumber = Number(page);
+      console.log(pageNumber);
     }
-
-    if (search || pageNumber) {
+    if (search !== undefined || pageNumber < 1) {
       await this.props.fetchClients(
-        `${constants.API_ENDPOINT}/clients/?search=${search}page=${pageNumber}`
+        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     } else {
