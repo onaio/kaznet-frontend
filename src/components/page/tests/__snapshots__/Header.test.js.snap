@@ -188,32 +188,153 @@ exports[`components/page/Header renders header correctly 1`] = `
                           <li
                             className="nav-item"
                           >
-                            <NavLink
-                              activeClassName="active"
-                              aria-current="page"
-                              className="nav-link"
-                              to="/locations"
+                            <Dropdown
+                              active={false}
+                              addonType={false}
+                              direction="down"
+                              inNavbar={false}
+                              isOpen={false}
+                              nav={false}
+                              setActiveFromChild={false}
+                              toggle={[Function]}
                             >
-                              <Route
-                                path="\\\\/locations"
+                              <Manager
+                                className="dropdown"
+                                onKeyDown={[Function]}
+                                tag="div"
                               >
-                                <Link
-                                  aria-current={null}
-                                  className="nav-link"
-                                  replace={false}
-                                  to="/locations"
+                                <div
+                                  className="dropdown"
+                                  onKeyDown={[Function]}
                                 >
-                                  <a
-                                    aria-current={null}
+                                  <DropdownToggle
+                                    aria-haspopup={true}
+                                    caret={true}
                                     className="nav-link"
-                                    href="/locations"
-                                    onClick={[Function]}
+                                    color="secondary"
+                                    tag="span"
                                   >
-                                    Locations
-                                  </a>
-                                </Link>
-                              </Route>
-                            </NavLink>
+                                    <Target
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      className="nav-link dropdown-toggle"
+                                      component="span"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        aria-expanded={false}
+                                        aria-haspopup={true}
+                                        className="nav-link dropdown-toggle"
+                                        onClick={[Function]}
+                                      >
+                                        Locations
+                                      </span>
+                                    </Target>
+                                  </DropdownToggle>
+                                  <DropdownMenu
+                                    flip={true}
+                                    tag="div"
+                                  >
+                                    <div
+                                      aria-hidden={true}
+                                      className="dropdown-menu"
+                                      role="menu"
+                                      tabIndex="-1"
+                                    >
+                                      <NavLink
+                                        activeClassName=""
+                                        aria-current="page"
+                                        className="nav-link"
+                                        to="/locations"
+                                      >
+                                        <Route
+                                          path="\\\\/locations"
+                                        >
+                                          <Link
+                                            aria-current={null}
+                                            className="nav-link"
+                                            replace={false}
+                                            to="/locations"
+                                          >
+                                            <a
+                                              aria-current={null}
+                                              className="nav-link"
+                                              href="/locations"
+                                              onClick={[Function]}
+                                            >
+                                              <DropdownItem
+                                                className="nav-link"
+                                                tag="button"
+                                                toggle={true}
+                                              >
+                                                <button
+                                                  className="nav-link dropdown-item"
+                                                  onClick={[Function]}
+                                                  tabIndex="0"
+                                                  type="button"
+                                                >
+                                                  Locations
+                                                </button>
+                                              </DropdownItem>
+                                            </a>
+                                          </Link>
+                                        </Route>
+                                      </NavLink>
+                                      <DropdownItem
+                                        tag="button"
+                                        toggle={true}
+                                      >
+                                        <button
+                                          className="dropdown-item"
+                                          onClick={[Function]}
+                                          tabIndex="0"
+                                          type="button"
+                                        />
+                                      </DropdownItem>
+                                      <NavLink
+                                        activeClassName=""
+                                        aria-current="page"
+                                        className="nav-link"
+                                        to="/locationstypes"
+                                      >
+                                        <Route
+                                          path="\\\\/locationstypes"
+                                        >
+                                          <Link
+                                            aria-current={null}
+                                            className="nav-link"
+                                            replace={false}
+                                            to="/locationstypes"
+                                          >
+                                            <a
+                                              aria-current={null}
+                                              className="nav-link"
+                                              href="/locationstypes"
+                                              onClick={[Function]}
+                                            >
+                                              <DropdownItem
+                                                className="nav-link"
+                                                tag="button"
+                                                toggle={true}
+                                              >
+                                                <button
+                                                  className="nav-link dropdown-item"
+                                                  onClick={[Function]}
+                                                  tabIndex="0"
+                                                  type="button"
+                                                >
+                                                  Location Types
+                                                </button>
+                                              </DropdownItem>
+                                            </a>
+                                          </Link>
+                                        </Route>
+                                      </NavLink>
+                                    </div>
+                                  </DropdownMenu>
+                                </div>
+                              </Manager>
+                            </Dropdown>
                           </li>
                         </NavItem>
                         <NavItem
