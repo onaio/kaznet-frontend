@@ -1,3 +1,4 @@
+//updated constants with right case and under_scrores
 export const API_ENDPOINT = process.env.REACT_APP_KAZNET_ENDPOINT;
 export const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 export const ONA_WEBSITE = process.env.REACT_APP_ONA_WEBSITE;
