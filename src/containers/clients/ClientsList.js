@@ -20,32 +20,35 @@ export class ClientsList extends Component {
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
 
-    //invoke the search
+    let { search } = queryString.parse(this.props.location.search);
+    const { page } = queryString.parse(this.props.location.search);
 
-    //perform the search
-
-    //get the results
-    const { search } = queryString.parse(this.props.location.search);
+    if (search === undefined) {
+      search = "";
+    }
     this.props.searchVal(search);
 
-    let pageNumber = 1;
-    console.log(search);
-    console.log(pageNumber);
-    if (/\?search=(\d|\w)/.test(this.props.location.search)) {
-      console.log(search);
+    let pageNumber = Number(page);
+
+    if (isNaN(pageNumber)) {
+      pageNumber = 1;
     }
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      let pageNumber = Number(page);
-      console.log(pageNumber);
-    }
-    if (search !== undefined || pageNumber > 1) {
+
+    if (search === "") {
       await this.props.fetchClients(
         `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
       );
+      console.log("a");
       this.props.changePageNumber(pageNumber);
+    } else if (search !== "") {
+      await this.props.fetchClients(
+        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+      );
+      console.log("b");
+      console.log(pageNumber);
     } else {
       this.props.fetchClients();
+      console.log("c");
     }
   }
 
