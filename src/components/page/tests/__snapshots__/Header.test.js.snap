@@ -241,14 +241,18 @@ exports[`components/page/Header renders header correctly 1`] = `
                                       role="menu"
                                       tabIndex="-1"
                                     >
-                                      <NavItem
-                                        tag="li"
+                                      <DropdownItem
+                                        tag="button"
+                                        toggle={true}
                                       >
-                                        <li
-                                          className="nav-item"
+                                        <button
+                                          className="dropdown-item"
+                                          onClick={[Function]}
+                                          tabIndex="0"
+                                          type="button"
                                         >
                                           <NavLink
-                                            activeClassName=""
+                                            activeClassName="active"
                                             aria-current="page"
                                             className="nav-link"
                                             to="/locations"
@@ -273,8 +277,8 @@ exports[`components/page/Header renders header correctly 1`] = `
                                               </Link>
                                             </Route>
                                           </NavLink>
-                                        </li>
-                                      </NavItem>
+                                        </button>
+                                      </DropdownItem>
                                       <DropdownItem
                                         tag="button"
                                         toggle={true}
@@ -284,28 +288,21 @@ exports[`components/page/Header renders header correctly 1`] = `
                                           onClick={[Function]}
                                           tabIndex="0"
                                           type="button"
-                                        />
-                                      </DropdownItem>
-                                      <NavItem
-                                        tag="li"
-                                      >
-                                        <li
-                                          className="nav-item"
                                         >
                                           <NavLink
-                                            activeClassName=""
+                                            activeClassName="active"
                                             aria-current="page"
                                             className="nav-link"
-                                            to="/locationtypes"
+                                            to="locationtypes"
                                           >
                                             <Route
-                                              path="\\\\/locationtypes"
+                                              path="locationtypes"
                                             >
                                               <Link
                                                 aria-current={null}
                                                 className="nav-link"
                                                 replace={false}
-                                                to="/locationtypes"
+                                                to="locationtypes"
                                               >
                                                 <a
                                                   aria-current={null}
@@ -318,8 +315,8 @@ exports[`components/page/Header renders header correctly 1`] = `
                                               </Link>
                                             </Route>
                                           </NavLink>
-                                        </li>
-                                      </NavItem>
+                                        </button>
+                                      </DropdownItem>
                                     </div>
                                   </DropdownMenu>
                                 </div>
