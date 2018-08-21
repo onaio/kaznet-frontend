@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 
 import profile_image from "../../images/profile.png";
+import "./Header.css";
 
 export default class Header extends Component {
   constructor(props) {
@@ -70,25 +71,24 @@ export default class Header extends Component {
                       Locations
                     </DropdownToggle>
                     <DropdownMenu>
-                      <NavItem>
+                      <DropdownItem>
                         <NavLink
                           to="/locations"
                           className="nav-link"
-                          activeClassName=""
+                          activeClassName="active"
                         >
                           Locations
                         </NavLink>
-                      </NavItem>
-                      <DropdownItem />
-                      <NavItem>
+                      </DropdownItem>
+                      <DropdownItem>
                         <NavLink
-                          to="/locationtypes"
+                          to="locationtypes"
                           className="nav-link"
-                          activeClassName=""
+                          activeClassName="active"
                         >
                           Location Types
                         </NavLink>
-                      </NavItem>
+                      </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                 </NavItem>
