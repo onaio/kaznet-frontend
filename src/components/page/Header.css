@@ -1,0 +1,9 @@
+.kaznet-root .dropdown-item.active,
+.kaznet-root .dropdown-item:active {
+  color: initial;
+  background-color: inherit;
+}
+
+.dropdown-item .nav-link.active {
+  border-bottom: none;
+}

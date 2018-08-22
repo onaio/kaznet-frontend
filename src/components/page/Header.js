@@ -7,12 +7,32 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Container
+  Container,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from "reactstrap";
 
 import profile_image from "../../images/profile.png";
+import "./Header.css";
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
+
   render() {
     return (
       <header>
@@ -43,13 +63,34 @@ export default class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink
-                    to="/locations"
-                    className="nav-link"
-                    activeClassName="active"
+                  <Dropdown
+                    isOpen={this.state.dropdownOpen}
+                    toggle={this.toggle}
                   >
-                    Locations
-                  </NavLink>
+                    <DropdownToggle caret tag="span" className="nav-link">
+                      Locations
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem>
+                        <NavLink
+                          to="/locations"
+                          className="nav-link"
+                          activeClassName="active"
+                        >
+                          Locations
+                        </NavLink>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <NavLink
+                          to="locationtypes"
+                          className="nav-link"
+                          activeClassName="active"
+                        >
+                          Location Types
+                        </NavLink>
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
                 </NavItem>
                 <NavItem>
                   <NavLink
