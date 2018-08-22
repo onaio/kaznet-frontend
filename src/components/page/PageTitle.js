@@ -9,10 +9,17 @@ import {
   InputGroup,
   InputGroupAddon,
   Input,
-  InputGroupText
+  InputGroupText,
+  Button,
+  FormGroup
 } from "reactstrap";
 
 export default class PageTitle extends Component {
+  // handleChange(event) {
+  //   this.setState({search: event.target.value});
+  //   console.log(this.props.title);
+  // }
+
   render() {
     return (
       <section className="page-title">
@@ -21,8 +28,8 @@ export default class PageTitle extends Component {
             <div>
               <h1>{this.props.pageTitle}</h1>
               <Row>
-                <Col md="9">
-                  <Form>
+                <Col md="8">
+                  <Form inline>
                     <InputGroup className="search-group">
                       <InputGroupAddon
                         addonType="prepend"
@@ -41,9 +48,15 @@ export default class PageTitle extends Component {
                         name="search"
                       />
                     </InputGroup>
+                    <FormGroup>
+                      &nbsp;
+                      <Button type="submit" className="btn btn-primary btn-lg">
+                        <FontAwesomeIcon icon="search" />&nbsp; Search
+                      </Button>
+                    </FormGroup>
                   </Form>
                 </Col>
-                <Col md="3">
+                <Col md="4">
                   <Link
                     to={this.props.pageTarget || "/"}
                     className="btn btn-primary btn-lg"
