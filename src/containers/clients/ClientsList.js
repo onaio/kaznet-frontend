@@ -108,7 +108,6 @@ export class ClientsList extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("state>>>>>>>>", state);
   return {
     rowsById: clientSelectors.getClientsById(state),
     rowsIdArray: clientSelectors.getClientsIdArray(state),

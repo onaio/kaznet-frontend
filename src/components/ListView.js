@@ -32,7 +32,6 @@ export default class ListView extends Component {
   }
 
   renderPagination() {
-    console.log("props??????", this.props);
     return (
       <Pagination aria-label="Page navigation example">
         <PaginationItem disabled={this.props.pageLinks.first ? false : true}>
