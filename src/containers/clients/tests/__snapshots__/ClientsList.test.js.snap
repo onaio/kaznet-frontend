@@ -24,6 +24,7 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
   }
 >
   <ClientsList
+    changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
@@ -42,9 +43,9 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
     }
     pageLinks={
       Object {
-        "first": "http://localhost:8000/api/v1/clients/?page=1",
-        "last": "http://localhost:8000/api/v1/clients/?page=2",
-        "next": "http://localhost:8000/api/v1/clients/?page=2",
+        "first": "http://localhost:8000/api/v1/clients/?search=&page=1",
+        "last": "http://localhost:8000/api/v1/clients/?search=&page=2",
+        "next": "http://localhost:8000/api/v1/clients/?search=&page=2",
         "prev": null,
       }
     }
@@ -65,6 +66,8 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
         "1",
       ]
     }
+    searchParam=""
+    searchVal={[Function]}
     showListTitle={[Function]}
     totalPages={2}
   >
@@ -78,9 +81,9 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
         lastPage={2}
         pageLinks={
           Object {
-            "first": "http://localhost:8000/api/v1/clients/?page=1",
-            "last": "http://localhost:8000/api/v1/clients/?page=2",
-            "next": "http://localhost:8000/api/v1/clients/?page=2",
+            "first": "http://localhost:8000/api/v1/clients/?search=&page=1",
+            "last": "http://localhost:8000/api/v1/clients/?search=&page=2",
+            "next": "http://localhost:8000/api/v1/clients/?search=&page=2",
             "prev": null,
           }
         }
@@ -103,6 +106,7 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
             "1",
           ]
         }
+        searchVal=""
         totalPages={2}
       >
         <div>
@@ -243,12 +247,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/clients/?search=undefined&page=1"
+                      to="/clients/?search=&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/clients/?search=undefined&page=1"
+                        href="/clients/?search=&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -291,12 +295,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/clients/?search=undefined&page=2"
+                      to="/clients/?search=&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/clients/?search=undefined&page=2"
+                        href="/clients/?search=&page=2"
                         onClick={[Function]}
                       >
                         »
@@ -315,12 +319,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/clients/?search=undefined&page=2"
+                      to="/clients/?search=&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/clients/?search=undefined&page=2"
+                        href="/clients/?search=&page=2"
                         onClick={[Function]}
                       >
                         Last

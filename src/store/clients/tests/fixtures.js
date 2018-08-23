@@ -1,5 +1,6 @@
 import _ from "lodash";
 
+export const searchParam = "";
 export const singleClient = {
   type: "Client",
   id: "1",
@@ -20,9 +21,9 @@ export const secondClient = {
 
 export const clientData = {
   links: {
-    first: "http://localhost:8000/api/v1/clients/?page=1",
-    last: "http://localhost:8000/api/v1/clients/?page=2",
-    next: "http://localhost:8000/api/v1/clients/?page=2",
+    first: "http://localhost:8000/api/v1/clients/?search=&page=1",
+    last: "http://localhost:8000/api/v1/clients/?search=&page=2",
+    next: "http://localhost:8000/api/v1/clients/?search=&page=2",
     prev: null
   },
   data: [singleClient],
