@@ -23,7 +23,7 @@ const transformMyApiErrors = function(array) {
 function getValidationSchema(values) {
   return Yup.object().shape({
     national_id: Yup.string().required("National ID is required."),
-    username: Yup.string().required("Username is required!"),
+    ona_username: Yup.string().required("Username is required!"),
     password: Yup.string().required("Password is required."),
     email: Yup.string().email("E-mail is not valid!"),
     confirmation: Yup.string()
@@ -80,7 +80,7 @@ export class UserForm extends Component {
                 last_name: values.last_name,
                 role: values.role,
                 national_id: values.national_id,
-                ona_username: values.username,
+                ona_username: values.ona_username,
                 password: values.password,
                 gender: values.gender,
                 expertise: values.expertise,
@@ -162,10 +162,8 @@ export class UserForm extends Component {
                     aria-label="admin"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    onClick={e => {
-                      setValues({ role: "1" });
-                    }}
-                    value={values.role}
+                    checked={values.role === "1"}
+                    value="1"
                     className={errors.role ? "is-invalid" : ""}
                   />{" "}
                   Admin
@@ -175,12 +173,10 @@ export class UserForm extends Component {
                     name="role"
                     type="radio"
                     aria-label="contributor"
+                    checked={values.role === "2"}
                     onChange={handleChange}
-                    onClick={() => {
-                      values.role = "2";
-                    }}
                     onBlur={handleBlur}
-                    value={values.role}
+                    value="2"
                     className={errors.role ? "is-invalid" : ""}
                   />{" "}
                   Contributor
@@ -214,9 +210,9 @@ export class UserForm extends Component {
                 </Col>
                 <Col md="9">
                   <Input
-                    name="username"
+                    name="ona_username"
                     type="text"
-                    aria-label="username"
+                    aria-label="ona_username"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.ona_username}
@@ -254,7 +250,7 @@ export class UserForm extends Component {
                 </Col>
                 <Col md="9">
                   <Input
-                    name="comfirmation"
+                    name="confirmation"
                     type="password"
                     aria-label="confirmation"
                     onChange={handleChange}
@@ -280,13 +276,11 @@ export class UserForm extends Component {
                   <Input
                     name="gender"
                     type="radio"
-                    aria-label="Male"
+                    aria-label="male"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    onClick={() => {
-                      values.gender = "0";
-                    }}
-                    value={values.gender}
+                    value="0"
+                    checked={values.gender === "0"}
                     className={errors.gender ? "is-invalid" : ""}
                   />{" "}
                   Male
@@ -297,11 +291,9 @@ export class UserForm extends Component {
                     type="radio"
                     aria-label="female"
                     onChange={handleChange}
-                    onClick={() => {
-                      values.gender = "1";
-                    }}
+                    value="1"
+                    checked={values.gender === "1"}
                     onBlur={handleBlur}
-                    value={values.gender}
                     className={errors.gender ? "is-invalid" : ""}
                   />{" "}
                   Female
@@ -312,11 +304,9 @@ export class UserForm extends Component {
                     type="radio"
                     aria-label="other"
                     onChange={handleChange}
-                    onClick={() => {
-                      values.gender = "2";
-                    }}
+                    value="2"
+                    checked={values.gender === "2"}
                     onBlur={handleBlur}
-                    value={values.gender}
                     className={errors.gender ? "is-invalid" : ""}
                   />{" "}
                   Other
@@ -395,9 +385,9 @@ export class UserForm extends Component {
                 </Col>
                 <Col md="9">
                   <Input
-                    name="payment_no"
+                    name="payment_number"
                     type="text"
-                    aria-label="payment_no"
+                    aria-label="payment_number"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.payment_number}
@@ -416,9 +406,9 @@ export class UserForm extends Component {
                 </Col>
                 <Col md="9">
                   <Input
-                    name="number"
+                    name="phone_number"
                     type="text"
-                    aria-label="number"
+                    aria-label="phone_number"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.phone_number}
