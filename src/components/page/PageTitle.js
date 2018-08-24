@@ -16,14 +16,14 @@ import {
 
 export default class PageTitle extends Component {
   render() {
+    this.searchValue = this.props.searchVal;
+
     return (
       <section className="page-title">
         <Row>
           <Col sm="12" md={{ size: 8, offset: 2 }}>
             <div>
-              <p>{console.log(this.props)}</p>
               <h1>{this.props.pageTitle}</h1>
-
               <Row>
                 <Col md="9">
                   <Form onSubmit={this.handleSubmit}>
@@ -52,6 +52,10 @@ export default class PageTitle extends Component {
                         placeholder="Search"
                         aria-label="Search"
                         name="search"
+                        onChange={this.handleChange}
+                        defaultValue={
+                          this.searchValue != null ? this.searchValue : ""
+                        }
                       />
                     </InputGroup>
                   </Form>
