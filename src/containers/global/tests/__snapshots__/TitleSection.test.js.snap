@@ -328,6 +328,7 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                                     aria-label="Search"
                                     bsSize="lg"
                                     className="border-left-0"
+                                    defaultValue=""
                                     name="search"
                                     placeholder="Search"
                                     type="text"
@@ -335,6 +336,7 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                                     <input
                                       aria-label="Search"
                                       className="border-left-0 form-control-lg form-control"
+                                      defaultValue=""
                                       name="search"
                                       placeholder="Search"
                                       type="text"
