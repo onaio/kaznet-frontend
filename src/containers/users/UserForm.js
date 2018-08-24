@@ -26,7 +26,7 @@ function getValidationSchema(values) {
     username: Yup.string().required("Username is required!"),
     password: Yup.string().required("Password is required."),
     email: Yup.string().email("E-mail is not valid!"),
-    passwordConfirmation: Yup.string()
+    confirmation: Yup.string()
       .oneOf([values.password], "Passwords are don't match!")
       .required("Password confirmation is required!")
   });
