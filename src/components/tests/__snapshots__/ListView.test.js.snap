@@ -407,12 +407,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Next"
                   className="page-link"
                   replace={false}
-                  to="/http://10.20.25.28:8000/api/v1/?search=undefined&page=2"
+                  to="/http://10.20.25.28:8000/api/v1/?search=&page=2"
                 >
                   <a
                     aria-label="Next"
                     className="page-link"
-                    href="/http://10.20.25.28:8000/api/v1/?search=undefined&page=2"
+                    href="/http://10.20.25.28:8000/api/v1/?search=&page=2"
                     onClick={[Function]}
                   >
                     »

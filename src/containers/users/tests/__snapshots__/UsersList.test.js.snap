@@ -372,12 +372,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/users/?search=undefined&page=2"
+                      to="/users/?search=&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/users/?search=undefined&page=2"
+                        href="/users/?search=&page=2"
                         onClick={[Function]}
                       >
                         »

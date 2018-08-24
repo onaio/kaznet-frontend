@@ -1430,12 +1430,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=undefined&page=2"
+                      to="/tasks/?search=&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/tasks/?search=undefined&page=2"
+                        href="/tasks/?search=&page=2"
                         onClick={[Function]}
                       >
                         »
