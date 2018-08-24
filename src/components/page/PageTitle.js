@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import "./PageTitle.css";
 import {
   Col,
   Row,
@@ -9,6 +10,7 @@ import {
   InputGroup,
   InputGroupAddon,
   Input,
+  Button,
   InputGroupText
 } from "reactstrap";
 
@@ -29,7 +31,16 @@ export default class PageTitle extends Component {
                         className="search-prepend"
                       >
                         <InputGroupText className="bg-white border-right-0">
-                          <FontAwesomeIcon icon="search" />
+                          <Button
+                            color="deoco"
+                            className="search_button btn btn-deoco"
+                            type="submit"
+                          >
+                            <FontAwesomeIcon
+                              icon="search"
+                              className="filtersubmit"
+                            />
+                          </Button>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
@@ -39,6 +50,7 @@ export default class PageTitle extends Component {
                         placeholder="Search"
                         aria-label="Search"
                         name="search"
+                        value={this.props.seachVal}
                       />
                     </InputGroup>
                   </Form>
