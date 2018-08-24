@@ -65,6 +65,10 @@ export default function reduce(state = initialState, action = {}) {
   }
 }
 
+export function getSearchValue(state) {
+  return state.clients.searchVal;
+}
+
 export function getClientsById(state) {
   return state.clients.clientsById;
 }

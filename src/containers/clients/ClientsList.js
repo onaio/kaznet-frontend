@@ -116,7 +116,7 @@ function mapStateToProps(state) {
     pageLinks: clientSelectors.getPageLinks(state),
     firstPage: clientSelectors.getFirstPage(state),
     lastPage: clientSelectors.getLastPage(state),
-    searchParam: state.clients.searchVal
+    searchParam: clientSelectors.getSearchValue(state)
   };
 }
 

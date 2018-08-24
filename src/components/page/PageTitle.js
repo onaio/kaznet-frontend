@@ -21,10 +21,12 @@ export default class PageTitle extends Component {
         <Row>
           <Col sm="12" md={{ size: 8, offset: 2 }}>
             <div>
+              <p>{console.log(this.props)}</p>
               <h1>{this.props.pageTitle}</h1>
+
               <Row>
                 <Col md="9">
-                  <Form>
+                  <Form onSubmit={this.handleSubmit}>
                     <InputGroup className="search-group">
                       <InputGroupAddon
                         addonType="prepend"
@@ -50,7 +52,6 @@ export default class PageTitle extends Component {
                         placeholder="Search"
                         aria-label="Search"
                         name="search"
-                        value={this.props.seachVal}
                       />
                     </InputGroup>
                   </Form>
