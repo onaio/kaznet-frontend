@@ -87,7 +87,11 @@ export default class ListView extends Component {
               this.props.pageLinks.last
                 ? `/${this.props.endpoint}/?search=${
                     !this.props.searchVal ? "" : this.props.searchVal
-                  }&page=${this.props.lastPage}`
+                  }&page=${
+                    !this.props.lastPage || this.props.lastPage === undefined
+                      ? 1
+                      : this.props.lastPage
+                  }`
                 : "#"
             }
             className="page-link"

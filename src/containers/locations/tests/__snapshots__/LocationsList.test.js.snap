@@ -187,12 +187,12 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/locations/?search=undefined&page=1"
+                      to="/locations/?search=&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/locations/?search=undefined&page=1"
+                        href="/locations/?search=&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -259,12 +259,12 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/locations/?search=undefined&page=2"
+                      to="/locations/?search=&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/locations/?search=undefined&page=2"
+                        href="/locations/?search=&page=2"
                         onClick={[Function]}
                       >
                         Last
