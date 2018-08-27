@@ -15,8 +15,8 @@ const transformMyApiErrors = function(array) {
     const msg = element.detail;
     const field = element.source.pointer.split("/").pop();
 
-    if (field === "ona_username" || field === "username") {
-      errors.form = "Please select a valid Username.";
+    if (field === "username") {
+      errors.username = "Please select a valid Username.";
     }
     errors[field] = msg;
   }
