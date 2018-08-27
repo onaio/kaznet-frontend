@@ -39,7 +39,7 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.first
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal === undefined
+                    !this.props.searchVal || this.props.searchVal === undefined
                       ? ""
                       : this.props.searchVal
                   }&page=${this.props.firstPage}`
@@ -56,9 +56,7 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.prev
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal === undefined
-                      ? ""
-                      : this.props.searchVal
+                    !this.props.searchVal ? "" : this.props.searchVal
                   }&page=${this.props.currentPage - 1}`
                 : "#"
             }
@@ -73,9 +71,7 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.next
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal === undefined
-                      ? this.props.searchVal
-                      : ""
+                    !this.props.searchVal ? "" : this.props.searchVal
                   }&page=${this.props.currentPage + 1}`
                 : "#"
             }
@@ -90,9 +86,7 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.last
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal === undefined
-                      ? ""
-                      : this.props.searchVal
+                    !this.props.searchVal ? "" : this.props.searchVal
                   }&page=${this.props.lastPage}`
                 : "#"
             }

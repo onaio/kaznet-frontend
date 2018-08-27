@@ -24,30 +24,30 @@ export class TasksList extends Component {
     this.props.changePageTitleButton("+ Create Task");
     this.props.changePageTarget("/tasks/new");
 
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      const pageNumber = Number(page);
-      if (!isNaN(pageNumber)) {
-        await this.props.fetchTasks(
-          `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
+    const { page } = queryString.parse(this.props.location.search);
+    let pageNumber = Number(page);
+
+    if (isNaN(pageNumber)) {
+      pageNumber = 1;
+    }
+    if (pageNumber) {
+      await this.props.fetchTasks(
+        `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
     } else {
       this.props.fetchTasks();
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      if (Number(page) !== this.props.currentPage && !isNaN(page)) {
-        const pageNumber = Number(page);
-        this.props.fetchTasks(
-          `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
+    const { page } = queryString.parse(this.props.location.search);
+    if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+      const pageNumber = Number(page);
+      this.props.fetchTasks(
+        `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
     }
   }
 
