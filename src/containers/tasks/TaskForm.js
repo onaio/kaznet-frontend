@@ -29,6 +29,7 @@ import * as clientSelectors from "../../store/clients/reducer";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
+import * as constants from "../../constants.js";
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -96,8 +97,8 @@ export class TaskForm extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchForms();
+  async componentDidMount() {
+    await this.props.fetchForms(`${constants.API_ENDPOINT}/forms/`);
     this.props.fetchClients();
     this.props.fetchLocations();
     this.props.fetchContentTypes();
@@ -329,7 +330,7 @@ export class TaskForm extends Component {
                   <Label for="form">Form</Label>
                 </Col>
                 <Col md="9">
-                  <AsyncSearch />
+                  <AsyncSearch unusedFormsById={this.props.unusedFormsById} />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
                   )}

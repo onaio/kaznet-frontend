@@ -7,7 +7,8 @@ import * as types from "./actionTypes";
 const initialState = Immutable({
   formsById: {},
   formsIdArray: [],
-  unusedForms: []
+  unusedForms: [],
+  inputVal: null
 });
 
 export default function reduce(state = initialState, action = {}) {
