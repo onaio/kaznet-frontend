@@ -39,7 +39,7 @@ class UserService {
   }
 
   async createUser(user_data) {
-    const url = `${constants.API_ENDPOINT}/userprofiles/create_user_ona/`;
+    const url = `${constants.API_ENDPOINT}/userprofiles/`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

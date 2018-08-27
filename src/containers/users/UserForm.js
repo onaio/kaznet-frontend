@@ -69,7 +69,7 @@ export class UserForm extends Component {
     return (
       <Formik
         initialValues={this.props.initialData}
-        validate={validate(getValidationSchema)}
+        // validate={validate(getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -92,7 +92,7 @@ export class UserForm extends Component {
           };
 
           try {
-            this.props.formActionDisptach(payload).then(() => {
+            this.props.formActionDispatch(payload).then(() => {
               setSubmitting(false);
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
