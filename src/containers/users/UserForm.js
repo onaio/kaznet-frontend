@@ -27,7 +27,7 @@ function getValidationSchema(values) {
     password: Yup.string().required("Password is required."),
     email: Yup.string().email("E-mail is not valid!"),
     confirmation: Yup.string()
-      .oneOf([values.password], "Passwords are don't match!")
+      .oneOf([values.password], "Passwords don't match!")
       .required("Password confirmation is required!")
   });
 }
@@ -69,7 +69,7 @@ export class UserForm extends Component {
     return (
       <Formik
         initialValues={this.props.initialData}
-        // validate={validate(getValidationSchema)}
+        validate={validate(getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -206,7 +206,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="username">Username*</Label>
+                  <Label for="ona_username">Username*</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -218,9 +218,10 @@ export class UserForm extends Component {
                     value={values.ona_username}
                     className={errors.ona_username ? "is-invalid" : ""}
                   />
-                  {errors.ona_username && (
+                  {(errors.ona_username || errors.username) && (
                     <div className="invalid-feedback">
                       {errors.ona_username}
+                      {errors.username}
                     </div>
                   )}
                 </Col>
