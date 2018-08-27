@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Formik } from "formik";
+import AsyncSearch from "./AsyncSearch";
 import {
   Form,
   Input,
@@ -327,24 +328,8 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="form">Form</Label>
                 </Col>
-                <Col md="6">
-                  <Input
-                    name="form"
-                    type="select"
-                    bsSize="lg"
-                    placeholder="Form"
-                    aria-label="form"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.form}
-                    className={errors.form ? "is-invalid" : ""}
-                  >
-                    <OptionMap
-                      obj={this.props.unusedFormsById}
-                      additionalObj={this.props.currentForm}
-                      titleField="title"
-                    />
-                  </Input>
+                <Col md="9">
+                  <AsyncSearch />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
