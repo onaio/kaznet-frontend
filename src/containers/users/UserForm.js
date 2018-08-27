@@ -92,7 +92,7 @@ export class UserForm extends Component {
           };
 
           try {
-            this.props.formActionDisptach(payload, this.targetId).then(() => {
+            this.props.formActionDisptach(payload).then(() => {
               setSubmitting(false);
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
@@ -124,7 +124,7 @@ export class UserForm extends Component {
                     type="text"
                     bsSize="lg"
                     placeholder="Last Name"
-                    aria-label="last-name"
+                    aria-label="last_name"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.last_name}
@@ -140,7 +140,7 @@ export class UserForm extends Component {
                     type="text"
                     bsSize="lg"
                     placeholder="First Name"
-                    aria-label="first-name"
+                    aria-label="first_name"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.first_name}
