@@ -16,7 +16,7 @@ const transformMyApiErrors = function(array) {
     const field = element.source.pointer.split("/").pop();
 
     if (field === "username") {
-      errors.username = "Please select a valid Username.";
+      errors.ona_username = "Please select a valid Username.";
     }
     errors[field] = msg;
   }
@@ -222,10 +222,9 @@ export class UserForm extends Component {
                     value={values.ona_username}
                     className={errors.ona_username ? "is-invalid" : ""}
                   />
-                  {(errors.ona_username || errors.username) && (
+                  {errors.ona_username && (
                     <div className="invalid-feedback">
                       {errors.ona_username}
-                      {errors.username}
                     </div>
                   )}
                 </Col>
