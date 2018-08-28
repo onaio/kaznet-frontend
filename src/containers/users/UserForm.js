@@ -116,8 +116,7 @@ export class UserForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setStatus,
-          setValues
+          setStatus
         }) => (
           <div>
             <Form onSubmit={handleSubmit}>
@@ -426,7 +425,7 @@ export class UserForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col md={{ size: 4, offset: 1 }}>
+                <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
                     onClick={() => {
@@ -437,7 +436,7 @@ export class UserForm extends Component {
                     Cancel{" "}
                   </Button>
                 </Col>
-                <Col md={{ size: 5, offset: 2 }}>
+                <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
