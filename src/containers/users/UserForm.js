@@ -16,7 +16,7 @@ const transformMyApiErrors = function(array) {
     const field = element.source.pointer.split("/").pop();
 
     if (field === "username") {
-      errors.ona_username = "Please select a valid Username.";
+      errors.ona_username = msg;
     }
     errors[field] = msg;
   }
@@ -426,8 +426,7 @@ export class UserForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col md="1" />
-                <Col md="4">
+                <Col md={{ size: 4, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
                     onClick={() => {
@@ -438,8 +437,7 @@ export class UserForm extends Component {
                     Cancel{" "}
                   </Button>
                 </Col>
-                <Col md="2" />
-                <Col md="4">
+                <Col md={{ size: 5, offset: 2 }}>
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
@@ -448,7 +446,6 @@ export class UserForm extends Component {
                     {isSubmitting ? "Creating" : "Add User"}
                   </Button>
                 </Col>
-                <Col md="1" />
               </FormGroup>
             </Form>
             {status === "done" && (
