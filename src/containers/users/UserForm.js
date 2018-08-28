@@ -436,7 +436,7 @@ export class UserForm extends Component {
                     Cancel{" "}
                   </Button>
                 </Col>
-                <Col md={{ size: 5, offset: 1 }}>
+                <Col md={{ size: 5 }}>
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"

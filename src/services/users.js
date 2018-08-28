@@ -66,7 +66,7 @@ class UserService {
     const data = _.get(apiResponse, "data");
 
     if (!data) {
-      throw new Error(`ClientService createClient failed, data not returned`);
+      throw new Error(`UserService createUser failed, data not returned`);
     }
 
     return data;
