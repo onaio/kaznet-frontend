@@ -27,6 +27,7 @@ import TaskDeletion from "./containers/tasks/TaskDeletion";
 import TaskClone from "./containers/tasks/TaskClone";
 
 import UsersList from "./containers/users/UsersList";
+import UserCreateForm from "./containers/users/UserCreateForm";
 
 import LocationsList from "./containers/locations/LocationsList";
 import LocationCreateForm from "./containers/locations/LocationCreateForm";
@@ -94,6 +95,11 @@ class App extends Component {
                         />
                         <Route exact path="/users" component={UsersList} />
                         <Route exact path="/users:page" component={UsersList} />
+                        <Route
+                          exact
+                          path="/users/new"
+                          component={UserCreateForm}
+                        />
                         <Route
                           exact
                           path="/locations"

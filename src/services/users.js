@@ -37,6 +37,40 @@ class UserService {
       totalPages: pages
     };
   }
+
+  async createUser(user_data) {
+    const url = `${constants.API_ENDPOINT}/userprofiles/`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/vnd.api+json",
+        "content-type": "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      },
+      body: JSON.stringify(user_data),
+      cache: "no-cache"
+    });
+
+    if (!response.ok && response.status !== 400) {
+      throw new Error(
+        `UserService createUser failed, HTTP status ${response.status}`
+      );
+    }
+
+    const apiResponse = await response.json();
+
+    if (response.status === 400) {
+      throw apiResponse.errors;
+    }
+
+    const data = _.get(apiResponse, "data");
+
+    if (!data) {
+      throw new Error(`UserService createUser failed, data not returned`);
+    }
+
+    return data;
+  }
 }
 
 export default new UserService();

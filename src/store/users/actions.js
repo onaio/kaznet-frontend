@@ -1,6 +1,7 @@
 import _ from "lodash";
 import * as types from "./actionTypes";
 import userService from "../../services/users";
+import * as errorHandlerTypes from "../errorHandler/actionTypes";
 
 export function fetchUsers(url) {
   return async (dispatch, getState) => {
@@ -21,6 +22,21 @@ export function fetchUsers(url) {
       });
     } catch (error) {
       console.error(error);
+    }
+  };
+}
+
+export function createUser(user_data) {
+  return async (dispatch, getState) => {
+    try {
+      const userData = await userService.createUser(user_data);
+      dispatch({ type: types.USER_CREATED, userData });
+      dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
   };
 }

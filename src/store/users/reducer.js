@@ -31,6 +31,14 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         currentPage: action.pageNumber
       });
+    case types.USER_CREATED:
+      return Immutable({
+        ...state,
+        usersById: {
+          ...state.usersById,
+          [action.userData.id]: action.userData
+        }
+      });
     default:
       return state;
   }
