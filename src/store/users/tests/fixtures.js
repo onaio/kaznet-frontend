@@ -123,3 +123,18 @@ export const usersByIdSecondPage = _.keyBy(
 export const currentPageSecondPage = userDataSecondPage.meta.pagination.page;
 export const totalPagesSecondPage = userDataSecondPage.meta.pagination.pages;
 export const pageLinksSecondPage = userDataSecondPage.links;
+
+export const UserFormInitialData = {
+  first_name: "kamau",
+  last_name: "kahama",
+  email: "kamau@gmail.com",
+  password: "hello123",
+  confirmation: "hello123",
+  gender: "male",
+  role: "Admin",
+  expertise: "Intermediate",
+  national_id: "30090087",
+  payment_number: "",
+  phone_number: "",
+  ona_username: "kahama"
+};
