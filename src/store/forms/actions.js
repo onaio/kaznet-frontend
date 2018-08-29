@@ -8,9 +8,14 @@ export function fetchForms(url) {
   return async (dispatch, getState) => {
     try {
       const formArray = await formService.getFormList(url);
-      console.log("forms array", formArray);
       const formsById = _.keyBy(formArray, form => form.id);
-      dispatch({ type: types.FORMS_FETCHED, formsById });
+      const options = formArray.map(d => d.attributes.title);
+      dispatch({
+        type: types.FORMS_FETCHED,
+        isLoading: false,
+        formsById,
+        options
+      });
     } catch (error) {
       console.error(error);
     }

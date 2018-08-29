@@ -330,7 +330,7 @@ export class TaskForm extends Component {
                   <Label for="form">Form</Label>
                 </Col>
                 <Col md="9">
-                  <AsyncSearch unusedFormsById={this.props.unusedFormsById} />
+                  <AsyncSearch />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
                   )}

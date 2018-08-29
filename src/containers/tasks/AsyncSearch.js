@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import AsyncSelect from "react-select/lib/Async";
+import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { bindActionCreators } from "redux";
 import * as formActions from "../../store/forms/actions";
 import * as formSelectors from "../../store/forms/reducer";
@@ -10,86 +10,31 @@ export class AsyncSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: ""
+      isLoading: false
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.buildFormsArray = this.buildFormsArray.bind(this);
-    this.filterOptions = this.filterOptions.bind(this);
-    this.promiseOptions = this.promiseOptions.bind(this);
+    this.onSearchEvent = this.onSearchEvent.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.unusedFormsById &&
-      Object.keys(nextProps.unusedFormsById).length > 0
-    ) {
-      this.setState({
-        unusedFormsById: nextProps.unusedFormsById,
-        options: this.buildFormsArray(nextProps.unusedFormsById)
-      });
-    }
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.inputValue !== this.state.inputValue) {
-      this.setState({
-        inputValue: nextState.inputValue,
-        options: this.buildFormsArray(nextProps.unusedFormsById)
-      });
-    }
-  }
-
-  buildFormsArray(forms) {
-    const formPks = Object.keys(forms);
-    const buildArray = [];
-    let form;
-    for (let i = 0; i < formPks.length; i += 1) {
-      form = forms[formPks[i]];
-      buildArray.push({
-        label: form.attributes.title,
-        value: form.attributes.title.toLowerCase()
-      });
-    }
-    return buildArray;
-  }
-
-  filterOptions(inputValue) {
-    if (this.state && this.state.options) {
-      this.state.options.filter(i =>
-        i.value.includes(inputValue.toLowerCase())
-      );
-    }
-  }
-
-  promiseOptions(inputValue) {
-    new Promise((res, rej) => {
-      setTimeout(() => {
-        res(this.filterOptions(inputValue));
-      }, 10);
-    });
-  }
-
-  handleInputChange(newValue) {
-    if (!newValue) return false;
-    const inputValue = newValue.replace(/\W/g, "");
-    // refactor this to dispatch the val to store after querying API
-    this.props.fetchForms(
-      `${constants.API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`
+  async componentDidMount() {
+    await this.props.fetchForms(
+      `${constants.API_ENDPOINT}/forms/?has_task=false`
     );
-    this.setState({
-      inputValue
-    });
-    return true;
+  }
+
+  onSearchEvent(query) {
+    this.props.fetchForms(
+      `${constants.API_ENDPOINT}/forms/?search=${query}&has_task=false`
+    );
   }
 
   render() {
-    console.log("state", this.state);
     return (
-      <AsyncSelect
-        cacheOptions
-        defaultOptions
-        loadOptions={this.promiseOptions}
-        onInputChange={this.handleInputChange}
+      <AsyncTypeahead
+        isLoading={this.props.isLoading}
+        minLength={0}
+        onSearch={this.onSearchEvent}
+        options={this.props.options}
+        placeholder="Choose a form..."
       />
     );
   }
@@ -97,7 +42,8 @@ export class AsyncSearch extends Component {
 
 function mapStateToProps(state) {
   return {
-    unusedFormsById: formSelectors.getUnusedFormsById(state)
+    options: formSelectors.getFormOptions(state),
+    isLoading: formSelectors.isLoading(state)
   };
 }
 
@@ -105,6 +51,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchForms: formActions.fetchForms
+      // fetchOptions: formActions.fetchOptions,
     },
     dispatch
   );
