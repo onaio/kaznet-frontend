@@ -86,7 +86,7 @@ export class AsyncSearch extends Component {
 
     return (
       <AsyncTypeahead
-        isLoading={isLoading}
+        isLoading={isLoading || false}
         minLength={0}
         onSearch={this.onSearchEvent}
         options={getOptions}
