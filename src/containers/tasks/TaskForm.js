@@ -18,7 +18,6 @@ import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
 
-import { OptionMap } from "../Select";
 import "./TaskForm.css";
 import * as clientActions from "../../store/clients/actions";
 import * as locationActions from "../../store/locations/actions";
@@ -330,7 +329,7 @@ export class TaskForm extends Component {
                   <Label for="form">Form</Label>
                 </Col>
                 <Col md="9">
-                  <AsyncSearch />
+                  <AsyncSearch type={"forms"} />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
@@ -585,6 +584,8 @@ export class TaskForm extends Component {
                   >
                     <OptionMap obj={this.props.clientsById} titleField="name" />
                   </Input>
+                <Col md="9">
+                  <AsyncSearch type={"clients"} />
                   {errors.client && (
                     <div className="invalid-feedback">{errors.client}</div>
                   )}
@@ -670,6 +671,134 @@ export class TaskForm extends Component {
                   </Button>
                 </Col>
               </FormGroup>
+
+              <h4>Location</h4>
+
+              <div className="tasklocation-item">
+                <FormGroup className="row">
+                  <Col sm="3">
+                    <Label for="tasklocation_location">Location</Label>
+                  </Col>
+                  <Col sm="9">
+                    <AsyncSearch type={"locations"} />
+                    {errors.tasklocation_location && (
+                      <div className="invalid-feedback">
+                        {errors.tasklocation_location}
+                      </div>
+                    )}
+                  </Col>
+                </FormGroup>
+                <FormGroup className="row">
+                  <Col sm="3">
+                    <Label for="tasklocation_start">Hours</Label>
+                  </Col>
+                  <Col md="9">
+                    <Row>
+                      <Col md="5">
+                        <Input
+                          name="tasklocation_start"
+                          type="time"
+                          bsSize="lg"
+                          placeholder="Start"
+                          aria-label="start"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.tasklocation_start}
+                          className={
+                            errors.tasklocation_start ? "is-invalid" : ""
+                          }
+                          required={true}
+                        />
+                        {touched.tasklocation_start &&
+                          errors.tasklocation_start && (
+                            <div className="invalid-feedback">
+                              {errors.tasklocation_start}
+                            </div>
+                          )}
+                      </Col>
+                      <Col md="2">
+                        <p className="text-center align-middle">to</p>
+                      </Col>
+                      <Col md="5">
+                        <Input
+                          name="tasklocation_end"
+                          type="time"
+                          bsSize="lg"
+                          placeholder="End"
+                          aria-label="end"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.tasklocation_end}
+                          className={
+                            errors.tasklocation_end ? "is-invalid" : ""
+                          }
+                          required={true}
+                        />
+                        {errors.tasklocation_end && (
+                          <div className="invalid-feedback">
+                            {errors.tasklocation_end}
+                          </div>
+                        )}
+                      </Col>
+                    </Row>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup className="row">
+                  <Col sm="3">
+                    <Label for="tasklocation_timing_rule">Timing Rule</Label>
+                  </Col>
+                  <Col md="9">
+                    <Input
+                      name="tasklocation_timing_rule"
+                      type="hidden"
+                      bsSize="lg"
+                      placeholder="Timing Rule"
+                      aria-label="timing rule"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.tasklocation_timing_rule}
+                      className={
+                        errors.tasklocation_timing_rule ? "is-invalid" : ""
+                      }
+                    />
+                    {errors.tasklocation_timing_rule && (
+                      <div className="invalid-feedback">
+                        {errors.tasklocation_timing_rule}
+                      </div>
+                    )}
+
+                    <RRuleGenerator
+                      onChange={rrule =>
+                        setFieldValue("tasklocation_timing_rule", rrule)
+                      }
+                      value={values.tasklocation_timing_rule}
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup className="row">
+                  <Col md={{ size: 5, offset: 1 }}>
+                    <Button
+                      className="btn btn-secondary btn-block"
+                      onClick={() => {
+                        setStatus("done");
+                      }}
+                    >
+                      {" "}
+                      Cancel{" "}
+                    </Button>
+                  </Col>
+                  <Col md={{ size: 5 }}>
+                    <Button
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Submitting" : "Submit"}
+                    </Button>
+                  </Col>
+                </FormGroup>
+              </div>
             </Form>
             {status === "done" && (
               <Redirect to={this.props.redirectAfterAction} />

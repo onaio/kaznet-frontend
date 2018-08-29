@@ -15,12 +15,15 @@ export function fetchClients(url) {
         totalPages
       } = await clientService.getClientList(url); // reason we are using async
       const clientsById = _.keyBy(clientArray, task => task.id); // Sorts the items ???
+      const options = clientArray.map(d => d.attributes.name);
       dispatch({
         type: types.CLIENTS_FETCHED,
+        isLoading: false,
         clientsById,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        options
       }); // Returns an object for the action which is {}
     } catch (error) {
       // Kind of like a try and except

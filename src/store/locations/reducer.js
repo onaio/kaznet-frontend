@@ -15,7 +15,9 @@ const initialState = Immutable({
     last: null,
     prev: null,
     next: null
-  }
+  },
+  isLoading: true,
+  options: []
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -25,7 +27,9 @@ export default function reduce(state = initialState, action = {}) {
         locationsById: action.locationsById,
         pageLinks: action.pageLinks,
         currentPage: action.currentPage,
-        totalPages: action.totalPages
+        totalPages: action.totalPages,
+        isLoading: action.isLoading,
+        options: action.options
       });
     case types.LOCATION_CHANGE_PAGE:
       return state.merge({
@@ -61,6 +65,14 @@ export default function reduce(state = initialState, action = {}) {
     default:
       return state;
   }
+}
+
+export function getLocationOptions(state) {
+  return state.locations.options;
+}
+
+export function isLoading(state) {
+  return state.locations.isLoading;
 }
 
 export function getLocationsById(state) {
