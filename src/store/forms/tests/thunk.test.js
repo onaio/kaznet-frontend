@@ -4,6 +4,7 @@ import formService from "../../../services/forms";
 import * as fixtures from "./fixtures";
 import * as forms from "../actions";
 import * as actionTypes from "../actionTypes";
+import { options } from "sw-toolbox";
 
 jest.mock("../../../services/forms");
 
@@ -19,7 +20,9 @@ describe("store/forms/actions", () => {
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.FORMS_FETCHED,
-      formsById: fixtures.formsById
+      formsById: fixtures.formsById,
+      options: fixtures.getFormOptions,
+      isLoading: false
     });
   });
 

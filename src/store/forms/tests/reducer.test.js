@@ -9,7 +9,9 @@ import * as fixtures from "./fixtures";
 const initialState = {
   formsById: {},
   formsIdArray: [],
-  unusedForms: []
+  unusedForms: [],
+  options: [],
+  isLoading: true
 };
 
 describe("store/forms/reducer", () => {
@@ -19,11 +21,20 @@ describe("store/forms/reducer", () => {
 
   it("should store fetched forms", () => {
     const formsById = fixtures.formsById;
-    const action = { type: actionTypes.FORMS_FETCHED, formsById };
+    const options = fixtures.getFormOptions;
+    const isLoading = false;
+    const action = {
+      type: actionTypes.FORMS_FETCHED,
+      formsById,
+      options,
+      isLoading
+    };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(existingState);
     newState.formsById = formsById;
+    newState.options = options;
+    newState.isLoading = isLoading;
 
     Reducer(forms)
       .withState(existingState)
