@@ -54,3 +54,10 @@ export function toggleTitleOn() {
     dispatch({ type: types.PAGE_TITLE_ON });
   };
 }
+
+//get search value on task view
+export function getSearchVal(val) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.GLOBAL_SEARCH_VALUE, val });
+  };
+}

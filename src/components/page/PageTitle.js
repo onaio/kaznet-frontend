@@ -17,6 +17,7 @@ import {
 export default class PageTitle extends Component {
   render() {
     this.searchValue = this.props.searchVal;
+    console.log(this.props);
 
     return (
       <section className="page-title">

@@ -6,3 +6,4 @@ export const TASK_EDITED = "tasks.TASK_EDITED";
 export const TASK_DELETED = "tasks.TASK_DELETED";
 export const TASK_CLONED = "tasks.TASK_CLONED";
 export const TASK_CHANGE_PAGE = "tasks.TASK_CHANGE_PAGE";
+export const TASK_SEARCH_VAL = "tasks.TASK_SEARCH_VAL";

@@ -66,13 +66,20 @@ export default function reduce(state = initialState, action = {}) {
           [action.taskData.id]: action.taskData
         }
       });
+    case types.TASK_SEARCH_VAL:
+      return Immutable({
+        ...state,
+        searchVal: action.val
+      });
     default:
       return state;
   }
 }
 
 // selectors
-
+export function getSearchValue(state) {
+  return state.tasks.searchVal;
+}
 export function getTasksById(state) {
   return state.tasks.tasksById;
 }
