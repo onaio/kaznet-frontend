@@ -75,7 +75,7 @@ describe("store/users/actions", () => {
 
   it("should create User", async () => {
     UserService.createUser.mockReturnValueOnce(fixtures.userData);
-    const dispatches = await Thunk(users.createUser).execute(1);
+    const dispatches = await Thunk(users.createUser).execute();
     expect(dispatches.length).toBe(2);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
@@ -92,7 +92,7 @@ describe("store/users/actions", () => {
     UserService.createUser.mockImplementationOnce(() => {
       throw new Error("Wow!");
     });
-    const dispatches = await Thunk(users.createUser).execute(1);
+    const dispatches = await Thunk(users.createUser).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
