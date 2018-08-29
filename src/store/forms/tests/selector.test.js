@@ -7,14 +7,16 @@ import * as fixtures from "./fixtures";
 const emptyState = Immutable({
   forms: {
     formsById: {},
-    formsIdArray: []
+    formsIdArray: [],
+    options: []
   }
 });
 
 const fullState = Immutable({
   forms: {
     formsById: fixtures.formsById,
-    formsIdArray: fixtures.formsIdArray
+    formsIdArray: fixtures.formsIdArray,
+    options: fixtures.getFormOptions
   }
 });
 
@@ -47,5 +49,17 @@ describe("store/forms/selectors", () => {
     Selector(forms.getFormById)
       .expect(fullState, 1)
       .toReturn(fixtures.formIdOneById);
+  });
+
+  it("should get forms by title when empty", () => {
+    Selector(forms.getFormOptions)
+      .expect(emptyState)
+      .toReturn([]);
+  });
+
+  it("should get forms by title when full", () => {
+    Selector(forms.getFormOptions)
+      .expect(fullState)
+      .toReturn(fixtures.getFormOptions);
   });
 });
