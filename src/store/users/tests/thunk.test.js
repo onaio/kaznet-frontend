@@ -88,7 +88,7 @@ describe("store/users/actions", () => {
     });
   });
 
-  it("should create client and dispatch on error", async () => {
+  it("should create user and dispatch on error", async () => {
     UserService.createUser.mockImplementationOnce(() => {
       throw new Error("Wow!");
     });
