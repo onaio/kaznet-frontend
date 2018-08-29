@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import * as globalSelectors from "../../store/global/reducer";
-import * as clientSelectors from "../../store/clients/reducer";
-
 import PageTitle from "../../components/page/PageTitle";
 import DetailPageTitle from "../../components/page/DetailTitle";
 
@@ -47,7 +45,7 @@ function mapStateToProps(state) {
     detailName: globalSelectors.getDetailName(state),
     actionLinks: globalSelectors.getActionLinks(state),
     getStatus: globalSelectors.getDetailStatus(state),
-    searchParam: clientSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state)
   };
 }
 
