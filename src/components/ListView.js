@@ -38,7 +38,11 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.first
-                ? `/${this.props.endpoint}/?page=${this.props.firstPage}`
+                ? `/${this.props.endpoint}/?search=${
+                    !this.props.searchVal || this.props.searchVal === undefined
+                      ? ""
+                      : this.props.searchVal
+                  }&page=${this.props.firstPage}`
                 : "#"
             }
             className="page-link"
@@ -51,7 +55,9 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.prev
-                ? `/${this.props.endpoint}/?page=${this.props.currentPage - 1}`
+                ? `/${this.props.endpoint}/?search=${
+                    !this.props.searchVal ? "" : this.props.searchVal
+                  }&page=${this.props.currentPage - 1}`
                 : "#"
             }
             className="page-link"
@@ -64,7 +70,9 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.next
-                ? `/${this.props.endpoint}/?page=${this.props.currentPage + 1}`
+                ? `/${this.props.endpoint}/?search=${
+                    !this.props.searchVal ? "" : this.props.searchVal
+                  }&page=${this.props.currentPage + 1}`
                 : "#"
             }
             className="page-link"
@@ -77,7 +85,13 @@ export default class ListView extends Component {
           <Link
             to={
               this.props.pageLinks.last
-                ? `/${this.props.endpoint}/?page=${this.props.lastPage}`
+                ? `/${this.props.endpoint}/?search=${
+                    !this.props.searchVal ? "" : this.props.searchVal
+                  }&page=${
+                    !this.props.lastPage || this.props.lastPage === undefined
+                      ? 1
+                      : this.props.lastPage
+                  }`
                 : "#"
             }
             className="page-link"

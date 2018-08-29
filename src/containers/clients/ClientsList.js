@@ -20,30 +20,47 @@ export class ClientsList extends Component {
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
 
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      const pageNumber = Number(page);
-      if (!isNaN(pageNumber)) {
-        await this.props.fetchClients(
-          `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
+    let { search } = queryString.parse(this.props.location.search);
+    const { page } = queryString.parse(this.props.location.search);
+
+    if (search === undefined) {
+      search = "";
+    }
+    this.props.searchVal(search);
+
+    let pageNumber = Number(page);
+
+    if (isNaN(pageNumber)) {
+      pageNumber = 1;
+    }
+
+    if (search === "" && pageNumber) {
+      await this.props.fetchClients(
+        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
+    } else if (search !== "" && pageNumber) {
+      await this.props.fetchClients(
+        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
     } else {
       this.props.fetchClients();
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      if (Number(page) !== this.props.currentPage && !isNaN(page)) {
-        const pageNumber = Number(page);
-        this.props.fetchClients(
-          `${constants.API_ENDPOINT}/clients/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
+    let { search } = queryString.parse(this.props.location.search);
+    if (search === undefined) {
+      search = "";
+    }
+    const { page } = queryString.parse(this.props.location.search);
+    if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+      const pageNumber = Number(page);
+      this.props.fetchClients(
+        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
     }
   }
 
@@ -62,6 +79,7 @@ export class ClientsList extends Component {
           currentPage={this.props.currentPage}
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
+          searchVal={this.props.searchParam}
         />
       </div>
     );
@@ -97,7 +115,8 @@ function mapStateToProps(state) {
     currentPage: clientSelectors.getCurrentPage(state),
     pageLinks: clientSelectors.getPageLinks(state),
     firstPage: clientSelectors.getFirstPage(state),
-    lastPage: clientSelectors.getLastPage(state)
+    lastPage: clientSelectors.getLastPage(state),
+    searchParam: clientSelectors.getSearchValue(state)
   };
 }
 
@@ -109,7 +128,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
-      showListTitle: globalActions.toggleDetailTitleOff
+      showListTitle: globalActions.toggleDetailTitleOff,
+      searchVal: clientActions.getSearchVal
     },
     dispatch
   );

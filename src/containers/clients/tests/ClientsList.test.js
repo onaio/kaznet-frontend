@@ -18,7 +18,9 @@ describe("containers/clients/ClientsList", () => {
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
         showListTitle={function() {}}
+        changePageNumber={function() {}}
         location={history.location}
+        searchVal={function() {}}
       />
     );
   });
@@ -39,7 +41,10 @@ describe("containers/clients/ClientsList", () => {
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}
           firstPage={fixtures.firstPage}
+          changePageNumber={function() {}}
           lastPage={fixtures.lastPage}
+          searchVal={function() {}}
+          searchParam={fixtures.searchParam}
           location={history.location}
         />
       </Router>

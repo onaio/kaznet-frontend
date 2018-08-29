@@ -29,6 +29,15 @@ export function fetchClients(url) {
   };
 }
 
+export function getSearchVal(val) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: types.CLIENT_SEARCH_VAL,
+      val
+    });
+  };
+}
+
 export function changePageNumber(pageNumber) {
   return async (dispatch, getState) => {
     dispatch({ type: types.CLIENT_CHANGE_PAGE, pageNumber });
