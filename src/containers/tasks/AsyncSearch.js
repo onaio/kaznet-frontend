@@ -51,7 +51,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchForms: formActions.fetchForms
-      // fetchOptions: formActions.fetchOptions,
     },
     dispatch
   );
