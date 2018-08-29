@@ -56,6 +56,11 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         detailStatus: action.detailStatus
       });
+    case types.GLOBAL_SEARCH_VALUE:
+      return Immutable({
+        ...state,
+        searchVal: action.val
+      });
     default:
       return state;
   }
@@ -64,6 +69,9 @@ export default function reduce(state = initialState, action = {}) {
 // selectors
 export function getPageTitle(state) {
   return state.global.pageTitle;
+}
+export function getSearchValue(state) {
+  return state.global.searchVal;
 }
 
 export function getActionLinks(state) {
