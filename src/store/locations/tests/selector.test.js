@@ -8,14 +8,16 @@ import * as fixtures from "./fixtures";
 const emptyState = Immutable({
   locations: {
     locationsById: {},
-    locationIdArray: []
+    locationIdArray: [],
+    options: []
   }
 });
 
 const fullState = Immutable({
   locations: {
     locationsById: fixtures.locationsById,
-    locationsIdArray: fixtures.locationsIdArray
+    locationsIdArray: fixtures.locationsIdArray,
+    options: fixtures.getLocationOptions
   }
 });
 
@@ -58,5 +60,17 @@ describe("store/locations/selectors", () => {
     Selector(locations.getParentLocationChoicesById)
       .expect(fullState, 7)
       .toReturn(_.omit(fixtures.locationsById, 7));
+  });
+
+  it("should get locations by name when empty", () => {
+    Selector(locations.getLocationOptions)
+      .expect(emptyState)
+      .toReturn([]);
+  });
+
+  it("should get locations by name when full", () => {
+    Selector(locations.getLocationOptions)
+      .expect(fullState)
+      .toReturn(fixtures.getLocationOptions);
   });
 });

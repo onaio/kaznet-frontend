@@ -18,7 +18,9 @@ describe("store/locations/actions", () => {
       locationArray: fixtures.locationsArray,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      options: fixtures.getLocationOptions,
+      isLoading: true
     });
     const dispatches = await Thunk(locations.fetchLocations).execute();
     expect(dispatches.length).toBe(1);
@@ -28,16 +30,21 @@ describe("store/locations/actions", () => {
       locationsById: fixtures.locationsById,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      options: fixtures.getLocationOptions,
+      isLoading: false
     });
   });
 
   it("should fetch locations given a url", async () => {
     LocationService.getLocationList.mockReturnValueOnce({
+      locationsById: fixtures.locationsByIdSecondPage,
       locationArray: fixtures.locationsArraySecondPage,
       pageLinks: fixtures.pageLinksSecondPage,
       currentPage: fixtures.currentPageSecondPage,
-      totalPages: fixtures.totalPagesSecondPage
+      totalPages: fixtures.totalPagesSecondPage,
+      options: fixtures.getLocationOptionsSecondPage,
+      isLoading: true
     });
     const dispatches = await Thunk(locations.fetchLocations).execute(
       fixtures.pageLinks.next
@@ -49,7 +56,9 @@ describe("store/locations/actions", () => {
       locationsById: fixtures.locationsByIdSecondPage,
       pageLinks: fixtures.pageLinksSecondPage,
       currentPage: fixtures.currentPageSecondPage,
-      totalPages: fixtures.totalPagesSecondPage
+      totalPages: fixtures.totalPagesSecondPage,
+      options: fixtures.getLocationOptionsSecondPage,
+      isLoading: false
     });
   });
 
