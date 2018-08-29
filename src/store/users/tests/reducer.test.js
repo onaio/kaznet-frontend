@@ -65,4 +65,21 @@ describe("store/users/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
+
+  it("should store fetched users", () => {
+    const userData = fixtures.singleUserData;
+    const usersById = fixtures.usersById;
+    const action = {
+      type: actionTypes.USER_CREATED,
+      userData
+    };
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    newState.usersById = usersById;
+
+    Reducer(users)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });
