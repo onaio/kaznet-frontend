@@ -4,6 +4,7 @@ import * as actionTypes from "../actionTypes";
 import * as users from "../actions";
 import UserService from "../../../services/users";
 import * as fixtures from "./fixtures";
+import * as errorHandlerTypes from "../../errorHandler/actionTypes";
 
 jest.mock("../../../services/users");
 
@@ -70,5 +71,33 @@ describe("store/users/actions", () => {
     const dispatches = await Thunk(users.fetchUsers).execute();
     expect(dispatches.length).toBe(0);
     expect(console.error).toHaveBeenCalledWith(Error("oops"));
+  });
+
+  it("should create User", async () => {
+    UserService.createUser.mockReturnValueOnce(fixtures.userData);
+    const dispatches = await Thunk(users.createUser).execute();
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.USER_CREATED,
+      userData: fixtures.userData
+    });
+    expect(dispatches[1].isPlainObject()).toBe(true);
+    expect(dispatches[1].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+  });
+
+  it("should create user and dispatch on error", async () => {
+    UserService.createUser.mockImplementationOnce(() => {
+      throw new Error("Wow!");
+    });
+    const dispatches = await Thunk(users.createUser).execute();
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_FAILURE,
+      errorMessage: Error("Wow!")
+    });
   });
 });
