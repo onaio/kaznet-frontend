@@ -18,6 +18,7 @@ import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
 import { OptionMap } from "../Select";
+
 import "./TaskForm.css";
 import * as clientActions from "../../store/clients/actions";
 import * as locationActions from "../../store/locations/actions";
@@ -336,8 +337,8 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="form">Form</Label>
                 </Col>
-                <Col md="9">
-                  <AsyncSearch />
+                <Col md={{ size: 6 }}>
+                  <AsyncSearch type={"forms"} />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
@@ -434,30 +435,8 @@ export class TaskForm extends Component {
                       <Col md="9">
                         {
                           <Row id={loc} key={i}>
-                            <Col md={{ size: 5 }}>
-                              <Input
-                                id={loc}
-                                name="tasklocation_location"
-                                type="select"
-                                bsSize="lg"
-                                placeholder="Location"
-                                aria-label="location"
-                                onChange={this.handleChange(i)}
-                                onBlur={handleBlur}
-                                value={loc.name}
-                                className={
-                                  errors.locations_input &&
-                                  errors.locations_input.location
-                                    ? "is-invalid"
-                                    : ""
-                                }
-                                required={true}
-                              >
-                                <OptionMap
-                                  obj={this.props.locationsById}
-                                  titleField="name"
-                                />
-                              </Input>
+                            <Col md={{ size: 6 }}>
+                            <AsyncSearch type={"locations"} />
                               {errors.locations_input && (
                                 <div className="invalid-feedback">
                                   {errors.locations_input.location &&
@@ -578,20 +557,8 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="client">Client</Label>
                 </Col>
-                <Col md="6">
-                  <Input
-                    name="client"
-                    type="select"
-                    bsSize="lg"
-                    placeholder="Client"
-                    aria-label="client"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.client}
-                    className={errors.client ? "is-invalid" : ""}
-                  >
-                    <OptionMap obj={this.props.clientsById} titleField="name" />
-                  </Input>
+                <Col md={{ size: 6 }}>
+                  <AsyncSearch type={"clients"} />
                   {errors.client && (
                     <div className="invalid-feedback">{errors.client}</div>
                   )}
@@ -653,28 +620,6 @@ export class TaskForm extends Component {
                       {errors.required_expertise}
                     </div>
                   )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col md={{ size: 5, offset: 1 }}>
-                  <Button
-                    className="btn btn-secondary btn-block"
-                    onClick={() => {
-                      setStatus("done");
-                    }}
-                  >
-                    {" "}
-                    Cancel{" "}
-                  </Button>
-                </Col>
-                <Col md={{ size: 5 }}>
-                  <Button
-                    type="submit"
-                    className="btn btn-primary btn-block"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Submitting" : "Submit"}
-                  </Button>
                 </Col>
               </FormGroup>
             </Form>
