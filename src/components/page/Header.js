@@ -82,7 +82,7 @@ export default class Header extends Component {
                       </DropdownItem>
                       <DropdownItem>
                         <NavLink
-                          to="locationtypes"
+                          to="/locationtypes"
                           className="nav-link"
                           activeClassName="active"
                         >
