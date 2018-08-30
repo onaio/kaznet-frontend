@@ -22,11 +22,13 @@ export class ClientsList extends Component {
     this.props.changePageTarget("/clients/new");
     let { search } = queryString.parse(this.props.location.search);
     const { page } = queryString.parse(this.props.location.search);
-
-    if (search === undefined) {
+    this.props.searchVal("");
+    if (search !== undefined) {
+      this.props.searchVal(search);
+    } else {
       search = "";
     }
-    this.props.searchVal(search);
+
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {
@@ -60,8 +62,6 @@ export class ClientsList extends Component {
         `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
-    } else {
-      this.props.fetchClients();
     }
   }
 
