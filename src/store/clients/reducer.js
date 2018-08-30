@@ -9,7 +9,7 @@ const initialState = Immutable({
   clientsIdArray: [],
   currentPage: null,
   totalPages: null,
-  searchVal: null,
+
   pageLinks: {
     first: null,
     last: null,
@@ -59,10 +59,6 @@ export default function reduce(state = initialState, action = {}) {
     default:
       return state;
   }
-}
-
-export function getSearchValue(state) {
-  return state.clients.searchVal;
 }
 
 export function getClientsById(state) {
