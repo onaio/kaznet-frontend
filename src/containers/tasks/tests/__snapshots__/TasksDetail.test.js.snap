@@ -472,7 +472,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       </TaskDetailTitle>
       <StatisticsSection
         accepted={0}
-        formURL="https://ona.io/kaznettest/undefined/undefined#/table"
+        formURL="https://ona.io/lincolnsimba/undefined/undefined#/table"
         rejected={0}
         review={0}
         reward="0 KES"
@@ -642,7 +642,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   >
                     <a
                       className="btn btn-primary text-white"
-                      href="https://ona.io/kaznettest/undefined/undefined#/table"
+                      href="https://ona.io/lincolnsimba/undefined/undefined#/table"
                       target="_blank"
                     >
                       <FontAwesomeIcon
@@ -1089,7 +1089,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   "Baseline_Questionnaire",
                   <a
                     className="link withspace"
-                    href="https://ona.io/kaznettest/undefined/undefined"
+                    href="https://ona.io/lincolnsimba/undefined/undefined"
                     target="_blank"
               >
                     <FontAwesomeIcon
@@ -1161,7 +1161,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           "Baseline_Questionnaire",
                           <a
                             className="link withspace"
-                            href="https://ona.io/kaznettest/undefined/undefined"
+                            href="https://ona.io/lincolnsimba/undefined/undefined"
                             target="_blank"
                       >
                             <FontAwesomeIcon
@@ -1324,7 +1324,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               "Baseline_Questionnaire",
                               <a
                                 className="link withspace"
-                                href="https://ona.io/kaznettest/undefined/undefined"
+                                href="https://ona.io/lincolnsimba/undefined/undefined"
                                 target="_blank"
                           >
                                 <FontAwesomeIcon
@@ -1358,7 +1358,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           Baseline_Questionnaire
                           <a
                             className="link withspace"
-                            href="https://ona.io/kaznettest/undefined/undefined"
+                            href="https://ona.io/lincolnsimba/undefined/undefined"
                             key="form_link"
                             target="_blank"
                           >
