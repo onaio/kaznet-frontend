@@ -1,15 +1,6 @@
 // Renders the detail page title section
 import React, { Component } from "react";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import {
-  Row,
-  Col,
-  Badge,
-  Modal,
-  ModalHeader,
-  ModalFooter,
-  Button
-} from "reactstrap";
+import { Row, Col, Modal, ModalHeader, ModalFooter, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 

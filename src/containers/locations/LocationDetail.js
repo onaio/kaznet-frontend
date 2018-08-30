@@ -8,6 +8,7 @@ import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as constants from "../../constants";
 
+import ElementMap from "../ElementMap";
 import NestedElementMap from "../NestedElementMap";
 import DetailView from "../../components/DetailView";
 import LocationDetailTitle from "../../components/location/LocationDetailTitle";
@@ -55,9 +56,12 @@ export class LocationDetail extends Component {
   }
 
   renderAdditionalDetails() {
+    const radius = this.location.attributes.radius;
     const headerItems = {
-      Radius: this.location.attributes.radius,
-      Shapefile: this.location.attributes.shapefile
+      Radius: radius ? [Math.round(radius), " Metres"] : "N/A",
+      Shapefile: this.location.attributes.name
+        ? [this.location.attributes.name, ".shp"]
+        : "N/A"
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
