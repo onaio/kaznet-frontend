@@ -69,7 +69,7 @@ export class ClientForm extends Component {
           isSubmitting,
           setStatus
         }) => (
-          <div className="my-5">
+          <div>
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
                 <Col sm="12">

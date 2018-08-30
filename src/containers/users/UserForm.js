@@ -424,7 +424,7 @@ export class UserForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <FormGroup className="row">
+              <FormGroup className="row my-5">
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
