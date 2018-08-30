@@ -7,6 +7,7 @@ import queryString from "query-string";
 
 import * as clientActions from "../../store/clients/actions";
 import * as clientSelectors from "../../store/clients/reducer";
+import * as globalSelectors from "../../store/global/reducer";
 import * as globalActions from "../../store/global/actions";
 import * as constants from "../../constants.js";
 
@@ -19,7 +20,6 @@ export class ClientsList extends Component {
     this.props.changePageTitle("Clients");
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
-
     let { search } = queryString.parse(this.props.location.search);
     const { page } = queryString.parse(this.props.location.search);
 
@@ -27,7 +27,6 @@ export class ClientsList extends Component {
       search = "";
     }
     this.props.searchVal(search);
-
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {
@@ -116,7 +115,7 @@ function mapStateToProps(state) {
     pageLinks: clientSelectors.getPageLinks(state),
     firstPage: clientSelectors.getFirstPage(state),
     lastPage: clientSelectors.getLastPage(state),
-    searchParam: clientSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state)
   };
 }
 
@@ -129,7 +128,7 @@ function mapDispatchToProps(dispatch) {
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff,
-      searchVal: clientActions.getSearchVal
+      searchVal: globalActions.getSearchVal
     },
     dispatch
   );

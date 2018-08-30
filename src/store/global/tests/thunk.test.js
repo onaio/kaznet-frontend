@@ -15,6 +15,15 @@ describe("store/topics/actions", () => {
     });
   });
 
+  it("should set search value", async () => {
+    const dispatches = await Thunk(global.getSearchVal).execute("ilri");
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].getAction()).toEqual({
+      searchVal: "ilri",
+      type: "global.GLOBAL_SEARCH_VALUE"
+    });
+  });
+
   it("should set page title button", async () => {
     const dispatches = await Thunk(global.changePageTitleButton).execute(
       "Fancy Button"

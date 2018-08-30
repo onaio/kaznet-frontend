@@ -11,7 +11,8 @@ const initialState = Immutable({
   showDetail: false,
   detailName: null,
   actionLinks: [],
-  detailStatus: null
+  detailStatus: null,
+  searchVal: ""
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -56,6 +57,10 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         detailStatus: action.detailStatus
       });
+    case types.GLOBAL_SEARCH_VALUE:
+      return state.merge({
+        searchVal: action.searchVal
+      });
     default:
       return state;
   }
@@ -64,6 +69,9 @@ export default function reduce(state = initialState, action = {}) {
 // selectors
 export function getPageTitle(state) {
   return state.global.pageTitle;
+}
+export function getSearchValue(state) {
+  return state.global.searchVal;
 }
 
 export function getActionLinks(state) {
