@@ -13,7 +13,8 @@ const emptyState = Immutable({
     showDetail: false,
     detailName: null,
     actionLinks: [],
-    detailStatus: null
+    detailStatus: null,
+    searchVal: ""
   }
 });
 
@@ -22,6 +23,12 @@ describe("store/global/selectors", () => {
     Selector(global.getPageTitle)
       .expect(emptyState)
       .toReturn("Kaznet");
+  });
+
+  it("should get search value when empty", () => {
+    Selector(global.getSearchValue)
+      .expect(emptyState)
+      .toReturn("");
   });
 
   it("should get default page title button when empty", () => {
