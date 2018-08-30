@@ -10,7 +10,7 @@ const initialState = {
   clientsById: {},
   clientsIdArray: [],
   currentPage: null,
-  searchVal: null,
+
   totalPages: null,
   pageLinks: {
     first: null,
