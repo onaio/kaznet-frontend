@@ -131,8 +131,6 @@ export class TaskForm extends Component {
       };
     });
 
-    console.log("new locs", newLocations);
-
     this.setState({
       locations: newLocations
     });
@@ -144,10 +142,7 @@ export class TaskForm extends Component {
         initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const self = this;
-          console.log("state", self.state);
           const locations_input = self.state.locations.map(d => d.payload);
-
-          console.log("locations input", locations_input);
 
           const payload = {
             data: {
@@ -235,7 +230,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="status">Status</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="status"
                     type="select"
@@ -260,7 +255,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="description">Description</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="description"
                     type="textarea"
@@ -282,7 +277,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="amount">Reward</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="amount"
                     type="number"
@@ -306,7 +301,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="form">Form</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="form"
                     type="select"
@@ -333,7 +328,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="start">Active dates</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Row>
                     <Col md="5">
                       <Input
@@ -381,7 +376,7 @@ export class TaskForm extends Component {
                     Estimated time to complete task
                   </Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="estimated_time"
                     type="number"
@@ -404,108 +399,24 @@ export class TaskForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <FormGroup className="row">
-                <Col sm="3">
-                  <Label for="client">Client</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="client"
-                    type="select"
-                    bsSize="lg"
-                    placeholder="Client"
-                    aria-label="client"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.client}
-                    className={errors.client ? "is-invalid" : ""}
-                  >
-                    <OptionMap obj={this.props.clientsById} titleField="name" />
-                  </Input>
-                  {errors.client && (
-                    <div className="invalid-feedback">{errors.client}</div>
-                  )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col sm="3">
-                  <Label for="user_submission_target">
-                    Submission limit (per contributor)
-                  </Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="user_submission_target"
-                    type="number"
-                    bsSize="lg"
-                    placeholder="Contributor Submission Target"
-                    aria-label="contributor submission target"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.user_submission_target}
-                    className={
-                      errors.user_submission_target ? "is-invalid" : ""
-                    }
-                  />
-                  {errors.user_submission_target && (
-                    <div className="invalid-feedback">
-                      {errors.user_submission_target}
-                    </div>
-                  )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col sm="3">
-                  <Label for="required_expertise">
-                    Minimum contributor level
-                  </Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="required_expertise"
-                    type="select"
-                    bsSize="lg"
-                    placeholder="Required Expertise"
-                    aria-label="required expertise"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.required_expertise}
-                    className={errors.required_expertise ? "is-invalid" : ""}
-                  >
-                    <option>----</option>
-                    <option value="1">Beginner</option>
-                    <option value="2">Intermediate</option>
-                    <option value="3">Advanced</option>
-                    <option value="4">Expert</option>
-                  </Input>
-                  {errors.required_expertise && (
-                    <div className="invalid-feedback">
-                      {errors.required_expertise}
-                    </div>
-                  )}
-                </Col>
-              </FormGroup>
-
               <h4>Location</h4>
 
               {this.state.locations.map((loc, i) => {
                 return (
                   <div className="tasklocation-item" key={i}>
                     <FormGroup className="row">
-                      <Col sm="3">
+                      <Col sm={{ size: 3 }}>
                         <Label for="tasklocation_location">Location</Label>
                       </Col>
-                      <Col sm="6">
-                        {errors.tasklocation_location && (
-                          <div className="invalid-feedback">
-                            {errors.tasklocation_location}
-                          </div>
-                        )}
-                      </Col>
+                      {errors.tasklocation_location && (
+                        <div className="invalid-feedback">
+                          {errors.tasklocation_location}
+                        </div>
+                      )}
                       <Col md="9">
                         {
                           <Row id={loc} key={i}>
-                            <Col md={{ size: 5, offset: 4 }}>
+                            <Col md={{ size: 5 }}>
                               <Input
                                 id={loc}
                                 name="tasklocation_location"
@@ -529,14 +440,6 @@ export class TaskForm extends Component {
                                 />
                               </Input>
                             </Col>
-                            <Col className="test" md={{ size: 2 }}>
-                              <Button
-                                className="btn btn-primary btn-block add-location"
-                                onClick={this.handleRemoveLocation(i)}
-                              >
-                                {`--`}
-                              </Button>
-                            </Col>
                           </Row>
                         }
                       </Col>
@@ -545,7 +448,7 @@ export class TaskForm extends Component {
                       <Col sm="3">
                         <Label for="tasklocation_start">Hours</Label>
                       </Col>
-                      <Col md="9">
+                      <Col md="6">
                         <Row>
                           <Col md="5">
                             <Input
@@ -556,7 +459,7 @@ export class TaskForm extends Component {
                               aria-label="start"
                               onChange={this.handleChange(i)}
                               onBlur={handleBlur}
-                              value={loc.payload.start || undefined}
+                              value={loc.payload.start || ""}
                               className={
                                 errors.tasklocation_start ? "is-invalid" : ""
                               }
@@ -581,7 +484,7 @@ export class TaskForm extends Component {
                               aria-label="end"
                               onChange={this.handleChange(i)}
                               onBlur={handleBlur}
-                              value={loc.payload.end || undefined}
+                              value={loc.payload.end || ""}
                               className={
                                 errors.tasklocation_end ? "is-invalid" : ""
                               }
@@ -612,7 +515,7 @@ export class TaskForm extends Component {
                           aria-label="timing rule"
                           onChange={this.handleChange(i)}
                           onBlur={handleBlur}
-                          value={loc.payload.timing_rule}
+                          value={loc.payload.timing_rule || ""}
                           className={
                             errors.tasklocation_timing_rule ? "is-invalid" : ""
                           }
@@ -633,13 +536,94 @@ export class TaskForm extends Component {
                 );
               })}
               <FormGroup className="row">
-                <Col md={{ size: 3, offset: 3 }}>
+                <Col md={{ size: 3, offset: 5 }}>
                   <Button
                     className="btn btn-primary btn-block add-location"
                     onClick={this.handleAddLocation}
                   >
-                    Add Loactions
+                    + Add Locations
                   </Button>
+                </Col>
+              </FormGroup>
+              <FormGroup className="row">
+                <Col sm="3">
+                  <Label for="client">Client</Label>
+                </Col>
+                <Col md="6">
+                  <Input
+                    name="client"
+                    type="select"
+                    bsSize="lg"
+                    placeholder="Client"
+                    aria-label="client"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.client}
+                    className={errors.client ? "is-invalid" : ""}
+                  >
+                    <OptionMap obj={this.props.clientsById} titleField="name" />
+                  </Input>
+                  {errors.client && (
+                    <div className="invalid-feedback">{errors.client}</div>
+                  )}
+                </Col>
+              </FormGroup>
+              <FormGroup className="row">
+                <Col sm="3">
+                  <Label for="user_submission_target">
+                    Submission limit (per contributor)
+                  </Label>
+                </Col>
+                <Col md="6">
+                  <Input
+                    name="user_submission_target"
+                    type="number"
+                    bsSize="lg"
+                    placeholder="Contributor Submission Target"
+                    aria-label="contributor submission target"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.user_submission_target}
+                    className={
+                      errors.user_submission_target ? "is-invalid" : ""
+                    }
+                  />
+                  {errors.user_submission_target && (
+                    <div className="invalid-feedback">
+                      {errors.user_submission_target}
+                    </div>
+                  )}
+                </Col>
+              </FormGroup>
+              <FormGroup className="row">
+                <Col sm="3">
+                  <Label for="required_expertise">
+                    Minimum contributor level
+                  </Label>
+                </Col>
+                <Col md="6">
+                  <Input
+                    name="required_expertise"
+                    type="select"
+                    bsSize="lg"
+                    placeholder="Required Expertise"
+                    aria-label="required expertise"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.required_expertise}
+                    className={errors.required_expertise ? "is-invalid" : ""}
+                  >
+                    <option>----</option>
+                    <option value="1">Beginner</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">Advanced</option>
+                    <option value="4">Expert</option>
+                  </Input>
+                  {errors.required_expertise && (
+                    <div className="invalid-feedback">
+                      {errors.required_expertise}
+                    </div>
+                  )}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
