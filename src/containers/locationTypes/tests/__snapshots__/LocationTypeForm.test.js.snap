@@ -81,11 +81,11 @@ exports[`containers/locationType/LocationTypeForm renders locationType form corr
             </div>
           </FormGroup>
           <FormGroup
-            className="row"
+            className="row my-5"
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row my-5 form-group"
             >
               <Col
                 md={

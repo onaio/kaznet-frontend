@@ -796,11 +796,11 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               </div>
             </FormGroup>
             <FormGroup
-              className="row"
+              className="row my-5"
               tag="div"
             >
               <div
-                className="row form-group"
+                className="row my-5 form-group"
               >
                 <Col
                   md={

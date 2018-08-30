@@ -22,9 +22,7 @@ exports[`containers/client/ClientForm renders client form correctly 1`] = `
     validateOnBlur={true}
     validateOnChange={true}
   >
-    <div
-      className="my-5"
-    >
+    <div>
       <Form
         onSubmit={[Function]}
         tag="form"
