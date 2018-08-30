@@ -153,7 +153,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               tag="div"
             >
               <div
-                className="row position-relative form-group"
+                className="row form-group"
               >
                 <Col
                   sm="12"
@@ -202,7 +202,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               tag="div"
             >
               <div
-                className="row position-relative form-group"
+                className="row form-group"
               >
                 <Col
                   sm="3"
@@ -288,7 +288,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               tag="div"
             >
               <div
-                className="row position-relative form-group"
+                className="row form-group"
               >
                 <Col
                   sm="3"
@@ -454,15 +454,13 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                           </option>
                           <option
                             key="1"
-                            name="Nairobi"
-                            value="Nairobi"
+                            value="1"
                           >
                             Nairobi
                           </option>
                           <option
                             key="7"
-                            name="Sol Point"
-                            value="Sol Point"
+                            value="7"
                           >
                             Sol Point
                           </option>
@@ -478,7 +476,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               tag="div"
             >
               <div
-                className="row position-relative form-group"
+                className="row form-group"
               >
                 <Col
                   sm="3"
@@ -586,15 +584,13 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                           </option>
                           <option
                             key="1"
-                            name="Market"
-                            value="Market"
+                            value="1"
                           >
                             Market
                           </option>
                           <option
                             key="2"
-                            name="Hospital"
-                            value="Hospital"
+                            value="2"
                           >
                             Hospital
                           </option>
@@ -610,7 +606,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               tag="div"
             >
               <div
-                className="row position-relative form-group"
+                className="row form-group"
               >
                 <Col
                   sm="3"
@@ -707,7 +703,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
               tag="div"
             >
               <div
-                className="row position-relative form-group"
+                className="row form-group"
               >
                 <Col
                   sm="3"
