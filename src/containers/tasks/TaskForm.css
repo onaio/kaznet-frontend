@@ -3,3 +3,7 @@
   padding: 15px;
   margin-bottom: 20px;
 }
+
+.tasklocation-item .add-location {
+  vertical-align: text-top;
+}

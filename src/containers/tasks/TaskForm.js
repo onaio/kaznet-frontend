@@ -50,6 +50,12 @@ export class TaskForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
+    this.state = {
+      locations: [{ name: "" }]
+    };
+    this.handleLocationNameChange = this.handleLocationNameChange.bind(this);
+    this.handleAddLocation = this.handleAddLocation.bind(this);
+    this.handleRemoveLocation = this.handleRemoveLocation.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +64,37 @@ export class TaskForm extends Component {
     this.props.fetchLocations();
     this.props.fetchContentTypes();
   }
+
+  handleAddLocation = () => {
+    this.setState({
+      locations: this.state.locations.concat([{ name: "" }])
+    });
+  };
+
+  handleRemoveLocation = index => () => {
+    this.setState({
+      locations: this.state.locations.filter(
+        (_, locIndex) => index !== locIndex
+      )
+    });
+  };
+
+  handleLocationNameChange = index => e => {
+    const newLocations = this.state.locations.map((loc, locIndex) => {
+      if (index !== locIndex) {
+        return loc;
+      }
+
+      return {
+        ...loc,
+        name: e.target.value
+      };
+    });
+
+    this.setState({
+      locations: newLocations
+    });
+  };
 
   render() {
     return (
@@ -423,31 +460,58 @@ export class TaskForm extends Component {
                   <Col sm="3">
                     <Label for="tasklocation_location">Location</Label>
                   </Col>
-                  <Col sm="9">
-                    <Input
-                      name="tasklocation_location"
-                      type="select"
-                      bsSize="lg"
-                      placeholder="Location"
-                      aria-label="location"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.tasklocation_location}
-                      className={
-                        errors.tasklocation_location ? "is-invalid" : ""
-                      }
-                      required={true}
-                    >
-                      <OptionMap
-                        obj={this.props.locationsById}
-                        titleField="name"
-                      />
-                    </Input>
+                  <Col sm="6">
                     {errors.tasklocation_location && (
                       <div className="invalid-feedback">
                         {errors.tasklocation_location}
                       </div>
                     )}
+                  </Col>
+                  <Col md="9">
+                    {this.state.locations.map((loc, i) => {
+                      return (
+                        <Row id={loc} key={i}>
+                          <Col md={{ size: 5, offset: 4 }}>
+                            <Input
+                              id={loc}
+                              name="tasklocation_location"
+                              type="select"
+                              bsSize="lg"
+                              placeholder="Location"
+                              aria-label="location"
+                              onChange={this.handleLocationNameChange(i)}
+                              onBlur={handleBlur}
+                              value={loc.name}
+                              className={
+                                errors.tasklocation_location ? "is-invalid" : ""
+                              }
+                              required={true}
+                            >
+                              <OptionMap
+                                obj={this.props.locationsById}
+                                titleField="name"
+                              />
+                            </Input>
+                          </Col>
+                          <Col className="test" md={{ size: 2 }}>
+                            <Button
+                              className="btn btn-primary btn-block add-location"
+                              onClick={this.handleRemoveLocation(i)}
+                            >
+                              {`--`}
+                            </Button>
+                          </Col>
+                        </Row>
+                      );
+                    })}
+                  </Col>
+                  <Col md={{ size: 3, offset: 3 }}>
+                    <Button
+                      className="btn btn-primary btn-block add-location"
+                      onClick={this.handleAddLocation}
+                    >
+                      Add Loactions
+                    </Button>
                   </Col>
                 </FormGroup>
                 <FormGroup className="row">
