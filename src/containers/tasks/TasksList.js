@@ -65,8 +65,6 @@ export class TasksList extends Component {
         `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
-    } else {
-      this.props.fetchTasks();
     }
   }
 
