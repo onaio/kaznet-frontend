@@ -5,6 +5,7 @@ import { Reducer } from "redux-testkit";
 
 import global from "../reducer";
 import * as actionTypes from "../actionTypes";
+import { isNullOrUndefined } from "util";
 
 const initialState = {
   pageTitle: "Kaznet",
@@ -14,7 +15,8 @@ const initialState = {
   showDetail: false,
   detailName: null,
   detailStatus: null,
-  actionLinks: []
+  actionLinks: [],
+  searchVal: ""
 };
 
 describe("store/global/reducer", () => {
@@ -34,6 +36,17 @@ describe("store/global/reducer", () => {
     const pageTitle = "A New Hope";
     const action = { type: actionTypes.CHANGE_PAGETITLE, pageTitle };
     newState.pageTitle = pageTitle;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+  it("should change search value", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const searchVal = "hello";
+    const action = { type: actionTypes.GLOBAL_SEARCH_VALUE, searchVal };
+    newState.searchVal = searchVal;
     Reducer(global)
       .withState(existingState)
       .expect(action)
