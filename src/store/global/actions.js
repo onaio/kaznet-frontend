@@ -56,8 +56,8 @@ export function toggleTitleOn() {
 }
 
 //get search value on task view
-export function getSearchVal(val) {
+export function getSearchVal(searchVal) {
   return async (dispatch, getState) => {
-    dispatch({ type: types.GLOBAL_SEARCH_VALUE, val });
+    dispatch({ type: types.GLOBAL_SEARCH_VALUE, searchVal });
   };
 }
