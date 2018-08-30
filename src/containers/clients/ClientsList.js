@@ -20,15 +20,13 @@ export class ClientsList extends Component {
     this.props.changePageTitle("Clients");
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
-    this.props.searchVal("");
     let { search } = queryString.parse(this.props.location.search);
     const { page } = queryString.parse(this.props.location.search);
 
-    if (search !== undefined) {
-      this.props.searchVal(search);
-    } else {
+    if (search === undefined) {
       search = "";
     }
+    this.props.searchVal(search);
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {

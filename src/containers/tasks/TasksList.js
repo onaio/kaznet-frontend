@@ -22,7 +22,7 @@ export class TasksList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Tasks");
-    this.props.changePageTitleButton("+ Add Tasks");
+    this.props.changePageTitleButton("+ Create Task");
     this.props.changePageTarget("/tasks/new");
 
     let { search } = queryString.parse(this.props.location.search);
