@@ -66,9 +66,10 @@ export class ClientForm extends Component {
           handleChange,
           handleBlur,
           handleSubmit,
-          isSubmitting
+          isSubmitting,
+          setStatus
         }) => (
-          <div>
+          <div className="my-5">
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
                 <Col sm="12">
@@ -88,13 +89,28 @@ export class ClientForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <Button
-                type="submit"
-                className="btn btn-primary btn-block"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Saving" : "Save Client"}
-              </Button>
+              <FormGroup className="row my-5">
+                <Col md={{ size: 5, offset: 1 }}>
+                  <Button
+                    className="btn btn-secondary btn-block"
+                    onClick={() => {
+                      setStatus("done");
+                    }}
+                  >
+                    {" "}
+                    Cancel{" "}
+                  </Button>
+                </Col>
+                <Col md={{ size: 5 }}>
+                  <Button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Saving" : "Save Client"}
+                  </Button>
+                </Col>
+              </FormGroup>
             </Form>
             {status === "done" && <Redirect to={"/clients"} />}
           </div>
