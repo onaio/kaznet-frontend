@@ -31,14 +31,7 @@ export function fetchTasks(url) {
   };
 }
 //get search value on task view
-export function getSearchVal(val) {
-  return async (dispatch, getState) => {
-    dispatch({
-      type: types.TASK_SEARCH_VAL,
-      val
-    });
-  };
-}
+
 // Change the current Page on the task list
 export function changePageNumber(pageNumber) {
   return async (dispatch, getState) => {
