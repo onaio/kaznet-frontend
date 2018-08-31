@@ -2282,93 +2282,93 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </Col>
               </div>
             </FormGroup>
-            <FormGroup
-              className="row my-5"
-              tag="div"
+          </div>
+          <FormGroup
+            className="row my-5"
+            tag="div"
+          >
+            <div
+              className="row my-5 form-group"
             >
-              <div
-                className="row my-5 form-group"
+              <Col
+                md={
+                  Object {
+                    "offset": 1,
+                    "size": 5,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
               >
-                <Col
-                  md={
-                    Object {
-                      "offset": 1,
-                      "size": 5,
-                    }
-                  }
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
+                <div
+                  className="col-md-5 offset-md-1"
                 >
-                  <div
-                    className="col-md-5 offset-md-1"
+                  <Button
+                    className="btn btn-secondary btn-block"
+                    color="secondary"
+                    onClick={[Function]}
+                    tag="button"
                   >
-                    <Button
-                      className="btn btn-secondary btn-block"
-                      color="secondary"
+                    <button
+                      className="btn btn-secondary btn-block btn btn-secondary"
                       onClick={[Function]}
-                      tag="button"
+                      type="button"
                     >
-                      <button
-                        className="btn btn-secondary btn-block btn btn-secondary"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                         
-                        Cancel
-                         
-                      </button>
-                    </Button>
-                  </div>
-                </Col>
-                <Col
-                  md={
-                    Object {
-                      "size": 5,
-                    }
+                       
+                      Cancel
+                       
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+              <Col
+                md={
+                  Object {
+                    "size": 5,
                   }
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5"
                 >
-                  <div
-                    className="col-md-5"
+                  <Button
+                    className="btn btn-primary btn-block"
+                    color="secondary"
+                    disabled={false}
+                    tag="button"
+                    type="submit"
                   >
-                    <Button
-                      className="btn btn-primary btn-block"
-                      color="secondary"
+                    <button
+                      className="btn btn-primary btn-block btn btn-secondary"
                       disabled={false}
-                      tag="button"
+                      onClick={[Function]}
                       type="submit"
                     >
-                      <button
-                        className="btn btn-primary btn-block btn btn-secondary"
-                        disabled={false}
-                        onClick={[Function]}
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </Button>
-                  </div>
-                </Col>
-              </div>
-            </FormGroup>
-          </div>
+                      Submit
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
         </form>
       </Form>
     </div>
