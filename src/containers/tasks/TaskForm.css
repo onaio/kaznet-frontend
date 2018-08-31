@@ -1,5 +1,20 @@
 .tasklocation-item {
   border: 1px solid #ccc;
-  padding: 15px;
+  padding: 25px 25px 8px 25px;
   margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.66);
+  box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.66);
+}
+
+.tasklocation-item .add-location {
+  vertical-align: text-top;
+}
+
+.tasklocation-item .time-picker {
+  padding: 8px 14px;
+}
+
+p.text-center {
+  margin: 13px 0;
 }

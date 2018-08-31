@@ -50,6 +50,49 @@ export class TaskForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
+    this.state = {
+      locations: [
+        {
+          name: "",
+          payload: {
+            location: {
+              type: "Location",
+              id: null
+            },
+            timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+            start: "09:00",
+            end: "17:00"
+          }
+        }
+      ]
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAddLocation = this.handleAddLocation.bind(this);
+    this.handleRemoveLocation = this.handleRemoveLocation.bind(this);
+  }
+
+  componentWillMount() {
+    if (this.props.task) {
+      const locations = this.props.task.attributes.task_locations;
+      const locArray = locations.map(l => {
+        return {
+          name: l.location.id,
+          payload: {
+            location: {
+              type: "Location",
+              id: l.location.id
+            },
+            timing_rule: l.timing_rule,
+            start: l.start,
+            end: l.end
+          }
+        };
+      });
+      this.setState({
+        locations: locArray
+      });
+    }
   }
 
   componentDidMount() {
@@ -59,25 +102,70 @@ export class TaskForm extends Component {
     this.props.fetchContentTypes();
   }
 
+  handleAddLocation = () => {
+    this.setState({
+      locations: this.state.locations.concat([
+        {
+          name: "",
+          payload: {
+            location: {
+              type: "Location",
+              id: null
+            },
+            timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+            start: "09:00",
+            end: "17:00"
+          }
+        }
+      ])
+    });
+  };
+
+  handleRemoveLocation = index => () => {
+    this.setState({
+      locations: this.state.locations.filter(
+        (_, locIndex) => index !== locIndex
+      )
+    });
+  };
+
+  handleChange = index => e => {
+    const start = e.target && e.target.name === "tasklocation_start";
+    const end = e.target && e.target.name === "tasklocation_end";
+    const location = e.target && e.target.name === "tasklocation_location";
+
+    const newLocations = this.state.locations.map((loc, locIndex) => {
+      if (index !== locIndex) {
+        return loc;
+      }
+
+      return {
+        ...loc,
+        name: location ? e.target && e.target.value : loc.name,
+        payload: {
+          location: {
+            type: "Location",
+            id: location ? e.target.value : loc.payload.location.id
+          },
+          timing_rule: !e.target ? e : loc.payload.timing_rule,
+          start: start ? e.target.value : loc.payload.start,
+          end: end ? e.target.value : loc.payload.end
+        }
+      };
+    });
+
+    this.setState({
+      locations: newLocations
+    });
+  };
+
   render() {
     return (
       <Formik
         initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
-          const locations_input = [
-            {
-              location: {
-                type: "Location",
-                id: values.tasklocation_location
-              },
-              timing_rule:
-                values.tasklocation_timing_rule !== ""
-                  ? values.tasklocation_timing_rule
-                  : undefined,
-              start: values.tasklocation_start,
-              end: values.tasklocation_end
-            }
-          ];
+          const self = this;
+          const locations_input = self.state.locations.map(d => d.payload);
 
           const payload = {
             data: {
@@ -138,7 +226,6 @@ export class TaskForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setFieldValue,
           setStatus
         }) => (
           <div>
@@ -165,7 +252,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="status">Status</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="status"
                     type="select"
@@ -190,7 +277,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="description">Description</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="description"
                     type="textarea"
@@ -212,7 +299,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="amount">Reward</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="amount"
                     type="number"
@@ -236,7 +323,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="form">Form</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="form"
                     type="select"
@@ -263,7 +350,7 @@ export class TaskForm extends Component {
                 <Col sm="3">
                   <Label for="start">Active dates</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Row>
                     <Col md="5">
                       <Input
@@ -275,7 +362,9 @@ export class TaskForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.start}
-                        className={errors.start ? "is-invalid" : ""}
+                        className={`time-picker ${
+                          errors.start ? "is-invalid" : ""
+                        }`}
                       />
                       {touched.start &&
                         errors.start && (
@@ -295,7 +384,9 @@ export class TaskForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.end}
-                        className={errors.end ? "is-invalid" : ""}
+                        className={`time-picker ${
+                          errors.end ? "is-invalid" : ""
+                        }`}
                       />
                       {errors.end && (
                         <div className="invalid-feedback">{errors.end}</div>
@@ -311,7 +402,7 @@ export class TaskForm extends Component {
                     Estimated time to complete task
                   </Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="estimated_time"
                     type="number"
@@ -334,11 +425,163 @@ export class TaskForm extends Component {
                   )}
                 </Col>
               </FormGroup>
+              <h4>Location</h4>
+
+              {this.state.locations.map((loc, i) => {
+                return (
+                  <div className="tasklocation-item" key={i}>
+                    <FormGroup className="row">
+                      <Col sm={{ size: 3 }}>
+                        <Label for="tasklocation_location">Location</Label>
+                      </Col>
+                      <Col md="9">
+                        {
+                          <Row id={loc} key={i}>
+                            <Col md={{ size: 5 }}>
+                              <Input
+                                id={loc}
+                                name="tasklocation_location"
+                                type="select"
+                                bsSize="lg"
+                                placeholder="Location"
+                                aria-label="location"
+                                onChange={this.handleChange(i)}
+                                onBlur={handleBlur}
+                                value={loc.name}
+                                className={
+                                  errors.locations_input &&
+                                  errors.locations_input.location
+                                    ? "is-invalid"
+                                    : ""
+                                }
+                                required={true}
+                              >
+                                <OptionMap
+                                  obj={this.props.locationsById}
+                                  titleField="name"
+                                />
+                              </Input>
+                              {errors.locations_input && (
+                                <div className="invalid-feedback">
+                                  {errors.locations_input.location &&
+                                    errors.locations_input.location[0]}
+                                </div>
+                              )}
+                            </Col>
+                          </Row>
+                        }
+                      </Col>
+                    </FormGroup>
+                    <FormGroup className="row">
+                      <Col sm="3">
+                        <Label for="tasklocation_start">Hours</Label>
+                      </Col>
+                      <Col md="6">
+                        <Row>
+                          <Col md="5">
+                            <Input
+                              name="tasklocation_start"
+                              type="time"
+                              bsSize="lg"
+                              placeholder="Start"
+                              aria-label="start"
+                              onChange={this.handleChange(i)}
+                              onBlur={handleBlur}
+                              value={loc.payload.start || ""}
+                              className={`time-picker ${
+                                errors.tasklocation_start
+                                  ? "location is-invalid"
+                                  : ""
+                              }`}
+                              required={true}
+                            />
+                            {touched.tasklocation_start &&
+                              errors.tasklocation_start && (
+                                <div className="invalid-feedback">
+                                  {errors.tasklocation_start}
+                                </div>
+                              )}
+                          </Col>
+                          <Col md="2">
+                            <p className="text-center align-middle">to</p>
+                          </Col>
+                          <Col md="5">
+                            <Input
+                              name="tasklocation_end"
+                              type="time"
+                              bsSize="lg"
+                              placeholder="End"
+                              aria-label="end"
+                              onChange={this.handleChange(i)}
+                              onBlur={handleBlur}
+                              value={loc.payload.end || ""}
+                              className={`time-picker ${
+                                errors.tasklocation_end
+                                  ? "location is-invalid"
+                                  : ""
+                              }`}
+                              required={true}
+                            />
+                            {errors.tasklocation_end && (
+                              <div className="invalid-feedback">
+                                {errors.tasklocation_end}
+                              </div>
+                            )}
+                          </Col>
+                        </Row>
+                      </Col>
+                    </FormGroup>
+
+                    <FormGroup className="row">
+                      <Col sm="3">
+                        <Label for="tasklocation_timing_rule">
+                          Timing Rule
+                        </Label>
+                      </Col>
+                      <Col md="9">
+                        <Input
+                          name="tasklocation_timing_rule"
+                          type="hidden"
+                          bsSize="lg"
+                          placeholder="Timing Rule"
+                          aria-label="timing rule"
+                          onChange={this.handleChange(i)}
+                          onBlur={handleBlur}
+                          value={loc.payload.timing_rule || ""}
+                          className={
+                            errors.tasklocation_timing_rule ? "is-invalid" : ""
+                          }
+                        />
+                        {errors.tasklocation_timing_rule && (
+                          <div className="invalid-feedback">
+                            {errors.tasklocation_timing_rule}
+                          </div>
+                        )}
+
+                        <RRuleGenerator
+                          onChange={this.handleChange(i)}
+                          value={loc.payload.timing_rule}
+                        />
+                      </Col>
+                    </FormGroup>
+                  </div>
+                );
+              })}
+              <FormGroup className="row">
+                <Col md={{ size: 4, offset: 4 }}>
+                  <Button
+                    className="btn btn-primary btn-block add-location"
+                    onClick={this.handleAddLocation}
+                  >
+                    + Add Locations
+                  </Button>
+                </Col>
+              </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
                   <Label for="client">Client</Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="client"
                     type="select"
@@ -363,7 +606,7 @@ export class TaskForm extends Component {
                     Submission limit (per contributor)
                   </Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="user_submission_target"
                     type="number"
@@ -390,7 +633,7 @@ export class TaskForm extends Component {
                     Minimum contributor level
                   </Label>
                 </Col>
-                <Col md="9">
+                <Col md="6">
                   <Input
                     name="required_expertise"
                     type="select"
@@ -415,131 +658,7 @@ export class TaskForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-
-              <h4>Location</h4>
-
-              <div className="tasklocation-item">
-                <FormGroup className="row">
-                  <Col sm="3">
-                    <Label for="tasklocation_location">Location</Label>
-                  </Col>
-                  <Col sm="9">
-                    <Input
-                      name="tasklocation_location"
-                      type="select"
-                      bsSize="lg"
-                      placeholder="Location"
-                      aria-label="location"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.tasklocation_location}
-                      className={
-                        errors.tasklocation_location ? "is-invalid" : ""
-                      }
-                      required={true}
-                    >
-                      <OptionMap
-                        obj={this.props.locationsById}
-                        titleField="name"
-                      />
-                    </Input>
-                    {errors.tasklocation_location && (
-                      <div className="invalid-feedback">
-                        {errors.tasklocation_location}
-                      </div>
-                    )}
-                  </Col>
-                </FormGroup>
-                <FormGroup className="row">
-                  <Col sm="3">
-                    <Label for="tasklocation_start">Hours</Label>
-                  </Col>
-                  <Col md="9">
-                    <Row>
-                      <Col md="5">
-                        <Input
-                          name="tasklocation_start"
-                          type="time"
-                          bsSize="lg"
-                          placeholder="Start"
-                          aria-label="start"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.tasklocation_start}
-                          className={
-                            errors.tasklocation_start ? "is-invalid" : ""
-                          }
-                          required={true}
-                        />
-                        {touched.tasklocation_start &&
-                          errors.tasklocation_start && (
-                            <div className="invalid-feedback">
-                              {errors.tasklocation_start}
-                            </div>
-                          )}
-                      </Col>
-                      <Col md="2">
-                        <p className="text-center align-middle">to</p>
-                      </Col>
-                      <Col md="5">
-                        <Input
-                          name="tasklocation_end"
-                          type="time"
-                          bsSize="lg"
-                          placeholder="End"
-                          aria-label="end"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.tasklocation_end}
-                          className={
-                            errors.tasklocation_end ? "is-invalid" : ""
-                          }
-                          required={true}
-                        />
-                        {errors.tasklocation_end && (
-                          <div className="invalid-feedback">
-                            {errors.tasklocation_end}
-                          </div>
-                        )}
-                      </Col>
-                    </Row>
-                  </Col>
-                </FormGroup>
-
-                <FormGroup className="row">
-                  <Col sm="3">
-                    <Label for="tasklocation_timing_rule">Timing Rule</Label>
-                  </Col>
-                  <Col md="9">
-                    <Input
-                      name="tasklocation_timing_rule"
-                      type="hidden"
-                      bsSize="lg"
-                      placeholder="Timing Rule"
-                      aria-label="timing rule"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.tasklocation_timing_rule}
-                      className={
-                        errors.tasklocation_timing_rule ? "is-invalid" : ""
-                      }
-                    />
-                    {errors.tasklocation_timing_rule && (
-                      <div className="invalid-feedback">
-                        {errors.tasklocation_timing_rule}
-                      </div>
-                    )}
-
-                    <RRuleGenerator
-                      onChange={rrule =>
-                        setFieldValue("tasklocation_timing_rule", rrule)
-                      }
-                      value={values.tasklocation_timing_rule}
-                    />
-                  </Col>
-                </FormGroup>
-              </div>
-              <FormGroup className="row my-5">
+              <FormGroup className="row">
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"

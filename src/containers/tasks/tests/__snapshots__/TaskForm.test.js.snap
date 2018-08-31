@@ -261,7 +261,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -274,7 +274,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="status"
@@ -361,7 +361,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -374,7 +374,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="description"
@@ -449,7 +449,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -462,7 +462,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="reward"
@@ -546,7 +546,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -559,7 +559,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="form"
@@ -657,7 +657,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -670,7 +670,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Row
                     tag="div"
@@ -697,7 +697,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           <Input
                             aria-label="start"
                             bsSize="lg"
-                            className=""
+                            className="time-picker "
                             name="start"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -707,7 +707,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           >
                             <input
                               aria-label="start"
-                              className="form-control-lg form-control"
+                              className="time-picker  form-control-lg form-control"
                               name="start"
                               onBlur={[Function]}
                               onChange={[Function]}
@@ -760,7 +760,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           <Input
                             aria-label="end"
                             bsSize="lg"
-                            className=""
+                            className="time-picker "
                             name="end"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -770,7 +770,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           >
                             <input
                               aria-label="end"
-                              className="form-control-lg form-control"
+                              className="time-picker  form-control-lg form-control"
                               name="end"
                               onBlur={[Function]}
                               onChange={[Function]}
@@ -833,7 +833,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -846,7 +846,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="estimated time"
@@ -880,6 +880,873 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       The esitmated time that a contributor would take to complete the task, in minutes.
                     </small>
                   </FormText>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <h4>
+            Location
+          </h4>
+          <div
+            className="tasklocation-item"
+            key="0"
+          >
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm={
+                    Object {
+                      "size": 3,
+                    }
+                  }
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="tasklocation_location"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="tasklocation_location"
+                      >
+                        Location
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Row
+                      id={
+                        Object {
+                          "name": "",
+                          "payload": Object {
+                            "end": "17:00",
+                            "location": Object {
+                              "id": null,
+                              "type": "Location",
+                            },
+                            "start": "09:00",
+                            "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                          },
+                        }
+                      }
+                      key="0"
+                      tag="div"
+                    >
+                      <div
+                        className="row"
+                        id={
+                          Object {
+                            "name": "",
+                            "payload": Object {
+                              "end": "17:00",
+                              "location": Object {
+                                "id": null,
+                                "type": "Location",
+                              },
+                              "start": "09:00",
+                              "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                            },
+                          }
+                        }
+                      >
+                        <Col
+                          md={
+                            Object {
+                              "size": 5,
+                            }
+                          }
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <Input
+                              aria-label="location"
+                              bsSize="lg"
+                              className=""
+                              id={
+                                Object {
+                                  "name": "",
+                                  "payload": Object {
+                                    "end": "17:00",
+                                    "location": Object {
+                                      "id": null,
+                                      "type": "Location",
+                                    },
+                                    "start": "09:00",
+                                    "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                                  },
+                                }
+                              }
+                              name="tasklocation_location"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="Location"
+                              required={true}
+                              type="select"
+                              value=""
+                            >
+                              <select
+                                aria-label="location"
+                                className="form-control-lg form-control"
+                                id={
+                                  Object {
+                                    "name": "",
+                                    "payload": Object {
+                                      "end": "17:00",
+                                      "location": Object {
+                                        "id": null,
+                                        "type": "Location",
+                                      },
+                                      "start": "09:00",
+                                      "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                                    },
+                                  }
+                                }
+                                name="tasklocation_location"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Location"
+                                required={true}
+                                value=""
+                              >
+                                <OptionMap
+                                  obj={
+                                    Object {
+                                      "1": Object {
+                                        "attributes": Object {
+                                          "country": "KE",
+                                          "created": "2018-06-20T12:09:02.916318+03:00",
+                                          "description": "Such Big City , Much wow",
+                                          "geopoint": null,
+                                          "location_type_name": "None",
+                                          "modified": "2018-06-20T12:09:02.916345+03:00",
+                                          "name": "Nairobi",
+                                          "parent_name": "None",
+                                          "radius": null,
+                                          "shapefile": Object {
+                                            "coordinates": Array [
+                                              Array [
+                                                Array [
+                                                  Array [
+                                                    -0.038795471191406,
+                                                    0.030555723649271,
+                                                  ],
+                                                  Array [
+                                                    0.049095153808594,
+                                                    0.013389587280456,
+                                                  ],
+                                                  Array [
+                                                    0.015106201171875,
+                                                    -0.063171373920095,
+                                                  ],
+                                                  Array [
+                                                    -0.044288635253906,
+                                                    -0.032615659859611,
+                                                  ],
+                                                  Array [
+                                                    -0.038795471191406,
+                                                    0.030555723649271,
+                                                  ],
+                                                ],
+                                              ],
+                                            ],
+                                            "type": "MultiPolygon",
+                                          },
+                                        },
+                                        "id": "1",
+                                        "relationships": Object {
+                                          "location_type": Object {
+                                            "data": null,
+                                          },
+                                          "parent": Object {
+                                            "data": null,
+                                          },
+                                        },
+                                        "type": "Location",
+                                      },
+                                      "7": Object {
+                                        "attributes": Object {
+                                          "country": "CK",
+                                          "created": "2018-07-09T14:53:09.732230+03:00",
+                                          "description": "Something",
+                                          "geopoint": null,
+                                          "location_type_name": null,
+                                          "modified": "2018-07-09T14:53:09.732261+03:00",
+                                          "name": "Sol Point",
+                                          "parent_name": null,
+                                          "radius": null,
+                                          "shapefile": null,
+                                        },
+                                        "id": "7",
+                                        "relationships": Object {
+                                          "location_type": Object {
+                                            "data": null,
+                                          },
+                                          "parent": Object {
+                                            "data": null,
+                                          },
+                                        },
+                                        "type": "Location",
+                                      },
+                                    }
+                                  }
+                                  titleField="name"
+                                >
+                                  <option
+                                    key="0"
+                                  >
+                                    ----
+                                  </option>
+                                  <option
+                                    key="1"
+                                    value="1"
+                                  >
+                                    Nairobi
+                                  </option>
+                                  <option
+                                    key="7"
+                                    value="7"
+                                  >
+                                    Sol Point
+                                  </option>
+                                </OptionMap>
+                              </select>
+                            </Input>
+                          </div>
+                        </Col>
+                      </div>
+                    </Row>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="tasklocation_start"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="tasklocation_start"
+                      >
+                        Hours
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="6"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-6"
+                  >
+                    <Row
+                      tag="div"
+                    >
+                      <div
+                        className="row"
+                      >
+                        <Col
+                          md="5"
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <Input
+                              aria-label="start"
+                              bsSize="lg"
+                              className="time-picker "
+                              name="tasklocation_start"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="Start"
+                              required={true}
+                              type="time"
+                              value="09:00"
+                            >
+                              <input
+                                aria-label="start"
+                                className="time-picker  form-control-lg form-control"
+                                name="tasklocation_start"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Start"
+                                required={true}
+                                type="time"
+                                value="09:00"
+                              />
+                            </Input>
+                          </div>
+                        </Col>
+                        <Col
+                          md="2"
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-2"
+                          >
+                            <p
+                              className="text-center align-middle"
+                            >
+                              to
+                            </p>
+                          </div>
+                        </Col>
+                        <Col
+                          md="5"
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <Input
+                              aria-label="end"
+                              bsSize="lg"
+                              className="time-picker "
+                              name="tasklocation_end"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="End"
+                              required={true}
+                              type="time"
+                              value="17:00"
+                            >
+                              <input
+                                aria-label="end"
+                                className="time-picker  form-control-lg form-control"
+                                name="tasklocation_end"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="End"
+                                required={true}
+                                type="time"
+                                value="17:00"
+                              />
+                            </Input>
+                          </div>
+                        </Col>
+                      </div>
+                    </Row>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="tasklocation_timing_rule"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="tasklocation_timing_rule"
+                      >
+                        Timing Rule
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="timing rule"
+                      bsSize="lg"
+                      className=""
+                      name="tasklocation_timing_rule"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Timing Rule"
+                      type="hidden"
+                      value="FREQ=DAILY;INTERVAL=1;COUNT=1"
+                    >
+                      <input
+                        aria-label="timing rule"
+                        className="form-control-lg form-control"
+                        name="tasklocation_timing_rule"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Timing Rule"
+                        type="hidden"
+                        value="FREQ=DAILY;INTERVAL=1;COUNT=1"
+                      />
+                    </Input>
+                    <t
+                      calendarComponent={null}
+                      config={Object {}}
+                      onChange={[Function]}
+                      value="FREQ=DAILY;INTERVAL=1;COUNT=1"
+                    >
+                      <div>
+                        <div
+                          className="px-0 pt-3 border rounded"
+                        >
+                          <div>
+                            <M
+                              handleChange={[Function]}
+                              repeat={
+                                Object {
+                                  "daily": Object {
+                                    "interval": 1,
+                                  },
+                                  "frequency": "Daily",
+                                  "hourly": Object {
+                                    "interval": 1,
+                                  },
+                                  "monthly": Object {
+                                    "interval": 1,
+                                    "mode": "on",
+                                    "on": Object {
+                                      "day": 1,
+                                    },
+                                    "onThe": Object {
+                                      "day": "Monday",
+                                      "which": "First",
+                                    },
+                                    "options": Object {
+                                      "modes": undefined,
+                                    },
+                                  },
+                                  "options": Object {
+                                    "frequency": undefined,
+                                  },
+                                  "weekly": Object {
+                                    "days": Object {
+                                      "fri": false,
+                                      "mon": false,
+                                      "sat": false,
+                                      "sun": false,
+                                      "thu": false,
+                                      "tue": false,
+                                      "wed": false,
+                                    },
+                                    "interval": 1,
+                                    "options": Object {
+                                      "weekStartsOnSunday": undefined,
+                                    },
+                                  },
+                                  "yearly": Object {
+                                    "mode": "on",
+                                    "on": Object {
+                                      "day": 1,
+                                      "month": "Jan",
+                                    },
+                                    "onThe": Object {
+                                      "day": "Monday",
+                                      "month": "Jan",
+                                      "which": "First",
+                                    },
+                                    "options": Object {
+                                      "modes": undefined,
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <div
+                                className="px-3"
+                              >
+                                <div
+                                  className="form-group row"
+                                >
+                                  <div
+                                    className="col-sm-2 text-sm-right"
+                                  >
+                                    <label
+                                      className="col-form-label"
+                                      htmlFor="Repeat frequency"
+                                    >
+                                      <strong>
+                                        Repeat
+                                      </strong>
+                                    </label>
+                                  </div>
+                                  <div
+                                    className="col-sm-6"
+                                  >
+                                    <select
+                                      className="form-control"
+                                      id="Repeat frequency"
+                                      name="repeat.frequency"
+                                      onChange={[Function]}
+                                      value="Daily"
+                                    >
+                                      <option
+                                        value="Yearly"
+                                      >
+                                        Yearly
+                                      </option>
+                                      <option
+                                        value="Monthly"
+                                      >
+                                        Monthly
+                                      </option>
+                                      <option
+                                        value="Weekly"
+                                      >
+                                        Weekly
+                                      </option>
+                                      <option
+                                        value="Daily"
+                                      >
+                                        Daily
+                                      </option>
+                                      <option
+                                        value="Hourly"
+                                      >
+                                        Hourly
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <l
+                                  daily={
+                                    Object {
+                                      "interval": 1,
+                                    }
+                                  }
+                                  handleChange={[Function]}
+                                >
+                                  <div
+                                    className="form-group row d-flex align-items-sm-center"
+                                  >
+                                    <div
+                                      className="col-sm-1 offset-sm-2"
+                                    >
+                                      every
+                                    </div>
+                                    <div
+                                      className="col-sm-2"
+                                    >
+                                      <input
+                                        aria-label="Repeat daily interval"
+                                        className="form-control"
+                                        name="repeat.daily.interval"
+                                        onChange={[Function]}
+                                        value={1}
+                                      />
+                                    </div>
+                                    <div
+                                      className="col-sm-1"
+                                    >
+                                      day(s)
+                                    </div>
+                                  </div>
+                                </l>
+                              </div>
+                            </M>
+                          </div>
+                          <hr />
+                          <c
+                            end={
+                              Object {
+                                "after": 1,
+                                "mode": "After",
+                                "onDate": Object {
+                                  "date": "1986-01-02",
+                                  "options": Object {
+                                    "calendarComponent": null,
+                                    "weekStartsOnSunday": undefined,
+                                  },
+                                },
+                                "options": Object {
+                                  "modes": undefined,
+                                },
+                              }
+                            }
+                            handleChange={[Function]}
+                          >
+                            <div
+                              className="px-3"
+                            >
+                              <div
+                                className="form-group row"
+                              >
+                                <div
+                                  className="col-sm-2 text-sm-right"
+                                >
+                                  <label
+                                    className="col-form-label"
+                                    htmlFor="End"
+                                  >
+                                    <strong>
+                                      End
+                                    </strong>
+                                  </label>
+                                </div>
+                                <div
+                                  className="col-sm-3"
+                                >
+                                  <select
+                                    className="form-control"
+                                    id="End"
+                                    name="end.mode"
+                                    onChange={[Function]}
+                                    value="After"
+                                  >
+                                    <option
+                                      value="Never"
+                                    >
+                                      Never
+                                    </option>
+                                    <option
+                                      value="After"
+                                    >
+                                      After
+                                    </option>
+                                    <option
+                                      value="On date"
+                                    >
+                                      On date
+                                    </option>
+                                  </select>
+                                </div>
+                                <l
+                                  after={1}
+                                  handleChange={[Function]}
+                                >
+                                  <div
+                                    className="col-sm-4"
+                                  >
+                                    <div
+                                      className="form-group m-0 row d-flex align-items-center"
+                                    >
+                                      <div
+                                        className="col-3 col-sm-6 pl-0"
+                                      >
+                                        <input
+                                          aria-label="End after"
+                                          className="form-control"
+                                          name="end.after"
+                                          onChange={[Function]}
+                                          value={1}
+                                        />
+                                      </div>
+                                      <div
+                                        className="col-9 col-sm-6"
+                                      >
+                                        executions.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </l>
+                              </div>
+                            </div>
+                          </c>
+                        </div>
+                      </div>
+                    </t>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+          </div>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md={
+                  Object {
+                    "offset": 4,
+                    "size": 4,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-4 offset-md-4"
+                >
+                  <Button
+                    className="btn btn-primary btn-block add-location"
+                    color="secondary"
+                    onClick={[Function]}
+                    tag="button"
+                  >
+                    <button
+                      className="btn btn-primary btn-block add-location btn btn-secondary"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      + Add Locations
+                    </button>
+                  </Button>
                 </div>
               </Col>
             </div>
@@ -930,7 +1797,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -943,7 +1810,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="client"
@@ -1044,7 +1911,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -1057,7 +1924,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="contributor submission target"
@@ -1131,7 +1998,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="9"
+                md="6"
                 tag="div"
                 widths={
                   Array [
@@ -1144,7 +2011,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-9"
+                  className="col-md-6"
                 >
                   <Input
                     aria-label="required expertise"
@@ -1195,1100 +2062,12 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
               </Col>
             </div>
           </FormGroup>
-          <h4>
-            Location
-          </h4>
-          <div
-            className="tasklocation-item"
-          >
-            <FormGroup
-              className="row"
-              tag="div"
-            >
-              <div
-                className="row form-group"
-              >
-                <Col
-                  sm="3"
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
-                >
-                  <div
-                    className="col-sm-3"
-                  >
-                    <Label
-                      for="tasklocation_location"
-                      tag="label"
-                      widths={
-                        Array [
-                          "xs",
-                          "sm",
-                          "md",
-                          "lg",
-                          "xl",
-                        ]
-                      }
-                    >
-                      <label
-                        className=""
-                        htmlFor="tasklocation_location"
-                      >
-                        Location
-                      </label>
-                    </Label>
-                  </div>
-                </Col>
-                <Col
-                  sm="9"
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
-                >
-                  <div
-                    className="col-sm-9"
-                  >
-                    <Input
-                      aria-label="location"
-                      bsSize="lg"
-                      className=""
-                      name="tasklocation_location"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder="Location"
-                      required={true}
-                      type="select"
-                      value="1"
-                    >
-                      <select
-                        aria-label="location"
-                        className="form-control-lg form-control"
-                        name="tasklocation_location"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder="Location"
-                        required={true}
-                        value="1"
-                      >
-                        <OptionMap
-                          obj={
-                            Object {
-                              "1": Object {
-                                "attributes": Object {
-                                  "country": "KE",
-                                  "created": "2018-06-20T12:09:02.916318+03:00",
-                                  "description": "Such Big City , Much wow",
-                                  "geopoint": null,
-                                  "location_type_name": "None",
-                                  "modified": "2018-06-20T12:09:02.916345+03:00",
-                                  "name": "Nairobi",
-                                  "parent_name": "None",
-                                  "radius": null,
-                                  "shapefile": Object {
-                                    "coordinates": Array [
-                                      Array [
-                                        Array [
-                                          Array [
-                                            -0.038795471191406,
-                                            0.030555723649271,
-                                          ],
-                                          Array [
-                                            0.049095153808594,
-                                            0.013389587280456,
-                                          ],
-                                          Array [
-                                            0.015106201171875,
-                                            -0.063171373920095,
-                                          ],
-                                          Array [
-                                            -0.044288635253906,
-                                            -0.032615659859611,
-                                          ],
-                                          Array [
-                                            -0.038795471191406,
-                                            0.030555723649271,
-                                          ],
-                                        ],
-                                      ],
-                                    ],
-                                    "type": "MultiPolygon",
-                                  },
-                                },
-                                "id": "1",
-                                "relationships": Object {
-                                  "location_type": Object {
-                                    "data": null,
-                                  },
-                                  "parent": Object {
-                                    "data": null,
-                                  },
-                                },
-                                "type": "Location",
-                              },
-                              "7": Object {
-                                "attributes": Object {
-                                  "country": "CK",
-                                  "created": "2018-07-09T14:53:09.732230+03:00",
-                                  "description": "Something",
-                                  "geopoint": null,
-                                  "location_type_name": null,
-                                  "modified": "2018-07-09T14:53:09.732261+03:00",
-                                  "name": "Sol Point",
-                                  "parent_name": null,
-                                  "radius": null,
-                                  "shapefile": null,
-                                },
-                                "id": "7",
-                                "relationships": Object {
-                                  "location_type": Object {
-                                    "data": null,
-                                  },
-                                  "parent": Object {
-                                    "data": null,
-                                  },
-                                },
-                                "type": "Location",
-                              },
-                            }
-                          }
-                          titleField="name"
-                        >
-                          <option
-                            key="0"
-                          >
-                            ----
-                          </option>
-                          <option
-                            key="1"
-                            value="1"
-                          >
-                            Nairobi
-                          </option>
-                          <option
-                            key="7"
-                            value="7"
-                          >
-                            Sol Point
-                          </option>
-                        </OptionMap>
-                      </select>
-                    </Input>
-                  </div>
-                </Col>
-              </div>
-            </FormGroup>
-            <FormGroup
-              className="row"
-              tag="div"
-            >
-              <div
-                className="row form-group"
-              >
-                <Col
-                  sm="3"
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
-                >
-                  <div
-                    className="col-sm-3"
-                  >
-                    <Label
-                      for="tasklocation_start"
-                      tag="label"
-                      widths={
-                        Array [
-                          "xs",
-                          "sm",
-                          "md",
-                          "lg",
-                          "xl",
-                        ]
-                      }
-                    >
-                      <label
-                        className=""
-                        htmlFor="tasklocation_start"
-                      >
-                        Hours
-                      </label>
-                    </Label>
-                  </div>
-                </Col>
-                <Col
-                  md="9"
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
-                >
-                  <div
-                    className="col-md-9"
-                  >
-                    <Row
-                      tag="div"
-                    >
-                      <div
-                        className="row"
-                      >
-                        <Col
-                          md="5"
-                          tag="div"
-                          widths={
-                            Array [
-                              "xs",
-                              "sm",
-                              "md",
-                              "lg",
-                              "xl",
-                            ]
-                          }
-                        >
-                          <div
-                            className="col-md-5"
-                          >
-                            <Input
-                              aria-label="start"
-                              bsSize="lg"
-                              className=""
-                              name="tasklocation_start"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              placeholder="Start"
-                              required={true}
-                              type="time"
-                              value="06:00:00"
-                            >
-                              <input
-                                aria-label="start"
-                                className="form-control-lg form-control"
-                                name="tasklocation_start"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="Start"
-                                required={true}
-                                type="time"
-                                value="06:00:00"
-                              />
-                            </Input>
-                          </div>
-                        </Col>
-                        <Col
-                          md="2"
-                          tag="div"
-                          widths={
-                            Array [
-                              "xs",
-                              "sm",
-                              "md",
-                              "lg",
-                              "xl",
-                            ]
-                          }
-                        >
-                          <div
-                            className="col-md-2"
-                          >
-                            <p
-                              className="text-center align-middle"
-                            >
-                              to
-                            </p>
-                          </div>
-                        </Col>
-                        <Col
-                          md="5"
-                          tag="div"
-                          widths={
-                            Array [
-                              "xs",
-                              "sm",
-                              "md",
-                              "lg",
-                              "xl",
-                            ]
-                          }
-                        >
-                          <div
-                            className="col-md-5"
-                          >
-                            <Input
-                              aria-label="end"
-                              bsSize="lg"
-                              className=""
-                              name="tasklocation_end"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              placeholder="End"
-                              required={true}
-                              type="time"
-                              value="18:00:00"
-                            >
-                              <input
-                                aria-label="end"
-                                className="form-control-lg form-control"
-                                name="tasklocation_end"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                placeholder="End"
-                                required={true}
-                                type="time"
-                                value="18:00:00"
-                              />
-                            </Input>
-                          </div>
-                        </Col>
-                      </div>
-                    </Row>
-                  </div>
-                </Col>
-              </div>
-            </FormGroup>
-            <FormGroup
-              className="row"
-              tag="div"
-            >
-              <div
-                className="row form-group"
-              >
-                <Col
-                  sm="3"
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
-                >
-                  <div
-                    className="col-sm-3"
-                  >
-                    <Label
-                      for="tasklocation_timing_rule"
-                      tag="label"
-                      widths={
-                        Array [
-                          "xs",
-                          "sm",
-                          "md",
-                          "lg",
-                          "xl",
-                        ]
-                      }
-                    >
-                      <label
-                        className=""
-                        htmlFor="tasklocation_timing_rule"
-                      >
-                        Timing Rule
-                      </label>
-                    </Label>
-                  </div>
-                </Col>
-                <Col
-                  md="9"
-                  tag="div"
-                  widths={
-                    Array [
-                      "xs",
-                      "sm",
-                      "md",
-                      "lg",
-                      "xl",
-                    ]
-                  }
-                >
-                  <div
-                    className="col-md-9"
-                  >
-                    <Input
-                      aria-label="timing rule"
-                      bsSize="lg"
-                      className=""
-                      name="tasklocation_timing_rule"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder="Timing Rule"
-                      type="hidden"
-                      value="FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1"
-                    >
-                      <input
-                        aria-label="timing rule"
-                        className="form-control-lg form-control"
-                        name="tasklocation_timing_rule"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder="Timing Rule"
-                        type="hidden"
-                        value="FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1"
-                      />
-                    </Input>
-                    <t
-                      calendarComponent={null}
-                      config={Object {}}
-                      onChange={[Function]}
-                      value="FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1"
-                    >
-                      <div>
-                        <div
-                          className="px-0 pt-3 border rounded"
-                        >
-                          <div>
-                            <M
-                              handleChange={[Function]}
-                              repeat={
-                                Object {
-                                  "daily": Object {
-                                    "interval": 1,
-                                  },
-                                  "frequency": "Monthly",
-                                  "hourly": Object {
-                                    "interval": 1,
-                                  },
-                                  "monthly": Object {
-                                    "interval": 1,
-                                    "mode": "on",
-                                    "on": Object {
-                                      "day": 1,
-                                    },
-                                    "onThe": Object {
-                                      "day": "Monday",
-                                      "which": "First",
-                                    },
-                                    "options": Object {
-                                      "modes": undefined,
-                                    },
-                                  },
-                                  "options": Object {
-                                    "frequency": undefined,
-                                  },
-                                  "weekly": Object {
-                                    "days": Object {
-                                      "fri": false,
-                                      "mon": false,
-                                      "sat": false,
-                                      "sun": false,
-                                      "thu": false,
-                                      "tue": false,
-                                      "wed": false,
-                                    },
-                                    "interval": 1,
-                                    "options": Object {
-                                      "weekStartsOnSunday": undefined,
-                                    },
-                                  },
-                                  "yearly": Object {
-                                    "mode": "on",
-                                    "on": Object {
-                                      "day": 1,
-                                      "month": "Jan",
-                                    },
-                                    "onThe": Object {
-                                      "day": "Monday",
-                                      "month": "Jan",
-                                      "which": "First",
-                                    },
-                                    "options": Object {
-                                      "modes": undefined,
-                                    },
-                                  },
-                                }
-                              }
-                            >
-                              <div
-                                className="px-3"
-                              >
-                                <div
-                                  className="form-group row"
-                                >
-                                  <div
-                                    className="col-sm-2 text-sm-right"
-                                  >
-                                    <label
-                                      className="col-form-label"
-                                      htmlFor="Repeat frequency"
-                                    >
-                                      <strong>
-                                        Repeat
-                                      </strong>
-                                    </label>
-                                  </div>
-                                  <div
-                                    className="col-sm-6"
-                                  >
-                                    <select
-                                      className="form-control"
-                                      id="Repeat frequency"
-                                      name="repeat.frequency"
-                                      onChange={[Function]}
-                                      value="Monthly"
-                                    >
-                                      <option
-                                        value="Yearly"
-                                      >
-                                        Yearly
-                                      </option>
-                                      <option
-                                        value="Monthly"
-                                      >
-                                        Monthly
-                                      </option>
-                                      <option
-                                        value="Weekly"
-                                      >
-                                        Weekly
-                                      </option>
-                                      <option
-                                        value="Daily"
-                                      >
-                                        Daily
-                                      </option>
-                                      <option
-                                        value="Hourly"
-                                      >
-                                        Hourly
-                                      </option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <f
-                                  handleChange={[Function]}
-                                  monthly={
-                                    Object {
-                                      "interval": 1,
-                                      "mode": "on",
-                                      "on": Object {
-                                        "day": 1,
-                                      },
-                                      "onThe": Object {
-                                        "day": "Monday",
-                                        "which": "First",
-                                      },
-                                      "options": Object {
-                                        "modes": undefined,
-                                      },
-                                    }
-                                  }
-                                >
-                                  <div>
-                                    <div
-                                      className="form-group row d-flex align-items-sm-center"
-                                    >
-                                      <div
-                                        className="col-sm-1 offset-sm-2"
-                                      >
-                                        every
-                                      </div>
-                                      <div
-                                        className="col-sm-3"
-                                      >
-                                        <input
-                                          aria-label="Repeat monthly interval"
-                                          className="form-control"
-                                          name="repeat.monthly.interval"
-                                          onChange={[Function]}
-                                          value={1}
-                                        />
-                                      </div>
-                                      <div
-                                        className="col-sm-1"
-                                      >
-                                        month(s)
-                                      </div>
-                                    </div>
-                                    <_
-                                      handleChange={[Function]}
-                                      hasMoreModes={true}
-                                      mode="on"
-                                      on={
-                                        Object {
-                                          "day": 1,
-                                        }
-                                      }
-                                    >
-                                      <div
-                                        className="form-group row d-flex align-items-sm-center false"
-                                      >
-                                        <div
-                                          className="col-sm-1 offset-sm-2"
-                                        >
-                                          <input
-                                            aria-label="Repeat monthly on"
-                                            checked={true}
-                                            name="repeat.monthly.mode"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="on"
-                                          />
-                                        </div>
-                                        <div
-                                          className="col-sm-1"
-                                        >
-                                          on day
-                                        </div>
-                                        <div
-                                          className="col-sm-2"
-                                        >
-                                          <select
-                                            aria-label="Repeat monthly on a day"
-                                            className="form-control"
-                                            disabled={false}
-                                            name="repeat.monthly.on.day"
-                                            onChange={[Function]}
-                                            value={1}
-                                          >
-                                            <option
-                                              key="0"
-                                              value={1}
-                                            >
-                                              1
-                                            </option>
-                                            <option
-                                              key="1"
-                                              value={2}
-                                            >
-                                              2
-                                            </option>
-                                            <option
-                                              key="2"
-                                              value={3}
-                                            >
-                                              3
-                                            </option>
-                                            <option
-                                              key="3"
-                                              value={4}
-                                            >
-                                              4
-                                            </option>
-                                            <option
-                                              key="4"
-                                              value={5}
-                                            >
-                                              5
-                                            </option>
-                                            <option
-                                              key="5"
-                                              value={6}
-                                            >
-                                              6
-                                            </option>
-                                            <option
-                                              key="6"
-                                              value={7}
-                                            >
-                                              7
-                                            </option>
-                                            <option
-                                              key="7"
-                                              value={8}
-                                            >
-                                              8
-                                            </option>
-                                            <option
-                                              key="8"
-                                              value={9}
-                                            >
-                                              9
-                                            </option>
-                                            <option
-                                              key="9"
-                                              value={10}
-                                            >
-                                              10
-                                            </option>
-                                            <option
-                                              key="10"
-                                              value={11}
-                                            >
-                                              11
-                                            </option>
-                                            <option
-                                              key="11"
-                                              value={12}
-                                            >
-                                              12
-                                            </option>
-                                            <option
-                                              key="12"
-                                              value={13}
-                                            >
-                                              13
-                                            </option>
-                                            <option
-                                              key="13"
-                                              value={14}
-                                            >
-                                              14
-                                            </option>
-                                            <option
-                                              key="14"
-                                              value={15}
-                                            >
-                                              15
-                                            </option>
-                                            <option
-                                              key="15"
-                                              value={16}
-                                            >
-                                              16
-                                            </option>
-                                            <option
-                                              key="16"
-                                              value={17}
-                                            >
-                                              17
-                                            </option>
-                                            <option
-                                              key="17"
-                                              value={18}
-                                            >
-                                              18
-                                            </option>
-                                            <option
-                                              key="18"
-                                              value={19}
-                                            >
-                                              19
-                                            </option>
-                                            <option
-                                              key="19"
-                                              value={20}
-                                            >
-                                              20
-                                            </option>
-                                            <option
-                                              key="20"
-                                              value={21}
-                                            >
-                                              21
-                                            </option>
-                                            <option
-                                              key="21"
-                                              value={22}
-                                            >
-                                              22
-                                            </option>
-                                            <option
-                                              key="22"
-                                              value={23}
-                                            >
-                                              23
-                                            </option>
-                                            <option
-                                              key="23"
-                                              value={24}
-                                            >
-                                              24
-                                            </option>
-                                            <option
-                                              key="24"
-                                              value={25}
-                                            >
-                                              25
-                                            </option>
-                                            <option
-                                              key="25"
-                                              value={26}
-                                            >
-                                              26
-                                            </option>
-                                            <option
-                                              key="26"
-                                              value={27}
-                                            >
-                                              27
-                                            </option>
-                                            <option
-                                              key="27"
-                                              value={28}
-                                            >
-                                              28
-                                            </option>
-                                            <option
-                                              key="28"
-                                              value={29}
-                                            >
-                                              29
-                                            </option>
-                                            <option
-                                              key="29"
-                                              value={30}
-                                            >
-                                              30
-                                            </option>
-                                            <option
-                                              key="30"
-                                              value={31}
-                                            >
-                                              31
-                                            </option>
-                                          </select>
-                                        </div>
-                                      </div>
-                                    </_>
-                                    <d
-                                      handleChange={[Function]}
-                                      hasMoreModes={true}
-                                      mode="on"
-                                      onThe={
-                                        Object {
-                                          "day": "Monday",
-                                          "which": "First",
-                                        }
-                                      }
-                                    >
-                                      <div
-                                        className="form-group row d-flex align-items-sm-center opacity-50"
-                                      >
-                                        <div
-                                          className="col-sm-1 offset-sm-2"
-                                        >
-                                          <input
-                                            aria-label="Repeat monthly on the"
-                                            checked={false}
-                                            name="repeat.monthly.mode"
-                                            onChange={[Function]}
-                                            type="radio"
-                                            value="on the"
-                                          />
-                                        </div>
-                                        <div
-                                          className="col-sm-1"
-                                        >
-                                          on the
-                                        </div>
-                                        <div
-                                          className="col-sm-2"
-                                        >
-                                          <select
-                                            aria-label="Repeat monthly on the which"
-                                            className="form-control"
-                                            disabled={true}
-                                            name="repeat.monthly.onThe.which"
-                                            onChange={[Function]}
-                                            value="First"
-                                          >
-                                            <option
-                                              value="First"
-                                            >
-                                              First
-                                            </option>
-                                            <option
-                                              value="Second"
-                                            >
-                                              Second
-                                            </option>
-                                            <option
-                                              value="Third"
-                                            >
-                                              Third
-                                            </option>
-                                            <option
-                                              value="Fourth"
-                                            >
-                                              Fourth
-                                            </option>
-                                            <option
-                                              value="Last"
-                                            >
-                                              Last
-                                            </option>
-                                          </select>
-                                        </div>
-                                        <div
-                                          className="col-sm-3"
-                                        >
-                                          <select
-                                            aria-label="Repeat monthly on the day"
-                                            className="form-control"
-                                            disabled={true}
-                                            name="repeat.monthly.onThe.day"
-                                            onChange={[Function]}
-                                            value="Monday"
-                                          >
-                                            <option
-                                              key="Monday"
-                                              value="Monday"
-                                            >
-                                              Monday
-                                            </option>
-                                            <option
-                                              key="Tuesday"
-                                              value="Tuesday"
-                                            >
-                                              Tuesday
-                                            </option>
-                                            <option
-                                              key="Wednesday"
-                                              value="Wednesday"
-                                            >
-                                              Wednesday
-                                            </option>
-                                            <option
-                                              key="Thursday"
-                                              value="Thursday"
-                                            >
-                                              Thursday
-                                            </option>
-                                            <option
-                                              key="Friday"
-                                              value="Friday"
-                                            >
-                                              Friday
-                                            </option>
-                                            <option
-                                              key="Saturday"
-                                              value="Saturday"
-                                            >
-                                              Saturday
-                                            </option>
-                                            <option
-                                              key="Sunday"
-                                              value="Sunday"
-                                            >
-                                              Sunday
-                                            </option>
-                                            <option
-                                              key="Day"
-                                              value="Day"
-                                            >
-                                              Day
-                                            </option>
-                                            <option
-                                              key="Weekday"
-                                              value="Weekday"
-                                            >
-                                              Weekday
-                                            </option>
-                                            <option
-                                              key="Weekend day"
-                                              value="Weekend day"
-                                            >
-                                              Weekend day
-                                            </option>
-                                          </select>
-                                        </div>
-                                      </div>
-                                    </d>
-                                  </div>
-                                </f>
-                              </div>
-                            </M>
-                          </div>
-                          <hr />
-                          <c
-                            end={
-                              Object {
-                                "after": 1,
-                                "mode": "Never",
-                                "onDate": Object {
-                                  "date": "1986-01-02",
-                                  "options": Object {
-                                    "calendarComponent": null,
-                                    "weekStartsOnSunday": undefined,
-                                  },
-                                },
-                                "options": Object {
-                                  "modes": undefined,
-                                },
-                              }
-                            }
-                            handleChange={[Function]}
-                          >
-                            <div
-                              className="px-3"
-                            >
-                              <div
-                                className="form-group row"
-                              >
-                                <div
-                                  className="col-sm-2 text-sm-right"
-                                >
-                                  <label
-                                    className="col-form-label"
-                                    htmlFor="End"
-                                  >
-                                    <strong>
-                                      End
-                                    </strong>
-                                  </label>
-                                </div>
-                                <div
-                                  className="col-sm-3"
-                                >
-                                  <select
-                                    className="form-control"
-                                    id="End"
-                                    name="end.mode"
-                                    onChange={[Function]}
-                                    value="Never"
-                                  >
-                                    <option
-                                      value="Never"
-                                    >
-                                      Never
-                                    </option>
-                                    <option
-                                      value="After"
-                                    >
-                                      After
-                                    </option>
-                                    <option
-                                      value="On date"
-                                    >
-                                      On date
-                                    </option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                          </c>
-                        </div>
-                      </div>
-                    </t>
-                  </div>
-                </Col>
-              </div>
-            </FormGroup>
-          </div>
           <FormGroup
-            className="row my-5"
+            className="row"
             tag="div"
           >
             <div
-              className="row my-5 form-group"
+              className="row form-group"
             >
               <Col
                 md={
