@@ -30,6 +30,7 @@ import UsersList from "./containers/users/UsersList";
 import UserCreateForm from "./containers/users/UserCreateForm";
 import UserDetail from "./containers/users/UserDetail";
 import UserDeletion from "./containers/users/UserDeletion";
+import UserEditForm from "./containers/users/UserEditForm";
 
 import LocationsList from "./containers/locations/LocationsList";
 import LocationCreateForm from "./containers/locations/LocationCreateForm";
@@ -110,6 +111,11 @@ class App extends Component {
                           exact
                           path="/users/:id/delete"
                           component={UserDeletion}
+                        />
+                        <Route
+                          exact
+                          path="/users/:id/edit"
+                          component={UserEditForm}
                         />
                         <Route
                           exact

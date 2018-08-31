@@ -61,6 +61,14 @@ export default function reduce(state = initialState, action = {}) {
     case types.USER_DELETED:
       const newUsersById = _.omit(state.usersById, action.userId);
       return state.set("usersById", newUsersById);
+    case types.USER_EDITED:
+      return Immutable({
+        ...state,
+        usersById: {
+          ...state.usersById,
+          [action.userData.id]: action.userData
+        }
+      });
     default:
       return state;
   }

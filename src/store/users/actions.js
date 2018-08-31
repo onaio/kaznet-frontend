@@ -3,8 +3,9 @@ import * as types from "./actionTypes";
 import userService from "../../services/users";
 import exportService from "../../services/exports";
 import * as errorHandlerTypes from "../errorHandler/actionTypes";
+import * as constants from "../../constants";
 
-export function fetchUsers(url) {
+export function fetchUsers(url = `${constants.API_ENDPOINT}/userprofiles/`) {
   return async (dispatch, getState) => {
     try {
       const {
@@ -37,6 +38,47 @@ export function createUser(user_data) {
       const userData = await userService.createUser(user_data);
       dispatch({ type: types.USER_CREATED, userData });
       dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+export function editUser(user_data, id) {
+  return async (dispatch, getState) => {
+    try {
+      const userData = await userService.editUser(user_data, id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.USER_EDITED,
+        userData
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+// fetch a specific user
+export function fetchUser(id) {
+  return async (dispatch, getState) => {
+    try {
+      const userData = await userService.getLocation(id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.USER_FETCHED,
+        userData
+      });
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
