@@ -30,6 +30,7 @@ export function fetchTasks(url) {
     }
   };
 }
+//get search value on task view
 
 // Change the current Page on the task list
 export function changePageNumber(pageNumber) {

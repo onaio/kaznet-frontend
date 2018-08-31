@@ -8,3 +8,4 @@ export const PAGE_TITLE_ON = "global.PAGE_TITLE_ON";
 export const PAGE_TITLE_OFF = "global.PAGE_TITLE_OFF";
 export const SET_ACTION_LINKS = "global.SET_ACTION_LINKS";
 export const CHANGE_DETAIL_STATUS = "global.CHANGE_DETAIL_STATUS";
+export const GLOBAL_SEARCH_VALUE = "global.GLOBAL_SEARCH_VALUE";

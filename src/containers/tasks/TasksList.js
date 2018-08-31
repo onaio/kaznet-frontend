@@ -10,6 +10,7 @@ import { Badge } from "reactstrap";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as taskSelectors from "../../store/tasks/reducer";
+import * as globalSelectors from "../../store/global/reducer";
 import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
@@ -24,28 +25,35 @@ export class TasksList extends Component {
     this.props.changePageTitleButton("+ Create Task");
     this.props.changePageTarget("/tasks/new");
 
+    let { search } = queryString.parse(this.props.location.search);
     const { page } = queryString.parse(this.props.location.search);
+
+    if (search === undefined) {
+      search = "";
+    }
+    this.props.searchVal(search);
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {
       pageNumber = 1;
     }
-    if (pageNumber) {
-      await this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
-      );
-      this.props.changePageNumber(pageNumber);
-    } else {
-      this.props.fetchTasks();
-    }
+
+    await this.props.fetchTasks(
+      `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
+    );
+    this.props.changePageNumber(pageNumber);
   }
 
   componentDidUpdate(prevProps) {
+    let { search } = queryString.parse(this.props.location.search);
+    if (search === undefined) {
+      search = "";
+    }
     const { page } = queryString.parse(this.props.location.search);
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?page=${pageNumber}`
+        `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
@@ -66,6 +74,7 @@ export class TasksList extends Component {
           currentPage={this.props.currentPage}
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
+          searchVal={this.props.searchParam}
         />
       </div>
     );
@@ -122,7 +131,8 @@ function mapStateToProps(state) {
     currentPage: taskSelectors.getCurrentPage(state),
     pageLinks: taskSelectors.getPageLinks(state),
     firstPage: taskSelectors.getFirstPage(state),
-    lastPage: taskSelectors.getLastPage(state)
+    lastPage: taskSelectors.getLastPage(state),
+    searchParam: globalSelectors.getSearchValue(state)
   };
 }
 
@@ -134,7 +144,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
-      showListTitle: globalActions.toggleDetailTitleOff
+      showListTitle: globalActions.toggleDetailTitleOff,
+      searchVal: globalActions.getSearchVal
     },
     dispatch
   );
