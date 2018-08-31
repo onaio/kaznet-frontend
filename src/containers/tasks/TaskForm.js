@@ -538,29 +538,29 @@ export class TaskForm extends Component {
                     />
                   </Col>
                 </FormGroup>
-                <FormGroup className="row">
-                  <Col md={{ size: 5, offset: 1 }}>
-                    <Button
-                      className="btn btn-secondary btn-block"
-                      onClick={() => {
-                        setStatus("done");
-                      }}
-                    >
-                      {" "}
-                      Cancel{" "}
-                    </Button>
-                  </Col>
-                  <Col md={{ size: 5 }}>
-                    <Button
-                      type="submit"
-                      className="btn btn-primary btn-block"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? "Submitting" : "Submit"}
-                    </Button>
-                  </Col>
-                </FormGroup>
               </div>
+              <FormGroup className="row my-5">
+                <Col md={{ size: 5, offset: 1 }}>
+                  <Button
+                    className="btn btn-secondary btn-block"
+                    onClick={() => {
+                      setStatus("done");
+                    }}
+                  >
+                    {" "}
+                    Cancel{" "}
+                  </Button>
+                </Col>
+                <Col md={{ size: 5 }}>
+                  <Button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting" : "Submit"}
+                  </Button>
+                </Col>
+              </FormGroup>
             </Form>
             {status === "done" && (
               <Redirect to={this.props.redirectAfterAction} />

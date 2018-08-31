@@ -795,22 +795,92 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                 </Col>
               </div>
             </FormGroup>
-            <Button
-              className="btn btn-primary btn-block"
-              color="secondary"
-              disabled={false}
-              tag="button"
-              type="submit"
+            <FormGroup
+              className="row my-5"
+              tag="div"
             >
-              <button
-                className="btn btn-primary btn-block btn btn-secondary"
-                disabled={false}
-                onClick={[Function]}
-                type="submit"
+              <div
+                className="row my-5 form-group"
               >
-                Save Location
-              </button>
-            </Button>
+                <Col
+                  md={
+                    Object {
+                      "offset": 1,
+                      "size": 5,
+                    }
+                  }
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-5 offset-md-1"
+                  >
+                    <Button
+                      className="btn btn-secondary btn-block"
+                      color="secondary"
+                      onClick={[Function]}
+                      tag="button"
+                    >
+                      <button
+                        className="btn btn-secondary btn-block btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                         
+                        Cancel
+                         
+                      </button>
+                    </Button>
+                  </div>
+                </Col>
+                <Col
+                  md={
+                    Object {
+                      "size": 5,
+                    }
+                  }
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-5"
+                  >
+                    <Button
+                      className="btn btn-primary btn-block"
+                      color="secondary"
+                      disabled={false}
+                      tag="button"
+                      type="submit"
+                    >
+                      <button
+                        className="btn btn-primary btn-block btn btn-secondary"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="submit"
+                      >
+                        Save Location
+                      </button>
+                    </Button>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
           </form>
         </Form>
       </div>
