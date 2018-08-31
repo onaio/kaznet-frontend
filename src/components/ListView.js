@@ -3,11 +3,28 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { Table, Pagination, PaginationItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import * as constants from "../constants.js";
 
 import "./ListView.css";
 
 export default class ListView extends Component {
   render() {
+    if (this.props.sortField) {
+      const sortField = this.props.sortField;
+      var sortOrder = constants.SORT_ASC;
+      if (this.props.sortOrder) {
+        sortOrder = this.props.sortOrder;
+      }
+      const rowsArray = _.values(this.props.rowsById);
+      this.sortedRowsArray = _.orderBy(
+        rowsArray,
+        function(e) {
+          return e.attributes[sortField];
+        },
+        [sortOrder]
+      );
+    }
+
     return (
       <div>
         <Table bordered className="kaznet-table">
@@ -15,7 +32,9 @@ export default class ListView extends Component {
             <tr>{this.props.renderHeaders()}</tr>
           </thead>
           <tbody>
-            {_.map(this.props.rowsIdArray, this.renderRowById.bind(this))}
+            {this.props.sortField
+              ? _.map(this.sortedRowsArray, this.renderRowObject.bind(this))
+              : _.map(this.props.rowsIdArray, this.renderRowById.bind(this))}
           </tbody>
         </Table>
         {this.props.totalPages > 1 ? this.renderPagination() : null}
@@ -29,6 +48,10 @@ export default class ListView extends Component {
         {this.props.renderRow(_.get(this.props.rowsById, rowId))}
       </tr>
     );
+  }
+
+  renderRowObject(rowObject) {
+    return <tr key={rowObject.id}>{this.props.renderRow(rowObject)}</tr>;
   }
 
   renderPagination() {
