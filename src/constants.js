@@ -21,6 +21,7 @@ export const TASK_SORT_ATTRIBUTE = "modified";
 export const TASK_SORT_FIELD = "-modified";
 export const SORT_ASC = "asc";
 export const SORT_DESC = "desc";
+export const NOT_APPLICABLE = "N/A";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,

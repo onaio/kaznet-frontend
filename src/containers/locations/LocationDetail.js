@@ -8,7 +8,6 @@ import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as constants from "../../constants";
 
-import ElementMap from "../ElementMap";
 import NestedElementMap from "../NestedElementMap";
 import DetailView from "../../components/DetailView";
 import LocationDetailTitle from "../../components/location/LocationDetailTitle";
@@ -63,13 +62,13 @@ export class LocationDetail extends Component {
             "  ,   ",
             this.location.attributes.geopoint.coordinates[1].toFixed(4)
           ]
-        : "N/A",
+        : constants.NOT_APPLICABLE,
       Radius: this.location.attributes.radius
         ? [Math.round(this.location.attributes.radius), " m"]
-        : "N/A",
-      Shapefile: this.location.attributes.name
+        : constants.NOT_APPLICABLE,
+      Shapefile: this.location.attributes.shapefile
         ? [this.location.attributes.name, ".shp"]
-        : "N/A"
+        : constants.NOT_APPLICABLE
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
