@@ -97,6 +97,7 @@ export class TaskEditForm extends Component {
             initialData={initialData}
             action={action}
             targetId={this.props.match.params.id}
+            task={this.task}
             redirectAfterAction={`/tasks/${this.task.id}`}
           />
         }

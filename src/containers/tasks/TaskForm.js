@@ -72,6 +72,33 @@ export class TaskForm extends Component {
     this.handleRemoveLocation = this.handleRemoveLocation.bind(this);
   }
 
+  componentWillMount() {
+    if (this.props.task) {
+      const locations = this.props.task.attributes.task_locations;
+      console.log(
+        "Received Task!!!!!!!",
+        this.props.task.attributes.task_locations
+      );
+      const locArray = locations.map(l => {
+        return {
+          name: l.location.id,
+          payload: {
+            location: {
+              type: "Location",
+              id: l.location.id
+            },
+            timing_rule: l.timing_rule,
+            start: l.start,
+            end: l.end
+          }
+        };
+      });
+      this.setState({
+        locations: locArray
+      });
+    }
+  }
+
   componentDidMount() {
     this.props.fetchForms();
     this.props.fetchClients();
@@ -96,6 +123,7 @@ export class TaskForm extends Component {
         }
       ])
     });
+    console.log("add loc", this.state.locations);
   };
 
   handleRemoveLocation = index => () => {
@@ -537,7 +565,7 @@ export class TaskForm extends Component {
                 );
               })}
               <FormGroup className="row">
-                <Col md={{ size: 3, offset: 5 }}>
+                <Col md={{ size: 4, offset: 4 }}>
                   <Button
                     className="btn btn-primary btn-block add-location"
                     onClick={this.handleAddLocation}
