@@ -18,6 +18,8 @@ describe("containers/task/TasksList", () => {
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
+        changePageNumber={function() {}}
+        searchVal={function() {}}
         showListTitle={function() {}}
         location={history.location}
       />
@@ -32,6 +34,8 @@ describe("containers/task/TasksList", () => {
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
           changePageTarget={function() {}}
+          changePageNumber={function() {}}
+          searchVal={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.tasksById}
           rowsIdArray={fixtures.tasksIdArray}

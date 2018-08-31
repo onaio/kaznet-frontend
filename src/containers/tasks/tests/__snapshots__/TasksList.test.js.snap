@@ -24,6 +24,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
   }
 >
   <TasksList
+    changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
@@ -348,6 +349,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
         "10",
       ]
     }
+    searchVal={[Function]}
     showListTitle={[Function]}
     totalPages={2}
   >

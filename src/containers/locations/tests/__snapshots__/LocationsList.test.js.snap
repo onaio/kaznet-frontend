@@ -24,6 +24,7 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
   }
 >
   <LocationsList
+    changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
@@ -32,6 +33,14 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
     fetchLocations={[Function]}
     firstPage={1}
     lastPage={2}
+    location={
+      Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      }
+    }
     pageLinks={
       Object {
         "first": "http://localhost:8000/api/v1/locations/?page=1",
@@ -66,6 +75,7 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
         "type": "Location",
       }
     }
+    searchVal={[Function]}
     showListTitle={[Function]}
     totalPages={2}
   >

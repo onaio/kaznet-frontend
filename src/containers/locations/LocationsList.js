@@ -9,6 +9,7 @@ import queryString from "query-string";
 import * as locationActions from "../../store/locations/actions";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as globalActions from "../../store/global/actions";
+import * as globalSelectors from "../../store/global/reducer";
 import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
@@ -21,30 +22,39 @@ export class LocationsList extends Component {
     this.props.changePageTitleButton("+ Create Location");
     this.props.changePageTarget("/locations/new");
 
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      const pageNumber = Number(page);
-      if (!isNaN(pageNumber)) {
-        await this.props.fetchLocations(
-          `${constants.API_ENDPOINT}/locations/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
-    } else {
-      this.props.fetchLocations();
+    let { search } = queryString.parse(this.props.location.search);
+    const { page } = queryString.parse(this.props.location.search);
+
+    if (search === undefined) {
+      search = "";
     }
+    this.props.searchVal(search);
+    let pageNumber = Number(page);
+
+    if (isNaN(pageNumber)) {
+      pageNumber = 1;
+    }
+
+    await this.props.fetchLocations(
+      `${constants.API_ENDPOINT}/locations/?search=${search}&page=${pageNumber}`
+    );
+    this.props.changePageNumber(pageNumber);
   }
 
   componentDidUpdate(prevProps) {
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(this.props.location.search);
-      if (Number(page) !== this.props.currentPage && !isNaN(page)) {
-        const pageNumber = Number(page);
-        this.props.fetchLocations(
-          `${constants.API_ENDPOINT}/locations/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
+    let { search } = queryString.parse(this.props.location.search);
+    if (search === undefined) {
+      search = "";
+    }
+    const { page } = queryString.parse(this.props.location.search);
+    if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+      const pageNumber = Number(page);
+      this.props.fetchLocations(
+        `${
+          constants.API_ENDPOINT
+        }/locations/?search=${search}&page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
     }
   }
 
@@ -63,6 +73,7 @@ export class LocationsList extends Component {
           currentPage={this.props.currentPage}
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
+          searchVal={this.props.searchParam}
         />
       </div>
     );
@@ -98,7 +109,8 @@ function mapStateToProps(state) {
     currentPage: locationSelectors.getCurrentPage(state),
     pageLinks: locationSelectors.getPageLinks(state),
     firstPage: locationSelectors.getFirstPage(state),
-    lastPage: locationSelectors.getLastPage(state)
+    lastPage: locationSelectors.getLastPage(state),
+    searchParam: globalSelectors.getSearchValue(state)
   };
 }
 
@@ -110,7 +122,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       showListTitle: globalActions.toggleDetailTitleOff,
-      changePageTarget: globalActions.changePageTarget
+      changePageTarget: globalActions.changePageTarget,
+      searchVal: globalActions.getSearchVal
     },
     dispatch
   );
