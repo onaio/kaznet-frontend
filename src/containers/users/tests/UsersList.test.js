@@ -16,7 +16,11 @@ describe("containers/users/UsersList", () => {
         fetchUsers={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
+        changePageTarget={function() {}}
+        changePageNumber={function() {}}
         showListTitle={function() {}}
+        searchVal={function() {}}
+        location={history.location}
       />
     );
   });
@@ -29,14 +33,18 @@ describe("containers/users/UsersList", () => {
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
           showListTitle={function() {}}
+          searchVal={function() {}}
           rowsById={fixtures.usersById}
           rowsIdArray={fixtures.usersIdArray}
           endpoint={"userprofiles"}
           pageLinks={fixtures.pageLinks}
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}
+          changePageTarget={function() {}}
+          changePageNumber={function() {}}
           firstPage={fixtures.firstPage}
           lastPage={fixtures.lastPage}
+          location={history.location}
         />
       </Router>
     );
