@@ -57,7 +57,7 @@ export class LocationDetail extends Component {
 
   renderAdditionalDetails() {
     const headerItems = {
-      Geopoint: this.location.attributes.geopoint.coordinates
+      Geopoint: this.location.attributes.geopoint
         ? [
             this.location.attributes.geopoint.coordinates[0].toFixed(4),
             "  ,   ",

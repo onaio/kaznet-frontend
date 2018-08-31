@@ -33,6 +33,7 @@ import LocationsList from "./containers/locations/LocationsList";
 import LocationCreateForm from "./containers/locations/LocationCreateForm";
 import LocationEditForm from "./containers/locations/LocationEditForm";
 import LocationDetail from "./containers/locations/LocationDetail";
+import LocationDeletion from "./containers/locations/LocationDeletion";
 
 import LocationTypesList from "./containers/locationTypes/LocationTypesList";
 import LocationTypeCreateForm from "./containers/locationTypes/LocationTypeCreateForm";
@@ -126,6 +127,11 @@ class App extends Component {
                           exact
                           path="/locations/:id"
                           component={LocationDetail}
+                        />
+                        <Route
+                          exact
+                          path="/locations/:id/delete"
+                          component={LocationDeletion}
                         />
                         <Route exact path="/clients" component={ClientsList} />
                         <Route
