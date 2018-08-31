@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
-import { Badge } from "reactstrap";
+import { Badge, FormGroup, Col, Input } from "reactstrap";
 import qs from "qs";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -18,6 +18,10 @@ import ElementMap from "../ElementMap";
 import "./TaskList.css";
 
 export class TasksList extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Tasks");
@@ -62,10 +66,65 @@ export class TasksList extends Component {
     }
   }
 
+  handleChange(e) {
+    const status = e.target.value;
+    const param = `?status=${status}`;
+    this.props.fetchTasks(
+      `${constants.API_ENDPOINT}/tasks/${status === "all" ? "" : param}`
+    );
+  }
+
   render() {
+    const statuses = constants.TASK_STATUSES;
+    const statusArr = statuses.map(s => {
+      let status = "";
+      switch (s) {
+        case "a":
+          status = "Active";
+          break;
+        case "b":
+          status = "Deactivated";
+          break;
+        case "c":
+          status = "Expired";
+          break;
+        case "d":
+          status = "Draft";
+          break;
+        case "e":
+          status = "Archived";
+          break;
+        case "s":
+          status = "Scheduled";
+          break;
+        default:
+          status = "";
+      }
+      return (
+        <option value={s} key={s}>
+          {status}
+        </option>
+      );
+    });
     if (!this.props.rowsById) return this.renderLoading();
     return (
       <div className="TasksList">
+        <FormGroup className="row">
+          <Col sm="3" />
+          <Col md="2">
+            <Input
+              name="required_expertise"
+              type="select"
+              bsSize="lg"
+              placeholder="Required Expertise"
+              aria-label="required expertise"
+              onChange={this.handleChange}
+            >
+              <option value="all">All</option>
+              {statusArr}
+            </Input>
+          </Col>
+        </FormGroup>
         <ListView
           renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
