@@ -75,10 +75,6 @@ export class TaskForm extends Component {
   componentWillMount() {
     if (this.props.task) {
       const locations = this.props.task.attributes.task_locations;
-      console.log(
-        "Received Task!!!!!!!",
-        this.props.task.attributes.task_locations
-      );
       const locArray = locations.map(l => {
         return {
           name: l.location.id,
@@ -123,7 +119,6 @@ export class TaskForm extends Component {
         }
       ])
     });
-    console.log("add loc", this.state.locations);
   };
 
   handleRemoveLocation = index => () => {
@@ -367,7 +362,9 @@ export class TaskForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.start}
-                        className={errors.start ? "is-invalid" : ""}
+                        className={`time-picker ${
+                          errors.start ? "is-invalid" : ""
+                        }`}
                       />
                       {touched.start &&
                         errors.start && (
@@ -387,7 +384,9 @@ export class TaskForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.end}
-                        className={errors.end ? "is-invalid" : ""}
+                        className={`time-picker ${
+                          errors.end ? "is-invalid" : ""
+                        }`}
                       />
                       {errors.end && (
                         <div className="invalid-feedback">{errors.end}</div>
@@ -489,9 +488,11 @@ export class TaskForm extends Component {
                               onChange={this.handleChange(i)}
                               onBlur={handleBlur}
                               value={loc.payload.start || ""}
-                              className={
-                                errors.tasklocation_start ? "is-invalid" : ""
-                              }
+                              className={`time-picker ${
+                                errors.tasklocation_start
+                                  ? "location is-invalid"
+                                  : ""
+                              }`}
                               required={true}
                             />
                             {touched.tasklocation_start &&
@@ -514,9 +515,11 @@ export class TaskForm extends Component {
                               onChange={this.handleChange(i)}
                               onBlur={handleBlur}
                               value={loc.payload.end || ""}
-                              className={
-                                errors.tasklocation_end ? "is-invalid" : ""
-                              }
+                              className={`time-picker ${
+                                errors.tasklocation_end
+                                  ? "location is-invalid"
+                                  : ""
+                              }`}
                               required={true}
                             />
                             {errors.tasklocation_end && (

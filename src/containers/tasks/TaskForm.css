@@ -10,3 +10,11 @@
 .tasklocation-item .add-location {
   vertical-align: text-top;
 }
+
+.tasklocation-item .time-picker {
+  padding: 8px 14px;
+}
+
+p.text-center {
+  margin: 13px 0;
+}
