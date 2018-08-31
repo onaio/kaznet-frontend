@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/location/LocationDetailTitle renders the correct html 1`] = `
+<ErrorBoundary>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <LocationDetailTitle
+      location={
+        Object {
+          "attributes": Object {
+            "country": "KE",
+            "created": "2018-07-09T14:53:09.732230+03:00",
+            "description": "Something",
+            "geopoint": null,
+            "location_type_name": null,
+            "modified": "2018-07-09T14:53:09.732261+03:00",
+            "name": "Isiolo Market X",
+            "parent_name": null,
+            "radius": null,
+            "shapefile": null,
+          },
+          "id": "999",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
+        }
+      }
+    >
+      <section
+        className="detail-page-title"
+      >
+        <Col
+          md={
+            Object {
+              "offset": 2,
+              "size": 8,
+            }
+          }
+          sm="12"
+          tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <div
+            className="col-sm-12 col-md-8 offset-md-2"
+          >
+            <div>
+              <h1
+                className="kaznet-detail-title"
+              >
+                <Link
+                  className="kaznet-header-link"
+                  replace={false}
+                  to="/locations"
+                >
+                  <a
+                    className="kaznet-header-link"
+                    href="/locations"
+                    onClick={[Function]}
+                  >
+                    Locations
+                  </a>
+                </Link>
+                 
+                &gt; 
+                Isiolo Market X
+              </h1>
+              <p
+                className="kaznet-creation-detail"
+              >
+                By 
+                ,
+                 
+                <t
+                  ago={false}
+                  calendar={false}
+                  decimal={false}
+                  element="time"
+                  filter={[Function]}
+                  format="DD-MM-YYYY"
+                  fromNow={false}
+                  interval={60000}
+                  onChange={[Function]}
+                  toNow={false}
+                  unit={null}
+                  unix={false}
+                  utc={false}
+                >
+                  <time
+                    dateTime={"2018-07-09T11:53:09.732Z"}
+                  >
+                    09-07-2018
+                  </time>
+                </t>
+              </p>
+              <Col
+                md="12"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-12"
+                >
+                  <Row
+                    className="kaznet-action-links"
+                    tag="div"
+                  >
+                    <div
+                      className="kaznet-action-links row"
+                    >
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/locations/999/edit"
+                      >
+                        <a
+                          className="action-link"
+                          href="/locations/999/edit"
+                          onClick={[Function]}
+                        >
+                          EDIT
+                        </a>
+                      </Link>
+                        |  
+                      <Button
+                        className="remove_button_css action-link action-link-alert"
+                        color="link"
+                        onClick={[Function]}
+                        tag="button"
+                      >
+                        <button
+                          className="remove_button_css action-link action-link-alert btn btn-link"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          DELETE LOCATION
+                        </button>
+                      </Button>
+                      <Modal
+                        autoFocus={true}
+                        backdrop={true}
+                        backdropTransition={
+                          Object {
+                            "mountOnEnter": true,
+                            "timeout": 150,
+                          }
+                        }
+                        centered={false}
+                        fade={true}
+                        isOpen={false}
+                        keyboard={true}
+                        modalTransition={
+                          Object {
+                            "timeout": 300,
+                          }
+                        }
+                        onClosed={[Function]}
+                        onOpened={[Function]}
+                        role="dialog"
+                        toggle={[Function]}
+                        zIndex={1050}
+                      />
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          </div>
+        </Col>
+      </section>
+    </LocationDetailTitle>
+  </Router>
+</ErrorBoundary>
+`;
