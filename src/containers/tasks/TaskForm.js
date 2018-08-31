@@ -59,9 +59,9 @@ export class TaskForm extends Component {
               type: "Location",
               id: null
             },
-            timing_rule: null,
-            start: null,
-            end: null
+            timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+            start: "09:00",
+            end: "17:00"
           }
         }
       ]
@@ -89,9 +89,9 @@ export class TaskForm extends Component {
               type: "Location",
               id: null
             },
-            timing_rule: null,
-            start: null,
-            end: null
+            timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+            start: "09:00",
+            end: "17:00"
           }
         }
       ])
@@ -203,7 +203,6 @@ export class TaskForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setFieldValue,
           setStatus
         }) => (
           <div>
@@ -408,11 +407,6 @@ export class TaskForm extends Component {
                       <Col sm={{ size: 3 }}>
                         <Label for="tasklocation_location">Location</Label>
                       </Col>
-                      {errors.tasklocation_location && (
-                        <div className="invalid-feedback">
-                          {errors.tasklocation_location}
-                        </div>
-                      )}
                       <Col md="9">
                         {
                           <Row id={loc} key={i}>
@@ -428,7 +422,8 @@ export class TaskForm extends Component {
                                 onBlur={handleBlur}
                                 value={loc.name}
                                 className={
-                                  errors.tasklocation_location
+                                  errors.locations_input &&
+                                  errors.locations_input.location
                                     ? "is-invalid"
                                     : ""
                                 }
@@ -439,6 +434,12 @@ export class TaskForm extends Component {
                                   titleField="name"
                                 />
                               </Input>
+                              {errors.locations_input && (
+                                <div className="invalid-feedback">
+                                  {errors.locations_input.location &&
+                                    errors.locations_input.location[0]}
+                                </div>
+                              )}
                             </Col>
                           </Row>
                         }
