@@ -17,7 +17,10 @@ describe("containers/locations/LocationList", () => {
         changePageTitle={function() {}}
         changePageTarget={function() {}}
         changePageTitleButton={function() {}}
+        changePageNumber={function() {}}
+        searchVal={function() {}}
         showListTitle={function() {}}
+        location={history.location}
       />
     );
   });
@@ -30,6 +33,8 @@ describe("containers/locations/LocationList", () => {
           changePageTitle={function() {}}
           changePageTarget={function() {}}
           changePageTitleButton={function() {}}
+          changePageNumber={function() {}}
+          searchVal={function() {}}
           showListTitle={function() {}}
           rowsById={fixtures.locationById}
           rowsIdArray={fixtures.locationIdArray}
@@ -39,6 +44,7 @@ describe("containers/locations/LocationList", () => {
           currentPage={fixtures.currentPage}
           firstPage={fixtures.firstPage}
           lastPage={fixtures.lastPage}
+          location={history.location}
         />
       </Router>
     );
