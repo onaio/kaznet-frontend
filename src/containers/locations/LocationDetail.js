@@ -56,14 +56,17 @@ export class LocationDetail extends Component {
   }
 
   renderAdditionalDetails() {
-    const radius = this.location.attributes.radius;
-    const latitude = this.location.attributes.geopoint.coordinates[0];
-    const longitude = this.location.attributes.geopoint.coordinates[1];
     const headerItems = {
       Geopoint: this.location.attributes.geopoint.coordinates
-        ? [latitude.toFixed(4), "  ,   ", longitude.toFixed(4)]
+        ? [
+            this.location.attributes.geopoint.coordinates[0].toFixed(4),
+            "  ,   ",
+            this.location.attributes.geopoint.coordinates[1].toFixed(4)
+          ]
         : "N/A",
-      Radius: radius ? [Math.round(radius), " Metres"] : "N/A",
+      Radius: this.location.attributes.radius
+        ? [Math.round(this.location.attributes.radius), " m"]
+        : "N/A",
       Shapefile: this.location.attributes.name
         ? [this.location.attributes.name, ".shp"]
         : "N/A"
