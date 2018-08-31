@@ -81,11 +81,11 @@ exports[`containers/locationType/LocationTypeForm renders locationType form corr
             </div>
           </FormGroup>
           <FormGroup
-            className="row my-5"
+            className="row mt-5"
             tag="div"
           >
             <div
-              className="row my-5 form-group"
+              className="row mt-5 form-group"
             >
               <Col
                 md={
@@ -168,6 +168,70 @@ exports[`containers/locationType/LocationTypeForm renders locationType form corr
           </FormGroup>
         </form>
       </Form>
+      <hr
+        className="my-4"
+      />
+      <Col
+        md={
+          Object {
+            "offset": 4,
+            "size": 4,
+          }
+        }
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="col-md-4 offset-md-4"
+        >
+          <Button
+            className="btn btn-secondary btn-block btn-danger center-block"
+            color="secondary"
+            onClick={[Function]}
+            tag="button"
+          >
+            <button
+              className="btn btn-secondary btn-block btn-danger center-block btn btn-secondary"
+              onClick={[Function]}
+              type="button"
+            >
+              DELETE LOCATION TYPE
+            </button>
+          </Button>
+        </div>
+      </Col>
+      <Modal
+        autoFocus={true}
+        backdrop={true}
+        backdropTransition={
+          Object {
+            "mountOnEnter": true,
+            "timeout": 150,
+          }
+        }
+        centered={false}
+        fade={true}
+        isOpen={false}
+        keyboard={true}
+        modalTransition={
+          Object {
+            "timeout": 300,
+          }
+        }
+        onClosed={[Function]}
+        onOpened={[Function]}
+        role="dialog"
+        toggle={[Function]}
+        zIndex={1050}
+      />
     </div>
   </Formik>
 </LocationTypeForm>

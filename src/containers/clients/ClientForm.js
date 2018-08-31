@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import { Formik } from "formik";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { Form, FormGroup, Col, Input, Button } from "reactstrap";
+import { Redirect, Link } from "react-router-dom";
+import {
+  Form,
+  FormGroup,
+  Col,
+  Input,
+  Button,
+  Modal,
+  ModalFooter,
+  ModalHeader
+} from "reactstrap";
 
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
@@ -22,8 +31,17 @@ const transformMyApiErrors = function(array) {
 export class ClientForm extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      modal: false
+    };
+    this.toggle = this.toggle.bind(this);
     this.targetId = props.targetId || null;
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
   }
 
   render() {
@@ -89,7 +107,7 @@ export class ClientForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <FormGroup className="row my-5">
+              <FormGroup className="row mt-5">
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
@@ -112,6 +130,36 @@ export class ClientForm extends Component {
                 </Col>
               </FormGroup>
             </Form>
+            <hr className="my-4" />
+            <Col md={{ size: 4, offset: 4 }}>
+              <Button
+                className="btn btn-secondary btn-block btn-danger center-block"
+                onClick={this.toggle}
+              >
+                DELETE CLIENT
+              </Button>
+            </Col>
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              <ModalHeader toggle={this.toggle}>
+                Are you sure you want to delete this client?
+              </ModalHeader>
+              <ModalFooter>
+                <Link
+                  to={`/clients/${this.targetId}/delete`}
+                  className="btn btn-danger"
+                  onClick={this.toggle}
+                >
+                  Delete Client
+                </Link>
+                <Button color="secondary" onClick={this.toggle}>
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </Modal>
             {status === "done" && <Redirect to={"/clients"} />}
           </div>
         )}

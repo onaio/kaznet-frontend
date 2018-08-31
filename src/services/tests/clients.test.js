@@ -94,6 +94,25 @@ describe("services/clients", () => {
     expect(response).toEqual(fixtures.singleClient);
   });
 
+  it("should delete a client", async () => {
+    fetch.mockResponseOnce("999");
+    const response = await ClientService.deleteClient("999");
+    expect(response).toEqual("999");
+  });
+
+  it("should handle delete client http errors", async () => {
+    fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
+    let error;
+    try {
+      await ClientService.deleteClient("999");
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toEqual(
+      new Error("ClientService deleteClient failed, HTTP status 500")
+    );
+  });
+
   it("should handle edit client http errors", async () => {
     fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
     let error;
