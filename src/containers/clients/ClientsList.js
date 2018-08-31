@@ -32,20 +32,10 @@ export class ClientsList extends Component {
     if (isNaN(pageNumber)) {
       pageNumber = 1;
     }
-
-    if (search === "" && pageNumber) {
-      await this.props.fetchClients(
-        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
-      );
-      this.props.changePageNumber(pageNumber);
-    } else if (search !== "" && pageNumber) {
-      await this.props.fetchClients(
-        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
-      );
-      this.props.changePageNumber(pageNumber);
-    } else {
-      this.props.fetchClients();
-    }
+    await this.props.fetchClients(
+      `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+    );
+    this.props.changePageNumber(pageNumber);
   }
 
   componentDidUpdate(prevProps) {

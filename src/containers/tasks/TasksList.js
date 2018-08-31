@@ -38,19 +38,10 @@ export class TasksList extends Component {
       pageNumber = 1;
     }
 
-    if (search === "" && pageNumber) {
-      await this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
-      );
-      this.props.changePageNumber(pageNumber);
-    } else if (search !== "" && pageNumber) {
-      await this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
-      );
-      this.props.changePageNumber(pageNumber);
-    } else {
-      this.props.fetchTasks();
-    }
+    await this.props.fetchTasks(
+      `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
+    );
+    this.props.changePageNumber(pageNumber);
   }
 
   componentDidUpdate(prevProps) {
