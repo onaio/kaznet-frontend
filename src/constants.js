@@ -17,6 +17,10 @@ export const TASK_DATE_FORMAT = "YYYY-MM-DD";
 export const TASK_LOCATION_START = "09:00";
 export const TASK_LOCATION_END = "17:00";
 export const TASK_LOCATION_TIMING_RULE = "FREQ=DAILY;INTERVAL=1;COUNT=1";
+export const TASK_SORT_ATTRIBUTE = "modified";
+export const TASK_SORT_FIELD = "-modified";
+export const SORT_ASC = "asc";
+export const SORT_DESC = "desc";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
