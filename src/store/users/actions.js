@@ -71,7 +71,7 @@ export function editUser(user_data, id) {
 export function fetchUser(id) {
   return async (dispatch, getState) => {
     try {
-      const userData = await userService.getLocation(id);
+      const userData = await userService.getUser(id);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });

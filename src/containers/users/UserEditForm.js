@@ -16,25 +16,31 @@ export class UserEditForm extends Component {
   }
 
   render() {
-    console.log("shiit");
-    this.user = this.props.rowsById;
+    this.user = this.props.userById;
     if (!this.user) {
       return this.renderLoading();
     }
     const action = userActions.editUser;
     const initialData = {
-      first_name: "",
-      last_name: "",
-      email: "",
+      first_name: this.user.attributes.first_name,
+      last_name: this.user.attributes.last_name,
+      email: this.user.attributes.email,
       password: "",
       confirmation: "",
-      gender: "",
-      role: "",
-      expertise: "",
-      national_id: "",
-      payment_number: "",
-      phone_number: "",
-      ona_username: ""
+      gender:
+        this.user.attributes.gender !== null ? this.user.attributes.gender : "",
+      role: this.user.attributes.role !== null ? this.user.attributes.role : "",
+      expertise:
+        this.user.attributes.expertise !== null
+          ? this.user.attributes.expertise
+          : "",
+      national_id: this.user.attributes.national_id,
+      payment_number:
+        this.user.attributes.payment_number !== null
+          ? this.user.attributes.payment_number
+          : "",
+      phone_number: this.user.attributes.phone_number,
+      ona_username: this.user.attributes.ona_username
     };
 
     return (
@@ -61,7 +67,7 @@ export class UserEditForm extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    rowsById: userSelectors.getUsersById(state, ownProps.match.params.id),
+    userById: userSelectors.getUserById(state, ownProps.match.params.id),
     hasError: errorHandlerSelectors.getHasError,
     errorMessage: errorHandlerSelectors.getErrorMessage
   };

@@ -57,6 +57,57 @@ describe("store/users/reducer", () => {
       .toReturnState(newState);
   });
 
+  it("should store created user", () => {
+    const userData = fixtures.singleUserData;
+    const action = {
+      type: actionTypes.USER_CREATED,
+      userData
+    };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(existingState);
+    newState.usersById = fixtures.usersById;
+
+    Reducer(users)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should store fetched user", () => {
+    const userData = fixtures.singleUserData;
+    const action = {
+      type: actionTypes.USER_FETCHED,
+      userData
+    };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(existingState);
+    newState.usersById = fixtures.usersById;
+
+    Reducer(users)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should store edited user", () => {
+    const userData = fixtures.singleUserData;
+    const action = {
+      type: actionTypes.USER_EDITED,
+      userData
+    };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(existingState);
+    newState.usersById = fixtures.usersById;
+
+    Reducer(users)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
   it("should change page", () => {
     const pageNumber = 2;
     const action = {

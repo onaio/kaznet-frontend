@@ -80,6 +80,10 @@ export function getUsersById(state) {
   return state.users.usersById;
 }
 
+export function getUserById(state, id) {
+  return _.get(state.users.usersById, id);
+}
+
 export function getUsersIdArray(state) {
   return _.keys(state.users.usersById);
 }

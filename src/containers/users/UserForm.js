@@ -96,7 +96,7 @@ export class UserForm extends Component {
           };
 
           try {
-            this.props.formActionDispatch(payload).then(() => {
+            this.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
@@ -449,9 +449,7 @@ export class UserForm extends Component {
                 </Col>
               </FormGroup>
             </Form>
-            {status === "done" && (
-              <Redirect to={this.props.redirectAfterAction} />
-            )}
+            {status === "done" && <Redirect to={"/users"} />}
           </div>
         )}
       />
