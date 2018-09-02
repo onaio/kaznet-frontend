@@ -61,19 +61,17 @@ export class UsersList extends Component {
     this.props.changePageTitleButton("+ Create User");
     this.props.changePageTarget("/users/new");
 
-    if (/\?page=(\d|\w)/.test(this.props.location.search)) {
-      const { page } = queryString.parse(
-        this.props.location && this.props.location.search
-      );
-      const pageNumber = Number(page);
-      if (!isNaN(pageNumber)) {
-        await this.props.fetchUsers(
-          `${constants.API_ENDPOINT}/userprofiles/?page=${pageNumber}`
-        );
-        this.props.changePageNumber(pageNumber);
-      }
-    } else {
-      this.props.fetchUsers();
+    let { search } = queryString.parse(this.props.location.search);
+    const { page } = queryString.parse(this.props.location.search);
+
+    if (search === undefined) {
+      search = "";
+    }
+    this.props.searchVal(search);
+    let pageNumber = Number(page);
+
+    if (isNaN(pageNumber)) {
+      pageNumber = 1;
     }
     await this.props.fetchUsers(
       `${
