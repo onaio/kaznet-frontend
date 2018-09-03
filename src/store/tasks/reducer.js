@@ -15,7 +15,8 @@ const initialState = Immutable({
     last: null,
     prev: null,
     next: null
-  }
+  },
+  status: ""
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -30,6 +31,11 @@ export default function reduce(state = initialState, action = {}) {
     case types.TASK_CHANGE_PAGE:
       return state.merge({
         currentPage: action.pageNumber
+      });
+    case types.TASK_STATUS:
+      return Immutable({
+        ...state,
+        status: action.status
       });
     case types.TASK_CREATED:
       return Immutable({
@@ -72,6 +78,10 @@ export default function reduce(state = initialState, action = {}) {
 }
 
 // selectors
+
+export function getTaskStatus(state) {
+  return state.tasks.status;
+}
 
 export function getTasksById(state) {
   return state.tasks.tasksById;

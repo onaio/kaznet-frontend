@@ -116,3 +116,12 @@ export function cloneTask(task_data, task_id) {
     }
   };
 }
+
+export function getStatus(status) {
+  return async dispatch => {
+    dispatch({
+      type: types.TASK_STATUS,
+      status
+    });
+  };
+}
