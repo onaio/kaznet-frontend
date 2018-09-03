@@ -6,7 +6,8 @@ import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
 
 import { LocationDetail } from "../LocationDetail";
-import * as fixtures from "../../../store/tasks/tests/fixtures";
+import * as fixtures from "../../../store/locations/tests/fixtures";
+import ErrorBoundary from "../../../components/ErrorBoundary";
 
 const history = createBrowserHistory();
 
@@ -26,19 +27,42 @@ describe("containers/location/LocationDetail", () => {
     );
   });
 
-  it("renders detail list correctly", () => {
+  it("renders detail page correctly without delete button", () => {
     const wrapper = mount(
       <Router history={history}>
-        <LocationDetail
-          match={{
-            params: {
-              id: "1"
-            }
-          }}
-          fetchLocation={function() {}}
-          noTitle={function() {}}
-          locationById={fixtures.locationById}
-        />
+        <ErrorBoundary>
+          <LocationDetail
+            match={{
+              params: {
+                id: "1"
+              }
+            }}
+            fetchLocation={function() {}}
+            noTitle={function() {}}
+            locationById={fixtures.locationById}
+          />
+        </ErrorBoundary>
+      </Router>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it("renders detail page correctly with delete button", () => {
+    const wrapper = mount(
+      <Router history={history}>
+        <ErrorBoundary>
+          <LocationDetail
+            match={{
+              params: {
+                id: "7"
+              }
+            }}
+            fetchLocation={function() {}}
+            noTitle={function() {}}
+            locationById={fixtures.locationWithNoSumissions}
+          />
+        </ErrorBoundary>
       </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
