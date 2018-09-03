@@ -38,7 +38,9 @@ export class TasksList extends Component {
     }
 
     await this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
+      `${constants.API_ENDPOINT}/tasks/?ordering=${
+        constants.TASK_SORT_FIELD
+      }&search=${search}&page=${pageNumber}`
     );
     this.props.changePageNumber(pageNumber);
   }
@@ -52,7 +54,9 @@ export class TasksList extends Component {
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?search=${search}&page=${pageNumber}`
+        `${constants.API_ENDPOINT}/tasks/?ordering=${
+          constants.TASK_SORT_FIELD
+        }&search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
@@ -74,6 +78,8 @@ export class TasksList extends Component {
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
           searchVal={this.props.searchParam}
+          sortField={constants.TASK_SORT_ATTRIBUTE}
+          sortOrder={constants.SORT_DESC}
         />
       </div>
     );

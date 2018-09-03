@@ -671,6 +671,8 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             "10",
           ]
         }
+        sortField="modified"
+        sortOrder="desc"
         totalPages={2}
       >
         <div>
@@ -733,25 +735,25 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
               </thead>
               <tbody>
                 <tr
-                  key="4"
+                  key="8"
                 >
                   <ElementMap
                     HTMLTag="td"
                     items={
                       Array [
                         <Badge
-                          className="task-badge status-a"
+                          className="task-badge status-e"
                           color="secondary"
                           pill={false}
                           tag="span"
                       >
-                          Active
+                          Archived
                       </Badge>,
                         <Link
                           replace={false}
-                          to="/tasks/4"
+                          to="/tasks/8"
                       >
-                          Kaznet
+                          Kill Bill
                       </Link>,
                         "0/0",
                         <t
@@ -786,9 +788,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unix={false}
                           utc={false}
                       >
-                          2020-07-10T12:00:00+03:00
+                          2018-07-12T12:00:00+03:00
                       </t>,
-                        "Baseline_Questionnaire",
+                        "BRCiS - TARGETED COMMUNITIES (March 2015)",
                       ]
                     }
                   >
@@ -796,16 +798,16 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       key="0"
                     >
                       <Badge
-                        className="task-badge status-a"
+                        className="task-badge status-e"
                         color="secondary"
-                        key="4"
+                        key="8"
                         pill={false}
                         tag="span"
                       >
                         <span
-                          className="task-badge status-a badge badge-secondary"
+                          className="task-badge status-e badge badge-secondary"
                         >
-                          Active
+                          Archived
                         </span>
                       </Badge>
                     </td>
@@ -815,13 +817,13 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       <Link
                         key="link_to"
                         replace={false}
-                        to="/tasks/4"
+                        to="/tasks/8"
                       >
                         <a
-                          href="/tasks/4"
+                          href="/tasks/8"
                           onClick={[Function]}
                         >
-                          Kaznet
+                          Kill Bill
                         </a>
                       </Link>
                     </td>
@@ -842,7 +844,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
-                        key="4"
+                        key="8"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
@@ -868,7 +870,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
-                        key="4"
+                        key="8"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
@@ -876,16 +878,16 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         utc={false}
                       >
                         <time
-                          dateTime={"2020-07-10T09:00:00.000Z"}
+                          dateTime={"2018-07-12T09:00:00.000Z"}
                         >
-                          10-07-2020
+                          12-07-2018
                         </time>
                       </t>
                     </td>
                     <td
                       key="5"
                     >
-                      Baseline_Questionnaire
+                      BRCiS - TARGETED COMMUNITIES (March 2015)
                     </td>
                   </ElementMap>
                 </tr>
@@ -1047,25 +1049,25 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                   </ElementMap>
                 </tr>
                 <tr
-                  key="8"
+                  key="4"
                 >
                   <ElementMap
                     HTMLTag="td"
                     items={
                       Array [
                         <Badge
-                          className="task-badge status-e"
+                          className="task-badge status-a"
                           color="secondary"
                           pill={false}
                           tag="span"
                       >
-                          Archived
+                          Active
                       </Badge>,
                         <Link
                           replace={false}
-                          to="/tasks/8"
+                          to="/tasks/4"
                       >
-                          Kill Bill
+                          Kaznet
                       </Link>,
                         "0/0",
                         <t
@@ -1100,9 +1102,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unix={false}
                           utc={false}
                       >
-                          2018-07-12T12:00:00+03:00
+                          2020-07-10T12:00:00+03:00
                       </t>,
-                        "BRCiS - TARGETED COMMUNITIES (March 2015)",
+                        "Baseline_Questionnaire",
                       ]
                     }
                   >
@@ -1110,16 +1112,16 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       key="0"
                     >
                       <Badge
-                        className="task-badge status-e"
+                        className="task-badge status-a"
                         color="secondary"
-                        key="8"
+                        key="4"
                         pill={false}
                         tag="span"
                       >
                         <span
-                          className="task-badge status-e badge badge-secondary"
+                          className="task-badge status-a badge badge-secondary"
                         >
-                          Archived
+                          Active
                         </span>
                       </Badge>
                     </td>
@@ -1129,13 +1131,13 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       <Link
                         key="link_to"
                         replace={false}
-                        to="/tasks/8"
+                        to="/tasks/4"
                       >
                         <a
-                          href="/tasks/8"
+                          href="/tasks/4"
                           onClick={[Function]}
                         >
-                          Kill Bill
+                          Kaznet
                         </a>
                       </Link>
                     </td>
@@ -1156,7 +1158,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
-                        key="8"
+                        key="4"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
@@ -1182,7 +1184,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         format="DD-MM-YYYY"
                         fromNow={false}
                         interval={60000}
-                        key="8"
+                        key="4"
                         onChange={[Function]}
                         toNow={false}
                         unit={null}
@@ -1190,16 +1192,16 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                         utc={false}
                       >
                         <time
-                          dateTime={"2018-07-12T09:00:00.000Z"}
+                          dateTime={"2020-07-10T09:00:00.000Z"}
                         >
-                          12-07-2018
+                          10-07-2020
                         </time>
                       </t>
                     </td>
                     <td
                       key="5"
                     >
-                      BRCiS - TARGETED COMMUNITIES (March 2015)
+                      Baseline_Questionnaire
                     </td>
                   </ElementMap>
                 </tr>
