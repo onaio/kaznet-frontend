@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/location/LocationDetail renders detail list correctly 1`] = `
+exports[`containers/location/LocationDetail renders detail page correctly with delete button 1`] = `
 <Router
   history={
     Object {
@@ -23,20 +23,1166 @@ exports[`containers/location/LocationDetail renders detail list correctly 1`] = 
     }
   }
 >
-  <LocationDetail
-    fetchLocation={[Function]}
-    match={
-      Object {
-        "params": Object {
-          "id": "1",
-        },
+  <ErrorBoundary>
+    <LocationDetail
+      fetchLocation={[Function]}
+      locationById={
+        Object {
+          "attributes": Object {
+            "country": "CK",
+            "created": "2018-07-09T14:53:09.732230+03:00",
+            "description": "Something",
+            "geopoint": null,
+            "has_submissions": false,
+            "location_type_name": null,
+            "modified": "2018-07-09T14:53:09.732261+03:00",
+            "name": "Sol Point",
+            "parent_name": null,
+            "radius": null,
+            "shapefile": null,
+          },
+          "id": "7",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
+        }
       }
+      match={
+        Object {
+          "params": Object {
+            "id": "7",
+          },
+        }
+      }
+      noTitle={[Function]}
+    >
+      <div
+        className="LocationsList"
+      >
+        <LocationDetailTitle
+          location={
+            Object {
+              "attributes": Object {
+                "country": "CK",
+                "created": "2018-07-09T14:53:09.732230+03:00",
+                "description": "Something",
+                "geopoint": null,
+                "has_submissions": false,
+                "location_type_name": null,
+                "modified": "2018-07-09T14:53:09.732261+03:00",
+                "name": "Sol Point",
+                "parent_name": null,
+                "radius": null,
+                "shapefile": null,
+              },
+              "id": "7",
+              "relationships": Object {
+                "location_type": Object {
+                  "data": null,
+                },
+                "parent": Object {
+                  "data": null,
+                },
+              },
+              "type": "Location",
+            }
+          }
+        >
+          <section
+            className="detail-page-title"
+          >
+            <Col
+              md={
+                Object {
+                  "offset": 2,
+                  "size": 8,
+                }
+              }
+              sm="12"
+              tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              <div
+                className="col-sm-12 col-md-8 offset-md-2"
+              >
+                <div>
+                  <h1
+                    className="kaznet-detail-title"
+                  >
+                    <Link
+                      className="kaznet-header-link"
+                      replace={false}
+                      to="/locations"
+                    >
+                      <a
+                        className="kaznet-header-link"
+                        href="/locations"
+                        onClick={[Function]}
+                      >
+                        Locations
+                      </a>
+                    </Link>
+                     
+                    &gt; 
+                    Sol Point
+                  </h1>
+                  <Col
+                    md="12"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <Row
+                        className="kaznet-action-links"
+                        tag="div"
+                      >
+                        <div
+                          className="kaznet-action-links row"
+                        >
+                          <Link
+                            className="action-link"
+                            replace={false}
+                            to="/locations/7/edit"
+                          >
+                            <a
+                              className="action-link"
+                              href="/locations/7/edit"
+                              onClick={[Function]}
+                            >
+                              EDIT
+                            </a>
+                          </Link>
+                            |  
+                          <div>
+                            <Button
+                              className="remove_button_css action-link action-link-alert"
+                              color="link"
+                              onClick={[Function]}
+                              tag="button"
+                            >
+                              <button
+                                className="remove_button_css action-link action-link-alert btn btn-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                DELETE LOCATION
+                              </button>
+                            </Button>
+                            <Modal
+                              autoFocus={true}
+                              backdrop={true}
+                              backdropTransition={
+                                Object {
+                                  "mountOnEnter": true,
+                                  "timeout": 150,
+                                }
+                              }
+                              centered={false}
+                              fade={true}
+                              isOpen={false}
+                              keyboard={true}
+                              modalTransition={
+                                Object {
+                                  "timeout": 300,
+                                }
+                              }
+                              onClosed={[Function]}
+                              onOpened={[Function]}
+                              role="dialog"
+                              toggle={[Function]}
+                              zIndex={1050}
+                            />
+                          </div>
+                        </div>
+                      </Row>
+                    </div>
+                  </Col>
+                </div>
+              </div>
+            </Col>
+          </section>
+        </LocationDetailTitle>
+        <DetailView
+          renderAdditionalDetails={
+            <NestedElementMap
+              HTMLTag="td"
+              detailitems={
+                Object {
+                  "Geopoint": "N/A",
+                  "Radius": "N/A",
+                  "Shapefile": "N/A",
+                }
+              }
+            />
+          }
+          renderMainDetails={
+            <NestedElementMap
+              HTMLTag="td"
+              detailitems={
+                Object {
+                  "Country": "CK",
+                  "Description": "Something",
+                  "Location Type": null,
+                  "Parent Location": null,
+                }
+              }
+            />
+          }
+        >
+          <Col
+            md={
+              Object {
+                "offset": 2,
+                "size": 8,
+              }
+            }
+            sm="12"
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <div
+              className="col-sm-12 col-md-8 offset-md-2"
+            >
+              <Table
+                borderless={true}
+                className="kaznet-table details"
+                responsiveTag="div"
+                tag="table"
+              >
+                <table
+                  className="kaznet-table details table table-borderless"
+                >
+                  <tbody>
+                    <NestedElementMap
+                      HTMLTag="td"
+                      detailitems={
+                        Object {
+                          "Country": "CK",
+                          "Description": "Something",
+                          "Location Type": null,
+                          "Parent Location": null,
+                        }
+                      }
+                    >
+                      <tr
+                        key="Description"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Description",
+                            ]
+                          }
+                          key="1"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Description
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "Something",
+                            ]
+                          }
+                          key="20"
+                        >
+                          <td
+                            key="0"
+                          >
+                            Something
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Parent Location"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Parent Location",
+                            ]
+                          }
+                          key="2"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Parent Location
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              null,
+                            ]
+                          }
+                          key="40"
+                        >
+                          <td
+                            key="0"
+                          />
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Country"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Country",
+                            ]
+                          }
+                          key="3"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Country
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "CK",
+                            ]
+                          }
+                          key="60"
+                        >
+                          <td
+                            key="0"
+                          >
+                            CK
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Location Type"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Location Type",
+                            ]
+                          }
+                          key="4"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Location Type
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              null,
+                            ]
+                          }
+                          key="80"
+                        >
+                          <td
+                            key="0"
+                          />
+                        </ElementMap>
+                      </tr>
+                    </NestedElementMap>
+                    <tr>
+                      <td
+                        className="kaznet-title-h1"
+                      >
+                        Details
+                      </td>
+                    </tr>
+                    <NestedElementMap
+                      HTMLTag="td"
+                      detailitems={
+                        Object {
+                          "Geopoint": "N/A",
+                          "Radius": "N/A",
+                          "Shapefile": "N/A",
+                        }
+                      }
+                    >
+                      <tr
+                        key="Geopoint"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Geopoint",
+                            ]
+                          }
+                          key="1"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Geopoint
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "N/A",
+                            ]
+                          }
+                          key="20"
+                        >
+                          <td
+                            key="0"
+                          >
+                            N/A
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Radius"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Radius",
+                            ]
+                          }
+                          key="2"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Radius
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "N/A",
+                            ]
+                          }
+                          key="40"
+                        >
+                          <td
+                            key="0"
+                          >
+                            N/A
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Shapefile"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Shapefile",
+                            ]
+                          }
+                          key="3"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Shapefile
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "N/A",
+                            ]
+                          }
+                          key="60"
+                        >
+                          <td
+                            key="0"
+                          >
+                            N/A
+                          </td>
+                        </ElementMap>
+                      </tr>
+                    </NestedElementMap>
+                  </tbody>
+                </table>
+              </Table>
+            </div>
+          </Col>
+        </DetailView>
+      </div>
+    </LocationDetail>
+  </ErrorBoundary>
+</Router>
+`;
+
+exports[`containers/location/LocationDetail renders detail page correctly without delete button 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
     }
-    noTitle={[Function]}
-  >
-    <p>
-      Loading...
-    </p>
-  </LocationDetail>
+  }
+>
+  <ErrorBoundary>
+    <LocationDetail
+      fetchLocation={[Function]}
+      locationById={
+        Object {
+          "attributes": Object {
+            "country": "KE",
+            "created": "2018-06-20T12:09:02.916318+03:00",
+            "description": "Such Big City , Much wow",
+            "geopoint": null,
+            "has_submissions": true,
+            "location_type_name": "None",
+            "modified": "2018-06-20T12:09:02.916345+03:00",
+            "name": "Nairobi",
+            "parent_name": "None",
+            "radius": null,
+            "shapefile": Object {
+              "coordinates": Array [
+                Array [
+                  Array [
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
+                    Array [
+                      0.049095153808594,
+                      0.013389587280456,
+                    ],
+                    Array [
+                      0.015106201171875,
+                      -0.063171373920095,
+                    ],
+                    Array [
+                      -0.044288635253906,
+                      -0.032615659859611,
+                    ],
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
+                  ],
+                ],
+              ],
+              "type": "MultiPolygon",
+            },
+          },
+          "id": "1",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "id": "1",
+          },
+        }
+      }
+      noTitle={[Function]}
+    >
+      <div
+        className="LocationsList"
+      >
+        <LocationDetailTitle
+          location={
+            Object {
+              "attributes": Object {
+                "country": "KE",
+                "created": "2018-06-20T12:09:02.916318+03:00",
+                "description": "Such Big City , Much wow",
+                "geopoint": null,
+                "has_submissions": true,
+                "location_type_name": "None",
+                "modified": "2018-06-20T12:09:02.916345+03:00",
+                "name": "Nairobi",
+                "parent_name": "None",
+                "radius": null,
+                "shapefile": Object {
+                  "coordinates": Array [
+                    Array [
+                      Array [
+                        Array [
+                          -0.038795471191406,
+                          0.030555723649271,
+                        ],
+                        Array [
+                          0.049095153808594,
+                          0.013389587280456,
+                        ],
+                        Array [
+                          0.015106201171875,
+                          -0.063171373920095,
+                        ],
+                        Array [
+                          -0.044288635253906,
+                          -0.032615659859611,
+                        ],
+                        Array [
+                          -0.038795471191406,
+                          0.030555723649271,
+                        ],
+                      ],
+                    ],
+                  ],
+                  "type": "MultiPolygon",
+                },
+              },
+              "id": "1",
+              "relationships": Object {
+                "location_type": Object {
+                  "data": null,
+                },
+                "parent": Object {
+                  "data": null,
+                },
+              },
+              "type": "Location",
+            }
+          }
+        >
+          <section
+            className="detail-page-title"
+          >
+            <Col
+              md={
+                Object {
+                  "offset": 2,
+                  "size": 8,
+                }
+              }
+              sm="12"
+              tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              <div
+                className="col-sm-12 col-md-8 offset-md-2"
+              >
+                <div>
+                  <h1
+                    className="kaznet-detail-title"
+                  >
+                    <Link
+                      className="kaznet-header-link"
+                      replace={false}
+                      to="/locations"
+                    >
+                      <a
+                        className="kaznet-header-link"
+                        href="/locations"
+                        onClick={[Function]}
+                      >
+                        Locations
+                      </a>
+                    </Link>
+                     
+                    &gt; 
+                    Nairobi
+                  </h1>
+                  <Col
+                    md="12"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <Row
+                        className="kaznet-action-links"
+                        tag="div"
+                      >
+                        <div
+                          className="kaznet-action-links row"
+                        >
+                          <Link
+                            className="action-link"
+                            replace={false}
+                            to="/locations/1/edit"
+                          >
+                            <a
+                              className="action-link"
+                              href="/locations/1/edit"
+                              onClick={[Function]}
+                            >
+                              EDIT
+                            </a>
+                          </Link>
+                            |  
+                          <div>
+                            <p
+                              className="text-muted"
+                            >
+                              DELETE LOCATION
+                            </p>
+                          </div>
+                        </div>
+                      </Row>
+                    </div>
+                  </Col>
+                </div>
+              </div>
+            </Col>
+          </section>
+        </LocationDetailTitle>
+        <DetailView
+          renderAdditionalDetails={
+            <NestedElementMap
+              HTMLTag="td"
+              detailitems={
+                Object {
+                  "Geopoint": "N/A",
+                  "Radius": "N/A",
+                  "Shapefile": Array [
+                    "Nairobi",
+                    ".shp",
+                  ],
+                }
+              }
+            />
+          }
+          renderMainDetails={
+            <NestedElementMap
+              HTMLTag="td"
+              detailitems={
+                Object {
+                  "Country": "KE",
+                  "Description": "Such Big City , Much wow",
+                  "Location Type": "None",
+                  "Parent Location": "None",
+                }
+              }
+            />
+          }
+        >
+          <Col
+            md={
+              Object {
+                "offset": 2,
+                "size": 8,
+              }
+            }
+            sm="12"
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <div
+              className="col-sm-12 col-md-8 offset-md-2"
+            >
+              <Table
+                borderless={true}
+                className="kaznet-table details"
+                responsiveTag="div"
+                tag="table"
+              >
+                <table
+                  className="kaznet-table details table table-borderless"
+                >
+                  <tbody>
+                    <NestedElementMap
+                      HTMLTag="td"
+                      detailitems={
+                        Object {
+                          "Country": "KE",
+                          "Description": "Such Big City , Much wow",
+                          "Location Type": "None",
+                          "Parent Location": "None",
+                        }
+                      }
+                    >
+                      <tr
+                        key="Description"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Description",
+                            ]
+                          }
+                          key="1"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Description
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "Such Big City , Much wow",
+                            ]
+                          }
+                          key="20"
+                        >
+                          <td
+                            key="0"
+                          >
+                            Such Big City , Much wow
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Parent Location"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Parent Location",
+                            ]
+                          }
+                          key="2"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Parent Location
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "None",
+                            ]
+                          }
+                          key="40"
+                        >
+                          <td
+                            key="0"
+                          >
+                            None
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Country"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Country",
+                            ]
+                          }
+                          key="3"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Country
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "KE",
+                            ]
+                          }
+                          key="60"
+                        >
+                          <td
+                            key="0"
+                          >
+                            KE
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Location Type"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Location Type",
+                            ]
+                          }
+                          key="4"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Location Type
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "None",
+                            ]
+                          }
+                          key="80"
+                        >
+                          <td
+                            key="0"
+                          >
+                            None
+                          </td>
+                        </ElementMap>
+                      </tr>
+                    </NestedElementMap>
+                    <tr>
+                      <td
+                        className="kaznet-title-h1"
+                      >
+                        Details
+                      </td>
+                    </tr>
+                    <NestedElementMap
+                      HTMLTag="td"
+                      detailitems={
+                        Object {
+                          "Geopoint": "N/A",
+                          "Radius": "N/A",
+                          "Shapefile": Array [
+                            "Nairobi",
+                            ".shp",
+                          ],
+                        }
+                      }
+                    >
+                      <tr
+                        key="Geopoint"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Geopoint",
+                            ]
+                          }
+                          key="1"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Geopoint
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "N/A",
+                            ]
+                          }
+                          key="20"
+                        >
+                          <td
+                            key="0"
+                          >
+                            N/A
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Radius"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Radius",
+                            ]
+                          }
+                          key="2"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Radius
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              "N/A",
+                            ]
+                          }
+                          key="40"
+                        >
+                          <td
+                            key="0"
+                          >
+                            N/A
+                          </td>
+                        </ElementMap>
+                      </tr>
+                      <tr
+                        key="Shapefile"
+                      >
+                        <ElementMap
+                          HTMLTag="td"
+                          className="kaznet-title-td"
+                          items={
+                            Array [
+                              "Shapefile",
+                            ]
+                          }
+                          key="3"
+                        >
+                          <td
+                            className="kaznet-title-td"
+                            key="0"
+                          >
+                            Shapefile
+                          </td>
+                        </ElementMap>
+                        <ElementMap
+                          HTMLTag="td"
+                          items={
+                            Array [
+                              Array [
+                                "Nairobi",
+                                ".shp",
+                              ],
+                            ]
+                          }
+                          key="60"
+                        >
+                          <td
+                            key="0"
+                          >
+                            Nairobi
+                            .shp
+                          </td>
+                        </ElementMap>
+                      </tr>
+                    </NestedElementMap>
+                  </tbody>
+                </table>
+              </Table>
+            </div>
+          </Col>
+        </DetailView>
+      </div>
+    </LocationDetail>
+  </ErrorBoundary>
 </Router>
 `;
