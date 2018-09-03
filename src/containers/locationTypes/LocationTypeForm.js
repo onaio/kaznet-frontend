@@ -130,36 +130,40 @@ export class LocationTypeForm extends Component {
                 </Col>
               </FormGroup>
             </Form>
-            <hr className="my-4" />
-            <Col md={{ size: 4, offset: 4 }}>
-              <Button
-                className="btn btn-secondary btn-block btn-danger center-block"
-                onClick={this.toggle}
-              >
-                DELETE LOCATION TYPE
-              </Button>
-            </Col>
-            <Modal
-              isOpen={this.state.modal}
-              toggle={this.toggle}
-              className={this.props.className}
-            >
-              <ModalHeader toggle={this.toggle}>
-                Are you sure you want to delete this location type?
-              </ModalHeader>
-              <ModalFooter>
-                <Link
-                  to={`/locationTypes/${this.targetId}/delete`}
-                  className="btn btn-danger"
-                  onClick={this.toggle}
+            {this.targetId != null && (
+              <div>
+                <hr className="my-4" />
+                <Col md={{ size: 4, offset: 4 }}>
+                  <Button
+                    className="btn btn-secondary btn-block btn-danger center-block"
+                    onClick={this.toggle}
+                  >
+                    DELETE LOCATION TYPE
+                  </Button>
+                </Col>
+                <Modal
+                  isOpen={this.state.modal}
+                  toggle={this.toggle}
+                  className={this.props.className}
                 >
-                  Delete LocationType
-                </Link>
-                <Button color="secondary" onClick={this.toggle}>
-                  Cancel
-                </Button>
-              </ModalFooter>
-            </Modal>
+                  <ModalHeader toggle={this.toggle}>
+                    Are you sure you want to delete this location type?
+                  </ModalHeader>
+                  <ModalFooter>
+                    <Link
+                      to={`/locationTypes/${this.targetId}/delete`}
+                      className="btn btn-danger"
+                      onClick={this.toggle}
+                    >
+                      Delete LocationType
+                    </Link>
+                    <Button color="secondary" onClick={this.toggle}>
+                      Cancel
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </div>
+            )}
             {status === "done" && <Redirect to={"/locationTypes"} />}
           </div>
         )}
