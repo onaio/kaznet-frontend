@@ -1,9 +1,18 @@
 // This component renders a list using Bootstrap 4 tables
 import _ from "lodash";
 import React, { Component } from "react";
-import { Table, Pagination, PaginationItem } from "reactstrap";
+import {
+  Table,
+  Pagination,
+  PaginationItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavLink
+} from "reactstrap";
 import { Link } from "react-router-dom";
-import * as constants from "../constants.js";
+import * as constants from "../constants";
 
 import "./ListView.css";
 
@@ -25,11 +34,65 @@ export default class ListView extends Component {
       );
     }
 
+    const statuses = ["", ...constants.TASK_STATUSES];
+    const statusArr = statuses.map(s => {
+      let status = "";
+      switch (s) {
+        case "a":
+          status = "Active";
+          break;
+        case "b":
+          status = "Deactivated";
+          break;
+        case "c":
+          status = "Expired";
+          break;
+        case "d":
+          status = "Draft";
+          break;
+        case "e":
+          status = "Archived";
+          break;
+        case "s":
+          status = "Scheduled";
+          break;
+        case "":
+          status = "All";
+          break;
+        default:
+          status = "";
+      }
+      return (
+        <DropdownItem
+          className={`${s === this.props.taskStatus ? "active-task" : ""}`}
+          key={s}
+        >
+          <NavLink className="nav-link" key={s} data-key={s}>
+            {status}
+          </NavLink>
+        </DropdownItem>
+      );
+    });
     return (
       <div>
         <Table bordered className="kaznet-table">
           <thead>
-            <tr>{this.props.renderHeaders()}</tr>
+            <tr>
+              {this.props.isTaskPage ? (
+                <th>
+                  <Dropdown
+                    isOpen={this.props.isOpen}
+                    toggle={e => this.props.handleChange(e)}
+                  >
+                    <DropdownToggle caret tag="span" className="nav-link">
+                      Status
+                    </DropdownToggle>
+                    <DropdownMenu>{statusArr}</DropdownMenu>
+                  </Dropdown>
+                </th>
+              ) : null}
+              {this.props.renderHeaders()}
+            </tr>
           </thead>
           <tbody>
             {this.props.sortField
@@ -62,10 +125,10 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.first
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal || this.props.searchVal === undefined
-                      ? ""
-                      : this.props.searchVal
-                  }&page=${this.props.firstPage}`
+                    this.props.searchVal
+                  }&status=${this.props.taskStatus}&page=${
+                    this.props.firstPage
+                  }`
                 : "#"
             }
             className="page-link"
@@ -79,8 +142,9 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.prev
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal ? "" : this.props.searchVal
-                  }&page=${this.props.currentPage - 1}`
+                    this.props.searchVal
+                  }&status=${this.props.taskStatus}&page=${this.props
+                    .currentPage - 1}`
                 : "#"
             }
             className="page-link"
@@ -94,8 +158,9 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.next
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal ? "" : this.props.searchVal
-                  }&page=${this.props.currentPage + 1}`
+                    this.props.searchVal
+                  }&status=${this.props.taskStatus}&page=${this.props
+                    .currentPage + 1}`
                 : "#"
             }
             className="page-link"
@@ -109,12 +174,8 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.last
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal ? "" : this.props.searchVal
-                  }&page=${
-                    !this.props.lastPage || this.props.lastPage === undefined
-                      ? 1
-                      : this.props.lastPage
-                  }`
+                    this.props.searchVal
+                  }&status=${this.props.taskStatus}&page=${this.props.lastPage}`
                 : "#"
             }
             className="page-link"
