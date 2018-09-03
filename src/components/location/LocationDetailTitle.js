@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { Row, Col, Modal, ModalHeader, ModalFooter, Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
 
 import "../page/DetailTitle.css";
 
@@ -33,13 +32,6 @@ export default class LocationDetailTitle extends Component {
               </Link>{" "}
               > {this.props.location.attributes.name}
             </h1>
-            <p className="kaznet-creation-detail">
-              {"By "}
-              {this.props.location.attributes.created_by_name},{" "}
-              <Moment format="DD-MM-YYYY">
-                {this.props.location.attributes.created}
-              </Moment>
-            </p>
             <Col md="12">
               <Row className="kaznet-action-links">
                 <Link
@@ -48,34 +40,43 @@ export default class LocationDetailTitle extends Component {
                 >
                   EDIT
                 </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <Button
-                  color="link"
-                  className="remove_button_css action-link action-link-alert"
-                  onClick={this.toggle}
-                >
-                  DELETE LOCATION
-                </Button>
-                <Modal
-                  isOpen={this.state.modal}
-                  toggle={this.toggle}
-                  className={this.props.className}
-                >
-                  <ModalHeader toggle={this.toggle}>
-                    Are you sure you want to delete this Location?
-                  </ModalHeader>
-                  <ModalFooter>
-                    <Link
-                      to={`/locations/${this.props.location.id}/delete`}
-                      className="btn btn-danger"
+                {this.props.location.attributes.has_submissions === true && (
+                  <div>
+                    <p className="text-muted">DELETE LOCATION</p>
+                  </div>
+                )}
+                {this.props.location.attributes.has_submissions === false && (
+                  <div>
+                    <Button
+                      color="link"
+                      className="remove_button_css action-link action-link-alert"
                       onClick={this.toggle}
                     >
-                      Delete Location
-                    </Link>
-                    <Button color="secondary" onClick={this.toggle}>
-                      Cancel
+                      DELETE LOCATION
                     </Button>
-                  </ModalFooter>
-                </Modal>
+                    <Modal
+                      isOpen={this.state.modal}
+                      toggle={this.toggle}
+                      className={this.props.className}
+                    >
+                      <ModalHeader toggle={this.toggle}>
+                        Are you sure you want to delete this Location?
+                      </ModalHeader>
+                      <ModalFooter>
+                        <Link
+                          to={`/locations/${this.props.location.id}/delete`}
+                          className="btn btn-danger"
+                          onClick={this.toggle}
+                        >
+                          Delete Location
+                        </Link>
+                        <Button color="secondary" onClick={this.toggle}>
+                          Cancel
+                        </Button>
+                      </ModalFooter>
+                    </Modal>
+                  </div>
+                )}
               </Row>
             </Col>
           </div>
