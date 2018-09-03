@@ -19,6 +19,7 @@ export const locationsData = {
         description: "Such Big City , Much wow",
         geopoint: null,
         radius: null,
+        has_submissions: true,
         shapefile: {
           type: "MultiPolygon",
           coordinates: [
@@ -57,6 +58,7 @@ export const locationsData = {
         geopoint: null,
         radius: null,
         shapefile: null,
+        has_submissions: false,
         created: "2018-07-09T14:53:09.732230+03:00",
         modified: "2018-07-09T14:53:09.732261+03:00"
       },
@@ -98,6 +100,7 @@ export const locationsDataSecondPage = {
         description: "Such Big City , Much wow",
         geopoint: null,
         radius: null,
+        has_submissions: true,
         shapefile: {
           type: "MultiPolygon",
           coordinates: [
@@ -136,6 +139,7 @@ export const locationsDataSecondPage = {
         geopoint: null,
         radius: null,
         shapefile: null,
+        has_submissions: false,
         created: "2018-07-09T14:53:09.732230+03:00",
         modified: "2018-07-09T14:53:09.732261+03:00"
       },
@@ -170,6 +174,7 @@ export const singleLocation = {
     geopoint: null,
     radius: null,
     shapefile: null,
+    has_submissions: true,
     created: "2018-07-09T14:53:09.732230+03:00",
     modified: "2018-07-09T14:53:09.732261+03:00"
   },
@@ -191,7 +196,8 @@ export const locationsArraySecondPage = _.map(
 );
 
 export const locationsById = _.keyBy(locationsArray, location => location.id);
-export const locationById = _.get(locationsById, 7);
+export const locationById = _.get(locationsById, 1);
+export const locationWithNoSumissions = _.get(locationsById, 7);
 
 export const singleLocationData = {
   data: singleLocation

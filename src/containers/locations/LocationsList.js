@@ -84,7 +84,7 @@ export class LocationsList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      <Link to={`/locations/edit/${row.id}`} key="link_to">
+      <Link to={`/locations/${row.id}`} key="link_to">
         {row.attributes.name}
       </Link>,
       row.attributes.parent_name,
