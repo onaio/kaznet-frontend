@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
-import { Badge, FormGroup, Col, Input } from "reactstrap";
+import { Badge } from "reactstrap";
 import qs from "qs";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -20,6 +20,9 @@ import "./TaskList.css";
 export class TasksList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isOpen: false
+    };
     this.handleChange = this.handleChange.bind(this);
   }
   async componentDidMount() {
@@ -29,12 +32,21 @@ export class TasksList extends Component {
     this.props.changePageTarget("/tasks/new");
 
     let { search } = qs.parse(this.props.location.search.slice(1));
+    let { status } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
       search = "";
     }
+
     this.props.searchVal(search);
+
+    if (status === undefined) {
+      status = "";
+    }
+
+    this.props.getStatus(status);
+
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {
@@ -44,7 +56,7 @@ export class TasksList extends Component {
     await this.props.fetchTasks(
       `${constants.API_ENDPOINT}/tasks/?ordering=${
         constants.TASK_SORT_FIELD
-      }&search=${search}&page=${pageNumber}`
+      }&search=${search}&status=${status}&page=${pageNumber}`
     );
     this.props.changePageNumber(pageNumber);
   }
@@ -54,77 +66,47 @@ export class TasksList extends Component {
     if (search === undefined) {
       search = "";
     }
+
+    let { status } = qs.parse(this.props.location.search.slice(1));
+
+    if (status === undefined) {
+      status = "";
+    }
+
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchTasks(
         `${constants.API_ENDPOINT}/tasks/?ordering=${
           constants.TASK_SORT_FIELD
-        }&search=${search}&page=${pageNumber}`
+        }&search=${search}&status=${status}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
   }
 
   handleChange(e) {
-    const status = e.target.value;
+    const status = e.target.getAttribute("data-key");
     const param = `?status=${status}`;
+    if (status === null) {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+      return false;
+    }
     this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/${status === "all" ? "" : param}`
+      `${constants.API_ENDPOINT}/tasks/${status !== "" ? param : ""}`
     );
+    this.props.getStatus(status !== "" ? status : "");
+    this.setState({
+      isOpen: status ? true : !this.state.isOpen
+    });
   }
 
   render() {
-    const statuses = constants.TASK_STATUSES;
-    const statusArr = statuses.map(s => {
-      let status = "";
-      switch (s) {
-        case "a":
-          status = "Active";
-          break;
-        case "b":
-          status = "Deactivated";
-          break;
-        case "c":
-          status = "Expired";
-          break;
-        case "d":
-          status = "Draft";
-          break;
-        case "e":
-          status = "Archived";
-          break;
-        case "s":
-          status = "Scheduled";
-          break;
-        default:
-          status = "";
-      }
-      return (
-        <option value={s} key={s}>
-          {status}
-        </option>
-      );
-    });
     if (!this.props.rowsById) return this.renderLoading();
     return (
       <div className="TasksList">
-        <FormGroup className="row">
-          <Col sm="3" />
-          <Col md="2">
-            <Input
-              name="required_expertise"
-              type="select"
-              bsSize="lg"
-              placeholder="Required Expertise"
-              aria-label="required expertise"
-              onChange={this.handleChange}
-            >
-              <option value="all">All</option>
-              {statusArr}
-            </Input>
-          </Col>
-        </FormGroup>
         <ListView
           renderHeaders={this.renderHeaders}
           rowsIdArray={this.props.rowsIdArray}
@@ -139,6 +121,10 @@ export class TasksList extends Component {
           searchVal={this.props.searchParam}
           sortField={constants.TASK_SORT_ATTRIBUTE}
           sortOrder={constants.SORT_DESC}
+          taskStatus={this.props.taskStatus}
+          isTaskPage={true}
+          handleChange={this.handleChange}
+          isOpen={this.state.isOpen}
         />
       </div>
     );
@@ -149,14 +135,7 @@ export class TasksList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = [
-      "Status",
-      "Name",
-      "Need Review",
-      "Created",
-      "Expires",
-      "Form"
-    ];
+    const headerItems = ["Name", "Need Review", "Created", "Expires", "Form"];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
@@ -196,7 +175,8 @@ function mapStateToProps(state) {
     pageLinks: taskSelectors.getPageLinks(state),
     firstPage: taskSelectors.getFirstPage(state),
     lastPage: taskSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    taskStatus: taskSelectors.getTaskStatus(state)
   };
 }
 
@@ -209,7 +189,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff,
-      searchVal: globalActions.getSearchVal
+      searchVal: globalActions.getSearchVal,
+      getStatus: taskActions.getStatus
     },
     dispatch
   );

@@ -172,4 +172,14 @@ describe("store/tasks/actions", () => {
       taskData: fixtures.taskData.data.id
     });
   });
+
+  it("should get task status", async () => {
+    const dispatches = await Thunk(tasks.getStatus).execute("a");
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.TASK_STATUS,
+      status: fixtures.getTaskStatus
+    });
+  });
 });

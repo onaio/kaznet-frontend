@@ -32,6 +32,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
     endpoint="tasks"
     fetchTasks={[Function]}
     firstPage={1}
+    getStatus={[Function]}
     lastPage={2}
     location={
       Object {
@@ -349,8 +350,10 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
         "10",
       ]
     }
+    searchParam="test"
     searchVal={[Function]}
     showListTitle={[Function]}
+    taskStatus="a"
     totalPages={2}
   >
     <div
@@ -360,6 +363,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
         currentPage={1}
         endpoint="tasks"
         firstPage={1}
+        handleChange={[Function]}
+        isOpen={false}
+        isTaskPage={true}
         lastPage={2}
         pageLinks={
           Object {
@@ -673,6 +679,8 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
         }
         sortField="modified"
         sortOrder="desc"
+        searchVal="test"
+        taskStatus="a"
         totalPages={2}
       >
         <div>
@@ -687,11 +695,264 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             >
               <thead>
                 <tr>
+                  <th>
+                    <Dropdown
+                      active={false}
+                      addonType={false}
+                      direction="down"
+                      inNavbar={false}
+                      isOpen={false}
+                      nav={false}
+                      setActiveFromChild={false}
+                      toggle={[Function]}
+                    >
+                      <Manager
+                        className="dropdown"
+                        onKeyDown={[Function]}
+                        tag="div"
+                      >
+                        <div
+                          className="dropdown"
+                          onKeyDown={[Function]}
+                        >
+                          <DropdownToggle
+                            aria-haspopup={true}
+                            caret={true}
+                            className="nav-link"
+                            color="secondary"
+                            tag="span"
+                          >
+                            <Target
+                              aria-expanded={false}
+                              aria-haspopup={true}
+                              className="nav-link dropdown-toggle"
+                              component="span"
+                              onClick={[Function]}
+                            >
+                              <span
+                                aria-expanded={false}
+                                aria-haspopup={true}
+                                className="nav-link dropdown-toggle"
+                                onClick={[Function]}
+                              >
+                                Status
+                              </span>
+                            </Target>
+                          </DropdownToggle>
+                          <DropdownMenu
+                            flip={true}
+                            tag="div"
+                          >
+                            <div
+                              aria-hidden={true}
+                              className="dropdown-menu"
+                              role="menu"
+                              tabIndex="-1"
+                            >
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key=""
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key=""
+                                      onClick={[Function]}
+                                    >
+                                      All
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                              <DropdownItem
+                                className="active-task"
+                                key="a"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="active-task dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key="a"
+                                    key="a"
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key="a"
+                                      onClick={[Function]}
+                                    >
+                                      Active
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                key="b"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key="b"
+                                    key="b"
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key="b"
+                                      onClick={[Function]}
+                                    >
+                                      Deactivated
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                key="c"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key="c"
+                                    key="c"
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key="c"
+                                      onClick={[Function]}
+                                    >
+                                      Expired
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                key="d"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key="d"
+                                    key="d"
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key="d"
+                                      onClick={[Function]}
+                                    >
+                                      Draft
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                key="s"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key="s"
+                                    key="s"
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key="s"
+                                      onClick={[Function]}
+                                    >
+                                      Scheduled
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                key="e"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <button
+                                  className="dropdown-item"
+                                  onClick={[Function]}
+                                  tabIndex="0"
+                                  type="button"
+                                >
+                                  <NavLink
+                                    className="nav-link"
+                                    data-key="e"
+                                    key="e"
+                                    tag="a"
+                                  >
+                                    <a
+                                      className="nav-link nav-link"
+                                      data-key="e"
+                                      onClick={[Function]}
+                                    >
+                                      Archived
+                                    </a>
+                                  </NavLink>
+                                </button>
+                              </DropdownItem>
+                            </div>
+                          </DropdownMenu>
+                        </div>
+                      </Manager>
+                    </Dropdown>
+                  </th>
                   <ElementMap
                     HTMLTag="th"
                     items={
                       Array [
-                        "Status",
                         "Name",
                         "Need Review",
                         "Created",
@@ -703,30 +964,25 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                     <th
                       key="0"
                     >
-                      Status
+                      Name
                     </th>
                     <th
                       key="1"
                     >
-                      Name
+                      Need Review
                     </th>
                     <th
                       key="2"
                     >
-                      Need Review
+                      Created
                     </th>
                     <th
                       key="3"
                     >
-                      Created
-                    </th>
-                    <th
-                      key="4"
-                    >
                       Expires
                     </th>
                     <th
-                      key="5"
+                      key="4"
                     >
                       Form
                     </th>
@@ -1386,12 +1642,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=&page=1"
+                      to="/tasks/?search=test&status=a&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/tasks/?search=&page=1"
+                        href="/tasks/?search=test&status=a&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -1434,12 +1690,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=&page=2"
+                      to="/tasks/?search=test&status=a&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/tasks/?search=&page=2"
+                        href="/tasks/?search=test&status=a&page=2"
                         onClick={[Function]}
                       >
                         »
@@ -1458,12 +1714,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=&page=2"
+                      to="/tasks/?search=test&status=a&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/tasks/?search=&page=2"
+                        href="/tasks/?search=test&status=a&page=2"
                         onClick={[Function]}
                       >
                         Last

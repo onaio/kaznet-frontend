@@ -106,6 +106,8 @@ describe("components/ListView", () => {
           pageLinks={pageLinks}
           totalPages={totalPages}
           currentPage={currentPage}
+          searchVal={"test"}
+          taskStatus={"2"}
         />
       </Router>
     );
