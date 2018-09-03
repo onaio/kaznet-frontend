@@ -92,4 +92,19 @@ describe("store/clients/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
+
+  it("should remove deleted client from store", () => {
+    const clientId = "10";
+    const action = { type: actionTypes.CLIENT_DELETED, clientId };
+
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+
+    newState.clientsById = _.omit(newState.clientsById, clientId);
+
+    Reducer(clients)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
 });

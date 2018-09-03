@@ -55,7 +55,9 @@ export default function reduce(state = initialState, action = {}) {
           [action.clientData.id]: action.clientData
         }
       });
-
+    case types.CLIENT_DELETED:
+      const newClientsById = _.omit(state.clientsById, action.clientId);
+      return state.set("clientsById", newClientsById);
     default:
       return state;
   }

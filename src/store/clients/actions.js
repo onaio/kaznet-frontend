@@ -79,3 +79,24 @@ export function getClient(client_id) {
     }
   };
 }
+
+// delete client
+export function deleteClient(client_id) {
+  return async (dispatch, getState) => {
+    try {
+      const clientId = await clientService.deleteClient(client_id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.CLIENT_DELETED,
+        clientId
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}

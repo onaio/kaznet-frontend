@@ -132,6 +132,25 @@ class ClientService {
     }
     return data;
   }
+
+  async deleteClient(client_id) {
+    const url = `${constants.API_ENDPOINT}/clients/${client_id}/`;
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `ClientService deleteClient failed, HTTP status ${response.status}`
+      );
+    }
+
+    return client_id;
+  }
 }
 
 export default new ClientService();

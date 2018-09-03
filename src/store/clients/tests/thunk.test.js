@@ -157,4 +157,18 @@ describe("store/clients/actions", () => {
       errorMessage: Error("Wow!")
     });
   });
+
+  it("should delete a client", async () => {
+    ClientService.deleteClient.mockReturnValueOnce(fixtures.clientData.data.id);
+    const dispatches = await Thunk(clients.deleteClient).execute(1);
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+    expect(dispatches[1].getAction()).toEqual({
+      type: actionTypes.CLIENT_DELETED,
+      clientData: fixtures.clientData.data.id
+    });
+  });
 });

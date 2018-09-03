@@ -41,6 +41,7 @@ import LocationTypeDeletion from "./containers/locationTypes/LocationTypeDeletio
 import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
+import ClientDeletion from "./containers/clients/ClientDeletion";
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
@@ -130,6 +131,11 @@ class App extends Component {
                           exact
                           path="/clients/edit/:id"
                           component={ClientEditForm}
+                        />
+                        <Route
+                          exact
+                          path="/clients/:id/delete"
+                          component={ClientDeletion}
                         />
                         <Route
                           exact

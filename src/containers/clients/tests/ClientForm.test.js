@@ -27,4 +27,19 @@ describe("containers/client/ClientForm", () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
   });
+
+  it("renders client form correctly when doing an edit", () => {
+    const initialData = {
+      name: "Umbrella Corporation"
+    };
+    const wrapper = mount(
+      <ClientForm
+        formActionDispatch={function() {}}
+        initialData={initialData}
+        targetId={1337}
+      />
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
 });
