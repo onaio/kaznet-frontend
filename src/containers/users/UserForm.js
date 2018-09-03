@@ -85,7 +85,7 @@ export class UserForm extends Component {
                 role: values.role,
                 national_id: values.national_id,
                 ona_username: values.ona_username,
-                password: values.password,
+                password: this.targetId !== null ? "" : values.password,
                 gender: values.gender,
                 expertise: values.expertise,
                 email: values.email,
@@ -228,46 +228,54 @@ export class UserForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <FormGroup className="row">
-                <Col md="3">
-                  <Label for="password">Password*</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="password"
-                    type="password"
-                    aria-label="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    className={errors.password ? "is-invalid" : ""}
-                  />
-                  {errors.password && (
-                    <div className="invalid-feedback">{errors.password}</div>
-                  )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col md="3">
-                  <Label for="confirmation">Confirm Password*</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="confirmation"
-                    type="password"
-                    aria-label="confirmation"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.confirmation}
-                    className={errors.confirmation ? "is-invalid" : ""}
-                  />
-                  {errors.confirmation && (
-                    <div className="invalid-feedback">
-                      {errors.confirmation}
-                    </div>
-                  )}
-                </Col>
-              </FormGroup>
+              {this.targetId === null ? (
+                <div>
+                  <FormGroup className="row">
+                    <Col md="3">
+                      <Label for="password">Password*</Label>
+                    </Col>
+                    <Col md="9">
+                      <Input
+                        name="password"
+                        type="password"
+                        aria-label="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        className={errors.password ? "is-invalid" : ""}
+                      />
+                      {errors.password && (
+                        <div className="invalid-feedback">
+                          {errors.password}
+                        </div>
+                      )}
+                    </Col>
+                  </FormGroup>
+                  <FormGroup className="row">
+                    <Col md="3">
+                      <Label for="confirmation">Confirm Password*</Label>
+                    </Col>
+                    <Col md="9">
+                      <Input
+                        name="confirmation"
+                        type="password"
+                        aria-label="confirmation"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.confirmation}
+                        className={errors.confirmation ? "is-invalid" : ""}
+                      />
+                      {errors.confirmation && (
+                        <div className="invalid-feedback">
+                          {errors.confirmation}
+                        </div>
+                      )}
+                    </Col>
+                  </FormGroup>
+                </div>
+              ) : (
+                ""
+              )}
 
               <h4 className="title"> DETAILS </h4>
 

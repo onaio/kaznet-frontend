@@ -61,8 +61,8 @@ export class UsersList extends Component {
     this.props.changePageTitleButton("+ Create User");
     this.props.changePageTarget("/users/new");
 
-    let { search } = queryString.parse(this.props.location.search);
-    const { page } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
+    const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
       search = "";
