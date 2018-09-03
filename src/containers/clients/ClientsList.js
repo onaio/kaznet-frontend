@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
-import queryString from "query-string";
+import qs from "qs";
 
 import * as clientActions from "../../store/clients/actions";
 import * as clientSelectors from "../../store/clients/reducer";
@@ -20,8 +20,8 @@ export class ClientsList extends Component {
     this.props.changePageTitle("Clients");
     this.props.changePageTitleButton("+ Add Client");
     this.props.changePageTarget("/clients/new");
-    let { search } = queryString.parse(this.props.location.search);
-    const { page } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
+    const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
       search = "";
@@ -39,11 +39,11 @@ export class ClientsList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    let { search } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
       search = "";
     }
-    const { page } = queryString.parse(this.props.location.search);
+    const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchClients(

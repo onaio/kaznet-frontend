@@ -1,7 +1,7 @@
 // Locations reducer
 import _ from "lodash";
 import Immutable from "seamless-immutable";
-import queryString from "query-string";
+import qs from "qs";
 
 import * as types from "./actionTypes";
 
@@ -96,7 +96,7 @@ export function getTotalPages(state, porseps) {
 
 export function getFirstPage(state, props) {
   const url = state.locations.pageLinks.first;
-  return Number(Object.values(queryString.parse(url))[0]);
+  return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
 }
 
 export function getNextPage(state, props) {
@@ -109,5 +109,5 @@ export function getPreviousPage(state, props) {
 
 export function getLastPage(state, props) {
   const url = state.locations.pageLinks.last;
-  return Number(Object.values(queryString.parse(url))[0]);
+  return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
 }
