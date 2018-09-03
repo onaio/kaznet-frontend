@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Redirect } from "react-router-dom";
-import * as queryString from "query-string";
+import qs from "qs";
 
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
@@ -21,7 +21,7 @@ export class TaskStatusChange extends Component {
     this.task = this.props.taskById;
     if (!this.task) return this.renderLoading();
     const currentStatus = this.task.attributes.status;
-    const { status } = queryString.parse(this.props.location.search);
+    const { status } = qs.parse(this.props.location.search.slice(1));
 
     if (status && TASK_STATUSES.includes(status) && currentStatus !== status) {
       const payload = {

@@ -4,8 +4,7 @@ import voca from "voca";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
-import queryString from "query-string";
-
+import qs from "qs";
 import * as locationActions from "../../store/locations/actions";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as globalActions from "../../store/global/actions";
@@ -22,8 +21,8 @@ export class LocationsList extends Component {
     this.props.changePageTitleButton("+ Create Location");
     this.props.changePageTarget("/locations/new");
 
-    let { search } = queryString.parse(this.props.location.search);
-    const { page } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
+    const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
       search = "";
@@ -42,11 +41,11 @@ export class LocationsList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    let { search } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
       search = "";
     }
-    const { page } = queryString.parse(this.props.location.search);
+    const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchLocations(
