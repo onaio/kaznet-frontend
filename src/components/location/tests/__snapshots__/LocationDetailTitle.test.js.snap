@@ -32,6 +32,7 @@ exports[`components/location/LocationDetailTitle renders the correct html 1`] = 
             "created": "2018-07-09T14:53:09.732230+03:00",
             "description": "Something",
             "geopoint": null,
+            "has_submissions": true,
             "location_type_name": null,
             "modified": "2018-07-09T14:53:09.732261+03:00",
             "name": "Isiolo Market X",
@@ -98,34 +99,6 @@ exports[`components/location/LocationDetailTitle renders the correct html 1`] = 
                 &gt; 
                 Isiolo Market X
               </h1>
-              <p
-                className="kaznet-creation-detail"
-              >
-                By 
-                ,
-                 
-                <t
-                  ago={false}
-                  calendar={false}
-                  decimal={false}
-                  element="time"
-                  filter={[Function]}
-                  format="DD-MM-YYYY"
-                  fromNow={false}
-                  interval={60000}
-                  onChange={[Function]}
-                  toNow={false}
-                  unit={null}
-                  unix={false}
-                  utc={false}
-                >
-                  <time
-                    dateTime={"2018-07-09T11:53:09.732Z"}
-                  >
-                    09-07-2018
-                  </time>
-                </t>
-              </p>
               <Col
                 md="12"
                 tag="div"
@@ -163,44 +136,13 @@ exports[`components/location/LocationDetailTitle renders the correct html 1`] = 
                         </a>
                       </Link>
                         |  
-                      <Button
-                        className="remove_button_css action-link action-link-alert"
-                        color="link"
-                        onClick={[Function]}
-                        tag="button"
-                      >
-                        <button
-                          className="remove_button_css action-link action-link-alert btn btn-link"
-                          onClick={[Function]}
-                          type="button"
+                      <div>
+                        <p
+                          className="text-muted"
                         >
                           DELETE LOCATION
-                        </button>
-                      </Button>
-                      <Modal
-                        autoFocus={true}
-                        backdrop={true}
-                        backdropTransition={
-                          Object {
-                            "mountOnEnter": true,
-                            "timeout": 150,
-                          }
-                        }
-                        centered={false}
-                        fade={true}
-                        isOpen={false}
-                        keyboard={true}
-                        modalTransition={
-                          Object {
-                            "timeout": 300,
-                          }
-                        }
-                        onClosed={[Function]}
-                        onOpened={[Function]}
-                        role="dialog"
-                        toggle={[Function]}
-                        zIndex={1050}
-                      />
+                        </p>
+                      </div>
                     </div>
                   </Row>
                 </div>

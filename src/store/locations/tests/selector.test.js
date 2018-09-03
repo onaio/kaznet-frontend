@@ -40,7 +40,7 @@ describe("store/locations/selectors", () => {
 
   it("should get one location by id when full", () => {
     Selector(locations.getLocationById)
-      .expect(fullState, 7)
+      .expect(fullState, 1)
       .toReturn(fixtures.locationById);
   });
 
