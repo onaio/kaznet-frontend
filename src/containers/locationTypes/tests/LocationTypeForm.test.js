@@ -27,4 +27,19 @@ describe("containers/locationType/LocationTypeForm", () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
   });
+
+  it("renders locationType form correctly when doing an edit", () => {
+    const initialData = {
+      name: "Market"
+    };
+    const wrapper = mount(
+      <LocationTypeForm
+        formActionDispatch={function() {}}
+        initialData={initialData}
+        targetId={1337}
+      />
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
 });
