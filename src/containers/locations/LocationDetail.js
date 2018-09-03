@@ -21,14 +21,11 @@ export class LocationDetail extends Component {
   render() {
     this.location = this.props.locationById;
     if (!this.location) return this.renderLoading();
-    const xformURL = `${constants.ONA_WEBSITE}/${constants.ONA_USERNAME}/${
-      this.location.attributes.xform_project_id
-    }/${this.location.attributes.xform_ona_id}`;
     return (
       <div className="LocationsList">
         <LocationDetailTitle location={this.location} />
         <DetailView
-          renderMainDetails={this.renderMainDetails(xformURL)}
+          renderMainDetails={this.renderMainDetails()}
           renderAdditionalDetails={this.renderAdditionalDetails()}
         />
       </div>
@@ -43,7 +40,7 @@ export class LocationDetail extends Component {
     }
   }
 
-  renderMainDetails(xformURL) {
+  renderMainDetails() {
     const headerItems = {
       Description: this.location.attributes.description,
       "Parent Location": this.location.attributes.parent_name,
