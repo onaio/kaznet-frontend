@@ -31,17 +31,19 @@ export default class UserDetailTitle extends Component {
               <Link to="/users" className="kaznet-header-link">
                 Users
               </Link>{" "}
-              > {this.props.user.ona_username}
+              > {this.props.user.attributes.ona_username}
             </h1>
             <p className="kaznet-creation-detail">
               {"By "}
-              {this.props.user.created_by_name},{" "}
-              <Moment format="DD-MM-YYYY">{this.props.user.created}</Moment>
+              {this.props.user.attributes.created_by_name},{" "}
+              <Moment format="DD-MM-YYYY">
+                {this.props.user.attributes.created}
+              </Moment>
             </p>
             <Col md="12">
               <Row className="kaznet-action-links">
                 <Link
-                  to={`/users/${this.props.user.id}/edit`}
+                  to={`/users/${this.props.user.attributes.id}/edit`}
                   className="action-link"
                 >
                   EDIT
@@ -63,7 +65,7 @@ export default class UserDetailTitle extends Component {
                   </ModalHeader>
                   <ModalFooter>
                     <Link
-                      to={`/locations/${this.props.user.id}/delete`}
+                      to={`/users/${this.props.user.id}/delete`}
                       className="btn btn-danger"
                       onClick={this.toggle}
                     >
