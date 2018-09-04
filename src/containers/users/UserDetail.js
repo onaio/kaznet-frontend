@@ -51,9 +51,9 @@ export class UserDetail extends Component {
 
   renderAdditionalDetails() {
     const headerItems = {
-      Gender: this.user.attributes.gender,
+      Gender: this.user.attributes.gender_display,
       Address: this.user.attributes.address,
-      "Level of Expertise": this.user.attributes.expertise,
+      "Level of Expertise": this.user.attributes.expertise_display,
       Email: this.user.attributes.email,
       "Phone Number": this.user.attributes.phone_number
     };
