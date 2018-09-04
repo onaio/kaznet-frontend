@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import qs from "qs";
@@ -105,6 +106,9 @@ export class UsersList extends Component {
   renderRow(row) {
     const rowItems = [
       row.attributes.role_display,
+      <Link to={`/users/${row.id}`} key="link_to">
+        {row.attributes.ona_username}
+      </Link>,
       row.attributes.ona_username,
       row.attributes.last_name,
       row.attributes.first_name,
