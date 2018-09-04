@@ -31,14 +31,12 @@ export default class UserDetailTitle extends Component {
               <Link to="/users" className="kaznet-header-link">
                 Users
               </Link>{" "}
-              > {this.props.user.attributes.name}
+              > {this.props.user.ona_username}
             </h1>
             <p className="kaznet-creation-detail">
               {"By "}
-              {this.props.user.attributes.created_by_name},{" "}
-              <Moment format="DD-MM-YYYY">
-                {this.props.user.attributes.created}
-              </Moment>
+              {this.props.user.created_by_name},{" "}
+              <Moment format="DD-MM-YYYY">{this.props.user.created}</Moment>
             </p>
             <Col md="12">
               <Row className="kaznet-action-links">

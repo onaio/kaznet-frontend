@@ -46,3 +46,23 @@ export function changePageNumber(pageNumber) {
     dispatch({ type: types.USER_CHANGE_PAGE, pageNumber });
   };
 }
+// fetch a specific user
+export function fetchUser(id) {
+  return async (dispatch, getState) => {
+    try {
+      const userData = await userService.getUser(id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.USER_FETCHED,
+        userData
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}

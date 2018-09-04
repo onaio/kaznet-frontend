@@ -71,6 +71,38 @@ class UserService {
 
     return data;
   }
+
+  async getUser(id) {
+    const url = `${
+      constants.API_ENDPOINT
+    }/userprofiles/${id}/?format=vnd.api%2Bjson`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `UserService getUser failed, HTTP status ${response.status}`
+      );
+    }
+
+    const apiResponse = await response.json();
+
+    if (response.status === 400) {
+      throw apiResponse.errors;
+    }
+
+    const data = _.get(apiResponse, "data");
+    if (!data) {
+      throw new Error("UserService getUser failed, data not returned");
+    }
+
+    return data;
+  }
 }
 
 export default new UserService();
