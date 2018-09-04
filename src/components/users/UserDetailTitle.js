@@ -43,7 +43,7 @@ export default class UserDetailTitle extends Component {
             <Col md="12">
               <Row className="kaznet-action-links">
                 <Link
-                  to={`/users/${this.props.user.attributes.id}/edit`}
+                  to={`/users/edit/${this.props.user.attributes.id}`}
                   className="action-link"
                 >
                   EDIT
