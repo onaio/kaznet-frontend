@@ -3,10 +3,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
-
+import queryString from "query-string";
+import * as constants from "../../constants.js";
 import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationTypeSelectors from "../../store/locationTypes/reducer";
 import * as globalActions from "../../store/global/actions";
+import * as globalSelectors from "../../store/global/reducer";
 
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
@@ -18,10 +20,49 @@ export class LocationTypesList extends Component {
     this.props.changePageTitle("Location Types");
     this.props.changePageTitleButton("+ Create Location Type");
     this.props.changePageTarget("/locationTypes/new");
+    let { search } = queryString.parse(this.props.location.search);
+    const { page } = queryString.parse(this.props.location.search);
+
+    if (search === undefined) {
+      search = "";
+    }
+    this.props.searchVal(search);
+
+    let pageNumber = Number(page);
+
+    if (isNaN(pageNumber)) {
+      pageNumber = 1;
+    }
+
+    this.props.fetchLocationTypes(
+      `${
+        constants.API_ENDPOINT
+      }/locationtypes/?search=${search}&page=${pageNumber}`
+    );
+
+    this.props.changePageNumber(pageNumber);
+  }
+
+  componentDidUpdate(prevProps) {
+    let { search } = queryString.parse(this.props.location.search);
+    if (search === undefined) {
+      search = "";
+    }
+    const { page } = queryString.parse(this.props.location.search);
+    if (Number(page) !== this.props.currentPage && !isNaN(page)) {
+      const pageNumber = Number(page);
+      this.props.fetchLocationTypes(
+        `${
+          constants.API_ENDPOINT
+        }/locationtypes/?search=${search}&page=${pageNumber}`
+      );
+      this.props.changePageNumber(pageNumber);
+    }
   }
 
   render() {
     if (!this.props.rowsById) return this.renderLoading();
+
     return (
       <div className="LocationTypeList">
         <ListView
@@ -29,6 +70,13 @@ export class LocationTypesList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
+          endpoint={"locationtypes"}
+          pageLinks={this.props.pageLinks}
+          totalPages={this.props.totalPages}
+          currentPage={this.props.currentPage}
+          firstPage={this.props.firstPage}
+          lastPage={this.props.lastPage}
+          searchVal={this.props.searchParam}
         />
       </div>
     );
@@ -56,7 +104,13 @@ export class LocationTypesList extends Component {
 function mapStateToProps(state) {
   return {
     rowsById: locationTypeSelectors.getLocationTypesById(state),
-    rowsIdArray: locationTypeSelectors.getLocationTypesIdArray(state)
+    rowsIdArray: locationTypeSelectors.getLocationTypesIdArray(state),
+    totalPages: locationTypeSelectors.getTotalPages(state),
+    currentPage: locationTypeSelectors.getCurrentPage(state),
+    pageLinks: locationTypeSelectors.getPageLinks(state),
+    firstPage: locationTypeSelectors.getFirstPage(state),
+    lastPage: locationTypeSelectors.getLastPage(state),
+    searchParam: globalSelectors.getSearchValue(state)
   };
 }
 
@@ -65,10 +119,13 @@ function mapDispatchToProps(dispatch) {
     {
       fetchLocationTypes: locationTypeActions.fetchLocationTypes,
       changePageTitle: globalActions.changePageTitle,
+      changePageNumber: locationTypeActions.changePageNumber,
       changePageTitleButton: globalActions.changePageTitleButton,
       showListTitle: globalActions.toggleDetailTitleOff,
-      changePageTarget: globalActions.changePageTarget
+      changePageTarget: globalActions.changePageTarget,
+      searchVal: globalActions.getSearchVal
     },
+
     dispatch
   );
 }

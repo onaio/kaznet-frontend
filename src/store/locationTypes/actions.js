@@ -6,18 +6,37 @@ import * as errorHandlerTypes from "../errorHandler/actionTypes";
 import LocationTypeService from "../../services/locationTypes";
 
 // get list of locationTypes
-export function fetchLocationTypes() {
+export function fetchLocationTypes(url) {
   return async (dispatch, getState) => {
     try {
-      const locationTypeArray = await LocationTypeService.getLocationTypeList();
+      const {
+        locationTypeArray,
+        pageLinks,
+        currentPage,
+        totalPages
+      } = await LocationTypeService.getLocationTypeList(url);
       const locationTypesById = _.keyBy(
         locationTypeArray,
         locationType => locationType.id
       );
-      dispatch({ type: types.LOCATIONTYPES_FETCHED, locationTypesById });
+      dispatch({
+        type: types.LOCATIONTYPES_FETCHED,
+        locationTypesById,
+        pageLinks,
+        currentPage,
+        totalPages
+      });
     } catch (error) {
-      console.error(error);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
     }
+  };
+}
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.LOCATIONTYPES_CHANGE_PAGE, pageNumber });
   };
 }
 

@@ -14,15 +14,22 @@ describe("store/locationTypes/actions", () => {
   });
 
   it("should fetch locationTypes from server", async () => {
-    LocationTypeService.getLocationTypeList.mockReturnValueOnce(
-      fixtures.locationTypesArray
-    );
+    LocationTypeService.getLocationTypeList.mockReturnValueOnce({
+      locationTypeArray: fixtures.locationTypesArray,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
+    });
+
     const dispatches = await Thunk(locationTypes.fetchLocationTypes).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.LOCATIONTYPES_FETCHED,
-      locationTypesById: fixtures.locationTypesById
+      locationTypesById: fixtures.locationTypesById,
+      pageLinks: fixtures.pageLinks,
+      currentPage: fixtures.currentPage,
+      totalPages: fixtures.totalPages
     });
   });
 
@@ -32,8 +39,14 @@ describe("store/locationTypes/actions", () => {
     });
     console.error = jest.fn();
     const dispatches = await Thunk(locationTypes.fetchLocationTypes).execute();
-    expect(dispatches.length).toBe(0);
-    expect(console.error).toHaveBeenCalledWith(Error("oops"));
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_FAILURE,
+      errorMessage: Error("oops")
+    });
+
+    // expect(console.error).toHaveBeenCalledWith(Error("oops"));
   });
 
   it("should fetch a single locationType from server", async () => {

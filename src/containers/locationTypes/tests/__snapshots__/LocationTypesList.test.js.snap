@@ -1,15 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/LocationTypesLists/LocationTypesList renders LocationTypesList list correctly 1`] = `
-<LocationTypesList
-  changePageTarget={[Function]}
-  changePageTitle={[Function]}
-  changePageTitleButton={[Function]}
-  fetchLocationTypes={[Function]}
-  showListTitle={[Function]}
+exports[`containers/locationTypes/LocationTypesList renders location list correctly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
 >
-  <p>
-    Loading...
-  </p>
-</LocationTypesList>
+  <LocationTypesList
+    changePageNumber={[Function]}
+    changePageTarget={[Function]}
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="locationTypes"
+    fetchLocationTypes={[Function]}
+    firstPage={1}
+    lastPage={2}
+    location={
+      Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      }
+    }
+    pageLinks={
+      Object {
+        "first": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+        "next": null,
+        "prev": null,
+      }
+    }
+    searchVal={[Function]}
+    showListTitle={[Function]}
+    totalPages={1}
+  >
+    <p>
+      Loading...
+    </p>
+  </LocationTypesList>
+</Router>
 `;

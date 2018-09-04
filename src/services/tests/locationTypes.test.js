@@ -13,7 +13,21 @@ describe("services/locationTypes", () => {
     const data = fixtures.locationTypeData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await LocationTypeService.getLocationTypeList();
-    expect(response).toEqual(fixtures.locationTypesArray);
+
+    const {
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = data;
+
+    const expectedResponse = {
+      locationTypeArray: fixtures.locationTypesArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should handle default locationTypes http errors", async () => {
