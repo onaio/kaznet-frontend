@@ -66,3 +66,24 @@ export function fetchUser(id) {
     }
   };
 }
+
+// delete user
+export function deleteUser(user_id) {
+  return async (dispatch, getState) => {
+    try {
+      const userId = await userService.deleteUser(user_id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.USER_DELETED,
+        userId
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}

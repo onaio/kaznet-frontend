@@ -47,6 +47,9 @@ export default function reduce(state = initialState, action = {}) {
           [action.userData.id]: action.userData
         }
       });
+    case types.USER_DELETED:
+      const newUsersById = _.omit(state.usersById, action.userId);
+      return state.set("usersById", newUsersById);
     default:
       return state;
   }
