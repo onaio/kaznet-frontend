@@ -677,9 +677,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             "10",
           ]
         }
+        searchVal="test"
         sortField="modified"
         sortOrder="desc"
-        searchVal="test"
         taskStatus="a"
         totalPages={2}
       >
