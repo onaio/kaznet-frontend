@@ -39,6 +39,14 @@ export default function reduce(state = initialState, action = {}) {
           [action.userData.id]: action.userData
         }
       });
+    case types.USER_FETCHED:
+      return Immutable({
+        ...state,
+        usersById: {
+          ...state.usersById,
+          [action.userData.id]: action.userData
+        }
+      });
     default:
       return state;
   }
@@ -52,6 +60,10 @@ export function getUsersById(state) {
 
 export function getUsersIdArray(state) {
   return _.keys(state.users.usersById);
+}
+
+export function getUserById(state, id) {
+  return _.get(state.users.usersById, id);
 }
 
 export function getPageLinks(state, props) {
