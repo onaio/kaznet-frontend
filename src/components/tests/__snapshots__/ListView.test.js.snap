@@ -433,12 +433,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Last"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=undefined"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
                 >
                   <a
                     aria-label="Last"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=undefined"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
                     onClick={[Function]}
                   >
                     Last
