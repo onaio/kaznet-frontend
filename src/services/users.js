@@ -103,6 +103,25 @@ class UserService {
 
     return data;
   }
+
+  async deleteUser(user_id) {
+    const url = `${constants.API_ENDPOINT}/userprofiles/${user_id}/`;
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/vnd.api+json",
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `UserService deleteUser failed, HTTP status ${response.status}`
+      );
+    }
+
+    return user_id;
+  }
 }
 
 export default new UserService();
