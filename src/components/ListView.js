@@ -38,26 +38,26 @@ export default class ListView extends Component {
     const statusArr = statuses.map(s => {
       let status = "";
       switch (s) {
-        case "a":
-          status = "Active";
+        case constants.TASK_ACTIVE:
+          status = constants.ACTIVE;
           break;
-        case "b":
-          status = "Deactivated";
+        case constants.TASK_DEACTIVATED:
+          status = constants.DEACTIVATED;
           break;
-        case "c":
-          status = "Expired";
+        case constants.TASK_EXPIRED:
+          status = constants.EXPIRED;
           break;
-        case "d":
-          status = "Draft";
+        case constants.TASK_DRAFT:
+          status = constants.DRAFT;
           break;
-        case "e":
-          status = "Archived";
+        case constants.TASK_ARCHIVED:
+          status = constants.ARCHIVED;
           break;
-        case "s":
-          status = "Scheduled";
+        case constants.TASK_SCHEDULED:
+          status = constants.SCHEDULED;
           break;
-        case "":
-          status = "All";
+        case constants.TASK_ALL:
+          status = constants.ALL;
           break;
         default:
           status = "";
@@ -125,10 +125,15 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.first
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal
-                  }&status=${this.props.taskStatus}&page=${
-                    this.props.firstPage
-                  }`
+                    !this.props.searchVal || this.props.searchVal === undefined
+                      ? ""
+                      : this.props.searchVal
+                  }&status=${
+                    !this.props.taskStatus ||
+                    this.props.taskStatus === undefined
+                      ? ""
+                      : this.props.taskStatus
+                  }&page=${this.props.firstPage}`
                 : "#"
             }
             className="page-link"
@@ -142,9 +147,10 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.prev
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal
-                  }&status=${this.props.taskStatus}&page=${this.props
-                    .currentPage - 1}`
+                    !this.props.searchVal ? "" : this.props.searchVal
+                  }&status=${
+                    !this.props.taskStatus ? "" : this.props.taskStatus
+                  }&page=${this.props.currentPage - 1}`
                 : "#"
             }
             className="page-link"
@@ -158,9 +164,10 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.next
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal
-                  }&status=${this.props.taskStatus}&page=${this.props
-                    .currentPage + 1}`
+                    !this.props.searchVal ? "" : this.props.searchVal
+                  }&status=${
+                    !this.props.taskStatus ? "" : this.props.taskStatus
+                  }&page=${this.props.currentPage + 1}`
                 : "#"
             }
             className="page-link"
@@ -174,8 +181,14 @@ export default class ListView extends Component {
             to={
               this.props.pageLinks.last
                 ? `/${this.props.endpoint}/?search=${
-                    this.props.searchVal
-                  }&status=${this.props.taskStatus}&page=${this.props.lastPage}`
+                    !this.props.searchVal ? "" : this.props.searchVal
+                  }&status=${
+                    !this.props.taskStatus ? "" : this.props.taskStatus
+                  }&page=${
+                    !this.props.lastPage || this.props.lastPage === undefined
+                      ? 1
+                      : this.props.lastPage
+                  }`
                 : "#"
             }
             className="page-link"
