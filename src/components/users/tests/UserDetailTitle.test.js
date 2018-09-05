@@ -6,7 +6,7 @@ import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
 
 import ErrorBoundary from "../../ErrorBoundary";
-import { singleUser } from "../../../store/users/tests/fixtures";
+import { singleUserData } from "../../../store/users/tests/fixtures";
 import UserDetailTitle from "../UserDetailTitle";
 
 const history = createBrowserHistory();
@@ -15,7 +15,7 @@ describe("components/users/UserDetailTitle", () => {
   it("renders without crashing", () => {
     shallow(
       <ErrorBoundary>
-        <UserDetailTitle user={singleUser} />
+        <UserDetailTitle user={singleUserData} />
       </ErrorBoundary>
     );
   });
@@ -23,7 +23,7 @@ describe("components/users/UserDetailTitle", () => {
     const wrapper = mount(
       <ErrorBoundary>
         <Router history={history}>
-          <UserDetailTitle user={singleUser} />
+          <UserDetailTitle user={singleUserData} />
         </Router>
       </ErrorBoundary>
     );
