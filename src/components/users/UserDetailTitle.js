@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 import "../page/DetailTitle.css";
+import { ADMIN_ROLE } from "../../constants";
 
 export default class UserDetailTitle extends Component {
   constructor(props) {
@@ -48,13 +49,16 @@ export default class UserDetailTitle extends Component {
                 >
                   EDIT
                 </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <Button
-                  color="link"
-                  className="remove_button_css action-link action-link-alert"
-                  onClick={this.toggle}
-                >
-                  DELETE USER
-                </Button>
+                {(this.props.user.attributes.submission_count > 0 ||
+                  this.props.user.attributes.role !== ADMIN_ROLE) && (
+                  <Button
+                    color="link"
+                    className="remove_button_css action-link action-link-alert"
+                    onClick={this.toggle}
+                  >
+                    DELETE USER
+                  </Button>
+                )}
                 <Modal
                   isOpen={this.state.modal}
                   toggle={this.toggle}

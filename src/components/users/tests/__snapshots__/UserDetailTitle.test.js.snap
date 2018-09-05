@@ -170,20 +170,6 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                         </a>
                       </Link>
                         |  
-                      <Button
-                        className="remove_button_css action-link action-link-alert"
-                        color="link"
-                        onClick={[Function]}
-                        tag="button"
-                      >
-                        <button
-                          className="remove_button_css action-link action-link-alert btn btn-link"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          DELETE USER
-                        </button>
-                      </Button>
                       <Modal
                         autoFocus={true}
                         backdrop={true}

@@ -30,6 +30,8 @@ export const BEGINNER = "1";
 export const INTERMEDIATE = "2";
 export const ADVANCED = "3";
 export const EXPERT = "4";
+export const ADMIN_ROLE = "1";
+export const CONTRIBUTOR_ROLE = "2";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
