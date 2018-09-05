@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/users/UserDetailTitle renders the correct html 1`] = `
+<ErrorBoundary>
+  <h1>
+    Something went wrong.
+  </h1>
+</ErrorBoundary>
+`;
