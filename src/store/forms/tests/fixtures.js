@@ -19,7 +19,8 @@ export const formData = {
         id_string: "form_1",
         created: "2018-06-21T12:15:23.170271+03:00",
         modified: "2018-06-21T12:15:23.170313+03:00",
-        deleted_at: null
+        deleted_at: null,
+        has_task: false
       }
     },
     {
@@ -33,7 +34,8 @@ export const formData = {
         id_string: "form_2",
         created: "2018-06-21T12:15:23.175198+03:00",
         modified: "2018-06-21T12:15:23.175232+03:00",
-        deleted_at: null
+        deleted_at: null,
+        has_task: false
       }
     }
   ],
@@ -55,3 +57,5 @@ export const formsById = _.keyBy(formsArray, form => form.id);
 export const formsIdArray = _.keys(formsById);
 
 export const formIdOneById = _.get(formsById, 1);
+
+export const getFormOptions = formData.data.map(d => d.attributes.title);

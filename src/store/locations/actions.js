@@ -15,13 +15,15 @@ export function fetchLocations(url) {
         totalPages
       } = await locationService.getLocationList(url);
       const locationsById = _.keyBy(locationArray, location => location.id);
-
+      const options = locationArray.map(d => d.attributes.name);
       dispatch({
         type: types.LOCATIONS_FETCHED,
+        isLoading: false,
         locationsById,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        options
       });
     } catch (error) {
       dispatch({

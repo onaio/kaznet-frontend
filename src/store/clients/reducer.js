@@ -15,7 +15,9 @@ const initialState = Immutable({
     last: null,
     prev: null,
     next: null
-  }
+  },
+  isLoading: true,
+  options: []
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -25,7 +27,9 @@ export default function reduce(state = initialState, action = {}) {
         clientsById: action.clientsById,
         pageLinks: action.pageLinks,
         currentPage: action.currentPage,
-        totalPages: action.totalPages
+        totalPages: action.totalPages,
+        isLoading: action.isLoading,
+        options: action.options
       });
     case types.CLIENT_CHANGE_PAGE:
       return state.merge({
@@ -61,6 +65,18 @@ export default function reduce(state = initialState, action = {}) {
     default:
       return state;
   }
+}
+
+export function getSearchValue(state) {
+  return state.clients.searchVal;
+}
+
+export function getClientOptions(state) {
+  return state.clients.options;
+}
+
+export function isLoading(state) {
+  return state.clients.isLoading;
 }
 
 export function getClientsById(state) {

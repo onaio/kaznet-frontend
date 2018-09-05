@@ -227,3 +227,10 @@ export const locationsByIdSecondPage = _.keyBy(
   locationsArraySecondPage,
   location => location.id
 );
+
+export const getLocationOptions = locationsData.data.map(
+  d => d.attributes.name
+);
+export const getLocationOptionsSecondPage = locationsDataSecondPage.data.map(
+  d => d.attributes.name
+);

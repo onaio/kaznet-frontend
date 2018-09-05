@@ -84,3 +84,9 @@ export const clientsByIdSecondPage = _.keyBy(
 );
 export const clientsIdArraySecondPage = _.keys(clientsByIdSecondPage);
 export const clientByIdSecondPage = _.get(clientsByIdSecondPage, 1);
+
+export const getClientOptions = [singleClientData.data.attributes.name];
+
+export const getClientOptionsSecondPage = clientDataSecondPage.data.map(
+  d => d.attributes.name
+);
