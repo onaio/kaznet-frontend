@@ -673,7 +673,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                       name="geopoint"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      placeholder="Geopoint"
+                      placeholder="-23.4456,45.44334"
                       type="text"
                       value="36,-1"
                     >
@@ -683,7 +683,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                         name="geopoint"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        placeholder="Geopoint"
+                        placeholder="-23.4456,45.44334"
                         type="text"
                         value="36,-1"
                       />
