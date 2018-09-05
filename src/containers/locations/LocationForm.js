@@ -204,7 +204,7 @@ export class LocationForm extends Component {
                     name="geopoint"
                     type="text"
                     bsSize="lg"
-                    placeholder="-23.4456,45.44334"
+                    placeholder="longitude, latitude"
                     aria-label="Geopoint"
                     onChange={handleChange}
                     onBlur={handleBlur}
