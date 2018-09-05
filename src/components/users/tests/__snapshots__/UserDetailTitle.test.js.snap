@@ -2,8 +2,221 @@
 
 exports[`components/users/UserDetailTitle renders the correct html 1`] = `
 <ErrorBoundary>
-  <h1>
-    Something went wrong.
-  </h1>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <UserDetailTitle
+      user={
+        Object {
+          "attributes": Object {
+            "amount_earned": "0 KES",
+            "approval_rate": 0,
+            "approved_submissions": 0,
+            "avg_amount_earned": 0,
+            "avg_approval_rate": 0,
+            "avg_approved_submissions": 0,
+            "avg_rejected_submissions": 0,
+            "avg_submissions": 0,
+            "created": "2018-06-19T16:03:10.184043+03:00",
+            "email": "sol@admin.me",
+            "expertise": "1",
+            "first_name": "Davis",
+            "gender": "1",
+            "last_login": "2018-06-19T16:03:22+03:00",
+            "last_name": "Raymond",
+            "modified": "2018-06-20T08:45:12.976916+03:00",
+            "national_id": null,
+            "ona_pk": null,
+            "ona_username": "davisraym",
+            "payment_number": "",
+            "phone_number": "",
+            "rejected_submissions": 0,
+            "role": "1",
+            "role_display": "Admin",
+            "submission_count": 0,
+          },
+          "id": "1",
+          "type": "UserProfile",
+        }
+      }
+    >
+      <section
+        className="detail-page-title"
+      >
+        <Col
+          md={
+            Object {
+              "offset": 2,
+              "size": 8,
+            }
+          }
+          sm="12"
+          tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <div
+            className="col-sm-12 col-md-8 offset-md-2"
+          >
+            <div>
+              <h1
+                className="kaznet-detail-title"
+              >
+                <Link
+                  className="kaznet-header-link"
+                  replace={false}
+                  to="/users"
+                >
+                  <a
+                    className="kaznet-header-link"
+                    href="/users"
+                    onClick={[Function]}
+                  >
+                    Users
+                  </a>
+                </Link>
+                 
+                &gt; 
+                davisraym
+              </h1>
+              <p
+                className="kaznet-creation-detail"
+              >
+                By 
+                ,
+                 
+                <t
+                  ago={false}
+                  calendar={false}
+                  decimal={false}
+                  element="time"
+                  filter={[Function]}
+                  format="DD-MM-YYYY"
+                  fromNow={false}
+                  interval={60000}
+                  onChange={[Function]}
+                  toNow={false}
+                  unit={null}
+                  unix={false}
+                  utc={false}
+                >
+                  <time
+                    dateTime={"2018-06-19T13:03:10.184Z"}
+                  >
+                    19-06-2018
+                  </time>
+                </t>
+              </p>
+              <Col
+                md="12"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-12"
+                >
+                  <Row
+                    className="kaznet-action-links"
+                    tag="div"
+                  >
+                    <div
+                      className="kaznet-action-links row"
+                    >
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/users/edit/undefined"
+                      >
+                        <a
+                          className="action-link"
+                          href="/users/edit/undefined"
+                          onClick={[Function]}
+                        >
+                          EDIT
+                        </a>
+                      </Link>
+                        |  
+                      <Button
+                        className="remove_button_css action-link action-link-alert"
+                        color="link"
+                        onClick={[Function]}
+                        tag="button"
+                      >
+                        <button
+                          className="remove_button_css action-link action-link-alert btn btn-link"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          DELETE USER
+                        </button>
+                      </Button>
+                      <Modal
+                        autoFocus={true}
+                        backdrop={true}
+                        backdropTransition={
+                          Object {
+                            "mountOnEnter": true,
+                            "timeout": 150,
+                          }
+                        }
+                        centered={false}
+                        fade={true}
+                        isOpen={false}
+                        keyboard={true}
+                        modalTransition={
+                          Object {
+                            "timeout": 300,
+                          }
+                        }
+                        onClosed={[Function]}
+                        onOpened={[Function]}
+                        role="dialog"
+                        toggle={[Function]}
+                        zIndex={1050}
+                      />
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          </div>
+        </Col>
+      </section>
+    </UserDetailTitle>
+  </Router>
 </ErrorBoundary>
 `;
