@@ -48,7 +48,7 @@ export default class UserDetailTitle extends Component {
                   className="action-link"
                 >
                   EDIT
-                </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                </Link>
                 {(this.props.user.attributes.submission_count > 0 ||
                   this.props.user.attributes.role !== ADMIN_ROLE) && (
                   <Button
@@ -56,7 +56,7 @@ export default class UserDetailTitle extends Component {
                     className="remove_button_css action-link action-link-alert"
                     onClick={this.toggle}
                   >
-                    DELETE USER
+                    &nbsp;&nbsp;|&nbsp;&nbsp; DELETE USER
                   </Button>
                 )}
                 <Modal

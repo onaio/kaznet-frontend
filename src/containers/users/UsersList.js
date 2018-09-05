@@ -109,7 +109,6 @@ export class UsersList extends Component {
       <Link to={`/users/${row.id}`} key="link_to">
         {row.attributes.ona_username}
       </Link>,
-      row.attributes.ona_username,
       row.attributes.last_name,
       row.attributes.first_name,
       row.attributes.submission_count,
