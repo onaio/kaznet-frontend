@@ -99,8 +99,9 @@ export class TasksList extends Component {
     );
     this.props.getStatus(status !== "" ? status : "");
     this.setState({
-      isOpen: status ? true : !this.state.isOpen
+      isOpen: !this.state.isOpen
     });
+    return true;
   }
 
   render() {
