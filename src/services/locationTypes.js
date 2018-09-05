@@ -25,7 +25,7 @@ class LocationTypeService {
         pagination: { page, pages }
       }
     } = await response.json();
-    console.log(data);
+
     if (!data) {
       throw new Error(
         `LocationTypeService getLocationTypeList failed, data not returned`
