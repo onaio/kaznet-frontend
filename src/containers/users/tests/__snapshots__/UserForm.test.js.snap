@@ -1122,6 +1122,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                     name="payment_number"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    placeholder="+254712345678"
                     type="text"
                     value=""
                   >
@@ -1131,6 +1132,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       name="payment_number"
                       onBlur={[Function]}
                       onChange={[Function]}
+                      placeholder="+254712345678"
                       type="text"
                       value=""
                     />
@@ -1206,6 +1208,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                     name="phone_number"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    placeholder="+254712345678"
                     type="text"
                     value=""
                   >
@@ -1215,6 +1218,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       name="phone_number"
                       onBlur={[Function]}
                       onChange={[Function]}
+                      placeholder="+254712345678"
                       type="text"
                       value=""
                     />
