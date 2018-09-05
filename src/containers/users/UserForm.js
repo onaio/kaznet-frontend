@@ -391,6 +391,7 @@ export class UserForm extends Component {
                     name="payment_number"
                     type="text"
                     aria-label="payment_number"
+                    placeholder="+254712345678"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.payment_number}
@@ -412,6 +413,7 @@ export class UserForm extends Component {
                     name="phone_number"
                     type="text"
                     aria-label="phone_number"
+                    placeholder="+254712345678"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.phone_number}
