@@ -20,8 +20,8 @@ export class LocationTypesList extends Component {
     this.props.changePageTitle("Location Types");
     this.props.changePageTitleButton("+ Create Location Type");
     this.props.changePageTarget("/locationTypes/new");
-    let { search } = qs.parse(this.props.location.search);
-    const { page } = qs.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
+    const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
       search = "";
