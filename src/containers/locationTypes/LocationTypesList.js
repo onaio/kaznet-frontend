@@ -44,11 +44,11 @@ export class LocationTypesList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    let { search } = qs.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
       search = "";
     }
-    const { page } = qs.parse(this.props.location.search);
+    const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchLocationTypes(
