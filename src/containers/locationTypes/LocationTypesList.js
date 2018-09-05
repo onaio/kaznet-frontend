@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
-import queryString from "query-string";
+import qs from "qs";
 import * as constants from "../../constants.js";
 import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationTypeSelectors from "../../store/locationTypes/reducer";
@@ -20,8 +20,8 @@ export class LocationTypesList extends Component {
     this.props.changePageTitle("Location Types");
     this.props.changePageTitleButton("+ Create Location Type");
     this.props.changePageTarget("/locationTypes/new");
-    let { search } = queryString.parse(this.props.location.search);
-    const { page } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search);
+    const { page } = qs.parse(this.props.location.search);
 
     if (search === undefined) {
       search = "";
@@ -44,11 +44,11 @@ export class LocationTypesList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    let { search } = queryString.parse(this.props.location.search);
+    let { search } = qs.parse(this.props.location.search);
     if (search === undefined) {
       search = "";
     }
-    const { page } = queryString.parse(this.props.location.search);
+    const { page } = qs.parse(this.props.location.search);
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchLocationTypes(
