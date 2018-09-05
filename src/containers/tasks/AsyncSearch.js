@@ -13,12 +13,17 @@ import * as locationSelectors from "../../store/locations/reducer";
 
 import * as constants from "../../constants.js";
 
+import Immutable from "seamless-immutable";
+
 export class AsyncSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isLoading: false
-    };
+    this.state = Immutable({
+      isLoading: false,
+      formOption: null,
+      clientOption: null,
+      locationOption: null
+    });
     this.onSearchEvent = this.onSearchEvent.bind(this);
   }
 
@@ -38,6 +43,40 @@ export class AsyncSearch extends Component {
         break;
       default:
       // hande this
+    }
+  }
+
+  handleChange(option, type) {
+    let formSelected;
+    let clientSelected;
+    let locationSelected;
+    switch (type) {
+      case "forms":
+        formSelected = {
+          type: "forms",
+          option: option[0],
+          id: this.props.formOptions.indexOf(option[0])
+        };
+        this.props.formSelectedOption(formSelected);
+        break;
+      case "clients":
+        clientSelected = {
+          type: "clients",
+          option: option[0],
+          id: this.props.clientOptions.indexOf(option[0])
+        };
+        this.props.clientSelectedOption(clientSelected);
+        break;
+      case "locations":
+        locationSelected = {
+          type: "locations",
+          option: option[0],
+          id: this.props.locationOptions.indexOf(option[0])
+        };
+        this.props.locationSelectedOption(locationSelected);
+        break;
+      default:
+      //
     }
   }
 
@@ -65,6 +104,7 @@ export class AsyncSearch extends Component {
   }
 
   render() {
+    console.log("this stte", this.state);
     const { type } = this.props;
     const getOptions =
       type === "forms"
@@ -91,6 +131,7 @@ export class AsyncSearch extends Component {
         onSearch={this.onSearchEvent}
         options={getOptions}
         placeholder={`Choose ${this.props.type}`}
+        onChange={e => this.handleChange(e, type)}
       />
     );
   }
@@ -103,7 +144,10 @@ function mapStateToProps(state) {
     clientOptions: clientSelectors.getClientOptions(state),
     formsIsLoading: formSelectors.isLoading(state),
     locationsIsLoading: locationSelectors.isLoading(state),
-    clientsIsLoading: clientSelectors.isLoading(state)
+    clientsIsLoading: clientSelectors.isLoading(state),
+    selectedLocation: locationSelectors.getLocationSelectedOption(state),
+    selectedForm: formSelectors.getFormSelectedOption(state),
+    selectedClient: clientSelectors.getClientSelectedOption(state)
   };
 }
 
@@ -112,7 +156,10 @@ function mapDispatchToProps(dispatch) {
     {
       fetchForms: formActions.fetchForms,
       fetchClients: clientActions.fetchClients,
-      fetchLocations: locationActions.fetchLocations
+      fetchLocations: locationActions.fetchLocations,
+      clientSelectedOption: clientActions.clientSelectedOption,
+      locationSelectedOption: locationActions.locationSelectedOption,
+      formSelectedOption: formActions.formSelectedOption
     },
     dispatch
   );

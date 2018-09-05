@@ -40,6 +40,15 @@ export function changePageNumber(pageNumber) {
   };
 }
 
+export function locationSelectedOption(selectedOption) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: types.LOCATION_SELECTED_OPTION,
+      selectedOption
+    });
+  };
+}
+
 // create a new location
 export function createLocation(location_data) {
   return async (dispatch, getState) => {

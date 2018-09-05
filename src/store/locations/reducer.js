@@ -17,7 +17,8 @@ const initialState = Immutable({
     next: null
   },
   isLoading: true,
-  options: []
+  options: [],
+  locationSelectedOption: {}
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -59,12 +60,23 @@ export default function reduce(state = initialState, action = {}) {
           [action.locationData.id]: action.locationData
         }
       });
+    case types.LOCATION_SELECTED_OPTION:
+      return Immutable({
+        ...state,
+        locationSelectedOption: {
+          ...action.selectedOption
+        }
+      });
     case types.LOCATION_DELETED:
       const newLocationsById = _.omit(state.locationsById, action.locationId);
       return state.set("locationsById", newLocationsById);
     default:
       return state;
   }
+}
+
+export function getLocationSelectedOption(state) {
+  return state.locations.locationSelectedOption;
 }
 
 export function getLocationOptions(state) {

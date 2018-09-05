@@ -38,6 +38,15 @@ export function changePageNumber(pageNumber) {
   };
 }
 
+export function clientSelectedOption(selectedOption) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: types.CLIENT_SELECTED_OPTION,
+      selectedOption
+    });
+  };
+}
+
 export function createClient(client_data) {
   return async (dispatch, getState) => {
     try {

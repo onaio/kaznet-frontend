@@ -21,3 +21,12 @@ export function fetchForms(url) {
     }
   };
 }
+
+export function formSelectedOption(selectedOption) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: types.FORM_SELECTED_OPTION,
+      selectedOption
+    });
+  };
+}
