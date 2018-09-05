@@ -266,6 +266,8 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
         "1",
       ]
     }
+    searchVal="test"
+    taskStatus="2"
     totalPages={2}
   >
     <div>
@@ -359,12 +361,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="First"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=&page=1"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
                 >
                   <a
                     aria-label="First"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=&page=1"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
                     onClick={[Function]}
                   >
                     First
@@ -407,12 +409,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Next"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=&page=2"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
                 >
                   <a
                     aria-label="Next"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=&page=2"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
                     onClick={[Function]}
                   >
                     »
@@ -431,12 +433,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Last"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=&page=1"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
                 >
                   <a
                     aria-label="Last"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=&page=1"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
                     onClick={[Function]}
                   >
                     Last

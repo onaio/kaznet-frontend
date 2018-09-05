@@ -20,6 +20,8 @@ describe("containers/users/UsersList", () => {
         changePageNumber={function() {}}
         showListTitle={function() {}}
         searchVal={function() {}}
+        searchParam={""}
+        taskStatus={""}
         location={history.location}
       />
     );
@@ -34,6 +36,8 @@ describe("containers/users/UsersList", () => {
           changePageTitleButton={function() {}}
           showListTitle={function() {}}
           searchVal={function() {}}
+          searchParam={""}
+          taskStatus={""}
           rowsById={fixtures.usersById}
           rowsIdArray={fixtures.usersIdArray}
           endpoint={"userprofiles"}

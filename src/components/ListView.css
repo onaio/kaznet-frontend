@@ -8,3 +8,8 @@
   color: #711c27;
   text-decoration: none;
 }
+
+.kaznet-table .dropdown-menu .active-task {
+  background: #eee;
+  outline: none;
+}

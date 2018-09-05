@@ -8,14 +8,16 @@ import * as fixtures from "./fixtures";
 const emptyState = Immutable({
   tasks: {
     tasksById: {},
-    tasksIdArray: []
+    tasksIdArray: [],
+    status: ""
   }
 });
 
 const fullState = Immutable({
   tasks: {
     tasksById: fixtures.tasksById,
-    tasksIdArray: fixtures.tasksIdArray
+    tasksIdArray: fixtures.tasksIdArray,
+    status: fixtures.getTaskStatus
   }
 });
 
@@ -48,5 +50,17 @@ describe("store/tasks/selectors", () => {
     Selector(tasks.getTasksIdArray)
       .expect(fullState)
       .toReturn(fixtures.tasksIdArray);
+  });
+
+  it("should task status when full", () => {
+    Selector(tasks.getTaskStatus)
+      .expect(fullState, "a")
+      .toReturn(fixtures.getTaskStatus);
+  });
+
+  it("should get task status when empty", () => {
+    Selector(tasks.getTaskStatus)
+      .expect(emptyState)
+      .toReturn("");
   });
 });

@@ -17,12 +17,14 @@ const initialState = {
     last: null,
     prev: null,
     next: null
-  }
+  },
+  status: ""
 };
 
 const fullState = {
   tasksById: fixtures.tasksById,
-  tasksIdArray: fixtures.tasksIdArray
+  tasksIdArray: fixtures.tasksIdArray,
+  status: fixtures.getTaskStatus
 };
 
 describe("store/tasks/reducer", () => {
@@ -125,6 +127,23 @@ describe("store/tasks/reducer", () => {
     const existingState = Immutable(fullState);
     const newState = _.clone(fullState);
     newState.tasksById[taskData.id] = taskData;
+
+    Reducer(tasks)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
+
+  it("should add task status to store", () => {
+    const status = fixtures.getTaskStatus;
+    const action = {
+      type: actionTypes.TASK_STATUS,
+      status
+    };
+
+    const existingState = Immutable(fullState);
+    const newState = _.clone(fullState);
+    newState.status = status;
 
     Reducer(tasks)
       .withState(existingState)

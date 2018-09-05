@@ -21,6 +21,7 @@ describe("containers/locations/LocationList", () => {
         searchVal={function() {}}
         showListTitle={function() {}}
         location={history.location}
+        searchParam={""}
       />
     );
   });
@@ -45,6 +46,7 @@ describe("containers/locations/LocationList", () => {
           firstPage={fixtures.firstPage}
           lastPage={fixtures.lastPage}
           location={history.location}
+          searchParam={""}
         />
       </Router>
     );

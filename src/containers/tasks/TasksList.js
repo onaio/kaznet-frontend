@@ -18,6 +18,13 @@ import ElementMap from "../ElementMap";
 import "./TaskList.css";
 
 export class TasksList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Tasks");
@@ -25,12 +32,21 @@ export class TasksList extends Component {
     this.props.changePageTarget("/tasks/new");
 
     let { search } = qs.parse(this.props.location.search.slice(1));
+    let { status } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
       search = "";
     }
+
     this.props.searchVal(search);
+
+    if (status === undefined) {
+      status = "";
+    }
+
+    this.props.getStatus(status);
+
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {
@@ -40,7 +56,7 @@ export class TasksList extends Component {
     await this.props.fetchTasks(
       `${constants.API_ENDPOINT}/tasks/?ordering=${
         constants.TASK_SORT_FIELD
-      }&search=${search}&page=${pageNumber}`
+      }&search=${search}&status=${status}&page=${pageNumber}`
     );
     this.props.changePageNumber(pageNumber);
   }
@@ -50,16 +66,42 @@ export class TasksList extends Component {
     if (search === undefined) {
       search = "";
     }
+
+    let { status } = qs.parse(this.props.location.search.slice(1));
+
+    if (status === undefined) {
+      status = "";
+    }
+
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchTasks(
         `${constants.API_ENDPOINT}/tasks/?ordering=${
           constants.TASK_SORT_FIELD
-        }&search=${search}&page=${pageNumber}`
+        }&search=${search}&status=${status}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
+  }
+
+  handleChange(e) {
+    const status = e.target.getAttribute("data-key");
+    const param = `?status=${status}`;
+    if (status === null) {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+      return false;
+    }
+    this.props.fetchTasks(
+      `${constants.API_ENDPOINT}/tasks/${status !== "" ? param : ""}`
+    );
+    this.props.getStatus(status !== "" ? status : "");
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+    return true;
   }
 
   render() {
@@ -80,6 +122,10 @@ export class TasksList extends Component {
           searchVal={this.props.searchParam}
           sortField={constants.TASK_SORT_ATTRIBUTE}
           sortOrder={constants.SORT_DESC}
+          taskStatus={this.props.taskStatus}
+          isTaskPage={true}
+          handleChange={this.handleChange}
+          isOpen={this.state.isOpen}
         />
       </div>
     );
@@ -90,14 +136,7 @@ export class TasksList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = [
-      "Status",
-      "Name",
-      "Need Review",
-      "Created",
-      "Expires",
-      "Form"
-    ];
+    const headerItems = ["Name", "Need Review", "Created", "Expires", "Form"];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
@@ -137,7 +176,8 @@ function mapStateToProps(state) {
     pageLinks: taskSelectors.getPageLinks(state),
     firstPage: taskSelectors.getFirstPage(state),
     lastPage: taskSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    taskStatus: taskSelectors.getTaskStatus(state)
   };
 }
 
@@ -150,7 +190,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff,
-      searchVal: globalActions.getSearchVal
+      searchVal: globalActions.getSearchVal,
+      getStatus: taskActions.getStatus
     },
     dispatch
   );

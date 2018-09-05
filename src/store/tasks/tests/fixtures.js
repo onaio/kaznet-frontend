@@ -510,6 +510,8 @@ export const tasksArray = _.map(taskData.data, task => {
   return task;
 });
 
+export const getTaskStatus = singleTask.attributes.status;
+
 export const tasksArraySecondPage = _.map(
   taskDataSecondPage.data,
   task => task
