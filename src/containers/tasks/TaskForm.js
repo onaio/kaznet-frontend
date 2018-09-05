@@ -189,7 +189,10 @@ export class TaskForm extends Component {
                   values.status !== this.props.initialData.status
                     ? values.status
                     : this.props.initialData.status,
-                target_id: values.form,
+                target_id:
+                  values.form !== null && values.form !== ""
+                    ? values.form
+                    : undefined,
                 target_content_type: this.props.formContentTypeId,
                 amount:
                   values.amount != null && values.amount !== ""
