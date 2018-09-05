@@ -105,6 +105,29 @@ export class TaskForm extends Component {
     this.props.fetchContentTypes();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.task && nextProps.selectedLocation.option) {
+      const locations = this.state.locations;
+      const arr = locations.map((l, i) => {
+        return {
+          name: nextProps.selectedLocation.id,
+          payload: {
+            location: {
+              type: "Location",
+              id: nextProps.selectedLocation.id
+            },
+            timing_rule: l.payload.timing_rule,
+            start: l.payload.start,
+            end: l.payload.end
+          }
+        };
+      });
+      this.setState({
+        locations: arr
+      });
+    }
+  }
+
   handleAddLocation = () => {
     this.setState({
       locations: this.state.locations.concat([
@@ -145,7 +168,7 @@ export class TaskForm extends Component {
 
       return {
         ...loc,
-        name: location ? e.target && e.target.value : loc.name,
+        name: this.props.selectedLocation.id,
         payload: {
           location: {
             type: "Location",
@@ -197,32 +220,30 @@ export class TaskForm extends Component {
                     ? values.user_submission_target
                     : undefined,
                 status:
-                  values.status !== this.props.initialData.status
+                  values.status !== self.props.initialData.status
                     ? values.status
-                    : this.props.initialData.status,
-                target_id:
-                  values.form !== null && values.form !== ""
-                    ? values.form
-                    : undefined,
-                target_content_type: this.props.formContentTypeId,
+                    : self.props.initialData.status,
+                target_id: self.props.selectedForm.id
+                  ? self.props.selectedForm.id
+                  : undefined,
+                target_content_type: self.props.formContentTypeId,
                 amount:
                   values.amount != null && values.amount !== ""
                     ? values.amount
                     : undefined,
-                client:
-                  values.client !== null && values.client !== ""
-                    ? { type: "Client", id: values.client }
-                    : undefined,
+                client: self.props.selectedClient.id
+                  ? { type: "Client", id: self.props.selectedClient.id }
+                  : undefined,
                 locations_input: locations_input
               }
             }
           };
 
           try {
-            this.props.formActionDispatch(payload, this.targetId).then(() => {
+            self.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
-              if (this.props.hasError) {
-                setErrors(transformMyApiErrors(this.props.errorMessage));
+              if (self.props.hasError) {
+                setErrors(transformMyApiErrors(self.props.errorMessage));
               } else {
                 setStatus("done");
               }
@@ -242,8 +263,6 @@ export class TaskForm extends Component {
           isSubmitting,
           setStatus
         }) => {
-          console.log("errors", errors);
-          console.log("values", values);
           return (
             <div>
               <Form onSubmit={handleSubmit}>
@@ -343,7 +362,11 @@ export class TaskForm extends Component {
                     <Label for="form">Form</Label>
                   </Col>
                   <Col md={{ size: 6 }}>
-                    <AsyncSearch type={"forms"} handleChange={handleChange} />
+                    <AsyncSearch
+                      task={this.props.task}
+                      type={"forms"}
+                      handleChange={handleChange}
+                    />
                     {errors.form && (
                       <div className="invalid-feedback">{errors.form}</div>
                     )}
@@ -444,6 +467,7 @@ export class TaskForm extends Component {
                             <Row id={loc} key={i}>
                               <Col md={{ size: 6 }}>
                                 <AsyncSearch
+                                  task={this.props.task}
                                   type={"locations"}
                                   handleChange={handleChange}
                                 />
@@ -570,7 +594,11 @@ export class TaskForm extends Component {
                     <Label for="client">Client</Label>
                   </Col>
                   <Col md={{ size: 6 }}>
-                    <AsyncSearch handleChange={handleChange} type={"clients"} />
+                    <AsyncSearch
+                      task={this.props.task}
+                      handleChange={handleChange}
+                      type={"clients"}
+                    />
                     {errors.client && (
                       <div className="invalid-feedback">{errors.client}</div>
                     )}

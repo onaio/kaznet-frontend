@@ -30,3 +30,9 @@ export function formSelectedOption(selectedOption) {
     });
   };
 }
+
+export function formName(formName) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.FORM_NAME, formName });
+  };
+}

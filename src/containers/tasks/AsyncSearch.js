@@ -19,12 +19,35 @@ export class AsyncSearch extends Component {
   constructor(props) {
     super(props);
     this.state = Immutable({
-      isLoading: false,
-      formOption: null,
-      clientOption: null,
-      locationOption: null
+      isLoading: false
     });
     this.onSearchEvent = this.onSearchEvent.bind(this);
+  }
+
+  async componentWillMount() {
+    const { type } = this.props;
+    await this.props.fetchClients();
+    if (this.props.task) {
+      if (type === "clients") {
+        let clientValue;
+        Object.keys(this.props.clientsById).forEach(k => {
+          if (
+            this.props.task.relationships.client.data.id ===
+            this.props.clientsById[k].id
+          ) {
+            clientValue = this.props.clientsById[k].attributes.name;
+          }
+        });
+        if (clientValue !== undefined) {
+          this.props.clientName(clientValue);
+        }
+      } else if (type === "forms") {
+        const formValue = this.props.task.attributes.xform_title;
+        if (formValue !== undefined) {
+          this.props.formName(formValue);
+        }
+      }
+    }
   }
 
   async componentDidMount() {
@@ -52,26 +75,44 @@ export class AsyncSearch extends Component {
     let locationSelected;
     switch (type) {
       case "forms":
+        let formId;
+        Object.keys(this.props.unusedFormsById).forEach(k => {
+          if (option[0] === this.props.unusedFormsById[k].attributes.title) {
+            formId = this.props.unusedFormsById[k].id;
+          }
+        });
         formSelected = {
           type: "forms",
           option: option[0],
-          id: this.props.formOptions.indexOf(option[0])
+          id: formId
         };
         this.props.formSelectedOption(formSelected);
         break;
       case "clients":
+        let clientId;
+        Object.keys(this.props.clientsById).forEach(k => {
+          if (option[0] === this.props.clientsById[k].attributes.name) {
+            clientId = this.props.clientsById[k].id;
+          }
+        });
         clientSelected = {
           type: "clients",
           option: option[0],
-          id: this.props.clientOptions.indexOf(option[0])
+          id: clientId
         };
         this.props.clientSelectedOption(clientSelected);
         break;
       case "locations":
+        let locationId;
+        Object.keys(this.props.locationsById).forEach(k => {
+          if (option[0] === this.props.locationsById[k].attributes.name) {
+            locationId = this.props.locationsById[k].id;
+          }
+        });
         locationSelected = {
           type: "locations",
           option: option[0],
-          id: this.props.locationOptions.indexOf(option[0])
+          id: locationId
         };
         this.props.locationSelectedOption(locationSelected);
         break;
@@ -104,7 +145,6 @@ export class AsyncSearch extends Component {
   }
 
   render() {
-    console.log("this stte", this.state);
     const { type } = this.props;
     const getOptions =
       type === "forms"
@@ -124,7 +164,16 @@ export class AsyncSearch extends Component {
             ? this.props.locationsIsLoading
             : null;
 
-    return (
+    const val =
+      type === "forms" && this.props.getFormName !== ""
+        ? this.props.getFormName
+        : type === "clients" && this.props.getClientName !== ""
+          ? this.props.getClientName
+          : type === "locations"
+            ? ""
+            : "";
+
+    return this.props.getFormName !== "" && this.props.getClientName !== "" ? (
       <AsyncTypeahead
         isLoading={isLoading || false}
         minLength={0}
@@ -132,13 +181,17 @@ export class AsyncSearch extends Component {
         options={getOptions}
         placeholder={`Choose ${this.props.type}`}
         onChange={e => this.handleChange(e, type)}
+        defaultInputValue={this.props.task ? val : ""}
       />
-    );
+    ) : null;
   }
 }
 
 function mapStateToProps(state) {
   return {
+    clientsById: clientSelectors.getClientsById(state),
+    locationsById: locationSelectors.getLocationsById(state),
+    unusedFormsById: formSelectors.getUnusedFormsById(state),
     formOptions: formSelectors.getFormOptions(state),
     locationOptions: locationSelectors.getLocationOptions(state),
     clientOptions: clientSelectors.getClientOptions(state),
@@ -147,7 +200,9 @@ function mapStateToProps(state) {
     clientsIsLoading: clientSelectors.isLoading(state),
     selectedLocation: locationSelectors.getLocationSelectedOption(state),
     selectedForm: formSelectors.getFormSelectedOption(state),
-    selectedClient: clientSelectors.getClientSelectedOption(state)
+    selectedClient: clientSelectors.getClientSelectedOption(state),
+    getClientName: clientSelectors.getClientName(state),
+    getFormName: formSelectors.getFormName(state)
   };
 }
 
@@ -159,7 +214,9 @@ function mapDispatchToProps(dispatch) {
       fetchLocations: locationActions.fetchLocations,
       clientSelectedOption: clientActions.clientSelectedOption,
       locationSelectedOption: locationActions.locationSelectedOption,
-      formSelectedOption: formActions.formSelectedOption
+      formSelectedOption: formActions.formSelectedOption,
+      clientName: clientActions.clientName,
+      formName: formActions.formName
     },
     dispatch
   );

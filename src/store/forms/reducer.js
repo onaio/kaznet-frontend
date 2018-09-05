@@ -10,7 +10,8 @@ const initialState = Immutable({
   unusedForms: [],
   isLoading: true,
   options: [],
-  formSelectedOption: {}
+  formSelectedOption: {},
+  formName: ""
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -28,12 +29,21 @@ export default function reduce(state = initialState, action = {}) {
           ...action.selectedOption
         }
       });
+    case types.FORM_NAME:
+      return Immutable({
+        ...state,
+        formName: action.formName
+      });
     default:
       return state;
   }
 }
 
 // selectors
+
+export function getFormName(state) {
+  return state.forms.formName;
+}
 
 export function getFormSelectedOption(state) {
   return state.forms.formSelectedOption;

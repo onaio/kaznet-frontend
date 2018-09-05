@@ -4,4 +4,5 @@ export const CLIENT_EDITED = "clients.CLIENT_EDITED";
 export const CLIENT_FETCHED = "clients.CLIENT_FETCHED";
 export const CLIENT_CHANGE_PAGE = "clients.CLIENT_CHANGE_PAGE";
 export const CLIENT_DELETED = "clients.CLIENT_DELETED";
+export const CLIENT_NAME = "clients.CLIENT_NAME";
 export const CLIENT_SELECTED_OPTION = "clients.CLIENT_SELECTED_OPTION";

@@ -38,6 +38,12 @@ export function changePageNumber(pageNumber) {
   };
 }
 
+export function clientName(clientName) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.CLIENT_NAME, clientName });
+  };
+}
+
 export function clientSelectedOption(selectedOption) {
   return async (dispatch, getState) => {
     dispatch({

@@ -18,7 +18,8 @@ const initialState = Immutable({
   },
   isLoading: true,
   options: [],
-  clientSelectedOption: {}
+  clientSelectedOption: {},
+  clientName: ""
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -67,12 +68,21 @@ export default function reduce(state = initialState, action = {}) {
           ...action.selectedOption
         }
       });
+    case types.CLIENT_NAME:
+      return Immutable({
+        ...state,
+        clientName: action.clientName
+      });
     case types.CLIENT_DELETED:
       const newClientsById = _.omit(state.clientsById, action.clientId);
       return state.set("clientsById", newClientsById);
     default:
       return state;
   }
+}
+
+export function getClientName(state) {
+  return state.clients.clientName;
 }
 
 export function getClientSelectedOption(state) {
