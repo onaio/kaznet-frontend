@@ -45,4 +45,34 @@ describe("containers/task/TaskForm", () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
   });
+
+  it("renders task form correctly when doing an edit", () => {
+    MockDate.set("6/11/1985");
+
+    const initialData = {
+      name: "Coconut Quest"
+    };
+
+    const forms = {
+      1: { attributes: { title: "name" } }
+    };
+
+    const wrapper = mount(
+      <TaskForm
+        formActionDispatch={function() {}}
+        fetchClients={function() {}}
+        fetchLocations={function() {}}
+        fetchForms={function() {}}
+        fetchContentTypes={function() {}}
+        unusedFormsById={forms}
+        clientsById={clientsById}
+        locationsById={locationsById}
+        initialData={fixtures.TaskFormInitialData}
+        initialData={initialData}
+        targetId={1337}
+      />
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
 });
