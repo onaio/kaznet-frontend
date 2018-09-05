@@ -229,6 +229,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     items={
                       Array [
                         "Admin",
+                        <Link
+                          replace={false}
+                          to="/users/1"
+                      >
+                          davisraym
+                      </Link>,
                         "davisraym",
                         "Raymond",
                         "Davis",
@@ -262,30 +268,46 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     <td
                       key="1"
                     >
-                      davisraym
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/users/1"
+                      >
+                        <a
+                          href="/users/1"
+                          onClick={[Function]}
+                        >
+                          davisraym
+                        </a>
+                      </Link>
                     </td>
                     <td
                       key="2"
                     >
-                      Raymond
+                      davisraym
                     </td>
                     <td
                       key="3"
                     >
-                      Davis
+                      Raymond
                     </td>
                     <td
                       key="4"
                     >
-                      0
+                      Davis
                     </td>
                     <td
                       key="5"
                     >
-                      0%
+                      0
                     </td>
                     <td
                       key="6"
+                    >
+                      0%
+                    </td>
+                    <td
+                      key="7"
                     >
                       <t
                         ago={false}
