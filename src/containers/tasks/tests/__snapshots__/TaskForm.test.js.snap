@@ -282,6 +282,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     aria-label="status"
                     bsSize="lg"
                     className=""
+                    disabled={true}
                     name="status"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -292,6 +293,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     <select
                       aria-label="status"
                       className="form-control-lg form-control"
+                      disabled={true}
                       name="status"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -2036,6 +2038,2118 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       onChange={[Function]}
                       placeholder="Required Expertise"
                       value="1"
+                    >
+                      <option>
+                        ----
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Beginner
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        Intermediate
+                      </option>
+                      <option
+                        value="3"
+                      >
+                        Advanced
+                      </option>
+                      <option
+                        value="4"
+                      >
+                        Expert
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md={
+                  Object {
+                    "offset": 1,
+                    "size": 5,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5 offset-md-1"
+                >
+                  <Button
+                    className="btn btn-secondary btn-block"
+                    color="secondary"
+                    onClick={[Function]}
+                    tag="button"
+                  >
+                    <button
+                      className="btn btn-secondary btn-block btn btn-secondary"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                       
+                      Cancel
+                       
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+              <Col
+                md={
+                  Object {
+                    "size": 5,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5"
+                >
+                  <Button
+                    className="btn btn-primary btn-block"
+                    color="secondary"
+                    disabled={false}
+                    tag="button"
+                    type="submit"
+                  >
+                    <button
+                      className="btn btn-primary btn-block btn btn-secondary"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+        </form>
+      </Form>
+    </div>
+  </Formik>
+</TaskForm>
+`;
+
+exports[`containers/task/TaskForm renders task form correctly when doing an edit 1`] = `
+<TaskForm
+  clientsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "created": "2018-06-21T13:51:54.011373+03:00",
+          "name": "Sol",
+        },
+        "id": "1",
+        "type": "Client",
+      },
+    }
+  }
+  fetchClients={[Function]}
+  fetchContentTypes={[Function]}
+  fetchForms={[Function]}
+  fetchLocations={[Function]}
+  formActionDispatch={[Function]}
+  initialData={
+    Object {
+      "name": "Coconut Quest",
+    }
+  }
+  locationsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "country": "KE",
+          "created": "2018-06-20T12:09:02.916318+03:00",
+          "description": "Such Big City , Much wow",
+          "geopoint": null,
+          "has_submissions": true,
+          "location_type_name": "None",
+          "modified": "2018-06-20T12:09:02.916345+03:00",
+          "name": "Nairobi",
+          "parent_name": "None",
+          "radius": null,
+          "shapefile": Object {
+            "coordinates": Array [
+              Array [
+                Array [
+                  Array [
+                    -0.038795471191406,
+                    0.030555723649271,
+                  ],
+                  Array [
+                    0.049095153808594,
+                    0.013389587280456,
+                  ],
+                  Array [
+                    0.015106201171875,
+                    -0.063171373920095,
+                  ],
+                  Array [
+                    -0.044288635253906,
+                    -0.032615659859611,
+                  ],
+                  Array [
+                    -0.038795471191406,
+                    0.030555723649271,
+                  ],
+                ],
+              ],
+            ],
+            "type": "MultiPolygon",
+          },
+        },
+        "id": "1",
+        "relationships": Object {
+          "location_type": Object {
+            "data": null,
+          },
+          "parent": Object {
+            "data": null,
+          },
+        },
+        "type": "Location",
+      },
+      "7": Object {
+        "attributes": Object {
+          "country": "CK",
+          "created": "2018-07-09T14:53:09.732230+03:00",
+          "description": "Something",
+          "geopoint": null,
+          "has_submissions": false,
+          "location_type_name": null,
+          "modified": "2018-07-09T14:53:09.732261+03:00",
+          "name": "Sol Point",
+          "parent_name": null,
+          "radius": null,
+          "shapefile": null,
+        },
+        "id": "7",
+        "relationships": Object {
+          "location_type": Object {
+            "data": null,
+          },
+          "parent": Object {
+            "data": null,
+          },
+        },
+        "type": "Location",
+      },
+    }
+  }
+  targetId={1337}
+  unusedFormsById={
+    Object {
+      "1": Object {
+        "attributes": Object {
+          "title": "name",
+        },
+      },
+    }
+  }
+>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "name": "Coconut Quest",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  >
+    <div>
+      <Form
+        onSubmit={[Function]}
+        tag="form"
+      >
+        <form
+          className=""
+          onSubmit={[Function]}
+        >
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="12"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-12"
+                >
+                  <Input
+                    aria-label="title"
+                    bsSize="lg"
+                    className=""
+                    name="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Title"
+                    type="text"
+                    value="Coconut Quest"
+                  >
+                    <input
+                      aria-label="title"
+                      className="form-control-lg form-control"
+                      name="name"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Title"
+                      type="text"
+                      value="Coconut Quest"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="status"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="status"
+                    >
+                      Status
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="status"
+                    bsSize="lg"
+                    className=""
+                    disabled={false}
+                    name="status"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Status"
+                    type="select"
+                  >
+                    <select
+                      aria-label="status"
+                      className="form-control-lg form-control"
+                      disabled={false}
+                      name="status"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Status"
+                    >
+                      <option>
+                        ----
+                      </option>
+                      <option
+                        value="d"
+                      >
+                        Draft
+                      </option>
+                      <option
+                        value="a"
+                      >
+                        Active
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="description"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="description"
+                    >
+                      Description
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="description"
+                    bsSize="lg"
+                    className=""
+                    cols="2"
+                    name="description"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Description"
+                    type="textarea"
+                  >
+                    <textarea
+                      aria-label="description"
+                      className="form-control-lg form-control"
+                      cols="2"
+                      name="description"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Description"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="amount"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="amount"
+                    >
+                      Reward
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="reward"
+                    bsSize="lg"
+                    className=""
+                    name="amount"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Reward"
+                    type="number"
+                  >
+                    <input
+                      aria-label="reward"
+                      className="form-control-lg form-control"
+                      name="amount"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Reward"
+                      type="number"
+                    />
+                  </Input>
+                  <FormText
+                    color="muted"
+                    tag="small"
+                  >
+                    <small
+                      className="form-text text-muted"
+                    >
+                      The reward paid for successful submissions.
+                    </small>
+                  </FormText>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="form"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="form"
+                    >
+                      Form
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="form"
+                    bsSize="lg"
+                    className=""
+                    name="form"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Form"
+                    type="select"
+                  >
+                    <select
+                      aria-label="form"
+                      className="form-control-lg form-control"
+                      name="form"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Form"
+                    >
+                      <OptionMap
+                        obj={
+                          Object {
+                            "1": Object {
+                              "attributes": Object {
+                                "title": "name",
+                              },
+                            },
+                          }
+                        }
+                        titleField="title"
+                      >
+                        <option
+                          key="0"
+                        >
+                          ----
+                        </option>
+                        <option
+                          key="1"
+                          value="1"
+                        >
+                          name
+                        </option>
+                      </OptionMap>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="start"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="start"
+                    >
+                      Active dates
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Row
+                    tag="div"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <Col
+                        md="5"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="col-md-5"
+                        >
+                          <Input
+                            aria-label="start"
+                            bsSize="lg"
+                            className="time-picker "
+                            name="start"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="Start Date"
+                            type="date"
+                          >
+                            <input
+                              aria-label="start"
+                              className="time-picker  form-control-lg form-control"
+                              name="start"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="Start Date"
+                              type="date"
+                            />
+                          </Input>
+                        </div>
+                      </Col>
+                      <Col
+                        md="2"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="col-md-2"
+                        >
+                          <p
+                            className="text-center align-middle"
+                          >
+                            to
+                          </p>
+                        </div>
+                      </Col>
+                      <Col
+                        md="5"
+                        tag="div"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <div
+                          className="col-md-5"
+                        >
+                          <Input
+                            aria-label="end"
+                            bsSize="lg"
+                            className="time-picker "
+                            name="end"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder="End Date"
+                            type="date"
+                          >
+                            <input
+                              aria-label="end"
+                              className="time-picker  form-control-lg form-control"
+                              name="end"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="End Date"
+                              type="date"
+                            />
+                          </Input>
+                        </div>
+                      </Col>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="estimated_time"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="estimated_time"
+                    >
+                      Estimated time to complete task
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="estimated time"
+                    bsSize="lg"
+                    className=""
+                    name="estimated_time"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Estimated Time"
+                    type="number"
+                  >
+                    <input
+                      aria-label="estimated time"
+                      className="form-control-lg form-control"
+                      name="estimated_time"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Estimated Time"
+                      type="number"
+                    />
+                  </Input>
+                  <FormText
+                    color="muted"
+                    tag="small"
+                  >
+                    <small
+                      className="form-text text-muted"
+                    >
+                      The esitmated time that a contributor would take to complete the task, in minutes.
+                    </small>
+                  </FormText>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <h4>
+            Location
+          </h4>
+          <div
+            className="tasklocation-item"
+            key="0"
+          >
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm={
+                    Object {
+                      "size": 3,
+                    }
+                  }
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="tasklocation_location"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="tasklocation_location"
+                      >
+                        Location
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Row
+                      id={
+                        Object {
+                          "name": "",
+                          "payload": Object {
+                            "end": "17:00",
+                            "location": Object {
+                              "id": null,
+                              "type": "Location",
+                            },
+                            "start": "09:00",
+                            "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                          },
+                        }
+                      }
+                      key="0"
+                      tag="div"
+                    >
+                      <div
+                        className="row"
+                        id={
+                          Object {
+                            "name": "",
+                            "payload": Object {
+                              "end": "17:00",
+                              "location": Object {
+                                "id": null,
+                                "type": "Location",
+                              },
+                              "start": "09:00",
+                              "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                            },
+                          }
+                        }
+                      >
+                        <Col
+                          md={
+                            Object {
+                              "size": 5,
+                            }
+                          }
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <Input
+                              aria-label="location"
+                              bsSize="lg"
+                              className=""
+                              id={
+                                Object {
+                                  "name": "",
+                                  "payload": Object {
+                                    "end": "17:00",
+                                    "location": Object {
+                                      "id": null,
+                                      "type": "Location",
+                                    },
+                                    "start": "09:00",
+                                    "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                                  },
+                                }
+                              }
+                              name="tasklocation_location"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="Location"
+                              required={true}
+                              type="select"
+                              value=""
+                            >
+                              <select
+                                aria-label="location"
+                                className="form-control-lg form-control"
+                                id={
+                                  Object {
+                                    "name": "",
+                                    "payload": Object {
+                                      "end": "17:00",
+                                      "location": Object {
+                                        "id": null,
+                                        "type": "Location",
+                                      },
+                                      "start": "09:00",
+                                      "timing_rule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                                    },
+                                  }
+                                }
+                                name="tasklocation_location"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Location"
+                                required={true}
+                                value=""
+                              >
+                                <OptionMap
+                                  obj={
+                                    Object {
+                                      "1": Object {
+                                        "attributes": Object {
+                                          "country": "KE",
+                                          "created": "2018-06-20T12:09:02.916318+03:00",
+                                          "description": "Such Big City , Much wow",
+                                          "geopoint": null,
+                                          "has_submissions": true,
+                                          "location_type_name": "None",
+                                          "modified": "2018-06-20T12:09:02.916345+03:00",
+                                          "name": "Nairobi",
+                                          "parent_name": "None",
+                                          "radius": null,
+                                          "shapefile": Object {
+                                            "coordinates": Array [
+                                              Array [
+                                                Array [
+                                                  Array [
+                                                    -0.038795471191406,
+                                                    0.030555723649271,
+                                                  ],
+                                                  Array [
+                                                    0.049095153808594,
+                                                    0.013389587280456,
+                                                  ],
+                                                  Array [
+                                                    0.015106201171875,
+                                                    -0.063171373920095,
+                                                  ],
+                                                  Array [
+                                                    -0.044288635253906,
+                                                    -0.032615659859611,
+                                                  ],
+                                                  Array [
+                                                    -0.038795471191406,
+                                                    0.030555723649271,
+                                                  ],
+                                                ],
+                                              ],
+                                            ],
+                                            "type": "MultiPolygon",
+                                          },
+                                        },
+                                        "id": "1",
+                                        "relationships": Object {
+                                          "location_type": Object {
+                                            "data": null,
+                                          },
+                                          "parent": Object {
+                                            "data": null,
+                                          },
+                                        },
+                                        "type": "Location",
+                                      },
+                                      "7": Object {
+                                        "attributes": Object {
+                                          "country": "CK",
+                                          "created": "2018-07-09T14:53:09.732230+03:00",
+                                          "description": "Something",
+                                          "geopoint": null,
+                                          "has_submissions": false,
+                                          "location_type_name": null,
+                                          "modified": "2018-07-09T14:53:09.732261+03:00",
+                                          "name": "Sol Point",
+                                          "parent_name": null,
+                                          "radius": null,
+                                          "shapefile": null,
+                                        },
+                                        "id": "7",
+                                        "relationships": Object {
+                                          "location_type": Object {
+                                            "data": null,
+                                          },
+                                          "parent": Object {
+                                            "data": null,
+                                          },
+                                        },
+                                        "type": "Location",
+                                      },
+                                    }
+                                  }
+                                  titleField="name"
+                                >
+                                  <option
+                                    key="0"
+                                  >
+                                    ----
+                                  </option>
+                                  <option
+                                    key="1"
+                                    value="1"
+                                  >
+                                    Nairobi
+                                  </option>
+                                  <option
+                                    key="7"
+                                    value="7"
+                                  >
+                                    Sol Point
+                                  </option>
+                                </OptionMap>
+                              </select>
+                            </Input>
+                          </div>
+                        </Col>
+                      </div>
+                    </Row>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="tasklocation_start"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="tasklocation_start"
+                      >
+                        Hours
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="6"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-6"
+                  >
+                    <Row
+                      tag="div"
+                    >
+                      <div
+                        className="row"
+                      >
+                        <Col
+                          md="5"
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <Input
+                              aria-label="start"
+                              bsSize="lg"
+                              className="time-picker "
+                              name="tasklocation_start"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="Start"
+                              required={true}
+                              type="time"
+                              value="09:00"
+                            >
+                              <input
+                                aria-label="start"
+                                className="time-picker  form-control-lg form-control"
+                                name="tasklocation_start"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="Start"
+                                required={true}
+                                type="time"
+                                value="09:00"
+                              />
+                            </Input>
+                          </div>
+                        </Col>
+                        <Col
+                          md="2"
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-2"
+                          >
+                            <p
+                              className="text-center align-middle"
+                            >
+                              to
+                            </p>
+                          </div>
+                        </Col>
+                        <Col
+                          md="5"
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <Input
+                              aria-label="end"
+                              bsSize="lg"
+                              className="time-picker "
+                              name="tasklocation_end"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder="End"
+                              required={true}
+                              type="time"
+                              value="17:00"
+                            >
+                              <input
+                                aria-label="end"
+                                className="time-picker  form-control-lg form-control"
+                                name="tasklocation_end"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder="End"
+                                required={true}
+                                type="time"
+                                value="17:00"
+                              />
+                            </Input>
+                          </div>
+                        </Col>
+                      </div>
+                    </Row>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  sm="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-sm-3"
+                  >
+                    <Label
+                      for="tasklocation_timing_rule"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="tasklocation_timing_rule"
+                      >
+                        Timing Rule
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="timing rule"
+                      bsSize="lg"
+                      className=""
+                      name="tasklocation_timing_rule"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Timing Rule"
+                      type="hidden"
+                      value="FREQ=DAILY;INTERVAL=1;COUNT=1"
+                    >
+                      <input
+                        aria-label="timing rule"
+                        className="form-control-lg form-control"
+                        name="tasklocation_timing_rule"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder="Timing Rule"
+                        type="hidden"
+                        value="FREQ=DAILY;INTERVAL=1;COUNT=1"
+                      />
+                    </Input>
+                    <t
+                      calendarComponent={null}
+                      config={Object {}}
+                      onChange={[Function]}
+                      value="FREQ=DAILY;INTERVAL=1;COUNT=1"
+                    >
+                      <div>
+                        <div
+                          className="px-0 pt-3 border rounded"
+                        >
+                          <div>
+                            <M
+                              handleChange={[Function]}
+                              repeat={
+                                Object {
+                                  "daily": Object {
+                                    "interval": 1,
+                                  },
+                                  "frequency": "Daily",
+                                  "hourly": Object {
+                                    "interval": 1,
+                                  },
+                                  "monthly": Object {
+                                    "interval": 1,
+                                    "mode": "on",
+                                    "on": Object {
+                                      "day": 1,
+                                    },
+                                    "onThe": Object {
+                                      "day": "Monday",
+                                      "which": "First",
+                                    },
+                                    "options": Object {
+                                      "modes": undefined,
+                                    },
+                                  },
+                                  "options": Object {
+                                    "frequency": undefined,
+                                  },
+                                  "weekly": Object {
+                                    "days": Object {
+                                      "fri": false,
+                                      "mon": false,
+                                      "sat": false,
+                                      "sun": false,
+                                      "thu": false,
+                                      "tue": false,
+                                      "wed": false,
+                                    },
+                                    "interval": 1,
+                                    "options": Object {
+                                      "weekStartsOnSunday": undefined,
+                                    },
+                                  },
+                                  "yearly": Object {
+                                    "mode": "on",
+                                    "on": Object {
+                                      "day": 1,
+                                      "month": "Jan",
+                                    },
+                                    "onThe": Object {
+                                      "day": "Monday",
+                                      "month": "Jan",
+                                      "which": "First",
+                                    },
+                                    "options": Object {
+                                      "modes": undefined,
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <div
+                                className="px-3"
+                              >
+                                <div
+                                  className="form-group row"
+                                >
+                                  <div
+                                    className="col-sm-2 text-sm-right"
+                                  >
+                                    <label
+                                      className="col-form-label"
+                                      htmlFor="Repeat frequency"
+                                    >
+                                      <strong>
+                                        Repeat
+                                      </strong>
+                                    </label>
+                                  </div>
+                                  <div
+                                    className="col-sm-6"
+                                  >
+                                    <select
+                                      className="form-control"
+                                      id="Repeat frequency"
+                                      name="repeat.frequency"
+                                      onChange={[Function]}
+                                      value="Daily"
+                                    >
+                                      <option
+                                        value="Yearly"
+                                      >
+                                        Yearly
+                                      </option>
+                                      <option
+                                        value="Monthly"
+                                      >
+                                        Monthly
+                                      </option>
+                                      <option
+                                        value="Weekly"
+                                      >
+                                        Weekly
+                                      </option>
+                                      <option
+                                        value="Daily"
+                                      >
+                                        Daily
+                                      </option>
+                                      <option
+                                        value="Hourly"
+                                      >
+                                        Hourly
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <l
+                                  daily={
+                                    Object {
+                                      "interval": 1,
+                                    }
+                                  }
+                                  handleChange={[Function]}
+                                >
+                                  <div
+                                    className="form-group row d-flex align-items-sm-center"
+                                  >
+                                    <div
+                                      className="col-sm-1 offset-sm-2"
+                                    >
+                                      every
+                                    </div>
+                                    <div
+                                      className="col-sm-2"
+                                    >
+                                      <input
+                                        aria-label="Repeat daily interval"
+                                        className="form-control"
+                                        name="repeat.daily.interval"
+                                        onChange={[Function]}
+                                        value={1}
+                                      />
+                                    </div>
+                                    <div
+                                      className="col-sm-1"
+                                    >
+                                      day(s)
+                                    </div>
+                                  </div>
+                                </l>
+                              </div>
+                            </M>
+                          </div>
+                          <hr />
+                          <c
+                            end={
+                              Object {
+                                "after": 1,
+                                "mode": "After",
+                                "onDate": Object {
+                                  "date": "1985-06-11",
+                                  "options": Object {
+                                    "calendarComponent": null,
+                                    "weekStartsOnSunday": undefined,
+                                  },
+                                },
+                                "options": Object {
+                                  "modes": undefined,
+                                },
+                              }
+                            }
+                            handleChange={[Function]}
+                          >
+                            <div
+                              className="px-3"
+                            >
+                              <div
+                                className="form-group row"
+                              >
+                                <div
+                                  className="col-sm-2 text-sm-right"
+                                >
+                                  <label
+                                    className="col-form-label"
+                                    htmlFor="End"
+                                  >
+                                    <strong>
+                                      End
+                                    </strong>
+                                  </label>
+                                </div>
+                                <div
+                                  className="col-sm-3"
+                                >
+                                  <select
+                                    className="form-control"
+                                    id="End"
+                                    name="end.mode"
+                                    onChange={[Function]}
+                                    value="After"
+                                  >
+                                    <option
+                                      value="Never"
+                                    >
+                                      Never
+                                    </option>
+                                    <option
+                                      value="After"
+                                    >
+                                      After
+                                    </option>
+                                    <option
+                                      value="On date"
+                                    >
+                                      On date
+                                    </option>
+                                  </select>
+                                </div>
+                                <l
+                                  after={1}
+                                  handleChange={[Function]}
+                                >
+                                  <div
+                                    className="col-sm-4"
+                                  >
+                                    <div
+                                      className="form-group m-0 row d-flex align-items-center"
+                                    >
+                                      <div
+                                        className="col-3 col-sm-6 pl-0"
+                                      >
+                                        <input
+                                          aria-label="End after"
+                                          className="form-control"
+                                          name="end.after"
+                                          onChange={[Function]}
+                                          value={1}
+                                        />
+                                      </div>
+                                      <div
+                                        className="col-9 col-sm-6"
+                                      >
+                                        executions.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </l>
+                              </div>
+                            </div>
+                          </c>
+                        </div>
+                      </div>
+                    </t>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+          </div>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md={
+                  Object {
+                    "offset": 4,
+                    "size": 4,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-4 offset-md-4"
+                >
+                  <Button
+                    className="btn btn-primary btn-block add-location"
+                    color="secondary"
+                    onClick={[Function]}
+                    tag="button"
+                  >
+                    <button
+                      className="btn btn-primary btn-block add-location btn btn-secondary"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      + Add Locations
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="client"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="client"
+                    >
+                      Client
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="client"
+                    bsSize="lg"
+                    className=""
+                    name="client"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Client"
+                    type="select"
+                  >
+                    <select
+                      aria-label="client"
+                      className="form-control-lg form-control"
+                      name="client"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Client"
+                    >
+                      <OptionMap
+                        obj={
+                          Object {
+                            "1": Object {
+                              "attributes": Object {
+                                "created": "2018-06-21T13:51:54.011373+03:00",
+                                "name": "Sol",
+                              },
+                              "id": "1",
+                              "type": "Client",
+                            },
+                          }
+                        }
+                        titleField="name"
+                      >
+                        <option
+                          key="0"
+                        >
+                          ----
+                        </option>
+                        <option
+                          key="1"
+                          value="1"
+                        >
+                          Sol
+                        </option>
+                      </OptionMap>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="user_submission_target"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="user_submission_target"
+                    >
+                      Submission limit (per contributor)
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="contributor submission target"
+                    bsSize="lg"
+                    className=""
+                    name="user_submission_target"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Contributor Submission Target"
+                    type="number"
+                  >
+                    <input
+                      aria-label="contributor submission target"
+                      className="form-control-lg form-control"
+                      name="user_submission_target"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Contributor Submission Target"
+                      type="number"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="required_expertise"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="required_expertise"
+                    >
+                      Minimum contributor level
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <Input
+                    aria-label="required expertise"
+                    bsSize="lg"
+                    className=""
+                    name="required_expertise"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Required Expertise"
+                    type="select"
+                  >
+                    <select
+                      aria-label="required expertise"
+                      className="form-control-lg form-control"
+                      name="required_expertise"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Required Expertise"
                     >
                       <option>
                         ----

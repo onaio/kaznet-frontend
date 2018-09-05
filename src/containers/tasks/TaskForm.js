@@ -263,6 +263,7 @@ export class TaskForm extends Component {
                     onBlur={handleBlur}
                     value={values.status}
                     className={errors.status ? "is-invalid" : ""}
+                    disabled={this.targetId != null ? false : true}
                   >
                     <option>----</option>
                     <option value="d">Draft</option>

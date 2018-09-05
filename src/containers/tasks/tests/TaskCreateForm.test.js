@@ -6,6 +6,7 @@ import moment from "moment";
 import { TaskCreateForm } from "../TaskCreateForm";
 import FormView from "../../../components/FormView";
 import TaskForm from "../TaskForm";
+import { TASK_DRAFT, BEGINNER } from "../../../constants";
 
 describe("containers/task/TaskCreateForm", () => {
   it("renders without crashing", () => {
@@ -19,9 +20,9 @@ describe("containers/task/TaskCreateForm", () => {
       start: moment().format("YYYY-MM-DD"),
       end: moment().format("YYYY-MM-DD"),
       description: "",
-      required_expertise: "1",
+      required_expertise: BEGINNER,
       timing_rule: "",
-      status: "d",
+      status: TASK_DRAFT,
       user_submission_target: 10,
       amount: "",
       tasklocation_end: "17:00",
