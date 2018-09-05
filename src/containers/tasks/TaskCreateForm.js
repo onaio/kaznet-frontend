@@ -7,6 +7,7 @@ import * as taskActions from "../../store/tasks/actions";
 import TaskForm from "./TaskForm";
 import FormView from "../../components/FormView";
 import * as globalActions from "../../store/global/actions";
+import { TASK_DRAFT, BEGINNER } from "../../constants";
 
 export class TaskCreateForm extends Component {
   componentDidMount() {
@@ -21,9 +22,9 @@ export class TaskCreateForm extends Component {
       start: moment().format("YYYY-MM-DD"),
       end: moment().format("YYYY-MM-DD"),
       description: "",
-      required_expertise: "1",
+      required_expertise: BEGINNER,
       timing_rule: "",
-      status: "d",
+      status: TASK_DRAFT,
       user_submission_target: 10,
       amount: "",
       tasklocation_location: "",

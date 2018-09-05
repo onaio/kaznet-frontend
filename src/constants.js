@@ -22,6 +22,10 @@ export const TASK_SORT_FIELD = "-modified";
 export const SORT_ASC = "asc";
 export const SORT_DESC = "desc";
 export const NOT_APPLICABLE = "N/A";
+export const BEGINNER = "1";
+export const INTERMEDIATE = "2";
+export const ADVANCED = "3";
+export const EXPERT = "4";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
