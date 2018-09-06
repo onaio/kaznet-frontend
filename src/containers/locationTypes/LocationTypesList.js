@@ -61,8 +61,7 @@ export class LocationTypesList extends Component {
   }
 
   render() {
-    if (!this.props.rowsById) return this.renderLoading();
-
+    if (this.props.rowsById <= 0) return this.renderLoading();
     return (
       <div className="LocationTypeList">
         <ListView
@@ -83,7 +82,14 @@ export class LocationTypesList extends Component {
   }
 
   renderLoading() {
-    return <p>Loading...</p>;
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
+    );
   }
 
   renderRow(row) {

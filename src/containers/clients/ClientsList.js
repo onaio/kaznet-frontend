@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import qs from "qs";
-
+import "../LoadListAnimation.css";
 import * as clientActions from "../../store/clients/actions";
 import * as clientSelectors from "../../store/clients/reducer";
 import * as globalSelectors from "../../store/global/reducer";
@@ -54,7 +54,7 @@ export class ClientsList extends Component {
   }
 
   render() {
-    if (!this.props.rowsById) return this.renderLoading();
+    if (this.props.rowsIdArray <= 0) return this.renderLoading();
     return (
       <div className="ClientsList">
         <ListView
@@ -75,7 +75,14 @@ export class ClientsList extends Component {
   }
 
   renderLoading() {
-    return <p>Loading...</p>;
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
+    );
   }
 
   renderHeaders() {

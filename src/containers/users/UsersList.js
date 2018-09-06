@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import qs from "qs";
-
+import "../LoadListAnimation.css";
 import * as userActions from "../../store/users/actions";
 import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
@@ -58,7 +58,7 @@ export class UsersList extends Component {
   }
 
   render() {
-    if (!this.props.rowsById) return this.renderLoading();
+    if (this.props.rowsIdArray <= 0) return this.renderLoading();
     return (
       <div className="UsersList">
         <ListView
@@ -79,7 +79,14 @@ export class UsersList extends Component {
   }
 
   renderLoading() {
-    return <p>Loading...</p>;
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
+    );
   }
 
   renderHeaders() {
