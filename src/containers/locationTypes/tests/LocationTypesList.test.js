@@ -1,11 +1,15 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
+import { Router } from "react-router";
+import createBrowserHistory from "history/createBrowserHistory";
 
 import { LocationTypesList } from "../LocationTypesList";
 import * as fixtures from "../../../store/locationTypes/tests/fixtures";
 
-describe("containers/LocationTypesLists/LocationTypesList", () => {
+const history = createBrowserHistory();
+
+describe("containers/locationTypes/LocationTypesList", () => {
   it("renders without crashing", () => {
     shallow(
       <LocationTypesList
@@ -13,22 +17,36 @@ describe("containers/LocationTypesLists/LocationTypesList", () => {
         changePageTitle={function() {}}
         changePageTarget={function() {}}
         changePageTitleButton={function() {}}
+        changePageNumber={function() {}}
+        searchVal={function() {}}
         showListTitle={function() {}}
+        location={history.location}
       />
     );
   });
 
-  it("renders LocationTypesList list correctly", () => {
+  it("renders location list correctly", () => {
     const wrapper = mount(
-      <LocationTypesList
-        fetchLocationTypes={function() {}}
-        changePageTitle={function() {}}
-        changePageTarget={function() {}}
-        changePageTitleButton={function() {}}
-        showListTitle={function() {}}
-        rowsById={fixtures.LocationTypesListById}
-        rowsIdArray={fixtures.LocationTypesListIdArray}
-      />
+      <Router history={history}>
+        <LocationTypesList
+          fetchLocationTypes={function() {}}
+          changePageTitle={function() {}}
+          changePageTarget={function() {}}
+          changePageTitleButton={function() {}}
+          changePageNumber={function() {}}
+          searchVal={function() {}}
+          showListTitle={function() {}}
+          rowsById={fixtures.locationById}
+          rowsIdArray={fixtures.locationIdArray}
+          endpoint={"locationTypes"}
+          pageLinks={fixtures.pageLinks}
+          totalPages={fixtures.totalPages}
+          currentPage={fixtures.currentPage}
+          firstPage={fixtures.firstPage}
+          lastPage={fixtures.lastPage}
+          location={history.location}
+        />
+      </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

@@ -2,10 +2,7 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class LocationTypeService {
-  async getLocationTypeList() {
-    const url = `${
-      constants.API_ENDPOINT
-    }/locationtypes/?format=vnd.api%2Bjson`;
+  async getLocationTypeList(url = `${constants.API_ENDPOINT}/locationtypes/`) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -21,18 +18,28 @@ class LocationTypeService {
         }`
       );
     }
-
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages }
+      }
+    } = await response.json();
 
     if (!data) {
       throw new Error(
         `LocationTypeService getLocationTypeList failed, data not returned`
       );
     }
-    return _.map(data, locationType => {
-      return locationType;
-    });
+
+    const locationTypeArray = _.map(data, locationType => locationType);
+
+    return {
+      locationTypeArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages
+    };
   }
 
   async createLocationType(locationType_data) {
