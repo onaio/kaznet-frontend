@@ -43,7 +43,7 @@ export class AsyncSearch extends Component {
         }
       } else if (type === "forms") {
         const formValue = this.props.task.attributes.xform_title;
-        if (formValue !== undefined) {
+        if (formValue && formValue !== undefined) {
           this.props.formName(formValue);
         }
       }
@@ -173,7 +173,19 @@ export class AsyncSearch extends Component {
             ? ""
             : "";
 
-    return this.props.getFormName !== "" && this.props.getClientName !== "" ? (
+    return this.props.task ? (
+      this.props.getFormName !== "" && this.props.getClientName !== "" ? (
+        <AsyncTypeahead
+          isLoading={isLoading || false}
+          minLength={0}
+          onSearch={this.onSearchEvent}
+          options={getOptions}
+          placeholder={`Choose ${this.props.type}`}
+          onChange={e => this.handleChange(e, type)}
+          defaultInputValue={this.props.task ? val : ""}
+        />
+      ) : null
+    ) : (
       <AsyncTypeahead
         isLoading={isLoading || false}
         minLength={0}
@@ -181,9 +193,9 @@ export class AsyncSearch extends Component {
         options={getOptions}
         placeholder={`Choose ${this.props.type}`}
         onChange={e => this.handleChange(e, type)}
-        defaultInputValue={this.props.task ? val : ""}
+        defaultInputValue={""}
       />
-    ) : null;
+    );
   }
 }
 

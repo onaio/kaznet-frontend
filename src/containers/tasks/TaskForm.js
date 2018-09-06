@@ -466,11 +466,29 @@ export class TaskForm extends Component {
                           {
                             <Row id={loc} key={i}>
                               <Col md={{ size: 6 }}>
-                                <AsyncSearch
-                                  task={this.props.task}
-                                  type={"locations"}
-                                  handleChange={handleChange}
-                                />
+                                <Input
+                                  id={loc}
+                                  name="tasklocation_location"
+                                  type="select"
+                                  bsSize="lg"
+                                  placeholder="Location"
+                                  aria-label="location"
+                                  onChange={this.handleChange(i)}
+                                  onBlur={handleBlur}
+                                  value={loc.name}
+                                  className={
+                                    errors.locations_input &&
+                                    errors.locations_input.location
+                                      ? "is-invalid"
+                                      : ""
+                                  }
+                                  required={true}
+                                >
+                                  <OptionMap
+                                    obj={this.props.locationsById}
+                                    titleField="name"
+                                  />
+                                </Input>
                                 {errors.locations_input && (
                                   <div className="invalid-feedback">
                                     {errors.locations_input.location &&
