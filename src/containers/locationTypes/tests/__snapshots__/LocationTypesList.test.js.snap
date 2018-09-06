@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-<<<<<<< HEAD
 exports[`containers/locationTypes/LocationTypesList renders location list correctly 1`] = `
-=======
-exports[`containers/LocationTypesLists/LocationTypesList renders LocationTypesList list correctly 1`] = `
->>>>>>> add changes to tests on loading animations
 <Router
   history={
     Object {
@@ -28,16 +24,29 @@ exports[`containers/LocationTypesLists/LocationTypesList renders LocationTypesLi
   }
 >
   <LocationTypesList
+    changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="locationTypes"
     fetchLocationTypes={[Function]}
+    firstPage={1}
+    lastPage={2}
     location={
       Object {
         "hash": "",
         "pathname": "/",
         "search": "",
         "state": undefined,
+      }
+    }
+    pageLinks={
+      Object {
+        "first": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+        "next": null,
+        "prev": null,
       }
     }
     rowsById={
@@ -68,12 +77,26 @@ exports[`containers/LocationTypesLists/LocationTypesList renders LocationTypesLi
         "2",
       ]
     }
+    searchVal={[Function]}
     showListTitle={[Function]}
+    totalPages={1}
   >
     <div
       className="LocationTypeList"
     >
       <ListView
+        currentPage={1}
+        endpoint="locationtypes"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+            "last": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+            "next": null,
+            "prev": null,
+          }
+        }
         renderHeaders={[Function]}
         renderRow={[Function]}
         rowsById={
@@ -104,6 +127,7 @@ exports[`containers/LocationTypesLists/LocationTypesList renders LocationTypesLi
             "2",
           ]
         }
+        totalPages={1}
       >
         <div>
           <Table
