@@ -169,7 +169,6 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                           EDIT
                         </a>
                       </Link>
-                        |  
                       <Modal
                         autoFocus={true}
                         backdrop={true}

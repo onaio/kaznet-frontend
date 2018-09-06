@@ -235,7 +235,6 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       >
                           davisraym
                       </Link>,
-                        "davisraym",
                         "Raymond",
                         "Davis",
                         0,
@@ -284,30 +283,25 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     <td
                       key="2"
                     >
-                      davisraym
+                      Raymond
                     </td>
                     <td
                       key="3"
                     >
-                      Raymond
+                      Davis
                     </td>
                     <td
                       key="4"
                     >
-                      Davis
+                      0
                     </td>
                     <td
                       key="5"
                     >
-                      0
-                    </td>
-                    <td
-                      key="6"
-                    >
                       0%
                     </td>
                     <td
-                      key="7"
+                      key="6"
                     >
                       <t
                         ago={false}
