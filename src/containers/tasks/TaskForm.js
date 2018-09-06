@@ -16,7 +16,6 @@ import moment from "moment";
 import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
-
 import { OptionMap } from "../Select";
 import "./TaskForm.css";
 import * as clientActions from "../../store/clients/actions";
@@ -28,7 +27,7 @@ import * as clientSelectors from "../../store/clients/reducer";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
-
+import "../LoadListAnimation.css";
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
@@ -160,6 +159,11 @@ export class TaskForm extends Component {
   };
 
   render() {
+    if (
+      Object.keys(this.props.locationsById).length === 0 &&
+      this.props.locationsById.constructor === Object
+    )
+      return this.renderLoading();
     return (
       <Formik
         initialValues={this.props.initialData}
@@ -691,6 +695,16 @@ export class TaskForm extends Component {
           </div>
         )}
       />
+    );
+  }
+  renderLoading() {
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
     );
   }
 }
