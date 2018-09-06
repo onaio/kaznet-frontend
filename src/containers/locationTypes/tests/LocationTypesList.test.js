@@ -2,10 +2,9 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
-
 import { LocationTypesList } from "../LocationTypesList";
 import * as fixtures from "../../../store/locationTypes/tests/fixtures";
+import createBrowserHistory from "history/createBrowserHistory";
 
 const history = createBrowserHistory();
 

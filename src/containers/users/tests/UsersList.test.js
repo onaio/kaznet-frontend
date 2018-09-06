@@ -23,6 +23,7 @@ describe("containers/users/UsersList", () => {
         searchParam={""}
         taskStatus={""}
         location={history.location}
+        rowsIdArray={fixtures.usersIdArray}
       />
     );
   });

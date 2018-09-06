@@ -61,7 +61,7 @@ export class LocationTypesList extends Component {
   }
 
   render() {
-    if (this.props.rowsById <= 0) return this.renderLoading();
+    if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
       <div className="LocationTypeList">
         <ListView

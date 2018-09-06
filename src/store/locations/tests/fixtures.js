@@ -196,6 +196,7 @@ export const locationsArraySecondPage = _.map(
 );
 
 export const locationsById = _.keyBy(locationsArray, location => location.id);
+export const locationsIdArray = _.keys(locationsById);
 export const locationById = _.get(locationsById, 1);
 export const locationWithNoSumissions = _.get(locationsById, 7);
 
@@ -203,7 +204,6 @@ export const singleLocationData = {
   data: singleLocation
 };
 
-export const locationsIdArray = _.keys(locationsById);
 export const singleLocationArray = _.map(singleLocationData, location => {
   return location;
 });

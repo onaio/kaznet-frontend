@@ -58,7 +58,7 @@ export class LocationsList extends Component {
   }
 
   render() {
-    if (this.props.rowsIdArray <= 0) return this.renderLoading();
+    if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
       <div className="LocationList">
         <ListView

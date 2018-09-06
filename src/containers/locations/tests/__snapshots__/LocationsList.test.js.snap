@@ -51,58 +51,91 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
     }
     rowsById={
       Object {
-        "attributes": Object {
-          "country": "KE",
-          "created": "2018-06-20T12:09:02.916318+03:00",
-          "description": "Such Big City , Much wow",
-          "geopoint": null,
-          "has_submissions": true,
-          "location_type_name": "None",
-          "modified": "2018-06-20T12:09:02.916345+03:00",
-          "name": "Nairobi",
-          "parent_name": "None",
-          "radius": null,
-          "shapefile": Object {
-            "coordinates": Array [
-              Array [
+        "1": Object {
+          "attributes": Object {
+            "country": "KE",
+            "created": "2018-06-20T12:09:02.916318+03:00",
+            "description": "Such Big City , Much wow",
+            "geopoint": null,
+            "has_submissions": true,
+            "location_type_name": "None",
+            "modified": "2018-06-20T12:09:02.916345+03:00",
+            "name": "Nairobi",
+            "parent_name": "None",
+            "radius": null,
+            "shapefile": Object {
+              "coordinates": Array [
                 Array [
                   Array [
-                    -0.038795471191406,
-                    0.030555723649271,
-                  ],
-                  Array [
-                    0.049095153808594,
-                    0.013389587280456,
-                  ],
-                  Array [
-                    0.015106201171875,
-                    -0.063171373920095,
-                  ],
-                  Array [
-                    -0.044288635253906,
-                    -0.032615659859611,
-                  ],
-                  Array [
-                    -0.038795471191406,
-                    0.030555723649271,
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
+                    Array [
+                      0.049095153808594,
+                      0.013389587280456,
+                    ],
+                    Array [
+                      0.015106201171875,
+                      -0.063171373920095,
+                    ],
+                    Array [
+                      -0.044288635253906,
+                      -0.032615659859611,
+                    ],
+                    Array [
+                      -0.038795471191406,
+                      0.030555723649271,
+                    ],
                   ],
                 ],
               ],
-            ],
-            "type": "MultiPolygon",
+              "type": "MultiPolygon",
+            },
           },
+          "id": "1",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
+          },
+          "type": "Location",
         },
-        "id": "1",
-        "relationships": Object {
-          "location_type": Object {
-            "data": null,
+        "7": Object {
+          "attributes": Object {
+            "country": "CK",
+            "created": "2018-07-09T14:53:09.732230+03:00",
+            "description": "Something",
+            "geopoint": null,
+            "has_submissions": false,
+            "location_type_name": null,
+            "modified": "2018-07-09T14:53:09.732261+03:00",
+            "name": "Sol Point",
+            "parent_name": null,
+            "radius": null,
+            "shapefile": null,
           },
-          "parent": Object {
-            "data": null,
+          "id": "7",
+          "relationships": Object {
+            "location_type": Object {
+              "data": null,
+            },
+            "parent": Object {
+              "data": null,
+            },
           },
+          "type": "Location",
         },
-        "type": "Location",
       }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+        "7",
+      ]
     }
     searchParam=""
     searchVal={[Function]}
@@ -129,58 +162,91 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
         renderRow={[Function]}
         rowsById={
           Object {
-            "attributes": Object {
-              "country": "KE",
-              "created": "2018-06-20T12:09:02.916318+03:00",
-              "description": "Such Big City , Much wow",
-              "geopoint": null,
-              "has_submissions": true,
-              "location_type_name": "None",
-              "modified": "2018-06-20T12:09:02.916345+03:00",
-              "name": "Nairobi",
-              "parent_name": "None",
-              "radius": null,
-              "shapefile": Object {
-                "coordinates": Array [
-                  Array [
+            "1": Object {
+              "attributes": Object {
+                "country": "KE",
+                "created": "2018-06-20T12:09:02.916318+03:00",
+                "description": "Such Big City , Much wow",
+                "geopoint": null,
+                "has_submissions": true,
+                "location_type_name": "None",
+                "modified": "2018-06-20T12:09:02.916345+03:00",
+                "name": "Nairobi",
+                "parent_name": "None",
+                "radius": null,
+                "shapefile": Object {
+                  "coordinates": Array [
                     Array [
                       Array [
-                        -0.038795471191406,
-                        0.030555723649271,
-                      ],
-                      Array [
-                        0.049095153808594,
-                        0.013389587280456,
-                      ],
-                      Array [
-                        0.015106201171875,
-                        -0.063171373920095,
-                      ],
-                      Array [
-                        -0.044288635253906,
-                        -0.032615659859611,
-                      ],
-                      Array [
-                        -0.038795471191406,
-                        0.030555723649271,
+                        Array [
+                          -0.038795471191406,
+                          0.030555723649271,
+                        ],
+                        Array [
+                          0.049095153808594,
+                          0.013389587280456,
+                        ],
+                        Array [
+                          0.015106201171875,
+                          -0.063171373920095,
+                        ],
+                        Array [
+                          -0.044288635253906,
+                          -0.032615659859611,
+                        ],
+                        Array [
+                          -0.038795471191406,
+                          0.030555723649271,
+                        ],
                       ],
                     ],
                   ],
-                ],
-                "type": "MultiPolygon",
+                  "type": "MultiPolygon",
+                },
               },
+              "id": "1",
+              "relationships": Object {
+                "location_type": Object {
+                  "data": null,
+                },
+                "parent": Object {
+                  "data": null,
+                },
+              },
+              "type": "Location",
             },
-            "id": "1",
-            "relationships": Object {
-              "location_type": Object {
-                "data": null,
+            "7": Object {
+              "attributes": Object {
+                "country": "CK",
+                "created": "2018-07-09T14:53:09.732230+03:00",
+                "description": "Something",
+                "geopoint": null,
+                "has_submissions": false,
+                "location_type_name": null,
+                "modified": "2018-07-09T14:53:09.732261+03:00",
+                "name": "Sol Point",
+                "parent_name": null,
+                "radius": null,
+                "shapefile": null,
               },
-              "parent": Object {
-                "data": null,
+              "id": "7",
+              "relationships": Object {
+                "location_type": Object {
+                  "data": null,
+                },
+                "parent": Object {
+                  "data": null,
+                },
               },
+              "type": "Location",
             },
-            "type": "Location",
           }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+            "7",
+          ]
         }
         searchVal=""
         totalPages={2}
@@ -231,7 +297,108 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                   </ElementMap>
                 </tr>
               </thead>
-              <tbody />
+              <tbody>
+                <tr
+                  key="1"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/locations/1"
+                      >
+                          Nairobi
+                      </Link>,
+                        "None",
+                        "None",
+                        "Such Big City , Much wow",
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/locations/1"
+                      >
+                        <a
+                          href="/locations/1"
+                          onClick={[Function]}
+                        >
+                          Nairobi
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
+                    >
+                      None
+                    </td>
+                    <td
+                      key="2"
+                    >
+                      None
+                    </td>
+                    <td
+                      key="3"
+                    >
+                      Such Big City , Much wow
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="7"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/locations/7"
+                      >
+                          Sol Point
+                      </Link>,
+                        null,
+                        null,
+                        "Something",
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/locations/7"
+                      >
+                        <a
+                          href="/locations/7"
+                          onClick={[Function]}
+                        >
+                          Sol Point
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
+                    />
+                    <td
+                      key="2"
+                    />
+                    <td
+                      key="3"
+                    >
+                      Something
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
             </table>
           </Table>
           <Pagination
