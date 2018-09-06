@@ -23,39 +23,46 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
     }
   }
 >
-  <LocationTypesList
-    changePageNumber={[Function]}
-    changePageTarget={[Function]}
-    changePageTitle={[Function]}
-    changePageTitleButton={[Function]}
-    currentPage={1}
-    endpoint="locationTypes"
-    fetchLocationTypes={[Function]}
-    firstPage={1}
-    lastPage={2}
-    location={
-      Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
-      }
-    }
-    pageLinks={
-      Object {
-        "first": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
-        "last": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
-        "next": null,
-        "prev": null,
-      }
-    }
-    searchVal={[Function]}
-    showListTitle={[Function]}
-    totalPages={1}
+  <div
+    className="LocationTypeList"
   >
-    <p>
-      Loading...
-    </p>
-  </LocationTypesList>
-</Router>
+    <ListView
+      renderHeaders={[Function]}
+      renderRow={[Function]}
+    >
+      <div>
+        <Table
+          bordered={true}
+          className="kaznet-table"
+          responsiveTag="div"
+          tag="table"
+        >
+          <table
+            className="kaznet-table table table-bordered"
+          >
+            <thead>
+              <tr>
+                <ElementMap
+                  HTMLTag="th"
+                  items={
+                    Array [
+                      "Name",
+                    ]
+                  }
+                >
+                  <th
+                    key="0"
+                  >
+                    Name
+                  </th>
+                </ElementMap>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </Table>
+      </div>
+    </ListView>
+  </div>
+</LocationTypesList>
 `;

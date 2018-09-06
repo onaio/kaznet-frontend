@@ -22,8 +22,9 @@ describe("containers/task/TasksList", () => {
         searchVal={function() {}}
         showListTitle={function() {}}
         getStatus={function() {}}
-        searchParam={"test"}
+        searchParam={fixtures.searchParam}
         taskStatus={fixtures.getTaskStatus}
+        rowsIdArray={fixtures.tasksIdArray}
         location={history.location}
       />
     );
@@ -41,7 +42,7 @@ describe("containers/task/TasksList", () => {
           searchVal={function() {}}
           showListTitle={function() {}}
           getStatus={function() {}}
-          searchParam={"test"}
+          searchParam={fixtures.searchParam}
           taskStatus={fixtures.getTaskStatus}
           rowsById={fixtures.tasksById}
           rowsIdArray={fixtures.tasksIdArray}
