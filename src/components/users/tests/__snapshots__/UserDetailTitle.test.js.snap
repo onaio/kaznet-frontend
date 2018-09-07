@@ -105,34 +105,6 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                 &gt; 
                 davisraym
               </h1>
-              <p
-                className="kaznet-creation-detail"
-              >
-                By 
-                ,
-                 
-                <t
-                  ago={false}
-                  calendar={false}
-                  decimal={false}
-                  element="time"
-                  filter={[Function]}
-                  format="DD-MM-YYYY"
-                  fromNow={false}
-                  interval={60000}
-                  onChange={[Function]}
-                  toNow={false}
-                  unit={null}
-                  unix={false}
-                  utc={false}
-                >
-                  <time
-                    dateTime={"2018-06-19T13:03:10.184Z"}
-                  >
-                    19-06-2018
-                  </time>
-                </t>
-              </p>
               <Col
                 md="12"
                 tag="div"
@@ -159,11 +131,11 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                       <Link
                         className="action-link"
                         replace={false}
-                        to="/users/edit/undefined"
+                        to="#"
                       >
                         <a
                           className="action-link"
-                          href="/users/edit/undefined"
+                          href="/"
                           onClick={[Function]}
                         >
                           EDIT
