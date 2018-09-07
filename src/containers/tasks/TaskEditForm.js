@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import moment from "moment";
-
+import "../LoadListAnimation.css";
 import TaskForm from "./TaskForm";
 import FormView from "../../components/FormView";
 import * as taskSelectors from "../../store/tasks/reducer";
@@ -106,11 +106,14 @@ export class TaskEditForm extends Component {
   }
 
   renderLoading() {
-    if (!this.props.hasError) {
-      return <p>Loading...</p>;
-    } else if (this.props.hasError) {
-      return <p> {this.props.errorMessage.message} </p>;
-    }
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
+    );
   }
 }
 

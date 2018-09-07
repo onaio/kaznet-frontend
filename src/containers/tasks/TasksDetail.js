@@ -3,13 +3,12 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-
+import "../LoadListAnimation.css";
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as constants from "../../constants";
-
 import ElementMap from "../ElementMap";
 import DetailView from "../../components/DetailView";
 import TaskDetailTitle from "../../components/tasks/TaskDetailTitle";
@@ -52,7 +51,14 @@ export class TasksDetail extends Component {
 
   renderLoading() {
     if (!this.props.hasError) {
-      return <p>Loading...</p>;
+      return (
+        <center>
+          <div className="lds-ripple">
+            <div />
+            <div />
+          </div>
+        </center>
+      );
     } else if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }

@@ -21,6 +21,7 @@ describe("containers/clients/ClientsList", () => {
         changePageNumber={function() {}}
         location={history.location}
         searchVal={function() {}}
+        rowsIdArray={fixtures.clientsIdArray}
       />
     );
   });

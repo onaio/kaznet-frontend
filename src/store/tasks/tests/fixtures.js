@@ -1,6 +1,6 @@
 // Fixtures for task tests
 import _ from "lodash";
-
+export const searchParam = "";
 export const taskData = {
   links: {
     first: "http://127.0.0.1:8000/api/v1/tasks/?format=vnd.api%2Bjson&page=1",

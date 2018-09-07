@@ -49,13 +49,189 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
         "prev": null,
       }
     }
+    rowsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "created": "2018-07-13T17:34:14.408576+03:00",
+            "modified": "2018-07-13T17:34:14.408599+03:00",
+            "name": "Market",
+          },
+          "id": "1",
+          "type": "LocationType",
+        },
+        "2": Object {
+          "attributes": Object {
+            "created": "2018-07-13T17:34:27.023947+03:00",
+            "modified": "2018-07-13T17:34:27.023970+03:00",
+            "name": "Hospital",
+          },
+          "id": "2",
+          "type": "LocationType",
+        },
+      }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+        "2",
+      ]
+    }
     searchVal={[Function]}
     showListTitle={[Function]}
     totalPages={1}
   >
-    <p>
-      Loading...
-    </p>
+    <div
+      className="LocationTypeList"
+    >
+      <ListView
+        currentPage={1}
+        endpoint="locationtypes"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+            "last": "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+            "next": null,
+            "prev": null,
+          }
+        }
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "1": Object {
+              "attributes": Object {
+                "created": "2018-07-13T17:34:14.408576+03:00",
+                "modified": "2018-07-13T17:34:14.408599+03:00",
+                "name": "Market",
+              },
+              "id": "1",
+              "type": "LocationType",
+            },
+            "2": Object {
+              "attributes": Object {
+                "created": "2018-07-13T17:34:27.023947+03:00",
+                "modified": "2018-07-13T17:34:27.023970+03:00",
+                "name": "Hospital",
+              },
+              "id": "2",
+              "type": "LocationType",
+            },
+          }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+            "2",
+          ]
+        }
+        totalPages={1}
+      >
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
+          >
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Name",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Name
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="1"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/locationTypes/edit/1"
+                      >
+                          Market
+                      </Link>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/locationTypes/edit/1"
+                      >
+                        <a
+                          href="/locationTypes/edit/1"
+                          onClick={[Function]}
+                        >
+                          Market
+                        </a>
+                      </Link>
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="2"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/locationTypes/edit/2"
+                      >
+                          Hospital
+                      </Link>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/locationTypes/edit/2"
+                      >
+                        <a
+                          href="/locationTypes/edit/2"
+                          onClick={[Function]}
+                        >
+                          Hospital
+                        </a>
+                      </Link>
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+        </div>
+      </ListView>
+    </div>
   </LocationTypesList>
 </Router>
 `;

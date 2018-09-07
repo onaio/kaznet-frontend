@@ -10,7 +10,7 @@ import * as locationSelectors from "../../store/locations/reducer";
 import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
 import * as constants from "../../constants.js";
-
+import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
@@ -58,7 +58,7 @@ export class LocationsList extends Component {
   }
 
   render() {
-    if (!this.props.rowsById) return this.renderLoading();
+    if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
       <div className="LocationList">
         <ListView
@@ -79,7 +79,14 @@ export class LocationsList extends Component {
   }
 
   renderLoading() {
-    return <p>Loading...</p>;
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
+    );
   }
 
   renderRow(row) {

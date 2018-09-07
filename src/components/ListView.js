@@ -73,6 +73,7 @@ export default class ListView extends Component {
         </DropdownItem>
       );
     });
+
     return (
       <div>
         <Table bordered className="kaznet-table">
