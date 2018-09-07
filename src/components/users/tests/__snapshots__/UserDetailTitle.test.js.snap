@@ -105,70 +105,7 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                 &gt; 
                 davisraym
               </h1>
-              <Col
-                md="12"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-12"
-                >
-                  <Row
-                    className="kaznet-action-links"
-                    tag="div"
-                  >
-                    <div
-                      className="kaznet-action-links row"
-                    >
-                      <Link
-                        className="action-link"
-                        replace={false}
-                        to="#"
-                      >
-                        <a
-                          className="action-link"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          EDIT
-                        </a>
-                      </Link>
-                      <Modal
-                        autoFocus={true}
-                        backdrop={true}
-                        backdropTransition={
-                          Object {
-                            "mountOnEnter": true,
-                            "timeout": 150,
-                          }
-                        }
-                        centered={false}
-                        fade={true}
-                        isOpen={false}
-                        keyboard={true}
-                        modalTransition={
-                          Object {
-                            "timeout": 300,
-                          }
-                        }
-                        onClosed={[Function]}
-                        onOpened={[Function]}
-                        role="dialog"
-                        toggle={[Function]}
-                        zIndex={1050}
-                      />
-                    </div>
-                  </Row>
-                </div>
-              </Col>
+                
             </div>
           </div>
         </Col>
