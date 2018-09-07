@@ -19,6 +19,7 @@ describe("containers/task/TaskForm", () => {
         fetchForms={function() {}}
         fetchContentTypes={function() {}}
         locationsById={locationsById}
+        clientsById={clientsById}
       />
     );
   });

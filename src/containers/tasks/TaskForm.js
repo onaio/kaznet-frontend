@@ -161,7 +161,9 @@ export class TaskForm extends Component {
   render() {
     if (
       Object.keys(this.props.locationsById).length === 0 &&
-      this.props.locationsById.constructor === Object
+      this.props.locationsById.constructor === Object &&
+      Object.keys(this.props.clientsById).length === 0 &&
+      this.props.clientsById.constructor === Object
     )
       return this.renderLoading();
     return (
