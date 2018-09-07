@@ -9,7 +9,6 @@ import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as constants from "../../constants";
-import "../LoadListAnimation.css";
 import ElementMap from "../ElementMap";
 import DetailView from "../../components/DetailView";
 import TaskDetailTitle from "../../components/tasks/TaskDetailTitle";
