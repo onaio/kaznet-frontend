@@ -1,4 +1,6 @@
 import _ from "lodash";
+import Cookies from "js-cookie";
+
 import * as constants from "../constants";
 
 class LocationService {
@@ -48,6 +50,7 @@ class LocationService {
       headers: {
         Accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(location_data),
@@ -80,6 +83,7 @@ class LocationService {
       headers: {
         Accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(location_data),
@@ -112,6 +116,7 @@ class LocationService {
       method: "DELETE",
       headers: {
         Accept: "application/vnd.api+json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
