@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/users/UserDetailTitle renders the correct html 1`] = `
+<ErrorBoundary>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <UserDetailTitle
+      user={
+        Object {
+          "attributes": Object {
+            "amount_earned": "0 KES",
+            "approval_rate": 0,
+            "approved_submissions": 0,
+            "avg_amount_earned": 0,
+            "avg_approval_rate": 0,
+            "avg_approved_submissions": 0,
+            "avg_rejected_submissions": 0,
+            "avg_submissions": 0,
+            "created": "2018-06-19T16:03:10.184043+03:00",
+            "email": "sol@admin.me",
+            "expertise": "1",
+            "first_name": "Davis",
+            "gender": "1",
+            "last_login": "2018-06-19T16:03:22+03:00",
+            "last_name": "Raymond",
+            "modified": "2018-06-20T08:45:12.976916+03:00",
+            "national_id": null,
+            "ona_pk": null,
+            "ona_username": "davisraym",
+            "payment_number": "",
+            "phone_number": "",
+            "rejected_submissions": 0,
+            "role": "1",
+            "role_display": "Admin",
+            "submission_count": 0,
+          },
+          "id": "1",
+          "type": "UserProfile",
+        }
+      }
+    >
+      <section
+        className="detail-page-title"
+      >
+        <Col
+          md={
+            Object {
+              "offset": 2,
+              "size": 8,
+            }
+          }
+          sm="12"
+          tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <div
+            className="col-sm-12 col-md-8 offset-md-2"
+          >
+            <div>
+              <h1
+                className="kaznet-detail-title"
+              >
+                <Link
+                  className="kaznet-header-link"
+                  replace={false}
+                  to="/users"
+                >
+                  <a
+                    className="kaznet-header-link"
+                    href="/users"
+                    onClick={[Function]}
+                  >
+                    Users
+                  </a>
+                </Link>
+                 
+                &gt; 
+                davisraym
+              </h1>
+                
+            </div>
+          </div>
+        </Col>
+      </section>
+    </UserDetailTitle>
+  </Router>
+</ErrorBoundary>
+`;

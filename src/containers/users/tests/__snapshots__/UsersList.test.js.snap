@@ -229,7 +229,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     items={
                       Array [
                         "Admin",
-                        "davisraym",
+                        <Link
+                          replace={false}
+                          to="/users/1"
+                      >
+                          davisraym
+                      </Link>,
                         "Raymond",
                         "Davis",
                         0,
@@ -262,7 +267,18 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     <td
                       key="1"
                     >
-                      davisraym
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/users/1"
+                      >
+                        <a
+                          href="/users/1"
+                          onClick={[Function]}
+                        >
+                          davisraym
+                        </a>
+                      </Link>
                     </td>
                     <td
                       key="2"
