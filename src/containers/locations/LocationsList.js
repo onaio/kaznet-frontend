@@ -12,6 +12,7 @@ import * as globalSelectors from "../../store/global/reducer";
 import * as constants from "../../constants.js";
 import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
+import NotFound from "../../components/NotFound";
 import ElementMap from "../ElementMap";
 
 export class LocationsList extends Component {
@@ -59,16 +60,7 @@ export class LocationsList extends Component {
 
   render() {
     if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
-      return (
-        <div className="container">
-          <br />
-          <div className="jumbotron">
-            <p align="center">
-              The Task Name You Are looking for does not exist
-            </p>
-          </div>
-        </div>
-      );
+      return <NotFound searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
