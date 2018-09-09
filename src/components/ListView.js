@@ -14,7 +14,6 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  ModalFooter,
   Input,
   Col,
   Row,
@@ -100,7 +99,7 @@ export default class ListView extends Component {
                 <Form onSubmit={this.props.onFormSubmit}>
                   <FormGroup className="row">
                     <Row>
-                      <Col md="5">
+                      <Col md={{ size: 5, offset: 1 }}>
                         <Input
                           name="start"
                           type="date"
@@ -150,7 +149,6 @@ export default class ListView extends Component {
                   </FormGroup>
                 </Form>
               </ModalBody>
-              <ModalFooter />
             </Modal>
           </div>
         )}

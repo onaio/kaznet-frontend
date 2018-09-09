@@ -47,9 +47,14 @@ export function changePageNumber(pageNumber) {
   };
 }
 
-export function exportUserSubmissions(user_id, from, to) {
+export function exportUserSubmissions(user_name, user_id, from, to) {
   return async (dispatch, getState) => {
-    const file = await userService.exportUserSubmissions(user_id, from, to);
+    const file = await userService.exportUserSubmissions(
+      user_name,
+      user_id,
+      from,
+      to
+    );
     dispatch({ type: types.FILE_EXPORTED, file });
   };
 }

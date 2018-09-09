@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import { Button } from "reactstrap";
 import qs from "qs";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import * as userActions from "../../store/users/actions";
 import * as globalActions from "../../store/global/actions";
@@ -48,6 +49,7 @@ export class UsersList extends Component {
 
   onFormSubmit(e) {
     this.props.exportUserSubmissions(
+      this.state.userName,
       this.state.userId,
       this.state.start,
       this.state.end
@@ -149,16 +151,22 @@ export class UsersList extends Component {
       row.attributes.ona_username,
       row.attributes.last_name,
       row.attributes.first_name,
-      <Button
-        key={row.id}
-        color="danger"
-        onClick={function(event) {
-          toggleExportModalFunction();
-          setUserDetails(row.id, row.attributes.ona_username);
-        }}
-      >
-        button label
-      </Button>,
+      <div>
+        {row.attributes.submission_count}
+        <Button
+          key={row.id}
+          className="mx-4 btn btn-light"
+          onClick={function(event) {
+            toggleExportModalFunction();
+            setUserDetails(row.id, row.attributes.ona_username);
+          }}
+        >
+          <FontAwesomeIcon
+            icon="laptop"
+            className="fa-xs icon-link withspace"
+          />
+        </Button>
+      </div>,
       row.attributes.approval_rate * 100 + "%",
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.last_login}

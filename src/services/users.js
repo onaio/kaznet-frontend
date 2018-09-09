@@ -1,6 +1,7 @@
 import _ from "lodash";
 
 import * as constants from "../constants";
+import download from "downloadjs";
 
 class UserService {
   async getUserList(url = `${constants.API_ENDPOINT}/userprofiles/`) {
@@ -72,18 +73,25 @@ class UserService {
     return data;
   }
 
-  async exportUserSubmissions(user_id, from, to) {
+  async exportUserSubmissions(user_name, user_id, from, to) {
     const url = `${
       constants.API_ENDPOINT
     }/exports/submissions/?user=${user_id}&modified__gte=${from}&modified__lte=${to}&format=csv`;
+    let fileName = `${user_name} ${from} to ${to} Submissions`;
+
     const response = await fetch(url, {
       method: "GET",
       headers: {
         Authorization: `Token ${constants.API_TOKEN}`
       }
-    });
-
-    return (window.location.href = response.url);
+    })
+      .then(function(resp) {
+        return resp.blob();
+      })
+      .then(function(blob) {
+        download(blob, fileName);
+      });
+    return await response;
   }
 }
 
