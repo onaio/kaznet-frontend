@@ -5,8 +5,11 @@ export default class NotFound extends Component {
     return (
       <div className="container">
         <br />
-        <div className="jumbotron">
-          <p align="center">Task {this.props.searchVal} not found</p>
+        <div className="jumbotron bg-white">
+          <p align="center">
+            Sorry, we couldn't find any results matching "{this.props.searchVal}".
+          </p>
+          <p align="center">Please try again?</p>
         </div>
       </div>
     );
