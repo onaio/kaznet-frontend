@@ -7,7 +7,9 @@ export default class NoResults extends Component {
         <br />
         <div className="jumbotron bg-white">
           <p align="center">
-            Sorry, we couldn't find any results matching "{this.props.searchVal}".
+            Sorry, we could not find any results matching "{
+              this.props.searchVal
+            }".
           </p>
           <p align="center">Please try again?</p>
         </div>
