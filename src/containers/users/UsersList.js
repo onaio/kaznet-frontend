@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
+import { Button } from "reactstrap";
 import Moment from "react-moment";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+
 import qs from "qs";
 import "../LoadListAnimation.css";
 import * as userActions from "../../store/users/actions";
@@ -15,6 +18,47 @@ import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
 export class UsersList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      userId: null,
+      userName: null,
+      start: "",
+      end: ""
+    };
+    this.toggle = this.toggle.bind(this);
+    this.setUserDetails = this.setUserDetails.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.handleDateChanges = this.handleDateChanges.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  setUserDetails(userId = null, userName = null) {
+    this.setState({ userId: userId, userName: userName });
+  }
+
+  handleDateChanges(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  onFormSubmit(e) {
+    this.props.exportUserSubmissions(
+      this.state.userName,
+      this.state.userId,
+      this.state.start,
+      this.state.end
+    );
+    e.preventDefault();
+  }
+
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Users");
@@ -80,6 +124,13 @@ export class UsersList extends Component {
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
           searchVal={this.props.searchParam}
+          downloadModalHandler={this.toggle}
+          modalState={this.state.modal}
+          setUserDetails={this.setUserDetails}
+          userId={this.state.userId}
+          userName={this.state.userName}
+          onFormSubmit={this.onFormSubmit}
+          handleDateChanges={this.handleDateChanges}
         />
       </div>
     );
@@ -109,7 +160,7 @@ export class UsersList extends Component {
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
-  renderRow(row) {
+  renderRow(row, toggleExportModalFunction = null, setUserDetails = null) {
     const rowItems = [
       row.attributes.role_display,
       <Link to={`/users/${row.id}`} key="link_to">
@@ -117,7 +168,21 @@ export class UsersList extends Component {
       </Link>,
       row.attributes.last_name,
       row.attributes.first_name,
-      row.attributes.submission_count,
+      <div key={row.id}>
+        {row.attributes.submission_count}
+        <Button
+          className="mx-4 btn btn-light"
+          onClick={function(event) {
+            toggleExportModalFunction();
+            setUserDetails(row.id, row.attributes.ona_username);
+          }}
+        >
+          <FontAwesomeIcon
+            icon="laptop"
+            className="fa-xs icon-link withspace"
+          />
+        </Button>
+      </div>,
       row.attributes.approval_rate * 100 + "%",
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.last_login}
@@ -152,7 +217,8 @@ function mapDispatchToProps(dispatch) {
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff,
-      searchVal: globalActions.getSearchVal
+      searchVal: globalActions.getSearchVal,
+      exportUserSubmissions: userActions.exportUserSubmissions
     },
     dispatch
   );

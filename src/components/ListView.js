@@ -9,7 +9,16 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavLink
+  NavLink,
+  Button,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  Input,
+  Col,
+  Row,
+  FormGroup,
+  Form
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
@@ -73,9 +82,76 @@ export default class ListView extends Component {
         </DropdownItem>
       );
     });
-
     return (
       <div>
+        {this.props.downloadModalHandler && (
+          <div>
+            <Modal
+              isOpen={this.props.modalState}
+              toggle={this.props.downloadModalHandler}
+              className={this.props.className}
+            >
+              <ModalHeader toggle={this.props.downloadModalHandler}>
+                Submissions of {this.props.userName}
+              </ModalHeader>
+              <ModalBody>
+                <p className="font-weight-normal">Export Submissions </p>
+                <Form onSubmit={this.props.onFormSubmit}>
+                  <FormGroup className="row">
+                    <Row>
+                      <p className="text-center align-middle ml-4">From:</p>
+                      <Col md={{ size: 5 }}>
+                        <Input
+                          name="start"
+                          type="date"
+                          bsSize="md"
+                          placeholder="Start Date"
+                          aria-label="start"
+                          className={`time-picker`}
+                          onChange={this.props.handleDateChanges}
+                        />
+                      </Col>
+                      <p className="text-center align-middle">to</p>
+                      <Col md="5">
+                        <Input
+                          name="end"
+                          type="date"
+                          bsSize="md"
+                          placeholder="End Date"
+                          aria-label="end"
+                          className={`time-picker`}
+                          onChange={this.props.handleDateChanges}
+                        />
+                      </Col>
+                    </Row>
+                  </FormGroup>
+                  <FormGroup className="row">
+                    <Col md={{ size: 5, offset: 1 }}>
+                      <Button
+                        className="btn btn-secondary btn-block"
+                        color="secondary"
+                        onClick={this.props.downloadModalHandler}
+                      >
+                        Cancel
+                      </Button>
+                    </Col>
+                    <Col md={{ size: 5 }}>
+                      <Button
+                        type="submit"
+                        className="btn btn-primary btn-block"
+                        color="secondary"
+                        onClick={this.props.downloadModalHandler}
+                      >
+                        Export
+                      </Button>
+                    </Col>
+                  </FormGroup>
+                </Form>
+              </ModalBody>
+            </Modal>
+          </div>
+        )}
+
         <Table bordered className="kaznet-table">
           <thead>
             <tr>
@@ -109,7 +185,11 @@ export default class ListView extends Component {
   renderRowById(rowId) {
     return (
       <tr key={rowId}>
-        {this.props.renderRow(_.get(this.props.rowsById, rowId))}
+        {this.props.renderRow(
+          _.get(this.props.rowsById, rowId),
+          this.props.downloadModalHandler,
+          this.props.setUserDetails
+        )}
       </tr>
     );
   }
@@ -134,12 +214,7 @@ export default class ListView extends Component {
                     this.props.taskStatus === undefined
                       ? ""
                       : this.props.taskStatus
-                  }&page=${
-                    !this.props.firstPage ||
-                    typeof this.props.firstPage !== Number
-                      ? 1
-                      : this.props.firstPage
-                  }`
+                  }&page=${this.props.firstPage}`
                 : "#"
             }
             className="page-link"
@@ -192,7 +267,7 @@ export default class ListView extends Component {
                     !this.props.taskStatus ? "" : this.props.taskStatus
                   }&page=${
                     !this.props.lastPage || this.props.lastPage === undefined
-                      ? this.props.totalPages
+                      ? 1
                       : this.props.lastPage
                   }`
                 : "#"
