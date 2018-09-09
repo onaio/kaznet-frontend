@@ -9,7 +9,17 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavLink
+  NavLink,
+  Button,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+  Input,
+  Col,
+  Row,
+  FormGroup,
+  Form
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
@@ -75,6 +85,76 @@ export default class ListView extends Component {
     });
     return (
       <div>
+        {this.props.downloadModalHandler && (
+          <div>
+            <Modal
+              isOpen={this.props.modalState}
+              toggle={this.props.downloadModalHandler}
+              className={this.props.className}
+            >
+              <ModalHeader toggle={this.props.downloadModalHandler}>
+                Submissions of {this.props.userName}
+              </ModalHeader>
+              <ModalBody>
+                Export Submissions from:
+                <Form onSubmit={this.props.onFormSubmit}>
+                  <FormGroup className="row">
+                    <Row>
+                      <Col md="5">
+                        <Input
+                          name="start"
+                          type="date"
+                          bsSize="lg"
+                          placeholder="Start Date"
+                          aria-label="start"
+                          className={`time-picker`}
+                          onChange={this.props.handleDateChanges}
+                        />
+                      </Col>
+                      <Col md="1">
+                        <p className="text-center align-middle">to</p>
+                      </Col>
+                      <Col md="5">
+                        <Input
+                          name="end"
+                          type="date"
+                          bsSize="lg"
+                          placeholder="End Date"
+                          aria-label="end"
+                          className={`time-picker`}
+                          onChange={this.props.handleDateChanges}
+                        />
+                      </Col>
+                    </Row>
+                  </FormGroup>
+                  <FormGroup className="row">
+                    <Col md={{ size: 5, offset: 1 }}>
+                      <Button
+                        className="btn btn-secondary btn-block"
+                        color="secondary"
+                        onClick={this.props.downloadModalHandler}
+                      >
+                        Cancel
+                      </Button>
+                    </Col>
+                    <Col md={{ size: 5 }}>
+                      <Button
+                        type="submit"
+                        className="btn btn-primary btn-block"
+                        color="secondary"
+                        onClick={this.props.downloadModalHandler}
+                      >
+                        Export
+                      </Button>
+                    </Col>
+                  </FormGroup>
+                </Form>
+              </ModalBody>
+              <ModalFooter />
+            </Modal>
+          </div>
+        )}
+
         <Table bordered className="kaznet-table">
           <thead>
             <tr>
@@ -108,7 +188,11 @@ export default class ListView extends Component {
   renderRowById(rowId) {
     return (
       <tr key={rowId}>
-        {this.props.renderRow(_.get(this.props.rowsById, rowId))}
+        {this.props.renderRow(
+          _.get(this.props.rowsById, rowId),
+          this.props.downloadModalHandler,
+          this.props.setUserDetails
+        )}
       </tr>
     );
   }

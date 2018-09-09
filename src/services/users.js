@@ -71,6 +71,20 @@ class UserService {
 
     return data;
   }
+
+  async exportUserSubmissions(user_id, from, to) {
+    const url = `${
+      constants.API_ENDPOINT
+    }/exports/submissions/?user=${user_id}&modified__gte=${from}&modified__lte=${to}&format=csv`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Token ${constants.API_TOKEN}`
+      }
+    });
+
+    return (window.location.href = response.url);
+  }
 }
 
 export default new UserService();

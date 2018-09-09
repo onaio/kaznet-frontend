@@ -46,3 +46,10 @@ export function changePageNumber(pageNumber) {
     dispatch({ type: types.USER_CHANGE_PAGE, pageNumber });
   };
 }
+
+export function exportUserSubmissions(user_id, from, to) {
+  return async (dispatch, getState) => {
+    const file = await userService.exportUserSubmissions(user_id, from, to);
+    dispatch({ type: types.FILE_EXPORTED, file });
+  };
+}
