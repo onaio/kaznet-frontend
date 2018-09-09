@@ -9,7 +9,7 @@ import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationTypeSelectors from "../../store/locationTypes/reducer";
 import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
-import NotFound from "../../components/NotFound";
+import NoResults from "../../components/NoResults";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
@@ -62,7 +62,7 @@ export class LocationTypesList extends Component {
 
   render() {
     if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
-      return <NotFound searchVal={this.props.searchParam} />;
+      return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
