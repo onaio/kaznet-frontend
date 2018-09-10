@@ -1,5 +1,5 @@
 import _ from "lodash";
-
+import React from "react";
 import * as constants from "../constants";
 
 class TaskService {
@@ -109,13 +109,9 @@ class TaskService {
         Accept: "application/vnd.api+json",
         Authorization: `Token ${constants.API_TOKEN}`
       }
+    }).catch(function(error) {
+      return alert("you cannot delete stuff");
     });
-
-    if (!response.ok) {
-      throw new Error(
-        `TaskService deleteTask failed, HTTP status ${response.status}`
-      );
-    }
 
     return task_id;
   }

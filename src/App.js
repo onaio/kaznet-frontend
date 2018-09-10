@@ -45,6 +45,37 @@ import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
 import ClientDeletion from "./containers/clients/ClientDeletion";
 
+var Growl = require("Growl/growl.react");
+
+var MyApp = React.createClass({
+  growler: null,
+
+  componentDidMount: function() {
+    // Setup your Growl Settings
+    Growl.setPosition("tr"); // Bottom-Right(br) by default
+    Growl.setMaxToShow(1); // Default is 8
+    Growl.setDelay(3000);
+    // set our internal variable to a reference to an instance of the growler
+    this.growler = this.refs.growler;
+  },
+
+  // Give your whole app a method to call and trigger a notification.
+  growl: function(level, msg) {
+    this.growler.addNotification(level, msg);
+  },
+
+  // Somewhere in your main application view (so that it doesn't get unmounted) add an instance of Growl.
+  render: function() {
+    return (
+      <div className="myApp">
+        <Growl ref="growler" />
+      </div>
+    );
+  }
+});
+
+module.exports = MyApp;
+
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
   faSearch,

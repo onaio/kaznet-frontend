@@ -96,7 +96,7 @@ export function deleteTask(task_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "You cannot delete this message"
       });
     }
   };
