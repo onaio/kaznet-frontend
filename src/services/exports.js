@@ -19,7 +19,7 @@ class ExportService {
       tag +
       `_${filter_dict["modified__gte"]}_to_${
         filter_dict["modified__lte"]
-      } Submissions`;
+      }_submissions.csv`;
 
     const response = await fetch(url, {
       method: "GET",
