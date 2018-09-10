@@ -162,7 +162,12 @@ export default class ListView extends Component {
                     this.props.taskStatus === undefined
                       ? ""
                       : this.props.taskStatus
-                  }&page=${this.props.firstPage}`
+                  }&page=${
+                    !this.props.firstPage ||
+                    typeof this.props.firstPage !== Number
+                      ? 1
+                      : this.props.firstPage
+                  }`
                 : "#"
             }
             className="page-link"
@@ -215,7 +220,7 @@ export default class ListView extends Component {
                     !this.props.taskStatus ? "" : this.props.taskStatus
                   }&page=${
                     !this.props.lastPage || this.props.lastPage === undefined
-                      ? 1
+                      ? this.props.totalPages
                       : this.props.lastPage
                   }`
                 : "#"

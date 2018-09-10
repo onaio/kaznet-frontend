@@ -2,6 +2,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
+import MockDate from "mockdate";
 import ExportForm from "../ExportForm";
 
 describe("components/ExportForm", () => {
@@ -15,6 +16,7 @@ describe("components/ExportForm", () => {
     );
   });
   it("renders an ExportForm", () => {
+    MockDate.set("1/2/1986");
     const wrapper = mount(
       <ExportForm
         onFormSubmit={function() {}}

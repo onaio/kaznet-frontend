@@ -30,7 +30,6 @@ export class UsersList extends Component {
     this.toggle = this.toggle.bind(this);
     this.setUserDetails = this.setUserDetails.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.handleDateChanges = this.handleDateChanges.bind(this);
   }
 
   toggle() {
@@ -41,12 +40,6 @@ export class UsersList extends Component {
 
   setUserDetails(userId = null, userName = null) {
     this.setState({ userId: userId, userName: userName });
-  }
-
-  handleDateChanges(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
   }
 
   onFormSubmit(start, end) {
@@ -129,10 +122,8 @@ export class UsersList extends Component {
           downloadModalHandler={this.toggle}
           modalState={this.state.modal}
           setUserDetails={this.setUserDetails}
-          userId={this.state.userId}
           userName={this.state.userName}
           onFormSubmit={this.onFormSubmit}
-          handleDateChanges={this.handleDateChanges}
         />
       </div>
     );

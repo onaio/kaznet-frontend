@@ -103,7 +103,6 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
         downloadModalHandler={[Function]}
         endpoint="users"
         firstPage={1}
-        handleDateChanges={[Function]}
         lastPage={2}
         modalState={false}
         onFormSubmit={[Function]}
@@ -160,7 +159,6 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
         searchVal=""
         setUserDetails={[Function]}
         totalPages={2}
-        userId={null}
         userName={null}
       >
         <div>

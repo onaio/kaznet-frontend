@@ -10,8 +10,8 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
     enableReinitialize={false}
     initialValues={
       Object {
-        "end": "2018-09-10",
-        "start": "2018-09-10",
+        "end": "1986-01-02",
+        "start": "1986-01-02",
       }
     }
     isInitialValid={false}
@@ -76,7 +76,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                         onChange={[Function]}
                         placeholder="Start Date"
                         type="date"
-                        value="2018-09-10"
+                        value="1986-01-02"
                       >
                         <input
                           aria-label="start"
@@ -86,7 +86,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                           onChange={[Function]}
                           placeholder="Start Date"
                           type="date"
-                          value="2018-09-10"
+                          value="1986-01-02"
                         />
                       </Input>
                     </div>
@@ -121,7 +121,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                         onChange={[Function]}
                         placeholder="End Date"
                         type="date"
-                        value="2018-09-10"
+                        value="1986-01-02"
                       >
                         <input
                           aria-label="end"
@@ -131,7 +131,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                           onChange={[Function]}
                           placeholder="End Date"
                           type="date"
-                          value="2018-09-10"
+                          value="1986-01-02"
                         />
                       </Input>
                     </div>
