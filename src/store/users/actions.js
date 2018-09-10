@@ -92,12 +92,19 @@ export function deleteUser(user_id) {
 
 export function exportUserSubmissions(user_name, user_id, from, to) {
   return async (dispatch, getState) => {
-    const file = await userService.exportUserSubmissions(
-      user_name,
-      user_id,
-      from,
-      to
-    );
-    dispatch({ type: types.FILE_EXPORTED, file });
+    try {
+      const file = await userService.exportUserSubmissions(
+        user_name,
+        user_id,
+        from,
+        to
+      );
+      dispatch({ type: types.FILE_EXPORTED, file });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
   };
 }

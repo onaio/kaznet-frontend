@@ -174,7 +174,7 @@ export class UsersList extends Component {
           className="mx-4 btn btn-light"
           onClick={function(event) {
             toggleExportModalFunction();
-            setUserDetails(row.id, row.attributes.ona_username);
+            setUserDetails(row.attributes.ona_pk, row.attributes.ona_username);
           }}
         >
           <FontAwesomeIcon
