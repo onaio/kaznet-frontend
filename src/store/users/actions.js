@@ -1,6 +1,7 @@
 import _ from "lodash";
 import * as types from "./actionTypes";
 import userService from "../../services/users";
+import exportService from "../../services/exports";
 import * as errorHandlerTypes from "../errorHandler/actionTypes";
 
 export function fetchUsers(url) {
@@ -93,7 +94,7 @@ export function deleteUser(user_id) {
 export function exportUserSubmissions(user_name, user_id, from, to) {
   return async (dispatch, getState) => {
     try {
-      const file = await userService.exportUserSubmissions(
+      const file = await exportService.exportUserSubmissions(
         user_name,
         user_id,
         from,
