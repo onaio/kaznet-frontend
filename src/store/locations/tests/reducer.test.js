@@ -11,6 +11,7 @@ const initialState = {
   locationsIdArray: [],
   currentPage: null,
   totalPages: null,
+  totalCount: null,
   pageLinks: {
     first: null,
     last: null,
@@ -34,12 +35,14 @@ describe("store/locations/reducer", () => {
     const pageLinks = fixtures.pageLinks;
     const currentPage = fixtures.currentPage;
     const totalPages = fixtures.totalPages;
+    const totalCount = fixtures.totalCount;
     const action = {
       type: actionTypes.LOCATIONS_FETCHED,
       locationsById,
       pageLinks,
       currentPage,
-      totalPages
+      totalPages,
+      totalCount
     };
 
     const existingState = Immutable(initialState);
@@ -48,6 +51,7 @@ describe("store/locations/reducer", () => {
     newState.pageLinks = pageLinks;
     newState.currentPage = currentPage;
     newState.totalPages = totalPages;
+    newState.totalCount = totalCount;
 
     Reducer(locations)
       .withState(existingState)
