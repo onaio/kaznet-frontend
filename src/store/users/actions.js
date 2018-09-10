@@ -10,7 +10,8 @@ export function fetchUsers(url) {
         userArray,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        totalCount
       } = await userService.getUserList(url);
       const usersById = _.keyBy(userArray, user => user.id);
       dispatch({
@@ -18,7 +19,8 @@ export function fetchUsers(url) {
         usersById,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        totalCount
       });
     } catch (error) {
       console.error(error);

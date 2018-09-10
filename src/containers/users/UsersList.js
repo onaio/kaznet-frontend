@@ -59,7 +59,11 @@ export class UsersList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
+    console.log(this.props);
+    if (this.props.searchParam !== "" && this.props.userCount === null) {
+      return this.renderLoading();
+    }
+    if (this.props.userCount === 0) {
       return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
@@ -135,7 +139,8 @@ function mapStateToProps(state) {
     pageLinks: userSelectors.getPageLinks(state),
     firstPage: userSelectors.getFirstPage(state),
     lastPage: userSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    userCount: userSelectors.getTotalCount(state)
   };
 }
 
