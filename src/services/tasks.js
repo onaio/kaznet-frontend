@@ -21,7 +21,7 @@ class TaskService {
       data,
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = await response.json();
 
@@ -35,7 +35,8 @@ class TaskService {
       tasksArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
   }
 

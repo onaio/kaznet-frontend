@@ -105,10 +105,14 @@ export class TasksList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
+    if (this.props.searchParam !== "" && this.props.taskCount === null) {
+      return this.renderLoading();
+    }
+    if (this.props.taskCount === 0) {
       return <NotFound searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
+
     return (
       <div className="TasksList">
         <ListView
@@ -129,6 +133,7 @@ export class TasksList extends Component {
           isTaskPage={true}
           handleChange={this.handleChange}
           isOpen={this.state.isOpen}
+          taskCount={this.state.taskCount}
         />
       </div>
     );
@@ -187,7 +192,8 @@ function mapStateToProps(state) {
     firstPage: taskSelectors.getFirstPage(state),
     lastPage: taskSelectors.getLastPage(state),
     searchParam: globalSelectors.getSearchValue(state),
-    taskStatus: taskSelectors.getTaskStatus(state)
+    taskStatus: taskSelectors.getTaskStatus(state),
+    taskCount: taskSelectors.getTotalCount(state)
   };
 }
 
