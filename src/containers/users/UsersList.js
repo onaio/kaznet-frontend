@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
 import qs from "qs";
@@ -9,7 +10,7 @@ import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
 import * as userSelectors from "../../store/users/reducer";
 import * as constants from "../../constants.js";
-import NotFound from "../../components/NotFound";
+import NoResults from "../../components/NoResults";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
@@ -59,7 +60,7 @@ export class UsersList extends Component {
 
   render() {
     if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
-      return <NotFound searchVal={this.props.searchParam} />;
+      return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
@@ -108,7 +109,9 @@ export class UsersList extends Component {
   renderRow(row) {
     const rowItems = [
       row.attributes.role_display,
-      row.attributes.ona_username,
+      <Link to={`/users/${row.id}`} key="link_to">
+        {row.attributes.ona_username}
+      </Link>,
       row.attributes.last_name,
       row.attributes.first_name,
       row.attributes.submission_count,

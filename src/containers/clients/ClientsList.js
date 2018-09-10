@@ -12,7 +12,7 @@ import * as globalActions from "../../store/global/actions";
 import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
-import NotFound from "../../components/NotFound";
+import NoResults from "../../components/NoResults";
 import ElementMap from "../ElementMap";
 
 export class ClientsList extends Component {
@@ -56,7 +56,7 @@ export class ClientsList extends Component {
 
   render() {
     if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
-      return <NotFound searchVal={this.props.searchParam} />;
+      return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (

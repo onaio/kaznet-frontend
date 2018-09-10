@@ -14,7 +14,7 @@ import * as constants from "../../constants.js";
 import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
-import NotFound from "../../components/NotFound";
+import NoResults from "../../components/NoResults";
 import "./TaskList.css";
 
 export class TasksList extends Component {
@@ -109,7 +109,7 @@ export class TasksList extends Component {
       return this.renderLoading();
     }
     if (this.props.taskCount === 0) {
-      return <NotFound searchVal={this.props.searchParam} />;
+      return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
 
