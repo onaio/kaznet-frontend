@@ -156,7 +156,6 @@ export class TaskForm extends Component {
   };
 
   handleChange = index => e => {
-    debugger;
     const start = e.target && e.target.name === "tasklocation_start";
     const end = e.target && e.target.name === "tasklocation_end";
     const location = e.target && e.target.name === "tasklocation_location";
@@ -299,6 +298,7 @@ export class TaskForm extends Component {
                       onBlur={handleBlur}
                       value={values.status}
                       className={errors.status ? "is-invalid" : ""}
+                      disabled={this.targetId != null ? false : true}
                     >
                       <option>----</option>
                       <option value="d">Draft</option>
