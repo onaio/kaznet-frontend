@@ -15,7 +15,11 @@ const initialState = Immutable({
     last: null,
     prev: null,
     next: null
-  }
+  },
+  isLoading: true,
+  options: [],
+  clientSelectedOption: {},
+  clientName: ""
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -25,7 +29,9 @@ export default function reduce(state = initialState, action = {}) {
         clientsById: action.clientsById,
         pageLinks: action.pageLinks,
         currentPage: action.currentPage,
-        totalPages: action.totalPages
+        totalPages: action.totalPages,
+        isLoading: action.isLoading,
+        options: action.options
       });
     case types.CLIENT_CHANGE_PAGE:
       return state.merge({
@@ -55,12 +61,44 @@ export default function reduce(state = initialState, action = {}) {
           [action.clientData.id]: action.clientData
         }
       });
+    case types.CLIENT_SELECTED_OPTION:
+      return Immutable({
+        ...state,
+        clientSelectedOption: {
+          ...action.selectedOption
+        }
+      });
+    case types.CLIENT_NAME:
+      return Immutable({
+        ...state,
+        clientName: action.clientName
+      });
     case types.CLIENT_DELETED:
       const newClientsById = _.omit(state.clientsById, action.clientId);
       return state.set("clientsById", newClientsById);
     default:
       return state;
   }
+}
+
+export function getClientName(state) {
+  return state.clients.clientName;
+}
+
+export function getClientSelectedOption(state) {
+  return state.clients.clientSelectedOption;
+}
+
+export function getSearchValue(state) {
+  return state.clients.searchVal;
+}
+
+export function getClientOptions(state) {
+  return state.clients.options;
+}
+
+export function isLoading(state) {
+  return state.clients.isLoading;
 }
 
 export function getClientsById(state) {

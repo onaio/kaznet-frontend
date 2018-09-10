@@ -7,14 +7,32 @@ import * as types from "./actionTypes";
 const initialState = Immutable({
   formsById: {},
   formsIdArray: [],
-  unusedForms: []
+  unusedForms: [],
+  isLoading: true,
+  options: [],
+  formSelectedOption: {},
+  formName: ""
 });
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.FORMS_FETCHED:
       return state.merge({
-        formsById: action.formsById
+        formsById: action.formsById,
+        isLoading: action.isLoading,
+        options: action.options
+      });
+    case types.FORM_SELECTED_OPTION:
+      return Immutable({
+        ...state,
+        formSelectedOption: {
+          ...action.selectedOption
+        }
+      });
+    case types.FORM_NAME:
+      return Immutable({
+        ...state,
+        formName: action.formName
       });
     default:
       return state;
@@ -22,6 +40,22 @@ export default function reduce(state = initialState, action = {}) {
 }
 
 // selectors
+
+export function getFormName(state) {
+  return state.forms.formName;
+}
+
+export function getFormSelectedOption(state) {
+  return state.forms.formSelectedOption;
+}
+
+export function getFormOptions(state) {
+  return state.forms.options;
+}
+
+export function isLoading(state) {
+  return state.forms.isLoading;
+}
 
 export function getFormsById(state) {
   return state.forms.formsById;

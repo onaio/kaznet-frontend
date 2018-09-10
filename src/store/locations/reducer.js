@@ -15,7 +15,10 @@ const initialState = Immutable({
     last: null,
     prev: null,
     next: null
-  }
+  },
+  isLoading: true,
+  options: [],
+  locationSelectedOption: {}
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -25,7 +28,9 @@ export default function reduce(state = initialState, action = {}) {
         locationsById: action.locationsById,
         pageLinks: action.pageLinks,
         currentPage: action.currentPage,
-        totalPages: action.totalPages
+        totalPages: action.totalPages,
+        isLoading: action.isLoading,
+        options: action.options
       });
     case types.LOCATION_CHANGE_PAGE:
       return state.merge({
@@ -55,12 +60,31 @@ export default function reduce(state = initialState, action = {}) {
           [action.locationData.id]: action.locationData
         }
       });
+    case types.LOCATION_SELECTED_OPTION:
+      return Immutable({
+        ...state,
+        locationSelectedOption: {
+          ...action.selectedOption
+        }
+      });
     case types.LOCATION_DELETED:
       const newLocationsById = _.omit(state.locationsById, action.locationId);
       return state.set("locationsById", newLocationsById);
     default:
       return state;
   }
+}
+
+export function getLocationSelectedOption(state) {
+  return state.locations.locationSelectedOption;
+}
+
+export function getLocationOptions(state) {
+  return state.locations.options;
+}
+
+export function isLoading(state) {
+  return state.locations.isLoading;
 }
 
 export function getLocationsById(state) {
