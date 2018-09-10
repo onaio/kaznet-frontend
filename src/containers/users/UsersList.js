@@ -151,10 +151,9 @@ export class UsersList extends Component {
       row.attributes.ona_username,
       row.attributes.last_name,
       row.attributes.first_name,
-      <div>
+      <div key={row.id}>
         {row.attributes.submission_count}
         <Button
-          key={row.id}
           className="mx-4 btn btn-light"
           onClick={function(event) {
             toggleExportModalFunction();

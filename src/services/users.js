@@ -86,11 +86,17 @@ class UserService {
       }
     })
       .then(function(resp) {
+        if (!resp.ok) {
+          throw new Error(
+            `Submission Export Failed, HTTP status ${resp.status}`
+          );
+        }
         return resp.blob();
       })
       .then(function(blob) {
         download(blob, fileName);
       });
+
     return await response;
   }
 }

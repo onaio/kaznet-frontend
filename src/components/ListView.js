@@ -95,11 +95,12 @@ export default class ListView extends Component {
                 Submissions of {this.props.userName}
               </ModalHeader>
               <ModalBody>
-                Export Submissions from:
+                <p className="font-weight-normal">Export Submissions </p>
                 <Form onSubmit={this.props.onFormSubmit}>
                   <FormGroup className="row">
                     <Row>
-                      <Col md={{ size: 5, offset: 1 }}>
+                      <p className="text-center align-middle ml-4">From:</p>
+                      <Col md={{ size: 5 }}>
                         <Input
                           name="start"
                           type="date"
@@ -110,9 +111,7 @@ export default class ListView extends Component {
                           onChange={this.props.handleDateChanges}
                         />
                       </Col>
-                      <Col md="1">
-                        <p className="text-center align-middle">to</p>
-                      </Col>
+                      <p className="text-center align-middle">to</p>
                       <Col md="5">
                         <Input
                           name="end"
