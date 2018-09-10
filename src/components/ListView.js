@@ -104,7 +104,7 @@ export default class ListView extends Component {
                         <Input
                           name="start"
                           type="date"
-                          bsSize="lg"
+                          bsSize="md"
                           placeholder="Start Date"
                           aria-label="start"
                           className={`time-picker`}
@@ -116,7 +116,7 @@ export default class ListView extends Component {
                         <Input
                           name="end"
                           type="date"
-                          bsSize="lg"
+                          bsSize="md"
                           placeholder="End Date"
                           aria-label="end"
                           className={`time-picker`}
