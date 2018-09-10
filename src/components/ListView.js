@@ -111,7 +111,7 @@ export default class ListView extends Component {
                           onChange={this.props.handleDateChanges}
                         />
                       </Col>
-                      <p className="text-center align-middle">to</p>
+                      <p className="text-center align-middle">to:</p>
                       <Col md="5">
                         <Input
                           name="end"
