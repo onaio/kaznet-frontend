@@ -17,7 +17,7 @@ describe("services/locationTypes", () => {
     const {
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = data;
 
@@ -25,7 +25,8 @@ describe("services/locationTypes", () => {
       locationTypeArray: fixtures.locationTypesArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
     expect(response).toEqual(expectedResponse);
   });

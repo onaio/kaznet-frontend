@@ -61,7 +61,13 @@ export class LocationTypesList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
+    if (
+      this.props.searchParam !== "" &&
+      this.props.locationTypeCount === null
+    ) {
+      return this.renderLoading();
+    }
+    if (this.props.locationTypeCount === 0) {
       return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
@@ -119,7 +125,8 @@ function mapStateToProps(state) {
     pageLinks: locationTypeSelectors.getPageLinks(state),
     firstPage: locationTypeSelectors.getFirstPage(state),
     lastPage: locationTypeSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    locationTypeCount: locationTypeSelectors.getTotalCount(state)
   };
 }
 
