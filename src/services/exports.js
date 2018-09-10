@@ -3,11 +3,19 @@ import download from "downloadjs";
 import * as constants from "../constants";
 
 class ExportService {
-  async exportUserSubmissions(user_name, user_id, from, to) {
+  async exportUserSubmissions(filter_dict, username = null) {
+    const filters = Object.keys(filter_dict)
+      .map(
+        k => `${encodeURIComponent(k)}=${encodeURIComponent(filter_dict[k])}`
+      )
+      .join("&");
     const url = `${
       constants.API_ENDPOINT
-    }/exports/submissions/?user=${user_id}&modified__gte=${from}&modified__lte=${to}&format=csv`;
-    let fileName = `${user_name} ${from} to ${to} Submissions`;
+    }/exports/submissions/?${filters}&format=csv`;
+
+    let fileName = `${username}_${filter_dict["modified__gte"]}_to_${
+      filter_dict["modified__lte"]
+    } Submissions`;
 
     const response = await fetch(url, {
       method: "GET",

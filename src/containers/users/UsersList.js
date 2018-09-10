@@ -24,8 +24,8 @@ export class UsersList extends Component {
       modal: false,
       userId: null,
       userName: null,
-      start: "",
-      end: ""
+      start: undefined,
+      end: undefined
     };
     this.toggle = this.toggle.bind(this);
     this.setUserDetails = this.setUserDetails.bind(this);
@@ -49,14 +49,16 @@ export class UsersList extends Component {
     });
   }
 
-  onFormSubmit(e) {
+  onFormSubmit(start, end) {
     this.props.exportUserSubmissions(
-      this.state.userName,
-      this.state.userId,
-      this.state.start,
-      this.state.end
+      {
+        userprofile: this.state.userId,
+        modified__gte: start,
+        modified__lte: end,
+        status: constants.TASK_ACTIVE
+      },
+      this.state.userName
     );
-    e.preventDefault();
   }
 
   async componentDidMount() {
@@ -174,7 +176,7 @@ export class UsersList extends Component {
           className="mx-4 btn btn-light"
           onClick={function(event) {
             toggleExportModalFunction();
-            setUserDetails(row.attributes.ona_pk, row.attributes.ona_username);
+            setUserDetails(row.id, row.attributes.ona_username);
           }}
         >
           <FontAwesomeIcon

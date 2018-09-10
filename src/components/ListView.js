@@ -10,18 +10,13 @@ import {
   DropdownMenu,
   DropdownItem,
   NavLink,
-  Button,
   Modal,
   ModalBody,
-  ModalHeader,
-  Input,
-  Col,
-  Row,
-  FormGroup,
-  Form
+  ModalHeader
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
+import ExportForm from "../components/ExportForm";
 
 import "./ListView.css";
 
@@ -96,57 +91,10 @@ export default class ListView extends Component {
               </ModalHeader>
               <ModalBody>
                 <p className="font-weight-normal">Export Submissions </p>
-                <Form onSubmit={this.props.onFormSubmit}>
-                  <FormGroup className="row">
-                    <Row>
-                      <p className="text-center align-middle ml-4">From:</p>
-                      <Col md={{ size: 5 }}>
-                        <Input
-                          name="start"
-                          type="date"
-                          bsSize="md"
-                          placeholder="Start Date"
-                          aria-label="start"
-                          className={`time-picker`}
-                          onChange={this.props.handleDateChanges}
-                        />
-                      </Col>
-                      <p className="text-center align-middle">to</p>
-                      <Col md="5">
-                        <Input
-                          name="end"
-                          type="date"
-                          bsSize="md"
-                          placeholder="End Date"
-                          aria-label="end"
-                          className={`time-picker`}
-                          onChange={this.props.handleDateChanges}
-                        />
-                      </Col>
-                    </Row>
-                  </FormGroup>
-                  <FormGroup className="row">
-                    <Col md={{ size: 5, offset: 1 }}>
-                      <Button
-                        className="btn btn-secondary btn-block"
-                        color="secondary"
-                        onClick={this.props.downloadModalHandler}
-                      >
-                        Cancel
-                      </Button>
-                    </Col>
-                    <Col md={{ size: 5 }}>
-                      <Button
-                        type="submit"
-                        className="btn btn-primary btn-block"
-                        color="secondary"
-                        onClick={this.props.downloadModalHandler}
-                      >
-                        Export
-                      </Button>
-                    </Col>
-                  </FormGroup>
-                </Form>
+                <ExportForm
+                  onFormSubmit={this.props.onFormSubmit}
+                  downloadModalHandler={this.props.downloadModalHandler}
+                />
               </ModalBody>
             </Modal>
           </div>
