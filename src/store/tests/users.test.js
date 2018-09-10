@@ -23,7 +23,8 @@ describe("store/users", () => {
       userArray: fixtures.usersArray,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
 
     await store.dispatch(userActions.fetchUsers());
