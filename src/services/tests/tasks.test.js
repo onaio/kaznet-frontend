@@ -17,7 +17,7 @@ describe("services/tasks", () => {
     const {
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = data;
 
@@ -25,7 +25,8 @@ describe("services/tasks", () => {
       tasksArray: fixtures.tasksArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
 
     expect(response).toEqual(expectedResponse);
@@ -40,7 +41,7 @@ describe("services/tasks", () => {
     const {
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = data;
 
@@ -48,7 +49,8 @@ describe("services/tasks", () => {
       tasksArray: fixtures.tasksArraySecondPage,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
 
     expect(response).toEqual(expectedResponse);
