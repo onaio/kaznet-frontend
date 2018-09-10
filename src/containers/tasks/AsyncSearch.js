@@ -19,26 +19,47 @@ export class AsyncSearch extends Component {
   constructor(props) {
     super(props);
     this.state = Immutable({
-      isLoading: false
+      isLoading: false,
+      formTitle: "",
+      clientTitle: ""
     });
     this.onSearchEvent = this.onSearchEvent.bind(this);
   }
 
   async componentWillMount() {
     const { type } = this.props;
-    await this.props.fetchClients();
+    switch (type) {
+      case "forms":
+        await this.props.fetchForms(
+          `${constants.API_ENDPOINT}/${type}/?has_task=false`
+        );
+        break;
+      case "clients":
+        await this.props.fetchClients(`${constants.API_ENDPOINT}/clients/`);
+        break;
+      case "locations":
+        await this.props.fetchLocations(`${constants.API_ENDPOINT}/locations/`);
+        break;
+      default:
+      // handle this
+    }
+  }
+
+  componentDidMount() {
+    const { type } = this.props;
     if (this.props.task) {
       if (type === "clients") {
         let clientValue;
         Object.keys(this.props.clientsById).forEach(k => {
           if (
+            this.props.task.relationships.client.data &&
             this.props.task.relationships.client.data.id ===
-            this.props.clientsById[k].id
+              this.props.clientsById[k].id
           ) {
             clientValue = this.props.clientsById[k].attributes.name;
           }
         });
-        if (clientValue !== undefined) {
+        if (clientValue && clientValue !== undefined) {
           this.props.clientName(clientValue);
         }
       } else if (type === "forms") {
@@ -50,22 +71,25 @@ export class AsyncSearch extends Component {
     }
   }
 
-  async componentDidMount() {
-    const { type } = this.props;
-    switch (type) {
-      case "forms":
-        await this.props.fetchForms(
-          `${constants.API_ENDPOINT}/${type}/?has_task=false`
-        );
-        break;
-      case "clients":
-        await this.props.fetchClients(`${constants.API_ENDPOINT}/${type}/`);
-        break;
-      case "locations":
-        await this.props.fetchLocations(`${constants.API_ENDPOINT}/locations/`);
-        break;
-      default:
-      // hande this
+  componentWillUpdate(nextProps, nextState) {
+    const { type } = nextProps;
+    if (
+      nextProps.getFormName !== this.props.getFormName ||
+      nextProps.getClientName !== this.props.getClientName
+    ) {
+      if (nextProps.task) {
+        if (type === "clients") {
+          this.setState({
+            formTitle: nextProps.getFormName ? nextProps.getFormName : "",
+            clientTitle: nextProps.getClientName
+          });
+        } else if (type === "forms") {
+          this.setState({
+            clientTitle: nextProps.getClientName ? nextProps.getClientName : "",
+            formTitle: nextProps.getFormName
+          });
+        }
+      }
     }
   }
 
@@ -164,17 +188,8 @@ export class AsyncSearch extends Component {
             ? this.props.locationsIsLoading
             : null;
 
-    const val =
-      type === "forms" && this.props.getFormName !== ""
-        ? this.props.getFormName
-        : type === "clients" && this.props.getClientName !== ""
-          ? this.props.getClientName
-          : type === "locations"
-            ? ""
-            : "";
-
     return this.props.task ? (
-      this.props.getFormName !== "" && this.props.getClientName !== "" ? (
+      type === "forms" && this.state.formTitle.length > 0 ? (
         <AsyncTypeahead
           clearButton
           isLoading={isLoading || false}
@@ -183,7 +198,18 @@ export class AsyncSearch extends Component {
           options={getOptions}
           placeholder={`Choose ${this.props.type}`}
           onChange={e => this.handleChange(e, type)}
-          defaultInputValue={this.props.task ? val : ""}
+          defaultInputValue={this.state.formTitle}
+        />
+      ) : type === "clients" && this.state.clientTitle.length > 0 ? (
+        <AsyncTypeahead
+          clearButton
+          isLoading={isLoading || false}
+          minLength={0}
+          onSearch={this.onSearchEvent}
+          options={getOptions}
+          placeholder={`Choose ${this.props.type}`}
+          onChange={e => this.handleChange(e, type)}
+          defaultInputValue={this.state.clientTitle}
         />
       ) : null
     ) : (
