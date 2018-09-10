@@ -13,9 +13,13 @@ class ExportService {
       constants.API_ENDPOINT
     }/exports/submissions/?${filters}&format=csv`;
 
-    let fileName = `${username}_${filter_dict["modified__gte"]}_to_${
-      filter_dict["modified__lte"]
-    } Submissions`;
+    let tag = `${username}` ? [username] : `${filter_dict["userprofile"]}`;
+
+    let fileName =
+      tag +
+      `_${filter_dict["modified__gte"]}_to_${
+        filter_dict["modified__lte"]
+      } Submissions`;
 
     const response = await fetch(url, {
       method: "GET",
