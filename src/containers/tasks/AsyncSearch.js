@@ -176,6 +176,7 @@ export class AsyncSearch extends Component {
     return this.props.task ? (
       this.props.getFormName !== "" && this.props.getClientName !== "" ? (
         <AsyncTypeahead
+          clearButton
           isLoading={isLoading || false}
           minLength={0}
           onSearch={this.onSearchEvent}
@@ -187,6 +188,7 @@ export class AsyncSearch extends Component {
       ) : null
     ) : (
       <AsyncTypeahead
+        clearButton
         isLoading={isLoading || false}
         minLength={0}
         onSearch={this.onSearchEvent}
