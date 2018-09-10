@@ -19,7 +19,8 @@ describe("store/clients/actions", () => {
       clientArray: fixtures.clientsArray,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
     const dispatches = await Thunk(clients.fetchClients).execute();
     expect(dispatches.length).toBe(1);
@@ -29,7 +30,8 @@ describe("store/clients/actions", () => {
       clientsById: fixtures.clientsById,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
   });
 

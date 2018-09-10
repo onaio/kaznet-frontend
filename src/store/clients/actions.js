@@ -12,7 +12,8 @@ export function fetchClients(url) {
         clientArray,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        totalCount
       } = await clientService.getClientList(url); // reason we are using async
       const clientsById = _.keyBy(clientArray, task => task.id); // Sorts the items ???
       dispatch({
@@ -20,7 +21,8 @@ export function fetchClients(url) {
         clientsById,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        totalCount
       }); // Returns an object for the action which is {}
     } catch (error) {
       // Kind of like a try and except
