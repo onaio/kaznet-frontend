@@ -70,11 +70,17 @@ export class TaskEditForm extends Component {
           : "",
       form:
         this.task.attributes.target_id != null
-          ? this.task.attributes.target_id
+          ? {
+              value: this.task.attributes.target_id,
+              label: this.task.attributes.xform_title
+            }
           : "",
       client:
         this.task.relationships.client.data != null
-          ? this.task.relationships.client.data.id
+          ? {
+              value: this.task.relationships.client.data.id,
+              label: this.task.attributes.client_name
+            }
           : "",
       tasklocation_location: this.task.attributes.task_locations[0]
         ? this.task.attributes.task_locations[0].location.id
