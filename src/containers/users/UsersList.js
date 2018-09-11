@@ -59,7 +59,6 @@ export class UsersList extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (this.props.searchParam !== "" && this.props.userCount === null) {
       return this.renderLoading();
     }
