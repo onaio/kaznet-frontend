@@ -7,6 +7,7 @@ import * as types from "./actionTypes";
 const initialState = Immutable({
   formsById: {},
   formsIdArray: [],
+  selectOptions: [],
   unusedForms: []
 });
 
@@ -14,7 +15,8 @@ export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.FORMS_FETCHED:
       return state.merge({
-        formsById: action.formsById
+        formsById: action.formsById,
+        selectOptions: action.selectOptions
       });
     default:
       return state;
@@ -45,4 +47,8 @@ export function getUnusedFormsById(state) {
 
 export function getFormById(state, id) {
   return _.get(state.forms.formsById, id);
+}
+
+export function getFormOptions(state) {
+  return state.forms.selectOptions;
 }
