@@ -25,8 +25,12 @@
     "react-router-dom": "^4.3.1",
     "react-rrule-generator": "^1.0.2",
     "react-scripts": "1.1.4",
+<<<<<<< 72f745088091da30446efac2213a775b1fc87df8
     "react-select": "^2.0.0-beta.6",
     "react-transition-group": "^2.4.0",
+=======
+    "react-select": "^2.0.0",
+>>>>>>> Install react-select
     "reactstrap": "^6.1.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
