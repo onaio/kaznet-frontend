@@ -28,6 +28,8 @@ import * as locationSelectors from "../../store/locations/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
 import "../LoadListAnimation.css";
+import { ONA_PROFILE_URL } from "../../constants";
+
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
@@ -355,6 +357,15 @@ export class TaskForm extends Component {
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
                 </Col>
+                <Col md="3">
+                  <a
+                    href={ONA_PROFILE_URL}
+                    color="link"
+                    className="remove_button_css action-link action-link-alert"
+                  >
+                    GO TO ONA FORM
+                  </a>
+                </Col>
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
@@ -477,6 +488,15 @@ export class TaskForm extends Component {
                                     errors.locations_input.location[0]}
                                 </div>
                               )}
+                            </Col>
+                            <Col md={{ size: 5 }}>
+                              <a
+                                href="/locations/new"
+                                color="link"
+                                className="remove_button_css action-link action-link-alert"
+                              >
+                                CREATE LOCATION
+                              </a>
                             </Col>
                           </Row>
                         }
@@ -608,6 +628,15 @@ export class TaskForm extends Component {
                   {errors.client && (
                     <div className="invalid-feedback">{errors.client}</div>
                   )}
+                </Col>
+                <Col md="3">
+                  <a
+                    href="/clients/new"
+                    color="link"
+                    className="remove_button_css action-link action-link-alert"
+                  >
+                    CREATE CLIENT
+                  </a>
                 </Col>
               </FormGroup>
               <FormGroup className="row">

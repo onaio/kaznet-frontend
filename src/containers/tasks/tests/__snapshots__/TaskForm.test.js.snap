@@ -613,6 +613,31 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                   </Input>
                 </div>
               </Col>
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <a
+                    className="remove_button_css action-link action-link-alert"
+                    color="link"
+                    href="https://ona.io/kaznettest"
+                  >
+                    GO TO ONA FORM
+                  </a>
+                </div>
+              </Col>
             </div>
           </FormGroup>
           <FormGroup
@@ -1170,6 +1195,35 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 </OptionMap>
                               </select>
                             </Input>
+                          </div>
+                        </Col>
+                        <Col
+                          md={
+                            Object {
+                              "size": 5,
+                            }
+                          }
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <a
+                              className="remove_button_css action-link action-link-alert"
+                              color="link"
+                              href="/locations/new"
+                            >
+                              CREATE LOCATION
+                            </a>
                           </div>
                         </Col>
                       </div>
@@ -1867,6 +1921,31 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       </OptionMap>
                     </select>
                   </Input>
+                </div>
+              </Col>
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <a
+                    className="remove_button_css action-link action-link-alert"
+                    color="link"
+                    href="/clients/new"
+                  >
+                    CREATE CLIENT
+                  </a>
                 </div>
               </Col>
             </div>
@@ -2737,6 +2816,31 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                   </Input>
                 </div>
               </Col>
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <a
+                    className="remove_button_css action-link action-link-alert"
+                    color="link"
+                    href="https://ona.io/kaznettest"
+                  >
+                    GO TO ONA FORM
+                  </a>
+                </div>
+              </Col>
             </div>
           </FormGroup>
           <FormGroup
@@ -3288,6 +3392,35 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 </OptionMap>
                               </select>
                             </Input>
+                          </div>
+                        </Col>
+                        <Col
+                          md={
+                            Object {
+                              "size": 5,
+                            }
+                          }
+                          tag="div"
+                          widths={
+                            Array [
+                              "xs",
+                              "sm",
+                              "md",
+                              "lg",
+                              "xl",
+                            ]
+                          }
+                        >
+                          <div
+                            className="col-md-5"
+                          >
+                            <a
+                              className="remove_button_css action-link action-link-alert"
+                              color="link"
+                              href="/locations/new"
+                            >
+                              CREATE LOCATION
+                            </a>
                           </div>
                         </Col>
                       </div>
@@ -3983,6 +4116,31 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                       </OptionMap>
                     </select>
                   </Input>
+                </div>
+              </Col>
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <a
+                    className="remove_button_css action-link action-link-alert"
+                    color="link"
+                    href="/clients/new"
+                  >
+                    CREATE CLIENT
+                  </a>
                 </div>
               </Col>
             </div>
