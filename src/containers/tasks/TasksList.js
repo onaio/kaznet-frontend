@@ -105,7 +105,10 @@ export class TasksList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.rowsIdArray.length === 0) {
+    if (this.props.searchParam !== "" && this.props.taskCount === null) {
+      return this.renderLoading();
+    }
+    if (this.props.taskCount === 0) {
       return <NoResults searchVal={this.props.searchParam} />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
