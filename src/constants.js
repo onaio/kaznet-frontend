@@ -32,6 +32,10 @@ export const ADVANCED = "3";
 export const EXPERT = "4";
 export const ADMIN_ROLE = "1";
 export const CONTRIBUTOR_ROLE = "2";
+export const SUBMISSION_APPROVED = "a";
+export const SUBMISSION_REJECTED = "b";
+export const SUBMISSION_UNDER_REVIEW = "c";
+export const SUBMISSION_PENDING = "d";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,

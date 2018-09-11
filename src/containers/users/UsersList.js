@@ -48,7 +48,7 @@ export class UsersList extends Component {
         userprofile: this.state.userId,
         modified__gte: start,
         modified__lte: end,
-        status: constants.TASK_ACTIVE,
+        status: constants.SUBMISSION_APPROVED,
         format: "csv"
       },
       this.state.userName
@@ -164,7 +164,7 @@ export class UsersList extends Component {
       row.attributes.first_name,
       <div key={row.id}>
         {row.attributes.submission_count}
-        {row.attributes.submission_count > 0 ? (
+        {row.attributes.approved_submissions > 0 ? (
           <Button
             className="mx-4 btn btn-light"
             onClick={function(event) {
