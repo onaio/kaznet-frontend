@@ -12,7 +12,8 @@ export function fetchTasks(url) {
         tasksArray,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        totalCount
       } = await taskService.getTaskList(url);
       const tasksById = _.keyBy(tasksArray, task => task.id);
       dispatch({
@@ -20,7 +21,8 @@ export function fetchTasks(url) {
         tasksById,
         pageLinks,
         currentPage,
-        totalPages
+        totalPages,
+        totalCount
       });
     } catch (error) {
       dispatch({

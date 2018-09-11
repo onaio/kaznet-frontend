@@ -12,6 +12,7 @@ import * as globalActions from "../../store/global/actions";
 import * as constants from "../../constants.js";
 
 import ListView from "../../components/ListView";
+import NoResults from "../../components/NoResults";
 import ElementMap from "../ElementMap";
 
 export class ClientsList extends Component {
@@ -54,6 +55,12 @@ export class ClientsList extends Component {
   }
 
   render() {
+    if (this.props.searchParam !== "" && this.props.clientCount === null) {
+      return this.renderLoading();
+    }
+    if (this.props.clientCount === 0) {
+      return <NoResults searchVal={this.props.searchParam} />;
+    }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
       <div className="ClientsList">
@@ -112,7 +119,8 @@ function mapStateToProps(state) {
     pageLinks: clientSelectors.getPageLinks(state),
     firstPage: clientSelectors.getFirstPage(state),
     lastPage: clientSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    clientCount: clientSelectors.getTotalCount(state)
   };
 }
 

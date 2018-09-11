@@ -10,6 +10,7 @@ const initialState = Immutable({
   tasksIdArray: [],
   currentPage: null,
   totalPages: null,
+  totalCount: null,
   pageLinks: {
     first: null,
     last: null,
@@ -26,7 +27,8 @@ export default function reduce(state = initialState, action = {}) {
         tasksById: action.tasksById,
         pageLinks: action.pageLinks,
         currentPage: action.currentPage,
-        totalPages: action.totalPages
+        totalPages: action.totalPages,
+        totalCount: action.totalCount
       });
     case types.TASK_CHANGE_PAGE:
       return state.merge({
@@ -123,4 +125,7 @@ export function getPreviousPage(state, props) {
 export function getLastPage(state, props) {
   const url = state.tasks.pageLinks.last;
   return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
+}
+export function getTotalCount(state, props) {
+  return state.tasks.totalCount;
 }

@@ -110,6 +110,7 @@ export const usersIdArray = _.keys(usersById);
 
 export const currentPage = userData.meta.pagination.page;
 export const totalPages = userData.meta.pagination.pages;
+export const totalCount = userData.meta.pagination.count;
 export const pageLinks = userData.links;
 export const firstPage = 1;
 export const lastPage = 2;

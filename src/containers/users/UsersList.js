@@ -10,7 +10,7 @@ import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
 import * as userSelectors from "../../store/users/reducer";
 import * as constants from "../../constants.js";
-
+import NoResults from "../../components/NoResults";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
@@ -59,6 +59,12 @@ export class UsersList extends Component {
   }
 
   render() {
+    if (this.props.searchParam !== "" && this.props.userCount === null) {
+      return this.renderLoading();
+    }
+    if (this.props.userCount === 0) {
+      return <NoResults searchVal={this.props.searchParam} />;
+    }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
       <div className="UsersList">
@@ -132,7 +138,8 @@ function mapStateToProps(state) {
     pageLinks: userSelectors.getPageLinks(state),
     firstPage: userSelectors.getFirstPage(state),
     lastPage: userSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    userCount: userSelectors.getTotalCount(state)
   };
 }
 

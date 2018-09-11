@@ -23,7 +23,8 @@ describe("store/tasks integration", () => {
       tasksArray: fixtures.tasksArray,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
 
     await store.dispatch(taskActions.fetchTasks());

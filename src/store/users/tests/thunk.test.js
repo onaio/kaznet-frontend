@@ -18,7 +18,8 @@ describe("store/users/actions", () => {
       userArray: fixtures.usersArray,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
     const dispatches = await Thunk(users.fetchUsers).execute();
     expect(dispatches.length).toBe(1);
@@ -28,7 +29,8 @@ describe("store/users/actions", () => {
       usersById: fixtures.usersById,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
   });
 

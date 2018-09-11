@@ -23,7 +23,7 @@ class ClientService {
       data,
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = await response.json();
 
@@ -36,7 +36,8 @@ class ClientService {
       clientArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
   }
 
