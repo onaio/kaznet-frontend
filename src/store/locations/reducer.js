@@ -8,6 +8,7 @@ import * as types from "./actionTypes";
 const initialState = Immutable({
   locationsById: {},
   locationsIdArray: [],
+  selectOptions: [],
   currentPage: null,
   totalPages: null,
   totalCount: null,
@@ -27,7 +28,8 @@ export default function reduce(state = initialState, action = {}) {
         pageLinks: action.pageLinks,
         currentPage: action.currentPage,
         totalPages: action.totalPages,
-        totalCount: action.totalCount
+        totalCount: action.totalCount,
+        selectOptions: action.selectOptions
       });
     case types.LOCATION_CHANGE_PAGE:
       return state.merge({
@@ -114,6 +116,10 @@ export function getLastPage(state, props) {
   return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
 }
 
-export function getTotalCount(state, porseps) {
+export function getTotalCount(state, props) {
   return state.locations.totalCount;
+}
+
+export function getLocationOptions(state, props) {
+  return state.locations.selectOptions;
 }
