@@ -19,7 +19,7 @@
     "react-moment": "^0.7.7",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-rrule-generator": "file:../react-rrule-generator",
+    "react-rrule-generator": "https://github.com/onaio/react-rrule-generator#update-rrule-component-styling",
     "react-scripts": "1.1.4",
     "react-select": "^2.0.0-beta.6",
     "reactstrap": "^6.1.0",
