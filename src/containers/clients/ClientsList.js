@@ -55,7 +55,6 @@ export class ClientsList extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (this.props.searchParam !== "" && this.props.clientCount === null) {
       return this.renderLoading();
     }
