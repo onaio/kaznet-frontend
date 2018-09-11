@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Formik } from "formik";
+import AsyncSelect from "react-select/lib/Async";
 import {
   Form,
   Input,
@@ -18,7 +19,11 @@ import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { OptionMap } from "../Select";
+
+import "../LoadListAnimation.css";
 import "./TaskForm.css";
+
+import { OptionMap } from "../Select";
 import * as clientActions from "../../store/clients/actions";
 import * as locationActions from "../../store/locations/actions";
 import * as formActions from "../../store/forms/actions";
@@ -30,6 +35,7 @@ import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
 import "../LoadListAnimation.css";
 import { ONA_PROFILE_URL } from "../../constants";
+import * as constants from "../../constants";
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -72,6 +78,13 @@ export class TaskForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleAddLocation = this.handleAddLocation.bind(this);
     this.handleRemoveLocation = this.handleRemoveLocation.bind(this);
+
+    this.getClientOptions.bind(this);
+    this.loadClientOptions.bind(this);
+    this.getFormOptions.bind(this);
+    this.loadFormOptions.bind(this);
+    this.getLocationOptions.bind(this);
+    this.loadLocationOptions.bind(this);
   }
 
   componentWillMount() {
@@ -161,6 +174,45 @@ export class TaskForm extends Component {
     });
   };
 
+  getClientOptions() {
+    return this.props.clientOptions.asMutable();
+  }
+
+  loadClientOptions = (inputValue, callback) => {
+    this.props.fetchClients(
+      `${constants.API_ENDPOINT}/clients/?search=${inputValue}`
+    );
+    setTimeout(() => {
+      callback(this.getClientOptions());
+    }, 10);
+  };
+
+  getFormOptions() {
+    return this.props.formOptions.asMutable();
+  }
+
+  loadFormOptions = (inputValue, callback) => {
+    this.props.fetchForms(
+      `${constants.API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`
+    );
+    setTimeout(() => {
+      callback(this.getFormOptions());
+    }, 10);
+  };
+
+  getLocationOptions() {
+    return this.props.locationOptions.asMutable();
+  }
+
+  loadLocationOptions = (inputValue, callback) => {
+    this.props.fetchLocations(
+      `${constants.API_ENDPOINT}/locations/?search=${inputValue}`
+    );
+    setTimeout(() => {
+      callback(this.getLocationOptions());
+    }, 10);
+  };
+
   render() {
     if (
       Object.keys(this.props.locationsById).length === 0 &&
@@ -198,19 +250,15 @@ export class TaskForm extends Component {
                   values.status !== this.props.initialData.status
                     ? values.status
                     : this.props.initialData.status,
-                target_id:
-                  values.form !== null && values.form !== ""
-                    ? values.form
-                    : undefined,
+                target_id: values.form ? values.form.value : undefined,
                 target_content_type: this.props.formContentTypeId,
                 amount:
                   values.amount != null && values.amount !== ""
                     ? values.amount
                     : undefined,
-                client:
-                  values.client !== null && values.client !== ""
-                    ? { type: "Client", id: values.client }
-                    : undefined,
+                client: values.client
+                  ? { type: "Client", id: values.client.value }
+                  : undefined,
                 locations_input: locations_input
               }
             }
@@ -238,7 +286,8 @@ export class TaskForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setStatus
+          setStatus,
+          setFieldValue
         }) => (
           <div>
             <Form onSubmit={handleSubmit}>
@@ -337,23 +386,20 @@ export class TaskForm extends Component {
                   <Label for="form">Form</Label>
                 </Col>
                 <Col md="6">
-                  <Input
+                  <AsyncSelect
                     name="form"
-                    type="select"
                     bsSize="lg"
-                    placeholder="Form"
-                    aria-label="form"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    placeholder="Select Form"
+                    aria-label="Select Form"
                     value={values.form}
+                    onChange={value => setFieldValue("form", value)}
+                    onBlur={handleBlur}
+                    defaultOptions={this.props.formOptions.asMutable()}
+                    loadOptions={this.loadFormOptions}
+                    isClearable
+                    cacheOptions
                     className={errors.form ? "is-invalid" : ""}
-                  >
-                    <OptionMap
-                      obj={this.props.unusedFormsById}
-                      additionalObj={this.props.currentForm}
-                      titleField="title"
-                    />
-                  </Input>
+                  />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
@@ -467,29 +513,29 @@ export class TaskForm extends Component {
                         {
                           <Row id={loc} key={i}>
                             <Col md={{ size: 5 }}>
-                              <Input
+                              <AsyncSelect
                                 id={loc}
                                 name="tasklocation_location"
-                                type="select"
                                 bsSize="lg"
-                                placeholder="Location"
-                                aria-label="location"
-                                onChange={this.handleChange(i)}
+                                placeholder="Select Location"
+                                aria-label="Select Location"
+                                value={values.tasklocation_location}
+                                onChange={value =>
+                                  setFieldValue("tasklocation_location", value)
+                                }
                                 onBlur={handleBlur}
-                                value={loc.name}
+                                defaultOptions={this.props.locationOptions.asMutable()}
+                                loadOptions={this.loadLocationOptions}
+                                isClearable
+                                cacheOptions
                                 className={
                                   errors.locations_input &&
                                   errors.locations_input.location
                                     ? "is-invalid"
                                     : ""
                                 }
-                                required={true}
-                              >
-                                <OptionMap
-                                  obj={this.props.locationsById}
-                                  titleField="name"
-                                />
-                              </Input>
+                                required
+                              />
                               {errors.locations_input && (
                                 <div className="invalid-feedback">
                                   {errors.locations_input.location &&
@@ -622,19 +668,20 @@ export class TaskForm extends Component {
                   <Label for="client">Client</Label>
                 </Col>
                 <Col md="6">
-                  <Input
+                  <AsyncSelect
                     name="client"
-                    type="select"
                     bsSize="lg"
-                    placeholder="Client"
-                    aria-label="client"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    placeholder="Select Client"
+                    aria-label="Select Client"
                     value={values.client}
+                    onChange={value => setFieldValue("client", value)}
+                    onBlur={handleBlur}
+                    defaultOptions={this.props.clientOptions.asMutable()}
+                    loadOptions={this.loadClientOptions}
+                    isClearable
+                    cacheOptions
                     className={errors.client ? "is-invalid" : ""}
-                  >
-                    <OptionMap obj={this.props.clientsById} titleField="name" />
-                  </Input>
+                  />
                   {errors.client && (
                     <div className="invalid-feedback">{errors.client}</div>
                   )}
@@ -758,7 +805,10 @@ function mapStateToProps(state, ownProps) {
     currentForm: formSelectors.getFormById(state, ownProps.initialData.form),
     formContentTypeId: contentTypeSelectors.getFormContentType(state),
     hasError: errorHandlerSelectors.getHasError(state),
-    errorMessage: errorHandlerSelectors.getErrorMessage(state)
+    errorMessage: errorHandlerSelectors.getErrorMessage(state),
+    clientOptions: clientSelectors.getClientOptions(state),
+    formOptions: formSelectors.getFormOptions(state),
+    locationOptions: locationSelectors.getLocationOptions(state)
   };
 }
 
