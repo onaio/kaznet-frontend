@@ -2,8 +2,9 @@ import _ from "lodash";
 import * as constants from "../constants";
 
 class formService {
-  async getFormList() {
-    const url = `${constants.API_ENDPOINT}/forms/?format=vnd.api%2Bjson`;
+  async getFormList(
+    url = `${constants.API_ENDPOINT}/forms/?format=vnd.api%2Bjson`
+  ) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
