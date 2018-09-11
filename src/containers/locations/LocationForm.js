@@ -41,7 +41,6 @@ export class LocationForm extends Component {
     this.targetId = props.targetId || null;
     this.getOptions.bind(this);
     this.loadOptions.bind(this);
-    this.getOptions.bind(this);
   }
 
   componentDidMount() {
