@@ -201,8 +201,8 @@ export class LocationForm extends Component {
                   <AsyncSelect
                     name="location_type"
                     bsSize="lg"
-                    placeholder="Location Type"
-                    aria-label="Location Type"
+                    placeholder="Select Location Type"
+                    aria-label="Select Location Type"
                     value={values.location_type}
                     onChange={value => setFieldValue("location_type", value)}
                     onBlur={handleBlur}
