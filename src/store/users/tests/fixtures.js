@@ -141,3 +141,11 @@ export const UserFormInitialData = {
   phone_number: "",
   ona_username: "kahama"
 };
+
+export const BadExportFilter = {
+  userprofile: "1",
+  modified__gte: null,
+  modified__lte: null,
+  status: "a",
+  format: "csv"
+};
