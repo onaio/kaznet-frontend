@@ -28,7 +28,10 @@ export class LocationEditForm extends Component {
           ? this.location.relationships.parent.data.id
           : "",
       location_type: this.location.relationships.location_type.data
-        ? this.location.relationships.location_type.data.id
+        ? {
+            value: this.location.relationships.location_type.data.id,
+            label: this.location.attributes.location_type_name
+          }
         : "",
       geopoint:
         this.location.attributes.geopoint != null

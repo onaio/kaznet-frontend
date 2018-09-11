@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import AsyncSelect from "react-select/lib/Async";
 import {
   Form,
   FormGroup,
@@ -20,6 +21,7 @@ import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as locationTypeSelectors from "../../store/locationTypes/reducer";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
+import * as constants from "../../constants";
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -37,12 +39,28 @@ export class LocationForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
+    this.getOptions.bind(this);
+    this.loadOptions.bind(this);
+    this.getOptions.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchLocations();
     this.props.fetchLocationTypes();
   }
+
+  getOptions() {
+    return this.props.locationTypeOptions.asMutable();
+  }
+
+  loadOptions = (inputValue, callback) => {
+    this.props.fetchLocationTypes(
+      `${constants.API_ENDPOINT}/locationtypes/?search=${inputValue}`
+    );
+    setTimeout(() => {
+      callback(this.getOptions());
+    }, 10);
+  };
 
   render() {
     return (
@@ -60,7 +78,7 @@ export class LocationForm extends Component {
                   ? { type: "Location", id: values.parent }
                   : undefined,
                 location_type: values.location_type
-                  ? { type: "LocationType", id: values.location_type }
+                  ? { type: "LocationType", id: values.location_type.value }
                   : undefined,
                 geopoint: _.toString(values.geopoint),
                 radius: values.radius,
@@ -90,7 +108,8 @@ export class LocationForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setStatus
+          setStatus,
+          setFieldValue
         }) => (
           <div>
             <Form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -179,22 +198,20 @@ export class LocationForm extends Component {
                   <Label for="location_type">Location Type</Label>
                 </Col>
                 <Col md="8">
-                  <Input
+                  <AsyncSelect
                     name="location_type"
-                    type="select"
                     bsSize="lg"
                     placeholder="Location Type"
                     aria-label="Location Type"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.location_type}
+                    onChange={value => setFieldValue("location_type", value)}
+                    onBlur={handleBlur}
+                    defaultOptions={this.props.locationTypeOptions.asMutable()}
+                    loadOptions={this.loadOptions}
+                    isClearable
+                    cacheOptions
                     className={errors.location_type ? "is-invalid" : ""}
-                  >
-                    <OptionMap
-                      obj={this.props.locationTypesById}
-                      titleField="name"
-                    />
-                  </Input>
+                  />
                   {errors.location_type && (
                     <div className="invalid-feedback">
                       {errors.location_type}
@@ -293,7 +310,8 @@ function mapStateToProps(state, ownProps) {
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state),
     locationsById: locationSelectors.getLocationsById(state),
-    locationTypesById: locationTypeSelectors.getLocationTypesById(state)
+    locationTypesById: locationTypeSelectors.getLocationTypesById(state),
+    locationTypeOptions: locationTypeSelectors.getLocationTypeOptions(state)
   };
 }
 
