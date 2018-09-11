@@ -16,13 +16,18 @@ export function fetchClients(url) {
         totalCount
       } = await clientService.getClientList(url); // reason we are using async
       const clientsById = _.keyBy(clientArray, task => task.id); // Sorts the items ???
+      const selectOptions = clientArray.map(c => ({
+        value: c.id,
+        label: c.attributes.name
+      }));
       dispatch({
         type: types.CLIENTS_FETCHED,
         clientsById,
         pageLinks,
         currentPage,
         totalPages,
-        totalCount
+        totalCount,
+        selectOptions
       }); // Returns an object for the action which is {}
     } catch (error) {
       // Kind of like a try and except
