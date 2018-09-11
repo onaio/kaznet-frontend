@@ -48,7 +48,8 @@ export class UsersList extends Component {
         userprofile: this.state.userId,
         modified__gte: start,
         modified__lte: end,
-        status: constants.TASK_ACTIVE
+        status: constants.TASK_ACTIVE,
+        format: "csv"
       },
       this.state.userName
     );
@@ -163,18 +164,22 @@ export class UsersList extends Component {
       row.attributes.first_name,
       <div key={row.id}>
         {row.attributes.submission_count}
-        <Button
-          className="mx-4 btn btn-light"
-          onClick={function(event) {
-            toggleExportModalFunction();
-            setUserDetails(row.id, row.attributes.ona_username);
-          }}
-        >
-          <FontAwesomeIcon
-            icon="laptop"
-            className="fa-xs icon-link withspace"
-          />
-        </Button>
+        {row.attributes.submission_count > 0 ? (
+          <Button
+            className="mx-4 btn btn-light"
+            onClick={function(event) {
+              toggleExportModalFunction();
+              setUserDetails(row.id, row.attributes.ona_username);
+            }}
+          >
+            <FontAwesomeIcon
+              icon="laptop"
+              className="fa-xs icon-link withspace"
+            />
+          </Button>
+        ) : (
+          ""
+        )}
       </div>,
       row.attributes.approval_rate * 100 + "%",
       <Moment key={row.id} format="DD-MM-YYYY">

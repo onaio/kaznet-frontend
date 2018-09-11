@@ -9,11 +9,10 @@ class ExportService {
         k => `${encodeURIComponent(k)}=${encodeURIComponent(filter_dict[k])}`
       )
       .join("&");
-    const url = `${
-      constants.API_ENDPOINT
-    }/exports/submissions/?${filters}&format=csv`;
+    const url = `${constants.API_ENDPOINT}/exports/submissions/?${filters}`;
 
-    let tag = `${username}` ? [username] : `${filter_dict["userprofile"]}`;
+    let tag =
+      username !== null ? `${username}` : `${filter_dict["userprofile"]}`;
 
     let fileName =
       tag +
