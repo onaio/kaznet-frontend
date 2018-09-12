@@ -37,13 +37,15 @@ describe("store/locations/reducer", () => {
     const currentPage = fixtures.currentPage;
     const totalPages = fixtures.totalPages;
     const totalCount = fixtures.totalCount;
+    const selectOptions = fixtures.selectOptions;
     const action = {
       type: actionTypes.LOCATIONS_FETCHED,
       locationsById,
       pageLinks,
       currentPage,
       totalPages,
-      totalCount
+      totalCount,
+      selectOptions
     };
 
     const existingState = Immutable(initialState);
@@ -53,6 +55,7 @@ describe("store/locations/reducer", () => {
     newState.currentPage = currentPage;
     newState.totalPages = totalPages;
     newState.totalCount = totalCount;
+    newState.selectOptions = selectOptions;
 
     Reducer(locations)
       .withState(existingState)
