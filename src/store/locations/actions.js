@@ -125,7 +125,7 @@ export function deleteLocation(location_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "Location has not been deleted"
       });
     }
   };
