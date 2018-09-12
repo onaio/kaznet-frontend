@@ -15,6 +15,11 @@
   padding: 8px 14px;
 }
 
+.tasklocation-item button.close {
+  position: relative;
+  bottom: 15px;
+}
+
 p.text-center {
   margin: 13px 0;
 }
