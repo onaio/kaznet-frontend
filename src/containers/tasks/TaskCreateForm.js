@@ -42,11 +42,7 @@ export class TaskCreateForm extends Component {
           timing_rule: TASK_LOCATION_TIMING_RULE,
           location: ""
         }
-      ],
-      tasklocation_location: "",
-      tasklocation_timing_rule: TASK_LOCATION_TIMING_RULE,
-      tasklocation_start: TASK_LOCATION_START,
-      tasklocation_end: TASK_LOCATION_END
+      ]
     };
 
     return (
