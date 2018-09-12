@@ -3,9 +3,13 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 import MockDate from "mockdate";
+import Immutable from "seamless-immutable";
 
 import { TaskForm } from "../TaskForm";
 import * as fixtures from "../../../store/tasks/tests/fixtures";
+import * as clientFixtures from "../../../store/clients/tests/fixtures";
+import * as formFixtures from "../../../store/forms/tests/fixtures";
+import * as locationFixtures from "../../../store/locations/tests/fixtures";
 import { clientsById } from "../../../store/clients/tests/fixtures";
 import { locationsById } from "../../../store/locations/tests/fixtures";
 
@@ -20,6 +24,9 @@ describe("containers/task/TaskForm", () => {
         fetchContentTypes={function() {}}
         locationsById={locationsById}
         clientsById={clientsById}
+        clientOptions={Immutable(clientFixtures.selectOptions)}
+        formOptions={Immutable(formFixtures.selectOptions)}
+        locationOptions={Immutable(locationFixtures.selectOptions)}
       />
     );
   });
@@ -39,6 +46,9 @@ describe("containers/task/TaskForm", () => {
         fetchForms={function() {}}
         fetchContentTypes={function() {}}
         unusedFormsById={forms}
+        clientOptions={Immutable(clientFixtures.selectOptions)}
+        formOptions={Immutable(formFixtures.selectOptions)}
+        locationOptions={Immutable(locationFixtures.selectOptions)}
         clientsById={clientsById}
         locationsById={locationsById}
         initialData={fixtures.TaskFormInitialData}
@@ -67,6 +77,9 @@ describe("containers/task/TaskForm", () => {
         fetchForms={function() {}}
         fetchContentTypes={function() {}}
         unusedFormsById={forms}
+        clientOptions={Immutable(clientFixtures.selectOptions)}
+        formOptions={Immutable(formFixtures.selectOptions)}
+        locationOptions={Immutable(locationFixtures.selectOptions)}
         clientsById={clientsById}
         locationsById={locationsById}
         initialData={fixtures.TaskFormInitialData}

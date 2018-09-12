@@ -11,6 +11,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
     Object {
       "attributes": Object {
         "approved_submissions_count": 0,
+        "client_name": "Client 1",
         "created": "2018-07-10T16:50:20.165320+03:00",
         "created_by_name": "Ona User",
         "current_bounty_amount": "55 KES",
@@ -36,6 +37,8 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
               "id": "1",
               "type": "Location",
             },
+            "location_description": "Voi is cool",
+            "location_name": "Voi",
             "modified": "2018-07-12T17:38:21.527572+03:00",
             "start": "06:00:00",
             "task": Object {
