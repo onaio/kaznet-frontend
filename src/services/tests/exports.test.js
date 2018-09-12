@@ -12,7 +12,7 @@ describe("services/exports", () => {
     fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
     let error;
     try {
-      await ExportService.exportUserSubmissions(fixtures.BadExportFilter);
+      await ExportService.exportUserSubmissions(fixtures.badExportFilter);
     } catch (e) {
       error = e;
     }

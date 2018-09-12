@@ -98,7 +98,13 @@ export function exportUserSubmissions(filter_dict, username = null) {
         filter_dict,
         username
       );
-      dispatch({ type: types.FILE_EXPORTED, file });
+      dispatch({
+        type: types.FILE_EXPORTED,
+        file
+      });
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,

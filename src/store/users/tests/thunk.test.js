@@ -2,11 +2,13 @@ import { Thunk } from "redux-testkit";
 
 import * as actionTypes from "../actionTypes";
 import * as users from "../actions";
+import ExportService from "../../../services/exports";
 import UserService from "../../../services/users";
 import * as fixtures from "./fixtures";
 import * as errorHandlerTypes from "../../errorHandler/actionTypes";
 
 jest.mock("../../../services/users");
+jest.mock("../../../services/exports");
 
 describe("store/users/actions", () => {
   beforeEach(() => {
@@ -95,6 +97,36 @@ describe("store/users/actions", () => {
       throw new Error("Wow!");
     });
     const dispatches = await Thunk(users.createUser).execute();
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_FAILURE,
+      errorMessage: Error("Wow!")
+    });
+  });
+
+  it("should export user submissions", async () => {
+    ExportService.exportUserSubmissions.mockReturnValueOnce(
+      fixtures.userExport
+    );
+    const dispatches = await Thunk(users.exportUserSubmissions).execute();
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: actionTypes.FILE_EXPORTED,
+      file: fixtures.userExport
+    });
+    expect(dispatches[1].isPlainObject()).toBe(true);
+    expect(dispatches[1].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+  });
+
+  it("should export a file and dispatch on error", async () => {
+    ExportService.exportUserSubmissions.mockImplementationOnce(() => {
+      throw new Error("Wow!");
+    });
+    const dispatches = await Thunk(users.exportUserSubmissions).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
