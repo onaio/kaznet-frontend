@@ -905,7 +905,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 <Col
                   sm={
                     Object {
-                      "size": 3,
+                      "size": 2,
                     }
                   }
                   tag="div"
@@ -920,7 +920,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                   }
                 >
                   <div
-                    className="col-sm-3"
+                    className="col-sm-2"
                   >
                     <Label
                       for="tasklocation_location"
@@ -1186,7 +1186,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 className="row form-group"
               >
                 <Col
-                  sm="3"
+                  sm="2"
                   tag="div"
                   widths={
                     Array [
@@ -1199,7 +1199,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                   }
                 >
                   <div
-                    className="col-sm-3"
+                    className="col-sm-2"
                   >
                     <Label
                       for="tasklocation_start"
@@ -1366,7 +1366,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 className="row form-group"
               >
                 <Col
-                  sm="3"
+                  sm="2"
                   tag="div"
                   widths={
                     Array [
@@ -1379,7 +1379,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                   }
                 >
                   <div
-                    className="col-sm-3"
+                    className="col-sm-2"
                   >
                     <Label
                       for="tasklocation_timing_rule"
@@ -1404,7 +1404,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="10"
                   tag="div"
                   widths={
                     Array [
@@ -1417,7 +1417,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-10"
                   >
                     <Input
                       aria-label="timing rule"
@@ -1449,7 +1449,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     >
                       <div>
                         <div
-                          className="px-0 pt-3 border rounded"
+                          className="rrule-component px-0 pt-3 border rounded"
                         >
                           <div>
                             <t
@@ -3004,7 +3004,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                 <Col
                   sm={
                     Object {
-                      "size": 3,
+                      "size": 2,
                     }
                   }
                   tag="div"
@@ -3019,7 +3019,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                   }
                 >
                   <div
-                    className="col-sm-3"
+                    className="col-sm-2"
                   >
                     <Label
                       for="tasklocation_location"
@@ -3285,7 +3285,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                 className="row form-group"
               >
                 <Col
-                  sm="3"
+                  sm="2"
                   tag="div"
                   widths={
                     Array [
@@ -3298,7 +3298,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                   }
                 >
                   <div
-                    className="col-sm-3"
+                    className="col-sm-2"
                   >
                     <Label
                       for="tasklocation_start"
@@ -3465,7 +3465,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                 className="row form-group"
               >
                 <Col
-                  sm="3"
+                  sm="2"
                   tag="div"
                   widths={
                     Array [
@@ -3478,7 +3478,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                   }
                 >
                   <div
-                    className="col-sm-3"
+                    className="col-sm-2"
                   >
                     <Label
                       for="tasklocation_timing_rule"
@@ -3503,7 +3503,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="10"
                   tag="div"
                   widths={
                     Array [
@@ -3516,7 +3516,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-10"
                   >
                     <Input
                       aria-label="timing rule"
@@ -3548,7 +3548,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                     >
                       <div>
                         <div
-                          className="px-0 pt-3 border rounded"
+                          className="rrule-component px-0 pt-3 border rounded"
                         >
                           <div>
                             <t
