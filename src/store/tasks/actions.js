@@ -98,7 +98,7 @@ export function deleteTask(task_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "Tasks with pre-existing submissions cannot be deleted"
       });
     }
   };

@@ -10,11 +10,14 @@ import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as taskSelectors from "../../store/tasks/reducer";
 import * as globalSelectors from "../../store/global/reducer";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as constants from "../../constants.js";
 import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 import NoResults from "../../components/NoResults";
+import { withAlert } from "react-alert";
+
 import "./TaskList.css";
 
 export class TasksList extends Component {
@@ -82,6 +85,12 @@ export class TasksList extends Component {
         }&search=${search}&status=${status}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
+    }
+
+    if (this.props.hasError !== prevProps.hasError) {
+      if (this.props.hasError === true) {
+        this.props.alert.show(this.props.errorMessage);
+      }
     }
   }
 
@@ -193,7 +202,9 @@ function mapStateToProps(state) {
     lastPage: taskSelectors.getLastPage(state),
     searchParam: globalSelectors.getSearchValue(state),
     taskStatus: taskSelectors.getTaskStatus(state),
-    taskCount: taskSelectors.getTotalCount(state)
+    taskCount: taskSelectors.getTotalCount(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
@@ -216,4 +227,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TasksList);
+)(withAlert(TasksList));
