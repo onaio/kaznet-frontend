@@ -88,15 +88,17 @@ export class TaskEditForm extends Component {
       taskLocations:
         this.task.attributes.task_locations &&
         this.task.attributes.task_locations.length > 0
-          ? this.task.attributes.task_locations.map(taskLocationItem => ({
-              start: taskLocationItem.start,
-              end: taskLocationItem.end,
-              timing_rule: taskLocationItem.timing_rule,
-              location: {
-                value: taskLocationItem.location.id,
-                label: taskLocationItem.location_name
-              }
-            }))
+          ? this.task.attributes.task_locations
+              .asMutable()
+              .map(taskLocationItem => ({
+                start: taskLocationItem.start,
+                end: taskLocationItem.end,
+                timing_rule: taskLocationItem.timing_rule,
+                location: {
+                  value: taskLocationItem.location.id,
+                  label: taskLocationItem.location_name
+                }
+              }))
           : {
               start: constants.TASK_LOCATION_START,
               end: constants.TASK_LOCATION_END,
