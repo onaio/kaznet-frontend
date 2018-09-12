@@ -116,18 +116,6 @@ class TaskService {
       );
     }
 
-    if (!response.ok) {
-      throw new Error(
-        `TaskService deleteTask failed, HTTP status ${response.status}`
-      );
-    }
-
-    if (!response.ok) {
-      throw new Error(
-        `TaskService deleteTask failed, HTTP status ${response.status}`
-      );
-    }
-
     return task_id;
   }
 
