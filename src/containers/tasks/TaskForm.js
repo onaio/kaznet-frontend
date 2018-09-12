@@ -496,10 +496,14 @@ export class TaskForm extends Component {
                             </Col>
 
                             <Col md={{ size: 5 }}>
-                              <Button className="btn btn-primary">
-                                <a href="/locations/new" />
-                                +
-                              </Button>
+                              <a href="/locations/new">
+                                <Button
+                                  type="button"
+                                  className="btn btn-primary"
+                                >
+                                  +
+                                </Button>
+                              </a>
                             </Col>
                           </Row>
                         }
@@ -634,10 +638,11 @@ export class TaskForm extends Component {
                 </Col>
 
                 <Col md="3">
-                  <Button className="btn btn-primary">
-                    <a href="/locations/new" />
-                    +
-                  </Button>
+                  <a href="/clients/new">
+                    <Button type="button" className="btn btn-primary">
+                      +
+                    </Button>
+                  </a>
                 </Col>
               </FormGroup>
               <FormGroup className="row">

@@ -1263,21 +1263,24 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           <div
                             className="col-md-5"
                           >
-                            <Button
-                              className="btn btn-primary"
-                              color="secondary"
-                              tag="button"
+                            <a
+                              href="/locations/new"
                             >
-                              <button
-                                className="btn btn-primary btn btn-secondary"
-                                onClick={[Function]}
+                              <Button
+                                className="btn btn-primary"
+                                color="secondary"
+                                tag="button"
+                                type="button"
                               >
-                                <a
-                                  href="/locations/new"
-                                />
-                                +
-                              </button>
-                            </Button>
+                                <button
+                                  className="btn btn-primary btn btn-secondary"
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  +
+                                </button>
+                              </Button>
+                            </a>
                           </div>
                         </Col>
                       </div>
@@ -1993,21 +1996,24 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 <div
                   className="col-md-3"
                 >
-                  <Button
-                    className="btn btn-primary"
-                    color="secondary"
-                    tag="button"
+                  <a
+                    href="/clients/new"
                   >
-                    <button
-                      className="btn btn-primary btn btn-secondary"
-                      onClick={[Function]}
+                    <Button
+                      className="btn btn-primary"
+                      color="secondary"
+                      tag="button"
+                      type="button"
                     >
-                      <a
-                        href="/locations/new"
-                      />
-                      +
-                    </button>
-                  </Button>
+                      <button
+                        className="btn btn-primary btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        +
+                      </button>
+                    </Button>
+                  </a>
                 </div>
               </Col>
             </div>
@@ -3522,21 +3528,24 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                           <div
                             className="col-md-5"
                           >
-                            <Button
-                              className="btn btn-primary"
-                              color="secondary"
-                              tag="button"
+                            <a
+                              href="/locations/new"
                             >
-                              <button
-                                className="btn btn-primary btn btn-secondary"
-                                onClick={[Function]}
+                              <Button
+                                className="btn btn-primary"
+                                color="secondary"
+                                tag="button"
+                                type="button"
                               >
-                                <a
-                                  href="/locations/new"
-                                />
-                                +
-                              </button>
-                            </Button>
+                                <button
+                                  className="btn btn-primary btn btn-secondary"
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  +
+                                </button>
+                              </Button>
+                            </a>
                           </div>
                         </Col>
                       </div>
@@ -4250,21 +4259,24 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                 <div
                   className="col-md-3"
                 >
-                  <Button
-                    className="btn btn-primary"
-                    color="secondary"
-                    tag="button"
+                  <a
+                    href="/clients/new"
                   >
-                    <button
-                      className="btn btn-primary btn btn-secondary"
-                      onClick={[Function]}
+                    <Button
+                      className="btn btn-primary"
+                      color="secondary"
+                      tag="button"
+                      type="button"
                     >
-                      <a
-                        href="/locations/new"
-                      />
-                      +
-                    </button>
-                  </Button>
+                      <button
+                        className="btn btn-primary btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        +
+                      </button>
+                    </Button>
+                  </a>
                 </div>
               </Col>
             </div>
