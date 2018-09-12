@@ -131,3 +131,8 @@ export const locationTypeByIdSecondPage = _.keyBy(
   locationTypeArraySecondPage,
   locationType => locationType.id
 );
+
+export const selectOptions = locationTypesArray.map(d => ({
+  value: d.id,
+  label: d.attributes.name
+}));

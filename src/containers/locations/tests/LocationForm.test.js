@@ -2,11 +2,16 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
+import Immutable from "seamless-immutable";
+import { Router } from "react-router";
+import createBrowserHistory from "history/createBrowserHistory";
 
 import ErrorBoundary from "../../../components/ErrorBoundary";
 import { LocationForm } from "../LocationForm";
 import * as fixtures from "../../../store/locations/tests/fixtures";
 import { locationTypesById } from "../../../store/locationTypes/tests/fixtures";
+
+const history = createBrowserHistory();
 
 describe("containers/location/LocationForm", () => {
   it("renders without crashing", () => {
@@ -26,6 +31,7 @@ describe("containers/location/LocationForm", () => {
         initialData={initialData}
         locationsById={fixtures.locationsById}
         locationTypesById={locationTypesById}
+        locationTypeOptions={Immutable(fixtures.selectOptions)}
       />
     );
   });
@@ -40,16 +46,47 @@ describe("containers/location/LocationForm", () => {
       shapefile: ""
     };
     const wrapper = mount(
-      <ErrorBoundary>
-        <LocationForm
-          formActionDispatch={function() {}}
-          fetchLocations={function() {}}
-          fetchLocationTypes={function() {}}
-          initialData={initialData}
-          locationsById={fixtures.locationsById}
-          locationTypesById={locationTypesById}
-        />
-      </ErrorBoundary>
+      <Router history={history}>
+        <ErrorBoundary>
+          <LocationForm
+            formActionDispatch={function() {}}
+            fetchLocations={function() {}}
+            fetchLocationTypes={function() {}}
+            initialData={initialData}
+            locationsById={fixtures.locationsById}
+            locationTypesById={locationTypesById}
+            locationTypeOptions={Immutable(fixtures.selectOptions)}
+          />
+        </ErrorBoundary>
+      </Router>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it("renders location form correctly when editting", () => {
+    const initialData = {
+      name: "Voi",
+      parent: "",
+      location_type: { value: 1337, label: "Mars" },
+      geopoint: "36.9898,-1.1111",
+      radius: "2",
+      shapefile: ""
+    };
+    const wrapper = mount(
+      <Router history={history}>
+        <ErrorBoundary>
+          <LocationForm
+            formActionDispatch={function() {}}
+            fetchLocations={function() {}}
+            fetchLocationTypes={function() {}}
+            initialData={initialData}
+            locationsById={fixtures.locationsById}
+            locationTypesById={locationTypesById}
+            locationTypeOptions={Immutable(fixtures.selectOptions)}
+          />
+        </ErrorBoundary>
+      </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

@@ -1,6 +1,7 @@
 //Test TaskEditForm
 import React from "react";
 import { shallow } from "enzyme";
+import Immutable from "seamless-immutable";
 
 import * as fixtures from "../../../store/tasks/tests/fixtures";
 import { TaskEditForm } from "../TaskEditForm";
@@ -23,6 +24,11 @@ describe("containers/task/TaskEditForm", () => {
   });
 
   it("renders both Form View and TaskForm with correct Data", () => {
+    let singleTask = fixtures.singleTask;
+    singleTask.attributes.task_locations = Immutable(
+      singleTask.attributes.task_locations
+    );
+
     const wrapper = shallow(
       <TaskEditForm
         match={{

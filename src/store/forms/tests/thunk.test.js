@@ -19,7 +19,8 @@ describe("store/forms/actions", () => {
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.FORMS_FETCHED,
-      formsById: fixtures.formsById
+      formsById: fixtures.formsById,
+      selectOptions: fixtures.selectOptions
     });
   });
 

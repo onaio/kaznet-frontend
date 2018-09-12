@@ -20,13 +20,18 @@ export function fetchLocationTypes(url) {
         locationTypeArray,
         locationType => locationType.id
       );
+      const selectOptions = locationTypeArray.map(d => ({
+        value: d.id,
+        label: d.attributes.name
+      }));
       dispatch({
         type: types.LOCATIONTYPES_FETCHED,
         locationTypesById,
         pageLinks,
         currentPage,
         totalPages,
-        totalCount
+        totalCount,
+        selectOptions
       });
     } catch (error) {
       dispatch({
@@ -36,6 +41,7 @@ export function fetchLocationTypes(url) {
     }
   };
 }
+
 export function changePageNumber(pageNumber) {
   return async (dispatch, getState) => {
     dispatch({ type: types.LOCATIONTYPES_CHANGE_PAGE, pageNumber });

@@ -1,6 +1,5 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
 import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
 
@@ -22,6 +21,7 @@ describe("containers/task/TaskClone", () => {
       />
     );
   });
+
   it("check if cloneTask works", () => {
     const mockCloneTask = jest.fn();
     const payload = {
@@ -29,7 +29,7 @@ describe("containers/task/TaskClone", () => {
         type: "Task"
       }
     };
-    const wrapper = mount(
+    mount(
       <Router history={history}>
         <TaskClone
           match={{

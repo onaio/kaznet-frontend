@@ -19,6 +19,7 @@ export const formData = {
         id_string: "form_1",
         created: "2018-06-21T12:15:23.170271+03:00",
         modified: "2018-06-21T12:15:23.170313+03:00",
+        has_task: false,
         deleted_at: null
       }
     },
@@ -33,6 +34,22 @@ export const formData = {
         id_string: "form_2",
         created: "2018-06-21T12:15:23.175198+03:00",
         modified: "2018-06-21T12:15:23.175232+03:00",
+        has_task: false,
+        deleted_at: null
+      }
+    },
+    {
+      type: "XForm",
+      id: "3",
+      attributes: {
+        ona_pk: 6373,
+        project_id: 5522,
+        last_updated: null,
+        title: "Form 3",
+        id_string: "form_3",
+        created: "2018-06-21T12:15:23.175198+03:00",
+        modified: "2018-06-21T12:15:23.175232+03:00",
+        has_task: true,
         deleted_at: null
       }
     }
@@ -46,12 +63,19 @@ export const formData = {
   }
 };
 
-export const formsArray = _.map(formData.data, form => {
-  return form;
-});
+export const formsArray = _.map(formData.data, form => form);
 
 export const formsById = _.keyBy(formsArray, form => form.id);
 
 export const formsIdArray = _.keys(formsById);
 
 export const formIdOneById = _.get(formsById, 1);
+
+export const selectOptions = formsArray
+  .filter(function(item) {
+    return item.attributes.has_task === false;
+  })
+  .map(f => ({
+    value: f.id,
+    label: f.attributes.title
+  }));

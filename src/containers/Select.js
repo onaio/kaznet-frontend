@@ -22,7 +22,11 @@ export class OptionMap extends Component {
       );
     }
 
-    listItems.unshift(<option key={0}>----</option>);
+    listItems.unshift(
+      <option key={0} value="">
+        ----
+      </option>
+    );
     return listItems;
   }
 }

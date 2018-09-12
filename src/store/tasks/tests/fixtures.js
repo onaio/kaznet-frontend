@@ -443,6 +443,7 @@ export const singleTask = {
     submission_count: 0,
     target_id: 20,
     created_by_name: "Ona User",
+    client_name: "Client 1",
     task_locations: [
       {
         task: {
@@ -455,6 +456,8 @@ export const singleTask = {
           type: "Location",
           id: "1"
         },
+        location_name: "Voi",
+        location_description: "Voi is cool",
         timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
         start: "06:00:00",
         end: "18:00:00"
@@ -546,19 +549,26 @@ export const singleTaskById = _.keyBy(singleTaskArray, task => task.id);
 
 export const TaskFormInitialData = {
   amount: 55,
-  client: "1",
+  client: { value: "1", label: "Client 1" },
   description: "This is an awesome task",
   end: "2020-07-10",
   estimated_time: 15,
-  form: 20,
+  form: { value: 20, label: "Baseline_Questionnaire" },
   name: "Kaznet",
   required_expertise: "1",
   start: "2018-07-10",
   status: "a",
-  tasklocation_end: "18:00:00",
-  tasklocation_location: "1",
-  tasklocation_start: "06:00:00",
-  tasklocation_timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+  taskLocations: [
+    {
+      start: "06:00:00",
+      end: "18:00:00",
+      timing_rule: "FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1",
+      location: {
+        value: "1",
+        label: "Voi"
+      }
+    }
+  ],
   timing_rule: "FREQ=WEEKLY;INTERVAL=1;BYDAY=FR,SA",
   user_submission_target: 10
 };

@@ -20,7 +20,8 @@ describe("store/clients/actions", () => {
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
       totalPages: fixtures.totalPages,
-      totalCount: fixtures.totalCount
+      totalCount: fixtures.totalCount,
+      selectOptions: fixtures.selectOptions
     });
     const dispatches = await Thunk(clients.fetchClients).execute();
     expect(dispatches.length).toBe(1);
@@ -31,7 +32,8 @@ describe("store/clients/actions", () => {
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
       totalPages: fixtures.totalPages,
-      totalCount: fixtures.totalCount
+      totalCount: fixtures.totalCount,
+      selectOptions: fixtures.selectOptions
     });
   });
 
@@ -40,7 +42,8 @@ describe("store/clients/actions", () => {
       clientArray: fixtures.clientsArraySecondPage,
       pageLinks: fixtures.pageLinksSecondPage,
       currentPage: fixtures.currentPageSecondPage,
-      totalPages: fixtures.totalPagesSecondPage
+      totalPages: fixtures.totalPagesSecondPage,
+      selectOptions: fixtures.selectOptionsSecondPage
     });
     const dispatches = await Thunk(clients.fetchClients).execute(
       fixtures.pageLinks.next
@@ -52,7 +55,8 @@ describe("store/clients/actions", () => {
       clientsById: fixtures.clientsByIdSecondPage,
       pageLinks: fixtures.pageLinksSecondPage,
       currentPage: fixtures.currentPageSecondPage,
-      totalPages: fixtures.totalPagesSecondPage
+      totalPages: fixtures.totalPagesSecondPage,
+      selectOptions: fixtures.selectOptionsSecondPage
     });
   });
 

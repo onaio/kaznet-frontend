@@ -8,6 +8,7 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   formsById: {},
+  selectOptions: [],
   formsIdArray: [],
   unusedForms: []
 };
@@ -19,11 +20,17 @@ describe("store/forms/reducer", () => {
 
   it("should store fetched forms", () => {
     const formsById = fixtures.formsById;
-    const action = { type: actionTypes.FORMS_FETCHED, formsById };
+    const selectOptions = fixtures.selectOptions;
+    const action = {
+      type: actionTypes.FORMS_FETCHED,
+      formsById,
+      selectOptions
+    };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(existingState);
     newState.formsById = formsById;
+    newState.selectOptions = selectOptions;
 
     Reducer(forms)
       .withState(existingState)

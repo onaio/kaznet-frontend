@@ -66,28 +66,45 @@ export class TaskEditForm extends Component {
           : "",
       amount:
         this.task.attributes.current_bounty_amount != null
-          ? parseInt(this.task.attributes.current_bounty_amount, 10)
+          ? parseInt(
+              this.task.attributes.current_bounty_amount,
+              constants.USER_SUBMISSION_TARGET
+            )
           : "",
       form:
-        this.task.attributes.target_id != null
-          ? this.task.attributes.target_id
+        this.task.attributes.target_id && this.task.attributes.xform_title
+          ? {
+              value: this.task.attributes.target_id,
+              label: this.task.attributes.xform_title
+            }
           : "",
       client:
         this.task.relationships.client.data != null
-          ? this.task.relationships.client.data.id
+          ? {
+              value: this.task.relationships.client.data.id,
+              label: this.task.attributes.client_name
+            }
           : "",
-      tasklocation_location: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].location.id
-        : "",
-      tasklocation_timing_rule: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].timing_rule
-        : constants.TASK_LOCATION_TIMING_RULE,
-      tasklocation_start: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].start
-        : constants.TASK_LOCATION_TIMING_RULE,
-      tasklocation_end: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].end
-        : constants.TASK_LOCATION_END
+      taskLocations:
+        this.task.attributes.task_locations &&
+        this.task.attributes.task_locations.length > 0
+          ? this.task.attributes.task_locations
+              .asMutable()
+              .map(taskLocationItem => ({
+                start: taskLocationItem.start,
+                end: taskLocationItem.end,
+                timing_rule: taskLocationItem.timing_rule,
+                location: {
+                  value: taskLocationItem.location.id,
+                  label: taskLocationItem.location_name
+                }
+              }))
+          : {
+              start: constants.TASK_LOCATION_START,
+              end: constants.TASK_LOCATION_END,
+              timing_rule: constants.TASK_LOCATION_TIMING_RULE,
+              location: ""
+            }
     };
 
     return (
