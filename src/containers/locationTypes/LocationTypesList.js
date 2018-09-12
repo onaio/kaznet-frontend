@@ -57,17 +57,16 @@ export class LocationTypesList extends Component {
           constants.API_ENDPOINT
         }/locationtypes/?search=${search}&page=${pageNumber}`
       );
-      if (this.props.hasError !== prevProps.hasError) {
-        if (this.props.hasError === true) {
-          this.props.alert.show(this.props.errorMessage);
-        }
-      }
       this.props.changePageNumber(pageNumber);
+    }
+    if (this.props.hasError !== prevProps.hasError) {
+      if (this.props.hasError === true) {
+        this.props.alert.show(this.props.errorMessage);
+      }
     }
   }
 
   render() {
-    console.log(this.props);
     if (
       this.props.searchParam !== "" &&
       this.props.locationTypeCount === null
