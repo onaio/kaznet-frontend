@@ -202,7 +202,7 @@ function mapStateToProps(state) {
     lastPage: taskSelectors.getLastPage(state),
     searchParam: globalSelectors.getSearchValue(state),
     taskStatus: taskSelectors.getTaskStatus(state),
-    taskCount: taskSelectors.getTotalCount(state)
+    taskCount: taskSelectors.getTotalCount(state),
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
