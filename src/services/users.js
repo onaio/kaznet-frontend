@@ -22,7 +22,7 @@ class UserService {
       data,
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = await response.json();
 
@@ -35,7 +35,8 @@ class UserService {
       userArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
   }
 

@@ -24,7 +24,7 @@ class LocationTypeService {
       data,
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = await response.json();
 
@@ -40,7 +40,8 @@ class LocationTypeService {
       locationTypeArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
   }
 

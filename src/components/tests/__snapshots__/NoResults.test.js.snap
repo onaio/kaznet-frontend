@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/NoResults renders the no results message 1`] = `
+<NoResults
+  searchVal="peter pan"
+>
+  <div
+    className="container"
+  >
+    <br />
+    <div
+      className="jumbotron bg-white"
+    >
+      <p
+        align="center"
+      >
+        Sorry, we could not find any results matching "
+        peter pan
+        ".
+      </p>
+      <p
+        align="center"
+      >
+        Please try again?
+      </p>
+    </div>
+  </div>
+</NoResults>
+`;

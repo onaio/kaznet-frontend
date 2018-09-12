@@ -9,7 +9,7 @@ import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationTypeSelectors from "../../store/locationTypes/reducer";
 import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
-
+import NoResults from "../../components/NoResults";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 
@@ -61,6 +61,15 @@ export class LocationTypesList extends Component {
   }
 
   render() {
+    if (
+      this.props.searchParam !== "" &&
+      this.props.locationTypeCount === null
+    ) {
+      return this.renderLoading();
+    }
+    if (this.props.locationTypeCount === 0) {
+      return <NoResults searchVal={this.props.searchParam} />;
+    }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
       <div className="LocationTypeList">
@@ -116,7 +125,8 @@ function mapStateToProps(state) {
     pageLinks: locationTypeSelectors.getPageLinks(state),
     firstPage: locationTypeSelectors.getFirstPage(state),
     lastPage: locationTypeSelectors.getLastPage(state),
-    searchParam: globalSelectors.getSearchValue(state)
+    searchParam: globalSelectors.getSearchValue(state),
+    locationTypeCount: locationTypeSelectors.getTotalCount(state)
   };
 }
 

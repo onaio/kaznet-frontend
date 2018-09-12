@@ -66,6 +66,7 @@ export const clientsArraySecondPage = _.map(
 
 export const currentPage = clientData.meta.pagination.page;
 export const totalPages = clientData.meta.pagination.pages;
+export const totalCount = clientData.meta.pagination.count;
 export const pageLinks = clientData.links;
 export const firstPage = 1;
 export const lastPage = 2;

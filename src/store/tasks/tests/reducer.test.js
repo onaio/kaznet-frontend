@@ -12,6 +12,7 @@ const initialState = {
   tasksIdArray: [],
   currentPage: null,
   totalPages: null,
+  totalCount: null,
   pageLinks: {
     first: null,
     last: null,
@@ -81,12 +82,14 @@ describe("store/tasks/reducer", () => {
     const pageLinks = fixtures.pageLinks;
     const currentPage = fixtures.currentPage;
     const totalPages = fixtures.totalPages;
+    const totalCount = fixtures.totalCount;
     const action = {
       type: actionTypes.TASKS_FETCHED,
       tasksById,
       pageLinks,
       currentPage,
-      totalPages
+      totalPages,
+      totalCount
     };
 
     const existingState = Immutable(initialState);
@@ -95,6 +98,7 @@ describe("store/tasks/reducer", () => {
     newState.pageLinks = pageLinks;
     newState.currentPage = currentPage;
     newState.totalPages = totalPages;
+    newState.totalCount = totalCount;
 
     Reducer(tasks)
       .withState(existingState)

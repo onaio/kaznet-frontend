@@ -18,7 +18,8 @@ describe("store/locationTypes/actions", () => {
       locationTypeArray: fixtures.locationTypesArray,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
 
     const dispatches = await Thunk(locationTypes.fetchLocationTypes).execute();
@@ -29,7 +30,8 @@ describe("store/locationTypes/actions", () => {
       locationTypesById: fixtures.locationTypesById,
       pageLinks: fixtures.pageLinks,
       currentPage: fixtures.currentPage,
-      totalPages: fixtures.totalPages
+      totalPages: fixtures.totalPages,
+      totalCount: fixtures.totalCount
     });
   });
 

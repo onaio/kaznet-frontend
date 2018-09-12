@@ -214,6 +214,7 @@ export const singleLocationById = _.keyBy(
 
 export const currentPage = locationsData.meta.pagination.page;
 export const totalPages = locationsData.meta.pagination.pages;
+export const totalCount = locationsData.meta.pagination.count;
 export const pageLinks = locationsData.links;
 export const firstPage = 1;
 export const lastPage = 2;

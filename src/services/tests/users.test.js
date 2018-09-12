@@ -16,7 +16,7 @@ describe("services/users", () => {
     const {
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = data;
 
@@ -24,7 +24,8 @@ describe("services/users", () => {
       userArray: fixtures.usersArray,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
 
     expect(response).toEqual(expectedResponse);
@@ -39,7 +40,7 @@ describe("services/users", () => {
     const {
       links,
       meta: {
-        pagination: { page, pages }
+        pagination: { page, pages, count }
       }
     } = data;
 
@@ -47,7 +48,8 @@ describe("services/users", () => {
       userArray: fixtures.usersArraySecondPage,
       pageLinks: links,
       currentPage: page,
-      totalPages: pages
+      totalPages: pages,
+      totalCount: count
     };
 
     expect(response).toEqual(expectedResponse);
