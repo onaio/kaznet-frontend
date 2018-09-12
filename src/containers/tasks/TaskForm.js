@@ -440,7 +440,7 @@ export class TaskForm extends Component {
                 return (
                   <div className="tasklocation-item" key={i}>
                     <FormGroup className="row">
-                      <Col sm={{ size: 3 }}>
+                      <Col sm={{ size: 2 }}>
                         <Label for="tasklocation_location">Location</Label>
                       </Col>
                       <Col md="9">
@@ -482,7 +482,7 @@ export class TaskForm extends Component {
                       </Col>
                     </FormGroup>
                     <FormGroup className="row">
-                      <Col sm="3">
+                      <Col sm="2">
                         <Label for="tasklocation_start">Hours</Label>
                       </Col>
                       <Col md="6">
@@ -542,12 +542,12 @@ export class TaskForm extends Component {
                     </FormGroup>
 
                     <FormGroup className="row">
-                      <Col sm="3">
+                      <Col sm="2">
                         <Label for="tasklocation_timing_rule">
                           Timing Rule
                         </Label>
                       </Col>
-                      <Col md="9">
+                      <Col md="10">
                         <Input
                           name="tasklocation_timing_rule"
                           type="hidden"
