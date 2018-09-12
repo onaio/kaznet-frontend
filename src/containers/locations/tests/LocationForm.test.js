@@ -3,11 +3,15 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 import Immutable from "seamless-immutable";
+import { MemoryRouter } from "react-router";
+import createBrowserHistory from "history/createBrowserHistory";
 
 import ErrorBoundary from "../../../components/ErrorBoundary";
 import { LocationForm } from "../LocationForm";
 import * as fixtures from "../../../store/locations/tests/fixtures";
 import { locationTypesById } from "../../../store/locationTypes/tests/fixtures";
+
+const history = createBrowserHistory();
 
 describe("containers/location/LocationForm", () => {
   it("renders without crashing", () => {
@@ -42,17 +46,19 @@ describe("containers/location/LocationForm", () => {
       shapefile: ""
     };
     const wrapper = mount(
-      <ErrorBoundary>
-        <LocationForm
-          formActionDispatch={function() {}}
-          fetchLocations={function() {}}
-          fetchLocationTypes={function() {}}
-          initialData={initialData}
-          locationsById={fixtures.locationsById}
-          locationTypesById={locationTypesById}
-          locationTypeOptions={Immutable(fixtures.selectOptions)}
-        />
-      </ErrorBoundary>
+      <MemoryRouter history={history}>
+        <ErrorBoundary>
+          <LocationForm
+            formActionDispatch={function() {}}
+            fetchLocations={function() {}}
+            fetchLocationTypes={function() {}}
+            initialData={initialData}
+            locationsById={fixtures.locationsById}
+            locationTypesById={locationTypesById}
+            locationTypeOptions={Immutable(fixtures.selectOptions)}
+          />
+        </ErrorBoundary>
+      </MemoryRouter>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
@@ -68,17 +74,19 @@ describe("containers/location/LocationForm", () => {
       shapefile: ""
     };
     const wrapper = mount(
-      <ErrorBoundary>
-        <LocationForm
-          formActionDispatch={function() {}}
-          fetchLocations={function() {}}
-          fetchLocationTypes={function() {}}
-          initialData={initialData}
-          locationsById={fixtures.locationsById}
-          locationTypesById={locationTypesById}
-          locationTypeOptions={Immutable(fixtures.selectOptions)}
-        />
-      </ErrorBoundary>
+      <MemoryRouter history={history}>
+        <ErrorBoundary>
+          <LocationForm
+            formActionDispatch={function() {}}
+            fetchLocations={function() {}}
+            fetchLocationTypes={function() {}}
+            initialData={initialData}
+            locationsById={fixtures.locationsById}
+            locationTypesById={locationTypesById}
+            locationTypeOptions={Immutable(fixtures.selectOptions)}
+          />
+        </ErrorBoundary>
+      </MemoryRouter>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
