@@ -69,7 +69,7 @@ export class TaskEditForm extends Component {
           ? parseInt(this.task.attributes.current_bounty_amount, 10)
           : "",
       form:
-        this.task.attributes.target_id != null
+        this.task.attributes.target_id && this.task.attributes.xform_title
           ? {
               value: this.task.attributes.target_id,
               label: this.task.attributes.xform_title
@@ -82,18 +82,24 @@ export class TaskEditForm extends Component {
               label: this.task.attributes.client_name
             }
           : "",
-      tasklocation_location: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].location.id
-        : "",
-      tasklocation_timing_rule: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].timing_rule
-        : constants.TASK_LOCATION_TIMING_RULE,
-      tasklocation_start: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].start
-        : constants.TASK_LOCATION_TIMING_RULE,
-      tasklocation_end: this.task.attributes.task_locations[0]
-        ? this.task.attributes.task_locations[0].end
-        : constants.TASK_LOCATION_END
+      taskLocations:
+        this.task.attributes.task_locations &&
+        this.task.attributes.task_locations.length > 0
+          ? this.task.attributes.task_locations.map(taskLocationItem => ({
+              start: taskLocationItem.start,
+              end: taskLocationItem.end,
+              timing_rule: taskLocationItem.timing_rule,
+              location: {
+                value: taskLocationItem.location.id,
+                label: taskLocationItem.location_name
+              }
+            }))
+          : {
+              start: constants.TASK_LOCATION_START,
+              end: constants.TASK_LOCATION_END,
+              timing_rule: constants.TASK_LOCATION_TIMING_RULE,
+              location: ""
+            }
     };
 
     return (
