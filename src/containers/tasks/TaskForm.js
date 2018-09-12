@@ -16,6 +16,7 @@ import moment from "moment";
 import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { OptionMap } from "../Select";
 import "./TaskForm.css";
 import * as clientActions from "../../store/clients/actions";
@@ -358,13 +359,17 @@ export class TaskForm extends Component {
                   )}
                 </Col>
                 <Col md="3">
-                  <a
-                    href={ONA_PROFILE_URL}
-                    color="link"
-                    className="remove_button_css action-link action-link-alert"
-                  >
-                    GO TO ONA FORM
-                  </a>
+                  <Button className="btn btn-light" color="secondary">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={ONA_PROFILE_URL}
+                      className="kaznet-action-links"
+                    >
+                      <FontAwesomeIcon icon="external-link-alt" />&nbsp; GO TO
+                      ONA FORM
+                    </a>
+                  </Button>
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -489,14 +494,12 @@ export class TaskForm extends Component {
                                 </div>
                               )}
                             </Col>
+
                             <Col md={{ size: 5 }}>
-                              <a
-                                href="/locations/new"
-                                color="link"
-                                className="remove_button_css action-link action-link-alert"
-                              >
-                                CREATE LOCATION
-                              </a>
+                              <Button className="btn btn-primary">
+                                <a href="/locations/new" />
+                                +
+                              </Button>
                             </Col>
                           </Row>
                         }
@@ -629,14 +632,12 @@ export class TaskForm extends Component {
                     <div className="invalid-feedback">{errors.client}</div>
                   )}
                 </Col>
+
                 <Col md="3">
-                  <a
-                    href="/clients/new"
-                    color="link"
-                    className="remove_button_css action-link action-link-alert"
-                  >
-                    CREATE CLIENT
-                  </a>
+                  <Button className="btn btn-primary">
+                    <a href="/locations/new" />
+                    +
+                  </Button>
                 </Col>
               </FormGroup>
               <FormGroup className="row">
