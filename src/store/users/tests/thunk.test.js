@@ -105,7 +105,6 @@ describe("store/users/actions", () => {
     });
   });
 
-<<<<<<< HEAD
   it("should export user submissions", async () => {
     ExportService.exportUserSubmissions.mockReturnValueOnce(
       fixtures.userExport
@@ -135,7 +134,7 @@ describe("store/users/actions", () => {
       errorMessage: Error("Wow!")
     });
   });
-=======
+
   it("should get currently logged in user", async () => {
     UserService.getLoggedInUser.mockReturnValueOnce({
       data: fixtures.currentLoggedInUserData
@@ -147,5 +146,4 @@ describe("store/users/actions", () => {
       type: errorHandlerTypes.REQUEST_SUCCESS
     });
   });
->>>>>>> Logged in user gravatar
 });
