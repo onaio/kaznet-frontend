@@ -27,6 +27,14 @@ export class TaskCreateForm extends Component {
       status: TASK_DRAFT,
       user_submission_target: 10,
       amount: "",
+      taskLocations: [
+        {
+          start: "09:00",
+          end: "17:00",
+          timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+          location: ""
+        }
+      ],
       tasklocation_location: "",
       tasklocation_timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
       tasklocation_start: "09:00",
