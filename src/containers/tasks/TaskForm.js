@@ -471,14 +471,17 @@ export class TaskForm extends Component {
                           className="tasklocation-item position-relative"
                           key={index}
                         >
-                          <button
-                            type="button"
-                            className="close position-absolute locationClose"
-                            aria-label="Close"
-                            onClick={() => arrayHelpers.remove(index)}
-                          >
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                          {values.taskLocations &&
+                            values.taskLocations.length > 1 && (
+                              <button
+                                type="button"
+                                className="close position-absolute locationClose"
+                                aria-label="Close"
+                                onClick={() => arrayHelpers.remove(index)}
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            )}
 
                           <FormGroup className="row mt-3">
                             <Col sm={{ size: 3 }}>
