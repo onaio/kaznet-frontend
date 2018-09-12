@@ -18,6 +18,7 @@
     "qs": "^6.5.2",
     "react": "^16.4.0",
     "react-alert": "^4.0.4",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.4.1",
     "react-moment": "^0.7.7",
     "react-redux": "^5.0.7",
