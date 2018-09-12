@@ -14,6 +14,7 @@ import {
   Label,
   FormText
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 import { OptionMap } from "../Select";
 import * as locationActions from "../../store/locations/actions";
@@ -184,13 +185,6 @@ export class LocationForm extends Component {
                     <div className="invalid-feedback">{errors.parent}</div>
                   )}
                 </Col>
-                <Col md="1">
-                  <a href="/locations/new">
-                    <Button type="button" className="btn my-1 btn-primary">
-                      +
-                    </Button>
-                  </a>
-                </Col>
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
@@ -229,11 +223,14 @@ export class LocationForm extends Component {
                   )}
                 </Col>
                 <Col md="1">
-                  <a href="/locationTypes/new">
-                    <Button type="button" className="btn my-1 btn-primary">
+                  <Link to="/locationTypes/new">
+                    <Button
+                      type="button"
+                      className="btn my-1 btn-sm btn-primary"
+                    >
                       +
                     </Button>
-                  </a>
+                  </Link>
                 </Col>
               </FormGroup>
               <FormGroup className="row">
