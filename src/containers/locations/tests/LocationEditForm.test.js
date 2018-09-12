@@ -1,11 +1,13 @@
 //Test LocationEditForm
 import React from "react";
 import { shallow } from "enzyme";
+import Immutable from "seamless-immutable";
 
 import * as fixtures from "../../../store/locations/tests/fixtures";
 import { LocationEditForm } from "../LocationEditForm";
 import FormView from "../../../components/FormView";
 import LocationForm from "../LocationForm";
+import { locationTypesById } from "../../../store/locationTypes/tests/fixtures";
 
 describe("containers/location/LocationEditForm", () => {
   it("renders without crashing", () => {
@@ -33,6 +35,8 @@ describe("containers/location/LocationEditForm", () => {
         fetchLocation={function() {}}
         noTitle={function() {}}
         locationById={fixtures.singleLocation}
+        locationTypesById={locationTypesById}
+        locationTypeOptions={Immutable(fixtures.selectOptions)}
       />
     ).dive();
 
