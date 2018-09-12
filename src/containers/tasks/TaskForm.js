@@ -440,6 +440,18 @@ export class TaskForm extends Component {
               {this.state.locations.map((loc, i) => {
                 return (
                   <div className="tasklocation-item" key={i}>
+                    {this.state.locations.length > 1 ? (
+                      <button
+                        type="button"
+                        className="close"
+                        aria-label="Close"
+                        onClick={this.handleRemoveLocation(i)}
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    ) : (
+                      ""
+                    )}
                     <FormGroup className="row">
                       <Col sm={{ size: 3 }}>
                         <Label for="tasklocation_location">Location</Label>
