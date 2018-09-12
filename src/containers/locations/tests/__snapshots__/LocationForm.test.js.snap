@@ -245,7 +245,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="8"
                   tag="div"
                   widths={
                     Array [
@@ -258,7 +258,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-8"
                   >
                     <Input
                       aria-label="description"
@@ -331,7 +331,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="8"
                   tag="div"
                   widths={
                     Array [
@@ -344,7 +344,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-8"
                   >
                     <Input
                       aria-label="Parent Location"
@@ -473,6 +473,42 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                     </Input>
                   </div>
                 </Col>
+                <Col
+                  md="1"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-1"
+                  >
+                    <a
+                      href="/locations/new"
+                    >
+                      <Button
+                        className="btn my-1 btn-primary"
+                        color="secondary"
+                        tag="button"
+                        type="button"
+                      >
+                        <button
+                          className="btn my-1 btn-primary btn btn-secondary"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          +
+                        </button>
+                      </Button>
+                    </a>
+                  </div>
+                </Col>
               </div>
             </FormGroup>
             <FormGroup
@@ -521,7 +557,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="8"
                   tag="div"
                   widths={
                     Array [
@@ -534,7 +570,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-8"
                   >
                     <Input
                       aria-label="Location Type"
@@ -603,6 +639,42 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                     </Input>
                   </div>
                 </Col>
+                <Col
+                  md="1"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-1"
+                  >
+                    <a
+                      href="/locationTypes/new"
+                    >
+                      <Button
+                        className="btn my-1 btn-primary"
+                        color="secondary"
+                        tag="button"
+                        type="button"
+                      >
+                        <button
+                          className="btn my-1 btn-primary btn btn-secondary"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          +
+                        </button>
+                      </Button>
+                    </a>
+                  </div>
+                </Col>
               </div>
             </FormGroup>
             <FormGroup
@@ -651,7 +723,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="8"
                   tag="div"
                   widths={
                     Array [
@@ -664,7 +736,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-8"
                   >
                     <Input
                       aria-label="Geopoint"
@@ -748,7 +820,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   </div>
                 </Col>
                 <Col
-                  md="9"
+                  md="8"
                   tag="div"
                   widths={
                     Array [
@@ -761,7 +833,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="col-md-8"
                   >
                     <Input
                       aria-label="Radius"

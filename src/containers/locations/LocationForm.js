@@ -116,7 +116,7 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="description">Location Description</Label>
                 </Col>
-                <Col md="9">
+                <Col md="8">
                   <Input
                     name="description"
                     type="textarea"
@@ -138,7 +138,7 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="parent">Parent Location</Label>
                 </Col>
-                <Col md="9">
+                <Col md="8">
                   <Input
                     name="parent"
                     type="select"
@@ -166,12 +166,19 @@ export class LocationForm extends Component {
                     <div className="invalid-feedback">{errors.parent}</div>
                   )}
                 </Col>
+                <Col md="1">
+                  <a href="/locations/new">
+                    <Button type="button" className="btn my-1 btn-primary">
+                      +
+                    </Button>
+                  </a>
+                </Col>
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
                   <Label for="location_type">Location Type</Label>
                 </Col>
-                <Col md="9">
+                <Col md="8">
                   <Input
                     name="location_type"
                     type="select"
@@ -194,12 +201,19 @@ export class LocationForm extends Component {
                     </div>
                   )}
                 </Col>
+                <Col md="1">
+                  <a href="/locationTypes/new">
+                    <Button type="button" className="btn my-1 btn-primary">
+                      +
+                    </Button>
+                  </a>
+                </Col>
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
                   <Label for="geopoint">Geopoint</Label>
                 </Col>
-                <Col md="9">
+                <Col md="8">
                   <Input
                     name="geopoint"
                     type="text"
@@ -223,7 +237,7 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="radius">Radius</Label>
                 </Col>
-                <Col md="9">
+                <Col md="8">
                   <Input
                     name="radius"
                     type="number"
