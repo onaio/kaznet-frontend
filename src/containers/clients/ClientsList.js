@@ -10,11 +10,11 @@ import * as clientSelectors from "../../store/clients/reducer";
 import * as globalSelectors from "../../store/global/reducer";
 import * as globalActions from "../../store/global/actions";
 import * as constants from "../../constants.js";
-
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import ListView from "../../components/ListView";
 import NoResults from "../../components/NoResults";
 import ElementMap from "../ElementMap";
-
+import { withAlert } from "react-alert";
 export class ClientsList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
@@ -51,6 +51,11 @@ export class ClientsList extends Component {
         `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
+    }
+    if (this.props.hasError !== prevProps.hasError) {
+      if (this.props.hasError === true) {
+        this.props.alert.show(this.props.errorMessage);
+      }
     }
   }
 
@@ -120,7 +125,9 @@ function mapStateToProps(state) {
     firstPage: clientSelectors.getFirstPage(state),
     lastPage: clientSelectors.getLastPage(state),
     searchParam: globalSelectors.getSearchValue(state),
-    clientCount: clientSelectors.getTotalCount(state)
+    clientCount: clientSelectors.getTotalCount(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
@@ -142,4 +149,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ClientsList);
+)(withAlert(ClientsList));
