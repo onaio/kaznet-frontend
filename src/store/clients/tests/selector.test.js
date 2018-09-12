@@ -7,14 +7,16 @@ import * as fixtures from "./fixtures";
 const emptyState = Immutable({
   clients: {
     clientsById: {},
-    clientsIdArray: []
+    clientsIdArray: [],
+    selectOptions: []
   }
 });
 
 const fullState = Immutable({
   clients: {
     clientsById: fixtures.clientsById,
-    clientsIdArray: fixtures.clientsIdArray
+    clientsIdArray: fixtures.clientsIdArray,
+    selectOptions: fixtures.selectOptions
   }
 });
 
@@ -47,5 +49,17 @@ describe("store/clients/selectors", () => {
     Selector(clients.getClientById)
       .expect(fullState, 1)
       .toReturn(fixtures.clientById);
+  });
+
+  it("should get default selectOptions array when empty", () => {
+    Selector(clients.getClientOptions)
+      .expect(emptyState)
+      .toReturn([]);
+  });
+
+  it("should get selectOptions array when full", () => {
+    Selector(clients.getClientOptions)
+      .expect(fullState, 1)
+      .toReturn(fixtures.selectOptions);
   });
 });
