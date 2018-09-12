@@ -8,6 +8,7 @@ import * as fixtures from "./fixtures";
 
 const initialState = {
   formsById: {},
+  selectOptions: [],
   formsIdArray: [],
   unusedForms: []
 };

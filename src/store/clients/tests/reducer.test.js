@@ -9,6 +9,7 @@ import * as fixtures from "./fixtures";
 const initialState = {
   clientsById: {},
   clientsIdArray: [],
+  selectOptions: [],
   currentPage: null,
   totalPages: null,
   totalCount: null,

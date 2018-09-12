@@ -9,6 +9,7 @@ import * as fixtures from "./fixtures";
 const initialState = {
   locationTypesById: {},
   locationTypesIdArray: [],
+  selectOptions: [],
   currentPage: null,
   totalPages: null,
   totalCount: null,
@@ -36,13 +37,15 @@ describe("store/locationTypes/reducer", () => {
     const currentPage = fixtures.currentPage;
     const totalPages = fixtures.totalPages;
     const totalCount = fixtures.totalCount;
+    const selectOptions = fixtures.selectOptions;
     const action = {
       type: actionTypes.LOCATIONTYPES_FETCHED,
       locationTypesById,
       pageLinks,
       currentPage,
       totalPages,
-      totalCount
+      totalCount,
+      selectOptions
     };
 
     const existingState = Immutable(initialState);
@@ -52,6 +55,7 @@ describe("store/locationTypes/reducer", () => {
     newState.currentPage = currentPage;
     newState.totalPages = totalPages;
     newState.totalCount = totalCount;
+    newState.selectOptions = selectOptions;
 
     Reducer(locationTypes)
       .withState(existingState)
