@@ -97,7 +97,7 @@ export function deleteClient(client_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "Client has not been deleted"
       });
     }
   };
