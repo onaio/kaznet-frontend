@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Formik } from "formik";
+import { Formik, FieldArray, Field } from "formik";
 import AsyncSelect from "react-select/lib/Async";
 import {
   Form,
@@ -23,7 +23,6 @@ import { OptionMap } from "../Select";
 import "../LoadListAnimation.css";
 import "./TaskForm.css";
 
-import { OptionMap } from "../Select";
 import * as clientActions from "../../store/clients/actions";
 import * as locationActions from "../../store/locations/actions";
 import * as formActions from "../../store/forms/actions";
@@ -46,6 +45,10 @@ const transformMyApiErrors = function(array) {
 
     if (field === "target_id" || field === "target_content_type") {
       errors.form = "Please select a valid form.";
+    }
+
+    if (field === "locations_input") {
+      errors.taskLocations = msg;
     }
 
     errors[field] = msg;
@@ -74,10 +77,6 @@ export class TaskForm extends Component {
         }
       ]
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleAddLocation = this.handleAddLocation.bind(this);
-    this.handleRemoveLocation = this.handleRemoveLocation.bind(this);
 
     this.getClientOptions.bind(this);
     this.loadClientOptions.bind(this);
@@ -116,63 +115,6 @@ export class TaskForm extends Component {
     this.props.fetchLocations();
     this.props.fetchContentTypes();
   }
-
-  handleAddLocation = () => {
-    this.setState({
-      locations: this.state.locations.concat([
-        {
-          name: "",
-          payload: {
-            location: {
-              type: "Location",
-              id: null
-            },
-            timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
-            start: "09:00",
-            end: "17:00"
-          }
-        }
-      ])
-    });
-  };
-
-  handleRemoveLocation = index => () => {
-    this.setState({
-      locations: this.state.locations.filter(
-        (_, locIndex) => index !== locIndex
-      )
-    });
-  };
-
-  handleChange = index => e => {
-    const start = e.target && e.target.name === "tasklocation_start";
-    const end = e.target && e.target.name === "tasklocation_end";
-    const location = e.target && e.target.name === "tasklocation_location";
-
-    const newLocations = this.state.locations.map((loc, locIndex) => {
-      if (index !== locIndex) {
-        return loc;
-      }
-
-      return {
-        ...loc,
-        name: location ? e.target && e.target.value : loc.name,
-        payload: {
-          location: {
-            type: "Location",
-            id: location ? e.target.value : loc.payload.location.id
-          },
-          timing_rule: !e.target ? e : loc.payload.timing_rule,
-          start: start ? e.target.value : loc.payload.start,
-          end: end ? e.target.value : loc.payload.end
-        }
-      };
-    });
-
-    this.setState({
-      locations: newLocations
-    });
-  };
 
   getClientOptions() {
     return this.props.clientOptions.asMutable();
@@ -225,8 +167,12 @@ export class TaskForm extends Component {
       <Formik
         initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
-          const self = this;
-          const locations_input = self.state.locations.map(d => d.payload);
+          const locations_input = values.taskLocations.map(d => ({
+            location: d.location ? { type: "Location", id: 0 } : undefined,
+            timing_rule: d.timing_rule,
+            start: d.start,
+            end: d.end
+          }));
 
           const payload = {
             data: {
@@ -263,6 +209,8 @@ export class TaskForm extends Component {
               }
             }
           };
+
+          console.log(payload);
 
           try {
             this.props.formActionDispatch(payload, this.targetId).then(() => {
@@ -310,10 +258,10 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="status">Status</Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Input
                     name="status"
                     type="select"
@@ -336,10 +284,10 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="description">Description</Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Input
                     name="description"
                     type="textarea"
@@ -358,10 +306,10 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="amount">Reward</Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Input
                     name="amount"
                     type="number"
@@ -382,10 +330,10 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="form">Form</Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <AsyncSelect
                     name="form"
                     bsSize="lg"
@@ -422,10 +370,10 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="start">Active dates</Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Row>
                     <Col md="5">
                       <Input
@@ -472,12 +420,12 @@ export class TaskForm extends Component {
               </FormGroup>
 
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="estimated_time">
                     Estimated time to complete task
                   </Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Input
                     name="estimated_time"
                     type="number"
@@ -500,174 +448,196 @@ export class TaskForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <h4>Location</h4>
 
-              {this.state.locations.map((loc, i) => {
-                return (
-                  <div className="tasklocation-item" key={i}>
-                    <FormGroup className="row">
-                      <Col sm={{ size: 3 }}>
-                        <Label for="tasklocation_location">Location</Label>
-                      </Col>
-                      <Col md="9">
-                        {
-                          <Row id={loc} key={i}>
-                            <Col md={{ size: 5 }}>
-                              <AsyncSelect
-                                id={loc}
-                                name="tasklocation_location"
-                                bsSize="lg"
-                                placeholder="Select Location"
-                                aria-label="Select Location"
-                                value={values.tasklocation_location}
-                                onChange={value =>
-                                  setFieldValue("tasklocation_location", value)
-                                }
-                                onBlur={handleBlur}
-                                defaultOptions={this.props.locationOptions.asMutable()}
-                                loadOptions={this.loadLocationOptions}
-                                isClearable
-                                cacheOptions
+              <h4 className="mt-5">Location</h4>
+
+              <FieldArray
+                name="taskLocations"
+                render={arrayHelpers => (
+                  <div>
+                    {values.taskLocations &&
+                      values.taskLocations.length > 0 &&
+                      values.taskLocations.map((friend, index) => (
+                        <div
+                          className="tasklocation-item position-relative"
+                          key={index}
+                        >
+                          <button
+                            type="button"
+                            className="close position-absolute locationClose"
+                            aria-label="Close"
+                            onClick={() => arrayHelpers.remove(index)}
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+
+                          <FormGroup className="row mt-3">
+                            <Col sm={{ size: 3 }}>
+                              <Label for={`taskLocations[${index}]location`}>
+                                Location
+                              </Label>
+                            </Col>
+                            <Col md={{ size: 9 }}>
+                              {
+                                <Row key={index}>
+                                  <Col md={{ size: 12 }}>
+                                    <AsyncSelect
+                                      name={`taskLocations[${index}]location`}
+                                      bsSize="lg"
+                                      placeholder="Select Location"
+                                      aria-label="Select Location"
+                                      defaultOptions={this.props.locationOptions.asMutable()}
+                                      loadOptions={this.loadLocationOptions}
+                                      onChange={value =>
+                                        setFieldValue(
+                                          `taskLocations.${index}.location`,
+                                          value
+                                        )
+                                      }
+                                      isClearable
+                                      cacheOptions
+                                      className={console.log(errors)}
+                                      required
+                                      value={
+                                        values.taskLocations[index]
+                                          ? values.taskLocations[index].location
+                                          : ""
+                                      }
+                                    />
+                                  </Col>
+                                </Row>
+                              }
+                            </Col>
+                          </FormGroup>
+
+                          <FormGroup className="row">
+                            <Col sm={{ size: 3 }}>
+                              <Label for={`taskLocations[${index}]start`}>
+                                Hours
+                              </Label>
+                            </Col>
+                            <Col md="9">
+                              <Row>
+                                <Col md="5">
+                                  <Field
+                                    name={`taskLocations[${index}]start`}
+                                    type="time"
+                                    placeholder="Start"
+                                    aria-label="Start"
+                                    className={
+                                      errors.taskLocations &&
+                                      errors.taskLocations[index] &&
+                                      errors.taskLocations &&
+                                      errors.taskLocations[index].start
+                                        ? "is-invalid time-picker form-control form-control-lg"
+                                        : "time-picker form-control form-control-lg"
+                                    }
+                                    required={true}
+                                    value={
+                                      values.taskLocations[index]
+                                        ? values.taskLocations[index].start
+                                        : ""
+                                    }
+                                  />
+                                </Col>
+                                <Col md="2">
+                                  <p className="text-center align-middle">to</p>
+                                </Col>
+                                <Col md="5">
+                                  <Field
+                                    name={`taskLocations[${index}]end`}
+                                    type="time"
+                                    placeholder="End"
+                                    aria-label="End"
+                                    className={
+                                      errors.taskLocations &&
+                                      errors.taskLocations[index] &&
+                                      errors.taskLocations &&
+                                      errors.taskLocations[index].end
+                                        ? "is-invalid time-picker form-control form-control-lg"
+                                        : "time-picker form-control form-control-lg"
+                                    }
+                                    required={true}
+                                    value={
+                                      values.taskLocations[index]
+                                        ? values.taskLocations[index].end
+                                        : ""
+                                    }
+                                  />
+                                </Col>
+                              </Row>
+                            </Col>
+                          </FormGroup>
+
+                          <FormGroup className="row">
+                            <Col sm={{ size: 3 }}>
+                              <Label for={`taskLocations[${index}]timing_rule`}>
+                                Timing Rule
+                              </Label>
+                            </Col>
+                            <Col md="9">
+                              <Field
+                                name={`taskLocations[${index}]timing_rule`}
+                                type="hidden"
+                                placeholder="Timing Rule"
+                                aria-label="timing rule"
                                 className={
-                                  errors.locations_input &&
-                                  errors.locations_input.location
-                                    ? "is-invalid"
+                                  errors.taskLocations &&
+                                  errors.taskLocations[index] &&
+                                  errors.taskLocations &&
+                                  errors.taskLocations[index].timing_rule
+                                    ? "is-invalid form-control form-control-lg"
+                                    : "form-control form-control-lg"
+                                }
+                                value={
+                                  values.taskLocations[index]
+                                    ? values.taskLocations[index].timing_rule
                                     : ""
                                 }
-                                required
                               />
-                              {errors.locations_input && (
-                                <div className="invalid-feedback">
-                                  {errors.locations_input.location &&
-                                    errors.locations_input.location[0]}
-                                </div>
-                              )}
+                              <RRuleGenerator
+                                onChange={rrule =>
+                                  setFieldValue(
+                                    `taskLocations.${index}.timing_rule`,
+                                    rrule
+                                  )
+                                }
+                                value={
+                                  values.taskLocations[index]
+                                    ? values.taskLocations[index].timing_rule
+                                    : ""
+                                }
+                              />
                             </Col>
-
-                            <Col md={{ size: 5 }}>
-                              <a href="/locations/new">
-                                <Button
-                                  type="button"
-                                  className="btn my-1 btn-primary"
-                                >
-                                  +
-                                </Button>
-                              </a>
-                            </Col>
-                          </Row>
-                        }
-                      </Col>
-                    </FormGroup>
+                          </FormGroup>
+                        </div>
+                      ))}
                     <FormGroup className="row">
-                      <Col sm="3">
-                        <Label for="tasklocation_start">Hours</Label>
-                      </Col>
-                      <Col md="6">
-                        <Row>
-                          <Col md="5">
-                            <Input
-                              name="tasklocation_start"
-                              type="time"
-                              bsSize="lg"
-                              placeholder="Start"
-                              aria-label="start"
-                              onChange={this.handleChange(i)}
-                              onBlur={handleBlur}
-                              value={loc.payload.start || ""}
-                              className={`time-picker ${
-                                errors.tasklocation_start
-                                  ? "location is-invalid"
-                                  : ""
-                              }`}
-                              required={true}
-                            />
-                            {touched.tasklocation_start &&
-                              errors.tasklocation_start && (
-                                <div className="invalid-feedback">
-                                  {errors.tasklocation_start}
-                                </div>
-                              )}
-                          </Col>
-                          <Col md="2">
-                            <p className="text-center align-middle">to</p>
-                          </Col>
-                          <Col md="5">
-                            <Input
-                              name="tasklocation_end"
-                              type="time"
-                              bsSize="lg"
-                              placeholder="End"
-                              aria-label="end"
-                              onChange={this.handleChange(i)}
-                              onBlur={handleBlur}
-                              value={loc.payload.end || ""}
-                              className={`time-picker ${
-                                errors.tasklocation_end
-                                  ? "location is-invalid"
-                                  : ""
-                              }`}
-                              required={true}
-                            />
-                            {errors.tasklocation_end && (
-                              <div className="invalid-feedback">
-                                {errors.tasklocation_end}
-                              </div>
-                            )}
-                          </Col>
-                        </Row>
-                      </Col>
-                    </FormGroup>
-
-                    <FormGroup className="row">
-                      <Col sm="3">
-                        <Label for="tasklocation_timing_rule">
-                          Timing Rule
-                        </Label>
-                      </Col>
-                      <Col md="9">
-                        <Input
-                          name="tasklocation_timing_rule"
-                          type="hidden"
-                          bsSize="lg"
-                          placeholder="Timing Rule"
-                          aria-label="timing rule"
-                          onChange={this.handleChange(i)}
-                          onBlur={handleBlur}
-                          value={loc.payload.timing_rule || ""}
-                          className={
-                            errors.tasklocation_timing_rule ? "is-invalid" : ""
+                      <Col md={{ size: 4, offset: 4 }}>
+                        <Button
+                          className="btn btn-primary btn-block add-location"
+                          onClick={() =>
+                            arrayHelpers.push({
+                              start: "09:00",
+                              end: "17:00",
+                              timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                              location: ""
+                            })
                           }
-                        />
-                        {errors.tasklocation_timing_rule && (
-                          <div className="invalid-feedback">
-                            {errors.tasklocation_timing_rule}
-                          </div>
-                        )}
-
-                        <RRuleGenerator
-                          onChange={this.handleChange(i)}
-                          value={loc.payload.timing_rule}
-                        />
+                        >
+                          + Add Locations
+                        </Button>
                       </Col>
                     </FormGroup>
                   </div>
-                );
-              })}
-              <FormGroup className="row">
-                <Col md={{ size: 4, offset: 4 }}>
-                  <Button
-                    className="btn btn-primary btn-block add-location"
-                    onClick={this.handleAddLocation}
-                  >
-                    + Add Locations
-                  </Button>
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col sm="3">
+                )}
+              />
+
+              <FormGroup className="row mt-5">
+                <Col sm={{ size: 3 }}>
                   <Label for="client">Client</Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <AsyncSelect
                     name="client"
                     bsSize="lg"
@@ -696,12 +666,12 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="user_submission_target">
                     Submission limit (per contributor)
                   </Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Input
                     name="user_submission_target"
                     type="number"
@@ -723,12 +693,12 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
               <FormGroup className="row">
-                <Col sm="3">
+                <Col sm={{ size: 3 }}>
                   <Label for="required_expertise">
                     Minimum contributor level
                   </Label>
                 </Col>
-                <Col md="6">
+                <Col md={{ size: 9 }}>
                   <Input
                     name="required_expertise"
                     type="select"
@@ -753,7 +723,7 @@ export class TaskForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <FormGroup className="row">
+              <FormGroup className="row mt-5">
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
