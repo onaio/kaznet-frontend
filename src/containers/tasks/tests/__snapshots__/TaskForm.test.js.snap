@@ -614,7 +614,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="3"
+                md="3ss"
                 tag="div"
                 widths={
                   Array [
@@ -627,15 +627,15 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-3"
+                  className="col-md-3ss"
                 >
                   <Button
-                    className="btn btn-light"
+                    className="btn btn-light btn-sm white my-2"
                     color="secondary"
                     tag="button"
                   >
                     <button
-                      className="btn btn-light btn btn-secondary"
+                      className="btn btn-light btn-sm white my-2 btn btn-secondary"
                       onClick={[Function]}
                     >
                       <a
@@ -1267,13 +1267,13 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               href="/locations/new"
                             >
                               <Button
-                                className="btn btn-primary"
+                                className="btn my-1 btn-primary"
                                 color="secondary"
                                 tag="button"
                                 type="button"
                               >
                                 <button
-                                  className="btn btn-primary btn btn-secondary"
+                                  className="btn my-1 btn-primary btn btn-secondary"
                                   onClick={[Function]}
                                   type="button"
                                 >
@@ -2000,13 +2000,13 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                     href="/clients/new"
                   >
                     <Button
-                      className="btn btn-primary"
+                      className="btn my-1 btn-primary"
                       color="secondary"
                       tag="button"
                       type="button"
                     >
                       <button
-                        className="btn btn-primary btn btn-secondary"
+                        className="btn my-1 btn-primary btn btn-secondary"
                         onClick={[Function]}
                         type="button"
                       >
@@ -2885,7 +2885,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                 </div>
               </Col>
               <Col
-                md="3"
+                md="3ss"
                 tag="div"
                 widths={
                   Array [
@@ -2898,15 +2898,15 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                 }
               >
                 <div
-                  className="col-md-3"
+                  className="col-md-3ss"
                 >
                   <Button
-                    className="btn btn-light"
+                    className="btn btn-light btn-sm white my-2"
                     color="secondary"
                     tag="button"
                   >
                     <button
-                      className="btn btn-light btn btn-secondary"
+                      className="btn btn-light btn-sm white my-2 btn btn-secondary"
                       onClick={[Function]}
                     >
                       <a
@@ -3532,13 +3532,13 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                               href="/locations/new"
                             >
                               <Button
-                                className="btn btn-primary"
+                                className="btn my-1 btn-primary"
                                 color="secondary"
                                 tag="button"
                                 type="button"
                               >
                                 <button
-                                  className="btn btn-primary btn btn-secondary"
+                                  className="btn my-1 btn-primary btn btn-secondary"
                                   onClick={[Function]}
                                   type="button"
                                 >
@@ -4263,13 +4263,13 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                     href="/clients/new"
                   >
                     <Button
-                      className="btn btn-primary"
+                      className="btn my-1 btn-primary"
                       color="secondary"
                       tag="button"
                       type="button"
                     >
                       <button
-                        className="btn btn-primary btn btn-secondary"
+                        className="btn my-1 btn-primary btn btn-secondary"
                         onClick={[Function]}
                         type="button"
                       >

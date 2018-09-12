@@ -358,8 +358,11 @@ export class TaskForm extends Component {
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
                 </Col>
-                <Col md="3">
-                  <Button className="btn btn-light" color="secondary">
+                <Col md="3ss">
+                  <Button
+                    className="btn btn-light btn-sm white my-2"
+                    color="secondary"
+                  >
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
@@ -499,7 +502,7 @@ export class TaskForm extends Component {
                               <a href="/locations/new">
                                 <Button
                                   type="button"
-                                  className="btn btn-primary"
+                                  className="btn my-1 btn-primary"
                                 >
                                   +
                                 </Button>
@@ -639,7 +642,7 @@ export class TaskForm extends Component {
 
                 <Col md="3">
                   <a href="/clients/new">
-                    <Button type="button" className="btn btn-primary">
+                    <Button type="button" className="btn my-1 btn-primary">
                       +
                     </Button>
                   </a>
