@@ -61,22 +61,6 @@ export class TaskForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
-    this.state = {
-      locations: [
-        {
-          name: "",
-          payload: {
-            location: {
-              type: "Location",
-              id: null
-            },
-            timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
-            start: "09:00",
-            end: "17:00"
-          }
-        }
-      ]
-    };
 
     this.getClientOptions.bind(this);
     this.loadClientOptions.bind(this);
@@ -84,29 +68,6 @@ export class TaskForm extends Component {
     this.loadFormOptions.bind(this);
     this.getLocationOptions.bind(this);
     this.loadLocationOptions.bind(this);
-  }
-
-  componentWillMount() {
-    if (this.props.task) {
-      const locations = this.props.task.attributes.task_locations;
-      const locArray = locations.map(l => {
-        return {
-          name: l.location.id,
-          payload: {
-            location: {
-              type: "Location",
-              id: l.location.id
-            },
-            timing_rule: l.timing_rule,
-            start: l.start,
-            end: l.end
-          }
-        };
-      });
-      this.setState({
-        locations: locArray
-      });
-    }
   }
 
   componentDidMount() {
