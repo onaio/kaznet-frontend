@@ -66,7 +66,10 @@ export class TaskEditForm extends Component {
           : "",
       amount:
         this.task.attributes.current_bounty_amount != null
-          ? parseInt(this.task.attributes.current_bounty_amount, 10)
+          ? parseInt(
+              this.task.attributes.current_bounty_amount,
+              constants.USER_SUBMISSION_TARGET
+            )
           : "",
       form:
         this.task.attributes.target_id && this.task.attributes.xform_title
