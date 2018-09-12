@@ -98,7 +98,7 @@ export function deleteTask(task_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "Cannot delete task with submissions"
       });
     }
   };
