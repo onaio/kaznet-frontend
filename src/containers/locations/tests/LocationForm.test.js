@@ -3,7 +3,7 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 import Immutable from "seamless-immutable";
-import { MemoryRouter } from "react-router";
+import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
 
 import ErrorBoundary from "../../../components/ErrorBoundary";
@@ -46,7 +46,7 @@ describe("containers/location/LocationForm", () => {
       shapefile: ""
     };
     const wrapper = mount(
-      <MemoryRouter history={history}>
+      <Router history={history}>
         <ErrorBoundary>
           <LocationForm
             formActionDispatch={function() {}}
@@ -58,7 +58,7 @@ describe("containers/location/LocationForm", () => {
             locationTypeOptions={Immutable(fixtures.selectOptions)}
           />
         </ErrorBoundary>
-      </MemoryRouter>
+      </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
@@ -74,7 +74,7 @@ describe("containers/location/LocationForm", () => {
       shapefile: ""
     };
     const wrapper = mount(
-      <MemoryRouter history={history}>
+      <Router history={history}>
         <ErrorBoundary>
           <LocationForm
             formActionDispatch={function() {}}
@@ -86,7 +86,7 @@ describe("containers/location/LocationForm", () => {
             locationTypeOptions={Immutable(fixtures.selectOptions)}
           />
         </ErrorBoundary>
-      </MemoryRouter>
+      </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
