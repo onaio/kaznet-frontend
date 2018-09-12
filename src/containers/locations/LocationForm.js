@@ -58,7 +58,7 @@ export class LocationForm extends Component {
     );
     setTimeout(() => {
       callback(this.getOptions());
-    }, 10);
+    }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
   render() {

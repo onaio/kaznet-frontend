@@ -7,7 +7,15 @@ import * as taskActions from "../../store/tasks/actions";
 import TaskForm from "./TaskForm";
 import FormView from "../../components/FormView";
 import * as globalActions from "../../store/global/actions";
-import { TASK_DRAFT, BEGINNER } from "../../constants";
+import {
+  TASK_DRAFT,
+  BEGINNER,
+  ESTIMATED_TIME_INT,
+  TASK_LOCATION_TIMING_RULE,
+  TASK_LOCATION_START,
+  TASK_LOCATION_END,
+  USER_SUBMISSION_TARGET
+} from "../../constants";
 
 export class TaskCreateForm extends Component {
   componentDidMount() {
@@ -18,27 +26,27 @@ export class TaskCreateForm extends Component {
     const action = taskActions.createTask;
     const initialData = {
       name: "",
-      estimated_time: "15",
+      estimated_time: ESTIMATED_TIME_INT,
       start: moment().format("YYYY-MM-DD"),
       end: moment().format("YYYY-MM-DD"),
       description: "",
       required_expertise: BEGINNER,
       timing_rule: "",
       status: TASK_DRAFT,
-      user_submission_target: 10,
+      user_submission_target: USER_SUBMISSION_TARGET,
       amount: "",
       taskLocations: [
         {
-          start: "09:00",
-          end: "17:00",
-          timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+          start: TASK_LOCATION_START,
+          end: TASK_LOCATION_END,
+          timing_rule: TASK_LOCATION_TIMING_RULE,
           location: ""
         }
       ],
       tasklocation_location: "",
-      tasklocation_timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
-      tasklocation_start: "09:00",
-      tasklocation_end: "17:00"
+      tasklocation_timing_rule: TASK_LOCATION_TIMING_RULE,
+      tasklocation_start: TASK_LOCATION_START,
+      tasklocation_end: TASK_LOCATION_END
     };
 
     return (

@@ -126,7 +126,7 @@ export class TaskForm extends Component {
     );
     setTimeout(() => {
       callback(this.getClientOptions());
-    }, 10);
+    }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
   getFormOptions() {
@@ -139,7 +139,7 @@ export class TaskForm extends Component {
     );
     setTimeout(() => {
       callback(this.getFormOptions());
-    }, 10);
+    }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
   getLocationOptions() {
@@ -152,7 +152,7 @@ export class TaskForm extends Component {
     );
     setTimeout(() => {
       callback(this.getLocationOptions());
-    }, 10);
+    }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
   render() {
@@ -618,9 +618,9 @@ export class TaskForm extends Component {
                           className="btn btn-primary btn-block add-location"
                           onClick={() =>
                             arrayHelpers.push({
-                              start: "09:00",
-                              end: "17:00",
-                              timing_rule: "FREQ=DAILY;INTERVAL=1;COUNT=1",
+                              start: constants.TASK_LOCATION_START,
+                              end: constants.TASK_LOCATION_END,
+                              timing_rule: constants.TASK_LOCATION_TIMING_RULE,
                               location: ""
                             })
                           }
