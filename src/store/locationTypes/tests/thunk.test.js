@@ -165,7 +165,7 @@ describe("store/locationTypes/actions", () => {
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].getAction()).toEqual({
       type: errorHandlerTypes.REQUEST_FAILURE,
-      errorMessage: Error("oops")
+      errorMessage: "Location type was not deleted"
     });
   });
 });
