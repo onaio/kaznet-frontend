@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Redirect } from "react-router-dom";
 import * as taskActions from "../../store/tasks/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
 export class TaskDeletion extends Component {
   componentDidMount() {
@@ -13,12 +12,6 @@ export class TaskDeletion extends Component {
   render() {
     return <Redirect to="/tasks" />;
   }
-}
-function mapStateToProps(state, props) {
-  return {
-    hasError: errorHandlerSelectors.getHasError(state),
-    errorMessage: errorHandlerSelectors.getErrorMessage(state)
-  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -31,6 +24,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(TaskDeletion);

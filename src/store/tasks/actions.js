@@ -27,7 +27,7 @@ export function fetchTasks(url) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "Cannot delete task with submissions"
       });
     }
   };
