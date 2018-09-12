@@ -25,8 +25,8 @@ class formService {
     if (!data) {
       throw new Error(`FormService getFormList failed, data not returned`);
     }
-    return _.map(data, client => {
-      return client;
+    return _.map(data, form => {
+      return form;
     });
   }
 }
