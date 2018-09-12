@@ -23,3 +23,11 @@
 p.text-center {
   margin: 13px 0;
 }
+
+.async-select-container.is-invalid .invalid-feedback {
+  display: block;
+}
+
+.async-select-container.is-invalid .async-select > div {
+  border-color: red;
+}

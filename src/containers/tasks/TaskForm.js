@@ -168,7 +168,9 @@ export class TaskForm extends Component {
         initialValues={this.props.initialData}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const locations_input = values.taskLocations.map(d => ({
-            location: d.location ? { type: "Location", id: 0 } : undefined,
+            location: d.location
+              ? { type: "Location", id: d.location.value }
+              : undefined,
             timing_rule: d.timing_rule,
             start: d.start,
             end: d.end
@@ -209,8 +211,6 @@ export class TaskForm extends Component {
               }
             }
           };
-
-          console.log(payload);
 
           try {
             this.props.formActionDispatch(payload, this.targetId).then(() => {
@@ -333,7 +333,14 @@ export class TaskForm extends Component {
                 <Col sm={{ size: 3 }}>
                   <Label for="form">Form</Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col
+                  md={{ size: 9 }}
+                  className={
+                    errors.form
+                      ? "is-invalid is-invalid async-select-container"
+                      : "async-select-container"
+                  }
+                >
                   <AsyncSelect
                     name="form"
                     bsSize="lg"
@@ -346,7 +353,9 @@ export class TaskForm extends Component {
                     loadOptions={this.loadFormOptions}
                     isClearable
                     cacheOptions
-                    className={errors.form ? "is-invalid" : ""}
+                    className={
+                      errors.form ? "is-invalid async-select" : "async-select"
+                    }
                   />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
@@ -480,7 +489,15 @@ export class TaskForm extends Component {
                             <Col md={{ size: 9 }}>
                               {
                                 <Row key={index}>
-                                  <Col md={{ size: 12 }}>
+                                  <Col
+                                    md={{ size: 12 }}
+                                    className={
+                                      errors.taskLocations &&
+                                      errors.taskLocations.location
+                                        ? "is-invalid async-select-container"
+                                        : "async-select async-select-container"
+                                    }
+                                  >
                                     <AsyncSelect
                                       name={`taskLocations[${index}]location`}
                                       bsSize="lg"
@@ -496,7 +513,12 @@ export class TaskForm extends Component {
                                       }
                                       isClearable
                                       cacheOptions
-                                      className={console.log(errors)}
+                                      className={
+                                        errors.taskLocations &&
+                                        errors.taskLocations.location
+                                          ? "is-invalid async-select"
+                                          : "async-select"
+                                      }
                                       required
                                       value={
                                         values.taskLocations[index]
@@ -504,6 +526,13 @@ export class TaskForm extends Component {
                                           : ""
                                       }
                                     />
+                                    {errors.taskLocations &&
+                                      errors.taskLocations.location &&
+                                      errors.taskLocations.location[0] && (
+                                        <div className="invalid-feedback">
+                                          {errors.taskLocations.location[0]}
+                                        </div>
+                                      )}
                                   </Col>
                                 </Row>
                               }
@@ -526,9 +555,7 @@ export class TaskForm extends Component {
                                     aria-label="Start"
                                     className={
                                       errors.taskLocations &&
-                                      errors.taskLocations[index] &&
-                                      errors.taskLocations &&
-                                      errors.taskLocations[index].start
+                                      errors.taskLocations.start
                                         ? "is-invalid time-picker form-control form-control-lg"
                                         : "time-picker form-control form-control-lg"
                                     }
@@ -539,6 +566,13 @@ export class TaskForm extends Component {
                                         : ""
                                     }
                                   />
+                                  {errors.taskLocations &&
+                                    errors.taskLocations.start &&
+                                    errors.taskLocations.start[0] && (
+                                      <div className="invalid-feedback">
+                                        {errors.taskLocations.end[0]}
+                                      </div>
+                                    )}
                                 </Col>
                                 <Col md="2">
                                   <p className="text-center align-middle">to</p>
@@ -551,9 +585,7 @@ export class TaskForm extends Component {
                                     aria-label="End"
                                     className={
                                       errors.taskLocations &&
-                                      errors.taskLocations[index] &&
-                                      errors.taskLocations &&
-                                      errors.taskLocations[index].end
+                                      errors.taskLocations.end
                                         ? "is-invalid time-picker form-control form-control-lg"
                                         : "time-picker form-control form-control-lg"
                                     }
@@ -564,6 +596,13 @@ export class TaskForm extends Component {
                                         : ""
                                     }
                                   />
+                                  {errors.taskLocations &&
+                                    errors.taskLocations.end &&
+                                    errors.taskLocations.end[0] && (
+                                      <div className="invalid-feedback">
+                                        {errors.taskLocations.end[0]}
+                                      </div>
+                                    )}
                                 </Col>
                               </Row>
                             </Col>
@@ -583,9 +622,7 @@ export class TaskForm extends Component {
                                 aria-label="timing rule"
                                 className={
                                   errors.taskLocations &&
-                                  errors.taskLocations[index] &&
-                                  errors.taskLocations &&
-                                  errors.taskLocations[index].timing_rule
+                                  errors.taskLocations.timing_rule
                                     ? "is-invalid form-control form-control-lg"
                                     : "form-control form-control-lg"
                                 }
@@ -595,6 +632,13 @@ export class TaskForm extends Component {
                                     : ""
                                 }
                               />
+                              {errors.taskLocations &&
+                                errors.taskLocations.timing_rule &&
+                                errors.taskLocations.timing_rule[0] && (
+                                  <div className="invalid-feedback">
+                                    {errors.taskLocations.timing_rule[0]}
+                                  </div>
+                                )}
                               <RRuleGenerator
                                 onChange={rrule =>
                                   setFieldValue(
@@ -637,7 +681,14 @@ export class TaskForm extends Component {
                 <Col sm={{ size: 3 }}>
                   <Label for="client">Client</Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col
+                  md={{ size: 9 }}
+                  className={
+                    errors.client
+                      ? "is-invalid async-select-container"
+                      : "async-select-container"
+                  }
+                >
                   <AsyncSelect
                     name="client"
                     bsSize="lg"
@@ -650,7 +701,9 @@ export class TaskForm extends Component {
                     loadOptions={this.loadClientOptions}
                     isClearable
                     cacheOptions
-                    className={errors.client ? "is-invalid" : ""}
+                    className={
+                      errors.client ? "is-invalid async-select" : "async-select"
+                    }
                   />
                   {errors.client && (
                     <div className="invalid-feedback">{errors.client}</div>
@@ -710,7 +763,7 @@ export class TaskForm extends Component {
                     value={values.required_expertise}
                     className={errors.required_expertise ? "is-invalid" : ""}
                   >
-                    <option>----</option>
+                    <option value="">----</option>
                     <option value="1">Beginner</option>
                     <option value="2">Intermediate</option>
                     <option value="3">Advanced</option>
