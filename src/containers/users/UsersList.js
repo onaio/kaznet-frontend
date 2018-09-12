@@ -166,7 +166,7 @@ export class UsersList extends Component {
         {row.attributes.submission_count}
         {row.attributes.approved_submissions > 0 ? (
           <Button
-            className="mx-4 btn btn-light"
+            className="mx-2 btn btn-sm btn-light white"
             onClick={function(event) {
               toggleExportModalFunction();
               setUserDetails(row.id, row.attributes.ona_username);
