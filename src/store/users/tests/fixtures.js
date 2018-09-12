@@ -141,3 +141,57 @@ export const UserFormInitialData = {
   phone_number: "",
   ona_username: "kahama"
 };
+
+export const badExportFilter = {
+  userprofile: "1",
+  modified__gte: null,
+  modified__lte: null,
+  status: "a",
+  format: "csv"
+};
+
+export const userExport = {
+  file: {
+    data: [
+      {
+        attributes: {
+          amount_earned: "0 KES",
+          approval_rate: 0,
+          approved_submissions: 0,
+          avg_amount_earned: 0,
+          avg_approval_rate: 0,
+          avg_approved_submissions: 0,
+          avg_rejected_submissions: 0,
+          avg_submissions: 0,
+          created: "2018-06-19T16:03:10.184043+03:00",
+          email: "sol@admin.me",
+          expertise: "1",
+          first_name: "Davis",
+          gender: "1",
+          last_login: "2018-06-19T16:03:22+03:00",
+          last_name: "Raymond",
+          modified: "2018-06-20T08:45:12.976916+03:00",
+          national_id: null,
+          ona_pk: null,
+          ona_username: "davisraym",
+          payment_number: "",
+          phone_number: "",
+          rejected_submissions: 0,
+          role: "1",
+          role_display: "Admin",
+          submission_count: 0
+        },
+        id: "1",
+        type: "UserProfile"
+      }
+    ],
+    links: {
+      first: "http://localhost:8000/api/v1/userprofiles/?page=1",
+      last: "http://localhost:8000/api/v1/userprofiles/?page=1",
+      next: "http://localhost:8000/api/v1/userprofiles/?page=2",
+      prev: null
+    },
+    meta: { pagination: { count: 1, page: 1, pages: 2 } }
+  },
+  type: "users.FILE_EXPORTED"
+};

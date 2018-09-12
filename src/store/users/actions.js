@@ -1,6 +1,7 @@
 import _ from "lodash";
 import * as types from "./actionTypes";
 import userService from "../../services/users";
+import exportService from "../../services/exports";
 import * as errorHandlerTypes from "../errorHandler/actionTypes";
 
 export function fetchUsers(url) {
@@ -80,6 +81,29 @@ export function deleteUser(user_id) {
       dispatch({
         type: types.USER_DELETED,
         userId
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+
+export function exportUserSubmissions(filter_dict, username = null) {
+  return async (dispatch, getState) => {
+    try {
+      const file = await exportService.exportUserSubmissions(
+        filter_dict,
+        username
+      );
+      dispatch({
+        type: types.FILE_EXPORTED,
+        file
+      });
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
       });
     } catch (error) {
       dispatch({

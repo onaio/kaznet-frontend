@@ -100,9 +100,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
     >
       <ListView
         currentPage={1}
+        downloadModalHandler={[Function]}
         endpoint="users"
         firstPage={1}
         lastPage={2}
+        modalState={false}
+        onFormSubmit={[Function]}
         pageLinks={
           Object {
             "first": "http://localhost:8000/api/v1/userprofiles/?page=1",
@@ -154,9 +157,37 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
           ]
         }
         searchVal=""
+        setUserDetails={[Function]}
         totalPages={2}
+        userName={null}
       >
         <div>
+          <div>
+            <Modal
+              autoFocus={true}
+              backdrop={true}
+              backdropTransition={
+                Object {
+                  "mountOnEnter": true,
+                  "timeout": 150,
+                }
+              }
+              centered={false}
+              fade={true}
+              isOpen={false}
+              keyboard={true}
+              modalTransition={
+                Object {
+                  "timeout": 300,
+                }
+              }
+              onClosed={[Function]}
+              onOpened={[Function]}
+              role="dialog"
+              toggle={[Function]}
+              zIndex={1050}
+            />
+          </div>
           <Table
             bordered={true}
             className="kaznet-table"
@@ -237,7 +268,10 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       </Link>,
                         "Raymond",
                         "Davis",
-                        0,
+                        <div>
+                          0
+                          
+                      </div>,
                         "0%",
                         <t
                           ago={false}
@@ -293,7 +327,11 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     <td
                       key="4"
                     >
-                      0
+                      <div
+                        key="1"
+                      >
+                        0
+                      </div>
                     </td>
                     <td
                       key="5"
