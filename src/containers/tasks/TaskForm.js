@@ -13,7 +13,6 @@ import {
   FormText
 } from "reactstrap";
 import moment from "moment";
-import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
 import { OptionMap } from "../Select";

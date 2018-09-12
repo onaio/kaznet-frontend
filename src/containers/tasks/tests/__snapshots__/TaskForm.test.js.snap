@@ -1452,8 +1452,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           className="px-0 pt-3 border rounded"
                         >
                           <div>
-                            <M
+                            <t
                               handleChange={[Function]}
+                              isNever={true}
                               repeat={
                                 Object {
                                   "daily": Object {
@@ -1476,6 +1477,10 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     "options": Object {
                                       "modes": undefined,
                                     },
+                                  },
+                                  "never": Object {
+                                    "frequency": 3,
+                                    "interval": 1,
                                   },
                                   "options": Object {
                                     "frequency": undefined,
@@ -1512,6 +1517,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                   },
                                 }
                               }
+                              selectedValue="Never"
                             >
                               <div
                                 className="px-3"
@@ -1525,6 +1531,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     <label
                                       className="col-form-label"
                                       htmlFor="Repeat frequency"
+                                      id="Repeat Frequency"
                                     >
                                       <strong>
                                         Repeat
@@ -1536,10 +1543,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                   >
                                     <select
                                       className="form-control"
+                                      defaultValue="Never"
                                       id="Repeat frequency"
                                       name="repeat.frequency"
                                       onChange={[Function]}
-                                      value="Daily"
+                                      onClick={[Function]}
                                     >
                                       <option
                                         value="Yearly"
@@ -1566,143 +1574,116 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                       >
                                         Hourly
                                       </option>
+                                      <option
+                                        value="Never"
+                                      >
+                                        Never
+                                      </option>
                                     </select>
                                   </div>
                                 </div>
-                                <l
-                                  daily={
-                                    Object {
-                                      "interval": 1,
-                                    }
-                                  }
-                                  handleChange={[Function]}
-                                >
-                                  <div
-                                    className="form-group row d-flex align-items-sm-center"
-                                  >
-                                    <div
-                                      className="col-sm-1 offset-sm-2"
-                                    >
-                                      every
-                                    </div>
-                                    <div
-                                      className="col-sm-2"
-                                    >
-                                      <input
-                                        aria-label="Repeat daily interval"
-                                        className="form-control"
-                                        name="repeat.daily.interval"
-                                        onChange={[Function]}
-                                        value={1}
-                                      />
-                                    </div>
-                                    <div
-                                      className="col-sm-1"
-                                    >
-                                      day(s)
-                                    </div>
-                                  </div>
-                                </l>
                               </div>
-                            </M>
+                            </t>
                           </div>
-                          <hr />
-                          <c
-                            end={
-                              Object {
-                                "after": 1,
-                                "mode": "After",
-                                "onDate": Object {
-                                  "date": "1986-01-02",
-                                  "options": Object {
-                                    "calendarComponent": null,
-                                    "weekStartsOnSunday": undefined,
+                          <div>
+                            <hr />
+                            <_
+                              end={
+                                Object {
+                                  "after": 1,
+                                  "mode": "After",
+                                  "onDate": Object {
+                                    "date": "1986-01-02",
+                                    "options": Object {
+                                      "calendarComponent": null,
+                                      "weekStartsOnSunday": undefined,
+                                    },
                                   },
-                                },
-                                "options": Object {
-                                  "modes": undefined,
-                                },
+                                  "options": Object {
+                                    "modes": undefined,
+                                  },
+                                }
                               }
-                            }
-                            handleChange={[Function]}
-                          >
-                            <div
-                              className="px-3"
+                              handleChange={[Function]}
                             >
                               <div
-                                className="form-group row"
+                                className="px-3"
                               >
                                 <div
-                                  className="col-sm-2 text-sm-right"
-                                >
-                                  <label
-                                    className="col-form-label"
-                                    htmlFor="End"
-                                  >
-                                    <strong>
-                                      End
-                                    </strong>
-                                  </label>
-                                </div>
-                                <div
-                                  className="col-sm-3"
-                                >
-                                  <select
-                                    className="form-control"
-                                    id="End"
-                                    name="end.mode"
-                                    onChange={[Function]}
-                                    value="After"
-                                  >
-                                    <option
-                                      value="Never"
-                                    >
-                                      Never
-                                    </option>
-                                    <option
-                                      value="After"
-                                    >
-                                      After
-                                    </option>
-                                    <option
-                                      value="On date"
-                                    >
-                                      On date
-                                    </option>
-                                  </select>
-                                </div>
-                                <l
-                                  after={1}
-                                  handleChange={[Function]}
+                                  className="form-group row"
                                 >
                                   <div
-                                    className="col-sm-4"
+                                    className="col-sm-2 text-sm-right"
+                                  >
+                                    <label
+                                      className="col-form-label"
+                                      htmlFor="End"
+                                    >
+                                      <strong>
+                                        End
+                                      </strong>
+                                    </label>
+                                  </div>
+                                  <div
+                                    className="col-md-3"
+                                  >
+                                    <select
+                                      className="form-control"
+                                      id="End"
+                                      name="end.mode"
+                                      onChange={[Function]}
+                                      value="After"
+                                    >
+                                      <option
+                                        value="Never"
+                                      >
+                                        Never
+                                      </option>
+                                      <option
+                                        value="After"
+                                      >
+                                        After
+                                      </option>
+                                      <option
+                                        value="On date"
+                                      >
+                                        On date
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <l
+                                    after={1}
+                                    handleChange={[Function]}
                                   >
                                     <div
-                                      className="form-group m-0 row d-flex align-items-center"
+                                      className="col-sm-6"
                                     >
                                       <div
-                                        className="col-3 col-sm-6 pl-0"
+                                        className="form-group m-0 row d-flex align-items-center"
                                       >
-                                        <input
-                                          aria-label="End after"
-                                          className="form-control"
-                                          name="end.after"
-                                          onChange={[Function]}
-                                          value={1}
-                                        />
-                                      </div>
-                                      <div
-                                        className="col-9 col-sm-6"
-                                      >
-                                        executions.
+                                        <div
+                                          className="col-3 col-sm-4 pl-0"
+                                        >
+                                          <input
+                                            aria-label="End after"
+                                            className="form-control"
+                                            name="end.after"
+                                            onChange={[Function]}
+                                            value={1}
+                                          />
+                                        </div>
+                                        <div
+                                          className="col-1 col-sm-8"
+                                        >
+                                          executions.
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </l>
+                                  </l>
+                                </div>
                               </div>
-                            </div>
-                          </c>
+                            </_>
+                          </div>
                         </div>
                       </div>
                     </t>
@@ -3570,8 +3551,9 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                           className="px-0 pt-3 border rounded"
                         >
                           <div>
-                            <M
+                            <t
                               handleChange={[Function]}
+                              isNever={true}
                               repeat={
                                 Object {
                                   "daily": Object {
@@ -3594,6 +3576,10 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     "options": Object {
                                       "modes": undefined,
                                     },
+                                  },
+                                  "never": Object {
+                                    "frequency": 3,
+                                    "interval": 1,
                                   },
                                   "options": Object {
                                     "frequency": undefined,
@@ -3630,6 +3616,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                   },
                                 }
                               }
+                              selectedValue="Never"
                             >
                               <div
                                 className="px-3"
@@ -3643,6 +3630,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     <label
                                       className="col-form-label"
                                       htmlFor="Repeat frequency"
+                                      id="Repeat Frequency"
                                     >
                                       <strong>
                                         Repeat
@@ -3654,10 +3642,11 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                   >
                                     <select
                                       className="form-control"
+                                      defaultValue="Never"
                                       id="Repeat frequency"
                                       name="repeat.frequency"
                                       onChange={[Function]}
-                                      value="Daily"
+                                      onClick={[Function]}
                                     >
                                       <option
                                         value="Yearly"
@@ -3684,143 +3673,116 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                       >
                                         Hourly
                                       </option>
+                                      <option
+                                        value="Never"
+                                      >
+                                        Never
+                                      </option>
                                     </select>
                                   </div>
                                 </div>
-                                <l
-                                  daily={
-                                    Object {
-                                      "interval": 1,
-                                    }
-                                  }
-                                  handleChange={[Function]}
-                                >
-                                  <div
-                                    className="form-group row d-flex align-items-sm-center"
-                                  >
-                                    <div
-                                      className="col-sm-1 offset-sm-2"
-                                    >
-                                      every
-                                    </div>
-                                    <div
-                                      className="col-sm-2"
-                                    >
-                                      <input
-                                        aria-label="Repeat daily interval"
-                                        className="form-control"
-                                        name="repeat.daily.interval"
-                                        onChange={[Function]}
-                                        value={1}
-                                      />
-                                    </div>
-                                    <div
-                                      className="col-sm-1"
-                                    >
-                                      day(s)
-                                    </div>
-                                  </div>
-                                </l>
                               </div>
-                            </M>
+                            </t>
                           </div>
-                          <hr />
-                          <c
-                            end={
-                              Object {
-                                "after": 1,
-                                "mode": "After",
-                                "onDate": Object {
-                                  "date": "1985-06-11",
-                                  "options": Object {
-                                    "calendarComponent": null,
-                                    "weekStartsOnSunday": undefined,
+                          <div>
+                            <hr />
+                            <_
+                              end={
+                                Object {
+                                  "after": 1,
+                                  "mode": "After",
+                                  "onDate": Object {
+                                    "date": "1985-06-11",
+                                    "options": Object {
+                                      "calendarComponent": null,
+                                      "weekStartsOnSunday": undefined,
+                                    },
                                   },
-                                },
-                                "options": Object {
-                                  "modes": undefined,
-                                },
+                                  "options": Object {
+                                    "modes": undefined,
+                                  },
+                                }
                               }
-                            }
-                            handleChange={[Function]}
-                          >
-                            <div
-                              className="px-3"
+                              handleChange={[Function]}
                             >
                               <div
-                                className="form-group row"
+                                className="px-3"
                               >
                                 <div
-                                  className="col-sm-2 text-sm-right"
-                                >
-                                  <label
-                                    className="col-form-label"
-                                    htmlFor="End"
-                                  >
-                                    <strong>
-                                      End
-                                    </strong>
-                                  </label>
-                                </div>
-                                <div
-                                  className="col-sm-3"
-                                >
-                                  <select
-                                    className="form-control"
-                                    id="End"
-                                    name="end.mode"
-                                    onChange={[Function]}
-                                    value="After"
-                                  >
-                                    <option
-                                      value="Never"
-                                    >
-                                      Never
-                                    </option>
-                                    <option
-                                      value="After"
-                                    >
-                                      After
-                                    </option>
-                                    <option
-                                      value="On date"
-                                    >
-                                      On date
-                                    </option>
-                                  </select>
-                                </div>
-                                <l
-                                  after={1}
-                                  handleChange={[Function]}
+                                  className="form-group row"
                                 >
                                   <div
-                                    className="col-sm-4"
+                                    className="col-sm-2 text-sm-right"
+                                  >
+                                    <label
+                                      className="col-form-label"
+                                      htmlFor="End"
+                                    >
+                                      <strong>
+                                        End
+                                      </strong>
+                                    </label>
+                                  </div>
+                                  <div
+                                    className="col-md-3"
+                                  >
+                                    <select
+                                      className="form-control"
+                                      id="End"
+                                      name="end.mode"
+                                      onChange={[Function]}
+                                      value="After"
+                                    >
+                                      <option
+                                        value="Never"
+                                      >
+                                        Never
+                                      </option>
+                                      <option
+                                        value="After"
+                                      >
+                                        After
+                                      </option>
+                                      <option
+                                        value="On date"
+                                      >
+                                        On date
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <l
+                                    after={1}
+                                    handleChange={[Function]}
                                   >
                                     <div
-                                      className="form-group m-0 row d-flex align-items-center"
+                                      className="col-sm-6"
                                     >
                                       <div
-                                        className="col-3 col-sm-6 pl-0"
+                                        className="form-group m-0 row d-flex align-items-center"
                                       >
-                                        <input
-                                          aria-label="End after"
-                                          className="form-control"
-                                          name="end.after"
-                                          onChange={[Function]}
-                                          value={1}
-                                        />
-                                      </div>
-                                      <div
-                                        className="col-9 col-sm-6"
-                                      >
-                                        executions.
+                                        <div
+                                          className="col-3 col-sm-4 pl-0"
+                                        >
+                                          <input
+                                            aria-label="End after"
+                                            className="form-control"
+                                            name="end.after"
+                                            onChange={[Function]}
+                                            value={1}
+                                          />
+                                        </div>
+                                        <div
+                                          className="col-1 col-sm-8"
+                                        >
+                                          executions.
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </l>
+                                  </l>
+                                </div>
                               </div>
-                            </div>
-                          </c>
+                            </_>
+                          </div>
                         </div>
                       </div>
                     </t>
