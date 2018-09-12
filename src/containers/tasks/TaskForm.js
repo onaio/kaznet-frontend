@@ -16,6 +16,7 @@ import moment from "moment";
 import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { OptionMap } from "../Select";
 import "./TaskForm.css";
 import * as clientActions from "../../store/clients/actions";
@@ -28,6 +29,8 @@ import * as locationSelectors from "../../store/locations/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
 import "../LoadListAnimation.css";
+import { ONA_PROFILE_URL } from "../../constants";
+
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
@@ -355,6 +358,22 @@ export class TaskForm extends Component {
                     <div className="invalid-feedback">{errors.form}</div>
                   )}
                 </Col>
+                <Col md="3ss">
+                  <Button
+                    className="btn btn-light btn-sm white my-2"
+                    color="secondary"
+                  >
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={ONA_PROFILE_URL}
+                      className="kaznet-action-links"
+                    >
+                      <FontAwesomeIcon icon="external-link-alt" />&nbsp; GO TO
+                      ONA FORM
+                    </a>
+                  </Button>
+                </Col>
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
@@ -477,6 +496,17 @@ export class TaskForm extends Component {
                                     errors.locations_input.location[0]}
                                 </div>
                               )}
+                            </Col>
+
+                            <Col md={{ size: 5 }}>
+                              <a href="/locations/new">
+                                <Button
+                                  type="button"
+                                  className="btn my-1 btn-primary"
+                                >
+                                  +
+                                </Button>
+                              </a>
                             </Col>
                           </Row>
                         }
@@ -608,6 +638,14 @@ export class TaskForm extends Component {
                   {errors.client && (
                     <div className="invalid-feedback">{errors.client}</div>
                   )}
+                </Col>
+
+                <Col md="3">
+                  <a href="/clients/new">
+                    <Button type="button" className="btn my-1 btn-primary">
+                      +
+                    </Button>
+                  </a>
                 </Col>
               </FormGroup>
               <FormGroup className="row">

@@ -45,3 +45,5 @@ export const TASK_STATUSES = [
   TASK_SCHEDULED,
   TASK_ARCHIVED
 ];
+
+export const ONA_PROFILE_URL = ONA_WEBSITE + "/" + ONA_USERNAME;
