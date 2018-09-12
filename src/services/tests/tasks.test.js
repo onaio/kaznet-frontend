@@ -143,6 +143,7 @@ describe("services/tasks", () => {
     } catch (e) {
       error = e;
     }
+
     expect(error).toEqual(
       new Error("TaskService createTask failed, HTTP status 500")
     );

@@ -10,6 +10,7 @@ import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import faFolderOpen from "@fortawesome/fontawesome-free-solid/faFolderOpen";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
+import { withAlert } from "react-alert";
 
 import "./App.css";
 
@@ -44,37 +45,6 @@ import ClientsList from "./containers/clients/ClientsList";
 import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
 import ClientDeletion from "./containers/clients/ClientDeletion";
-
-var Growl = require("Growl/growl.react");
-
-var MyApp = React.createClass({
-  growler: null,
-
-  componentDidMount: function() {
-    // Setup your Growl Settings
-    Growl.setPosition("tr"); // Bottom-Right(br) by default
-    Growl.setMaxToShow(1); // Default is 8
-    Growl.setDelay(3000);
-    // set our internal variable to a reference to an instance of the growler
-    this.growler = this.refs.growler;
-  },
-
-  // Give your whole app a method to call and trigger a notification.
-  growl: function(level, msg) {
-    this.growler.addNotification(level, msg);
-  },
-
-  // Somewhere in your main application view (so that it doesn't get unmounted) add an instance of Growl.
-  render: function() {
-    return (
-      <div className="myApp">
-        <Growl ref="growler" />
-      </div>
-    );
-  }
-});
-
-module.exports = MyApp;
 
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
@@ -189,6 +159,7 @@ class App extends Component {
                           exact
                           path="/tasks/:id/delete"
                           component={TaskDeletion}
+                          alert={this.props.alert}
                         />
                         <Route
                           exact
@@ -229,5 +200,4 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+export default withAlert(App);

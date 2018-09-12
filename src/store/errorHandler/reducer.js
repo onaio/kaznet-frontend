@@ -11,12 +11,14 @@ const initialState = Immutable({
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.REQUEST_FAILURE:
-      return state.merge({
+      return Immutable({
+        ...state,
         errors: true,
         errorMessage: action.errorMessage
       });
     case types.REQUEST_SUCCESS:
-      return state.merge({
+      return Immutable({
+        ...state,
         errors: false
       });
     default:
