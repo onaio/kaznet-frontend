@@ -534,6 +534,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   </div>
                 </Col>
                 <Col
+                  className="async-select async-select-container"
                   md="9"
                   tag="div"
                   widths={
@@ -547,13 +548,13 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="async-select async-select-container col-md-9"
                   >
                     <Async
                       aria-label="Select Location Type"
                       bsSize="lg"
                       cacheOptions={true}
-                      className=""
+                      className="async-select"
                       defaultOptions={
                         Array [
                           Object {
@@ -578,7 +579,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                         aria-label="Select Location Type"
                         bsSize="lg"
                         cacheOptions={true}
-                        className=""
+                        className="async-select"
                         defaultInputValue=""
                         defaultMenuIsOpen={false}
                         defaultOptions={
@@ -623,7 +624,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                           bsSize="lg"
                           cacheOptions={true}
                           captureMenuScroll={false}
-                          className=""
+                          className="async-select"
+                          closeMenuOnScroll={false}
                           closeMenuOnSelect={true}
                           components={Object {}}
                           controlShouldRenderValue={true}
@@ -647,7 +649,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                           formatGroupLabel={[Function]}
                           getOptionLabel={[Function]}
                           getOptionValue={[Function]}
-                          hideSelectedOptions={true}
                           inputValue=""
                           isClearable={true}
                           isDisabled={false}
@@ -694,7 +695,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                           value=""
                         >
                           <SelectContainer
-                            className=""
+                            className="async-select"
                             clearValue={[Function]}
                             cx={[Function]}
                             getStyles={[Function]}
@@ -731,7 +732,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                 "bsSize": "lg",
                                 "cacheOptions": true,
                                 "captureMenuScroll": false,
-                                "className": "",
+                                "className": "async-select",
+                                "closeMenuOnScroll": false,
                                 "closeMenuOnSelect": true,
                                 "components": Object {},
                                 "controlShouldRenderValue": true,
@@ -753,7 +755,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                 "formatGroupLabel": [Function],
                                 "getOptionLabel": [Function],
                                 "getOptionValue": [Function],
-                                "hideSelectedOptions": true,
                                 "inputValue": "",
                                 "isClearable": true,
                                 "isDisabled": false,
@@ -801,23 +802,9 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                             setValue={[Function]}
                           >
                             <div
-                              className="css-10nd86i"
+                              className="css-10nd86i async-select"
                               onKeyDown={[Function]}
                             >
-                              <A11yText
-                                aria-atomic="true"
-                                aria-live="polite"
-                                role="status"
-                              >
-                                <span
-                                  aria-atomic="true"
-                                  aria-live="polite"
-                                  className="css-1uvvha"
-                                  role="status"
-                                >
-                                  2 results available.
-                                </span>
-                              </A11yText>
                               <Control
                                 clearValue={[Function]}
                                 cx={[Function]}
@@ -826,11 +813,11 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                 hasValue={false}
                                 innerProps={
                                   Object {
-                                    "innerRef": [Function],
                                     "onMouseDown": [Function],
                                     "onTouchEnd": [Function],
                                   }
                                 }
+                                innerRef={[Function]}
                                 isDisabled={false}
                                 isFocused={false}
                                 isMulti={false}
@@ -856,7 +843,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                     "bsSize": "lg",
                                     "cacheOptions": true,
                                     "captureMenuScroll": false,
-                                    "className": "",
+                                    "className": "async-select",
+                                    "closeMenuOnScroll": false,
                                     "closeMenuOnSelect": true,
                                     "components": Object {},
                                     "controlShouldRenderValue": true,
@@ -878,7 +866,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                     "formatGroupLabel": [Function],
                                     "getOptionLabel": [Function],
                                     "getOptionValue": [Function],
-                                    "hideSelectedOptions": true,
                                     "inputValue": "",
                                     "isClearable": true,
                                     "isDisabled": false,
@@ -960,7 +947,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         "bsSize": "lg",
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
-                                        "className": "",
+                                        "className": "async-select",
+                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -982,7 +970,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
-                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -1063,7 +1050,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1085,7 +1073,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1140,9 +1127,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                       </Placeholder>
                                       <Input
                                         aria-autocomplete="list"
-                                        aria-busy={false}
-                                        aria-expanded={false}
-                                        aria-haspopup={false}
                                         aria-label="Select Location Type"
                                         autoCapitalize="none"
                                         autoComplete="off"
@@ -1156,7 +1140,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
-                                        role="combobox"
                                         spellCheck="false"
                                         tabIndex="0"
                                         type="text"
@@ -1167,9 +1150,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         >
                                           <AutosizeInput
                                             aria-autocomplete="list"
-                                            aria-busy={false}
-                                            aria-expanded={false}
-                                            aria-haspopup={false}
                                             aria-label="Select Location Type"
                                             autoCapitalize="none"
                                             autoComplete="off"
@@ -1194,7 +1174,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
-                                            role="combobox"
                                             spellCheck="false"
                                             tabIndex="0"
                                             type="text"
@@ -1210,9 +1189,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             >
                                               <input
                                                 aria-autocomplete="list"
-                                                aria-busy={false}
-                                                aria-expanded={false}
-                                                aria-haspopup={false}
                                                 aria-label="Select Location Type"
                                                 autoCapitalize="none"
                                                 autoComplete="off"
@@ -1222,7 +1198,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
-                                                role="combobox"
                                                 spellCheck="false"
                                                 style={
                                                   Object {
@@ -1290,7 +1265,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         "bsSize": "lg",
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
-                                        "className": "",
+                                        "className": "async-select",
+                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -1312,7 +1288,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
-                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -1368,11 +1343,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         getStyles={[Function]}
                                         getValue={[Function]}
                                         hasValue={false}
-                                        innerProps={
-                                          Object {
-                                            "role": "presentation",
-                                          }
-                                        }
                                         isDisabled={false}
                                         isFocused={false}
                                         isMulti={false}
@@ -1398,7 +1368,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1420,7 +1391,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1469,7 +1439,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                       >
                                         <span
                                           className="css-d8oujb"
-                                          role="presentation"
                                         />
                                       </IndicatorSeparator>
                                       <DropdownIndicator
@@ -1480,9 +1449,9 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         hasValue={false}
                                         innerProps={
                                           Object {
+                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
-                                            "role": "button",
                                           }
                                         }
                                         isDisabled={false}
@@ -1510,7 +1479,8 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1532,7 +1502,6 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1580,22 +1549,20 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                                         setValue={[Function]}
                                       >
                                         <div
+                                          aria-hidden="true"
                                           className="css-1ep9fjw"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
-                                          role="button"
                                         >
                                           <DownChevron>
                                             <Svg
-                                              focusable="false"
-                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
+                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
-                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -2453,6 +2420,7 @@ exports[`containers/location/LocationForm renders location form correctly when e
                   </div>
                 </Col>
                 <Col
+                  className="async-select async-select-container"
                   md="9"
                   tag="div"
                   widths={
@@ -2466,13 +2434,13 @@ exports[`containers/location/LocationForm renders location form correctly when e
                   }
                 >
                   <div
-                    className="col-md-9"
+                    className="async-select async-select-container col-md-9"
                   >
                     <Async
                       aria-label="Select Location Type"
                       bsSize="lg"
                       cacheOptions={true}
-                      className=""
+                      className="async-select"
                       defaultOptions={
                         Array [
                           Object {
@@ -2502,7 +2470,7 @@ exports[`containers/location/LocationForm renders location form correctly when e
                         aria-label="Select Location Type"
                         bsSize="lg"
                         cacheOptions={true}
-                        className=""
+                        className="async-select"
                         defaultInputValue=""
                         defaultMenuIsOpen={false}
                         defaultOptions={
@@ -2552,7 +2520,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                           bsSize="lg"
                           cacheOptions={true}
                           captureMenuScroll={false}
-                          className=""
+                          className="async-select"
+                          closeMenuOnScroll={false}
                           closeMenuOnSelect={true}
                           components={Object {}}
                           controlShouldRenderValue={true}
@@ -2576,7 +2545,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                           formatGroupLabel={[Function]}
                           getOptionLabel={[Function]}
                           getOptionValue={[Function]}
-                          hideSelectedOptions={true}
                           inputValue=""
                           isClearable={true}
                           isDisabled={false}
@@ -2628,7 +2596,7 @@ exports[`containers/location/LocationForm renders location form correctly when e
                           }
                         >
                           <SelectContainer
-                            className=""
+                            className="async-select"
                             clearValue={[Function]}
                             cx={[Function]}
                             getStyles={[Function]}
@@ -2665,7 +2633,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                 "bsSize": "lg",
                                 "cacheOptions": true,
                                 "captureMenuScroll": false,
-                                "className": "",
+                                "className": "async-select",
+                                "closeMenuOnScroll": false,
                                 "closeMenuOnSelect": true,
                                 "components": Object {},
                                 "controlShouldRenderValue": true,
@@ -2687,7 +2656,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                 "formatGroupLabel": [Function],
                                 "getOptionLabel": [Function],
                                 "getOptionValue": [Function],
-                                "hideSelectedOptions": true,
                                 "inputValue": "",
                                 "isClearable": true,
                                 "isDisabled": false,
@@ -2738,23 +2706,9 @@ exports[`containers/location/LocationForm renders location form correctly when e
                             setValue={[Function]}
                           >
                             <div
-                              className="css-10nd86i"
+                              className="css-10nd86i async-select"
                               onKeyDown={[Function]}
                             >
-                              <A11yText
-                                aria-atomic="true"
-                                aria-live="polite"
-                                role="status"
-                              >
-                                <span
-                                  aria-atomic="true"
-                                  aria-live="polite"
-                                  className="css-1uvvha"
-                                  role="status"
-                                >
-                                  2 results available.
-                                </span>
-                              </A11yText>
                               <Control
                                 clearValue={[Function]}
                                 cx={[Function]}
@@ -2763,11 +2717,11 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                 hasValue={true}
                                 innerProps={
                                   Object {
-                                    "innerRef": [Function],
                                     "onMouseDown": [Function],
                                     "onTouchEnd": [Function],
                                   }
                                 }
+                                innerRef={[Function]}
                                 isDisabled={false}
                                 isFocused={false}
                                 isMulti={false}
@@ -2793,7 +2747,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                     "bsSize": "lg",
                                     "cacheOptions": true,
                                     "captureMenuScroll": false,
-                                    "className": "",
+                                    "className": "async-select",
+                                    "closeMenuOnScroll": false,
                                     "closeMenuOnSelect": true,
                                     "components": Object {},
                                     "controlShouldRenderValue": true,
@@ -2815,7 +2770,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                     "formatGroupLabel": [Function],
                                     "getOptionLabel": [Function],
                                     "getOptionValue": [Function],
-                                    "hideSelectedOptions": true,
                                     "inputValue": "",
                                     "isClearable": true,
                                     "isDisabled": false,
@@ -2900,7 +2854,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         "bsSize": "lg",
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
-                                        "className": "",
+                                        "className": "async-select",
+                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -2922,7 +2877,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
-                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -3011,7 +2965,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -3033,7 +2988,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -3091,9 +3045,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                       </SingleValue>
                                       <Input
                                         aria-autocomplete="list"
-                                        aria-busy={false}
-                                        aria-expanded={false}
-                                        aria-haspopup={false}
                                         aria-label="Select Location Type"
                                         autoCapitalize="none"
                                         autoComplete="off"
@@ -3107,7 +3058,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
-                                        role="combobox"
                                         spellCheck="false"
                                         tabIndex="0"
                                         type="text"
@@ -3118,9 +3068,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         >
                                           <AutosizeInput
                                             aria-autocomplete="list"
-                                            aria-busy={false}
-                                            aria-expanded={false}
-                                            aria-haspopup={false}
                                             aria-label="Select Location Type"
                                             autoCapitalize="none"
                                             autoComplete="off"
@@ -3145,7 +3092,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
-                                            role="combobox"
                                             spellCheck="false"
                                             tabIndex="0"
                                             type="text"
@@ -3161,9 +3107,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             >
                                               <input
                                                 aria-autocomplete="list"
-                                                aria-busy={false}
-                                                aria-expanded={false}
-                                                aria-haspopup={false}
                                                 aria-label="Select Location Type"
                                                 autoCapitalize="none"
                                                 autoComplete="off"
@@ -3173,7 +3116,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
-                                                role="combobox"
                                                 spellCheck="false"
                                                 style={
                                                   Object {
@@ -3241,7 +3183,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         "bsSize": "lg",
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
-                                        "className": "",
+                                        "className": "async-select",
+                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -3263,7 +3206,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
-                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -3324,9 +3266,9 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         hasValue={true}
                                         innerProps={
                                           Object {
+                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
-                                            "role": "button",
                                           }
                                         }
                                         isFocused={false}
@@ -3353,7 +3295,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -3375,7 +3318,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -3426,22 +3368,20 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         setValue={[Function]}
                                       >
                                         <div
+                                          aria-hidden="true"
                                           className="css-1ep9fjw"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
-                                          role="button"
                                         >
                                           <CrossIcon>
                                             <Svg
-                                              focusable="false"
-                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
+                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
-                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -3459,11 +3399,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         getStyles={[Function]}
                                         getValue={[Function]}
                                         hasValue={true}
-                                        innerProps={
-                                          Object {
-                                            "role": "presentation",
-                                          }
-                                        }
                                         isDisabled={false}
                                         isFocused={false}
                                         isMulti={false}
@@ -3489,7 +3424,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -3511,7 +3447,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -3563,7 +3498,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                       >
                                         <span
                                           className="css-d8oujb"
-                                          role="presentation"
                                         />
                                       </IndicatorSeparator>
                                       <DropdownIndicator
@@ -3574,9 +3508,9 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         hasValue={true}
                                         innerProps={
                                           Object {
+                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
-                                            "role": "button",
                                           }
                                         }
                                         isDisabled={false}
@@ -3604,7 +3538,8 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "bsSize": "lg",
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
-                                            "className": "",
+                                            "className": "async-select",
+                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -3626,7 +3561,6 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
-                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -3677,22 +3611,20 @@ exports[`containers/location/LocationForm renders location form correctly when e
                                         setValue={[Function]}
                                       >
                                         <div
+                                          aria-hidden="true"
                                           className="css-1ep9fjw"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
-                                          role="button"
                                         >
                                           <DownChevron>
                                             <Svg
-                                              focusable="false"
-                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
+                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
-                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
