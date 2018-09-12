@@ -10,7 +10,6 @@ import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import faFolderOpen from "@fortawesome/fontawesome-free-solid/faFolderOpen";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
-import { withAlert } from "react-alert";
 
 import "./App.css";
 
@@ -167,7 +166,6 @@ class App extends Component {
                           exact
                           path="/tasks/:id/delete"
                           component={TaskDeletion}
-                          alert={this.props.alert}
                         />
                         <Route
                           exact
@@ -208,4 +206,4 @@ class App extends Component {
     );
   }
 }
-export default withAlert(App);
+export default App;
