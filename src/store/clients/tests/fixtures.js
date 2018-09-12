@@ -85,3 +85,13 @@ export const clientsByIdSecondPage = _.keyBy(
 );
 export const clientsIdArraySecondPage = _.keys(clientsByIdSecondPage);
 export const clientByIdSecondPage = _.get(clientsByIdSecondPage, 1);
+
+export const selectOptions = clientsArray.map(d => ({
+  value: d.id,
+  label: d.attributes.name
+}));
+
+export const selectOptionsSecondPage = clientsArraySecondPage.map(d => ({
+  value: d.id,
+  label: d.attributes.name
+}));
