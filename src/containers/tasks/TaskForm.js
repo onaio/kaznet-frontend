@@ -18,7 +18,7 @@ import "react-rrule-generator/build/styles.css";
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { OptionMap } from "../Select";
+import { Link } from "react-router-dom";
 
 import "../LoadListAnimation.css";
 import "./TaskForm.css";
@@ -222,7 +222,7 @@ export class TaskForm extends Component {
                 <Col sm={{ size: 3 }}>
                   <Label for="status">Status</Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Input
                     name="status"
                     type="select"
@@ -248,7 +248,7 @@ export class TaskForm extends Component {
                 <Col sm={{ size: 3 }}>
                   <Label for="description">Description</Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Input
                     name="description"
                     type="textarea"
@@ -270,7 +270,7 @@ export class TaskForm extends Component {
                 <Col sm={{ size: 3 }}>
                   <Label for="amount">Reward</Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Input
                     name="amount"
                     type="number"
@@ -295,7 +295,7 @@ export class TaskForm extends Component {
                   <Label for="form">Form</Label>
                 </Col>
                 <Col
-                  md={{ size: 9 }}
+                  md={{ size: 6 }}
                   className={
                     errors.form
                       ? "is-invalid is-invalid async-select-container"
@@ -324,7 +324,7 @@ export class TaskForm extends Component {
                 </Col>
                 <Col md="3ss">
                   <Button
-                    className="btn btn-light btn-sm white my-2"
+                    className="btn btn-light btn-sm white my-1"
                     color="secondary"
                   >
                     <a
@@ -343,7 +343,7 @@ export class TaskForm extends Component {
                 <Col sm={{ size: 3 }}>
                   <Label for="start">Active dates</Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Row>
                     <Col md="5">
                       <Input
@@ -395,7 +395,7 @@ export class TaskForm extends Component {
                     Estimated time to complete task
                   </Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Input
                     name="estimated_time"
                     type="number"
@@ -450,56 +450,64 @@ export class TaskForm extends Component {
                                 Location
                               </Label>
                             </Col>
-                            <Col md={{ size: 9 }}>
-                              {
-                                <Row key={index}>
-                                  <Col
-                                    md={{ size: 12 }}
+                            <Col md={{ size: 8 }}>
+                              <Row key={index}>
+                                <Col
+                                  md={{ size: 12 }}
+                                  className={
+                                    errors.taskLocations &&
+                                    errors.taskLocations.location
+                                      ? "is-invalid async-select-container"
+                                      : "async-select async-select-container"
+                                  }
+                                >
+                                  <AsyncSelect
+                                    name={`taskLocations[${index}]location`}
+                                    bsSize="lg"
+                                    placeholder="Select Location"
+                                    aria-label="Select Location"
+                                    defaultOptions={this.props.locationOptions.asMutable()}
+                                    loadOptions={this.loadLocationOptions}
+                                    onChange={value =>
+                                      setFieldValue(
+                                        `taskLocations.${index}.location`,
+                                        value
+                                      )
+                                    }
+                                    isClearable
+                                    cacheOptions
                                     className={
                                       errors.taskLocations &&
                                       errors.taskLocations.location
-                                        ? "is-invalid async-select-container"
-                                        : "async-select async-select-container"
+                                        ? "is-invalid async-select"
+                                        : "async-select"
                                     }
-                                  >
-                                    <AsyncSelect
-                                      name={`taskLocations[${index}]location`}
-                                      bsSize="lg"
-                                      placeholder="Select Location"
-                                      aria-label="Select Location"
-                                      defaultOptions={this.props.locationOptions.asMutable()}
-                                      loadOptions={this.loadLocationOptions}
-                                      onChange={value =>
-                                        setFieldValue(
-                                          `taskLocations.${index}.location`,
-                                          value
-                                        )
-                                      }
-                                      isClearable
-                                      cacheOptions
-                                      className={
-                                        errors.taskLocations &&
-                                        errors.taskLocations.location
-                                          ? "is-invalid async-select"
-                                          : "async-select"
-                                      }
-                                      required
-                                      value={
-                                        values.taskLocations[index]
-                                          ? values.taskLocations[index].location
-                                          : ""
-                                      }
-                                    />
-                                    {errors.taskLocations &&
-                                      errors.taskLocations.location &&
-                                      errors.taskLocations.location[0] && (
-                                        <div className="invalid-feedback">
-                                          {errors.taskLocations.location[0]}
-                                        </div>
-                                      )}
-                                  </Col>
-                                </Row>
-                              }
+                                    required
+                                    value={
+                                      values.taskLocations[index]
+                                        ? values.taskLocations[index].location
+                                        : ""
+                                    }
+                                  />
+                                  {errors.taskLocations &&
+                                    errors.taskLocations.location &&
+                                    errors.taskLocations.location[0] && (
+                                      <div className="invalid-feedback">
+                                        {errors.taskLocations.location[0]}
+                                      </div>
+                                    )}
+                                </Col>
+                              </Row>
+                            </Col>
+                            <Col md={{ size: 1 }}>
+                              <Link to="/locations/new">
+                                <Button
+                                  type="button"
+                                  className="btn my-1 btn-sm btn-primary"
+                                >
+                                  +
+                                </Button>
+                              </Link>
                             </Col>
                           </FormGroup>
 
@@ -509,7 +517,7 @@ export class TaskForm extends Component {
                                 Hours
                               </Label>
                             </Col>
-                            <Col md="9">
+                            <Col md="8">
                               <Row>
                                 <Col md="5">
                                   <Field
@@ -578,7 +586,7 @@ export class TaskForm extends Component {
                                 Timing Rule
                               </Label>
                             </Col>
-                            <Col md="9">
+                            <Col md="8">
                               <Field
                                 name={`taskLocations[${index}]timing_rule`}
                                 type="hidden"
@@ -646,7 +654,7 @@ export class TaskForm extends Component {
                   <Label for="client">Client</Label>
                 </Col>
                 <Col
-                  md={{ size: 9 }}
+                  md={{ size: 8 }}
                   className={
                     errors.client
                       ? "is-invalid async-select-container"
@@ -674,12 +682,15 @@ export class TaskForm extends Component {
                   )}
                 </Col>
 
-                <Col md="3">
-                  <a href="/clients/new">
-                    <Button type="button" className="btn my-1 btn-primary">
+                <Col md="1">
+                  <Link to="/clients/new">
+                    <Button
+                      type="button"
+                      className="btn my-1 btn-sm btn-primary"
+                    >
                       +
                     </Button>
-                  </a>
+                  </Link>
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -688,7 +699,7 @@ export class TaskForm extends Component {
                     Submission limit (per contributor)
                   </Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Input
                     name="user_submission_target"
                     type="number"
@@ -715,7 +726,7 @@ export class TaskForm extends Component {
                     Minimum contributor level
                   </Label>
                 </Col>
-                <Col md={{ size: 9 }}>
+                <Col md={{ size: 8 }}>
                   <Input
                     name="required_expertise"
                     type="select"
