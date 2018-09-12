@@ -196,7 +196,14 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="location_type">Location Type</Label>
                 </Col>
-                <Col md="8">
+                <Col
+                  md="8"
+                  className={
+                    errors.location_type
+                      ? "is-invalid async-select-container"
+                      : "async-select async-select-container"
+                  }
+                >
                   <AsyncSelect
                     name="location_type"
                     bsSize="lg"
@@ -209,7 +216,11 @@ export class LocationForm extends Component {
                     loadOptions={this.loadOptions}
                     isClearable
                     cacheOptions
-                    className={errors.location_type ? "is-invalid" : ""}
+                    className={
+                      errors.location_type
+                        ? "is-invalid async-select"
+                        : "async-select"
+                    }
                   />
                   {errors.location_type && (
                     <div className="invalid-feedback">
