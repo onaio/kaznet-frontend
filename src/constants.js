@@ -17,6 +17,7 @@ export const SCHEDULED = "Scheduled";
 export const ARCHIVED = "Archived";
 export const DRAFT = "Draft";
 export const ESTIMATED_TIME = "00:15";
+export const ESTIMATED_TIME_INT = "15";
 export const TASK_DATE_FORMAT = "YYYY-MM-DD";
 export const TASK_LOCATION_START = "09:00";
 export const TASK_LOCATION_END = "17:00";
@@ -36,6 +37,8 @@ export const SUBMISSION_APPROVED = "a";
 export const SUBMISSION_REJECTED = "b";
 export const SUBMISSION_UNDER_REVIEW = "c";
 export const SUBMISSION_PENDING = "d";
+export const USER_SUBMISSION_TARGET = 10;
+export const ASYNC_SEARCH_TIMEOUT = 10;
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
