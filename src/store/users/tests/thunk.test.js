@@ -105,6 +105,7 @@ describe("store/users/actions", () => {
     });
   });
 
+<<<<<<< HEAD
   it("should export user submissions", async () => {
     ExportService.exportUserSubmissions.mockReturnValueOnce(
       fixtures.userExport
@@ -134,4 +135,17 @@ describe("store/users/actions", () => {
       errorMessage: Error("Wow!")
     });
   });
+=======
+  it("should get currently logged in user", async () => {
+    UserService.getLoggedInUser.mockReturnValueOnce({
+      data: fixtures.currentLoggedInUserData
+    });
+    const dispatches = await Thunk(users.fetchLoggedInUser).execute();
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+  });
+>>>>>>> Logged in user gravatar
 });

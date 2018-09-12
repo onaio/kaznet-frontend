@@ -8,6 +8,7 @@ import * as actionTypes from "../actionTypes";
 
 const initialState = {
   usersById: {},
+  currentUser: {},
   usersIdArray: [],
   currentPage: null,
   totalPages: null,
@@ -31,13 +32,15 @@ describe("store/users/reducer", () => {
     const currentPage = fixtures.currentPage;
     const totalPages = fixtures.totalPages;
     const totalCount = fixtures.totalCount;
+    const currentUser = fixtures.currentLoggedInUserData;
     const action = {
       type: actionTypes.USERS_FETCHED,
       usersById,
       pageLinks,
       currentPage,
       totalPages,
-      totalCount
+      totalCount,
+      currentUser
     };
 
     const existingState = Immutable(initialState);

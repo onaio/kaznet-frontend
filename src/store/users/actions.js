@@ -15,13 +15,15 @@ export function fetchUsers(url) {
         totalCount
       } = await userService.getUserList(url);
       const usersById = _.keyBy(userArray, user => user.id);
+      const currentUser = await userService.getLoggedInUser();
       dispatch({
         type: types.USERS_FETCHED,
         usersById,
         pageLinks,
         currentPage,
         totalPages,
-        totalCount
+        totalCount,
+        currentUser
       });
     } catch (error) {
       console.error(error);
@@ -104,6 +106,26 @@ export function exportUserSubmissions(filter_dict, username = null) {
       });
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
+  };
+}
+// fetch currently loggend in user
+export function fetchLoggedInUser() {
+  return async (dispatch, getState) => {
+    try {
+      const userData = await userService.getLoggedInUser();
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.CURRENT_USER_FETCHTED,
+        userData
       });
     } catch (error) {
       dispatch({

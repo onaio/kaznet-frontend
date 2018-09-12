@@ -1,6 +1,8 @@
 // Renders the header
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import {
   Collapse,
   Navbar,
@@ -14,10 +16,17 @@ import {
   DropdownItem
 } from "reactstrap";
 
+import * as userSelectors from "../../store/users/reducer";
+import * as userActions from "../../store/users/actions";
+
 import profile_image from "../../images/profile.png";
 import "./Header.css";
 
-export default class Header extends Component {
+export class Header extends Component {
+  componentDidMount() {
+    this.props.fetchLoggedInUser();
+  }
+
   constructor(props) {
     super(props);
 
@@ -105,7 +114,12 @@ export default class Header extends Component {
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <img
-                    src={profile_image}
+                    src={
+                      this.props.getCurrentUser &&
+                      this.props.getCurrentUser.attributes.metadata.gravatar
+                        ? this.props.getCurrentUser.attributes.metadata.gravatar
+                        : profile_image
+                    }
                     className="img-fluid rounded-circle userprofile-img"
                     alt="profile"
                   />
@@ -118,3 +132,23 @@ export default class Header extends Component {
     );
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    getCurrentUser: userSelectors.getCurrentUser(state)
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      fetchLoggedInUser: userActions.fetchLoggedInUser
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

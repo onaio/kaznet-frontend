@@ -4,3 +4,4 @@ export const USER_CHANGE_PAGE = "clients.USER_CHANGE_PAGE"; // Is this actually 
 export const USER_FETCHED = "users.USER_FETCHED";
 export const USER_DELETED = "users.USER_DELETED";
 export const FILE_EXPORTED = "users.FILE_EXPORTED";
+export const CURRENT_USER_FETCHTED = "users.CURRENT_USER_FETCHTED";

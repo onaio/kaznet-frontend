@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-export const singleUserData = {
+export const currentLoggedInUserData = {
   type: "UserProfile",
   id: "1",
   attributes: {
@@ -28,9 +28,15 @@ export const singleUserData = {
     expertise: "1",
     gender: "1",
     national_id: null,
-    submission_count: 0
+    submission_count: 0,
+    metadata: {}
   }
 };
+
+export const singleUserData = _.omit(
+  currentLoggedInUserData,
+  "attributes.metadata"
+);
 
 export const userData = {
   links: {
