@@ -544,6 +544,33 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                   </Col>
                 </div>
               </Row>
+              <ExportModal>
+                <div>
+                  <Modal
+                    autoFocus={true}
+                    backdrop={true}
+                    backdropTransition={
+                      Object {
+                        "mountOnEnter": true,
+                        "timeout": 150,
+                      }
+                    }
+                    centered={false}
+                    fade={true}
+                    isOpen={false}
+                    keyboard={true}
+                    modalTransition={
+                      Object {
+                        "timeout": 300,
+                      }
+                    }
+                    onClosed={[Function]}
+                    onOpened={[Function]}
+                    role="dialog"
+                    zIndex={1050}
+                  />
+                </div>
+              </ExportModal>
             </div>
           </Col>
         </div>

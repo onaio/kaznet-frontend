@@ -3,7 +3,6 @@
 exports[`components/ExportForm renders an ExportForm 1`] = `
 <ExportForm
   downloadModalHandler={[Function]}
-  handleDateChanges={[Function]}
   onFormSubmit={[Function]}
 >
   <Formik

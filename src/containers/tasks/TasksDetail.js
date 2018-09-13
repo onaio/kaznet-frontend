@@ -5,6 +5,7 @@ import Moment from "react-moment";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import "../LoadListAnimation.css";
 import * as taskSelectors from "../../store/tasks/reducer";
+import * as userActions from "../../store/users/actions";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
@@ -20,6 +21,36 @@ export class TasksDetail extends Component {
   componentDidMount() {
     this.props.fetchTask(this.props.match.params.id);
     this.props.noTitle();
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      start: undefined,
+      end: undefined
+    };
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  onFormSubmit(start, end) {
+    this.props.exportSubmissions(
+      {
+        task: this.props.match.params.id,
+        modified__gte: start,
+        modified__lte: end,
+        status: constants.SUBMISSION_APPROVED,
+        format: "csv"
+      },
+      this.props.taskById.attributes.name
+    );
   }
 
   render() {
@@ -40,6 +71,10 @@ export class TasksDetail extends Component {
           totalSubmissions={this.task.attributes.submission_count}
           task={this.task}
           formURL={xformTableURL}
+          downloadModalHandler={this.toggle}
+          modalState={this.state.modal}
+          onFormSubmit={this.onFormSubmit}
+          taskName={this.task.attributes.name}
         />
         <DetailView
           renderMainDetails={this.renderMainDetails(xformURL)}
@@ -138,7 +173,8 @@ function mapDispatchToProps(dispatch) {
     {
       fetchTask: taskActions.fetchTask,
       changeTaskStatus: globalActions.changeDetailStatus,
-      noTitle: globalActions.toggleTitleOff
+      noTitle: globalActions.toggleTitleOff,
+      exportSubmissions: userActions.exportSubmissions
     },
     dispatch
   );

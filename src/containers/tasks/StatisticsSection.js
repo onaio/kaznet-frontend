@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Col, Row } from "reactstrap";
+import ExportModal from "../../components/ExportModal";
 
 export default class StatisticsSection extends Component {
   render() {
@@ -46,10 +47,18 @@ export default class StatisticsSection extends Component {
                   <p className="stats-data">{this.props.reward}</p>
                   <p className="stats-header">
                     Total Reward
-                    <FontAwesomeIcon
-                      icon="laptop"
-                      className="fa-xs icon-link withspace"
-                    />
+                    {this.props.accepted > 0 ? (
+                      <FontAwesomeIcon
+                        icon="laptop"
+                        className="fa-xs icon-link withspace clickable-icon"
+                        onClick={this.props.downloadModalHandler}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon="laptop"
+                        className="fa-xs icon-link withspace"
+                      />
+                    )}
                   </p>
                 </div>
               </Col>
@@ -82,6 +91,13 @@ export default class StatisticsSection extends Component {
                 </div>
               </Col>
             </Row>
+            <ExportModal
+              modalState={this.props.modalState}
+              downloadModalHandler={this.props.downloadModalHandler}
+              className={this.props.className}
+              onFormSubmit={this.props.onFormSubmit}
+              name={this.props.taskName}
+            />
           </Col>
         </Row>
         <hr />

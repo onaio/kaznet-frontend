@@ -162,32 +162,39 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
         userName={null}
       >
         <div>
-          <div>
-            <Modal
-              autoFocus={true}
-              backdrop={true}
-              backdropTransition={
-                Object {
-                  "mountOnEnter": true,
-                  "timeout": 150,
+          <ExportModal
+            downloadModalHandler={[Function]}
+            modalState={false}
+            name={null}
+            onFormSubmit={[Function]}
+          >
+            <div>
+              <Modal
+                autoFocus={true}
+                backdrop={true}
+                backdropTransition={
+                  Object {
+                    "mountOnEnter": true,
+                    "timeout": 150,
+                  }
                 }
-              }
-              centered={false}
-              fade={true}
-              isOpen={false}
-              keyboard={true}
-              modalTransition={
-                Object {
-                  "timeout": 300,
+                centered={false}
+                fade={true}
+                isOpen={false}
+                keyboard={true}
+                modalTransition={
+                  Object {
+                    "timeout": 300,
+                  }
                 }
-              }
-              onClosed={[Function]}
-              onOpened={[Function]}
-              role="dialog"
-              toggle={[Function]}
-              zIndex={1050}
-            />
-          </div>
+                onClosed={[Function]}
+                onOpened={[Function]}
+                role="dialog"
+                toggle={[Function]}
+                zIndex={1050}
+              />
+            </div>
+          </ExportModal>
           <Table
             bordered={true}
             className="kaznet-table"
