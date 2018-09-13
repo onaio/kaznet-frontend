@@ -7,6 +7,7 @@ import * as types from "./actionTypes";
 
 const initialState = Immutable({
   usersById: {},
+  currentUser: {},
   usersIdArray: [],
   currentPage: null,
   totalPages: null,
@@ -46,6 +47,14 @@ export default function reduce(state = initialState, action = {}) {
         ...state,
         usersById: {
           ...state.usersById,
+          [action.userData.id]: action.userData
+        }
+      });
+    case types.CURRENT_USER_FETCHTED:
+      return Immutable({
+        ...state,
+        currentUser: {
+          ...state.currentUser,
           [action.userData.id]: action.userData
         }
       });
@@ -92,7 +101,7 @@ export function getNextPage(state, props) {
   return state.users.pageLinks.next;
 }
 
-export function getPreviousPage(state, props) {
+export function currentUser(state, props) {
   return state.users.pageLinks.prev;
 }
 
@@ -103,4 +112,7 @@ export function getLastPage(state, props) {
 
 export function getTotalCount(state, porseps) {
   return state.users.totalCount;
+}
+export function getCurrentUser(state, props) {
+  return _.values(state.users.currentUser)[0];
 }
