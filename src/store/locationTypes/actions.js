@@ -133,7 +133,7 @@ export function deleteLocationType(locationType_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "Location type was not deleted"
       });
     }
   };
