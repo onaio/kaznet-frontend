@@ -85,7 +85,7 @@ export function deleteUser(user_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: error
+        errorMessage: "User was not deleted"
       });
     }
   };

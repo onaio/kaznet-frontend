@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { Button } from "reactstrap";
 import Moment from "react-moment";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import qs from "qs";
 import "../LoadListAnimation.css";
 import * as userActions from "../../store/users/actions";
@@ -16,6 +16,7 @@ import * as constants from "../../constants.js";
 import NoResults from "../../components/NoResults";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
+import { withAlert } from "react-alert";
 
 export class UsersList extends Component {
   constructor(props) {
@@ -78,6 +79,7 @@ export class UsersList extends Component {
         constants.API_ENDPOINT
       }/userprofiles/?search=${search}&page=${pageNumber}`
     );
+
     this.props.changePageNumber(pageNumber);
   }
 
@@ -95,6 +97,11 @@ export class UsersList extends Component {
         }/userprofiles/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
+    }
+    if (this.props.hasError !== prevProps.hasError) {
+      if (this.props.hasError === true) {
+        this.props.alert.show(this.props.errorMessage);
+      }
     }
   }
 
@@ -202,7 +209,9 @@ function mapStateToProps(state) {
     firstPage: userSelectors.getFirstPage(state),
     lastPage: userSelectors.getLastPage(state),
     searchParam: globalSelectors.getSearchValue(state),
-    userCount: userSelectors.getTotalCount(state)
+    userCount: userSelectors.getTotalCount(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
@@ -225,4 +234,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UsersList);
+)(withAlert(UsersList));
