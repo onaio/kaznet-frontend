@@ -24,7 +24,11 @@ describe("components/page/Header", () => {
   });
 
   it("renders header correctly", () => {
-    const wrapper = mount(<Router history={history} />);
+    const wrapper = mount(
+      <Router history={history}>
+        <Header store={store} />
+      </Router>
+    );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
   });
