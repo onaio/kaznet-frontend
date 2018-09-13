@@ -9,11 +9,13 @@ import * as locationActions from "../../store/locations/actions";
 import * as locationSelectors from "../../store/locations/reducer";
 import * as globalActions from "../../store/global/actions";
 import * as globalSelectors from "../../store/global/reducer";
+import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import * as constants from "../../constants.js";
 import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
 import NoResults from "../../components/NoResults";
 import ElementMap from "../ElementMap";
+import { withAlert } from "react-alert";
 
 export class LocationsList extends Component {
   async componentDidMount() {
@@ -55,6 +57,11 @@ export class LocationsList extends Component {
         }/locations/?search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
+    }
+    if (this.props.hasError !== prevProps.hasError) {
+      if (this.props.hasError === true) {
+        this.props.alert.show(this.props.errorMessage);
+      }
     }
   }
 
@@ -124,7 +131,9 @@ function mapStateToProps(state) {
     firstPage: locationSelectors.getFirstPage(state),
     lastPage: locationSelectors.getLastPage(state),
     searchParam: globalSelectors.getSearchValue(state),
-    locationCount: locationSelectors.getTotalCount(state)
+    locationCount: locationSelectors.getTotalCount(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
@@ -146,4 +155,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LocationsList);
+)(withAlert(LocationsList));
