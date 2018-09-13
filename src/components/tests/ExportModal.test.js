@@ -1,23 +1,29 @@
-// test ExportForm
+// test ExportModal
 import React from "react";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 import MockDate from "mockdate";
-import ExportForm from "../ExportForm";
+import ExportModal from "../ExportModal";
 
-describe("components/ExportForm", () => {
+describe("components/ExportModal", () => {
   it("renders without crashing", () => {
     shallow(
-      <ExportForm
+      <ExportModal
+        isOpen={function() {}}
+        toggle={function() {}}
+        className={function() {}}
         onFormSubmit={function() {}}
         downloadModalHandler={function() {}}
       />
     );
   });
-  it("renders an ExportForm", () => {
+  it("renders an ExportModal", () => {
     MockDate.set("1/2/1986");
     const wrapper = mount(
-      <ExportForm
+      <ExportModal
+        isOpen={function() {}}
+        toggle={function() {}}
+        className={function() {}}
         onFormSubmit={function() {}}
         downloadModalHandler={function() {}}
       />

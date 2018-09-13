@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ExportModal renders an ExportModal 1`] = `
+<ExportModal
+  className={[Function]}
+  downloadModalHandler={[Function]}
+  isOpen={[Function]}
+  onFormSubmit={[Function]}
+  toggle={[Function]}
+>
+  <div>
+    <Modal
+      autoFocus={true}
+      backdrop={true}
+      backdropTransition={
+        Object {
+          "mountOnEnter": true,
+          "timeout": 150,
+        }
+      }
+      centered={false}
+      className={[Function]}
+      fade={true}
+      isOpen={false}
+      keyboard={true}
+      modalTransition={
+        Object {
+          "timeout": 300,
+        }
+      }
+      onClosed={[Function]}
+      onOpened={[Function]}
+      role="dialog"
+      toggle={[Function]}
+      zIndex={1050}
+    />
+  </div>
+</ExportModal>
+`;
