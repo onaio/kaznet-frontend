@@ -10,6 +10,7 @@ import toJson from "enzyme-to-json";
 
 import Header from "../Header";
 import * as reducers from "../../../store/reducers";
+import profile_image from "../../../images/profile.png";
 
 const history = createBrowserHistory();
 
@@ -26,7 +27,7 @@ describe("components/page/Header", () => {
   it("renders header correctly", () => {
     const wrapper = mount(
       <Router history={history}>
-        <Header store={store} />
+        <Header store={store} profile_image={profile_image} />
       </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();

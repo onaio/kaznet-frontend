@@ -24,6 +24,7 @@ exports[`components/page/Header renders header correctly 1`] = `
   }
 >
   <Connect(Header)
+    profile_image="profile.png"
     store={
       Object {
         "dispatch": [Function],
@@ -36,6 +37,7 @@ exports[`components/page/Header renders header correctly 1`] = `
   >
     <Header
       fetchLoggedInUser={[Function]}
+      profile_image="profile.png"
       store={
         Object {
           "dispatch": [Function],
