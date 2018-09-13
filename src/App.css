@@ -11,3 +11,7 @@
 .async-select-container.is-invalid .async-select > div {
   border-color: red;
 }
+
+.clickable-icon {
+  cursor: pointer;
+}

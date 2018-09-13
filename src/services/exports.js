@@ -3,7 +3,7 @@ import download from "downloadjs";
 import * as constants from "../constants";
 
 class ExportService {
-  async exportUserSubmissions(filter_dict, username = null) {
+  async exportSubmissions(filter_dict, name = null) {
     const filters = Object.keys(filter_dict)
       .map(
         k => `${encodeURIComponent(k)}=${encodeURIComponent(filter_dict[k])}`
@@ -11,13 +11,12 @@ class ExportService {
       .join("&");
     const url = `${constants.API_ENDPOINT}/exports/submissions/?${filters}`;
 
-    let tag =
-      username !== null ? `${username}` : `${filter_dict["userprofile"]}`;
+    let tag = name !== null ? `${name}` : `${filter_dict["userprofile"]}`;
 
     let fileName =
       tag +
-      `_${filter_dict["modified__gte"]}_to_${
-        filter_dict["modified__lte"]
+      `_${filter_dict[constants.MODIFIED_START]}_to_${
+        filter_dict[constants.MODIFIED_END]
       }_submissions.csv`;
 
     const response = await fetch(url, {

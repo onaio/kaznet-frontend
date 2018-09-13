@@ -12,7 +12,7 @@ export default class ExportModal extends Component {
           className={this.props.className}
         >
           <ModalHeader toggle={this.props.downloadModalHandler}>
-            Submissions of {this.props.userName}
+            Approved Submissions of {this.props.name}
           </ModalHeader>
           <ModalBody>
             <p className="font-weight-normal">Export Submissions </p>

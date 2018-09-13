@@ -93,13 +93,10 @@ export function deleteUser(user_id) {
   };
 }
 
-export function exportUserSubmissions(filter_dict, username = null) {
+export function exportSubmissions(filter_dict, name = null) {
   return async (dispatch, getState) => {
     try {
-      const file = await exportService.exportUserSubmissions(
-        filter_dict,
-        username
-      );
+      const file = await exportService.exportSubmissions(filter_dict, name);
       dispatch({
         type: types.FILE_EXPORTED,
         file

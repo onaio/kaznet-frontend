@@ -83,6 +83,7 @@ export default class ListView extends Component {
             downloadModalHandler={this.props.downloadModalHandler}
             className={this.props.className}
             onFormSubmit={this.props.onFormSubmit}
+            name={this.props.userName}
           />
         )}
 

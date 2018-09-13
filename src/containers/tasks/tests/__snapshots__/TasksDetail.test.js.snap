@@ -472,7 +472,10 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       </TaskDetailTitle>
       <StatisticsSection
         accepted={0}
+        downloadModalHandler={[Function]}
         formURL="https://ona.io/kaznettest/undefined/undefined#/table"
+        modalState={false}
+        onFormSubmit={[Function]}
         rejected={0}
         review={0}
         reward="0 KES"
@@ -568,6 +571,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
             "type": "Task",
           }
         }
+        taskName="Kaznet"
         totalSubmissions={0}
       >
         <Col
@@ -1010,6 +1014,39 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         </Col>
                       </div>
                     </Row>
+                    <ExportModal
+                      downloadModalHandler={[Function]}
+                      modalState={false}
+                      name="Kaznet"
+                      onFormSubmit={[Function]}
+                    >
+                      <div>
+                        <Modal
+                          autoFocus={true}
+                          backdrop={true}
+                          backdropTransition={
+                            Object {
+                              "mountOnEnter": true,
+                              "timeout": 150,
+                            }
+                          }
+                          centered={false}
+                          fade={true}
+                          isOpen={false}
+                          keyboard={true}
+                          modalTransition={
+                            Object {
+                              "timeout": 300,
+                            }
+                          }
+                          onClosed={[Function]}
+                          onOpened={[Function]}
+                          role="dialog"
+                          toggle={[Function]}
+                          zIndex={1050}
+                        />
+                      </div>
+                    </ExportModal>
                   </div>
                 </Col>
               </div>

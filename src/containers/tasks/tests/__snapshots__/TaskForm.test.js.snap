@@ -763,7 +763,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           cacheOptions={true}
                           captureMenuScroll={false}
                           className="async-select"
-                          closeMenuOnScroll={false}
                           closeMenuOnSelect={true}
                           components={Object {}}
                           controlShouldRenderValue={true}
@@ -787,6 +786,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           formatGroupLabel={[Function]}
                           getOptionLabel={[Function]}
                           getOptionValue={[Function]}
+                          hideSelectedOptions={true}
                           inputValue=""
                           isClearable={true}
                           isDisabled={false}
@@ -876,7 +876,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 "cacheOptions": true,
                                 "captureMenuScroll": false,
                                 "className": "async-select",
-                                "closeMenuOnScroll": false,
                                 "closeMenuOnSelect": true,
                                 "components": Object {},
                                 "controlShouldRenderValue": true,
@@ -898,6 +897,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 "formatGroupLabel": [Function],
                                 "getOptionLabel": [Function],
                                 "getOptionValue": [Function],
+                                "hideSelectedOptions": true,
                                 "inputValue": "",
                                 "isClearable": true,
                                 "isDisabled": false,
@@ -951,6 +951,20 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               className="css-10nd86i async-select"
                               onKeyDown={[Function]}
                             >
+                              <A11yText
+                                aria-atomic="true"
+                                aria-live="polite"
+                                role="status"
+                              >
+                                <span
+                                  aria-atomic="true"
+                                  aria-live="polite"
+                                  className="css-1uvvha"
+                                  role="status"
+                                >
+                                  2 results available.
+                                </span>
+                              </A11yText>
                               <Control
                                 clearValue={[Function]}
                                 cx={[Function]}
@@ -959,11 +973,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 hasValue={true}
                                 innerProps={
                                   Object {
+                                    "innerRef": [Function],
                                     "onMouseDown": [Function],
                                     "onTouchEnd": [Function],
                                   }
                                 }
-                                innerRef={[Function]}
                                 isDisabled={false}
                                 isFocused={false}
                                 isMulti={false}
@@ -990,7 +1004,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     "cacheOptions": true,
                                     "captureMenuScroll": false,
                                     "className": "async-select",
-                                    "closeMenuOnScroll": false,
                                     "closeMenuOnSelect": true,
                                     "components": Object {},
                                     "controlShouldRenderValue": true,
@@ -1012,6 +1025,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     "formatGroupLabel": [Function],
                                     "getOptionLabel": [Function],
                                     "getOptionValue": [Function],
+                                    "hideSelectedOptions": true,
                                     "inputValue": "",
                                     "isClearable": true,
                                     "isDisabled": false,
@@ -1062,7 +1076,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 setValue={[Function]}
                               >
                                 <div
-                                  className="css-1aya2g8"
+                                  className="css-1aya2g8 async-select__control"
                                   onMouseDown={[Function]}
                                   onTouchEnd={[Function]}
                                 >
@@ -1097,7 +1111,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -1119,6 +1132,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -1169,7 +1183,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1rtrksz"
+                                      className="css-1rtrksz async-select__value-container async-select__value-container--has-value"
                                     >
                                       <SingleValue
                                         clearValue={[Function]}
@@ -1208,7 +1222,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1230,6 +1243,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1280,13 +1294,16 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <div
-                                          className="css-va7pk8"
+                                          className="css-va7pk8 async-select__single-value"
                                         >
                                           Baseline_Questionnaire
                                         </div>
                                       </SingleValue>
                                       <Input
                                         aria-autocomplete="list"
+                                        aria-busy={false}
+                                        aria-expanded={false}
+                                        aria-haspopup={false}
                                         aria-label="Select Form"
                                         autoCapitalize="none"
                                         autoComplete="off"
@@ -1300,6 +1317,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        role="combobox"
                                         spellCheck="false"
                                         tabIndex="0"
                                         type="text"
@@ -1310,11 +1328,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         >
                                           <AutosizeInput
                                             aria-autocomplete="list"
+                                            aria-busy={false}
+                                            aria-expanded={false}
+                                            aria-haspopup={false}
                                             aria-label="Select Form"
                                             autoCapitalize="none"
                                             autoComplete="off"
                                             autoCorrect="off"
-                                            className=""
+                                            className="async-select__input"
                                             disabled={false}
                                             id="react-select-2-input"
                                             injectStyles={true}
@@ -1334,13 +1355,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
+                                            role="combobox"
                                             spellCheck="false"
                                             tabIndex="0"
                                             type="text"
                                             value=""
                                           >
                                             <div
-                                              className=""
+                                              className="async-select__input"
                                               style={
                                                 Object {
                                                   "display": "inline-block",
@@ -1349,6 +1371,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             >
                                               <input
                                                 aria-autocomplete="list"
+                                                aria-busy={false}
+                                                aria-expanded={false}
+                                                aria-haspopup={false}
                                                 aria-label="Select Form"
                                                 autoCapitalize="none"
                                                 autoComplete="off"
@@ -1358,6 +1383,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
+                                                role="combobox"
                                                 spellCheck="false"
                                                 style={
                                                   Object {
@@ -1426,7 +1452,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -1448,6 +1473,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -1498,7 +1524,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1wy0on6"
+                                      className="css-1wy0on6 async-select__indicators"
                                     >
                                       <ClearIndicator
                                         clearValue={[Function]}
@@ -1508,9 +1534,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         hasValue={true}
                                         innerProps={
                                           Object {
-                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
+                                            "role": "button",
                                           }
                                         }
                                         isFocused={false}
@@ -1538,7 +1564,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1560,6 +1585,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1610,20 +1636,22 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <div
-                                          aria-hidden="true"
-                                          className="css-1ep9fjw"
+                                          className="css-1ep9fjw async-select__indicator async-select__clear-indicator"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
+                                          role="button"
                                         >
                                           <CrossIcon>
                                             <Svg
+                                              focusable="false"
+                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
-                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
+                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -1641,6 +1669,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         getStyles={[Function]}
                                         getValue={[Function]}
                                         hasValue={true}
+                                        innerProps={
+                                          Object {
+                                            "role": "presentation",
+                                          }
+                                        }
                                         isDisabled={false}
                                         isFocused={false}
                                         isMulti={false}
@@ -1667,7 +1700,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1689,6 +1721,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1739,7 +1772,8 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <span
-                                          className="css-d8oujb"
+                                          className="css-d8oujb async-select__indicator-separator"
+                                          role="presentation"
                                         />
                                       </IndicatorSeparator>
                                       <DropdownIndicator
@@ -1750,9 +1784,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         hasValue={true}
                                         innerProps={
                                           Object {
-                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
+                                            "role": "button",
                                           }
                                         }
                                         isDisabled={false}
@@ -1781,7 +1815,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -1803,6 +1836,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -1853,20 +1887,22 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <div
-                                          aria-hidden="true"
-                                          className="css-1ep9fjw"
+                                          className="css-1ep9fjw async-select__indicator async-select__dropdown-indicator"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
+                                          role="button"
                                         >
                                           <DownChevron>
                                             <Svg
+                                              focusable="false"
+                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
-                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
+                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -2453,7 +2489,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         cacheOptions={true}
                                         captureMenuScroll={false}
                                         className="async-select"
-                                        closeMenuOnScroll={false}
                                         closeMenuOnSelect={true}
                                         components={Object {}}
                                         controlShouldRenderValue={true}
@@ -2477,6 +2512,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         formatGroupLabel={[Function]}
                                         getOptionLabel={[Function]}
                                         getOptionValue={[Function]}
+                                        hideSelectedOptions={true}
                                         inputValue=""
                                         isClearable={true}
                                         isDisabled={false}
@@ -2566,7 +2602,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                               "cacheOptions": true,
                                               "captureMenuScroll": false,
                                               "className": "async-select",
-                                              "closeMenuOnScroll": false,
                                               "closeMenuOnSelect": true,
                                               "components": Object {},
                                               "controlShouldRenderValue": true,
@@ -2588,6 +2623,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                               "formatGroupLabel": [Function],
                                               "getOptionLabel": [Function],
                                               "getOptionValue": [Function],
+                                              "hideSelectedOptions": true,
                                               "inputValue": "",
                                               "isClearable": true,
                                               "isDisabled": false,
@@ -2641,6 +2677,20 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             className="css-10nd86i async-select"
                                             onKeyDown={[Function]}
                                           >
+                                            <A11yText
+                                              aria-atomic="true"
+                                              aria-live="polite"
+                                              role="status"
+                                            >
+                                              <span
+                                                aria-atomic="true"
+                                                aria-live="polite"
+                                                className="css-1uvvha"
+                                                role="status"
+                                              >
+                                                2 results available.
+                                              </span>
+                                            </A11yText>
                                             <Control
                                               clearValue={[Function]}
                                               cx={[Function]}
@@ -2649,11 +2699,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                               hasValue={true}
                                               innerProps={
                                                 Object {
+                                                  "innerRef": [Function],
                                                   "onMouseDown": [Function],
                                                   "onTouchEnd": [Function],
                                                 }
                                               }
-                                              innerRef={[Function]}
                                               isDisabled={false}
                                               isFocused={false}
                                               isMulti={false}
@@ -2680,7 +2730,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                   "cacheOptions": true,
                                                   "captureMenuScroll": false,
                                                   "className": "async-select",
-                                                  "closeMenuOnScroll": false,
                                                   "closeMenuOnSelect": true,
                                                   "components": Object {},
                                                   "controlShouldRenderValue": true,
@@ -2702,6 +2751,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                   "formatGroupLabel": [Function],
                                                   "getOptionLabel": [Function],
                                                   "getOptionValue": [Function],
+                                                  "hideSelectedOptions": true,
                                                   "inputValue": "",
                                                   "isClearable": true,
                                                   "isDisabled": false,
@@ -2752,7 +2802,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                               setValue={[Function]}
                                             >
                                               <div
-                                                className="css-1aya2g8"
+                                                className="css-1aya2g8 async-select__control"
                                                 onMouseDown={[Function]}
                                                 onTouchEnd={[Function]}
                                               >
@@ -2787,7 +2837,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       "cacheOptions": true,
                                                       "captureMenuScroll": false,
                                                       "className": "async-select",
-                                                      "closeMenuOnScroll": false,
                                                       "closeMenuOnSelect": true,
                                                       "components": Object {},
                                                       "controlShouldRenderValue": true,
@@ -2809,6 +2858,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       "formatGroupLabel": [Function],
                                                       "getOptionLabel": [Function],
                                                       "getOptionValue": [Function],
+                                                      "hideSelectedOptions": true,
                                                       "inputValue": "",
                                                       "isClearable": true,
                                                       "isDisabled": false,
@@ -2859,7 +2909,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                   setValue={[Function]}
                                                 >
                                                   <div
-                                                    className="css-1rtrksz"
+                                                    className="css-1rtrksz async-select__value-container async-select__value-container--has-value"
                                                   >
                                                     <SingleValue
                                                       clearValue={[Function]}
@@ -2898,7 +2948,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "cacheOptions": true,
                                                           "captureMenuScroll": false,
                                                           "className": "async-select",
-                                                          "closeMenuOnScroll": false,
                                                           "closeMenuOnSelect": true,
                                                           "components": Object {},
                                                           "controlShouldRenderValue": true,
@@ -2920,6 +2969,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "formatGroupLabel": [Function],
                                                           "getOptionLabel": [Function],
                                                           "getOptionValue": [Function],
+                                                          "hideSelectedOptions": true,
                                                           "inputValue": "",
                                                           "isClearable": true,
                                                           "isDisabled": false,
@@ -2970,13 +3020,16 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       setValue={[Function]}
                                                     >
                                                       <div
-                                                        className="css-va7pk8"
+                                                        className="css-va7pk8 async-select__single-value"
                                                       >
                                                         Voi
                                                       </div>
                                                     </SingleValue>
                                                     <Input
                                                       aria-autocomplete="list"
+                                                      aria-busy={false}
+                                                      aria-expanded={false}
+                                                      aria-haspopup={false}
                                                       aria-label="Select Location"
                                                       autoCapitalize="none"
                                                       autoComplete="off"
@@ -2990,6 +3043,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       onBlur={[Function]}
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
+                                                      role="combobox"
                                                       spellCheck="false"
                                                       tabIndex="0"
                                                       type="text"
@@ -3000,11 +3054,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       >
                                                         <AutosizeInput
                                                           aria-autocomplete="list"
+                                                          aria-busy={false}
+                                                          aria-expanded={false}
+                                                          aria-haspopup={false}
                                                           aria-label="Select Location"
                                                           autoCapitalize="none"
                                                           autoComplete="off"
                                                           autoCorrect="off"
-                                                          className=""
+                                                          className="async-select__input"
                                                           disabled={false}
                                                           id="react-select-3-input"
                                                           injectStyles={true}
@@ -3024,13 +3081,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           onBlur={[Function]}
                                                           onChange={[Function]}
                                                           onFocus={[Function]}
+                                                          role="combobox"
                                                           spellCheck="false"
                                                           tabIndex="0"
                                                           type="text"
                                                           value=""
                                                         >
                                                           <div
-                                                            className=""
+                                                            className="async-select__input"
                                                             style={
                                                               Object {
                                                                 "display": "inline-block",
@@ -3039,6 +3097,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           >
                                                             <input
                                                               aria-autocomplete="list"
+                                                              aria-busy={false}
+                                                              aria-expanded={false}
+                                                              aria-haspopup={false}
                                                               aria-label="Select Location"
                                                               autoCapitalize="none"
                                                               autoComplete="off"
@@ -3048,6 +3109,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
                                                               onFocus={[Function]}
+                                                              role="combobox"
                                                               spellCheck="false"
                                                               style={
                                                                 Object {
@@ -3116,7 +3178,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       "cacheOptions": true,
                                                       "captureMenuScroll": false,
                                                       "className": "async-select",
-                                                      "closeMenuOnScroll": false,
                                                       "closeMenuOnSelect": true,
                                                       "components": Object {},
                                                       "controlShouldRenderValue": true,
@@ -3138,6 +3199,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       "formatGroupLabel": [Function],
                                                       "getOptionLabel": [Function],
                                                       "getOptionValue": [Function],
+                                                      "hideSelectedOptions": true,
                                                       "inputValue": "",
                                                       "isClearable": true,
                                                       "isDisabled": false,
@@ -3188,7 +3250,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                   setValue={[Function]}
                                                 >
                                                   <div
-                                                    className="css-1wy0on6"
+                                                    className="css-1wy0on6 async-select__indicators"
                                                   >
                                                     <ClearIndicator
                                                       clearValue={[Function]}
@@ -3198,9 +3260,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       hasValue={true}
                                                       innerProps={
                                                         Object {
-                                                          "aria-hidden": "true",
                                                           "onMouseDown": [Function],
                                                           "onTouchEnd": [Function],
+                                                          "role": "button",
                                                         }
                                                       }
                                                       isFocused={false}
@@ -3228,7 +3290,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "cacheOptions": true,
                                                           "captureMenuScroll": false,
                                                           "className": "async-select",
-                                                          "closeMenuOnScroll": false,
                                                           "closeMenuOnSelect": true,
                                                           "components": Object {},
                                                           "controlShouldRenderValue": true,
@@ -3250,6 +3311,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "formatGroupLabel": [Function],
                                                           "getOptionLabel": [Function],
                                                           "getOptionValue": [Function],
+                                                          "hideSelectedOptions": true,
                                                           "inputValue": "",
                                                           "isClearable": true,
                                                           "isDisabled": false,
@@ -3300,20 +3362,22 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       setValue={[Function]}
                                                     >
                                                       <div
-                                                        aria-hidden="true"
-                                                        className="css-1ep9fjw"
+                                                        className="css-1ep9fjw async-select__indicator async-select__clear-indicator"
                                                         onMouseDown={[Function]}
                                                         onTouchEnd={[Function]}
+                                                        role="button"
                                                       >
                                                         <CrossIcon>
                                                           <Svg
+                                                            focusable="false"
+                                                            role="presentation"
                                                             size={20}
                                                           >
                                                             <svg
-                                                              aria-hidden="true"
                                                               className="css-19bqh2r"
                                                               focusable="false"
                                                               height={20}
+                                                              role="presentation"
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                             >
@@ -3331,6 +3395,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       getStyles={[Function]}
                                                       getValue={[Function]}
                                                       hasValue={true}
+                                                      innerProps={
+                                                        Object {
+                                                          "role": "presentation",
+                                                        }
+                                                      }
                                                       isDisabled={false}
                                                       isFocused={false}
                                                       isMulti={false}
@@ -3357,7 +3426,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "cacheOptions": true,
                                                           "captureMenuScroll": false,
                                                           "className": "async-select",
-                                                          "closeMenuOnScroll": false,
                                                           "closeMenuOnSelect": true,
                                                           "components": Object {},
                                                           "controlShouldRenderValue": true,
@@ -3379,6 +3447,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "formatGroupLabel": [Function],
                                                           "getOptionLabel": [Function],
                                                           "getOptionValue": [Function],
+                                                          "hideSelectedOptions": true,
                                                           "inputValue": "",
                                                           "isClearable": true,
                                                           "isDisabled": false,
@@ -3429,7 +3498,8 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       setValue={[Function]}
                                                     >
                                                       <span
-                                                        className="css-d8oujb"
+                                                        className="css-d8oujb async-select__indicator-separator"
+                                                        role="presentation"
                                                       />
                                                     </IndicatorSeparator>
                                                     <DropdownIndicator
@@ -3440,9 +3510,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       hasValue={true}
                                                       innerProps={
                                                         Object {
-                                                          "aria-hidden": "true",
                                                           "onMouseDown": [Function],
                                                           "onTouchEnd": [Function],
+                                                          "role": "button",
                                                         }
                                                       }
                                                       isDisabled={false}
@@ -3471,7 +3541,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "cacheOptions": true,
                                                           "captureMenuScroll": false,
                                                           "className": "async-select",
-                                                          "closeMenuOnScroll": false,
                                                           "closeMenuOnSelect": true,
                                                           "components": Object {},
                                                           "controlShouldRenderValue": true,
@@ -3493,6 +3562,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                           "formatGroupLabel": [Function],
                                                           "getOptionLabel": [Function],
                                                           "getOptionValue": [Function],
+                                                          "hideSelectedOptions": true,
                                                           "inputValue": "",
                                                           "isClearable": true,
                                                           "isDisabled": false,
@@ -3543,20 +3613,22 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                       setValue={[Function]}
                                                     >
                                                       <div
-                                                        aria-hidden="true"
-                                                        className="css-1ep9fjw"
+                                                        className="css-1ep9fjw async-select__indicator async-select__dropdown-indicator"
                                                         onMouseDown={[Function]}
                                                         onTouchEnd={[Function]}
+                                                        role="button"
                                                       >
                                                         <DownChevron>
                                                           <Svg
+                                                            focusable="false"
+                                                            role="presentation"
                                                             size={20}
                                                           >
                                                             <svg
-                                                              aria-hidden="true"
                                                               className="css-19bqh2r"
                                                               focusable="false"
                                                               height={20}
+                                                              role="presentation"
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                             >
@@ -4718,7 +4790,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           cacheOptions={true}
                           captureMenuScroll={false}
                           className="async-select"
-                          closeMenuOnScroll={false}
                           closeMenuOnSelect={true}
                           components={Object {}}
                           controlShouldRenderValue={true}
@@ -4738,6 +4809,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           formatGroupLabel={[Function]}
                           getOptionLabel={[Function]}
                           getOptionValue={[Function]}
+                          hideSelectedOptions={true}
                           inputValue=""
                           isClearable={true}
                           isDisabled={false}
@@ -4819,7 +4891,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 "cacheOptions": true,
                                 "captureMenuScroll": false,
                                 "className": "async-select",
-                                "closeMenuOnScroll": false,
                                 "closeMenuOnSelect": true,
                                 "components": Object {},
                                 "controlShouldRenderValue": true,
@@ -4837,6 +4908,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 "formatGroupLabel": [Function],
                                 "getOptionLabel": [Function],
                                 "getOptionValue": [Function],
+                                "hideSelectedOptions": true,
                                 "inputValue": "",
                                 "isClearable": true,
                                 "isDisabled": false,
@@ -4886,6 +4958,20 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               className="css-10nd86i async-select"
                               onKeyDown={[Function]}
                             >
+                              <A11yText
+                                aria-atomic="true"
+                                aria-live="polite"
+                                role="status"
+                              >
+                                <span
+                                  aria-atomic="true"
+                                  aria-live="polite"
+                                  className="css-1uvvha"
+                                  role="status"
+                                >
+                                  1 result available.
+                                </span>
+                              </A11yText>
                               <Control
                                 clearValue={[Function]}
                                 cx={[Function]}
@@ -4894,11 +4980,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 hasValue={true}
                                 innerProps={
                                   Object {
+                                    "innerRef": [Function],
                                     "onMouseDown": [Function],
                                     "onTouchEnd": [Function],
                                   }
                                 }
-                                innerRef={[Function]}
                                 isDisabled={false}
                                 isFocused={false}
                                 isMulti={false}
@@ -4921,7 +5007,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     "cacheOptions": true,
                                     "captureMenuScroll": false,
                                     "className": "async-select",
-                                    "closeMenuOnScroll": false,
                                     "closeMenuOnSelect": true,
                                     "components": Object {},
                                     "controlShouldRenderValue": true,
@@ -4939,6 +5024,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     "formatGroupLabel": [Function],
                                     "getOptionLabel": [Function],
                                     "getOptionValue": [Function],
+                                    "hideSelectedOptions": true,
                                     "inputValue": "",
                                     "isClearable": true,
                                     "isDisabled": false,
@@ -4985,7 +5071,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 setValue={[Function]}
                               >
                                 <div
-                                  className="css-1aya2g8"
+                                  className="css-1aya2g8 async-select__control"
                                   onMouseDown={[Function]}
                                   onTouchEnd={[Function]}
                                 >
@@ -5016,7 +5102,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -5034,6 +5119,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -5080,7 +5166,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1rtrksz"
+                                      className="css-1rtrksz async-select__value-container async-select__value-container--has-value"
                                     >
                                       <SingleValue
                                         clearValue={[Function]}
@@ -5115,7 +5201,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -5133,6 +5218,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -5179,13 +5265,16 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <div
-                                          className="css-va7pk8"
+                                          className="css-va7pk8 async-select__single-value"
                                         >
                                           Client 1
                                         </div>
                                       </SingleValue>
                                       <Input
                                         aria-autocomplete="list"
+                                        aria-busy={false}
+                                        aria-expanded={false}
+                                        aria-haspopup={false}
                                         aria-label="Select Client"
                                         autoCapitalize="none"
                                         autoComplete="off"
@@ -5199,6 +5288,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        role="combobox"
                                         spellCheck="false"
                                         tabIndex="0"
                                         type="text"
@@ -5209,11 +5299,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         >
                                           <AutosizeInput
                                             aria-autocomplete="list"
+                                            aria-busy={false}
+                                            aria-expanded={false}
+                                            aria-haspopup={false}
                                             aria-label="Select Client"
                                             autoCapitalize="none"
                                             autoComplete="off"
                                             autoCorrect="off"
-                                            className=""
+                                            className="async-select__input"
                                             disabled={false}
                                             id="react-select-4-input"
                                             injectStyles={true}
@@ -5233,13 +5326,14 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
+                                            role="combobox"
                                             spellCheck="false"
                                             tabIndex="0"
                                             type="text"
                                             value=""
                                           >
                                             <div
-                                              className=""
+                                              className="async-select__input"
                                               style={
                                                 Object {
                                                   "display": "inline-block",
@@ -5248,6 +5342,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             >
                                               <input
                                                 aria-autocomplete="list"
+                                                aria-busy={false}
+                                                aria-expanded={false}
+                                                aria-haspopup={false}
                                                 aria-label="Select Client"
                                                 autoCapitalize="none"
                                                 autoComplete="off"
@@ -5257,6 +5354,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
+                                                role="combobox"
                                                 spellCheck="false"
                                                 style={
                                                   Object {
@@ -5321,7 +5419,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -5339,6 +5436,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -5385,7 +5483,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1wy0on6"
+                                      className="css-1wy0on6 async-select__indicators"
                                     >
                                       <ClearIndicator
                                         clearValue={[Function]}
@@ -5395,9 +5493,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         hasValue={true}
                                         innerProps={
                                           Object {
-                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
+                                            "role": "button",
                                           }
                                         }
                                         isFocused={false}
@@ -5421,7 +5519,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -5439,6 +5536,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -5485,20 +5583,22 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <div
-                                          aria-hidden="true"
-                                          className="css-1ep9fjw"
+                                          className="css-1ep9fjw async-select__indicator async-select__clear-indicator"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
+                                          role="button"
                                         >
                                           <CrossIcon>
                                             <Svg
+                                              focusable="false"
+                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
-                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
+                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -5516,6 +5616,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         getStyles={[Function]}
                                         getValue={[Function]}
                                         hasValue={true}
+                                        innerProps={
+                                          Object {
+                                            "role": "presentation",
+                                          }
+                                        }
                                         isDisabled={false}
                                         isFocused={false}
                                         isMulti={false}
@@ -5538,7 +5643,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -5556,6 +5660,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -5602,7 +5707,8 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <span
-                                          className="css-d8oujb"
+                                          className="css-d8oujb async-select__indicator-separator"
+                                          role="presentation"
                                         />
                                       </IndicatorSeparator>
                                       <DropdownIndicator
@@ -5613,9 +5719,9 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         hasValue={true}
                                         innerProps={
                                           Object {
-                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
+                                            "role": "button",
                                           }
                                         }
                                         isDisabled={false}
@@ -5640,7 +5746,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -5658,6 +5763,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -5704,20 +5810,22 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         setValue={[Function]}
                                       >
                                         <div
-                                          aria-hidden="true"
-                                          className="css-1ep9fjw"
+                                          className="css-1ep9fjw async-select__indicator async-select__dropdown-indicator"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
+                                          role="button"
                                         >
                                           <DownChevron>
                                             <Svg
+                                              focusable="false"
+                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
-                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
+                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -6788,7 +6896,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                           cacheOptions={true}
                           captureMenuScroll={false}
                           className="async-select"
-                          closeMenuOnScroll={false}
                           closeMenuOnSelect={true}
                           components={Object {}}
                           controlShouldRenderValue={true}
@@ -6812,6 +6919,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                           formatGroupLabel={[Function]}
                           getOptionLabel={[Function]}
                           getOptionValue={[Function]}
+                          hideSelectedOptions={true}
                           inputValue=""
                           isClearable={true}
                           isDisabled={false}
@@ -6896,7 +7004,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 "cacheOptions": true,
                                 "captureMenuScroll": false,
                                 "className": "async-select",
-                                "closeMenuOnScroll": false,
                                 "closeMenuOnSelect": true,
                                 "components": Object {},
                                 "controlShouldRenderValue": true,
@@ -6918,6 +7025,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 "formatGroupLabel": [Function],
                                 "getOptionLabel": [Function],
                                 "getOptionValue": [Function],
+                                "hideSelectedOptions": true,
                                 "inputValue": "",
                                 "isClearable": true,
                                 "isDisabled": false,
@@ -6968,6 +7076,20 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                               className="css-10nd86i async-select"
                               onKeyDown={[Function]}
                             >
+                              <A11yText
+                                aria-atomic="true"
+                                aria-live="polite"
+                                role="status"
+                              >
+                                <span
+                                  aria-atomic="true"
+                                  aria-live="polite"
+                                  className="css-1uvvha"
+                                  role="status"
+                                >
+                                  2 results available.
+                                </span>
+                              </A11yText>
                               <Control
                                 clearValue={[Function]}
                                 cx={[Function]}
@@ -6976,11 +7098,11 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 hasValue={false}
                                 innerProps={
                                   Object {
+                                    "innerRef": [Function],
                                     "onMouseDown": [Function],
                                     "onTouchEnd": [Function],
                                   }
                                 }
-                                innerRef={[Function]}
                                 isDisabled={false}
                                 isFocused={false}
                                 isMulti={false}
@@ -7007,7 +7129,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     "cacheOptions": true,
                                     "captureMenuScroll": false,
                                     "className": "async-select",
-                                    "closeMenuOnScroll": false,
                                     "closeMenuOnSelect": true,
                                     "components": Object {},
                                     "controlShouldRenderValue": true,
@@ -7029,6 +7150,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     "formatGroupLabel": [Function],
                                     "getOptionLabel": [Function],
                                     "getOptionValue": [Function],
+                                    "hideSelectedOptions": true,
                                     "inputValue": "",
                                     "isClearable": true,
                                     "isDisabled": false,
@@ -7076,7 +7198,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 setValue={[Function]}
                               >
                                 <div
-                                  className="css-1aya2g8"
+                                  className="css-1aya2g8 async-select__control"
                                   onMouseDown={[Function]}
                                   onTouchEnd={[Function]}
                                 >
@@ -7111,7 +7233,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -7133,6 +7254,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -7180,7 +7302,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1rtrksz"
+                                      className="css-1rtrksz async-select__value-container"
                                     >
                                       <Placeholder
                                         clearValue={[Function]}
@@ -7214,7 +7336,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -7236,6 +7357,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -7283,13 +7405,16 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         setValue={[Function]}
                                       >
                                         <div
-                                          className="css-1492t68"
+                                          className="css-1492t68 async-select__placeholder"
                                         >
                                           Select Form
                                         </div>
                                       </Placeholder>
                                       <Input
                                         aria-autocomplete="list"
+                                        aria-busy={false}
+                                        aria-expanded={false}
+                                        aria-haspopup={false}
                                         aria-label="Select Form"
                                         autoCapitalize="none"
                                         autoComplete="off"
@@ -7303,6 +7428,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        role="combobox"
                                         spellCheck="false"
                                         tabIndex="0"
                                         type="text"
@@ -7313,11 +7439,14 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         >
                                           <AutosizeInput
                                             aria-autocomplete="list"
+                                            aria-busy={false}
+                                            aria-expanded={false}
+                                            aria-haspopup={false}
                                             aria-label="Select Form"
                                             autoCapitalize="none"
                                             autoComplete="off"
                                             autoCorrect="off"
-                                            className=""
+                                            className="async-select__input"
                                             disabled={false}
                                             id="react-select-5-input"
                                             injectStyles={true}
@@ -7337,13 +7466,14 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
+                                            role="combobox"
                                             spellCheck="false"
                                             tabIndex="0"
                                             type="text"
                                             value=""
                                           >
                                             <div
-                                              className=""
+                                              className="async-select__input"
                                               style={
                                                 Object {
                                                   "display": "inline-block",
@@ -7352,6 +7482,9 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             >
                                               <input
                                                 aria-autocomplete="list"
+                                                aria-busy={false}
+                                                aria-expanded={false}
+                                                aria-haspopup={false}
                                                 aria-label="Select Form"
                                                 autoCapitalize="none"
                                                 autoComplete="off"
@@ -7361,6 +7494,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
+                                                role="combobox"
                                                 spellCheck="false"
                                                 style={
                                                   Object {
@@ -7429,7 +7563,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -7451,6 +7584,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -7498,7 +7632,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1wy0on6"
+                                      className="css-1wy0on6 async-select__indicators"
                                     >
                                       <IndicatorSeparator
                                         clearValue={[Function]}
@@ -7506,6 +7640,11 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         getStyles={[Function]}
                                         getValue={[Function]}
                                         hasValue={false}
+                                        innerProps={
+                                          Object {
+                                            "role": "presentation",
+                                          }
+                                        }
                                         isDisabled={false}
                                         isFocused={false}
                                         isMulti={false}
@@ -7532,7 +7671,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -7554,6 +7692,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -7601,7 +7740,8 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         setValue={[Function]}
                                       >
                                         <span
-                                          className="css-d8oujb"
+                                          className="css-d8oujb async-select__indicator-separator"
+                                          role="presentation"
                                         />
                                       </IndicatorSeparator>
                                       <DropdownIndicator
@@ -7612,9 +7752,9 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         hasValue={false}
                                         innerProps={
                                           Object {
-                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
+                                            "role": "button",
                                           }
                                         }
                                         isDisabled={false}
@@ -7643,7 +7783,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -7665,6 +7804,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -7712,20 +7852,22 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         setValue={[Function]}
                                       >
                                         <div
-                                          aria-hidden="true"
-                                          className="css-1ep9fjw"
+                                          className="css-1ep9fjw async-select__indicator async-select__dropdown-indicator"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
+                                          role="button"
                                         >
                                           <DownChevron>
                                             <Svg
+                                              focusable="false"
+                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
-                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
+                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >
@@ -8299,7 +8441,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                           cacheOptions={true}
                           captureMenuScroll={false}
                           className="async-select"
-                          closeMenuOnScroll={false}
                           closeMenuOnSelect={true}
                           components={Object {}}
                           controlShouldRenderValue={true}
@@ -8319,6 +8460,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                           formatGroupLabel={[Function]}
                           getOptionLabel={[Function]}
                           getOptionValue={[Function]}
+                          hideSelectedOptions={true}
                           inputValue=""
                           isClearable={true}
                           isDisabled={false}
@@ -8395,7 +8537,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 "cacheOptions": true,
                                 "captureMenuScroll": false,
                                 "className": "async-select",
-                                "closeMenuOnScroll": false,
                                 "closeMenuOnSelect": true,
                                 "components": Object {},
                                 "controlShouldRenderValue": true,
@@ -8413,6 +8554,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 "formatGroupLabel": [Function],
                                 "getOptionLabel": [Function],
                                 "getOptionValue": [Function],
+                                "hideSelectedOptions": true,
                                 "inputValue": "",
                                 "isClearable": true,
                                 "isDisabled": false,
@@ -8459,6 +8601,20 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                               className="css-10nd86i async-select"
                               onKeyDown={[Function]}
                             >
+                              <A11yText
+                                aria-atomic="true"
+                                aria-live="polite"
+                                role="status"
+                              >
+                                <span
+                                  aria-atomic="true"
+                                  aria-live="polite"
+                                  className="css-1uvvha"
+                                  role="status"
+                                >
+                                  1 result available.
+                                </span>
+                              </A11yText>
                               <Control
                                 clearValue={[Function]}
                                 cx={[Function]}
@@ -8467,11 +8623,11 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 hasValue={false}
                                 innerProps={
                                   Object {
+                                    "innerRef": [Function],
                                     "onMouseDown": [Function],
                                     "onTouchEnd": [Function],
                                   }
                                 }
-                                innerRef={[Function]}
                                 isDisabled={false}
                                 isFocused={false}
                                 isMulti={false}
@@ -8494,7 +8650,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     "cacheOptions": true,
                                     "captureMenuScroll": false,
                                     "className": "async-select",
-                                    "closeMenuOnScroll": false,
                                     "closeMenuOnSelect": true,
                                     "components": Object {},
                                     "controlShouldRenderValue": true,
@@ -8512,6 +8667,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     "formatGroupLabel": [Function],
                                     "getOptionLabel": [Function],
                                     "getOptionValue": [Function],
+                                    "hideSelectedOptions": true,
                                     "inputValue": "",
                                     "isClearable": true,
                                     "isDisabled": false,
@@ -8555,7 +8711,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                 setValue={[Function]}
                               >
                                 <div
-                                  className="css-1aya2g8"
+                                  className="css-1aya2g8 async-select__control"
                                   onMouseDown={[Function]}
                                   onTouchEnd={[Function]}
                                 >
@@ -8586,7 +8742,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -8604,6 +8759,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -8647,7 +8803,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1rtrksz"
+                                      className="css-1rtrksz async-select__value-container"
                                     >
                                       <Placeholder
                                         clearValue={[Function]}
@@ -8677,7 +8833,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -8695,6 +8850,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -8738,13 +8894,16 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         setValue={[Function]}
                                       >
                                         <div
-                                          className="css-1492t68"
+                                          className="css-1492t68 async-select__placeholder"
                                         >
                                           Select Client
                                         </div>
                                       </Placeholder>
                                       <Input
                                         aria-autocomplete="list"
+                                        aria-busy={false}
+                                        aria-expanded={false}
+                                        aria-haspopup={false}
                                         aria-label="Select Client"
                                         autoCapitalize="none"
                                         autoComplete="off"
@@ -8758,6 +8917,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        role="combobox"
                                         spellCheck="false"
                                         tabIndex="0"
                                         type="text"
@@ -8768,11 +8928,14 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         >
                                           <AutosizeInput
                                             aria-autocomplete="list"
+                                            aria-busy={false}
+                                            aria-expanded={false}
+                                            aria-haspopup={false}
                                             aria-label="Select Client"
                                             autoCapitalize="none"
                                             autoComplete="off"
                                             autoCorrect="off"
-                                            className=""
+                                            className="async-select__input"
                                             disabled={false}
                                             id="react-select-6-input"
                                             injectStyles={true}
@@ -8792,13 +8955,14 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
+                                            role="combobox"
                                             spellCheck="false"
                                             tabIndex="0"
                                             type="text"
                                             value=""
                                           >
                                             <div
-                                              className=""
+                                              className="async-select__input"
                                               style={
                                                 Object {
                                                   "display": "inline-block",
@@ -8807,6 +8971,9 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             >
                                               <input
                                                 aria-autocomplete="list"
+                                                aria-busy={false}
+                                                aria-expanded={false}
+                                                aria-haspopup={false}
                                                 aria-label="Select Client"
                                                 autoCapitalize="none"
                                                 autoComplete="off"
@@ -8816,6 +8983,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
+                                                role="combobox"
                                                 spellCheck="false"
                                                 style={
                                                   Object {
@@ -8880,7 +9048,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "cacheOptions": true,
                                         "captureMenuScroll": false,
                                         "className": "async-select",
-                                        "closeMenuOnScroll": false,
                                         "closeMenuOnSelect": true,
                                         "components": Object {},
                                         "controlShouldRenderValue": true,
@@ -8898,6 +9065,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         "formatGroupLabel": [Function],
                                         "getOptionLabel": [Function],
                                         "getOptionValue": [Function],
+                                        "hideSelectedOptions": true,
                                         "inputValue": "",
                                         "isClearable": true,
                                         "isDisabled": false,
@@ -8941,7 +9109,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                     setValue={[Function]}
                                   >
                                     <div
-                                      className="css-1wy0on6"
+                                      className="css-1wy0on6 async-select__indicators"
                                     >
                                       <IndicatorSeparator
                                         clearValue={[Function]}
@@ -8949,6 +9117,11 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         getStyles={[Function]}
                                         getValue={[Function]}
                                         hasValue={false}
+                                        innerProps={
+                                          Object {
+                                            "role": "presentation",
+                                          }
+                                        }
                                         isDisabled={false}
                                         isFocused={false}
                                         isMulti={false}
@@ -8971,7 +9144,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -8989,6 +9161,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -9032,7 +9205,8 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         setValue={[Function]}
                                       >
                                         <span
-                                          className="css-d8oujb"
+                                          className="css-d8oujb async-select__indicator-separator"
+                                          role="presentation"
                                         />
                                       </IndicatorSeparator>
                                       <DropdownIndicator
@@ -9043,9 +9217,9 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         hasValue={false}
                                         innerProps={
                                           Object {
-                                            "aria-hidden": "true",
                                             "onMouseDown": [Function],
                                             "onTouchEnd": [Function],
+                                            "role": "button",
                                           }
                                         }
                                         isDisabled={false}
@@ -9070,7 +9244,6 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "cacheOptions": true,
                                             "captureMenuScroll": false,
                                             "className": "async-select",
-                                            "closeMenuOnScroll": false,
                                             "closeMenuOnSelect": true,
                                             "components": Object {},
                                             "controlShouldRenderValue": true,
@@ -9088,6 +9261,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                             "formatGroupLabel": [Function],
                                             "getOptionLabel": [Function],
                                             "getOptionValue": [Function],
+                                            "hideSelectedOptions": true,
                                             "inputValue": "",
                                             "isClearable": true,
                                             "isDisabled": false,
@@ -9131,20 +9305,22 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                                         setValue={[Function]}
                                       >
                                         <div
-                                          aria-hidden="true"
-                                          className="css-1ep9fjw"
+                                          className="css-1ep9fjw async-select__indicator async-select__dropdown-indicator"
                                           onMouseDown={[Function]}
                                           onTouchEnd={[Function]}
+                                          role="button"
                                         >
                                           <DownChevron>
                                             <Svg
+                                              focusable="false"
+                                              role="presentation"
                                               size={20}
                                             >
                                               <svg
-                                                aria-hidden="true"
                                                 className="css-19bqh2r"
                                                 focusable="false"
                                                 height={20}
+                                                role="presentation"
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                               >

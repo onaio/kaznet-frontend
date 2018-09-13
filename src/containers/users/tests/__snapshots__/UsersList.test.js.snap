@@ -165,6 +165,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
           <ExportModal
             downloadModalHandler={[Function]}
             modalState={false}
+            name={null}
             onFormSubmit={[Function]}
           >
             <div>

@@ -106,10 +106,8 @@ describe("store/users/actions", () => {
   });
 
   it("should export user submissions", async () => {
-    ExportService.exportUserSubmissions.mockReturnValueOnce(
-      fixtures.userExport
-    );
-    const dispatches = await Thunk(users.exportUserSubmissions).execute();
+    ExportService.exportSubmissions.mockReturnValueOnce(fixtures.userExport);
+    const dispatches = await Thunk(users.exportSubmissions).execute();
     expect(dispatches.length).toBe(2);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
@@ -123,10 +121,10 @@ describe("store/users/actions", () => {
   });
 
   it("should export a file and dispatch on error", async () => {
-    ExportService.exportUserSubmissions.mockImplementationOnce(() => {
+    ExportService.exportSubmissions.mockImplementationOnce(() => {
       throw new Error("Wow!");
     });
-    const dispatches = await Thunk(users.exportUserSubmissions).execute();
+    const dispatches = await Thunk(users.exportSubmissions).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({

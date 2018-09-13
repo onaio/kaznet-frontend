@@ -44,7 +44,7 @@ export class UsersList extends Component {
   }
 
   onFormSubmit(start, end) {
-    this.props.exportUserSubmissions(
+    this.props.exportSubmissions(
       {
         userprofile: this.state.userId,
         modified__gte: start,
@@ -225,7 +225,7 @@ function mapDispatchToProps(dispatch) {
       changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff,
       searchVal: globalActions.getSearchVal,
-      exportUserSubmissions: userActions.exportUserSubmissions
+      exportSubmissions: userActions.exportSubmissions
     },
     dispatch
   );
