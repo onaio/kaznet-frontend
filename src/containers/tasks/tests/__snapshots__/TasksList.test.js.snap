@@ -120,7 +120,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
         },
         "4": Object {
           "attributes": Object {
-            "approved_submissions_count": 0,
+            "approved_submissions_count": 3,
             "created": "2018-07-10T16:50:20.165320+03:00",
             "created_by_name": "Ona User",
             "current_bounty_amount": null,
@@ -447,7 +447,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             },
             "4": Object {
               "attributes": Object {
-                "approved_submissions_count": 0,
+                "approved_submissions_count": 3,
                 "created": "2018-07-10T16:50:20.165320+03:00",
                 "created_by_name": "Ona User",
                 "current_bounty_amount": null,
