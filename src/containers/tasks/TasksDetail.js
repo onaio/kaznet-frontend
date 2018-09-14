@@ -57,9 +57,11 @@ export class TasksDetail extends Component {
   render() {
     this.task = this.props.taskById;
     if (!this.task) return this.renderLoading();
-    const xformURL = `${constants.ONA_WEBSITE}/${constants.ONA_USERNAME}/${
-      this.task.attributes.xform_project_id
-    }/${this.task.attributes.xform_ona_id}`;
+    const xformURL = `${constants.ONA_WEBSITE}/${
+      this.task.attributes.xform_owner
+    }/${this.task.attributes.xform_project_id}/${
+      this.task.attributes.xform_ona_id
+    }`;
     const xformTableURL = `${xformURL}#/table`;
     return (
       <div className="TasksList">
@@ -76,6 +78,7 @@ export class TasksDetail extends Component {
           modalState={this.state.modal}
           onFormSubmit={this.onFormSubmit}
           taskName={this.task.attributes.name}
+          xformTableURL={xformTableURL}
         />
         <DetailView
           renderMainDetails={this.renderMainDetails(xformURL)}
@@ -109,7 +112,7 @@ export class TasksDetail extends Component {
         ? [
             this.task.attributes.xform_title,
             <a
-              href={xformURL}
+              href={constants.ONA_LOGIN}
               key="form_link"
               className="link withspace"
               target="_blank"
