@@ -47,15 +47,10 @@ export class TasksDetail extends Component {
       status: constants.SUBMISSION_APPROVED,
       format: "csv"
     };
-    let filter_object1 = _.assign(
-      {
-        [constants.SUBMISSION_TIME_START]: start,
-        [constants.SUBMISSION_TIME_END]: end
-      },
-      filter_object
-    );
+    filter_object[constants.SUBMISSION_TIME_START] = start;
+    filter_object[constants.SUBMISSION_TIME_END] = end;
     this.props.exportSubmissions(
-      filter_object1,
+      filter_object,
       this.props.taskById.attributes.name
     );
   }
