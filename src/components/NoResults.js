@@ -7,13 +7,13 @@ export default class NoResults extends Component {
         <br />
         <div className="jumbotron bg-white">
           <p align="center">
-            Sorry, we could not find any results matching. <br />
+            Sorry, we could not find any results matching your query.
           </p>
           <p align="center">Please try again?</p>
           <center>
             <a
               href={"/" + this.props.endpoint}
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg mt-5"
             >
               Go Back
             </a>
