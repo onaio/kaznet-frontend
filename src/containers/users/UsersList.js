@@ -173,7 +173,7 @@ export class UsersList extends Component {
       row.attributes.first_name,
       <div key={row.id}>
         {row.attributes.submission_count}
-        {row.attributes.approved_submissions > 0 ? (
+        {row.attributes.approved_submissions > 0 && (
           <Button
             className="mx-2 btn btn-sm btn-light white"
             onClick={function(event) {
@@ -186,8 +186,6 @@ export class UsersList extends Component {
               className="fa-xs icon-link withspace"
             />
           </Button>
-        ) : (
-          ""
         )}
       </div>,
       row.attributes.approval_rate * 100 + "%",

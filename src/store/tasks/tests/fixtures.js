@@ -423,7 +423,7 @@ export const singleTask = {
     modified: "2018-07-12T17:08:58.621899+03:00",
     name: "Kaznet",
     estimated_time: "00:15:00",
-    approved_submissions_count: 0,
+    approved_submissions_count: 1,
     pending_submissions_count: 0,
     rejected_submissions_count: 0,
     total_bounty_payout: "0 KES",

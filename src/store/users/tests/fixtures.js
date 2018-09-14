@@ -13,7 +13,7 @@ export const currentLoggedInUserData = {
     ona_pk: null,
     ona_username: "davisraym",
     payment_number: "",
-    approved_submissions: 0,
+    approved_submissions: 1,
     rejected_submissions: 0,
     approval_rate: 0.0,
     amount_earned: "0 KES",
@@ -28,7 +28,7 @@ export const currentLoggedInUserData = {
     expertise: "1",
     gender: "1",
     national_id: null,
-    submission_count: 0,
+    submission_count: 5,
     metadata: {}
   }
 };
