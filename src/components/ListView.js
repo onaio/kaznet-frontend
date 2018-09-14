@@ -8,8 +8,7 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavLink
+  DropdownItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
@@ -69,9 +68,27 @@ export default class ListView extends Component {
           className={`${s === this.props.taskStatus ? "active-task" : ""}`}
           key={s}
         >
-          <NavLink className="nav-link" key={s} data-key={s}>
+          <Link
+            to={
+              this.props.pageLinks.first
+                ? `/${this.props.endpoint}/?search=${
+                    !this.props.searchVal || this.props.searchVal === undefined
+                      ? ""
+                      : this.props.searchVal
+                  }&status=${!s || s === undefined ? "" : s}&page=${
+                    !this.props.firstPage ||
+                    typeof this.props.firstPage !== Number
+                      ? 1
+                      : this.props.firstPage
+                  }`
+                : "#"
+            }
+            className="nav-link"
+            key={s}
+            data-key={s}
+          >
             {status}
-          </NavLink>
+          </Link>
         </DropdownItem>
       );
     });

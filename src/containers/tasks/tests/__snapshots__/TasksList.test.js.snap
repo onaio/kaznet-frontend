@@ -760,19 +760,21 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key=""
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key=""
+                                      href="/tasks/?search=&status=&page=1"
                                       onClick={[Function]}
                                     >
                                       All
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                               <DropdownItem
@@ -787,20 +789,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key="a"
                                     key="a"
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=a&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key="a"
+                                      href="/tasks/?search=&status=a&page=1"
                                       onClick={[Function]}
                                     >
                                       Active
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                               <DropdownItem
@@ -815,20 +819,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key="b"
                                     key="b"
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=b&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key="b"
+                                      href="/tasks/?search=&status=b&page=1"
                                       onClick={[Function]}
                                     >
                                       Deactivated
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                               <DropdownItem
@@ -843,20 +849,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key="c"
                                     key="c"
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=c&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key="c"
+                                      href="/tasks/?search=&status=c&page=1"
                                       onClick={[Function]}
                                     >
                                       Expired
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                               <DropdownItem
@@ -871,20 +879,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key="d"
                                     key="d"
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=d&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key="d"
+                                      href="/tasks/?search=&status=d&page=1"
                                       onClick={[Function]}
                                     >
                                       Draft
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                               <DropdownItem
@@ -899,20 +909,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key="s"
                                     key="s"
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=s&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key="s"
+                                      href="/tasks/?search=&status=s&page=1"
                                       onClick={[Function]}
                                     >
                                       Scheduled
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                               <DropdownItem
@@ -927,20 +939,22 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   tabIndex="0"
                                   type="button"
                                 >
-                                  <NavLink
+                                  <Link
                                     className="nav-link"
                                     data-key="e"
                                     key="e"
-                                    tag="a"
+                                    replace={false}
+                                    to="/tasks/?search=&status=e&page=1"
                                   >
                                     <a
-                                      className="nav-link nav-link"
+                                      className="nav-link"
                                       data-key="e"
+                                      href="/tasks/?search=&status=e&page=1"
                                       onClick={[Function]}
                                     >
                                       Archived
                                     </a>
-                                  </NavLink>
+                                  </Link>
                                 </button>
                               </DropdownItem>
                             </div>

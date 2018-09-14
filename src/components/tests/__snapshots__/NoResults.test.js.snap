@@ -14,15 +14,21 @@ exports[`components/NoResults renders the no results message 1`] = `
       <p
         align="center"
       >
-        Sorry, we could not find any results matching "
-        peter pan
-        ".
+        Sorry, we could not find any results matching your query.
       </p>
       <p
         align="center"
       >
         Please try again?
       </p>
+      <center>
+        <a
+          className="btn btn-primary btn-lg mt-5"
+          href="/undefined"
+        >
+          Go Back
+        </a>
+      </center>
     </div>
   </div>
 </NoResults>
