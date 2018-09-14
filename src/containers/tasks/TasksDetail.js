@@ -44,8 +44,8 @@ export class TasksDetail extends Component {
     this.props.exportSubmissions(
       {
         task: this.props.match.params.id,
-        modified__gte: start,
-        modified__lte: end,
+        submission_time__gte: start,
+        submission_time__lte: end,
         status: constants.SUBMISSION_APPROVED,
         format: "csv"
       },
