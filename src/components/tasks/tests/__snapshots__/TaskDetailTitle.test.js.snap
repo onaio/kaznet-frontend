@@ -28,7 +28,7 @@ exports[`components/tasks/TaskDetailTitle renders the correct html 1`] = `
       task={
         Object {
           "attributes": Object {
-            "approved_submissions_count": 0,
+            "approved_submissions_count": 1,
             "client_name": "Client 1",
             "created": "2018-07-10T16:50:20.165320+03:00",
             "created_by_name": "Ona User",

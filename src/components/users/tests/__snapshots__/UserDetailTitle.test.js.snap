@@ -30,7 +30,7 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
           "attributes": Object {
             "amount_earned": "0 KES",
             "approval_rate": 0,
-            "approved_submissions": 0,
+            "approved_submissions": 1,
             "avg_amount_earned": 0,
             "avg_approval_rate": 0,
             "avg_approved_submissions": 0,
@@ -52,7 +52,7 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
             "rejected_submissions": 0,
             "role": "1",
             "role_display": "Admin",
-            "submission_count": 0,
+            "submission_count": 5,
           },
           "id": "1",
           "type": "UserProfile",
