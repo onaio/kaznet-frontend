@@ -8,8 +8,7 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavLink
+  DropdownItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
