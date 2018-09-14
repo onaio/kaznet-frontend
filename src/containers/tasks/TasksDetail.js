@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -41,14 +42,20 @@ export class TasksDetail extends Component {
   }
 
   onFormSubmit(start, end) {
-    this.props.exportSubmissions(
+    let filter_object = {
+      task: this.props.match.params.id,
+      status: constants.SUBMISSION_APPROVED,
+      format: "csv"
+    };
+    let filter_object1 = _.assign(
       {
-        task: this.props.match.params.id,
-        submission_time__gte: start,
-        submission_time__lte: end,
-        status: constants.SUBMISSION_APPROVED,
-        format: "csv"
+        [constants.SUBMISSION_TIME_START]: start,
+        [constants.SUBMISSION_TIME_END]: end
       },
+      filter_object
+    );
+    this.props.exportSubmissions(
+      filter_object1,
       this.props.taskById.attributes.name
     );
   }
