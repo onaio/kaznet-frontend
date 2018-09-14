@@ -55,7 +55,7 @@ export class TasksList extends Component {
     if (isNaN(pageNumber)) {
       pageNumber = 1;
     }
-
+    this.props.pageNum(pageNumber);
     await this.props.fetchTasks(
       `${constants.API_ENDPOINT}/tasks/?ordering=${
         constants.TASK_SORT_FIELD
@@ -103,8 +103,12 @@ export class TasksList extends Component {
       });
       return false;
     }
+    const pageValue = this.props.pageParam;
+    const searchString = this.props.searchParam;
     this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/${status !== "" ? param : ""}`
+      `${constants.API_ENDPOINT}/tasks/${
+        status !== "" ? param : ""
+      }&search=${searchString}&page=${pageValue}`
     );
     this.props.getStatus(status !== "" ? status : "");
     this.setState({
@@ -118,7 +122,12 @@ export class TasksList extends Component {
       return this.renderLoading();
     }
     if (this.props.taskCount === 0) {
-      return <NoResults searchVal={this.props.searchParam} />;
+      return (
+        <NoResults
+          searchVal={this.props.searchParam}
+          taskStatus={this.props.taskStatus}
+        />
+      );
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
 
@@ -204,7 +213,8 @@ function mapStateToProps(state) {
     taskStatus: taskSelectors.getTaskStatus(state),
     taskCount: taskSelectors.getTotalCount(state),
     hasError: errorHandlerSelectors.getHasError(state),
-    errorMessage: errorHandlerSelectors.getErrorMessage(state)
+    errorMessage: errorHandlerSelectors.getErrorMessage(state),
+    pageParam: globalSelectors.getPageNum(state)
   };
 }
 
@@ -218,7 +228,8 @@ function mapDispatchToProps(dispatch) {
       changePageTarget: globalActions.changePageTarget,
       showListTitle: globalActions.toggleDetailTitleOff,
       searchVal: globalActions.getSearchVal,
-      getStatus: taskActions.getStatus
+      getStatus: taskActions.getStatus,
+      pageNum: globalActions.getPageNumber
     },
     dispatch
   );

@@ -5,7 +5,6 @@ import { Reducer } from "redux-testkit";
 
 import global from "../reducer";
 import * as actionTypes from "../actionTypes";
-import { isNullOrUndefined } from "util";
 
 const initialState = {
   pageTitle: "Kaznet",
@@ -16,7 +15,8 @@ const initialState = {
   detailName: null,
   detailStatus: null,
   actionLinks: [],
-  searchVal: ""
+  searchVal: "",
+  pageVal: 1
 };
 
 describe("store/global/reducer", () => {
@@ -52,7 +52,17 @@ describe("store/global/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
-
+  it("should change pageVal", () => {
+    const existingState = Immutable(initialState);
+    const newState = _.clone(initialState);
+    const pageVal = 2;
+    const action = { type: actionTypes.GLOBAL_PAGE_NUMBER, pageVal };
+    newState.pageVal = pageVal;
+    Reducer(global)
+      .withState(existingState)
+      .expect(action)
+      .toReturnState(newState);
+  });
   it("should change page button title", () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);

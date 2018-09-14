@@ -61,3 +61,9 @@ export function getSearchVal(searchVal) {
     dispatch({ type: types.GLOBAL_SEARCH_VALUE, searchVal });
   };
 }
+
+export function getPageNumber(pageVal) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.GLOBAL_PAGE_NUMBER, pageVal });
+  };
+}

@@ -761,16 +761,27 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key=""
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key=""
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      All
+                                      <Link
+                                        className="nav-link"
+                                        data-key=""
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key=""
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          All
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
@@ -788,17 +799,28 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key="a"
-                                    key="a"
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key="a"
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      Active
+                                      <Link
+                                        className="nav-link"
+                                        data-key="a"
+                                        key="a"
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key="a"
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          Active
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
@@ -816,17 +838,28 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key="b"
-                                    key="b"
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key="b"
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      Deactivated
+                                      <Link
+                                        className="nav-link"
+                                        data-key="b"
+                                        key="b"
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key="b"
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          Deactivated
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
@@ -844,17 +877,28 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key="c"
-                                    key="c"
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key="c"
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      Expired
+                                      <Link
+                                        className="nav-link"
+                                        data-key="c"
+                                        key="c"
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key="c"
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          Expired
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
@@ -872,17 +916,28 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key="d"
-                                    key="d"
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key="d"
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      Draft
+                                      <Link
+                                        className="nav-link"
+                                        data-key="d"
+                                        key="d"
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key="d"
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          Draft
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
@@ -900,17 +955,28 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key="s"
-                                    key="s"
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key="s"
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      Scheduled
+                                      <Link
+                                        className="nav-link"
+                                        data-key="s"
+                                        key="s"
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key="s"
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          Scheduled
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
@@ -928,17 +994,28 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                   type="button"
                                 >
                                   <NavLink
-                                    className="nav-link"
-                                    data-key="e"
-                                    key="e"
                                     tag="a"
                                   >
                                     <a
-                                      className="nav-link nav-link"
-                                      data-key="e"
+                                      className="nav-link"
                                       onClick={[Function]}
                                     >
-                                      Archived
+                                      <Link
+                                        className="nav-link"
+                                        data-key="e"
+                                        key="e"
+                                        replace={false}
+                                        to="/tasks/?search=&status=a&page=1"
+                                      >
+                                        <a
+                                          className="nav-link"
+                                          data-key="e"
+                                          href="/tasks/?search=&status=a&page=1"
+                                          onClick={[Function]}
+                                        >
+                                          Archived
+                                        </a>
+                                      </Link>
                                     </a>
                                   </NavLink>
                                 </button>
