@@ -36,7 +36,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
     taskById={
       Object {
         "attributes": Object {
-          "approved_submissions_count": 0,
+          "approved_submissions_count": 3,
           "created": "2018-07-10T16:50:20.165320+03:00",
           "created_by_name": "Ona User",
           "current_bounty_amount": null,
@@ -133,7 +133,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
         task={
           Object {
             "attributes": Object {
-              "approved_submissions_count": 0,
+              "approved_submissions_count": 3,
               "created": "2018-07-10T16:50:20.165320+03:00",
               "created_by_name": "Ona User",
               "current_bounty_amount": null,
@@ -471,7 +471,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
         </section>
       </TaskDetailTitle>
       <StatisticsSection
-        accepted={0}
+        accepted={3}
         downloadModalHandler={[Function]}
         formURL="https://ona.io/kaznettest/undefined/undefined#/table"
         modalState={false}
@@ -482,7 +482,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
         task={
           Object {
             "attributes": Object {
-              "approved_submissions_count": 0,
+              "approved_submissions_count": 3,
               "created": "2018-07-10T16:50:20.165320+03:00",
               "created_by_name": "Ona User",
               "current_bounty_amount": null,
@@ -740,7 +740,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               <p
                                 className="stats-data"
                               >
-                                0
+                                3
                               </p>
                               <p
                                 className="stats-header"
@@ -815,13 +815,14 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Total Reward
                                 <FontAwesomeIcon
                                   border={false}
-                                  className="fa-xs icon-link withspace"
+                                  className="fa-xs icon-link withspace clickable-icon"
                                   fixedWidth={false}
                                   flip={null}
                                   icon="laptop"
                                   listItem={false}
                                   mask={null}
                                   name=""
+                                  onClick={[Function]}
                                   pull={null}
                                   pulse={false}
                                   rotation={null}
@@ -832,9 +833,10 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace"
+                                    className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace clickable-icon"
                                     data-icon="laptop"
                                     data-prefix="fas"
+                                    onClick={[Function]}
                                     role="img"
                                     style={Object {}}
                                     viewBox="0 0 640 512"

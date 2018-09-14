@@ -44,16 +44,14 @@ export class UsersList extends Component {
   }
 
   onFormSubmit(start, end) {
-    this.props.exportSubmissions(
-      {
-        userprofile: this.state.userId,
-        modified__gte: start,
-        modified__lte: end,
-        status: constants.SUBMISSION_APPROVED,
-        format: "csv"
-      },
-      this.state.userName
-    );
+    let filter_object = {
+      userprofile: this.state.userId,
+      status: constants.SUBMISSION_APPROVED,
+      format: "csv"
+    };
+    filter_object[constants.FILTER_TIME_START] = start;
+    filter_object[constants.FILTER_TIME_END] = end;
+    this.props.exportSubmissions(filter_object, this.state.userName);
   }
 
   async componentDidMount() {
@@ -173,7 +171,7 @@ export class UsersList extends Component {
       row.attributes.first_name,
       <div key={row.id}>
         {row.attributes.submission_count}
-        {row.attributes.approved_submissions > 0 ? (
+        {row.attributes.approved_submissions > 0 && (
           <Button
             className="mx-2 btn btn-sm btn-light white"
             onClick={function(event) {
@@ -186,8 +184,6 @@ export class UsersList extends Component {
               className="fa-xs icon-link withspace"
             />
           </Button>
-        ) : (
-          ""
         )}
       </div>,
       row.attributes.approval_rate * 100 + "%",

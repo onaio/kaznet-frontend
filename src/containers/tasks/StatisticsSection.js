@@ -47,16 +47,11 @@ export default class StatisticsSection extends Component {
                   <p className="stats-data">{this.props.reward}</p>
                   <p className="stats-header">
                     Total Reward
-                    {this.props.accepted > 0 ? (
+                    {this.props.accepted > 0 && (
                       <FontAwesomeIcon
                         icon="laptop"
                         className="fa-xs icon-link withspace clickable-icon"
                         onClick={this.props.downloadModalHandler}
-                      />
-                    ) : (
-                      <FontAwesomeIcon
-                        icon="laptop"
-                        className="fa-xs icon-link withspace"
                       />
                     )}
                   </p>

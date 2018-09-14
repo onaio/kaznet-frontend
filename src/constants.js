@@ -50,5 +50,5 @@ export const TASK_STATUSES = [
 ];
 
 export const ONA_PROFILE_URL = ONA_WEBSITE + "/" + ONA_USERNAME;
-export const MODIFIED_START = "modified__gte";
-export const MODIFIED_END = "modified__lte";
+export const FILTER_TIME_START = "submission_time__gte";
+export const FILTER_TIME_END = "submission_time__lte";

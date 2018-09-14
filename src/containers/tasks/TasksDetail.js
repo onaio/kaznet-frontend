@@ -41,14 +41,15 @@ export class TasksDetail extends Component {
   }
 
   onFormSubmit(start, end) {
+    let filter_object = {
+      task: this.props.match.params.id,
+      status: constants.SUBMISSION_APPROVED,
+      format: "csv"
+    };
+    filter_object[constants.FILTER_TIME_START] = start;
+    filter_object[constants.FILTER_TIME_END] = end;
     this.props.exportSubmissions(
-      {
-        task: this.props.match.params.id,
-        modified__gte: start,
-        modified__lte: end,
-        status: constants.SUBMISSION_APPROVED,
-        format: "csv"
-      },
+      filter_object,
       this.props.taskById.attributes.name
     );
   }
