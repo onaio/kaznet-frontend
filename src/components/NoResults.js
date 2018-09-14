@@ -1,8 +1,6 @@
 import React, { Component } from "react";
+// import * as constants from "../constants.js";
 export default class NoResults extends Component {
-  goBack = () => {
-    window.history.back();
-  };
   render() {
     return (
       <div className="container">
@@ -15,16 +13,6 @@ export default class NoResults extends Component {
               : "The your search or status "}".
           </p>
           <p align="center">Please try again?</p>
-          <center>
-            <button
-              onClick={() => {
-                this.goBack();
-              }}
-              className="btn btn-primary btn-lg"
-            >
-              Go Back
-            </button>
-          </center>
         </div>
       </div>
     );

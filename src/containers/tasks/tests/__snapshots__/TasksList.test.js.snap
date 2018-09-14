@@ -771,12 +771,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                         className="nav-link"
                                         data-key=""
                                         replace={false}
-                                        to="/tasks/?search=&status=&page=1"
+                                        to="/tasks/?search=&status=a&page=1"
                                       >
                                         <a
                                           className="nav-link"
                                           data-key=""
-                                          href="/tasks/?search=&status=&page=1"
+                                          href="/tasks/?search=&status=a&page=1"
                                           onClick={[Function]}
                                         >
                                           All
@@ -849,12 +849,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                         data-key="b"
                                         key="b"
                                         replace={false}
-                                        to="/tasks/?search=&status=b&page=1"
+                                        to="/tasks/?search=&status=a&page=1"
                                       >
                                         <a
                                           className="nav-link"
                                           data-key="b"
-                                          href="/tasks/?search=&status=b&page=1"
+                                          href="/tasks/?search=&status=a&page=1"
                                           onClick={[Function]}
                                         >
                                           Deactivated
@@ -888,12 +888,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                         data-key="c"
                                         key="c"
                                         replace={false}
-                                        to="/tasks/?search=&status=c&page=1"
+                                        to="/tasks/?search=&status=a&page=1"
                                       >
                                         <a
                                           className="nav-link"
                                           data-key="c"
-                                          href="/tasks/?search=&status=c&page=1"
+                                          href="/tasks/?search=&status=a&page=1"
                                           onClick={[Function]}
                                         >
                                           Expired
@@ -927,12 +927,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                         data-key="d"
                                         key="d"
                                         replace={false}
-                                        to="/tasks/?search=&status=d&page=1"
+                                        to="/tasks/?search=&status=a&page=1"
                                       >
                                         <a
                                           className="nav-link"
                                           data-key="d"
-                                          href="/tasks/?search=&status=d&page=1"
+                                          href="/tasks/?search=&status=a&page=1"
                                           onClick={[Function]}
                                         >
                                           Draft
@@ -966,12 +966,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                         data-key="s"
                                         key="s"
                                         replace={false}
-                                        to="/tasks/?search=&status=s&page=1"
+                                        to="/tasks/?search=&status=a&page=1"
                                       >
                                         <a
                                           className="nav-link"
                                           data-key="s"
-                                          href="/tasks/?search=&status=s&page=1"
+                                          href="/tasks/?search=&status=a&page=1"
                                           onClick={[Function]}
                                         >
                                           Scheduled
@@ -1005,12 +1005,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                         data-key="e"
                                         key="e"
                                         replace={false}
-                                        to="/tasks/?search=&status=e&page=1"
+                                        to="/tasks/?search=&status=a&page=1"
                                       >
                                         <a
                                           className="nav-link"
                                           data-key="e"
-                                          href="/tasks/?search=&status=e&page=1"
+                                          href="/tasks/?search=&status=a&page=1"
                                           onClick={[Function]}
                                         >
                                           Archived

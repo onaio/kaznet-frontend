@@ -9,14 +9,12 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavLink,
-  Modal,
-  ModalBody,
-  ModalHeader
+  NavLink
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
-import ExportForm from "../components/ExportForm";
+
+import ExportModal from "../components/ExportModal";
 
 import "./ListView.css";
 
@@ -80,11 +78,16 @@ export default class ListView extends Component {
                       this.props.searchVal === undefined
                         ? ""
                         : this.props.searchVal
-                    }&status=${!s || s === undefined ? "" : s}&page=${
+                    }&status=${
+                      !this.props.taskStatus ||
+                      this.props.taskStatus === undefined
+                        ? ""
+                        : this.props.taskStatus
+                    }&page=${
                       !this.props.firstPage ||
                       typeof this.props.firstPage !== Number
                         ? 1
-                        : this.props.Page
+                        : this.props.firstPage
                     }`
                   : "#"
               }
@@ -101,24 +104,13 @@ export default class ListView extends Component {
     return (
       <div>
         {this.props.downloadModalHandler && (
-          <div>
-            <Modal
-              isOpen={this.props.modalState}
-              toggle={this.props.downloadModalHandler}
-              className={this.props.className}
-            >
-              <ModalHeader toggle={this.props.downloadModalHandler}>
-                Submissions of {this.props.userName}
-              </ModalHeader>
-              <ModalBody>
-                <p className="font-weight-normal">Export Submissions </p>
-                <ExportForm
-                  onFormSubmit={this.props.onFormSubmit}
-                  downloadModalHandler={this.props.downloadModalHandler}
-                />
-              </ModalBody>
-            </Modal>
-          </div>
+          <ExportModal
+            modalState={this.props.modalState}
+            downloadModalHandler={this.props.downloadModalHandler}
+            className={this.props.className}
+            onFormSubmit={this.props.onFormSubmit}
+            name={this.props.userName}
+          />
         )}
 
         <Table bordered className="kaznet-table">
