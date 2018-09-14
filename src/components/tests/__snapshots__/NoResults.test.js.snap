@@ -25,6 +25,14 @@ exports[`components/NoResults renders the no results message 1`] = `
       >
         Please try again?
       </p>
+      <center>
+        <button
+          className="btn btn-primary btn-lg"
+          onClick={[Function]}
+        >
+          Go Back
+        </button>
+      </center>
     </div>
   </div>
 </NoResults>

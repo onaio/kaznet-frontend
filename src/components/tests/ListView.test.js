@@ -19,7 +19,6 @@ describe("components/ListView", () => {
 
     const renderHeader = function() {
       const headerItems = ["Name"];
-      console.log(headerItems);
       return <ElementMap items={headerItems} HTMLTag="th" />;
     };
 
