@@ -15,7 +15,7 @@ import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
 import { withAlert } from "react-alert";
 export class LocationTypesList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     this.props.showListTitle();
     this.props.fetchLocationTypes();
     this.props.changePageTitle("Location Types");
@@ -35,7 +35,7 @@ export class LocationTypesList extends Component {
       pageNumber = 1;
     }
 
-    this.props.fetchLocationTypes(
+    await this.props.fetchLocationTypes(
       `${
         constants.API_ENDPOINT
       }/locationtypes/?search=${search}&page=${pageNumber}`
