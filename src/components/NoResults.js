@@ -7,12 +7,17 @@ export default class NoResults extends Component {
         <br />
         <div className="jumbotron bg-white">
           <p align="center">
-            Sorry, we could not find any results matching <br /> "{this.props
-              .searchVal !== ""
-              ? "status you selected"
-              : "The your search or status "}".
+            Sorry, we could not find any results matching. <br />
           </p>
           <p align="center">Please try again?</p>
+          <center>
+            <a
+              href={"/" + this.props.endpoint}
+              className="btn btn-primary btn-lg"
+            >
+              Go Back
+            </a>
+          </center>
         </div>
       </div>
     );

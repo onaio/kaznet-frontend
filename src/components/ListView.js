@@ -69,35 +69,27 @@ export default class ListView extends Component {
           className={`${s === this.props.taskStatus ? "active-task" : ""}`}
           key={s}
         >
-          <NavLink>
-            <Link
-              to={
-                this.props.pageLinks.first
-                  ? `/${this.props.endpoint}/?search=${
-                      !this.props.searchVal ||
-                      this.props.searchVal === undefined
-                        ? ""
-                        : this.props.searchVal
-                    }&status=${
-                      !this.props.taskStatus ||
-                      this.props.taskStatus === undefined
-                        ? ""
-                        : this.props.taskStatus
-                    }&page=${
-                      !this.props.firstPage ||
-                      typeof this.props.firstPage !== Number
-                        ? 1
-                        : this.props.firstPage
-                    }`
-                  : "#"
-              }
-              className="nav-link"
-              key={s}
-              data-key={s}
-            >
-              {status}
-            </Link>
-          </NavLink>
+          <Link
+            to={
+              this.props.pageLinks.first
+                ? `/${this.props.endpoint}/?search=${
+                    !this.props.searchVal || this.props.searchVal === undefined
+                      ? ""
+                      : this.props.searchVal
+                  }&status=${!s || s === undefined ? "" : s}&page=${
+                    !this.props.firstPage ||
+                    typeof this.props.firstPage !== Number
+                      ? 1
+                      : this.props.firstPage
+                  }`
+                : "#"
+            }
+            className="nav-link"
+            key={s}
+            data-key={s}
+          >
+            {status}
+          </Link>
         </DropdownItem>
       );
     });

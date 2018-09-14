@@ -64,7 +64,9 @@ export class ClientsList extends Component {
       return this.renderLoading();
     }
     if (this.props.clientCount === 0) {
-      return <NoResults searchVal={this.props.searchParam} />;
+      return (
+        <NoResults searchVal={this.props.searchParam} endpoint={"clients"} />
+      );
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (

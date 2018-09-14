@@ -126,6 +126,7 @@ export class TasksList extends Component {
         <NoResults
           searchVal={this.props.searchParam}
           taskStatus={this.props.taskStatus}
+          endpoint={"tasks"}
         />
       );
     }

@@ -70,7 +70,9 @@ export class LocationsList extends Component {
       return this.renderLoading();
     }
     if (this.props.locationCount === 0) {
-      return <NoResults searchVal={this.props.searchParam} />;
+      return (
+        <NoResults searchVal={this.props.searchParam} endpoint={"locations"} />
+      );
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (

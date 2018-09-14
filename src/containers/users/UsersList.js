@@ -110,7 +110,9 @@ export class UsersList extends Component {
       return this.renderLoading();
     }
     if (this.props.userCount === 0) {
-      return <NoResults searchVal={this.props.searchParam} />;
+      return (
+        <NoResults searchVal={this.props.searchParam} endpoint={"users"} />
+      );
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (

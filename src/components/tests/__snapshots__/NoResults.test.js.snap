@@ -14,17 +14,22 @@ exports[`components/NoResults renders the no results message 1`] = `
       <p
         align="center"
       >
-        Sorry, we could not find any results matching 
+        Sorry, we could not find any results matching. 
         <br />
-         "
-        status you selected
-        ".
       </p>
       <p
         align="center"
       >
         Please try again?
       </p>
+      <center>
+        <a
+          className="btn btn-primary btn-lg"
+          href="/undefined"
+        >
+          Go Back
+        </a>
+      </center>
     </div>
   </div>
 </NoResults>

@@ -74,7 +74,12 @@ export class LocationTypesList extends Component {
       return this.renderLoading();
     }
     if (this.props.locationTypeCount === 0) {
-      return <NoResults searchVal={this.props.searchParam} />;
+      return (
+        <NoResults
+          searchVal={this.props.searchParam}
+          endpoint={"locationtypes"}
+        />
+      );
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
