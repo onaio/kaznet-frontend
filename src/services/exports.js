@@ -15,8 +15,8 @@ class ExportService {
 
     let fileName =
       tag +
-      `_${filter_dict[constants.MODIFIED_START]}_to_${
-        filter_dict[constants.MODIFIED_END]
+      `_${filter_dict[constants.SUBMISSION_TIME_START]}_to_${
+        filter_dict[constants.SUBMISSION_TIME_END]
       }_submissions.csv`;
 
     const response = await fetch(url, {

@@ -54,10 +54,7 @@ export default class StatisticsSection extends Component {
                         onClick={this.props.downloadModalHandler}
                       />
                     ) : (
-                      <FontAwesomeIcon
-                        icon="laptop"
-                        className="fa-xs icon-link withspace"
-                      />
+                      ""
                     )}
                   </p>
                 </div>

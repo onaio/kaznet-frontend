@@ -47,8 +47,8 @@ export class UsersList extends Component {
     this.props.exportSubmissions(
       {
         userprofile: this.state.userId,
-        modified__gte: start,
-        modified__lte: end,
+        submission_time__gte: start,
+        submission_time__lte: end,
         status: constants.SUBMISSION_APPROVED,
         format: "csv"
       },
