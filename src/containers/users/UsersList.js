@@ -49,8 +49,8 @@ export class UsersList extends Component {
       status: constants.SUBMISSION_APPROVED,
       format: "csv"
     };
-    filter_object[constants.SUBMISSION_TIME_START] = start;
-    filter_object[constants.SUBMISSION_TIME_END] = end;
+    filter_object[constants.FILTER_TIME_START] = start;
+    filter_object[constants.FILTER_TIME_END] = end;
     this.props.exportSubmissions(filter_object, this.state.userName);
   }
 
