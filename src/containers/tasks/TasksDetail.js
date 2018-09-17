@@ -55,14 +55,25 @@ export class TasksDetail extends Component {
   }
 
   render() {
+    let xformURL;
+    let xformTableURL;
     this.task = this.props.taskById;
     if (!this.task) return this.renderLoading();
-    const xformURL = `${constants.ONA_WEBSITE}/${
-      this.task.attributes.xform_owner
-    }/${this.task.attributes.xform_project_id}/${
-      this.task.attributes.xform_ona_id
-    }`;
-    const xformTableURL = `${xformURL}#/table`;
+    const form_owner = this.task.attributes.xform_owner;
+    const form_projectid = this.task.attributes.xform_project_id;
+    const ona_id = this.task.attributes.xform_ona_id;
+    if (form_owner && form_projectid && ona_id) {
+      xformURL = `${constants.ONA_WEBSITE}/${
+        this.task.attributes.xform_owner
+      }/${this.task.attributes.xform_project_id}/${
+        this.task.attributes.xform_ona_id
+      }`;
+      xformTableURL = `${xformURL}#/table`;
+    } else {
+      xformURL = null;
+      xformTableURL = xformURL;
+    }
+
     return (
       <div className="TasksList">
         <TaskDetailTitle task={this.task} />

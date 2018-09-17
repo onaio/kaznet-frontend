@@ -49,20 +49,18 @@ export default class StatisticsSection extends Component {
                   <p className="stats-data">{this.props.reward}</p>
                   <p className="stats-header">
                     Total Reward
-                    <a href={this.props.xformTableURL}>
-                      {this.props.accepted > 0 ? (
-                        <FontAwesomeIcon
-                          icon="laptop"
-                          className="fa-xs icon-link withspace clickable-icon"
-                          onClick={this.props.downloadModalHandler}
-                        />
-                      ) : (
-                        <FontAwesomeIcon
-                          icon="laptop"
-                          className="fa-xs icon-link withspace"
-                        />
-                      )}
-                    </a>
+                    {this.props.accepted > 0 ? (
+                      <FontAwesomeIcon
+                        icon="laptop"
+                        className="fa-xs icon-link withspace clickable-icon"
+                        onClick={this.props.downloadModalHandler}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon="laptop"
+                        className="fa-xs icon-link withspace"
+                      />
+                    )}
                   </p>
                 </div>
               </Col>
