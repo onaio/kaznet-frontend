@@ -72,7 +72,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
         "end": "2020-07-10",
         "estimated_time": 15,
         "form": Object {
-          "label": "Baseline_Questionnaire",
+          "label": "Other Food Commodity Prices",
           "value": 20,
         },
         "name": "Kaznet",
@@ -211,7 +211,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
           "end": "2020-07-10",
           "estimated_time": 15,
           "form": Object {
-            "label": "Baseline_Questionnaire",
+            "label": "Other Food Commodity Prices",
             "value": 20,
           },
           "name": "Kaznet",
@@ -703,7 +703,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       placeholder="Select Form"
                       value={
                         Object {
-                          "label": "Baseline_Questionnaire",
+                          "label": "Other Food Commodity Prices",
                           "value": 20,
                         }
                       }
@@ -750,7 +750,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                         placeholder="Select Form"
                         value={
                           Object {
-                            "label": "Baseline_Questionnaire",
+                            "label": "Other Food Commodity Prices",
                             "value": 20,
                           }
                         }
@@ -832,7 +832,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           tabSelectsValue={true}
                           value={
                             Object {
-                              "label": "Baseline_Questionnaire",
+                              "label": "Other Food Commodity Prices",
                               "value": 20,
                             }
                           }
@@ -940,7 +940,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                 "tabIndex": "0",
                                 "tabSelectsValue": true,
                                 "value": Object {
-                                  "label": "Baseline_Questionnaire",
+                                  "label": "Other Food Commodity Prices",
                                   "value": 20,
                                 },
                               }
@@ -1054,7 +1054,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                     "tabIndex": "0",
                                     "tabSelectsValue": true,
                                     "value": Object {
-                                      "label": "Baseline_Questionnaire",
+                                      "label": "Other Food Commodity Prices",
                                       "value": 20,
                                     },
                                   }
@@ -1161,7 +1161,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "tabIndex": "0",
                                         "tabSelectsValue": true,
                                         "value": Object {
-                                          "label": "Baseline_Questionnaire",
+                                          "label": "Other Food Commodity Prices",
                                           "value": 20,
                                         },
                                       }
@@ -1176,7 +1176,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         cx={[Function]}
                                         data={
                                           Object {
-                                            "label": "Baseline_Questionnaire",
+                                            "label": "Other Food Commodity Prices",
                                             "value": 20,
                                           }
                                         }
@@ -1272,7 +1272,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "tabIndex": "0",
                                             "tabSelectsValue": true,
                                             "value": Object {
-                                              "label": "Baseline_Questionnaire",
+                                              "label": "Other Food Commodity Prices",
                                               "value": 20,
                                             },
                                           }
@@ -1282,7 +1282,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         <div
                                           className="css-va7pk8"
                                         >
-                                          Baseline_Questionnaire
+                                          Other Food Commodity Prices
                                         </div>
                                       </SingleValue>
                                       <Input
@@ -1490,7 +1490,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         "tabIndex": "0",
                                         "tabSelectsValue": true,
                                         "value": Object {
-                                          "label": "Baseline_Questionnaire",
+                                          "label": "Other Food Commodity Prices",
                                           "value": 20,
                                         },
                                       }
@@ -1602,7 +1602,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "tabIndex": "0",
                                             "tabSelectsValue": true,
                                             "value": Object {
-                                              "label": "Baseline_Questionnaire",
+                                              "label": "Other Food Commodity Prices",
                                               "value": 20,
                                             },
                                           }
@@ -1731,7 +1731,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "tabIndex": "0",
                                             "tabSelectsValue": true,
                                             "value": Object {
-                                              "label": "Baseline_Questionnaire",
+                                              "label": "Other Food Commodity Prices",
                                               "value": 20,
                                             },
                                           }
@@ -1845,7 +1845,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "tabIndex": "0",
                                             "tabSelectsValue": true,
                                             "value": Object {
-                                              "label": "Baseline_Questionnaire",
+                                              "label": "Other Food Commodity Prices",
                                               "value": 20,
                                             },
                                           }
@@ -1959,7 +1959,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                               />
                             </svg>
                           </FontAwesomeIcon>
-                            GO TO ONA FORM
+                            GO TO ONA FORM
                         </a>
                       </button>
                     </Button>
@@ -3906,11 +3906,12 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           >
                             <div>
                               <div
-                                className="px-0 pt-3 border rounded"
+                                className="rrule-component px-0 pt-3 border rounded"
                               >
                                 <div>
-                                  <M
+                                  <t
                                     handleChange={[Function]}
+                                    isNever={true}
                                     repeat={
                                       Object {
                                         "daily": Object {
@@ -3924,7 +3925,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                           "interval": 1,
                                           "mode": "on",
                                           "on": Object {
-                                            "day": 1,
+                                            "day": undefined,
                                           },
                                           "onThe": Object {
                                             "day": "Monday",
@@ -3933,6 +3934,10 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                           "options": Object {
                                             "modes": undefined,
                                           },
+                                        },
+                                        "never": Object {
+                                          "frequency": 3,
+                                          "interval": 1,
                                         },
                                         "options": Object {
                                           "frequency": undefined,
@@ -3969,6 +3974,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         },
                                       }
                                     }
+                                    selectedValue="Never"
                                   >
                                     <div
                                       className="px-3"
@@ -3982,6 +3988,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                           <label
                                             className="col-form-label"
                                             htmlFor="Repeat frequency"
+                                            id="Repeat Frequency"
                                           >
                                             <strong>
                                               Repeat
@@ -3993,10 +4000,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         >
                                           <select
                                             className="form-control"
+                                            defaultValue="Never"
                                             id="Repeat frequency"
                                             name="repeat.frequency"
                                             onChange={[Function]}
-                                            value="Monthly"
+                                            onClick={[Function]}
                                           >
                                             <option
                                               value="Yearly"
@@ -4023,6 +4031,11 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             >
                                               Hourly
                                             </option>
+                                            <option
+                                              value="Never"
+                                            >
+                                              Never
+                                            </option>
                                           </select>
                                         </div>
                                       </div>
@@ -4033,7 +4046,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             "interval": 1,
                                             "mode": "on",
                                             "on": Object {
-                                              "day": 1,
+                                              "day": undefined,
                                             },
                                             "onThe": Object {
                                               "day": "Monday",
@@ -4050,7 +4063,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                             className="form-group row d-flex align-items-sm-center"
                                           >
                                             <div
-                                              className="col-sm-1 offset-sm-2"
+                                              className="col-sm-2 offset-sm-2"
                                             >
                                               every
                                             </div>
@@ -4066,18 +4079,18 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                               />
                                             </div>
                                             <div
-                                              className="col-sm-1"
+                                              className="col-sm-3"
                                             >
                                               month(s)
                                             </div>
                                           </div>
-                                          <_
+                                          <c
                                             handleChange={[Function]}
                                             hasMoreModes={true}
                                             mode="on"
                                             on={
                                               Object {
-                                                "day": 1,
+                                                "day": undefined,
                                               }
                                             }
                                           >
@@ -4097,7 +4110,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                 />
                                               </div>
                                               <div
-                                                className="col-sm-1"
+                                                className="col-sm-2"
                                               >
                                                 on day
                                               </div>
@@ -4110,7 +4123,6 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                   disabled={false}
                                                   name="repeat.monthly.on.day"
                                                   onChange={[Function]}
-                                                  value={1}
                                                 >
                                                   <option
                                                     key="0"
@@ -4301,7 +4313,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                 </select>
                                               </div>
                                             </div>
-                                          </_>
+                                          </c>
                                           <d
                                             handleChange={[Function]}
                                             hasMoreModes={true}
@@ -4329,7 +4341,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                                 />
                                               </div>
                                               <div
-                                                className="col-sm-1"
+                                                className="col-sm-2"
                                               >
                                                 on the
                                               </div>
@@ -4449,76 +4461,78 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                                         </div>
                                       </f>
                                     </div>
-                                  </M>
+                                  </t>
                                 </div>
-                                <hr />
-                                <c
-                                  end={
-                                    Object {
-                                      "after": 1,
-                                      "mode": "Never",
-                                      "onDate": Object {
-                                        "date": "1986-01-02",
-                                        "options": Object {
-                                          "calendarComponent": null,
-                                          "weekStartsOnSunday": undefined,
+                                <div>
+                                  <hr />
+                                  <_
+                                    end={
+                                      Object {
+                                        "after": 1,
+                                        "mode": "Never",
+                                        "onDate": Object {
+                                          "date": "1986-01-02",
+                                          "options": Object {
+                                            "calendarComponent": null,
+                                            "weekStartsOnSunday": undefined,
+                                          },
                                         },
-                                      },
-                                      "options": Object {
-                                        "modes": undefined,
-                                      },
+                                        "options": Object {
+                                          "modes": undefined,
+                                        },
+                                      }
                                     }
-                                  }
-                                  handleChange={[Function]}
-                                >
-                                  <div
-                                    className="px-3"
+                                    handleChange={[Function]}
                                   >
                                     <div
-                                      className="form-group row"
+                                      className="px-3"
                                     >
                                       <div
-                                        className="col-sm-2 text-sm-right"
+                                        className="form-group row"
                                       >
-                                        <label
-                                          className="col-form-label"
-                                          htmlFor="End"
+                                        <div
+                                          className="col-sm-2 text-sm-right"
                                         >
-                                          <strong>
-                                            End
-                                          </strong>
-                                        </label>
-                                      </div>
-                                      <div
-                                        className="col-sm-3"
-                                      >
-                                        <select
-                                          className="form-control"
-                                          id="End"
-                                          name="end.mode"
-                                          onChange={[Function]}
-                                          value="Never"
+                                          <label
+                                            className="col-form-label"
+                                            htmlFor="End"
+                                          >
+                                            <strong>
+                                              End
+                                            </strong>
+                                          </label>
+                                        </div>
+                                        <div
+                                          className="col-md-3"
                                         >
-                                          <option
+                                          <select
+                                            className="form-control"
+                                            id="End"
+                                            name="end.mode"
+                                            onChange={[Function]}
                                             value="Never"
                                           >
-                                            Never
-                                          </option>
-                                          <option
-                                            value="After"
-                                          >
-                                            After
-                                          </option>
-                                          <option
-                                            value="On date"
-                                          >
-                                            On date
-                                          </option>
-                                        </select>
+                                            <option
+                                              value="Never"
+                                            >
+                                              Never
+                                            </option>
+                                            <option
+                                              value="After"
+                                            >
+                                              After
+                                            </option>
+                                            <option
+                                              value="On date"
+                                            >
+                                              On date
+                                            </option>
+                                          </select>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </c>
+                                  </_>
+                                </div>
                               </div>
                             </div>
                           </t>
@@ -7818,7 +7832,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                               />
                             </svg>
                           </FontAwesomeIcon>
-                            GO TO ONA FORM
+                            GO TO ONA FORM
                         </a>
                       </button>
                     </Button>
