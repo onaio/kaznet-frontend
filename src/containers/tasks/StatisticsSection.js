@@ -35,12 +35,14 @@ export default class StatisticsSection extends Component {
                   <p className="stats-data">{this.props.accepted}</p>
                   <p className="stats-header">
                     Accepted
-                    <a href={this.props.xformTableURL}>
-                      <FontAwesomeIcon
-                        icon="external-link-alt"
-                        className="fa-xs icon-link withspace"
-                      />
-                    </a>
+                    {this.props.xformTableURL !== null && (
+                      <a href={this.props.xformTableURL}>
+                        <FontAwesomeIcon
+                          icon="external-link-alt"
+                          className="fa-xs icon-link withspace"
+                        />
+                      </a>
+                    )}
                   </p>
                 </div>
               </Col>
@@ -49,16 +51,11 @@ export default class StatisticsSection extends Component {
                   <p className="stats-data">{this.props.reward}</p>
                   <p className="stats-header">
                     Total Reward
-                    {this.props.accepted > 0 ? (
+                    {this.props.accepted > 0 && (
                       <FontAwesomeIcon
                         icon="laptop"
                         className="fa-xs icon-link withspace clickable-icon"
                         onClick={this.props.downloadModalHandler}
-                      />
-                    ) : (
-                      <FontAwesomeIcon
-                        icon="laptop"
-                        className="fa-xs icon-link withspace"
                       />
                     )}
                   </p>
@@ -73,12 +70,14 @@ export default class StatisticsSection extends Component {
                   <h1 className="stats-data">{this.props.review}</h1>
                   <p className="stats-header">
                     Needs Review
-                    <a href={this.props.xformTableURL}>
-                      <FontAwesomeIcon
-                        icon="external-link-alt"
-                        className="fa-xs icon-link withspace"
-                      />
-                    </a>
+                    {this.props.xformTableURL !== null && (
+                      <a href={this.props.xformTableURL}>
+                        <FontAwesomeIcon
+                          icon="external-link-alt"
+                          className="fa-xs icon-link withspace"
+                        />
+                      </a>
+                    )}
                   </p>
                 </div>
               </Col>
@@ -87,12 +86,14 @@ export default class StatisticsSection extends Component {
                   <h1 className="stats-data">{this.props.rejected}</h1>
                   <p className="stats-header">
                     Rejected
-                    <a href={this.props.xformTableURL}>
-                      <FontAwesomeIcon
-                        icon="external-link-alt"
-                        className="fa-xs icon-link withspace"
-                      />
-                    </a>
+                    {this.props.xformTableURL !== null && (
+                      <a href={this.props.xformTableURL}>
+                        <FontAwesomeIcon
+                          icon="external-link-alt"
+                          className="fa-xs icon-link withspace"
+                        />
+                      </a>
+                    )}
                   </p>
                 </div>
               </Col>
