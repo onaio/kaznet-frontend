@@ -113,6 +113,7 @@ class UserService {
       method: "DELETE",
       headers: {
         Accept: "application/vnd.api+json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
