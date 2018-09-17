@@ -75,8 +75,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
           "total_bounty_payout": "0 KES",
           "total_submission_target": null,
           "user_submission_target": 10,
-          "xform_id_string": "Baseline_Questionnaire",
-          "xform_title": "Baseline_Questionnaire",
+          "xform_id_string": "other_food_commodity_price",
+          "xform_ona_id": 328755,
+          "xform_owner": "kaznet",
+          "xform_owner_url": "https://api.ona.io/api/v1/users/kaznet",
+          "xform_project_id": 64867,
+          "xform_title": "Other Food Commodity Prices",
+          "xform_version": "201807190807",
         },
         "id": "4",
         "relationships": Object {
@@ -172,8 +177,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
               "total_bounty_payout": "0 KES",
               "total_submission_target": null,
               "user_submission_target": 10,
-              "xform_id_string": "Baseline_Questionnaire",
-              "xform_title": "Baseline_Questionnaire",
+              "xform_id_string": "other_food_commodity_price",
+              "xform_ona_id": 328755,
+              "xform_owner": "kaznet",
+              "xform_owner_url": "https://api.ona.io/api/v1/users/kaznet",
+              "xform_project_id": 64867,
+              "xform_title": "Other Food Commodity Prices",
+              "xform_version": "201807190807",
             },
             "id": "4",
             "relationships": Object {
@@ -473,7 +483,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
       <StatisticsSection
         accepted={3}
         downloadModalHandler={[Function]}
-        formURL="https://ona.io/undefined/undefined/undefined#/table"
+        formURL="https://ona.io/kaznet/64867/328755#/table"
         modalState={false}
         onFormSubmit={[Function]}
         rejected={0}
@@ -521,8 +531,13 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
               "total_bounty_payout": "0 KES",
               "total_submission_target": null,
               "user_submission_target": 10,
-              "xform_id_string": "Baseline_Questionnaire",
-              "xform_title": "Baseline_Questionnaire",
+              "xform_id_string": "other_food_commodity_price",
+              "xform_ona_id": 328755,
+              "xform_owner": "kaznet",
+              "xform_owner_url": "https://api.ona.io/api/v1/users/kaznet",
+              "xform_project_id": 64867,
+              "xform_title": "Other Food Commodity Prices",
+              "xform_version": "201807190807",
             },
             "id": "4",
             "relationships": Object {
@@ -573,7 +588,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
         }
         taskName="Kaznet"
         totalSubmissions={0}
-        xformTableURL="https://ona.io/undefined/undefined/undefined#/table"
+        xformTableURL="https://ona.io/kaznet/64867/328755#/table"
       >
         <Col
           md={
@@ -647,7 +662,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   >
                     <a
                       className="btn btn-primary text-white"
-                      href="https://ona.io/undefined/undefined/undefined#/table"
+                      href="https://ona.io/kaznet/64867/328755#/table"
                       target="_blank"
                     >
                       <FontAwesomeIcon
@@ -748,7 +763,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 Accepted
                                 <a
-                                  href="https://ona.io/undefined/undefined/undefined#/table"
+                                  href="https://ona.io/kaznet/64867/328755#/table"
                                 >
                                   <FontAwesomeIcon
                                     border={false}
@@ -818,40 +833,33 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 className="stats-header"
                               >
                                 Total Reward
-                                <FontAwesomeIcon
-                                  border={false}
-                                  className="fa-xs icon-link withspace clickable-icon"
-                                  fixedWidth={false}
-                                  flip={null}
-                                  icon="laptop"
-                                  listItem={false}
-                                  mask={null}
-                                  name=""
-                                  onClick={[Function]}
-                                  pull={null}
-                                  pulse={false}
-                                  rotation={null}
-                                  size={null}
-                                  spin={false}
-                                  symbol={false}
-                                  transform={null}
+                                <a
+                                  href="https://ona.io/kaznet/64867/328755#/table"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace clickable-icon"
-                                    data-icon="laptop"
-                                    data-prefix="fas"
+                                  <FontAwesomeIcon
+                                    border={false}
+                                    className="fa-xs icon-link withspace clickable-icon"
+                                    fixedWidth={false}
+                                    flip={null}
+                                    icon="laptop"
+                                    listItem={false}
+                                    mask={null}
+                                    name=""
                                     onClick={[Function]}
-                                    role="img"
-                                    style={Object {}}
-                                    viewBox="0 0 640 512"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    pull={null}
+                                    pulse={false}
+                                    rotation={null}
+                                    size={null}
+                                    spin={false}
+                                    symbol={false}
+                                    transform={null}
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace"
+                                      className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace clickable-icon"
                                       data-icon="laptop"
                                       data-prefix="fas"
+                                      onClick={[Function]}
                                       role="img"
                                       style={Object {}}
                                       viewBox="0 0 640 512"
@@ -926,7 +934,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 Needs Review
                                 <a
-                                  href="https://ona.io/undefined/undefined/undefined#/table"
+                                  href="https://ona.io/kaznet/64867/328755#/table"
                                 >
                                   <FontAwesomeIcon
                                     border={false}
@@ -997,7 +1005,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               >
                                 Rejected
                                 <a
-                                  href="https://ona.io/undefined/undefined/undefined#/table"
+                                  href="https://ona.io/kaznet/64867/328755#/table"
                                 >
                                   <FontAwesomeIcon
                                     border={false}
@@ -1149,7 +1157,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
               Object {
                 "Description": "This is an awesome task",
                 "Form": Array [
-                  "Baseline_Questionnaire",
+                  "Other Food Commodity Prices",
                   <a
                     className="link withspace"
                     href="https://ona.io/login"
@@ -1221,7 +1229,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       Object {
                         "Description": "This is an awesome task",
                         "Form": Array [
-                          "Baseline_Questionnaire",
+                          "Other Food Commodity Prices",
                           <a
                             className="link withspace"
                             href="https://ona.io/login"
@@ -1384,7 +1392,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         items={
                           Array [
                             Array [
-                              "Baseline_Questionnaire",
+                              "Other Food Commodity Prices",
                               <a
                                 className="link withspace"
                                 href="https://ona.io/login"
@@ -1418,7 +1426,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                         <td
                           key="0"
                         >
-                          Baseline_Questionnaire
+                          Other Food Commodity Prices
                           <a
                             className="link withspace"
                             href="https://ona.io/login"
