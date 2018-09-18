@@ -276,7 +276,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Accepted
-                          <a>
+                          <a
+                            target="_blank"
+                          >
                             <FontAwesomeIcon
                               border={false}
                               className="fa-xs icon-link withspace"
@@ -439,7 +441,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Needs Review
-                          <a>
+                          <a
+                            target="_blank"
+                          >
                             <FontAwesomeIcon
                               border={false}
                               className="fa-xs icon-link withspace"
@@ -508,7 +512,9 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                           className="stats-header"
                         >
                           Rejected
-                          <a>
+                          <a
+                            target="_blank"
+                          >
                             <FontAwesomeIcon
                               border={false}
                               className="fa-xs icon-link withspace"

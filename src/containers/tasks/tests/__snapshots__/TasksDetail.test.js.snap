@@ -758,6 +758,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Accepted
                                 <a
                                   href="https://ona.io/kahama/64867/328755#/table"
+                                  target="_blank"
                                 >
                                   <FontAwesomeIcon
                                     border={false}
@@ -925,6 +926,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Needs Review
                                 <a
                                   href="https://ona.io/kahama/64867/328755#/table"
+                                  target="_blank"
                                 >
                                   <FontAwesomeIcon
                                     border={false}
@@ -996,6 +998,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Rejected
                                 <a
                                   href="https://ona.io/kahama/64867/328755#/table"
+                                  target="_blank"
                                 >
                                   <FontAwesomeIcon
                                     border={false}
