@@ -52,3 +52,4 @@ export const TASK_STATUSES = [
 export const ONA_PROFILE_URL = ONA_WEBSITE + "/" + ONA_USERNAME;
 export const FILTER_TIME_START = "submission_time__gte";
 export const FILTER_TIME_END = "submission_time__lte";
+export const ONA_LOGIN = "https://ona.io/login";
