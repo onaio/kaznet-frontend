@@ -329,7 +329,7 @@ export class TaskForm extends Component {
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={constants.ONA_WEBSITE}
+                      href={constants.ONA_LOGIN}
                       className="kaznet-action-links"
                     >
                       <FontAwesomeIcon icon="external-link-alt" />&nbsp; GO TO

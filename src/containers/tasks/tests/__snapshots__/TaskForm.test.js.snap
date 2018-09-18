@@ -1921,7 +1921,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                       >
                         <a
                           className="kaznet-action-links"
-                          href="https://ona.io/kaznettest"
+                          href="https://ona.io/login"
                           rel="noopener noreferrer"
                           target="_blank"
                         >
@@ -7780,7 +7780,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                       >
                         <a
                           className="kaznet-action-links"
-                          href="https://ona.io/kaznettest"
+                          href="https://ona.io/login"
                           rel="noopener noreferrer"
                           target="_blank"
                         >
