@@ -33,6 +33,7 @@ describe("containers/location/LocationForm", () => {
         locationsById={locationFixtures.locationsById}
         locationTypesById={locationTypesById}
         locationTypeOptions={Immutable(locationTypeFixtures.selectOptions)}
+        parentOptions={Immutable(locationFixtures.selectOptions)}
       />
     );
   });
@@ -57,7 +58,7 @@ describe("containers/location/LocationForm", () => {
             locationsById={locationFixtures.locationsById}
             locationTypesById={locationTypesById}
             locationTypeOptions={Immutable(locationTypeFixtures.selectOptions)}
-            locationOptions={Immutable(locationFixtures.selectOptions)}
+            parentOptions={Immutable(locationFixtures.selectOptions)}
           />
         </ErrorBoundary>
       </Router>
@@ -86,7 +87,7 @@ describe("containers/location/LocationForm", () => {
             locationsById={locationFixtures.locationsById}
             locationTypesById={locationTypesById}
             locationTypeOptions={Immutable(locationTypeFixtures.selectOptions)}
-            locationOptions={Immutable(locationFixtures.selectOptions)}
+            parentOptions={Immutable(locationFixtures.selectOptions)}
           />
         </ErrorBoundary>
       </Router>

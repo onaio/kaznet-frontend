@@ -35,6 +35,7 @@ describe("containers/location/LocationEditForm", () => {
         fetchLocation={function() {}}
         noTitle={function() {}}
         locationById={fixtures.singleLocation}
+        currentLocation={fixtures.singleLocation}
         locationTypesById={locationTypesById}
         locationTypeOptions={Immutable(fixtures.selectOptions)}
       />
