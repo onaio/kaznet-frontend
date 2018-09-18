@@ -316,6 +316,9 @@ export class TaskForm extends Component {
                     className={
                       errors.form ? "is-invalid async-select" : "async-select"
                     }
+                    classNamePrefix={
+                      errors.form ? "is-invalid async-select" : "async-select"
+                    }
                   />
                   {errors.form && (
                     <div className="invalid-feedback">{errors.form}</div>
@@ -476,6 +479,12 @@ export class TaskForm extends Component {
                                     isClearable
                                     cacheOptions
                                     className={
+                                      errors.taskLocations &&
+                                      errors.taskLocations.location
+                                        ? "is-invalid async-select"
+                                        : "async-select"
+                                    }
+                                    classNamePrefix={
                                       errors.taskLocations &&
                                       errors.taskLocations.location
                                         ? "is-invalid async-select"
@@ -673,6 +682,9 @@ export class TaskForm extends Component {
                     isClearable
                     cacheOptions
                     className={
+                      errors.client ? "is-invalid async-select" : "async-select"
+                    }
+                    classNamePrefix={
                       errors.client ? "is-invalid async-select" : "async-select"
                     }
                   />
