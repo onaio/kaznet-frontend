@@ -9,7 +9,8 @@ const emptyState = Immutable({
   locations: {
     locationsById: {},
     locationIdArray: [],
-    selectOptions: []
+    selectOptions: [],
+    currentLocation: {}
   }
 });
 
@@ -17,7 +18,8 @@ const fullState = Immutable({
   locations: {
     locationsById: fixtures.locationsById,
     locationsIdArray: fixtures.locationsIdArray,
-    selectOptions: fixtures.selectOptions
+    selectOptions: fixtures.selectOptions,
+    currentLocation: fixtures.singleLocation
   }
 });
 
@@ -72,5 +74,17 @@ describe("store/locations/selectors", () => {
     Selector(locations.getLocationOptions)
       .expect(fullState, 1)
       .toReturn(fixtures.selectOptions);
+  });
+
+  it("should get no currentLocation when empty", () => {
+    Selector(locations.getCurrentLocation)
+      .expect(emptyState)
+      .toReturn({});
+  });
+
+  it("should get currentLocation when full", () => {
+    Selector(locations.getCurrentLocation)
+      .expect(fullState, 1)
+      .toReturn(fixtures.singleLocation);
   });
 });

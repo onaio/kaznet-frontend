@@ -9,6 +9,7 @@ import * as fixtures from "./fixtures";
 const initialState = {
   locationsById: {},
   locationsIdArray: [],
+  currentLocation: {},
   selectOptions: [],
   currentPage: null,
   totalPages: null,
@@ -93,6 +94,7 @@ describe("store/locations/reducer", () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     newState.locationsById = fixtures.singleLocationById;
+    newState.currentLocation = fixtures.singleLocation;
 
     Reducer(locations)
       .withState(existingState)
