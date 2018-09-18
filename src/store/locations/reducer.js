@@ -123,3 +123,12 @@ export function getTotalCount(state, props) {
 export function getLocationOptions(state, props) {
   return state.locations.selectOptions;
 }
+
+export function getParentLocationOptions(state, id = null) {
+  if (state.locations.selectOptions.length > 0 && id !== null) {
+    return state.locations.selectOptions.filter(function(item) {
+      return item.value !== id;
+    });
+  }
+  return state.locations.selectOptions;
+}

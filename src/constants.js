@@ -39,6 +39,7 @@ export const SUBMISSION_UNDER_REVIEW = "c";
 export const SUBMISSION_PENDING = "d";
 export const USER_SUBMISSION_TARGET = 10;
 export const ASYNC_SEARCH_TIMEOUT = 10;
+export const ASYNC_FORM_TEXT = "Type to search or select from options";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,

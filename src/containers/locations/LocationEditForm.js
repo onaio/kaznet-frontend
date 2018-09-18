@@ -23,10 +23,12 @@ export class LocationEditForm extends Component {
     const action = locationActions.editLocation;
     const initialData = {
       name: this.location.attributes.name,
-      parent:
-        this.location.relationships.parent.data != null
-          ? this.location.relationships.parent.data.id
-          : "",
+      parent: this.location.relationships.parent.data
+        ? {
+            value: this.location.relationships.parent.data.id,
+            label: this.location.attributes.parent_name
+          }
+        : "",
       location_type: this.location.relationships.location_type.data
         ? {
             value: this.location.relationships.location_type.data.id,
