@@ -41,8 +41,8 @@ export class LocationForm extends Component {
     this.targetId = props.targetId || null;
     this.getLocationTypeOptions.bind(this);
     this.loadLocationTypeOptions.bind(this);
-    this.getParentLocationOptions.bind(this);
-    this.loadParentLocationOptions.bind(this);
+    this.getParentOptions.bind(this);
+    this.loadParentOptions.bind(this);
   }
 
   componentDidMount() {
@@ -54,8 +54,8 @@ export class LocationForm extends Component {
     return this.props.locationTypeOptions.asMutable();
   }
 
-  getParentLocationOptions() {
-    return this.props.parentLocationOptions.asMutable();
+  getParentOptions() {
+    return this.props.parentOptions.asMutable();
   }
 
   loadLocationTypeOptions = (inputValue, callback) => {
@@ -67,12 +67,12 @@ export class LocationForm extends Component {
     }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
-  loadParentLocationOptions = (inputValue, callback) => {
+  loadParentOptions = (inputValue, callback) => {
     this.props.fetchLocations(
       `${constants.API_ENDPOINT}/locations/?search=${inputValue}`
     );
     setTimeout(() => {
-      callback(this.getParentLocationOptions());
+      callback(this.getParentOptions());
     }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
@@ -187,8 +187,8 @@ export class LocationForm extends Component {
                     value={values.parent}
                     onChange={value => setFieldValue("parent", value)}
                     onBlur={handleBlur}
-                    defaultOptions={this.props.parentLocationOptions.asMutable()}
-                    loadOptions={this.loadParentLocationOptions}
+                    defaultOptions={this.props.parentOptions.asMutable()}
+                    loadOptions={this.loadParentOptions}
                     isClearable
                     cacheOptions
                     className={
@@ -343,7 +343,7 @@ function mapStateToProps(state, ownProps) {
     locationsById: locationSelectors.getLocationsById(state),
     locationTypesById: locationTypeSelectors.getLocationTypesById(state),
     locationTypeOptions: locationTypeSelectors.getLocationTypeOptions(state),
-    parentLocationOptions: locationSelectors.getParentLocationOptions(
+    parentOptions: locationSelectors.getParentLocationOptions(
       state,
       ownProps.targetId
     )
