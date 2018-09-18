@@ -36,7 +36,7 @@ export default class StatisticsSection extends Component {
                   <p className="stats-header">
                     Accepted
                     {this.props.xformTableURL !== null && (
-                      <a href={this.props.xformTableURL}>
+                      <a href={this.props.xformTableURL} target="_blank">
                         <FontAwesomeIcon
                           icon="external-link-alt"
                           className="fa-xs icon-link withspace"
@@ -71,7 +71,7 @@ export default class StatisticsSection extends Component {
                   <p className="stats-header">
                     Needs Review
                     {this.props.xformTableURL !== null && (
-                      <a href={this.props.xformTableURL}>
+                      <a href={this.props.xformTableURL} target="_blank">
                         <FontAwesomeIcon
                           icon="external-link-alt"
                           className="fa-xs icon-link withspace"
@@ -87,7 +87,7 @@ export default class StatisticsSection extends Component {
                   <p className="stats-header">
                     Rejected
                     {this.props.xformTableURL !== null && (
-                      <a href={this.props.xformTableURL}>
+                      <a href={this.props.xformTableURL} target="_blank">
                         <FontAwesomeIcon
                           icon="external-link-alt"
                           className="fa-xs icon-link withspace"

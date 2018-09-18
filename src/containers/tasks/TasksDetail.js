@@ -123,9 +123,9 @@ export class TasksDetail extends Component {
             this.task.attributes.xform_title,
             <a
               href={constants.ONA_LOGIN}
+              target="_blank"
               key="form_link"
               className="link withspace"
-              target="_blank"
             >
               <FontAwesomeIcon
                 icon="external-link-alt"

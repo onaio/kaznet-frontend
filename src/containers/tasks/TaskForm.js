@@ -33,7 +33,6 @@ import * as locationSelectors from "../../store/locations/reducer";
 import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
 import "../LoadListAnimation.css";
-import { ONA_PROFILE_URL } from "../../constants";
 import * as constants from "../../constants";
 
 const transformMyApiErrors = function(array) {
@@ -330,7 +329,7 @@ export class TaskForm extends Component {
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={ONA_PROFILE_URL}
+                      href={constants.ONA_WEBSITE}
                       className="kaznet-action-links"
                     >
                       <FontAwesomeIcon icon="external-link-alt" />&nbsp; GO TO
