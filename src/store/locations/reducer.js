@@ -8,6 +8,7 @@ import * as types from "./actionTypes";
 const initialState = Immutable({
   locationsById: {},
   locationsIdArray: [],
+  currentLocation: {},
   selectOptions: [],
   currentPage: null,
   totalPages: null,
@@ -49,7 +50,8 @@ export default function reduce(state = initialState, action = {}) {
         locationsById: {
           ...state.locationsById,
           [action.locationData.id]: action.locationData
-        }
+        },
+        currentLocation: action.locationData
       });
     case types.LOCATION_EDITED:
       return Immutable({
@@ -77,6 +79,10 @@ export function getLocationsIdArray(state) {
 
 export function getLocationById(state, id) {
   return _.get(state.locations.locationsById, id);
+}
+
+export function getCurrentLocation(state) {
+  return state.locations.currentLocation;
 }
 
 export function getParentLocationChoicesById(state, id) {
