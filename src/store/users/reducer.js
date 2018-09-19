@@ -80,10 +80,6 @@ export function getUsersById(state) {
   return state.users.usersById;
 }
 
-export function getUserById(state, id) {
-  return _.get(state.users.usersById, id);
-}
-
 export function getUsersIdArray(state) {
   return _.keys(state.users.usersById);
 }
@@ -96,11 +92,11 @@ export function getPageLinks(state, props) {
   return state.users.pageLinks;
 }
 
-export function getCurrentPage(state, porseps) {
+export function getCurrentPage(state, props) {
   return state.users.currentPage;
 }
 
-export function getTotalPages(state, porseps) {
+export function getTotalPages(state, props) {
   return state.users.totalPages;
 }
 

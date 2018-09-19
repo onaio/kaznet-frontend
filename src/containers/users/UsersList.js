@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
