@@ -5,4 +5,4 @@ export const USER_FETCHED = "users.USER_FETCHED";
 export const USER_EDITED = "users.USER_EDITED";
 export const USER_DELETED = "users.USER_DELETED";
 export const FILE_EXPORTED = "users.FILE_EXPORTED";
-export const CURRENT_USER_FETCHTED = "users.CURRENT_USER_FETCHTED";
+export const CURRENT_USER_FETCHED = "users.CURRENT_USER_FETCHED";

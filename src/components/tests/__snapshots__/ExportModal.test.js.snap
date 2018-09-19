@@ -2,7 +2,7 @@
 
 exports[`components/ExportModal renders an ExportModal 1`] = `
 <ExportModal
-  className={[Function]}
+  className="some-fancy-class"
   downloadModalHandler={[Function]}
   isOpen={[Function]}
   onFormSubmit={[Function]}
@@ -19,7 +19,7 @@ exports[`components/ExportModal renders an ExportModal 1`] = `
         }
       }
       centered={false}
-      className={[Function]}
+      className="some-fancy-class"
       fade={true}
       isOpen={false}
       keyboard={true}

@@ -143,7 +143,7 @@ export function fetchLoggedInUser() {
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
       dispatch({
-        type: types.CURRENT_USER_FETCHTED,
+        type: types.CURRENT_USER_FETCHED,
         userData
       });
     } catch (error) {

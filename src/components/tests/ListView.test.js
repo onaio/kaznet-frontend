@@ -73,15 +73,37 @@ describe("components/ListView", () => {
       return <ElementMap items={rowItems} HTMLTag="td" />;
     };
 
+    const endpoint = `${constants.API_ENDPOINT}`;
+    const currentPage = 1;
+    const totalPages = 2;
+    const firstPage = 1;
+    const lastPage = 2;
+    const pageLinks = {
+      first: "http://localhost:8000/api/v1/clients/?page=1",
+      last: "http://localhost:8000/api/v1/clients/?page=2",
+      next: "http://localhost:8000/api/v1/clients/?page=2",
+      prev: null
+    };
+
     const wrapper = mount(
-      <ErrorBoundary>
-        <ListView
-          renderHeaders={renderHeader}
-          rowsIdArray={rowsIdArray}
-          rowsById={rowsById}
-          renderRow={renderRow}
-        />
-      </ErrorBoundary>
+      <Router history={history}>
+        <ErrorBoundary>
+          <ListView
+            endpoint={endpoint}
+            renderHeaders={renderHeader}
+            rowsIdArray={rowsIdArray}
+            rowsById={rowsById}
+            renderRow={renderRow}
+            firstPage={firstPage}
+            lastpage={lastPage}
+            pageLinks={pageLinks}
+            totalPages={totalPages}
+            currentPage={currentPage}
+            searchVal={"test"}
+            taskStatus={"2"}
+          />
+        </ErrorBoundary>
+      </Router>
     );
 
     expect(toJson(wrapper)).toMatchSnapshot();

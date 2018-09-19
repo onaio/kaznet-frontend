@@ -11,7 +11,7 @@ describe("components/ExportModal", () => {
       <ExportModal
         isOpen={function() {}}
         toggle={function() {}}
-        className={function() {}}
+        className="some-fancy-class"
         onFormSubmit={function() {}}
         downloadModalHandler={function() {}}
       />
@@ -23,7 +23,7 @@ describe("components/ExportModal", () => {
       <ExportModal
         isOpen={function() {}}
         toggle={function() {}}
-        className={function() {}}
+        className="some-fancy-class"
         onFormSubmit={function() {}}
         downloadModalHandler={function() {}}
       />

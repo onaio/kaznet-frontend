@@ -126,6 +126,7 @@ export class Header extends Component {
                   <img
                     src={
                       this.props.getCurrentUser &&
+                      this.props.getCurrentUser.attributes &&
                       this.props.getCurrentUser.attributes.metadata.gravatar
                         ? this.props.getCurrentUser.attributes.metadata.gravatar
                         : profile_image

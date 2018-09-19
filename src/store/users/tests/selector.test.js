@@ -7,14 +7,16 @@ import * as fixtures from "./fixtures";
 const emptyState = Immutable({
   users: {
     usersById: {},
-    usersIdArray: []
+    usersIdArray: [],
+    currentUser: {}
   }
 });
 
 const fullState = Immutable({
   users: {
     usersById: fixtures.usersById,
-    usersIdAray: fixtures.usersIdArray
+    usersIdAray: fixtures.usersIdArray,
+    currentUser: fixtures.currentLoggedInUser
   }
 });
 
@@ -43,9 +45,21 @@ describe("store/users/selectors", () => {
       .toReturn(fixtures.usersIdArray);
   });
 
-  it("should get client by id when full", () => {
+  it("should get user by id when full", () => {
     Selector(users.getUserById)
       .expect(fullState, 1)
       .toReturn(fixtures.singleUser);
+  });
+
+  it("should get currently logged in user when empty", () => {
+    Selector(users.getCurrentUser)
+      .expect(emptyState)
+      .toReturn({});
+  });
+
+  it("should get currently logged in user when full", () => {
+    Selector(users.getCurrentUser)
+      .expect(fullState, 1)
+      .toReturn(fixtures.currentLoggedInUser);
   });
 });

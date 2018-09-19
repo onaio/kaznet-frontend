@@ -50,13 +50,9 @@ export default function reduce(state = initialState, action = {}) {
           [action.userData.id]: action.userData
         }
       });
-    case types.CURRENT_USER_FETCHTED:
-      return Immutable({
-        ...state,
-        currentUser: {
-          ...state.currentUser,
-          [action.userData.id]: action.userData
-        }
+    case types.CURRENT_USER_FETCHED:
+      return state.merge({
+        currentUser: action.userData
       });
     case types.USER_DELETED:
       const newUsersById = _.omit(state.usersById, action.userId);
@@ -122,5 +118,6 @@ export function getTotalCount(state, porseps) {
   return state.users.totalCount;
 }
 export function getCurrentUser(state, props) {
-  return _.values(state.users.currentUser)[0];
+  // return _.values(state.users.currentUser)[0];
+  return state.users.currentUser;
 }

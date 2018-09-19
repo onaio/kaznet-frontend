@@ -86,6 +86,7 @@ exports[`components/page/Header renders header correctly 1`] = `
       >
         <Header
           fetchLoggedInUser={[Function]}
+          getCurrentUser={Object {}}
           history={
             Object {
               "action": "POP",
