@@ -447,7 +447,7 @@ export class TaskForm extends Component {
                             )}
 
                           <FormGroup className="row mt-3">
-                            <Col sm={{ size: 3 }}>
+                            <Col sm={{ size: 2 }}>
                               <Label for={`taskLocations[${index}]location`}>
                                 Location
                               </Label>
@@ -520,7 +520,7 @@ export class TaskForm extends Component {
                           </FormGroup>
 
                           <FormGroup className="row">
-                            <Col sm={{ size: 3 }}>
+                            <Col sm="2">
                               <Label for={`taskLocations[${index}]start`}>
                                 Hours
                               </Label>
@@ -589,12 +589,12 @@ export class TaskForm extends Component {
                           </FormGroup>
 
                           <FormGroup className="row">
-                            <Col sm={{ size: 3 }}>
+                            <Col sm="2">
                               <Label for={`taskLocations[${index}]timing_rule`}>
                                 Timing Rule
                               </Label>
                             </Col>
-                            <Col md="8">
+                            <Col md="10">
                               <Field
                                 name={`taskLocations[${index}]timing_rule`}
                                 type="hidden"
