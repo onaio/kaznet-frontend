@@ -133,7 +133,7 @@ describe("store/users/actions", () => {
     });
   });
 
-    it("should edit user", async () => {
+  it("should edit user", async () => {
     UserService.editUser.mockReturnValueOnce(fixtures.singleUserData);
     const dispatches = await Thunk(users.editUser).execute();
     expect(dispatches.length).toBe(2);
@@ -181,6 +181,31 @@ describe("store/users/actions", () => {
       throw new Error("Wow!");
     });
     const dispatches = await Thunk(users.fetchUser).execute();
+    expect(dispatches.length).toBe(1);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_FAILURE,
+      errorMessage: Error("Wow!")
+    });
+  });
+
+  it("should get currently logged in user", async () => {
+    UserService.getLoggedInUser.mockReturnValueOnce({
+      data: fixtures.currentLoggedInUserData
+    });
+    const dispatches = await Thunk(users.fetchLoggedInUser).execute();
+    expect(dispatches.length).toBe(2);
+    expect(dispatches[0].isPlainObject()).toBe(true);
+    expect(dispatches[0].getAction()).toEqual({
+      type: errorHandlerTypes.REQUEST_SUCCESS
+    });
+  });
+
+  it("should get currently logged in user and dispatch on error", async () => {
+    UserService.getLoggedInUser.mockImplementationOnce(() => {
+      throw new Error("Wow!");
+    });
+    const dispatches = await Thunk(users.fetchLoggedInUser).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
