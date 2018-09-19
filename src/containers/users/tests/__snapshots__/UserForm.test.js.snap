@@ -189,135 +189,6 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Input
-                    aria-label="admin"
-                    checked={false}
-                    className=""
-                    name="role"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="1"
-                  >
-                    <input
-                      aria-label="admin"
-                      checked={false}
-                      className="form-check-input"
-                      name="role"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="1"
-                    />
-                  </Input>
-                   
-                  Admin
-                </div>
-              </Col>
-              <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Input
-                    aria-label="contributor"
-                    checked={false}
-                    className=""
-                    name="role"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="2"
-                  >
-                    <input
-                      aria-label="contributor"
-                      checked={false}
-                      className="form-check-input"
-                      name="role"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="2"
-                    />
-                  </Input>
-                   
-                  Contributor
-                </div>
-              </Col>
-            </div>
-          </FormGroup>
-          <FormGroup
-            className="row"
-            tag="div"
-          >
-            <div
-              className="row form-group"
-            >
-              <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Label
-                    for="national_id"
-                    tag="label"
-                    widths={
-                      Array [
-                        "xs",
-                        "sm",
-                        "md",
-                        "lg",
-                        "xl",
-                      ]
-                    }
-                  >
-                    <label
-                      className=""
-                      htmlFor="national_id"
-                    >
-                      National ID*
-                    </label>
-                  </Label>
-                </div>
-              </Col>
-              <Col
                 md="9"
                 tag="div"
                 widths={
@@ -334,23 +205,36 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   className="col-md-9"
                 >
                   <Input
-                    aria-label="national_id"
+                    aria-label="role"
+                    bsSize="lg"
                     className=""
-                    name="national_id"
+                    name="role"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    type="text"
-                    value="30090087"
+                    placeholder="Role"
+                    type="select"
+                    value="Admin"
                   >
-                    <input
-                      aria-label="national_id"
-                      className="form-control"
-                      name="national_id"
+                    <select
+                      aria-label="role"
+                      className="form-control-lg form-control"
+                      name="role"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="text"
-                      value="30090087"
-                    />
+                      placeholder="Role"
+                      value="Admin"
+                    >
+                      <option
+                        value="2"
+                      >
+                        Contributor
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Admin
+                      </option>
+                    </select>
                   </Input>
                 </div>
               </Col>
@@ -396,7 +280,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       className=""
                       htmlFor="ona_username"
                     >
-                      Username*
+                      Username *
                     </label>
                   </Label>
                 </div>
@@ -434,6 +318,90 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       onChange={[Function]}
                       type="text"
                       value="kahama"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="national_id"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="national_id"
+                    >
+                      National ID
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="national_id"
+                    className=""
+                    name="national_id"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value="30090087"
+                  >
+                    <input
+                      aria-label="national_id"
+                      className="form-control"
+                      name="national_id"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="text"
+                      value="30090087"
                     />
                   </Input>
                 </div>
@@ -481,7 +449,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                         className=""
                         htmlFor="password"
                       >
-                        Password*
+                        Password *
                       </label>
                     </Label>
                   </div>
@@ -565,7 +533,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                         className=""
                         htmlFor="confirmation"
                       >
-                        Confirm Password*
+                        Confirm Password *
                       </label>
                     </Label>
                   </div>
@@ -661,7 +629,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="2"
+                md="9"
                 tag="div"
                 widths={
                   Array [
@@ -674,113 +642,45 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-2"
+                  className="col-md-9"
                 >
                   <Input
-                    aria-label="male"
-                    checked={false}
+                    aria-label="role"
+                    bsSize="lg"
                     className=""
                     name="gender"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    type="radio"
-                    value="0"
+                    placeholder="Gender"
+                    type="select"
+                    value="male"
                   >
-                    <input
-                      aria-label="male"
-                      checked={false}
-                      className="form-check-input"
+                    <select
+                      aria-label="role"
+                      className="form-control-lg form-control"
                       name="gender"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="radio"
-                      value="0"
-                    />
+                      placeholder="Gender"
+                      value="male"
+                    >
+                      <option
+                        value="0"
+                      >
+                        Male
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Female
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        Other
+                      </option>
+                    </select>
                   </Input>
-                   
-                  Male
-                </div>
-              </Col>
-              <Col
-                md="2"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-2"
-                >
-                  <Input
-                    aria-label="female"
-                    checked={false}
-                    className=""
-                    name="gender"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="1"
-                  >
-                    <input
-                      aria-label="female"
-                      checked={false}
-                      className="form-check-input"
-                      name="gender"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="1"
-                    />
-                  </Input>
-                   
-                  Female
-                </div>
-              </Col>
-              <Col
-                md="2"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-2"
-                >
-                  <Input
-                    aria-label="other"
-                    checked={false}
-                    className=""
-                    name="gender"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="2"
-                  >
-                    <input
-                      aria-label="other"
-                      checked={false}
-                      className="form-check-input"
-                      name="gender"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="2"
-                    />
-                  </Input>
-                   
-                  Other
                 </div>
               </Col>
             </div>
@@ -906,7 +806,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       className=""
                       htmlFor="experties"
                     >
-                      Level of experties
+                      Level of expertise
                     </label>
                   </Label>
                 </div>

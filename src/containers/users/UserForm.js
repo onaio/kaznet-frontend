@@ -4,7 +4,7 @@ import Yup from "yup";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
+import { Form, FormGroup, Col, Input, Button, Label, Row } from "reactstrap";
 
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
@@ -26,7 +26,6 @@ const transformMyApiErrors = function(array) {
 
 function getValidationSchema(values) {
   return Yup.object().shape({
-    national_id: Yup.string().required("National ID is required."),
     ona_username: Yup.string().required("Username is required!"),
     password: Yup.string().required("Password is required."),
     email: Yup.string().email("E-mail is not valid!"),
@@ -158,58 +157,30 @@ export class UserForm extends Component {
                 <Col md="3">
                   <Label for="role">Role</Label>
                 </Col>
-                <Col md="3">
-                  <Input
-                    name="role"
-                    type="radio"
-                    aria-label="admin"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    checked={values.role === "1"}
-                    value="1"
-                    className={errors.role ? "is-invalid" : ""}
-                  />{" "}
-                  Admin
-                </Col>
-                <Col md="3">
-                  <Input
-                    name="role"
-                    type="radio"
-                    aria-label="contributor"
-                    checked={values.role === "2"}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value="2"
-                    className={errors.role ? "is-invalid" : ""}
-                  />{" "}
-                  Contributor
-                </Col>
-              </FormGroup>
-              {errors.role && (
-                <div className="invalid-feedback">{errors.role}</div>
-              )}
-              <FormGroup className="row">
-                <Col md="3">
-                  <Label for="national_id">National ID*</Label>
-                </Col>
                 <Col md="9">
                   <Input
-                    name="national_id"
-                    type="text"
-                    aria-label="national_id"
+                    name="role"
+                    type="select"
+                    bsSize="lg"
+                    placeholder="Role"
+                    aria-label="role"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.national_id}
-                    className={errors.national_id ? "is-invalid" : ""}
-                  />
-                  {errors.national_id && (
-                    <div className="invalid-feedback">{errors.national_id}</div>
+                    value={values.role != null ? values.role : "1"}
+                    className={errors.role ? "is-invalid" : ""}
+                  >
+                    <option value="2">Contributor</option>
+                    <option value="1">Admin</option>
+                  </Input>
+                  {errors.role && (
+                    <div className="invalid-feedback">{errors.role}</div>
                   )}
                 </Col>
               </FormGroup>
+
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="ona_username">Username*</Label>
+                  <Label for="ona_username">Username *</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -228,11 +199,32 @@ export class UserForm extends Component {
                   )}
                 </Col>
               </FormGroup>
+
+              <FormGroup className="row">
+                <Col md="3">
+                  <Label for="national_id">National ID</Label>
+                </Col>
+                <Col md="9">
+                  <Input
+                    name="national_id"
+                    type="text"
+                    aria-label="national_id"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.national_id}
+                    className={errors.national_id ? "is-invalid" : ""}
+                  />
+                  {errors.national_id && (
+                    <div className="invalid-feedback">{errors.national_id}</div>
+                  )}
+                </Col>
+              </FormGroup>
+
               {this.targetId === null ? (
                 <div>
                   <FormGroup className="row">
                     <Col md="3">
-                      <Label for="password">Password*</Label>
+                      <Label for="password">Password *</Label>
                     </Col>
                     <Col md="9">
                       <Input
@@ -253,7 +245,7 @@ export class UserForm extends Component {
                   </FormGroup>
                   <FormGroup className="row">
                     <Col md="3">
-                      <Label for="confirmation">Confirm Password*</Label>
+                      <Label for="confirmation">Confirm Password *</Label>
                     </Col>
                     <Col md="9">
                       <Input
@@ -283,49 +275,28 @@ export class UserForm extends Component {
                 <Col md="3">
                   <Label for="gender">Gender</Label>
                 </Col>
-                <Col md="2">
+                <Col md="9">
                   <Input
                     name="gender"
-                    type="radio"
-                    aria-label="male"
+                    type="select"
+                    bsSize="lg"
+                    placeholder="Gender"
+                    aria-label="role"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value="0"
-                    checked={values.gender === "0"}
+                    value={values.gender != null ? values.gender : "0"}
                     className={errors.gender ? "is-invalid" : ""}
-                  />{" "}
-                  Male
-                </Col>
-                <Col md="2">
-                  <Input
-                    name="gender"
-                    type="radio"
-                    aria-label="female"
-                    onChange={handleChange}
-                    value="1"
-                    checked={values.gender === "1"}
-                    onBlur={handleBlur}
-                    className={errors.gender ? "is-invalid" : ""}
-                  />{" "}
-                  Female
-                </Col>
-                <Col md="2">
-                  <Input
-                    name="gender"
-                    type="radio"
-                    aria-label="other"
-                    onChange={handleChange}
-                    value="2"
-                    checked={values.gender === "2"}
-                    onBlur={handleBlur}
-                    className={errors.gender ? "is-invalid" : ""}
-                  />{" "}
-                  Other
+                  >
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">Other</option>
+                  </Input>
+                  {errors.gender && (
+                    <div className="invalid-feedback">{errors.gender}</div>
+                  )}
                 </Col>
               </FormGroup>
-              {errors.role && (
-                <div className="invalid-feedback">{errors.role}</div>
-              )}
+
               <FormGroup className="row">
                 <Col md="3">
                   <Label for="address">Address</Label>
@@ -347,7 +318,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
-                  <Label for="experties">Level of experties</Label>
+                  <Label for="experties">Level of expertise</Label>
                 </Col>
                 <Col md="9">
                   <Input
