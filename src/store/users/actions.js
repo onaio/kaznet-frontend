@@ -134,7 +134,7 @@ export function exportSubmissions(filter_dict, name = null) {
     }
   };
 }
-// fetch currently loggend in user
+// fetch currently logged in user
 export function fetchLoggedInUser() {
   return async (dispatch, getState) => {
     try {

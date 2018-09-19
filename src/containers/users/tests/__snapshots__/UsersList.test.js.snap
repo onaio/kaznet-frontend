@@ -77,7 +77,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
             "rejected_submissions": 0,
             "role": "1",
             "role_display": "Admin",
-            "submission_count": 0,
+            "submission_count": 5,
           },
           "id": "1",
           "type": "UserProfile",
@@ -89,8 +89,10 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
         "1",
       ]
     }
+    searchParam=""
     searchVal={[Function]}
     showListTitle={[Function]}
+    taskStatus=""
     totalPages={2}
   >
     <div
@@ -98,9 +100,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
     >
       <ListView
         currentPage={1}
+        downloadModalHandler={[Function]}
         endpoint="users"
         firstPage={1}
         lastPage={2}
+        modalState={false}
+        onFormSubmit={[Function]}
         pageLinks={
           Object {
             "first": "http://localhost:8000/api/v1/userprofiles/?page=1",
@@ -117,7 +122,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
               "attributes": Object {
                 "amount_earned": "0 KES",
                 "approval_rate": 0,
-                "approved_submissions": 0,
+                "approved_submissions": 1,
                 "avg_amount_earned": 0,
                 "avg_approval_rate": 0,
                 "avg_approved_submissions": 0,
@@ -139,7 +144,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                 "rejected_submissions": 0,
                 "role": "1",
                 "role_display": "Admin",
-                "submission_count": 0,
+                "submission_count": 5,
               },
               "id": "1",
               "type": "UserProfile",
@@ -151,9 +156,45 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
             "1",
           ]
         }
+        searchVal=""
+        setUserDetails={[Function]}
         totalPages={2}
+        userName={null}
       >
         <div>
+          <ExportModal
+            downloadModalHandler={[Function]}
+            modalState={false}
+            name={null}
+            onFormSubmit={[Function]}
+          >
+            <div>
+              <Modal
+                autoFocus={true}
+                backdrop={true}
+                backdropTransition={
+                  Object {
+                    "mountOnEnter": true,
+                    "timeout": 150,
+                  }
+                }
+                centered={false}
+                fade={true}
+                isOpen={false}
+                keyboard={true}
+                modalTransition={
+                  Object {
+                    "timeout": 300,
+                  }
+                }
+                onClosed={[Function]}
+                onOpened={[Function]}
+                role="dialog"
+                toggle={[Function]}
+                zIndex={1050}
+              />
+            </div>
+          </ExportModal>
           <Table
             bordered={true}
             className="kaznet-table"
@@ -228,13 +269,39 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                         "Admin",
                         <Link
                           replace={false}
-                          to="/users/edit/1"
+                          to="/users/1"
                       >
                           davisraym
                       </Link>,
                         "Raymond",
                         "Davis",
-                        0,
+                        <div>
+                          5
+                          <Button
+                              className="mx-2 btn btn-sm btn-light white"
+                              color="secondary"
+                              onClick={[Function]}
+                              tag="button"
+                          >
+                              <FontAwesomeIcon
+                                  border={false}
+                                  className="fa-xs icon-link withspace"
+                                  fixedWidth={false}
+                                  flip={null}
+                                  icon="laptop"
+                                  listItem={false}
+                                  mask={null}
+                                  name=""
+                                  pull={null}
+                                  pulse={false}
+                                  rotation={null}
+                                  size={null}
+                                  spin={false}
+                                  symbol={false}
+                                  transform={null}
+                              />
+                          </Button>
+                      </div>,
                         "0%",
                         <t
                           ago={false}
@@ -267,10 +334,10 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       <Link
                         key="link_to"
                         replace={false}
-                        to="/users/edit/1"
+                        to="/users/1"
                       >
                         <a
-                          href="/users/edit/1"
+                          href="/users/1"
                           onClick={[Function]}
                         >
                           davisraym
@@ -290,7 +357,58 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                     <td
                       key="4"
                     >
-                      0
+                      <div
+                        key="1"
+                      >
+                        5
+                        <Button
+                          className="mx-2 btn btn-sm btn-light white"
+                          color="secondary"
+                          onClick={[Function]}
+                          tag="button"
+                        >
+                          <button
+                            className="mx-2 btn btn-sm btn-light white btn btn-secondary"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            <FontAwesomeIcon
+                              border={false}
+                              className="fa-xs icon-link withspace"
+                              fixedWidth={false}
+                              flip={null}
+                              icon="laptop"
+                              listItem={false}
+                              mask={null}
+                              name=""
+                              pull={null}
+                              pulse={false}
+                              rotation={null}
+                              size={null}
+                              spin={false}
+                              symbol={false}
+                              transform={null}
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="svg-inline--fa fa-laptop fa-w-20 fa-xs icon-link withspace"
+                                data-icon="laptop"
+                                data-prefix="fas"
+                                role="img"
+                                style={Object {}}
+                                viewBox="0 0 640 512"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M512 64v256H128V64h384m16-64H112C85.5 0 64 21.5 64 48v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm100 416H389.5c-3 0-5.5 2.1-5.9 5.1C381.2 436.3 368 448 352 448h-64c-16 0-29.2-11.7-31.6-26.9-.5-2.9-3-5.1-5.9-5.1H12c-6.6 0-12 5.4-12 12v36c0 26.5 21.5 48 48 48h544c26.5 0 48-21.5 48-48v-36c0-6.6-5.4-12-12-12z"
+                                  fill="currentColor"
+                                  style={Object {}}
+                                />
+                              </svg>
+                            </FontAwesomeIcon>
+                          </button>
+                        </Button>
+                      </div>
                     </td>
                     <td
                       key="5"
@@ -351,12 +469,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/users/?search=&page=1"
+                      to="/users/?search=&status=&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/users/?search=&page=1"
+                        href="/users/?search=&status=&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -399,12 +517,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/users/?search=&page=2"
+                      to="/users/?search=&status=&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/users/?search=&page=2"
+                        href="/users/?search=&status=&page=2"
                         onClick={[Function]}
                       >
                         »
@@ -423,12 +541,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/users/?search=&page=2"
+                      to="/users/?search=&status=&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/users/?search=&page=2"
+                        href="/users/?search=&status=&page=2"
                         onClick={[Function]}
                       >
                         Last
