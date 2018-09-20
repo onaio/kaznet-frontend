@@ -340,7 +340,7 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="shapefile">Shapefile</Label>
                 </Col>
-                <Col md="8">
+                <Col md="7 ml-3">
                   <Input
                     name="shapefile"
                     type="file"
@@ -350,8 +350,11 @@ export class LocationForm extends Component {
                     onChange={this.onChangeShapefile}
                     value={values.shapefile}
                     accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
-                    className={errors.shapefile ? "is-invalid" : ""}
+                    className={`custom-file-input ${
+                      errors.shapefile ? "is-invalid" : ""
+                    }`}
                   />
+                  <label className="custom-file-label">Upload Shapefile</label>
                   <FormText color="muted">
                     The zipped file of the shapefile
                   </FormText>

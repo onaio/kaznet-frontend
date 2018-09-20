@@ -1650,7 +1650,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                     </div>
                   </Col>
                   <Col
-                    md="8"
+                    md="7 ml-3"
                     tag="div"
                     widths={
                       Array [
@@ -1663,13 +1663,13 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                     }
                   >
                     <div
-                      className="col-md-8"
+                      className="col-md-7 ml-3"
                     >
                       <Input
                         accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                         aria-label="Shapefile"
                         bsSize="lg"
-                        className=""
+                        className="custom-file-input "
                         name="shapefile"
                         onChange={[Function]}
                         placeholder="Shapefile"
@@ -1679,7 +1679,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                         <input
                           accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                           aria-label="Shapefile"
-                          className="form-control-lg form-control-file"
+                          className="custom-file-input  form-control-lg form-control-file"
                           name="shapefile"
                           onChange={[Function]}
                           placeholder="Shapefile"
@@ -1687,6 +1687,11 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                           value=""
                         />
                       </Input>
+                      <label
+                        className="custom-file-label"
+                      >
+                        Upload Shapefile
+                      </label>
                       <FormText
                         color="muted"
                         tag="small"
@@ -3401,7 +3406,7 @@ exports[`containers/location/LocationForm renders location form correctly when e
                     </div>
                   </Col>
                   <Col
-                    md="8"
+                    md="7 ml-3"
                     tag="div"
                     widths={
                       Array [
@@ -6161,13 +6166,13 @@ exports[`containers/location/LocationForm renders location form correctly when e
                     }
                   >
                     <div
-                      className="col-md-8"
+                      className="col-md-7 ml-3"
                     >
                       <Input
                         accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                         aria-label="Shapefile"
                         bsSize="lg"
-                        className=""
+                        className="custom-file-input "
                         name="shapefile"
                         onChange={[Function]}
                         placeholder="Shapefile"
@@ -6177,7 +6182,7 @@ exports[`containers/location/LocationForm renders location form correctly when e
                         <input
                           accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                           aria-label="Shapefile"
-                          className="form-control-lg form-control-file"
+                          className="custom-file-input  form-control-lg form-control-file"
                           name="shapefile"
                           onChange={[Function]}
                           placeholder="Shapefile"
@@ -6185,6 +6190,11 @@ exports[`containers/location/LocationForm renders location form correctly when e
                           value=""
                         />
                       </Input>
+                      <label
+                        className="custom-file-label"
+                      >
+                        Upload Shapefile
+                      </label>
                       <FormText
                         color="muted"
                         tag="small"
