@@ -43,7 +43,10 @@ export class LocationEditForm extends Component {
         this.location.attributes.radius != null
           ? this.location.attributes.radius
           : "",
-      shapefile: ""
+      shapefile:
+        this.location.attributes.shapefile != null
+          ? [this.location.attributes.name, ".shp"]
+          : ""
     };
 
     return (
