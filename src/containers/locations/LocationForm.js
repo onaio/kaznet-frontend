@@ -16,7 +16,6 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import { OptionMap } from "../Select";
 import * as locationActions from "../../store/locations/actions";
 import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationSelectors from "../../store/locations/reducer";
@@ -40,8 +39,10 @@ export class LocationForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
-    this.getOptions.bind(this);
-    this.loadOptions.bind(this);
+    this.getLocationTypeOptions.bind(this);
+    this.loadLocationTypeOptions.bind(this);
+    this.getParentOptions.bind(this);
+    this.loadParentOptions.bind(this);
   }
 
   componentDidMount() {
@@ -49,16 +50,29 @@ export class LocationForm extends Component {
     this.props.fetchLocationTypes();
   }
 
-  getOptions() {
+  getLocationTypeOptions() {
     return this.props.locationTypeOptions.asMutable();
   }
 
-  loadOptions = (inputValue, callback) => {
+  getParentOptions() {
+    return this.props.parentOptions.asMutable();
+  }
+
+  loadLocationTypeOptions = (inputValue, callback) => {
     this.props.fetchLocationTypes(
       `${constants.API_ENDPOINT}/locationtypes/?search=${inputValue}`
     );
     setTimeout(() => {
-      callback(this.getOptions());
+      callback(this.getLocationTypeOptions());
+    }, constants.ASYNC_SEARCH_TIMEOUT);
+  };
+
+  loadParentOptions = (inputValue, callback) => {
+    this.props.fetchLocations(
+      `${constants.API_ENDPOINT}/locations/?search=${inputValue}`
+    );
+    setTimeout(() => {
+      callback(this.getParentOptions());
     }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
@@ -75,7 +89,7 @@ export class LocationForm extends Component {
                 name: values.name,
                 description: values.description,
                 parent: values.parent
-                  ? { type: "Location", id: values.parent }
+                  ? { type: "Location", id: values.parent.value }
                   : undefined,
                 location_type: values.location_type
                   ? { type: "LocationType", id: values.location_type.value }
@@ -157,30 +171,34 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="parent">Parent Location</Label>
                 </Col>
-                <Col md="8">
-                  <Input
+                <Col
+                  md="8"
+                  className={
+                    errors.parent
+                      ? "is-invalid async-select-container"
+                      : "async-select async-select-container"
+                  }
+                >
+                  <AsyncSelect
                     name="parent"
-                    type="select"
                     bsSize="lg"
-                    placeholder="Parent Location"
-                    aria-label="Parent Location"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    placeholder="Select Parent Location"
+                    aria-label="Select Parent Location"
                     value={values.parent}
-                    className={errors.parent ? "is-invalid" : ""}
-                  >
-                    <OptionMap
-                      obj={
-                        this.props.targetId
-                          ? _.omit(
-                              this.props.locationsById,
-                              this.props.targetId
-                            )
-                          : this.props.locationsById
-                      }
-                      titleField="name"
-                    />
-                  </Input>
+                    onChange={value => setFieldValue("parent", value)}
+                    onBlur={handleBlur}
+                    defaultOptions={this.props.parentOptions.asMutable()}
+                    loadOptions={this.loadParentOptions}
+                    isClearable
+                    cacheOptions
+                    className={
+                      errors.parent ? "is-invalid async-select" : "async-select"
+                    }
+                    classNamePrefix={
+                      errors.parent ? "is-invalid async-select" : "async-select"
+                    }
+                  />
+                  <FormText color="muted">{constants.ASYNC_FORM_TEXT}</FormText>
                   {errors.parent && (
                     <div className="invalid-feedback">{errors.parent}</div>
                   )}
@@ -207,7 +225,7 @@ export class LocationForm extends Component {
                     onChange={value => setFieldValue("location_type", value)}
                     onBlur={handleBlur}
                     defaultOptions={this.props.locationTypeOptions.asMutable()}
-                    loadOptions={this.loadOptions}
+                    loadOptions={this.loadLocationTypeOptions}
                     isClearable
                     cacheOptions
                     className={
@@ -215,7 +233,13 @@ export class LocationForm extends Component {
                         ? "is-invalid async-select"
                         : "async-select"
                     }
+                    classNamePrefix={
+                      errors.location_type
+                        ? "is-invalid async-select"
+                        : "async-select"
+                    }
                   />
+                  <FormText color="muted">{constants.ASYNC_FORM_TEXT}</FormText>
                   {errors.location_type && (
                     <div className="invalid-feedback">
                       {errors.location_type}
@@ -318,7 +342,11 @@ function mapStateToProps(state, ownProps) {
     errorMessage: errorHandlerSelectors.getErrorMessage(state),
     locationsById: locationSelectors.getLocationsById(state),
     locationTypesById: locationTypeSelectors.getLocationTypesById(state),
-    locationTypeOptions: locationTypeSelectors.getLocationTypeOptions(state)
+    locationTypeOptions: locationTypeSelectors.getLocationTypeOptions(state),
+    parentOptions: locationSelectors.getParentLocationOptions(
+      state,
+      ownProps.targetId
+    )
   };
 }
 

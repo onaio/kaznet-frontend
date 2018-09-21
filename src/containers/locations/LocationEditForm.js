@@ -16,17 +16,19 @@ export class LocationEditForm extends Component {
   }
 
   render() {
-    this.location = this.props.locationById;
-    if (!this.location) {
+    this.location = this.props.currentLocation;
+    if (!this.location || !this.location.id) {
       return this.renderLoading();
     }
     const action = locationActions.editLocation;
     const initialData = {
       name: this.location.attributes.name,
-      parent:
-        this.location.relationships.parent.data != null
-          ? this.location.relationships.parent.data.id
-          : "",
+      parent: this.location.relationships.parent.data
+        ? {
+            value: this.location.relationships.parent.data.id,
+            label: this.location.attributes.parent_name
+          }
+        : "",
       location_type: this.location.relationships.location_type.data
         ? {
             value: this.location.relationships.location_type.data.id,
@@ -50,7 +52,8 @@ export class LocationEditForm extends Component {
           <LocationForm
             action={action}
             initialData={initialData}
-            targetId={this.location.id}
+            targetId={this.props.match.params.id}
+            location={this.location}
           />
         }
       />
@@ -72,8 +75,9 @@ function mapStateToProps(state, ownProps) {
       state,
       ownProps.match.params.id
     ),
-    hasError: errorHandlerSelectors.getHasError,
-    errorMessage: errorHandlerSelectors.getErrorMessage
+    currentLocation: locationSelectors.getCurrentLocation(state),
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 

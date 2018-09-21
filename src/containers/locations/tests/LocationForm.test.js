@@ -8,7 +8,8 @@ import createBrowserHistory from "history/createBrowserHistory";
 
 import ErrorBoundary from "../../../components/ErrorBoundary";
 import { LocationForm } from "../LocationForm";
-import * as fixtures from "../../../store/locations/tests/fixtures";
+import * as locationFixtures from "../../../store/locations/tests/fixtures";
+import * as locationTypeFixtures from "../../../store/locationTypes/tests/fixtures";
 import { locationTypesById } from "../../../store/locationTypes/tests/fixtures";
 
 const history = createBrowserHistory();
@@ -29,9 +30,10 @@ describe("containers/location/LocationForm", () => {
         fetchLocations={function() {}}
         fetchLocationTypes={function() {}}
         initialData={initialData}
-        locationsById={fixtures.locationsById}
+        locationsById={locationFixtures.locationsById}
         locationTypesById={locationTypesById}
-        locationTypeOptions={Immutable(fixtures.selectOptions)}
+        locationTypeOptions={Immutable(locationTypeFixtures.selectOptions)}
+        parentOptions={Immutable(locationFixtures.selectOptions)}
       />
     );
   });
@@ -53,9 +55,10 @@ describe("containers/location/LocationForm", () => {
             fetchLocations={function() {}}
             fetchLocationTypes={function() {}}
             initialData={initialData}
-            locationsById={fixtures.locationsById}
+            locationsById={locationFixtures.locationsById}
             locationTypesById={locationTypesById}
-            locationTypeOptions={Immutable(fixtures.selectOptions)}
+            locationTypeOptions={Immutable(locationTypeFixtures.selectOptions)}
+            parentOptions={Immutable(locationFixtures.selectOptions)}
           />
         </ErrorBoundary>
       </Router>
@@ -81,9 +84,10 @@ describe("containers/location/LocationForm", () => {
             fetchLocations={function() {}}
             fetchLocationTypes={function() {}}
             initialData={initialData}
-            locationsById={fixtures.locationsById}
+            locationsById={locationFixtures.locationsById}
             locationTypesById={locationTypesById}
-            locationTypeOptions={Immutable(fixtures.selectOptions)}
+            locationTypeOptions={Immutable(locationTypeFixtures.selectOptions)}
+            parentOptions={Immutable(locationFixtures.selectOptions)}
           />
         </ErrorBoundary>
       </Router>
