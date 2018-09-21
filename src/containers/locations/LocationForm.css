@@ -1,0 +1,8 @@
+.row .inactive-file-label {
+  background-color: #e9ecef;
+}
+
+.row .custom-file-label {
+  left: 1pc;
+  right: 1pc;
+}

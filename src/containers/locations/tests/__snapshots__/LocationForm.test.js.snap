@@ -1650,7 +1650,7 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                     </div>
                   </Col>
                   <Col
-                    md="7 ml-3"
+                    md="8"
                     tag="div"
                     widths={
                       Array [
@@ -1663,28 +1663,26 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                     }
                   >
                     <div
-                      className="col-md-7 ml-3"
+                      className="col-md-8"
                     >
                       <Input
                         accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                         aria-label="Shapefile"
                         bsSize="lg"
-                        className="custom-file-input "
+                        className="custom-file-input ml-5 "
                         name="shapefile"
                         onChange={[Function]}
                         placeholder="Shapefile"
                         type="file"
-                        value=""
                       >
                         <input
                           accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                           aria-label="Shapefile"
-                          className="custom-file-input  form-control-lg form-control-file"
+                          className="custom-file-input ml-5  form-control-lg form-control-file"
                           name="shapefile"
                           onChange={[Function]}
                           placeholder="Shapefile"
                           type="file"
-                          value=""
                         />
                       </Input>
                       <label
@@ -6166,28 +6164,26 @@ exports[`containers/location/LocationForm renders location form correctly when e
                     }
                   >
                     <div
-                      className="col-md-7 ml-3"
+                      className="col-md-8"
                     >
                       <Input
                         accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                         aria-label="Shapefile"
                         bsSize="lg"
-                        className="custom-file-input "
+                        className="custom-file-input ml-5 "
                         name="shapefile"
                         onChange={[Function]}
                         placeholder="Shapefile"
                         type="file"
-                        value=""
                       >
                         <input
                           accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                           aria-label="Shapefile"
-                          className="custom-file-input  form-control-lg form-control-file"
+                          className="custom-file-input ml-5  form-control-lg form-control-file"
                           name="shapefile"
                           onChange={[Function]}
                           placeholder="Shapefile"
                           type="file"
-                          value=""
                         />
                       </Input>
                       <label

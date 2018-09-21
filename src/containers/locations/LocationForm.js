@@ -16,6 +16,9 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
+import "./LocationForm.css";
+
+import { OptionMap } from "../Select";
 import * as locationActions from "../../store/locations/actions";
 import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationSelectors from "../../store/locations/reducer";
@@ -340,7 +343,7 @@ export class LocationForm extends Component {
                 <Col sm="3">
                   <Label for="shapefile">Shapefile</Label>
                 </Col>
-                <Col md="7 ml-3">
+                <Col md="8">
                   <Input
                     name="shapefile"
                     type="file"
@@ -348,13 +351,22 @@ export class LocationForm extends Component {
                     placeholder="Shapefile"
                     aria-label="Shapefile"
                     onChange={this.onChangeShapefile}
-                    value={values.shapefile}
                     accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
-                    className={`custom-file-input ${
+                    className={`custom-file-input ml-5 ${
                       errors.shapefile ? "is-invalid" : ""
                     }`}
                   />
-                  <label className="custom-file-label">Upload Shapefile</label>
+                  <label
+                    className={
+                      this.props.initialData.shapefile || this.state.shapefile
+                        ? "custom-file-label inactive-file-label"
+                        : "custom-file-label"
+                    }
+                  >
+                    {this.props.initialData.shapefile || this.state.shapefile
+                      ? [values.name, ".shp"]
+                      : "Upload Shapefile"}
+                  </label>
                   <FormText color="muted">
                     The zipped file of the shapefile
                   </FormText>
