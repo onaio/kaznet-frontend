@@ -16,6 +16,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
+import "./LocationForm.css";
+
 import * as locationActions from "../../store/locations/actions";
 import * as locationTypeActions from "../../store/locationTypes/actions";
 import * as locationSelectors from "../../store/locations/reducer";
@@ -38,11 +40,31 @@ const transformMyApiErrors = function(array) {
 export class LocationForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      shapefile: null
+    };
     this.targetId = props.targetId || null;
     this.getLocationTypeOptions.bind(this);
     this.loadLocationTypeOptions.bind(this);
     this.getParentOptions.bind(this);
     this.loadParentOptions.bind(this);
+    this.onChangeShapefile = this.onChangeShapefile.bind(this);
+  }
+
+  onChangeShapefile(e) {
+    let files = e.target.files || e.dataTransfer.files;
+    if (files.length) {
+      this.createShapefile(files[0]);
+    }
+  }
+  createShapefile(file) {
+    let reader = new FileReader();
+    reader.onload = e => {
+      this.setState({
+        shapefile: new Uint8Array(e.target.result)
+      });
+    };
+    reader.readAsArrayBuffer(file);
   }
 
   componentDidMount() {
@@ -94,9 +116,17 @@ export class LocationForm extends Component {
                 location_type: values.location_type
                   ? { type: "LocationType", id: values.location_type.value }
                   : undefined,
-                geopoint: _.toString(values.geopoint),
-                radius: values.radius,
-                shapefile: values.shapefile ? values.shapefile : undefined
+                geopoint:
+                  !this.state.shapefile && values.geopoint
+                    ? _.toString(values.geopoint)
+                    : undefined,
+                radius:
+                  !this.state.shapefile && values.radius
+                    ? values.radius
+                    : undefined,
+                shapefile: this.state.shapefile
+                  ? this.state.shapefile
+                  : undefined
               }
             }
           };
@@ -302,6 +332,44 @@ export class LocationForm extends Component {
                   </FormText>
                   {errors.radius && (
                     <div className="invalid-feedback">{errors.radius}</div>
+                  )}
+                </Col>
+              </FormGroup>
+              <FormGroup className="row">
+                <Col sm="3">
+                  <Label for="shapefile">Shapefile</Label>
+                </Col>
+                <Col md="8">
+                  <Input
+                    name="shapefile"
+                    type="file"
+                    bsSize="lg"
+                    placeholder="Shapefile"
+                    aria-label="Shapefile"
+                    onChange={this.onChangeShapefile}
+                    accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                    className={`custom-file-input ml-5 ${
+                      errors.shapefile ? "is-invalid" : ""
+                    }`}
+                  />
+                  <label
+                    className={
+                      this.props.initialData.shapefile || this.state.shapefile
+                        ? "custom-file-label inactive-file-label"
+                        : "custom-file-label"
+                    }
+                  >
+                    {this.props.initialData.shapefile || this.state.shapefile
+                      ? values.name
+                        ? [values.name, ".shp"]
+                        : "Uploaded shapefile"
+                      : "Upload Shapefile"}
+                  </label>
+                  <FormText color="muted">
+                    The zipped file of the shapefile
+                  </FormText>
+                  {errors.shapefile && (
+                    <div className="invalid-feedback">{errors.shapefile}</div>
                   )}
                 </Col>
               </FormGroup>
