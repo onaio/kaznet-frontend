@@ -14,15 +14,12 @@ import {
   FormText
 } from "reactstrap";
 import moment from "moment";
-
 import RRuleGenerator from "react-rrule-generator";
 import { Redirect } from "react-router-dom";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-
 import "../LoadListAnimation.css";
 import "./TaskForm.css";
-
 import * as clientActions from "../../store/clients/actions";
 import * as locationActions from "../../store/locations/actions";
 import * as formActions from "../../store/forms/actions";
@@ -597,7 +594,7 @@ export class TaskForm extends Component {
                             <Col md="10">
                               <Field
                                 name={`taskLocations[${index}]timing_rule`}
-                                type="hidden"
+                                type=""
                                 placeholder="Timing Rule"
                                 aria-label="timing rule"
                                 className={
@@ -631,6 +628,8 @@ export class TaskForm extends Component {
                                     ? values.taskLocations[index].timing_rule
                                     : ""
                                 }
+                                isEdit={this.targetId}
+                                index={index}
                               />
                             </Col>
                           </FormGroup>
