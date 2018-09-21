@@ -2816,6 +2816,106 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                 </div>
               </FormGroup>
               <FormGroup
+                className="row"
+                tag="div"
+              >
+                <div
+                  className="row form-group"
+                >
+                  <Col
+                    sm="3"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-sm-3"
+                    >
+                      <Label
+                        for="shapefile"
+                        tag="label"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <label
+                          className=""
+                          htmlFor="shapefile"
+                        >
+                          Shapefile
+                        </label>
+                      </Label>
+                    </div>
+                  </Col>
+                  <Col
+                    md="8"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-8"
+                    >
+                      <Input
+                        accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                        aria-label="Shapefile"
+                        bsSize="lg"
+                        className="custom-file-input ml-5 "
+                        name="shapefile"
+                        onChange={[Function]}
+                        placeholder="Shapefile"
+                        type="file"
+                      >
+                        <input
+                          accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                          aria-label="Shapefile"
+                          className="custom-file-input ml-5  form-control-lg form-control-file"
+                          name="shapefile"
+                          onChange={[Function]}
+                          placeholder="Shapefile"
+                          type="file"
+                        />
+                      </Input>
+                      <label
+                        className="custom-file-label"
+                      >
+                        Upload Shapefile
+                      </label>
+                      <FormText
+                        color="muted"
+                        tag="small"
+                      >
+                        <small
+                          className="form-text text-muted"
+                        >
+                          The zipped file of the shapefile
+                        </small>
+                      </FormText>
+                    </div>
+                  </Col>
+                </div>
+              </FormGroup>
+              <FormGroup
                 className="row my-5"
                 tag="div"
               >
@@ -5902,6 +6002,106 @@ exports[`containers/location/LocationForm renders location form correctly when e
                           className="form-text text-muted"
                         >
                           The radius from the geopoint in metres
+                        </small>
+                      </FormText>
+                    </div>
+                  </Col>
+                </div>
+              </FormGroup>
+              <FormGroup
+                className="row"
+                tag="div"
+              >
+                <div
+                  className="row form-group"
+                >
+                  <Col
+                    sm="3"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-sm-3"
+                    >
+                      <Label
+                        for="shapefile"
+                        tag="label"
+                        widths={
+                          Array [
+                            "xs",
+                            "sm",
+                            "md",
+                            "lg",
+                            "xl",
+                          ]
+                        }
+                      >
+                        <label
+                          className=""
+                          htmlFor="shapefile"
+                        >
+                          Shapefile
+                        </label>
+                      </Label>
+                    </div>
+                  </Col>
+                  <Col
+                    md="8"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-8"
+                    >
+                      <Input
+                        accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                        aria-label="Shapefile"
+                        bsSize="lg"
+                        className="custom-file-input ml-5 "
+                        name="shapefile"
+                        onChange={[Function]}
+                        placeholder="Shapefile"
+                        type="file"
+                      >
+                        <input
+                          accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                          aria-label="Shapefile"
+                          className="custom-file-input ml-5  form-control-lg form-control-file"
+                          name="shapefile"
+                          onChange={[Function]}
+                          placeholder="Shapefile"
+                          type="file"
+                        />
+                      </Input>
+                      <label
+                        className="custom-file-label"
+                      >
+                        Upload Shapefile
+                      </label>
+                      <FormText
+                        color="muted"
+                        tag="small"
+                      >
+                        <small
+                          className="form-text text-muted"
+                        >
+                          The zipped file of the shapefile
                         </small>
                       </FormText>
                     </div>
