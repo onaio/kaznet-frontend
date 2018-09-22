@@ -44,10 +44,7 @@ export class Header extends Component {
 
   render() {
     const path = this.props.location.pathname;
-    let active;
-    if (path === "/locations" || path === "/locationtypes") {
-      active = "nav-link active";
-    }
+
     return (
       <header>
         <Container fluid>
@@ -85,7 +82,9 @@ export class Header extends Component {
                       caret
                       tag="span"
                       className={
-                        active === "nav-link active" ? active : "nav-link"
+                        path === "/locations" || path === "/locationtypes"
+                          ? "nav-link active"
+                          : "nav-link"
                       }
                     >
                       Locations
