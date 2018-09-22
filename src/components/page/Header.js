@@ -43,6 +43,11 @@ export class Header extends Component {
   }
 
   render() {
+    const path = this.props.location.pathname;
+    let active;
+    if (path === "/locations" || path === "/locationtypes") {
+      active = "nav-link active";
+    }
     return (
       <header>
         <Container fluid>
@@ -76,7 +81,13 @@ export class Header extends Component {
                     isOpen={this.state.dropdownOpen}
                     toggle={this.toggle}
                   >
-                    <DropdownToggle caret tag="span" className="nav-link">
+                    <DropdownToggle
+                      caret
+                      tag="span"
+                      className={
+                        active === "nav-link active" ? active : "nav-link"
+                      }
+                    >
                       Locations
                     </DropdownToggle>
                     <DropdownMenu>
