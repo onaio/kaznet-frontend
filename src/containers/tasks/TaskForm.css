@@ -41,6 +41,83 @@
   display: block;
   max-width: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.yearly.on.month"] {
+    width: 150%;
+    position: relative;
+    display: block;
+  }
+
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.yearly.on.day"] {
+    width: 200%;
+    margin-left: 30px;
+    position: relative;
+  }
+
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.yearly.onThe.which"] {
+    width: 160%;
+    margin: -3px;
+    position: relative;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    select[name="repeat.yearly.onThe.day"] {
+    width: 115%;
+    margin-left: 26px;
+    position: relative;
+  }
+
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-1 {
+    margin-left: 20px;
+    position: relative;
+  }
+
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.yearly.onThe.month"] {
+    width: 155%;
+    position: relative;
+  }
+}
+
 .tasklocation-item
   .form-group
   div.col-md-8
