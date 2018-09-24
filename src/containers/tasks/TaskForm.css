@@ -23,3 +23,9 @@
 p.text-center {
   margin: 13px 0;
 }
+.rrule-component .form-group div.month-on {
+  margin-left: -12px;
+}
+.rrule-component .form-group div.day-on {
+  margin-left: 2px;
+}
