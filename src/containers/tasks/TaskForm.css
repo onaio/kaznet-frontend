@@ -15,6 +15,43 @@
   padding: 8px 14px;
 }
 
+.tasklocation-item
+  .form-group
+  div.col-md-8
+  .pt-3
+  .px-3
+  .form-group
+  div.col-sm-1,
+.tasklocation-item
+  .form-group
+  div.col-md-8
+  .pt-3
+  .px-3
+  .form-group
+  div.col-sm-3,
+.tasklocation-item
+  .form-group
+  div.col-md-8
+  .pt-3
+  .px-3
+  .form-group
+  div.col-sm-4 {
+  width: 300px;
+  position: relative;
+  display: block;
+  max-width: 100%;
+}
+.tasklocation-item
+  .form-group
+  div.col-md-8
+  .pt-3
+  .px-3
+  .form-group
+  div.col-sm-4
+  div.form-group.m-0 {
+  flex: auto;
+  width: 240px;
+}
 .locationClose {
   top: 7px;
   right: 7px;
