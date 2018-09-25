@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { Formik, FieldArray, Field } from "formik";
 import AsyncSelect from "react-select/lib/Async";
 import {
+  Alert,
   Form,
   Input,
   Button,
@@ -198,6 +199,7 @@ export class TaskForm extends Component {
           setFieldValue
         }) => (
           <div>
+            {errors.data && <Alert color="danger">{errors.data}</Alert>}
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
                 <Col sm="12">

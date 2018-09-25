@@ -4,7 +4,7 @@ import Yup from "yup";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
+import { Alert, Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
 
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
@@ -14,7 +14,6 @@ const transformMyApiErrors = function(array) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split("/").pop();
-
     if (field === "username") {
       errors.ona_username = msg;
     }
@@ -24,45 +23,51 @@ const transformMyApiErrors = function(array) {
   return errors;
 };
 
-function getValidationSchema(values) {
-  return Yup.object().shape({
-    national_id: Yup.string().required("National ID is required."),
-    ona_username: Yup.string().required("Username is required!"),
-    password: Yup.string().required("Password is required."),
-    email: Yup.string().email("E-mail is not valid!"),
-    confirmation: Yup.string()
-      .oneOf([values.password], "Passwords don't match!")
-      .required("Password confirmation is required!")
-  });
-}
-
-function getErrorsFromValidationError(validationError) {
-  const FIRST_ERROR = 0;
-  return validationError.inner.reduce((errors, error) => {
-    return {
-      ...errors,
-      [error.path]: error.errors[FIRST_ERROR]
-    };
-  }, {});
-}
-
-function validate(getValidationSchema) {
-  return values => {
-    const validationSchema = getValidationSchema(values);
-    try {
-      validationSchema.validateSync(values, { abortEarly: false });
-      return {};
-    } catch (error) {
-      return getErrorsFromValidationError(error);
-    }
-  };
-}
-
 export class UserForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
     this.renderLink = props.redirectAfterAction;
+
+    this.getValidationSchema = this.getValidationSchema.bind(this);
+  }
+
+  getValidationSchema(values) {
+    let validator = {
+      ona_username: Yup.string().required("Username is required!"),
+      email: Yup.string()
+        .required("E-mail is required.")
+        .email("Please input a valid email address.")
+    };
+    if (!this.targetId) {
+      validator.password = Yup.string().required("Password is required.");
+      validator.confirmation = Yup.string()
+        .oneOf([values.password], "Passwords don't match!")
+        .required("Password confirmation is required!");
+    }
+    return Yup.object().shape(validator);
+  }
+
+  getErrorsFromValidationError(validationError) {
+    const FIRST_ERROR = 0;
+    return validationError.inner.reduce((errors, error) => {
+      return {
+        ...errors,
+        [error.path]: error.errors[FIRST_ERROR]
+      };
+    }, {});
+  }
+
+  validate(getValidationSchema) {
+    return values => {
+      const validationSchema = getValidationSchema(values);
+      try {
+        validationSchema.validateSync(values, { abortEarly: false });
+        return {};
+      } catch (error) {
+        return this.getErrorsFromValidationError(error);
+      }
+    };
   }
 
   redirect(link) {
@@ -73,7 +78,7 @@ export class UserForm extends Component {
     return (
       <Formik
         initialValues={this.props.initialData}
-        validate={validate(getValidationSchema)}
+        validate={this.validate(this.getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -85,10 +90,10 @@ export class UserForm extends Component {
                 role: values.role,
                 national_id: values.national_id,
                 ona_username: values.ona_username,
-                password: values.password,
+                password: this.targetId !== null ? undefined : values.password,
                 gender: values.gender,
                 expertise: values.expertise,
-                email: values.email,
+                email: this.targetId !== null ? undefined : values.email,
                 payment_number: values.payment_number,
                 phone_number: values.phone_number
               }
@@ -96,7 +101,7 @@ export class UserForm extends Component {
           };
 
           try {
-            this.props.formActionDispatch(payload).then(() => {
+            this.props.formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
@@ -119,6 +124,7 @@ export class UserForm extends Component {
           setStatus
         }) => (
           <div>
+            {errors.data && <Alert color="danger">{errors.data}</Alert>}
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
                 <Col sm="6">
@@ -158,39 +164,53 @@ export class UserForm extends Component {
                 <Col md="3">
                   <Label for="role">Role</Label>
                 </Col>
-                <Col md="3">
+                <Col md="9">
                   <Input
                     name="role"
-                    type="radio"
-                    aria-label="admin"
+                    type="select"
+                    bsSize="lg"
+                    placeholder="Role"
+                    aria-label="role"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    checked={values.role === "1"}
-                    value="1"
+                    value={values.role != null ? values.role : "1"}
                     className={errors.role ? "is-invalid" : ""}
-                  />{" "}
-                  Admin
-                </Col>
-                <Col md="3">
-                  <Input
-                    name="role"
-                    type="radio"
-                    aria-label="contributor"
-                    checked={values.role === "2"}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value="2"
-                    className={errors.role ? "is-invalid" : ""}
-                  />{" "}
-                  Contributor
+                  >
+                    <option value="2">Contributor</option>
+                    <option value="1">Admin</option>
+                  </Input>
+                  {errors.role && (
+                    <div className="invalid-feedback">{errors.role}</div>
+                  )}
                 </Col>
               </FormGroup>
-              {errors.role && (
-                <div className="invalid-feedback">{errors.role}</div>
-              )}
+
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="national_id">National ID*</Label>
+                  <Label for="ona_username">Username*</Label>
+                </Col>
+                <Col md="9">
+                  <Input
+                    name="ona_username"
+                    type="text"
+                    aria-label="ona_username"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.ona_username}
+                    className={errors.ona_username ? "is-invalid" : ""}
+                    disabled={this.targetId != null ? true : false}
+                  />
+                  {errors.ona_username && (
+                    <div className="invalid-feedback">
+                      {errors.ona_username}
+                    </div>
+                  )}
+                </Col>
+              </FormGroup>
+
+              <FormGroup className="row">
+                <Col md="3">
+                  <Label for="national_id">National ID</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -207,67 +227,53 @@ export class UserForm extends Component {
                   )}
                 </Col>
               </FormGroup>
-              <FormGroup className="row">
-                <Col md="3">
-                  <Label for="ona_username">Username*</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="ona_username"
-                    type="text"
-                    aria-label="ona_username"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.ona_username}
-                    className={errors.ona_username ? "is-invalid" : ""}
-                  />
-                  {errors.ona_username && (
-                    <div className="invalid-feedback">
-                      {errors.ona_username}
-                    </div>
-                  )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col md="3">
-                  <Label for="password">Password*</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="password"
-                    type="password"
-                    aria-label="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    className={errors.password ? "is-invalid" : ""}
-                  />
-                  {errors.password && (
-                    <div className="invalid-feedback">{errors.password}</div>
-                  )}
-                </Col>
-              </FormGroup>
-              <FormGroup className="row">
-                <Col md="3">
-                  <Label for="confirmation">Confirm Password*</Label>
-                </Col>
-                <Col md="9">
-                  <Input
-                    name="confirmation"
-                    type="password"
-                    aria-label="confirmation"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.confirmation}
-                    className={errors.confirmation ? "is-invalid" : ""}
-                  />
-                  {errors.confirmation && (
-                    <div className="invalid-feedback">
-                      {errors.confirmation}
-                    </div>
-                  )}
-                </Col>
-              </FormGroup>
+
+              {this.targetId === null && (
+                <div>
+                  <FormGroup className="row">
+                    <Col md="3">
+                      <Label for="password">Password*</Label>
+                    </Col>
+                    <Col md="9">
+                      <Input
+                        name="password"
+                        type="password"
+                        aria-label="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        className={errors.password ? "is-invalid" : ""}
+                      />
+                      {errors.password && (
+                        <div className="invalid-feedback">
+                          {errors.password}
+                        </div>
+                      )}
+                    </Col>
+                  </FormGroup>
+                  <FormGroup className="row">
+                    <Col md="3">
+                      <Label for="confirmation">Confirm Password*</Label>
+                    </Col>
+                    <Col md="9">
+                      <Input
+                        name="confirmation"
+                        type="password"
+                        aria-label="confirmation"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.confirmation}
+                        className={errors.confirmation ? "is-invalid" : ""}
+                      />
+                      {errors.confirmation && (
+                        <div className="invalid-feedback">
+                          {errors.confirmation}
+                        </div>
+                      )}
+                    </Col>
+                  </FormGroup>
+                </div>
+              )}
 
               <h4 className="title"> DETAILS </h4>
 
@@ -275,49 +281,28 @@ export class UserForm extends Component {
                 <Col md="3">
                   <Label for="gender">Gender</Label>
                 </Col>
-                <Col md="2">
+                <Col md="9">
                   <Input
                     name="gender"
-                    type="radio"
-                    aria-label="male"
+                    type="select"
+                    bsSize="lg"
+                    placeholder="Gender"
+                    aria-label="role"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value="0"
-                    checked={values.gender === "0"}
+                    value={values.gender != null ? values.gender : "0"}
                     className={errors.gender ? "is-invalid" : ""}
-                  />{" "}
-                  Male
-                </Col>
-                <Col md="2">
-                  <Input
-                    name="gender"
-                    type="radio"
-                    aria-label="female"
-                    onChange={handleChange}
-                    value="1"
-                    checked={values.gender === "1"}
-                    onBlur={handleBlur}
-                    className={errors.gender ? "is-invalid" : ""}
-                  />{" "}
-                  Female
-                </Col>
-                <Col md="2">
-                  <Input
-                    name="gender"
-                    type="radio"
-                    aria-label="other"
-                    onChange={handleChange}
-                    value="2"
-                    checked={values.gender === "2"}
-                    onBlur={handleBlur}
-                    className={errors.gender ? "is-invalid" : ""}
-                  />{" "}
-                  Other
+                  >
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">Other</option>
+                  </Input>
+                  {errors.gender && (
+                    <div className="invalid-feedback">{errors.gender}</div>
+                  )}
                 </Col>
               </FormGroup>
-              {errors.role && (
-                <div className="invalid-feedback">{errors.role}</div>
-              )}
+
               <FormGroup className="row">
                 <Col md="3">
                   <Label for="address">Address</Label>
@@ -339,7 +324,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
-                  <Label for="experties">Level of experties</Label>
+                  <Label for="experties">Level of expertise</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -365,7 +350,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="email">Email</Label>
+                  <Label for="email">Email*</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -376,6 +361,7 @@ export class UserForm extends Component {
                     onBlur={handleBlur}
                     value={values.email}
                     className={errors.email ? "is-invalid" : ""}
+                    disabled={this.targetId != null ? true : false}
                   />
                   {errors.email && (
                     <div className="invalid-feedback">{errors.email}</div>
@@ -444,14 +430,12 @@ export class UserForm extends Component {
                     className="btn btn-primary btn-block"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Creating" : "Add User"}
+                    {isSubmitting ? "Saving" : "Save User"}
                   </Button>
                 </Col>
               </FormGroup>
             </Form>
-            {status === "done" && (
-              <Redirect to={this.props.redirectAfterAction} />
-            )}
+            {status === "done" && <Redirect to={"/users"} />}
           </div>
         )}
       />

@@ -31,14 +31,22 @@ export class Header extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.toggleUser = this.toggleUser.bind(this);
     this.state = {
-      dropdownOpen: false
+      dropDownOpen: false,
+      userDropDownOpen: false
     };
   }
 
   toggle() {
     this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
+      dropDownOpen: !prevState.dropDownOpen
+    }));
+  }
+
+  toggleUser() {
+    this.setState(prevState => ({
+      userDropDownOpen: !prevState.userDropDownOpen
     }));
   }
 
@@ -75,7 +83,7 @@ export class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <Dropdown
-                    isOpen={this.state.dropdownOpen}
+                    isOpen={this.state.dropDownOpen}
                     toggle={this.toggle}
                   >
                     <DropdownToggle
@@ -123,16 +131,45 @@ export class Header extends Component {
               </Nav>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <img
-                    src={
-                      this.props.getCurrentUser &&
-                      this.props.getCurrentUser.attributes.metadata.gravatar
-                        ? this.props.getCurrentUser.attributes.metadata.gravatar
-                        : profile_image
-                    }
-                    className="img-fluid rounded-circle userprofile-img"
-                    alt="profile"
-                  />
+                  <Dropdown
+                    isOpen={this.state.userDropDownOpen}
+                    toggle={this.toggleUser}
+                    size="sm"
+                  >
+                    <DropdownToggle tag="span" className="toggle-user">
+                      <img
+                        src={
+                          this.props.getCurrentUser &&
+                          this.props.getCurrentUser.attributes &&
+                          this.props.getCurrentUser.attributes.metadata.gravatar
+                            ? this.props.getCurrentUser.attributes.metadata
+                                .gravatar
+                            : profile_image
+                        }
+                        className="img-fluid rounded-circle userprofile-img"
+                        alt="profile"
+                      />
+                    </DropdownToggle>
+                    {this.props.getCurrentUser &&
+                      this.props.getCurrentUser.id && (
+                        <DropdownMenu right>
+                          <DropdownItem>
+                            <NavLink
+                              to={`/users/${this.props.getCurrentUser.id}`}
+                              className="nav-link"
+                              activeClassName="active"
+                            >
+                              View Profile
+                            </NavLink>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <a href="/accounts/logout" className="nav-link">
+                              Log Out
+                            </a>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      )}
+                  </Dropdown>
                 </NavItem>
               </Nav>
             </Collapse>

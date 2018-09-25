@@ -50,17 +50,21 @@ export default function reduce(state = initialState, action = {}) {
           [action.userData.id]: action.userData
         }
       });
-    case types.CURRENT_USER_FETCHTED:
-      return Immutable({
-        ...state,
-        currentUser: {
-          ...state.currentUser,
-          [action.userData.id]: action.userData
-        }
+    case types.CURRENT_USER_FETCHED:
+      return state.merge({
+        currentUser: action.userData
       });
     case types.USER_DELETED:
       const newUsersById = _.omit(state.usersById, action.userId);
       return state.set("usersById", newUsersById);
+    case types.USER_EDITED:
+      return Immutable({
+        ...state,
+        usersById: {
+          ...state.usersById,
+          [action.userData.id]: action.userData
+        }
+      });
     default:
       return state;
   }
@@ -84,11 +88,11 @@ export function getPageLinks(state, props) {
   return state.users.pageLinks;
 }
 
-export function getCurrentPage(state, porseps) {
+export function getCurrentPage(state, props) {
   return state.users.currentPage;
 }
 
-export function getTotalPages(state, porseps) {
+export function getTotalPages(state, props) {
   return state.users.totalPages;
 }
 
@@ -114,5 +118,6 @@ export function getTotalCount(state, porseps) {
   return state.users.totalCount;
 }
 export function getCurrentUser(state, props) {
-  return _.values(state.users.currentUser)[0];
+  // return _.values(state.users.currentUser)[0];
+  return state.users.currentUser;
 }

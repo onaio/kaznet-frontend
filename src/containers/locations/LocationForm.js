@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import AsyncSelect from "react-select/lib/Async";
 import {
+  Alert,
   Form,
   FormGroup,
   Col,
@@ -156,6 +157,7 @@ export class LocationForm extends Component {
           setFieldValue
         }) => (
           <div>
+            {errors.data && <Alert color="danger">{errors.data}</Alert>}
             <Form onSubmit={handleSubmit} encType="multipart/form-data">
               <FormGroup className="row">
                 <Col sm="12">

@@ -111,6 +111,7 @@ export const usersArray = _.map(userData.data, user => {
 export const usersById = _.keyBy(usersArray, user => user.id);
 
 export const userById = _.get(usersById, 1);
+export const singleUser = _.get(usersById, 1);
 
 export const usersIdArray = _.keys(usersById);
 

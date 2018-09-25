@@ -24,6 +24,7 @@ describe("containers/users/UsersList", () => {
         taskStatus={""}
         location={history.location}
         rowsIdArray={fixtures.usersIdArray}
+        location={history.location}
       />
     );
   });

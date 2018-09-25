@@ -3,8 +3,9 @@ import * as types from "./actionTypes";
 import userService from "../../services/users";
 import exportService from "../../services/exports";
 import * as errorHandlerTypes from "../errorHandler/actionTypes";
+import * as constants from "../../constants";
 
-export function fetchUsers(url) {
+export function fetchUsers(url = `${constants.API_ENDPOINT}/userprofiles/`) {
   return async (dispatch, getState) => {
     try {
       const {
@@ -46,11 +47,26 @@ export function createUser(user_data) {
   };
 }
 
-export function changePageNumber(pageNumber) {
+export function editUser(user_data, id) {
   return async (dispatch, getState) => {
-    dispatch({ type: types.USER_CHANGE_PAGE, pageNumber });
+    try {
+      const userData = await userService.editUser(user_data, id);
+      dispatch({
+        type: errorHandlerTypes.REQUEST_SUCCESS
+      });
+      dispatch({
+        type: types.USER_EDITED,
+        userData
+      });
+    } catch (error) {
+      dispatch({
+        type: errorHandlerTypes.REQUEST_FAILURE,
+        errorMessage: error
+      });
+    }
   };
 }
+
 // fetch a specific user
 export function fetchUser(id) {
   return async (dispatch, getState) => {
@@ -69,6 +85,12 @@ export function fetchUser(id) {
         errorMessage: error
       });
     }
+  };
+}
+
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({ type: types.USER_CHANGE_PAGE, pageNumber });
   };
 }
 
@@ -112,7 +134,7 @@ export function exportSubmissions(filter_dict, name = null) {
     }
   };
 }
-// fetch currently loggend in user
+// fetch currently logged in user
 export function fetchLoggedInUser() {
   return async (dispatch, getState) => {
     try {
@@ -121,7 +143,7 @@ export function fetchLoggedInUser() {
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
       dispatch({
-        type: types.CURRENT_USER_FETCHTED,
+        type: types.CURRENT_USER_FETCHED,
         userData
       });
     } catch (error) {

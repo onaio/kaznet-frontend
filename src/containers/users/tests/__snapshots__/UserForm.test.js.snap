@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
+exports[`containers/users/UserForm renders user form correctly 1`] = `
 <UserForm
   formActionDispatch={[Function]}
   initialData={
@@ -189,135 +189,6 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Input
-                    aria-label="admin"
-                    checked={false}
-                    className=""
-                    name="role"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="1"
-                  >
-                    <input
-                      aria-label="admin"
-                      checked={false}
-                      className="form-check-input"
-                      name="role"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="1"
-                    />
-                  </Input>
-                   
-                  Admin
-                </div>
-              </Col>
-              <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Input
-                    aria-label="contributor"
-                    checked={false}
-                    className=""
-                    name="role"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="2"
-                  >
-                    <input
-                      aria-label="contributor"
-                      checked={false}
-                      className="form-check-input"
-                      name="role"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="2"
-                    />
-                  </Input>
-                   
-                  Contributor
-                </div>
-              </Col>
-            </div>
-          </FormGroup>
-          <FormGroup
-            className="row"
-            tag="div"
-          >
-            <div
-              className="row form-group"
-            >
-              <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Label
-                    for="national_id"
-                    tag="label"
-                    widths={
-                      Array [
-                        "xs",
-                        "sm",
-                        "md",
-                        "lg",
-                        "xl",
-                      ]
-                    }
-                  >
-                    <label
-                      className=""
-                      htmlFor="national_id"
-                    >
-                      National ID*
-                    </label>
-                  </Label>
-                </div>
-              </Col>
-              <Col
                 md="9"
                 tag="div"
                 widths={
@@ -334,23 +205,36 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   className="col-md-9"
                 >
                   <Input
-                    aria-label="national_id"
+                    aria-label="role"
+                    bsSize="lg"
                     className=""
-                    name="national_id"
+                    name="role"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    type="text"
-                    value="30090087"
+                    placeholder="Role"
+                    type="select"
+                    value="Admin"
                   >
-                    <input
-                      aria-label="national_id"
-                      className="form-control"
-                      name="national_id"
+                    <select
+                      aria-label="role"
+                      className="form-control-lg form-control"
+                      name="role"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="text"
-                      value="30090087"
-                    />
+                      placeholder="Role"
+                      value="Admin"
+                    >
+                      <option
+                        value="2"
+                      >
+                        Contributor
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Admin
+                      </option>
+                    </select>
                   </Input>
                 </div>
               </Col>
@@ -420,6 +304,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   <Input
                     aria-label="ona_username"
                     className=""
+                    disabled={false}
                     name="ona_username"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -429,6 +314,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                     <input
                       aria-label="ona_username"
                       className="form-control"
+                      disabled={false}
                       name="ona_username"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -464,7 +350,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   className="col-md-3"
                 >
                   <Label
-                    for="password"
+                    for="national_id"
                     tag="label"
                     widths={
                       Array [
@@ -478,9 +364,9 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   >
                     <label
                       className=""
-                      htmlFor="password"
+                      htmlFor="national_id"
                     >
-                      Password*
+                      National ID
                     </label>
                   </Label>
                 </div>
@@ -502,112 +388,198 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   className="col-md-9"
                 >
                   <Input
-                    aria-label="password"
+                    aria-label="national_id"
                     className=""
-                    name="password"
+                    name="national_id"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    type="password"
-                    value="hello123"
+                    type="text"
+                    value="30090087"
                   >
                     <input
-                      aria-label="password"
+                      aria-label="national_id"
                       className="form-control"
+                      name="national_id"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="text"
+                      value="30090087"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <div>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
+              >
+                <Col
+                  md="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-3"
+                  >
+                    <Label
+                      for="password"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="password"
+                      >
+                        Password*
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
+                      aria-label="password"
+                      className=""
                       name="password"
                       onBlur={[Function]}
                       onChange={[Function]}
                       type="password"
                       value="hello123"
-                    />
-                  </Input>
-                </div>
-              </Col>
-            </div>
-          </FormGroup>
-          <FormGroup
-            className="row"
-            tag="div"
-          >
-            <div
-              className="row form-group"
-            >
-              <Col
-                md="3"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-3"
-                >
-                  <Label
-                    for="confirmation"
-                    tag="label"
-                    widths={
-                      Array [
-                        "xs",
-                        "sm",
-                        "md",
-                        "lg",
-                        "xl",
-                      ]
-                    }
-                  >
-                    <label
-                      className=""
-                      htmlFor="confirmation"
                     >
-                      Confirm Password*
-                    </label>
-                  </Label>
-                </div>
-              </Col>
-              <Col
-                md="9"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
+                      <input
+                        aria-label="password"
+                        className="form-control"
+                        name="password"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="password"
+                        value="hello123"
+                      />
+                    </Input>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+            <FormGroup
+              className="row"
+              tag="div"
+            >
+              <div
+                className="row form-group"
               >
-                <div
-                  className="col-md-9"
+                <Col
+                  md="3"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
                 >
-                  <Input
-                    aria-label="confirmation"
-                    className=""
-                    name="confirmation"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="password"
-                    value="hello123"
+                  <div
+                    className="col-md-3"
                   >
-                    <input
+                    <Label
+                      for="confirmation"
+                      tag="label"
+                      widths={
+                        Array [
+                          "xs",
+                          "sm",
+                          "md",
+                          "lg",
+                          "xl",
+                        ]
+                      }
+                    >
+                      <label
+                        className=""
+                        htmlFor="confirmation"
+                      >
+                        Confirm Password*
+                      </label>
+                    </Label>
+                  </div>
+                </Col>
+                <Col
+                  md="9"
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                >
+                  <div
+                    className="col-md-9"
+                  >
+                    <Input
                       aria-label="confirmation"
-                      className="form-control"
+                      className=""
                       name="confirmation"
                       onBlur={[Function]}
                       onChange={[Function]}
                       type="password"
                       value="hello123"
-                    />
-                  </Input>
-                </div>
-              </Col>
-            </div>
-          </FormGroup>
+                    >
+                      <input
+                        aria-label="confirmation"
+                        className="form-control"
+                        name="confirmation"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="password"
+                        value="hello123"
+                      />
+                    </Input>
+                  </div>
+                </Col>
+              </div>
+            </FormGroup>
+          </div>
           <h4
             className="title"
           >
@@ -659,7 +631,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                 </div>
               </Col>
               <Col
-                md="2"
+                md="9"
                 tag="div"
                 widths={
                   Array [
@@ -672,113 +644,45 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                 }
               >
                 <div
-                  className="col-md-2"
+                  className="col-md-9"
                 >
                   <Input
-                    aria-label="male"
-                    checked={false}
+                    aria-label="role"
+                    bsSize="lg"
                     className=""
                     name="gender"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    type="radio"
-                    value="0"
+                    placeholder="Gender"
+                    type="select"
+                    value="male"
                   >
-                    <input
-                      aria-label="male"
-                      checked={false}
-                      className="form-check-input"
+                    <select
+                      aria-label="role"
+                      className="form-control-lg form-control"
                       name="gender"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      type="radio"
-                      value="0"
-                    />
+                      placeholder="Gender"
+                      value="male"
+                    >
+                      <option
+                        value="0"
+                      >
+                        Male
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Female
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        Other
+                      </option>
+                    </select>
                   </Input>
-                   
-                  Male
-                </div>
-              </Col>
-              <Col
-                md="2"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-2"
-                >
-                  <Input
-                    aria-label="female"
-                    checked={false}
-                    className=""
-                    name="gender"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="1"
-                  >
-                    <input
-                      aria-label="female"
-                      checked={false}
-                      className="form-check-input"
-                      name="gender"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="1"
-                    />
-                  </Input>
-                   
-                  Female
-                </div>
-              </Col>
-              <Col
-                md="2"
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <div
-                  className="col-md-2"
-                >
-                  <Input
-                    aria-label="other"
-                    checked={false}
-                    className=""
-                    name="gender"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="radio"
-                    value="2"
-                  >
-                    <input
-                      aria-label="other"
-                      checked={false}
-                      className="form-check-input"
-                      name="gender"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="2"
-                    />
-                  </Input>
-                   
-                  Other
                 </div>
               </Col>
             </div>
@@ -904,7 +808,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       className=""
                       htmlFor="experties"
                     >
-                      Level of experties
+                      Level of expertise
                     </label>
                   </Label>
                 </div>
@@ -1011,7 +915,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       className=""
                       htmlFor="email"
                     >
-                      Email
+                      Email*
                     </label>
                   </Label>
                 </div>
@@ -1035,6 +939,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                   <Input
                     aria-label="email"
                     className=""
+                    disabled={false}
                     name="email"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -1044,6 +949,7 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                     <input
                       aria-label="email"
                       className="form-control"
+                      disabled={false}
                       name="email"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -1306,7 +1212,1064 @@ exports[`containers/tasks/TaskForm renders task form correctly 1`] = `
                       onClick={[Function]}
                       type="submit"
                     >
-                      Add User
+                      Save User
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+        </form>
+      </Form>
+    </div>
+  </Formik>
+</UserForm>
+`;
+
+exports[`containers/users/UserForm renders user form correctly when doing an edit 1`] = `
+<UserForm
+  formActionDispatch={[Function]}
+  initialData={
+    Object {
+      "confirmation": "hello123",
+      "email": "kamau@gmail.com",
+      "expertise": "Intermediate",
+      "first_name": "kamau",
+      "gender": "male",
+      "last_name": "kahama",
+      "national_id": "30090087",
+      "ona_username": "kahama",
+      "password": "hello123",
+      "payment_number": "",
+      "phone_number": "",
+      "role": "Admin",
+    }
+  }
+  targetId={1337}
+>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "confirmation": "hello123",
+        "email": "kamau@gmail.com",
+        "expertise": "Intermediate",
+        "first_name": "kamau",
+        "gender": "male",
+        "last_name": "kahama",
+        "national_id": "30090087",
+        "ona_username": "kahama",
+        "password": "hello123",
+        "payment_number": "",
+        "phone_number": "",
+        "role": "Admin",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validate={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  >
+    <div>
+      <Form
+        onSubmit={[Function]}
+        tag="form"
+      >
+        <form
+          className=""
+          onSubmit={[Function]}
+        >
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-6"
+                >
+                  <Input
+                    aria-label="last_name"
+                    bsSize="lg"
+                    className=""
+                    name="last_name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Last Name"
+                    type="text"
+                    value="kahama"
+                  >
+                    <input
+                      aria-label="last_name"
+                      className="form-control-lg form-control"
+                      name="last_name"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Last Name"
+                      type="text"
+                      value="kahama"
+                    />
+                  </Input>
+                </div>
+              </Col>
+              <Col
+                sm="6"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-6"
+                >
+                  <Input
+                    aria-label="first_name"
+                    bsSize="lg"
+                    className=""
+                    name="first_name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="First Name"
+                    type="text"
+                    value="kamau"
+                  >
+                    <input
+                      aria-label="first_name"
+                      className="form-control-lg form-control"
+                      name="first_name"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="First Name"
+                      type="text"
+                      value="kamau"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="role"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="role"
+                    >
+                      Role
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="role"
+                    bsSize="lg"
+                    className=""
+                    name="role"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Role"
+                    type="select"
+                    value="Admin"
+                  >
+                    <select
+                      aria-label="role"
+                      className="form-control-lg form-control"
+                      name="role"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Role"
+                      value="Admin"
+                    >
+                      <option
+                        value="2"
+                      >
+                        Contributor
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Admin
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="ona_username"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="ona_username"
+                    >
+                      Username*
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="ona_username"
+                    className=""
+                    disabled={true}
+                    name="ona_username"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value="kahama"
+                  >
+                    <input
+                      aria-label="ona_username"
+                      className="form-control"
+                      disabled={true}
+                      name="ona_username"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="text"
+                      value="kahama"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="national_id"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="national_id"
+                    >
+                      National ID
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="national_id"
+                    className=""
+                    name="national_id"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value="30090087"
+                  >
+                    <input
+                      aria-label="national_id"
+                      className="form-control"
+                      name="national_id"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="text"
+                      value="30090087"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <h4
+            className="title"
+          >
+             DETAILS 
+          </h4>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="gender"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="gender"
+                    >
+                      Gender
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="role"
+                    bsSize="lg"
+                    className=""
+                    name="gender"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Gender"
+                    type="select"
+                    value="male"
+                  >
+                    <select
+                      aria-label="role"
+                      className="form-control-lg form-control"
+                      name="gender"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Gender"
+                      value="male"
+                    >
+                      <option
+                        value="0"
+                      >
+                        Male
+                      </option>
+                      <option
+                        value="1"
+                      >
+                        Female
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        Other
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="address"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="address"
+                    >
+                      Address
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="address"
+                    className=""
+                    name="address"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="textarea"
+                  >
+                    <textarea
+                      aria-label="address"
+                      className="form-control"
+                      name="address"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                sm="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-sm-3"
+                >
+                  <Label
+                    for="experties"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="experties"
+                    >
+                      Level of expertise
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="required expertise"
+                    bsSize="lg"
+                    className=""
+                    name="expertise"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Expertise"
+                    type="select"
+                    value="Intermediate"
+                  >
+                    <select
+                      aria-label="required expertise"
+                      className="form-control-lg form-control"
+                      name="expertise"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Expertise"
+                      value="Intermediate"
+                    >
+                      <option
+                        value="1"
+                      >
+                        Beginner
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        Intermediate
+                      </option>
+                      <option
+                        value="3"
+                      >
+                        Advanced
+                      </option>
+                      <option
+                        value="4"
+                      >
+                        Expert
+                      </option>
+                    </select>
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="email"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="email"
+                    >
+                      Email*
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="email"
+                    className=""
+                    disabled={true}
+                    name="email"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="email"
+                    value="kamau@gmail.com"
+                  >
+                    <input
+                      aria-label="email"
+                      className="form-control"
+                      disabled={true}
+                      name="email"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="email"
+                      value="kamau@gmail.com"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="payment_no"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="payment_no"
+                    >
+                      MPESA No.
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="payment_number"
+                    className=""
+                    name="payment_number"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="+254 722 000 000"
+                    type="text"
+                    value=""
+                  >
+                    <input
+                      aria-label="payment_number"
+                      className="form-control"
+                      name="payment_number"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="+254 722 000 000"
+                      type="text"
+                      value=""
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row"
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <Col
+                md="3"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-3"
+                >
+                  <Label
+                    for="number"
+                    tag="label"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <label
+                      className=""
+                      htmlFor="number"
+                    >
+                      Mobile number
+                    </label>
+                  </Label>
+                </div>
+              </Col>
+              <Col
+                md="9"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-9"
+                >
+                  <Input
+                    aria-label="phone_number"
+                    className=""
+                    name="phone_number"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="+254 722 000 000"
+                    type="text"
+                    value=""
+                  >
+                    <input
+                      aria-label="phone_number"
+                      className="form-control"
+                      name="phone_number"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="+254 722 000 000"
+                      type="text"
+                      value=""
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            className="row my-5"
+            tag="div"
+          >
+            <div
+              className="row my-5 form-group"
+            >
+              <Col
+                md={
+                  Object {
+                    "offset": 1,
+                    "size": 5,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5 offset-md-1"
+                >
+                  <Button
+                    className="btn btn-secondary btn-block"
+                    color="secondary"
+                    onClick={[Function]}
+                    tag="button"
+                  >
+                    <button
+                      className="btn btn-secondary btn-block btn btn-secondary"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                       
+                      Cancel
+                       
+                    </button>
+                  </Button>
+                </div>
+              </Col>
+              <Col
+                md={
+                  Object {
+                    "size": 5,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5"
+                >
+                  <Button
+                    className="btn btn-primary btn-block"
+                    color="secondary"
+                    disabled={false}
+                    tag="button"
+                    type="submit"
+                  >
+                    <button
+                      className="btn btn-primary btn-block btn btn-secondary"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Save User
                     </button>
                   </Button>
                 </div>

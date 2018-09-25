@@ -4,6 +4,7 @@ import { shallow } from "enzyme";
 import { UserCreateForm } from "../UserCreateForm";
 import FormView from "../../../components/FormView";
 import UserForm from "../UserForm";
+import * as constants from "../../../constants";
 
 describe("containers/task/TaskCreateForm", () => {
   it("renders without crashing", () => {
@@ -18,8 +19,8 @@ describe("containers/task/TaskCreateForm", () => {
       password: "",
       confirmation: "",
       gender: "",
-      role: "",
-      expertise: "",
+      role: constants.CONTRIBUTOR_ROLE,
+      expertise: constants.BEGINNER,
       national_id: "",
       payment_number: "",
       phone_number: "",

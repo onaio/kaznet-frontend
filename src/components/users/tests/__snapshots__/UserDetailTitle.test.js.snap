@@ -106,6 +106,46 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                 davisraym
               </h1>
                 
+              <Col
+                md="12"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-12"
+                >
+                  <Row
+                    className="kaznet-action-links"
+                    tag="div"
+                  >
+                    <div
+                      className="kaznet-action-links row"
+                    >
+                      <Link
+                        className="action-link"
+                        replace={false}
+                        to="/users/1/edit"
+                      >
+                        <a
+                          className="action-link"
+                          href="/users/1/edit"
+                          onClick={[Function]}
+                        >
+                          EDIT
+                        </a>
+                      </Link>
+                    </div>
+                  </Row>
+                </div>
+              </Col>
             </div>
           </div>
         </Col>

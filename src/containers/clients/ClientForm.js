@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import {
+  Alert,
   Form,
   FormGroup,
   Col,
@@ -88,6 +89,7 @@ export class ClientForm extends Component {
           setStatus
         }) => (
           <div>
+            {errors.data && <Alert color="danger">{errors.data}</Alert>}
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
                 <Col sm="12">
