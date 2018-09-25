@@ -56,8 +56,8 @@ describe("components/ListView", () => {
           currentPage={currentPage}
           searchVal={"test"}
           taskStatus={"2"}
-          sortField={constants.TASK_SORT_ATTRIBUTE}
-          sortOrder={constants.SORT_DESC}
+          sortField={sortField}
+          sortOrder={sortOrder}
         />
       </Router>
     );
