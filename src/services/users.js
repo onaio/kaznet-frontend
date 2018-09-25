@@ -122,7 +122,7 @@ class UserService {
 
     if (!response.ok) {
       throw new Error(
-        `userService getUser failed, HTTP status ${response.status}`
+        `UserService getUser failed, HTTP status ${response.status}`
       );
     }
 
