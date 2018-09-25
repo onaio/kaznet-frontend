@@ -49,9 +49,44 @@
     .pt-3
     .px-3
     .form-group
+    div.col-sm-1
+    input[name="repeat.yearly.mode"] {
+    margin-left: 40px;
+    margin-top: -6px;
+    position: absolute;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-1
+    input[name="repeat.monthly.mode"] {
+    margin-left: 40px;
+    margin-top: -6px;
+    position: absolute;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    .row
+    .d-flex
+    .align-items-sm-center {
+    margin-left: -67px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
     div.col-sm-2
     select[name="repeat.yearly.on.month"] {
-    width: 150%;
+    width: 209%;
     position: relative;
     display: block;
   }
@@ -64,8 +99,21 @@
     .form-group
     div.col-sm-2
     select[name="repeat.yearly.on.day"] {
-    width: 200%;
-    margin-left: 30px;
+    width: 250%;
+    margin-left: 33px;
+    position: relative;
+  }
+
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    input[name="repeat.monthly.interval"] {
+    width: 70%;
+    margin-left: 42px;
     position: relative;
   }
 
@@ -77,7 +125,7 @@
     .form-group
     div.col-sm-2
     select[name="repeat.yearly.onThe.which"] {
-    width: 160%;
+    width: 210%;
     margin: -3px;
     position: relative;
   }
@@ -89,9 +137,72 @@
     .form-group
     div.col-sm-3
     select[name="repeat.yearly.onThe.day"] {
-    width: 115%;
-    margin-left: 26px;
+    width: 165%;
+    margin-left: 30px;
     position: relative;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    input[name="repeat.monthly.interval"] {
+    width: 175%;
+    margin-left: 11px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    input[name="repeat.daily.interval"] {
+    width: 150%;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    input[name="repeat.hourly.interval"] {
+    width: 150%;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.monthly.on.day"] {
+    width: 100px;
+    margin-left: -8px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.monthly.onThe.which"] {
+    width: 204%;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    select[name="repeat.monthly.onThe.day"] {
+    width: 164%;
+    margin-left: 26px;
   }
 
   .tasklocation-item
@@ -101,7 +212,7 @@
     .px-3
     .form-group
     div.col-sm-1 {
-    margin-left: 20px;
+    margin-left: 50px;
     position: relative;
   }
 
@@ -113,8 +224,30 @@
     .form-group
     div.col-sm-2
     select[name="repeat.yearly.onThe.month"] {
-    width: 155%;
+    width: 220%;
     position: relative;
+    margin-left: -10px;
+    margin-top: 10px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    select[name="end.mode"] {
+    width: 120%;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    input[name="end.onDate.date"] {
+    width: 150%;
   }
 }
 
