@@ -83,7 +83,7 @@ export class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <Dropdown
-                    isOpen={this.state.dropdownOpen}
+                    isOpen={this.state.dropDownOpen}
                     toggle={this.toggle}
                   >
                     <DropdownToggle
@@ -150,7 +150,6 @@ export class Header extends Component {
                         alt="profile"
                       />
                     </DropdownToggle>
-                    {console.log(this.props.getCurrentUser)}
                     {this.props.getCurrentUser &&
                       this.props.getCurrentUser.id && (
                         <DropdownMenu right>
