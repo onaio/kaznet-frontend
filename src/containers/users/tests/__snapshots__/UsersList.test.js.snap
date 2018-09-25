@@ -158,6 +158,8 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
         }
         searchVal=""
         setUserDetails={[Function]}
+        sortField="modified"
+        sortOrder="desc"
         totalPages={2}
         userName={null}
       >

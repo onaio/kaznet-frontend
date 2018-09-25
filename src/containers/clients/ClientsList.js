@@ -34,7 +34,9 @@ export class ClientsList extends Component {
       pageNumber = 1;
     }
     await this.props.fetchClients(
-      `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+      `${constants.API_ENDPOINT}/clients/?ordering=${
+        constants.TASK_SORT_FIELD
+      }&search=${search}&page=${pageNumber}`
     );
     this.props.changePageNumber(pageNumber);
   }
@@ -48,7 +50,9 @@ export class ClientsList extends Component {
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchClients(
-        `${constants.API_ENDPOINT}/clients/?search=${search}&page=${pageNumber}`
+        `${constants.API_ENDPOINT}/clients/?ordering=${
+          constants.TASK_SORT_FIELD
+        }&search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
@@ -83,6 +87,8 @@ export class ClientsList extends Component {
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
           searchVal={this.props.searchParam}
+          sortField={constants.TASK_SORT_ATTRIBUTE}
+          sortOrder={constants.SORT_DESC}
         />
       </div>
     );
