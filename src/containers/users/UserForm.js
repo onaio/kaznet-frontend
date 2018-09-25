@@ -4,7 +4,7 @@ import Yup from "yup";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
+import { Alert, Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
 
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
@@ -14,7 +14,6 @@ const transformMyApiErrors = function(array) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split("/").pop();
-
     if (field === "username") {
       errors.ona_username = msg;
     }
@@ -125,6 +124,7 @@ export class UserForm extends Component {
           setStatus
         }) => (
           <div>
+            {errors.data && <Alert color="danger">{errors.data}</Alert>}
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
                 <Col sm="6">
