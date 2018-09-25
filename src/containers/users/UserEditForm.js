@@ -34,7 +34,9 @@ export class UserEditForm extends Component {
         this.user.attributes.expertise !== null
           ? this.user.attributes.expertise
           : "",
-      national_id: this.user.attributes.national_id,
+      national_id: this.user.attributes.national_id
+        ? this.user.attributes.national_id
+        : "",
       payment_number:
         this.user.attributes.payment_number !== null
           ? this.user.attributes.payment_number

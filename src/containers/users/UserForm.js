@@ -4,7 +4,7 @@ import Yup from "yup";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Form, FormGroup, Col, Input, Button, Label, Row } from "reactstrap";
+import { Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
 
 import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 
@@ -24,44 +24,51 @@ const transformMyApiErrors = function(array) {
   return errors;
 };
 
-function getValidationSchema(values) {
-  return Yup.object().shape({
-    ona_username: Yup.string().required("Username is required!"),
-    password: Yup.string().required("Password is required."),
-    email: Yup.string().email("E-mail is not valid!"),
-    confirmation: Yup.string()
-      .oneOf([values.password], "Passwords don't match!")
-      .required("Password confirmation is required!")
-  });
-}
-
-function getErrorsFromValidationError(validationError) {
-  const FIRST_ERROR = 0;
-  return validationError.inner.reduce((errors, error) => {
-    return {
-      ...errors,
-      [error.path]: error.errors[FIRST_ERROR]
-    };
-  }, {});
-}
-
-function validate(getValidationSchema) {
-  return values => {
-    const validationSchema = getValidationSchema(values);
-    try {
-      validationSchema.validateSync(values, { abortEarly: false });
-      return {};
-    } catch (error) {
-      return getErrorsFromValidationError(error);
-    }
-  };
-}
-
 export class UserForm extends Component {
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
     this.renderLink = props.redirectAfterAction;
+
+    this.getValidationSchema = this.getValidationSchema.bind(this);
+  }
+
+  getValidationSchema(values) {
+    let validator = {
+      ona_username: Yup.string().required("Username is required!"),
+      email: Yup.string()
+        .required("E-mail is required.")
+        .email("Please input a valid email address.")
+    };
+    if (!this.targetId) {
+      validator.password = Yup.string().required("Password is required.");
+      validator.confirmation = Yup.string()
+        .oneOf([values.password], "Passwords don't match!")
+        .required("Password confirmation is required!");
+    }
+    return Yup.object().shape(validator);
+  }
+
+  getErrorsFromValidationError(validationError) {
+    const FIRST_ERROR = 0;
+    return validationError.inner.reduce((errors, error) => {
+      return {
+        ...errors,
+        [error.path]: error.errors[FIRST_ERROR]
+      };
+    }, {});
+  }
+
+  validate(getValidationSchema) {
+    return values => {
+      const validationSchema = getValidationSchema(values);
+      try {
+        validationSchema.validateSync(values, { abortEarly: false });
+        return {};
+      } catch (error) {
+        return this.getErrorsFromValidationError(error);
+      }
+    };
   }
 
   redirect(link) {
@@ -72,7 +79,7 @@ export class UserForm extends Component {
     return (
       <Formik
         initialValues={this.props.initialData}
-        validate={validate(getValidationSchema)}
+        validate={this.validate(this.getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -84,10 +91,10 @@ export class UserForm extends Component {
                 role: values.role,
                 national_id: values.national_id,
                 ona_username: values.ona_username,
-                password: this.targetId !== null ? "" : values.password,
+                password: this.targetId !== null ? undefined : values.password,
                 gender: values.gender,
                 expertise: values.expertise,
-                email: values.email,
+                email: this.targetId !== null ? undefined : values.email,
                 payment_number: values.payment_number,
                 phone_number: values.phone_number
               }
@@ -180,7 +187,7 @@ export class UserForm extends Component {
 
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="ona_username">Username *</Label>
+                  <Label for="ona_username">Username*</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -191,6 +198,7 @@ export class UserForm extends Component {
                     onBlur={handleBlur}
                     value={values.ona_username}
                     className={errors.ona_username ? "is-invalid" : ""}
+                    disabled={this.targetId != null ? true : false}
                   />
                   {errors.ona_username && (
                     <div className="invalid-feedback">
@@ -224,7 +232,7 @@ export class UserForm extends Component {
                 <div>
                   <FormGroup className="row">
                     <Col md="3">
-                      <Label for="password">Password *</Label>
+                      <Label for="password">Password*</Label>
                     </Col>
                     <Col md="9">
                       <Input
@@ -245,7 +253,7 @@ export class UserForm extends Component {
                   </FormGroup>
                   <FormGroup className="row">
                     <Col md="3">
-                      <Label for="confirmation">Confirm Password *</Label>
+                      <Label for="confirmation">Confirm Password*</Label>
                     </Col>
                     <Col md="9">
                       <Input
@@ -344,7 +352,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="email">Email</Label>
+                  <Label for="email">Email*</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -355,6 +363,7 @@ export class UserForm extends Component {
                     onBlur={handleBlur}
                     value={values.email}
                     className={errors.email ? "is-invalid" : ""}
+                    disabled={this.targetId != null ? true : false}
                   />
                   {errors.email && (
                     <div className="invalid-feedback">{errors.email}</div>
@@ -423,7 +432,7 @@ export class UserForm extends Component {
                     className="btn btn-primary btn-block"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Creating" : "Add User"}
+                    {isSubmitting ? "Saving" : "Save User"}
                   </Button>
                 </Col>
               </FormGroup>
