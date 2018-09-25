@@ -73,9 +73,9 @@ export class UsersList extends Component {
       pageNumber = 1;
     }
     await this.props.fetchUsers(
-      `${
-        constants.API_ENDPOINT
-      }/userprofiles/?search=${search}&page=${pageNumber}`
+      `${constants.API_ENDPOINT}/userprofiles/?ordering=${
+        constants.TASK_SORT_FIELD
+      }&search=${search}&page=${pageNumber}`
     );
 
     this.props.changePageNumber(pageNumber);
@@ -90,9 +90,9 @@ export class UsersList extends Component {
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchUsers(
-        `${
-          constants.API_ENDPOINT
-        }/userprofiles/?search=${search}&page=${pageNumber}`
+        `${constants.API_ENDPOINT}/userprofiles/?ordering=${
+          constants.TASK_SORT_FIELD
+        }&search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
@@ -132,6 +132,8 @@ export class UsersList extends Component {
           setUserDetails={this.setUserDetails}
           userName={this.state.userName}
           onFormSubmit={this.onFormSubmit}
+          sortField={constants.TASK_SORT_ATTRIBUTE}
+          sortOrder={constants.SORT_DESC}
         />
       </div>
     );

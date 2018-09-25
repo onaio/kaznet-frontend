@@ -38,7 +38,9 @@ export class LocationsList extends Component {
     }
 
     await this.props.fetchLocations(
-      `${constants.API_ENDPOINT}/locations/?search=${search}&page=${pageNumber}`
+      `${constants.API_ENDPOINT}/locations/?ordering=${
+        constants.TASK_SORT_FIELD
+      }&search=${search}&page=${pageNumber}`
     );
     this.props.changePageNumber(pageNumber);
   }
@@ -52,9 +54,9 @@ export class LocationsList extends Component {
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchLocations(
-        `${
-          constants.API_ENDPOINT
-        }/locations/?search=${search}&page=${pageNumber}`
+        `${constants.API_ENDPOINT}/locations/?ordering=${
+          constants.TASK_SORT_FIELD
+        }&search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
     }
@@ -89,6 +91,8 @@ export class LocationsList extends Component {
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
           searchVal={this.props.searchParam}
+          sortField={constants.TASK_SORT_ATTRIBUTE}
+          sortOrder={constants.SORT_DESC}
         />
       </div>
     );
