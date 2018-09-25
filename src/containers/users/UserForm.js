@@ -228,7 +228,7 @@ export class UserForm extends Component {
                 </Col>
               </FormGroup>
 
-              {this.targetId === null ? (
+              {this.targetId === null && (
                 <div>
                   <FormGroup className="row">
                     <Col md="3">
@@ -273,8 +273,6 @@ export class UserForm extends Component {
                     </Col>
                   </FormGroup>
                 </div>
-              ) : (
-                ""
               )}
 
               <h4 className="title"> DETAILS </h4>
