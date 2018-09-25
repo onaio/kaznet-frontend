@@ -7,6 +7,8 @@ import UserForm from "./UserForm";
 import FormView from "../../components/FormView";
 import * as globalActions from "../../store/global/actions";
 
+import * as constants from "../../constants";
+
 export class UserCreateForm extends Component {
   componentDidMount() {
     this.props.noTitle();
@@ -21,8 +23,8 @@ export class UserCreateForm extends Component {
       password: "",
       confirmation: "",
       gender: "",
-      role: "",
-      expertise: "",
+      role: constants.CONTRIBUTOR_ROLE,
+      expertise: constants.BEGINNER,
       national_id: "",
       payment_number: "",
       phone_number: "",
