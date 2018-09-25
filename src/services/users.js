@@ -82,6 +82,7 @@ class UserService {
       headers: {
         Accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(user_data),
