@@ -45,7 +45,7 @@ describe("containers/users/UserEditForm", () => {
       gender: "1",
       role: "1",
       expertise: "1",
-      national_id: null,
+      national_id: "",
       payment_number: "",
       phone_number: "",
       ona_username: "davisraym"
