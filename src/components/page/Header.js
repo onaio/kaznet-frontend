@@ -150,24 +150,26 @@ export class Header extends Component {
                         alt="profile"
                       />
                     </DropdownToggle>
-                    {this.props.getCurrentUser && (
-                      <DropdownMenu right>
-                        <DropdownItem>
-                          <NavLink
-                            to={`/users/${this.props.getCurrentUser.id}`}
-                            className="nav-link"
-                            activeClassName="active"
-                          >
-                            View Profile
-                          </NavLink>
-                        </DropdownItem>
-                        <DropdownItem>
-                          <a href="/accounts/logout" className="nav-link">
-                            Log Out
-                          </a>
-                        </DropdownItem>
-                      </DropdownMenu>
-                    )}
+                    {console.log(this.props.getCurrentUser)}
+                    {this.props.getCurrentUser &&
+                      this.props.getCurrentUser.id && (
+                        <DropdownMenu right>
+                          <DropdownItem>
+                            <NavLink
+                              to={`/users/${this.props.getCurrentUser.id}`}
+                              className="nav-link"
+                              activeClassName="active"
+                            >
+                              View Profile
+                            </NavLink>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <a href="/accounts/logout" className="nav-link">
+                              Log Out
+                            </a>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      )}
                   </Dropdown>
                 </NavItem>
               </Nav>

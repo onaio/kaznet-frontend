@@ -24,6 +24,7 @@ exports[`components/page/Header renders header correctly 1`] = `
   }
 >
   <withRouter(Connect(Header))
+    getCurrentUser={[Function]}
     profile_image="profile.png"
     store={
       Object {
@@ -37,6 +38,7 @@ exports[`components/page/Header renders header correctly 1`] = `
   >
     <Route>
       <Connect(Header)
+        getCurrentUser={[Function]}
         history={
           Object {
             "action": "POP",
@@ -503,11 +505,56 @@ exports[`components/page/Header renders header correctly 1`] = `
                                 <li
                                   className="nav-item"
                                 >
-                                  <img
-                                    alt="profile"
-                                    className="img-fluid rounded-circle userprofile-img"
-                                    src="profile.png"
-                                  />
+                                  <Dropdown
+                                    active={false}
+                                    addonType={false}
+                                    direction="down"
+                                    inNavbar={false}
+                                    isOpen={false}
+                                    nav={false}
+                                    setActiveFromChild={false}
+                                    size="sm"
+                                    toggle={[Function]}
+                                  >
+                                    <Manager
+                                      className="btn-group-sm dropdown"
+                                      onKeyDown={[Function]}
+                                      tag="div"
+                                    >
+                                      <div
+                                        className="btn-group-sm dropdown"
+                                        onKeyDown={[Function]}
+                                      >
+                                        <DropdownToggle
+                                          aria-haspopup={true}
+                                          className="toggle-user"
+                                          color="secondary"
+                                          tag="span"
+                                        >
+                                          <Target
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            className="toggle-user"
+                                            component="span"
+                                            onClick={[Function]}
+                                          >
+                                            <span
+                                              aria-expanded={false}
+                                              aria-haspopup={true}
+                                              className="toggle-user"
+                                              onClick={[Function]}
+                                            >
+                                              <img
+                                                alt="profile"
+                                                className="img-fluid rounded-circle userprofile-img"
+                                                src="profile.png"
+                                              />
+                                            </span>
+                                          </Target>
+                                        </DropdownToggle>
+                                      </div>
+                                    </Manager>
+                                  </Dropdown>
                                 </li>
                               </NavItem>
                             </ul>

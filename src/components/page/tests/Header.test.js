@@ -11,6 +11,7 @@ import toJson from "enzyme-to-json";
 import Header from "../Header";
 import * as reducers from "../../../store/reducers";
 import profile_image from "../../../images/profile.png";
+import * as fixtures from "../../../store/users/tests/fixtures";
 
 const history = createBrowserHistory();
 
@@ -20,6 +21,10 @@ const store = createStore(
 );
 
 describe("components/page/Header", () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   it("renders without crashing", () => {
     shallow(<Header store={store} />);
   });
@@ -27,7 +32,11 @@ describe("components/page/Header", () => {
   it("renders header correctly", () => {
     const wrapper = mount(
       <Router history={history}>
-        <Header store={store} profile_image={profile_image} />
+        <Header
+          store={store}
+          profile_image={profile_image}
+          getCurrentUser={function() {}}
+        />
       </Router>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
