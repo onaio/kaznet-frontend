@@ -127,6 +127,8 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
             "2",
           ]
         }
+        sortField="modified"
+        sortOrder="desc"
         totalPages={1}
       >
         <div>
@@ -159,40 +161,6 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
               </thead>
               <tbody>
                 <tr
-                  key="1"
-                >
-                  <ElementMap
-                    HTMLTag="td"
-                    items={
-                      Array [
-                        <Link
-                          replace={false}
-                          to="/locationTypes/edit/1"
-                      >
-                          Market
-                      </Link>,
-                      ]
-                    }
-                  >
-                    <td
-                      key="0"
-                    >
-                      <Link
-                        key="link_to"
-                        replace={false}
-                        to="/locationTypes/edit/1"
-                      >
-                        <a
-                          href="/locationTypes/edit/1"
-                          onClick={[Function]}
-                        >
-                          Market
-                        </a>
-                      </Link>
-                    </td>
-                  </ElementMap>
-                </tr>
-                <tr
                   key="2"
                 >
                   <ElementMap
@@ -221,6 +189,40 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
                           onClick={[Function]}
                         >
                           Hospital
+                        </a>
+                      </Link>
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="1"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/locationTypes/edit/1"
+                      >
+                          Market
+                      </Link>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/locationTypes/edit/1"
+                      >
+                        <a
+                          href="/locationTypes/edit/1"
+                          onClick={[Function]}
+                        >
+                          Market
                         </a>
                       </Link>
                     </td>

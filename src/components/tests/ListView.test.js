@@ -28,6 +28,8 @@ describe("components/ListView", () => {
       return <ElementMap items={rowItems} HTMLTag="td" />;
     };
     const endpoint = `${constants.API_ENDPOINT}`;
+    const sortField = `${constants.TASK_SORT_ATTRIBUTE}`;
+    const sortOrder = `${constants.SORT_DESC}`;
     const currentPage = 1;
     const totalPages = 2;
     const firstPage = 1;
@@ -54,6 +56,8 @@ describe("components/ListView", () => {
           currentPage={currentPage}
           searchVal={"test"}
           taskStatus={"2"}
+          sortField={sortField}
+          sortOrder={sortOrder}
         />
       </Router>
     );

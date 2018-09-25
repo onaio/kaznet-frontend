@@ -249,6 +249,8 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
           ]
         }
         searchVal=""
+        sortField="modified"
+        sortOrder="desc"
         totalPages={2}
       >
         <div>
@@ -299,6 +301,54 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
               </thead>
               <tbody>
                 <tr
+                  key="7"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/locations/7"
+                      >
+                          Sol Point
+                      </Link>,
+                        null,
+                        null,
+                        "Something",
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/locations/7"
+                      >
+                        <a
+                          href="/locations/7"
+                          onClick={[Function]}
+                        >
+                          Sol Point
+                        </a>
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
+                    />
+                    <td
+                      key="2"
+                    />
+                    <td
+                      key="3"
+                    >
+                      Something
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
                   key="1"
                 >
                   <ElementMap
@@ -347,54 +397,6 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                       key="3"
                     >
                       Such Big City , Much wow
-                    </td>
-                  </ElementMap>
-                </tr>
-                <tr
-                  key="7"
-                >
-                  <ElementMap
-                    HTMLTag="td"
-                    items={
-                      Array [
-                        <Link
-                          replace={false}
-                          to="/locations/7"
-                      >
-                          Sol Point
-                      </Link>,
-                        null,
-                        null,
-                        "Something",
-                      ]
-                    }
-                  >
-                    <td
-                      key="0"
-                    >
-                      <Link
-                        key="link_to"
-                        replace={false}
-                        to="/locations/7"
-                      >
-                        <a
-                          href="/locations/7"
-                          onClick={[Function]}
-                        >
-                          Sol Point
-                        </a>
-                      </Link>
-                    </td>
-                    <td
-                      key="1"
-                    />
-                    <td
-                      key="2"
-                    />
-                    <td
-                      key="3"
-                    >
-                      Something
                     </td>
                   </ElementMap>
                 </tr>

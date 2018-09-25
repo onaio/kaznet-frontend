@@ -107,6 +107,8 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
           ]
         }
         searchVal=""
+        sortField="modified"
+        sortOrder="desc"
         totalPages={2}
       >
         <div>
