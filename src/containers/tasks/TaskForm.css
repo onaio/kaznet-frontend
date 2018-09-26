@@ -118,8 +118,8 @@
     select[name="repeat.yearly.onThe.month"] {
     width: 90px;
     position: relative;
-    margin-left: 4px;
-    margin-top: 10px;
+    left: 156%;
+    margin-top: 15px;
   }
   .tasklocation-item
     .form-group
