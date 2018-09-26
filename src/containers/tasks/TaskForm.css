@@ -51,7 +51,7 @@
     .form-group
     div.col-sm-1
     input[name="repeat.yearly.mode"] {
-    margin-left: 40px;
+    margin-left: -77px;
     margin-top: -6px;
     position: absolute;
   }
@@ -63,45 +63,7 @@
     .form-group
     div.col-sm-1
     input[name="repeat.monthly.mode"] {
-    margin-left: 40px;
-    margin-top: -6px;
-    position: absolute;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    .row
-    .d-flex
-    .align-items-sm-center {
-    margin-left: -67px;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-2
-    select[name="repeat.yearly.on.month"] {
-    width: 209%;
-    position: relative;
-    display: block;
-  }
-
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-2
-    select[name="repeat.yearly.on.day"] {
-    width: 250%;
-    margin-left: 33px;
-    position: relative;
+    margin-left: -77px;
   }
 
   .tasklocation-item
@@ -111,12 +73,66 @@
     .px-3
     .form-group
     div.col-sm-3
-    input[name="repeat.monthly.interval"] {
-    width: 70%;
-    margin-left: 42px;
+    select[name="repeat.monthly.onThe.day"] {
+    width: 160px;
+    margin-left: 45px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.monthly.onThe.which"] {
+    margin-left: -1px;
+    width: 100px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    select[name="end.mode"] {
+    width: 120px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    input[name="end.onDate.date"] {
+    width: 120px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-2
+    select[name="repeat.yearly.onThe.month"] {
+    width: 90px;
+    position: relative;
+    margin-left: 4px;
+    margin-top: 10px;
+  }
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .form-group
+    div.col-sm-3
+    select[name="repeat.yearly.onThe.day"] {
+    width: 150px;
+    margin-left: 45px;
     position: relative;
   }
-
   .tasklocation-item
     .form-group
     div.col-md-8
@@ -125,7 +141,7 @@
     .form-group
     div.col-sm-2
     select[name="repeat.yearly.onThe.which"] {
-    width: 210%;
+    width: 100px;
     margin: -3px;
     position: relative;
   }
@@ -136,41 +152,8 @@
     .px-3
     .form-group
     div.col-sm-3
-    select[name="repeat.yearly.onThe.day"] {
-    width: 165%;
-    margin-left: 30px;
-    position: relative;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-3
     input[name="repeat.monthly.interval"] {
-    width: 175%;
-    margin-left: 11px;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-2
-    input[name="repeat.daily.interval"] {
-    width: 150%;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-2
-    input[name="repeat.hourly.interval"] {
-    width: 150%;
+    margin-left: -11px;
   }
   .tasklocation-item
     .form-group
@@ -181,7 +164,7 @@
     div.col-sm-2
     select[name="repeat.monthly.on.day"] {
     width: 100px;
-    margin-left: -8px;
+    margin-left: -4px;
   }
   .tasklocation-item
     .form-group
@@ -190,30 +173,9 @@
     .px-3
     .form-group
     div.col-sm-2
-    select[name="repeat.monthly.onThe.which"] {
-    width: 204%;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-3
-    select[name="repeat.monthly.onThe.day"] {
-    width: 164%;
-    margin-left: 26px;
-  }
-
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-1 {
-    margin-left: 50px;
-    position: relative;
+    select[name="repeat.yearly.on.month"] {
+    margin-left: 3px;
+    width: 80px;
   }
 
   .tasklocation-item
@@ -223,31 +185,30 @@
     .px-3
     .form-group
     div.col-sm-2
-    select[name="repeat.yearly.onThe.month"] {
-    width: 220%;
+    select[name="repeat.yearly.on.day"] {
+    width: 100px;
+    margin-left: 33px;
     position: relative;
-    margin-left: -10px;
-    margin-top: 10px;
   }
+
+  .tasklocation-item
+    .form-group
+    div.col-md-8
+    .pt-3
+    .px-3
+    .opacity-50
+    div.col-sm-1:nth-child(2) {
+    position: relative;
+  }
+
   .tasklocation-item
     .form-group
     div.col-md-8
     .pt-3
     .px-3
     .form-group
-    div.col-sm-3
-    select[name="end.mode"] {
-    width: 120%;
-  }
-  .tasklocation-item
-    .form-group
-    div.col-md-8
-    .pt-3
-    .px-3
-    .form-group
-    div.col-sm-3
-    input[name="end.onDate.date"] {
-    width: 150%;
+    div.col-sm-1:nth-child(2) {
+    margin-left: -90px;
   }
 }
 
