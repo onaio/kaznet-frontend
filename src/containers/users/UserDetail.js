@@ -33,7 +33,14 @@ export class UserDetail extends Component {
 
   renderLoading() {
     if (!this.props.hasError) {
-      return <p>Loading...</p>;
+      return (
+        <center>
+          <div className="lds-ripple">
+            <div />
+            <div />
+          </div>
+        </center>
+      );
     } else if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
