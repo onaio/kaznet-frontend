@@ -60,7 +60,14 @@ export class UserEditForm extends Component {
 
   renderLoading() {
     if (!this.props.hasError) {
-      return <p>Loading...</p>;
+      return (
+        <center>
+          <div className="lds-ripple">
+            <div />
+            <div />
+          </div>
+        </center>
+      );
     } else if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
@@ -70,8 +77,8 @@ export class UserEditForm extends Component {
 function mapStateToProps(state, ownProps) {
   return {
     userById: userSelectors.getUserById(state, ownProps.match.params.id),
-    hasError: errorHandlerSelectors.getHasError,
-    errorMessage: errorHandlerSelectors.getErrorMessage
+    hasError: errorHandlerSelectors.getHasError(state),
+    errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };
 }
 
