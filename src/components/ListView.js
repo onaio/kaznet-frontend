@@ -19,22 +19,18 @@ import "./ListView.css";
 
 export default class ListView extends Component {
   render() {
-    if (this.props.sortField) {
-      const sortField = this.props.sortField;
-      var sortOrder = constants.SORT_ASC;
-      if (this.props.sortOrder) {
-        sortOrder = this.props.sortOrder;
-      }
-      const rowsArray = _.values(this.props.rowsById);
-      this.sortedRowsArray = _.orderBy(
-        rowsArray,
-        function(e) {
-          return e.attributes[sortField];
-        },
-        [sortOrder]
-      );
-    }
+    const sortField = constants.TASK_SORT_ATTRIBUTE;
+    const sortOrder = constants.SORT_DESC;
+    const rowsArray = _.values(this.props.rowsById);
+    this.sortedRowsArray = _.orderBy(
+      rowsArray,
+      function(e) {
+        return e.attributes[sortField];
+      },
+      [sortOrder]
+    );
 
+    console.log("sortedrows", this.sortedRowsArray);
     const statuses = ["", ...constants.TASK_STATUSES];
     const statusArr = statuses.map(s => {
       let status = "";
@@ -124,7 +120,7 @@ export default class ListView extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.sortField
+            {sortField
               ? _.map(this.sortedRowsArray, this.renderRowObject.bind(this))
               : _.map(this.props.rowsIdArray, this.renderRowById.bind(this))}
           </tbody>
