@@ -127,8 +127,6 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
             "2",
           ]
         }
-        sortField="modified"
-        sortOrder="desc"
         totalPages={1}
       >
         <div>

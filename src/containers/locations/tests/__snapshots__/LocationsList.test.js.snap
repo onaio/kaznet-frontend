@@ -249,8 +249,6 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
           ]
         }
         searchVal=""
-        sortField="modified"
-        sortOrder="desc"
         totalPages={2}
       >
         <div>

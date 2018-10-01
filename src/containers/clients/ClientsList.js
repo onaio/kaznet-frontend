@@ -87,8 +87,6 @@ export class ClientsList extends Component {
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
           searchVal={this.props.searchParam}
-          sortField={constants.TASK_SORT_ATTRIBUTE}
-          sortOrder={constants.SORT_DESC}
         />
       </div>
     );
