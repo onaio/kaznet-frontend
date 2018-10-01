@@ -30,7 +30,6 @@ export default class ListView extends Component {
       [sortOrder]
     );
 
-    console.log("sortedrows", this.sortedRowsArray);
     const statuses = ["", ...constants.TASK_STATUSES];
     const statusArr = statuses.map(s => {
       let status = "";
