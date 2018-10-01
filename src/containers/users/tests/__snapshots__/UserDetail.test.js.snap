@@ -68,9 +68,14 @@ exports[`containers/users/UserDetail renders detail page correctly with delete b
         }
       }
     >
-      <p>
-        Loading...
-      </p>
+      <center>
+        <div
+          className="lds-ripple"
+        >
+          <div />
+          <div />
+        </div>
+      </center>
     </UserDetail>
   </ErrorBoundary>
 </Router>
@@ -144,9 +149,14 @@ exports[`containers/users/UserDetail renders detail page correctly without delet
         }
       }
     >
-      <p>
-        Loading...
-      </p>
+      <center>
+        <div
+          className="lds-ripple"
+        >
+          <div />
+          <div />
+        </div>
+      </center>
     </UserDetail>
   </ErrorBoundary>
 </Router>

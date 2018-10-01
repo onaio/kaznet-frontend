@@ -10,11 +10,16 @@ import * as globalActions from "../../store/global/actions";
 import * as constants from "../../constants";
 
 export class UserCreateForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true };
+  }
   componentDidMount() {
     this.props.noTitle();
+    this.setState({ isLoading: false });
   }
-
   render() {
+    if (this.state.isLoading) return this.renderLoading();
     const action = userActions.createUser;
     const initialData = {
       first_name: "",
@@ -42,6 +47,21 @@ export class UserCreateForm extends Component {
         }
       />
     );
+  }
+
+  renderLoading() {
+    if (!this.props.hasError) {
+      return (
+        <center>
+          <div className="lds-ripple">
+            <div />
+            <div />
+          </div>
+        </center>
+      );
+    } else if (this.props.hasError) {
+      return <p> {this.props.errorMessage.message} </p>;
+    }
   }
 }
 
