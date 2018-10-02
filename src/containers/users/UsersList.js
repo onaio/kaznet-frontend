@@ -132,7 +132,7 @@ export class UsersList extends Component {
           setUserDetails={this.setUserDetails}
           userName={this.state.userName}
           onFormSubmit={this.onFormSubmit}
-          sortField={constants.TASK_SORT_ATTRIBUTE}
+          sortField={constants.USERS_SORT_ATTRIBUTE}
           sortOrder={constants.SORT_DESC}
         />
       </div>

@@ -147,7 +147,15 @@ export default class ListView extends Component {
   }
 
   renderRowObject(rowObject) {
-    return <tr key={rowObject.id}>{this.props.renderRow(rowObject)}</tr>;
+    return (
+      <tr key={rowObject.id}>
+        {this.props.renderRow(
+          rowObject,
+          this.props.downloadModalHandler,
+          this.props.setUserDetails
+        )}
+      </tr>
+    );
   }
 
   renderPagination() {
