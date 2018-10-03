@@ -81,7 +81,7 @@ export class LocationForm extends Component {
       });
     };
     reader.onload = e => {
-      var chunk = e.target.result;
+      var chunk = new Uint8Array(e.target.result);
       bytes += chunk.length;
       chunks.push(chunk);
 
@@ -91,14 +91,9 @@ export class LocationForm extends Component {
 
         reader.readAsArrayBuffer(blob);
       } else {
-        // console.log(chunks);
-        // console.log(chunk);
-        // let content = chunks.join("");
         this.setState({
           shapefile: chunks
         });
-        // console.log(content);
-        // console.log(this.state.shapefile);
       }
     };
     var blob = file.slice(offset, offset + chunk_size);
