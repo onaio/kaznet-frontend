@@ -91,13 +91,14 @@ export class LocationForm extends Component {
 
         reader.readAsArrayBuffer(blob);
       } else {
-        console.log(chunks);
-        let content = chunks.join("");
+        // console.log(chunks);
+        // console.log(chunk);
+        // let content = chunks.join("");
         this.setState({
-          shapefile: content
+          shapefile: chunks
         });
-        console.log(content);
-        console.log(this.state.shapefile);
+        // console.log(content);
+        // console.log(this.state.shapefile);
       }
     };
     var blob = file.slice(offset, offset + chunk_size);
