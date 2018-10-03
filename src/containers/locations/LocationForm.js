@@ -42,7 +42,8 @@ export class LocationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shapefile: null
+      shapefile: null,
+      uploading: false
     };
     this.targetId = props.targetId || null;
     this.getLocationTypeOptions.bind(this);
@@ -58,15 +59,76 @@ export class LocationForm extends Component {
       this.createShapefile(files[0]);
     }
   }
-  createShapefile(file) {
+
+  createShapefile(file, callback) {
     let reader = new FileReader();
-    reader.onload = e => {
+    let chunk_size = 1024;
+    let size = file.size;
+    let chunks = [];
+    let offset = 0;
+    let bytes = 0;
+
+    // let offset = 0;
+    // reader.readAsArrayBuffer(file);
+    reader.onloadstart = e => {
       this.setState({
-        shapefile: new Uint8Array(e.target.result)
+        uploading: true
       });
     };
-    reader.readAsArrayBuffer(file);
+    reader.onloadend = e => {
+      this.setState({
+        uploading: false
+      });
+    };
+    reader.onload = e => {
+      var chunk = e.target.result;
+      bytes += chunk.length;
+      chunks.push(chunk);
+
+      if (offset < size) {
+        offset += chunk_size;
+        var blob = file.slice(offset, offset + chunk_size);
+
+        reader.readAsArrayBuffer(blob);
+      } else {
+        console.log(chunks);
+        let content = chunks.join("");
+        this.setState({
+          shapefile: content
+        });
+        console.log(content);
+        console.log(this.state.shapefile);
+      }
+    };
+    var blob = file.slice(offset, offset + chunk_size);
+    reader.readAsArrayBuffer(blob);
   }
+  //   debugger;
+  //   let buffer = new Uint8Array(e.target.result);
+  //   for (let i = 0; i < buffer.length; ++i) {
+  //     if (buffer[i] === 10 || buffer[i] === 13) {
+  //       // \n = 10 and \r = 13
+  //       // column length = offset + position of \r or \n
+  //       callback(offset + i);
+  //     }
+  //   }
+  //   // \r or \n not found, continue seeking.
+  //   offset += CHUNK_SIZE;
+  //   seek();
+
+  //   this.setState({
+  //     shapefile: new Uint8Array(e.target.result)
+  //   });
+  // };
+  // function seek() {
+  //   if (offset >= file.size) {
+  //     // No \r or \n found. The column size is equal to the full
+  //     // file size
+  //     callback(file.size);
+  // }
+  // var slice = file.slice(offset, offset + CHUNK_SIZE);
+  // reader.readAsArrayBuffer(slice);
+  // }
 
   componentDidMount() {
     this.props.fetchLocations();
@@ -349,7 +411,7 @@ export class LocationForm extends Component {
                     placeholder="Shapefile"
                     aria-label="Shapefile"
                     onChange={this.onChangeShapefile}
-                    accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                    accept=".zip,.tar,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                     className={`custom-file-input ml-5 ${
                       errors.shapefile ? "is-invalid" : ""
                     }`}
@@ -374,6 +436,9 @@ export class LocationForm extends Component {
                     <div className="invalid-feedback">{errors.shapefile}</div>
                   )}
                 </Col>
+                <Col md="1">
+                  {this.state.uploading && <div className="loader" />}
+                </Col>
               </FormGroup>
               <FormGroup className="row my-5">
                 <Col md={{ size: 5, offset: 1 }}>
@@ -391,7 +456,7 @@ export class LocationForm extends Component {
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || this.state.uploading}
                   >
                     {isSubmitting ? "Saving" : "Save Location"}
                   </Button>
