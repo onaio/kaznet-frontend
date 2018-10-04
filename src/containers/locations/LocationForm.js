@@ -60,16 +60,8 @@ export class LocationForm extends Component {
     }
   }
 
-  createShapefile(file, callback) {
+  createShapefile(file) {
     let reader = new FileReader();
-    let chunk_size = 1024;
-    let size = file.size;
-    let chunks = [];
-    let offset = 0;
-    let bytes = 0;
-
-    // let offset = 0;
-    // reader.readAsArrayBuffer(file);
     reader.onloadstart = e => {
       this.setState({
         uploading: true
@@ -81,51 +73,12 @@ export class LocationForm extends Component {
       });
     };
     reader.onload = e => {
-      var chunk = new Uint8Array(e.target.result);
-      bytes += chunk.length;
-      chunks.push(chunk);
-
-      if (offset < size) {
-        offset += chunk_size;
-        var blob = file.slice(offset, offset + chunk_size);
-
-        reader.readAsArrayBuffer(blob);
-      } else {
-        this.setState({
-          shapefile: chunks
-        });
-      }
+      this.setState({
+        shapefile: new Uint8Array(e.target.result)
+      });
     };
-    var blob = file.slice(offset, offset + chunk_size);
-    reader.readAsArrayBuffer(blob);
+    reader.readAsArrayBuffer(file);
   }
-  //   debugger;
-  //   let buffer = new Uint8Array(e.target.result);
-  //   for (let i = 0; i < buffer.length; ++i) {
-  //     if (buffer[i] === 10 || buffer[i] === 13) {
-  //       // \n = 10 and \r = 13
-  //       // column length = offset + position of \r or \n
-  //       callback(offset + i);
-  //     }
-  //   }
-  //   // \r or \n not found, continue seeking.
-  //   offset += CHUNK_SIZE;
-  //   seek();
-
-  //   this.setState({
-  //     shapefile: new Uint8Array(e.target.result)
-  //   });
-  // };
-  // function seek() {
-  //   if (offset >= file.size) {
-  //     // No \r or \n found. The column size is equal to the full
-  //     // file size
-  //     callback(file.size);
-  // }
-  // var slice = file.slice(offset, offset + CHUNK_SIZE);
-  // reader.readAsArrayBuffer(slice);
-  // }
-
   componentDidMount() {
     this.props.fetchLocations();
     this.props.fetchLocationTypes();
