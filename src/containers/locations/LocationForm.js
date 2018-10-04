@@ -360,7 +360,7 @@ export class LocationForm extends Component {
                     placeholder="Shapefile"
                     aria-label="Shapefile"
                     onChange={this.onChangeShapefile}
-                    accept=".zip,.tar,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
+                    accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed"
                     className={`custom-file-input ml-5 ${
                       errors.shapefile ? "is-invalid" : ""
                     }`}
