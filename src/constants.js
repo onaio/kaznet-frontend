@@ -28,6 +28,8 @@ export const LOCATION_SORT_ATTRIBUTE = "modified";
 export const LOCATION_TYPE_SORT_ATTRIBUTE = "modified";
 export const USERS_SORT_ATTRIBUTE = "modified";
 export const TASK_SORT_FIELD = "-modified";
+export const FILTER_TIME_START = "submission_time__gte";
+export const FILTER_TIME_END = "submission_time__lte";
 export const SORT_ASC = "asc";
 export const SORT_DESC = "desc";
 export const NOT_APPLICABLE = "N/A";
@@ -54,7 +56,6 @@ export const TASK_STATUSES = [
   TASK_ARCHIVED
 ];
 
+// Ona stuff - should mostly come from env vars and not hard coded
 export const ONA_PROFILE_URL = ONA_WEBSITE + "/" + ONA_USERNAME;
-export const FILTER_TIME_START = "submission_time__gte";
-export const FILTER_TIME_END = "submission_time__lte";
-export const ONA_LOGIN = "https://ona.io/login";
+export const ONA_LOGIN = ONA_WEBSITE + "/login";
