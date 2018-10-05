@@ -2913,6 +2913,23 @@ exports[`containers/location/LocationForm renders location form correctly 1`] = 
                       </FormText>
                     </div>
                   </Col>
+                  <Col
+                    md="1"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-1"
+                    />
+                  </Col>
                 </div>
               </FormGroup>
               <FormGroup
@@ -6105,6 +6122,23 @@ exports[`containers/location/LocationForm renders location form correctly when e
                         </small>
                       </FormText>
                     </div>
+                  </Col>
+                  <Col
+                    md="1"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-1"
+                    />
                   </Col>
                 </div>
               </FormGroup>
