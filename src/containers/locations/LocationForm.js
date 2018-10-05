@@ -42,7 +42,8 @@ export class LocationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shapefile: null
+      shapefile: null,
+      uploading: false
     };
     this.targetId = props.targetId || null;
     this.getLocationTypeOptions.bind(this);
@@ -58,8 +59,19 @@ export class LocationForm extends Component {
       this.createShapefile(files[0]);
     }
   }
+
   createShapefile(file) {
     let reader = new FileReader();
+    reader.onloadstart = e => {
+      this.setState({
+        uploading: true
+      });
+    };
+    reader.onloadend = e => {
+      this.setState({
+        uploading: false
+      });
+    };
     reader.onload = e => {
       this.setState({
         shapefile: new Uint8Array(e.target.result)
@@ -67,7 +79,6 @@ export class LocationForm extends Component {
     };
     reader.readAsArrayBuffer(file);
   }
-
   componentDidMount() {
     this.props.fetchLocations();
     this.props.fetchLocationTypes();
@@ -374,6 +385,9 @@ export class LocationForm extends Component {
                     <div className="invalid-feedback">{errors.shapefile}</div>
                   )}
                 </Col>
+                <Col md="1">
+                  {this.state.uploading && <div className="loader" />}
+                </Col>
               </FormGroup>
               <FormGroup className="row my-5">
                 <Col md={{ size: 5, offset: 1 }}>
@@ -391,7 +405,7 @@ export class LocationForm extends Component {
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || this.state.uploading}
                   >
                     {isSubmitting ? "Saving" : "Save Location"}
                   </Button>
