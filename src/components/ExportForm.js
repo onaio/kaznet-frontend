@@ -19,62 +19,57 @@ export default class ExportForm extends Component {
         render={({ values, handleChange, handleBlur, handleSubmit }) => (
           <div>
             <Form onSubmit={handleSubmit}>
-              <FormGroup className="row">
-                <Row>
-                  <p className="text-center align-middle ml-4">Status:</p>
-                  <Col md={{ size: 8 }}>
-                    <Field
-                      name="status"
-                      component="select"
-                      className="form-control"
-                    >
-                      <option value={constants.SUBMISSION_APPROVED}>
-                        Approved
-                      </option>
-                      <option value={constants.SUBMISSION_REJECTED}>
-                        Rejected
-                      </option>
-                      <option value={constants.SUBMISSION_UNDER_REVIEW}>
-                        Under Review
-                      </option>
-                      <option value={constants.SUBMISSION_PENDING}>
-                        Pending
-                      </option>
-                    </Field>
-                  </Col>
-                </Row>
-                <Row>
-                  <p className="text-center align-middle ml-4">From:</p>
-                  <Col md={{ size: 5 }}>
-                    <Input
-                      name="start"
-                      type="date"
-                      bsSize="md"
-                      placeholder="Start Date"
-                      aria-label="start"
-                      className={`time-picker`}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.start}
-                    />
-                  </Col>
-                  <p className="text-center align-middle">to</p>
-                  <Col md="5">
-                    <Input
-                      name="end"
-                      type="date"
-                      bsSize="md"
-                      placeholder="End Date"
-                      aria-label="end"
-                      className={`time-picker`}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.end}
-                    />
-                  </Col>
-                </Row>
+              <FormGroup row>
+                <p className="text-center align-middle ml-3">Status:</p>
+                <Col md={10}>
+                  <Field
+                    name="status"
+                    component="select"
+                    className="form-control"
+                  >
+                    <option value={constants.SUBMISSION_APPROVED}>
+                      Approved
+                    </option>
+                    <option value={constants.SUBMISSION_REJECTED}>
+                      Rejected
+                    </option>
+                    <option value={constants.SUBMISSION_PENDING}>
+                      Pending
+                    </option>
+                  </Field>
+                </Col>
               </FormGroup>
-              <FormGroup className="row">
+              <FormGroup row>
+                <p className="text-center align-middle ml-4">From:</p>
+                <Col md={{ size: 5 }}>
+                  <Input
+                    name="start"
+                    type="date"
+                    bsSize="md"
+                    placeholder="Start Date"
+                    aria-label="start"
+                    className={`time-picker`}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.start}
+                  />
+                </Col>
+                <p className="text-center align-middle">to</p>
+                <Col md="5">
+                  <Input
+                    name="end"
+                    type="date"
+                    bsSize="md"
+                    placeholder="End Date"
+                    aria-label="end"
+                    className={`time-picker`}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.end}
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
