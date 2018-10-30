@@ -11,6 +11,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
       Object {
         "end": "1986-01-02",
         "start": "1986-01-02",
+        "status": "a",
       }
     }
     isInitialValid={false}
@@ -35,6 +36,75 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
             <div
               className="row form-group"
             >
+              <Row
+                tag="div"
+              >
+                <div
+                  className="row"
+                >
+                  <p
+                    className="text-center align-middle ml-4"
+                  >
+                    Status:
+                  </p>
+                  <Col
+                    md={
+                      Object {
+                        "size": 8,
+                      }
+                    }
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="col-md-8"
+                    >
+                      <Field
+                        className="form-control"
+                        component="select"
+                        name="status"
+                      >
+                        <select
+                          className="form-control"
+                          name="status"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="a"
+                        >
+                          <option
+                            value="a"
+                          >
+                            Approved
+                          </option>
+                          <option
+                            value="b"
+                          >
+                            Rejected
+                          </option>
+                          <option
+                            value="c"
+                          >
+                            Under Review
+                          </option>
+                          <option
+                            value="d"
+                          >
+                            Pending
+                          </option>
+                        </select>
+                      </Field>
+                    </div>
+                  </Col>
+                </div>
+              </Row>
               <Row
                 tag="div"
               >

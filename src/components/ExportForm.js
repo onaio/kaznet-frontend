@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Col, Row, Input, FormGroup, Form, Button } from "reactstrap";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import moment from "moment";
+import * as constants from "../constants";
 
 export default class ExportForm extends Component {
   render() {
@@ -9,15 +10,39 @@ export default class ExportForm extends Component {
       <Formik
         initialValues={{
           start: moment().format("YYYY-MM-DD"),
-          end: moment().format("YYYY-MM-DD")
+          end: moment().format("YYYY-MM-DD"),
+          status: constants.SUBMISSION_APPROVED
         }}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
-          this.props.onFormSubmit(values.start, values.end);
+          this.props.onFormSubmit(values.start, values.end, values.status);
         }}
         render={({ values, handleChange, handleBlur, handleSubmit }) => (
           <div>
             <Form onSubmit={handleSubmit}>
               <FormGroup className="row">
+                <Row>
+                  <p className="text-center align-middle ml-4">Status:</p>
+                  <Col md={{ size: 8 }}>
+                    <Field
+                      name="status"
+                      component="select"
+                      className="form-control"
+                    >
+                      <option value={constants.SUBMISSION_APPROVED}>
+                        Approved
+                      </option>
+                      <option value={constants.SUBMISSION_REJECTED}>
+                        Rejected
+                      </option>
+                      <option value={constants.SUBMISSION_UNDER_REVIEW}>
+                        Under Review
+                      </option>
+                      <option value={constants.SUBMISSION_PENDING}>
+                        Pending
+                      </option>
+                    </Field>
+                  </Col>
+                </Row>
                 <Row>
                   <p className="text-center align-middle ml-4">From:</p>
                   <Col md={{ size: 5 }}>
