@@ -30,187 +30,171 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
           onSubmit={[Function]}
         >
           <FormGroup
-            className="row"
+            row={true}
             tag="div"
           >
             <div
               className="row form-group"
             >
-              <Row
+              <p
+                className="text-center align-middle ml-3"
+              >
+                Status:
+              </p>
+              <Col
+                md={10}
                 tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
               >
                 <div
-                  className="row"
+                  className="col-md-10"
                 >
-                  <p
-                    className="text-center align-middle ml-4"
+                  <Field
+                    className="form-control"
+                    component="select"
+                    name="status"
                   >
-                    Status:
-                  </p>
-                  <Col
-                    md={
-                      Object {
-                        "size": 8,
-                      }
-                    }
-                    tag="div"
-                    widths={
-                      Array [
-                        "xs",
-                        "sm",
-                        "md",
-                        "lg",
-                        "xl",
-                      ]
-                    }
-                  >
-                    <div
-                      className="col-md-8"
+                    <select
+                      className="form-control"
+                      name="status"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="a"
                     >
-                      <Field
-                        className="form-control"
-                        component="select"
-                        name="status"
+                      <option
+                        value="a"
                       >
-                        <select
-                          className="form-control"
-                          name="status"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="a"
-                        >
-                          <option
-                            value="a"
-                          >
-                            Approved
-                          </option>
-                          <option
-                            value="b"
-                          >
-                            Rejected
-                          </option>
-                          <option
-                            value="c"
-                          >
-                            Under Review
-                          </option>
-                          <option
-                            value="d"
-                          >
-                            Pending
-                          </option>
-                        </select>
-                      </Field>
-                    </div>
-                  </Col>
+                        Approved
+                      </option>
+                      <option
+                        value="b"
+                      >
+                        Rejected
+                      </option>
+                      <option
+                        value="d"
+                      >
+                        Pending
+                      </option>
+                    </select>
+                  </Field>
                 </div>
-              </Row>
-              <Row
-                tag="div"
-              >
-                <div
-                  className="row"
-                >
-                  <p
-                    className="text-center align-middle ml-4"
-                  >
-                    From:
-                  </p>
-                  <Col
-                    md={
-                      Object {
-                        "size": 5,
-                      }
-                    }
-                    tag="div"
-                    widths={
-                      Array [
-                        "xs",
-                        "sm",
-                        "md",
-                        "lg",
-                        "xl",
-                      ]
-                    }
-                  >
-                    <div
-                      className="col-md-5"
-                    >
-                      <Input
-                        aria-label="start"
-                        bsSize="md"
-                        className="time-picker"
-                        name="start"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder="Start Date"
-                        type="date"
-                        value="1986-01-02"
-                      >
-                        <input
-                          aria-label="start"
-                          className="time-picker form-control-md form-control"
-                          name="start"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          placeholder="Start Date"
-                          type="date"
-                          value="1986-01-02"
-                        />
-                      </Input>
-                    </div>
-                  </Col>
-                  <p
-                    className="text-center align-middle"
-                  >
-                    to
-                  </p>
-                  <Col
-                    md="5"
-                    tag="div"
-                    widths={
-                      Array [
-                        "xs",
-                        "sm",
-                        "md",
-                        "lg",
-                        "xl",
-                      ]
-                    }
-                  >
-                    <div
-                      className="col-md-5"
-                    >
-                      <Input
-                        aria-label="end"
-                        bsSize="md"
-                        className="time-picker"
-                        name="end"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder="End Date"
-                        type="date"
-                        value="1986-01-02"
-                      >
-                        <input
-                          aria-label="end"
-                          className="time-picker form-control-md form-control"
-                          name="end"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          placeholder="End Date"
-                          type="date"
-                          value="1986-01-02"
-                        />
-                      </Input>
-                    </div>
-                  </Col>
-                </div>
-              </Row>
+              </Col>
             </div>
           </FormGroup>
           <FormGroup
-            className="row"
+            row={true}
+            tag="div"
+          >
+            <div
+              className="row form-group"
+            >
+              <p
+                className="text-center align-middle ml-4"
+              >
+                From:
+              </p>
+              <Col
+                md={
+                  Object {
+                    "size": 5,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5"
+                >
+                  <Input
+                    aria-label="start"
+                    bsSize="md"
+                    className="time-picker"
+                    name="start"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Start Date"
+                    type="date"
+                    value="1986-01-02"
+                  >
+                    <input
+                      aria-label="start"
+                      className="time-picker form-control-md form-control"
+                      name="start"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Start Date"
+                      type="date"
+                      value="1986-01-02"
+                    />
+                  </Input>
+                </div>
+              </Col>
+              <p
+                className="text-center align-middle"
+              >
+                to
+              </p>
+              <Col
+                md="5"
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-5"
+                >
+                  <Input
+                    aria-label="end"
+                    bsSize="md"
+                    className="time-picker"
+                    name="end"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="End Date"
+                    type="date"
+                    value="1986-01-02"
+                  >
+                    <input
+                      aria-label="end"
+                      className="time-picker form-control-md form-control"
+                      name="end"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="End Date"
+                      type="date"
+                      value="1986-01-02"
+                    />
+                  </Input>
+                </div>
+              </Col>
+            </div>
+          </FormGroup>
+          <FormGroup
+            row={true}
             tag="div"
           >
             <div
