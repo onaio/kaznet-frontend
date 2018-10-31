@@ -4,7 +4,10 @@ pipeline:
     commands:
       - npm install yarn
       - yarn
-      - cp .evn.example .env
+      - export REACT_APP_WEBSITE_NAME='Kaznet'
+      - export REACT_APP_KAZNET_ENDPOINT='http://127.0.0.1:8000/api/v1'
+      - export REACT_APP_ONA_WEBSITE='https://ona.io'
+      - export REACT_APP_ONA_USERNAME='kaznettest'
       - yarn test --verbose --coverage=true --forceExit
   notify:
     image: plugins/slack
