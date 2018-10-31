@@ -26,7 +26,8 @@ export class UsersList extends Component {
       userId: null,
       userName: null,
       start: undefined,
-      end: undefined
+      end: undefined,
+      status: undefined
     };
     this.toggle = this.toggle.bind(this);
     this.setUserDetails = this.setUserDetails.bind(this);
@@ -43,10 +44,10 @@ export class UsersList extends Component {
     this.setState({ userId: userId, userName: userName });
   }
 
-  onFormSubmit(start, end) {
+  onFormSubmit(start, end, status) {
     let filter_object = {
       userprofile: this.state.userId,
-      status: constants.SUBMISSION_APPROVED,
+      status: status,
       format: "csv"
     };
     filter_object[constants.FILTER_TIME_START] = start;

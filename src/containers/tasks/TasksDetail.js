@@ -28,7 +28,8 @@ export class TasksDetail extends Component {
     this.state = {
       modal: false,
       start: undefined,
-      end: undefined
+      end: undefined,
+      status: undefined
     };
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -40,10 +41,10 @@ export class TasksDetail extends Component {
     });
   }
 
-  onFormSubmit(start, end) {
+  onFormSubmit(start, end, status) {
     let filter_object = {
       task: this.props.match.params.id,
-      status: constants.SUBMISSION_APPROVED,
+      status: status,
       format: "csv"
     };
     filter_object[constants.FILTER_TIME_START] = start;
