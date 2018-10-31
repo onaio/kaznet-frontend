@@ -36,13 +36,39 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
             <div
               className="row form-group"
             >
-              <p
-                className="text-center align-middle ml-3"
-              >
-                Status:
-              </p>
               <Col
-                md={10}
+                md={
+                  Object {
+                    "size": 1,
+                  }
+                }
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <div
+                  className="col-md-1"
+                >
+                  <p
+                    className="text-center align-middle"
+                  >
+                    Status:
+                  </p>
+                </div>
+              </Col>
+              <Col
+                md={
+                  Object {
+                    "size": 10,
+                  }
+                }
                 tag="div"
                 widths={
                   Array [
@@ -58,12 +84,12 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                   className="col-md-10"
                 >
                   <Field
-                    className="form-control"
+                    className="form-control ml-4"
                     component="select"
                     name="status"
                   >
                     <select
-                      className="form-control"
+                      className="form-control ml-4"
                       name="status"
                       onBlur={[Function]}
                       onChange={[Function]}

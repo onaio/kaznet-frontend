@@ -3,6 +3,7 @@ import { Col, Row, Input, FormGroup, Form, Button } from "reactstrap";
 import { Formik, Field } from "formik";
 import moment from "moment";
 import * as constants from "../constants";
+import "./ExportForm.css";
 
 export default class ExportForm extends Component {
   render() {
@@ -20,12 +21,14 @@ export default class ExportForm extends Component {
           <div>
             <Form onSubmit={handleSubmit}>
               <FormGroup row>
-                <p className="text-center align-middle ml-3">Status:</p>
-                <Col md={10}>
+                <Col md={{ size: 1 }}>
+                  <p className="text-center align-middle">Status:</p>
+                </Col>
+                <Col md={{ size: 10 }}>
                   <Field
                     name="status"
                     component="select"
-                    className="form-control"
+                    className="form-control ml-4"
                   >
                     <option value={constants.SUBMISSION_APPROVED}>
                       Approved
