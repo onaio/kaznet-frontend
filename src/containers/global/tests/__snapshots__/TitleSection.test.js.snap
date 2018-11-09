@@ -230,7 +230,7 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                       className="row"
                     >
                       <Col
-                        md="9"
+                        md="12"
                         tag="div"
                         widths={
                           Array [
@@ -243,7 +243,7 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                         }
                       >
                         <div
-                          className="col-md-9"
+                          className="col-md-12"
                         >
                           <Form
                             tag="form"
@@ -346,35 +346,6 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                               </InputGroup>
                             </form>
                           </Form>
-                        </div>
-                      </Col>
-                      <Col
-                        md="3"
-                        tag="div"
-                        widths={
-                          Array [
-                            "xs",
-                            "sm",
-                            "md",
-                            "lg",
-                            "xl",
-                          ]
-                        }
-                      >
-                        <div
-                          className="col-md-3"
-                        >
-                          <Link
-                            className="btn btn-primary btn-lg"
-                            replace={false}
-                            to="/"
-                          >
-                            <a
-                              className="btn btn-primary btn-lg"
-                              href="/"
-                              onClick={[Function]}
-                            />
-                          </Link>
                         </div>
                       </Col>
                     </div>
