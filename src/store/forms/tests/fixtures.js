@@ -20,6 +20,7 @@ export const formData = {
         created: "2018-06-21T12:15:23.170271+03:00",
         modified: "2018-06-21T12:15:23.170313+03:00",
         has_task: false,
+        task_name: null,
         deleted_at: null
       }
     },
@@ -35,6 +36,7 @@ export const formData = {
         created: "2018-06-21T12:15:23.175198+03:00",
         modified: "2018-06-21T12:15:23.175232+03:00",
         has_task: false,
+        task_name: null,
         deleted_at: null
       }
     },
@@ -50,6 +52,7 @@ export const formData = {
         created: "2018-06-21T12:15:23.175198+03:00",
         modified: "2018-06-21T12:15:23.175232+03:00",
         has_task: true,
+        task_name: "Form 3 Task",
         deleted_at: null
       }
     }
@@ -75,6 +78,7 @@ export const secondForm = {
     created: "2018-06-21T12:15:23.175198+03:00",
     modified: "2018-06-21T12:15:23.175232+03:00",
     has_task: false,
+    task_name: null,
     deleted_at: null
   }
 };
