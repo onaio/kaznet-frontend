@@ -13,7 +13,21 @@ describe("services/forms", () => {
     const data = fixtures.formData;
     fetch.mockResponseOnce(JSON.stringify(data));
     const response = await formService.getFormList();
-    expect(response).toEqual(fixtures.formsArray);
+    const {
+      links,
+      meta: {
+        pagination: { page, pages, count }
+      }
+    } = data;
+
+    const expectedResponse = {
+      formArray: fixtures.formsArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages,
+      totalCount: count
+    };
+    expect(response).toEqual(expectedResponse);
   });
 
   it("should handle default forms http errors", async () => {

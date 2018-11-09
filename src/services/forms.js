@@ -19,15 +19,26 @@ class formService {
       );
     }
 
-    const apiResponse = await response.json();
-    const data = _.get(apiResponse, "data");
+    const {
+      data,
+      links,
+      meta: {
+        pagination: { page, pages, count }
+      }
+    } = await response.json();
 
     if (!data) {
       throw new Error(`FormService getFormList failed, data not returned`);
     }
-    return _.map(data, form => {
-      return form;
-    });
+    const formArray = _.map(data, form => form);
+
+    return {
+      formArray,
+      pageLinks: links,
+      currentPage: page,
+      totalPages: pages,
+      totalCount: count
+    };
   }
 }
 
