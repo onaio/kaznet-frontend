@@ -249,7 +249,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           decimal={false}
                           element="time"
                           filter={[Function]}
-                          format="DD-MM-YYYY"
+                          format="DD-MM-YYYY HH:mm:ss"
                           fromNow={false}
                           interval={60000}
                           onChange={[Function]}
@@ -280,7 +280,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         decimal={false}
                         element="time"
                         filter={[Function]}
-                        format="DD-MM-YYYY"
+                        format="DD-MM-YYYY HH:mm:ss"
                         fromNow={false}
                         interval={60000}
                         key="2"
@@ -293,7 +293,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         <time
                           dateTime={"2018-06-21T09:15:23.175Z"}
                         >
-                          21-06-2018
+                          21-06-2018 12:15:23
                         </time>
                       </t>
                     </td>
@@ -314,7 +314,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           decimal={false}
                           element="time"
                           filter={[Function]}
-                          format="DD-MM-YYYY"
+                          format="DD-MM-YYYY HH:mm:ss"
                           fromNow={false}
                           interval={60000}
                           onChange={[Function]}
@@ -347,7 +347,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         decimal={false}
                         element="time"
                         filter={[Function]}
-                        format="DD-MM-YYYY"
+                        format="DD-MM-YYYY HH:mm:ss"
                         fromNow={false}
                         interval={60000}
                         key="3"
@@ -360,7 +360,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         <time
                           dateTime={"2018-06-21T09:15:23.175Z"}
                         >
-                          21-06-2018
+                          21-06-2018 12:15:23
                         </time>
                       </t>
                     </td>
@@ -381,7 +381,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           decimal={false}
                           element="time"
                           filter={[Function]}
-                          format="DD-MM-YYYY"
+                          format="DD-MM-YYYY HH:mm:ss"
                           fromNow={false}
                           interval={60000}
                           onChange={[Function]}
@@ -412,7 +412,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         decimal={false}
                         element="time"
                         filter={[Function]}
-                        format="DD-MM-YYYY"
+                        format="DD-MM-YYYY HH:mm:ss"
                         fromNow={false}
                         interval={60000}
                         key="1"
@@ -425,7 +425,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         <time
                           dateTime={"2018-06-21T09:15:23.170Z"}
                         >
-                          21-06-2018
+                          21-06-2018 12:15:23
                         </time>
                       </t>
                     </td>

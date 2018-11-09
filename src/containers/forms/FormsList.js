@@ -115,7 +115,7 @@ export class FormsList extends Component {
     const rowItems = [
       row.attributes.title,
       row.attributes.task_name,
-      <Moment key={row.id} format="DD-MM-YYYY">
+      <Moment key={row.id} format="DD-MM-YYYY HH:mm:ss">
         {row.attributes.modified}
       </Moment>
     ];
