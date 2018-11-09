@@ -1,0 +1,563 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/forms/FormsList renders form list correctly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <FormsList
+    changePageNumber={[Function]}
+    changePageTarget={[Function]}
+    changePageTitle={[Function]}
+    changePageTitleButton={[Function]}
+    currentPage={1}
+    endpoint="forms"
+    fetchForms={[Function]}
+    firstPage={1}
+    lastPage={2}
+    location={
+      Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      }
+    }
+    pageLinks={
+      Object {
+        "first": "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1",
+        "last": "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
+        "next": "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
+        "prev": null,
+      }
+    }
+    rowsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.170271+03:00",
+            "deleted_at": null,
+            "has_task": false,
+            "id_string": "form_1",
+            "last_updated": null,
+            "modified": "2018-06-21T12:15:23.170313+03:00",
+            "ona_pk": 1903,
+            "project_id": 4328,
+            "title": "Form 1",
+          },
+          "id": "1",
+          "type": "XForm",
+        },
+        "2": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.175198+03:00",
+            "deleted_at": null,
+            "has_task": false,
+            "id_string": "form_2",
+            "last_updated": null,
+            "modified": "2018-06-21T12:15:23.175232+03:00",
+            "ona_pk": 6373,
+            "project_id": 5522,
+            "title": "Form 2",
+          },
+          "id": "2",
+          "type": "XForm",
+        },
+        "3": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.175198+03:00",
+            "deleted_at": null,
+            "has_task": true,
+            "id_string": "form_3",
+            "last_updated": null,
+            "modified": "2018-06-21T12:15:23.175232+03:00",
+            "ona_pk": 6373,
+            "project_id": 5522,
+            "title": "Form 3",
+          },
+          "id": "3",
+          "type": "XForm",
+        },
+      }
+    }
+    rowsIdArray={
+      Array [
+        "1",
+        "2",
+        "3",
+      ]
+    }
+    searchVal={[Function]}
+    showListTitle={[Function]}
+    totalPages={2}
+  >
+    <div
+      className="FormsList"
+    >
+      <ListView
+        currentPage={1}
+        endpoint="forms"
+        firstPage={1}
+        lastPage={2}
+        pageLinks={
+          Object {
+            "first": "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1",
+            "last": "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
+            "next": "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
+            "prev": null,
+          }
+        }
+        renderHeaders={[Function]}
+        renderRow={[Function]}
+        rowsById={
+          Object {
+            "1": Object {
+              "attributes": Object {
+                "created": "2018-06-21T12:15:23.170271+03:00",
+                "deleted_at": null,
+                "has_task": false,
+                "id_string": "form_1",
+                "last_updated": null,
+                "modified": "2018-06-21T12:15:23.170313+03:00",
+                "ona_pk": 1903,
+                "project_id": 4328,
+                "title": "Form 1",
+              },
+              "id": "1",
+              "type": "XForm",
+            },
+            "2": Object {
+              "attributes": Object {
+                "created": "2018-06-21T12:15:23.175198+03:00",
+                "deleted_at": null,
+                "has_task": false,
+                "id_string": "form_2",
+                "last_updated": null,
+                "modified": "2018-06-21T12:15:23.175232+03:00",
+                "ona_pk": 6373,
+                "project_id": 5522,
+                "title": "Form 2",
+              },
+              "id": "2",
+              "type": "XForm",
+            },
+            "3": Object {
+              "attributes": Object {
+                "created": "2018-06-21T12:15:23.175198+03:00",
+                "deleted_at": null,
+                "has_task": true,
+                "id_string": "form_3",
+                "last_updated": null,
+                "modified": "2018-06-21T12:15:23.175232+03:00",
+                "ona_pk": 6373,
+                "project_id": 5522,
+                "title": "Form 3",
+              },
+              "id": "3",
+              "type": "XForm",
+            },
+          }
+        }
+        rowsIdArray={
+          Array [
+            "1",
+            "2",
+            "3",
+          ]
+        }
+        sortField="modified"
+        sortOrder="desc"
+        totalPages={2}
+      >
+        <div>
+          <Table
+            bordered={true}
+            className="kaznet-table"
+            responsiveTag="div"
+            tag="table"
+          >
+            <table
+              className="kaznet-table table table-bordered"
+            >
+              <thead>
+                <tr>
+                  <ElementMap
+                    HTMLTag="th"
+                    items={
+                      Array [
+                        "Name",
+                        "Created",
+                      ]
+                    }
+                  >
+                    <th
+                      key="0"
+                    >
+                      Name
+                    </th>
+                    <th
+                      key="1"
+                    >
+                      Created
+                    </th>
+                  </ElementMap>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="2"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/forms/edit/2"
+                      />,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-21T12:15:23.175198+03:00
+                      </t>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/forms/edit/2"
+                      >
+                        <a
+                          href="/forms/edit/2"
+                          onClick={[Function]}
+                        />
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
+                    >
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        key="2"
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                      >
+                        <time
+                          dateTime={"2018-06-21T09:15:23.175Z"}
+                        >
+                          21-06-2018
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="3"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/forms/edit/3"
+                      />,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-21T12:15:23.175198+03:00
+                      </t>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/forms/edit/3"
+                      >
+                        <a
+                          href="/forms/edit/3"
+                          onClick={[Function]}
+                        />
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
+                    >
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        key="3"
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                      >
+                        <time
+                          dateTime={"2018-06-21T09:15:23.175Z"}
+                        >
+                          21-06-2018
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
+                  key="1"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        <Link
+                          replace={false}
+                          to="/forms/edit/1"
+                      />,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-21T12:15:23.170271+03:00
+                      </t>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      <Link
+                        key="link_to"
+                        replace={false}
+                        to="/forms/edit/1"
+                      >
+                        <a
+                          href="/forms/edit/1"
+                          onClick={[Function]}
+                        />
+                      </Link>
+                    </td>
+                    <td
+                      key="1"
+                    >
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY"
+                        fromNow={false}
+                        interval={60000}
+                        key="1"
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                      >
+                        <time
+                          dateTime={"2018-06-21T09:15:23.170Z"}
+                        >
+                          21-06-2018
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+              </tbody>
+            </table>
+          </Table>
+          <Pagination
+            aria-label="Page navigation example"
+            listTag="ul"
+            tag="nav"
+          >
+            <nav
+              aria-label="Page navigation example"
+              className=""
+            >
+              <ul
+                className="pagination"
+              >
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="First"
+                      className="page-link"
+                      replace={false}
+                      to="/forms/?search=&status=&page=1"
+                    >
+                      <a
+                        aria-label="First"
+                        className="page-link"
+                        href="/forms/?search=&status=&page=1"
+                        onClick={[Function]}
+                      >
+                        First
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={true}
+                  tag="li"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <Link
+                      aria-label="Previous"
+                      className="page-link"
+                      replace={false}
+                      to="#"
+                    >
+                      <a
+                        aria-label="Previous"
+                        className="page-link"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        «
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Next"
+                      className="page-link"
+                      replace={false}
+                      to="/forms/?search=&status=&page=2"
+                    >
+                      <a
+                        aria-label="Next"
+                        className="page-link"
+                        href="/forms/?search=&status=&page=2"
+                        onClick={[Function]}
+                      >
+                        »
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+                <PaginationItem
+                  disabled={false}
+                  tag="li"
+                >
+                  <li
+                    className="page-item"
+                  >
+                    <Link
+                      aria-label="Last"
+                      className="page-link"
+                      replace={false}
+                      to="/forms/?search=&status=&page=2"
+                    >
+                      <a
+                        aria-label="Last"
+                        className="page-link"
+                        href="/forms/?search=&status=&page=2"
+                        onClick={[Function]}
+                      >
+                        Last
+                      </a>
+                    </Link>
+                  </li>
+                </PaginationItem>
+              </ul>
+            </nav>
+          </Pagination>
+        </div>
+      </ListView>
+    </div>
+  </FormsList>
+</Router>
+`;
