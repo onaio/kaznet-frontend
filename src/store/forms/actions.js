@@ -7,7 +7,14 @@ import formService from "../../services/forms";
 export function fetchForms(url) {
   return async (dispatch, getState) => {
     try {
-      const formArray = await formService.getFormList(url);
+      const {
+        formArray,
+        pageLinks,
+        currentPage,
+        totalPages,
+        totalCount
+      } = await formService.getFormList(url);
+
       const formsById = _.keyBy(formArray, form => form.id);
       const selectOptions = formArray
         .filter(function(item) {
@@ -17,9 +24,26 @@ export function fetchForms(url) {
           value: f.id,
           label: f.attributes.title
         }));
-      dispatch({ type: types.FORMS_FETCHED, formsById, selectOptions });
+      dispatch({
+        type: types.FORMS_FETCHED,
+        formsById,
+        pageLinks,
+        currentPage,
+        totalPages,
+        totalCount,
+        selectOptions
+      });
     } catch (error) {
       console.error(error);
     }
+  };
+}
+
+export function changePageNumber(pageNumber) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: types.FORM_CHANGE_PAGE,
+      pageNumber
+    });
   };
 }
