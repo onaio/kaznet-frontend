@@ -47,3 +47,12 @@ export function changePageNumber(pageNumber) {
     });
   };
 }
+
+export function getHasTask(hasTask) {
+  return async dispatch => {
+    dispatch({
+      type: types.FORM_HAS_TASK,
+      hasTask
+    });
+  };
+}

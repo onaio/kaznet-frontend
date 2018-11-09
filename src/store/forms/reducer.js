@@ -13,6 +13,7 @@ const initialState = Immutable({
   currentPage: null,
   totalPages: null,
   totalCount: null,
+  hasTask: "",
 
   pageLinks: {
     first: null,
@@ -36,6 +37,11 @@ export default function reduce(state = initialState, action = {}) {
     case types.FORM_CHANGE_PAGE:
       return state.merge({
         currentPage: action.pageNumber
+      });
+    case types.FORM_HAS_TASK:
+      return Immutable({
+        ...state,
+        hasTask: action.hasTask
       });
     default:
       return state;

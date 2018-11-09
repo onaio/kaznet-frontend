@@ -14,6 +14,7 @@ const initialState = {
   currentPage: null,
   totalPages: null,
   totalCount: null,
+  hasTask: "",
   pageLinks: {
     first: null,
     last: null,
