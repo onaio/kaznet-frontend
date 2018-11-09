@@ -32,6 +32,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
     endpoint="forms"
     fetchForms={[Function]}
     firstPage={1}
+    getHasTask={[Function]}
     lastPage={2}
     location={
       Object {
@@ -242,6 +243,19 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                               >
                                   <Link
                                       className="nav-link"
+                                      data-key="2"
+                                      replace={false}
+                                      to="/forms/?search=&page=1"
+                                  >
+                                      All
+                                  </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                  tag="button"
+                                  toggle={true}
+                              >
+                                  <Link
+                                      className="nav-link"
                                       data-key="1"
                                       replace={false}
                                       to="/forms/?search=&page=1&has_task=true"
@@ -330,6 +344,35 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                                 role="menu"
                                 tabIndex="-1"
                               >
+                                <DropdownItem
+                                  key="0"
+                                  tag="button"
+                                  toggle={true}
+                                >
+                                  <button
+                                    className="dropdown-item"
+                                    onClick={[Function]}
+                                    tabIndex="0"
+                                    type="button"
+                                  >
+                                    <Link
+                                      className="nav-link"
+                                      data-key="2"
+                                      key="1"
+                                      replace={false}
+                                      to="/forms/?search=&page=1"
+                                    >
+                                      <a
+                                        className="nav-link"
+                                        data-key="2"
+                                        href="/forms/?search=&page=1"
+                                        onClick={[Function]}
+                                      >
+                                        All
+                                      </a>
+                                    </Link>
+                                  </button>
+                                </DropdownItem>
                                 <DropdownItem
                                   key="1"
                                   tag="button"

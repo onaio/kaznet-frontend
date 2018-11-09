@@ -14,6 +14,7 @@ describe("containers/forms/FormsList", () => {
     shallow(
       <FormsList
         fetchForms={function() {}}
+        getHasTask={function() {}}
         changePageTitle={function() {}}
         changePageTitleButton={function() {}}
         changePageTarget={function() {}}
@@ -31,6 +32,7 @@ describe("containers/forms/FormsList", () => {
       <Router history={history}>
         <FormsList
           fetchForms={function() {}}
+          getHasTask={function() {}}
           changePageTitle={function() {}}
           changePageTitleButton={function() {}}
           changePageTarget={function() {}}
