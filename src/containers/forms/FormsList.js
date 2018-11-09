@@ -20,8 +20,8 @@ export class FormsList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Forms");
-    this.props.changePageTitleButton("+ Add Client");
-    this.props.changePageTarget("/forms/new");
+    this.props.changePageTitleButton("");
+    this.props.changePageTarget("");
     let { search } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
@@ -36,7 +36,7 @@ export class FormsList extends Component {
     }
     await this.props.fetchForms(
       `${constants.API_ENDPOINT}/forms/?ordering=${
-        constants.TASK_SORT_FIELD
+        constants.FORM_SORT_FIELD
       }&search=${search}&page=${pageNumber}`
     );
     this.props.changePageNumber(pageNumber);
@@ -52,7 +52,7 @@ export class FormsList extends Component {
       const pageNumber = Number(page);
       this.props.fetchForms(
         `${constants.API_ENDPOINT}/forms/?ordering=${
-          constants.TASK_SORT_FIELD
+          constants.FORM_SORT_FIELD
         }&search=${search}&page=${pageNumber}`
       );
       this.props.changePageNumber(pageNumber);
@@ -107,17 +107,16 @@ export class FormsList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = ["Name", "Created"];
+    const headerItems = ["Name", "Task", "Last Modified"];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
   renderRow(row) {
     const rowItems = [
-      <Link to={`/forms/edit/${row.id}`} key="link_to">
-        {row.attributes.name}
-      </Link>,
+      row.attributes.title,
+      row.attributes.task_name,
       <Moment key={row.id} format="DD-MM-YYYY">
-        {row.attributes.created}
+        {row.attributes.modified}
       </Moment>
     ];
     return <ElementMap items={rowItems} HTMLTag="td" />;
