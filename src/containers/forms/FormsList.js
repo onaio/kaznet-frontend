@@ -4,6 +4,13 @@ import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import qs from "qs";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownItem,
+  DropdownMenu
+} from "reactstrap";
+
 import "../LoadListAnimation.css";
 import * as formActions from "../../store/forms/actions";
 import * as formSelectors from "../../store/forms/reducer";
@@ -17,6 +24,14 @@ import ElementMap from "../ElementMap";
 import { withAlert } from "react-alert";
 
 export class FormsList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Forms");
@@ -24,11 +39,22 @@ export class FormsList extends Component {
     this.props.changePageTarget("");
     let { search } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
+    let { has_task } = qs.parse(this.props.location.search.slice(1));
+    let hasTask;
 
     if (search === undefined) {
       search = "";
     }
     this.props.searchVal(search);
+
+    if (has_task === undefined) {
+      hasTask = "";
+    } else {
+      hasTask = has_task;
+    }
+
+    this.props.getHasTask(hasTask);
+
     let pageNumber = Number(page);
 
     if (isNaN(pageNumber)) {
@@ -37,7 +63,7 @@ export class FormsList extends Component {
     await this.props.fetchForms(
       `${constants.API_ENDPOINT}/forms/?ordering=${
         constants.FORM_SORT_FIELD
-      }&search=${search}&page=${pageNumber}`
+      }&search=${search}&page=${pageNumber}&has_task=${hasTask}`
     );
     this.props.changePageNumber(pageNumber);
   }
@@ -47,13 +73,23 @@ export class FormsList extends Component {
     if (search === undefined) {
       search = "";
     }
+
+    let { has_task } = qs.parse(this.props.location.search.slice(1));
+    let hasTask;
+    if (has_task === undefined) {
+      hasTask = "";
+    } else {
+      hasTask = has_task;
+    }
+
     const { page } = qs.parse(this.props.location.search.slice(1));
+
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
       this.props.fetchForms(
         `${constants.API_ENDPOINT}/forms/?ordering=${
           constants.FORM_SORT_FIELD
-        }&search=${search}&page=${pageNumber}`
+        }&search=${search}&page=${pageNumber}&has_task=${hasTask}`
       );
       this.props.changePageNumber(pageNumber);
     }
@@ -62,6 +98,29 @@ export class FormsList extends Component {
         this.props.alert.show(this.props.errorMessage);
       }
     }
+  }
+
+  handleChange(e) {
+    const hasTask = e.target.getAttribute("data-key");
+    const param = `?has_task=${hasTask}`;
+    if (hasTask === null) {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+      return false;
+    }
+    const pageValue = this.props.pageParam;
+    const searchString = this.props.searchParam;
+    this.props.fetchForms(
+      `${constants.API_ENDPOINT}/forms/${
+        hasTask !== "" ? param : ""
+      }&search=${searchString}&page=${pageValue}`
+    );
+    this.props.getHasTask(hasTask !== "" ? hasTask : "");
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+    return true;
   }
 
   render() {
@@ -90,6 +149,9 @@ export class FormsList extends Component {
           searchVal={this.props.searchParam}
           sortField={constants.CLIENT_SORT_ATTRIBUTE}
           sortOrder={constants.SORT_DESC}
+          isFormPage={true}
+          isOpen={this.state.isOpen}
+          handleChange={this.handleChange}
         />
       </div>
     );
@@ -106,8 +168,38 @@ export class FormsList extends Component {
     );
   }
 
-  renderHeaders() {
-    const headerItems = ["Name", "Task", "Last Modified"];
+  renderHeaders(firstPageLink) {
+    const headerItems = [
+      "Name",
+      <Dropdown isOpen={this.isOpen} toggle={this.handleChange} key="dropdown">
+        <DropdownToggle caret tag="span" className="nav-link">
+          Task
+        </DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem key={1}>
+            <Link
+              to={`${firstPageLink}&has_task=true`}
+              className="nav-link"
+              key="1"
+              data-key="1"
+            >
+              Has Task
+            </Link>
+          </DropdownItem>
+          <DropdownItem key={2}>
+            <Link
+              to={`${firstPageLink}&has_task=false`}
+              className="nav-link"
+              key="0"
+              data-key="0"
+            >
+              Does Not Have Task
+            </Link>
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+      "Last Modified"
+    ];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 
@@ -135,7 +227,8 @@ function mapStateToProps(state) {
     searchParam: globalSelectors.getSearchValue(state),
     formCount: formSelectors.getTotalCount(state),
     hasError: errorHandlerSelectors.getHasError(state),
-    errorMessage: errorHandlerSelectors.getErrorMessage(state)
+    errorMessage: errorHandlerSelectors.getErrorMessage(state),
+    pageParam: globalSelectors.getPageNum(state)
   };
 }
 
@@ -144,6 +237,7 @@ function mapDispatchToProps(dispatch) {
     {
       fetchForms: formActions.fetchForms,
       changePageNumber: formActions.changePageNumber,
+      getHasTask: formActions.getHasTask,
       changePageTitle: globalActions.changePageTitle,
       changePageTitleButton: globalActions.changePageTitleButton,
       changePageTarget: globalActions.changePageTarget,

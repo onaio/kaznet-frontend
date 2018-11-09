@@ -119,6 +119,9 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
         currentPage={1}
         endpoint="forms"
         firstPage={1}
+        handleChange={[Function]}
+        isFormPage={true}
+        isOpen={false}
         lastPage={2}
         pageLinks={
           Object {
@@ -210,7 +213,57 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     items={
                       Array [
                         "Name",
-                        "Task",
+                        <Dropdown
+                          active={false}
+                          addonType={false}
+                          direction="down"
+                          inNavbar={false}
+                          isOpen={false}
+                          nav={false}
+                          setActiveFromChild={false}
+                          toggle={[Function]}
+                      >
+                          <DropdownToggle
+                              aria-haspopup={true}
+                              caret={true}
+                              className="nav-link"
+                              color="secondary"
+                              tag="span"
+                          >
+                              Task
+                          </DropdownToggle>
+                          <DropdownMenu
+                              flip={true}
+                              tag="div"
+                          >
+                              <DropdownItem
+                                  tag="button"
+                                  toggle={true}
+                              >
+                                  <Link
+                                      className="nav-link"
+                                      data-key="1"
+                                      replace={false}
+                                      to="/forms/?search=&page=1&has_task=true"
+                                  >
+                                      Has Task
+                                  </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                  tag="button"
+                                  toggle={true}
+                              >
+                                  <Link
+                                      className="nav-link"
+                                      data-key="0"
+                                      replace={false}
+                                      to="/forms/?search=&page=1&has_task=false"
+                                  >
+                                      Does Not Have Task
+                                  </Link>
+                              </DropdownItem>
+                          </DropdownMenu>
+                      </Dropdown>,
                         "Last Modified",
                       ]
                     }
@@ -223,7 +276,123 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     <th
                       key="1"
                     >
-                      Task
+                      <Dropdown
+                        active={false}
+                        addonType={false}
+                        direction="down"
+                        inNavbar={false}
+                        isOpen={false}
+                        key="dropdown"
+                        nav={false}
+                        setActiveFromChild={false}
+                        toggle={[Function]}
+                      >
+                        <Manager
+                          className="dropdown"
+                          onKeyDown={[Function]}
+                          tag="div"
+                        >
+                          <div
+                            className="dropdown"
+                            onKeyDown={[Function]}
+                          >
+                            <DropdownToggle
+                              aria-haspopup={true}
+                              caret={true}
+                              className="nav-link"
+                              color="secondary"
+                              tag="span"
+                            >
+                              <Target
+                                aria-expanded={false}
+                                aria-haspopup={true}
+                                className="nav-link dropdown-toggle"
+                                component="span"
+                                onClick={[Function]}
+                              >
+                                <span
+                                  aria-expanded={false}
+                                  aria-haspopup={true}
+                                  className="nav-link dropdown-toggle"
+                                  onClick={[Function]}
+                                >
+                                  Task
+                                </span>
+                              </Target>
+                            </DropdownToggle>
+                            <DropdownMenu
+                              flip={true}
+                              tag="div"
+                            >
+                              <div
+                                aria-hidden={true}
+                                className="dropdown-menu"
+                                role="menu"
+                                tabIndex="-1"
+                              >
+                                <DropdownItem
+                                  key="1"
+                                  tag="button"
+                                  toggle={true}
+                                >
+                                  <button
+                                    className="dropdown-item"
+                                    onClick={[Function]}
+                                    tabIndex="0"
+                                    type="button"
+                                  >
+                                    <Link
+                                      className="nav-link"
+                                      data-key="1"
+                                      key="1"
+                                      replace={false}
+                                      to="/forms/?search=&page=1&has_task=true"
+                                    >
+                                      <a
+                                        className="nav-link"
+                                        data-key="1"
+                                        href="/forms/?search=&page=1&has_task=true"
+                                        onClick={[Function]}
+                                      >
+                                        Has Task
+                                      </a>
+                                    </Link>
+                                  </button>
+                                </DropdownItem>
+                                <DropdownItem
+                                  key="2"
+                                  tag="button"
+                                  toggle={true}
+                                >
+                                  <button
+                                    className="dropdown-item"
+                                    onClick={[Function]}
+                                    tabIndex="0"
+                                    type="button"
+                                  >
+                                    <Link
+                                      className="nav-link"
+                                      data-key="0"
+                                      key="0"
+                                      replace={false}
+                                      to="/forms/?search=&page=1&has_task=false"
+                                    >
+                                      <a
+                                        className="nav-link"
+                                        data-key="0"
+                                        href="/forms/?search=&page=1&has_task=false"
+                                        onClick={[Function]}
+                                      >
+                                        Does Not Have Task
+                                      </a>
+                                    </Link>
+                                  </button>
+                                </DropdownItem>
+                              </div>
+                            </DropdownMenu>
+                          </div>
+                        </Manager>
+                      </Dropdown>
                     </th>
                     <th
                       key="2"
