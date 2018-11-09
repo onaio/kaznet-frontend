@@ -176,6 +176,16 @@ export class FormsList extends Component {
           Task
         </DropdownToggle>
         <DropdownMenu>
+          <DropdownItem key={0}>
+            <Link
+              to={`${firstPageLink}`}
+              className="nav-link"
+              key="1"
+              data-key="2"
+            >
+              All
+            </Link>
+          </DropdownItem>
           <DropdownItem key={1}>
             <Link
               to={`${firstPageLink}&has_task=true`}
