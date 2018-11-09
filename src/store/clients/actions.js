@@ -15,7 +15,7 @@ export function fetchClients(url) {
         totalPages,
         totalCount
       } = await clientService.getClientList(url); // reason we are using async
-      const clientsById = _.keyBy(clientArray, task => task.id); // Sorts the items ???
+      const clientsById = _.keyBy(clientArray, client => client.id); // Sorts the items ???
       const selectOptions = clientArray.map(c => ({
         value: c.id,
         label: c.attributes.name

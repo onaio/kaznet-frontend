@@ -114,7 +114,7 @@ export function getLastPage(state, props) {
   return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
 }
 
-export function getTotalCount(state, porseps) {
+export function getTotalCount(state, props) {
   return state.users.totalCount;
 }
 export function getCurrentUser(state, props) {
