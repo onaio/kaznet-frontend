@@ -28,6 +28,7 @@ export const LOCATION_SORT_ATTRIBUTE = "modified";
 export const LOCATION_TYPE_SORT_ATTRIBUTE = "modified";
 export const USERS_SORT_ATTRIBUTE = "modified";
 export const TASK_SORT_FIELD = "-modified";
+export const FORM_SORT_FIELD = "-modified";
 export const FILTER_TIME_START = "submission_time__gte";
 export const FILTER_TIME_END = "submission_time__lte";
 export const SORT_ASC = "asc";
@@ -46,6 +47,8 @@ export const SUBMISSION_PENDING = "d";
 export const USER_SUBMISSION_TARGET = 10;
 export const ASYNC_SEARCH_TIMEOUT = 10;
 export const ASYNC_FORM_TEXT = "Type to search or select from options";
+export const TRUE = "True";
+export const FALSE = "False";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,

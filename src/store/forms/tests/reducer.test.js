@@ -10,7 +10,17 @@ const initialState = {
   formsById: {},
   selectOptions: [],
   formsIdArray: [],
-  unusedForms: []
+  unusedForms: [],
+  currentPage: null,
+  totalPages: null,
+  totalCount: null,
+  hasTask: "",
+  pageLinks: {
+    first: null,
+    last: null,
+    prev: null,
+    next: null
+  }
 };
 
 describe("store/forms/reducer", () => {
@@ -20,16 +30,28 @@ describe("store/forms/reducer", () => {
 
   it("should store fetched forms", () => {
     const formsById = fixtures.formsById;
+    const pageLinks = fixtures.pageLinks;
+    const currentPage = fixtures.currentPage;
+    const totalPages = fixtures.totalPages;
+    const totalCount = fixtures.totalCount;
     const selectOptions = fixtures.selectOptions;
     const action = {
       type: actionTypes.FORMS_FETCHED,
       formsById,
+      pageLinks,
+      currentPage,
+      totalPages,
+      totalCount,
       selectOptions
     };
 
     const existingState = Immutable(initialState);
     const newState = _.clone(existingState);
     newState.formsById = formsById;
+    newState.pageLinks = pageLinks;
+    newState.currentPage = currentPage;
+    newState.totalPages = totalPages;
+    newState.totalCount = totalCount;
     newState.selectOptions = selectOptions;
 
     Reducer(forms)

@@ -101,11 +101,11 @@ export function getPageLinks(state, props) {
   return state.locationTypes.pageLinks;
 }
 
-export function getCurrentPage(state, porseps) {
+export function getCurrentPage(state, props) {
   return state.locationTypes.currentPage;
 }
 
-export function getTotalPages(state, porseps) {
+export function getTotalPages(state, props) {
   return state.locationTypes.totalPages;
 }
 

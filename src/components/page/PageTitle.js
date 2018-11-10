@@ -25,7 +25,13 @@ export default class PageTitle extends Component {
             <div>
               <h1>{this.props.pageTitle}</h1>
               <Row>
-                <Col md="9">
+                <Col
+                  md={
+                    this.props.pageTitleButton && this.props.pageTarget
+                      ? "9"
+                      : "12"
+                  }
+                >
                   <Form onSubmit={this.handleSubmit}>
                     <InputGroup className="search-group">
                       <InputGroupAddon
@@ -60,14 +66,17 @@ export default class PageTitle extends Component {
                     </InputGroup>
                   </Form>
                 </Col>
-                <Col md="3">
-                  <Link
-                    to={this.props.pageTarget || "/"}
-                    className="btn btn-primary btn-lg"
-                  >
-                    {this.props.pageTitleButton}
-                  </Link>
-                </Col>
+                {this.props.pageTitleButton &&
+                  this.props.pageTarget && (
+                    <Col md="3">
+                      <Link
+                        to={this.props.pageTarget || "/"}
+                        className="btn btn-primary btn-lg"
+                      >
+                        {this.props.pageTitleButton}
+                      </Link>
+                    </Col>
+                  )}
               </Row>
             </div>
           </Col>

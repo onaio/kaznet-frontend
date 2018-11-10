@@ -48,6 +48,8 @@ import ClientCreateForm from "./containers/clients/ClientCreateForm";
 import ClientEditForm from "./containers/clients/ClientEditForm";
 import ClientDeletion from "./containers/clients/ClientDeletion";
 
+import FormsList from "./containers/forms/FormsList";
+
 moment.updateLocale(moment.locale(), { invalidDate: "" });
 fontawesome.library.add(
   faSearch,
@@ -198,6 +200,8 @@ class App extends Component {
                           path="/locationTypes/:id/delete"
                           component={LocationTypeDeletion}
                         />
+                        <Route exact path="/forms" component={FormsList} />
+                        <Route exact path="/forms:page" component={FormsList} />
                         <Route exact path="/" component={TasksList} />
                         <Route component={NoMatch} />
                       </Switch>

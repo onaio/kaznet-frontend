@@ -120,7 +120,23 @@ export default class ListView extends Component {
                   </Dropdown>
                 </th>
               ) : null}
-              {this.props.renderHeaders()}
+              {this.props.isFormPage
+                ? this.props.renderHeaders(
+                    this.props.pageLinks.first
+                      ? `/${this.props.endpoint}/?search=${
+                          !this.props.searchVal ||
+                          this.props.searchVal === undefined
+                            ? ""
+                            : this.props.searchVal
+                        }&page=${
+                          !this.props.firstPage ||
+                          typeof this.props.firstPage !== Number
+                            ? 1
+                            : this.props.firstPage
+                        }`
+                      : "#"
+                  )
+                : this.props.renderHeaders()}
             </tr>
           </thead>
           <tbody>
