@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory";
+import moment from "moment-timezone";
 
 import { FormsList } from "../FormsList";
 import * as fixtures from "../../../store/forms/tests/fixtures";
@@ -28,6 +29,7 @@ describe("containers/forms/FormsList", () => {
   });
 
   it("renders form list correctly", () => {
+    moment.tz.setDefault("EAT");
     const wrapper = mount(
       <Router history={history}>
         <FormsList
