@@ -30,17 +30,25 @@ export class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
+    this.toggleLocation = this.toggleLocation.bind(this);
+    this.toggleTask = this.toggleTask.bind(this);
     this.toggleUser = this.toggleUser.bind(this);
     this.state = {
-      dropDownOpen: false,
+      locationDropDownOpen: false,
+      taskDropDownOpen: false,
       userDropDownOpen: false
     };
   }
 
-  toggle() {
+  toggleLocation() {
     this.setState(prevState => ({
-      dropDownOpen: !prevState.dropDownOpen
+      locationDropDownOpen: !prevState.locationDropDownOpen
+    }));
+  }
+
+  toggleTask() {
+    this.setState(prevState => ({
+      taskDropDownOpen: !prevState.taskDropDownOpen
     }));
   }
 
@@ -64,13 +72,42 @@ export class Header extends Component {
             <Collapse navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink
-                    to="/tasks"
-                    className="nav-link"
-                    activeClassName="active"
+                  <Dropdown
+                    isOpen={this.state.taskDropDownOpen}
+                    toggle={this.toggleTask}
                   >
-                    Tasks
-                  </NavLink>
+                    <DropdownToggle
+                      caret
+                      tag="span"
+                      className={
+                        path === "/tasks" || path === "/forms"
+                          ? "nav-link active"
+                          : "nav-link"
+                      }
+                    >
+                      Tasks
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem>
+                        <NavLink
+                          to="/tasks"
+                          className="nav-link"
+                          activeClassName="active"
+                        >
+                          Tasks
+                        </NavLink>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <NavLink
+                          to="/forms"
+                          className="nav-link"
+                          activeClassName="active"
+                        >
+                          Forms
+                        </NavLink>
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
                 </NavItem>
                 <NavItem>
                   <NavLink
@@ -83,8 +120,8 @@ export class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <Dropdown
-                    isOpen={this.state.dropDownOpen}
-                    toggle={this.toggle}
+                    isOpen={this.state.locationDropDownOpen}
+                    toggle={this.toggleLocation}
                   >
                     <DropdownToggle
                       caret
