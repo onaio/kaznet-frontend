@@ -193,7 +193,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
             "3",
           ]
         }
-        sortField="modified"
+        sortField="-modified"
         sortOrder="desc"
         totalPages={2}
       >
@@ -447,6 +447,71 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
               </thead>
               <tbody>
                 <tr
+                  key="1"
+                >
+                  <ElementMap
+                    HTMLTag="td"
+                    items={
+                      Array [
+                        "Form 1",
+                        null,
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="DD-MM-YYYY HH:mm:ss"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                      >
+                          2018-06-21T12:15:23.170313+03:00
+                      </t>,
+                      ]
+                    }
+                  >
+                    <td
+                      key="0"
+                    >
+                      Form 1
+                    </td>
+                    <td
+                      key="1"
+                    />
+                    <td
+                      key="2"
+                    >
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="DD-MM-YYYY HH:mm:ss"
+                        fromNow={false}
+                        interval={60000}
+                        key="1"
+                        onChange={[Function]}
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                      >
+                        <time
+                          dateTime={"2018-06-21T09:15:23.170Z"}
+                        >
+                          21-06-2018 12:15:23
+                        </time>
+                      </t>
+                    </td>
+                  </ElementMap>
+                </tr>
+                <tr
                   key="2"
                 >
                   <ElementMap
@@ -571,71 +636,6 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                       >
                         <time
                           dateTime={"2018-06-21T09:15:23.175Z"}
-                        >
-                          21-06-2018 12:15:23
-                        </time>
-                      </t>
-                    </td>
-                  </ElementMap>
-                </tr>
-                <tr
-                  key="1"
-                >
-                  <ElementMap
-                    HTMLTag="td"
-                    items={
-                      Array [
-                        "Form 1",
-                        null,
-                        <t
-                          ago={false}
-                          calendar={false}
-                          decimal={false}
-                          element="time"
-                          filter={[Function]}
-                          format="DD-MM-YYYY HH:mm:ss"
-                          fromNow={false}
-                          interval={60000}
-                          onChange={[Function]}
-                          toNow={false}
-                          unit={null}
-                          unix={false}
-                          utc={false}
-                      >
-                          2018-06-21T12:15:23.170313+03:00
-                      </t>,
-                      ]
-                    }
-                  >
-                    <td
-                      key="0"
-                    >
-                      Form 1
-                    </td>
-                    <td
-                      key="1"
-                    />
-                    <td
-                      key="2"
-                    >
-                      <t
-                        ago={false}
-                        calendar={false}
-                        decimal={false}
-                        element="time"
-                        filter={[Function]}
-                        format="DD-MM-YYYY HH:mm:ss"
-                        fromNow={false}
-                        interval={60000}
-                        key="1"
-                        onChange={[Function]}
-                        toNow={false}
-                        unit={null}
-                        unix={false}
-                        utc={false}
-                      >
-                        <time
-                          dateTime={"2018-06-21T09:15:23.170Z"}
                         >
                           21-06-2018 12:15:23
                         </time>

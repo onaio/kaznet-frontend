@@ -147,7 +147,7 @@ export class FormsList extends Component {
           firstPage={this.props.firstPage}
           lastPage={this.props.lastPage}
           searchVal={this.props.searchParam}
-          sortField={constants.CLIENT_SORT_ATTRIBUTE}
+          sortField={constants.FORM_SORT_FIELD}
           sortOrder={constants.SORT_DESC}
           isFormPage={true}
           isOpen={this.state.isOpen}
