@@ -29,7 +29,7 @@ describe("containers/forms/FormsList", () => {
   });
 
   it("renders form list correctly", () => {
-    moment.tz.setDefault("EAT");
+    moment.tz.setDefault("UTC");
     const wrapper = mount(
       <Router history={history}>
         <FormsList
