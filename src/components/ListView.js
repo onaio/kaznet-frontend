@@ -195,6 +195,8 @@ export default class ListView extends Component {
                     typeof this.props.firstPage !== Number
                       ? 1
                       : this.props.firstPage
+                  }${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
                   }`
                 : "#"
             }
@@ -212,7 +214,9 @@ export default class ListView extends Component {
                     !this.props.searchVal ? "" : this.props.searchVal
                   }&status=${
                     !this.props.taskStatus ? "" : this.props.taskStatus
-                  }&page=${this.props.currentPage - 1}`
+                  }&page=${this.props.currentPage - 1}${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
+                  }`
                 : "#"
             }
             className="page-link"
@@ -229,7 +233,9 @@ export default class ListView extends Component {
                     !this.props.searchVal ? "" : this.props.searchVal
                   }&status=${
                     !this.props.taskStatus ? "" : this.props.taskStatus
-                  }&page=${this.props.currentPage + 1}`
+                  }&page=${this.props.currentPage + 1}${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
+                  }`
                 : "#"
             }
             className="page-link"
@@ -250,6 +256,8 @@ export default class ListView extends Component {
                     !this.props.lastPage || this.props.lastPage === undefined
                       ? this.props.totalPages
                       : this.props.lastPage
+                  }${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
                   }`
                 : "#"
             }
