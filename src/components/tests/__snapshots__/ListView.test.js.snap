@@ -249,12 +249,12 @@ exports[`components/ListView renders a table 1`] = `
           </table>
         </Table>
         <Pagination
-          aria-label="Page navigation example"
+          aria-label="Kaznet listview"
           listTag="ul"
           tag="nav"
         >
           <nav
-            aria-label="Page navigation example"
+            aria-label="Kaznet listview"
             className=""
           >
             <ul
@@ -488,12 +488,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
         </table>
       </Table>
       <Pagination
-        aria-label="Page navigation example"
+        aria-label="Kaznet listview"
         listTag="ul"
         tag="nav"
       >
         <nav
-          aria-label="Page navigation example"
+          aria-label="Kaznet listview"
           className=""
         >
           <ul

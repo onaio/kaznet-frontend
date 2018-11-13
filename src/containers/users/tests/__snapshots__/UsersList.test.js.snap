@@ -449,12 +449,12 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
             </table>
           </Table>
           <Pagination
-            aria-label="Page navigation example"
+            aria-label="Kaznet listview"
             listTag="ul"
             tag="nav"
           >
             <nav
-              aria-label="Page navigation example"
+              aria-label="Kaznet listview"
               className=""
             >
               <ul

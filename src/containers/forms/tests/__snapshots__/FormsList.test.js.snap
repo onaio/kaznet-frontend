@@ -647,12 +647,12 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
             </table>
           </Table>
           <Pagination
-            aria-label="Page navigation example"
+            aria-label="Kaznet listview"
             listTag="ul"
             tag="nav"
           >
             <nav
-              aria-label="Page navigation example"
+              aria-label="Kaznet listview"
               className=""
             >
               <ul
@@ -1413,12 +1413,12 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
             </table>
           </Table>
           <Pagination
-            aria-label="Page navigation example"
+            aria-label="Kaznet listview"
             listTag="ul"
             tag="nav"
           >
             <nav
-              aria-label="Page navigation example"
+              aria-label="Kaznet listview"
               className=""
             >
               <ul
