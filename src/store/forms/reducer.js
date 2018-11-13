@@ -111,3 +111,7 @@ export function getTotalCount(state, props) {
 export function getFormOptions(state) {
   return state.forms.selectOptions;
 }
+
+export function getHasTask(state) {
+  return state.forms.hasTask;
+}
