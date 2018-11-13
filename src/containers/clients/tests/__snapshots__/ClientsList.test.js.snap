@@ -249,12 +249,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/clients/?search=&status=&page=1"
+                      to="/clients/?search=&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/clients/?search=&status=&page=1"
+                        href="/clients/?search=&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -297,12 +297,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/clients/?search=&status=&page=2"
+                      to="/clients/?search=&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/clients/?search=&status=&page=2"
+                        href="/clients/?search=&page=2"
                         onClick={[Function]}
                       >
                         »
@@ -321,12 +321,12 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/clients/?search=&status=&page=2"
+                      to="/clients/?search=&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/clients/?search=&status=&page=2"
+                        href="/clients/?search=&page=2"
                         onClick={[Function]}
                       >
                         Last
