@@ -152,6 +152,7 @@ export class FormsList extends Component {
           isFormPage={true}
           isOpen={this.state.isOpen}
           handleChange={this.handleChange}
+          hasTask={this.props.hasTask}
         />
       </div>
     );
@@ -238,7 +239,8 @@ function mapStateToProps(state) {
     formCount: formSelectors.getTotalCount(state),
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state),
-    pageParam: globalSelectors.getPageNum(state)
+    pageParam: globalSelectors.getPageNum(state),
+    hasTask: formSelectors.getHasTask(state)
   };
 }
 

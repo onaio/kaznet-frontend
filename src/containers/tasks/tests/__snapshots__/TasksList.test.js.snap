@@ -1640,12 +1640,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
             </table>
           </Table>
           <Pagination
-            aria-label="Page navigation example"
+            aria-label="Kaznet listview"
             listTag="ul"
             tag="nav"
           >
             <nav
-              aria-label="Page navigation example"
+              aria-label="Kaznet listview"
               className=""
             >
               <ul
@@ -1662,12 +1662,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=&status=a&page=1"
+                      to="/tasks/?search=&page=1&status=a"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/tasks/?search=&status=a&page=1"
+                        href="/tasks/?search=&page=1&status=a"
                         onClick={[Function]}
                       >
                         First
@@ -1710,12 +1710,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=&status=a&page=2"
+                      to="/tasks/?search=&page=2&status=a"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/tasks/?search=&status=a&page=2"
+                        href="/tasks/?search=&page=2&status=a"
                         onClick={[Function]}
                       >
                         »
@@ -1734,12 +1734,12 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/tasks/?search=&status=a&page=2"
+                      to="/tasks/?search=&page=2&status=a"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/tasks/?search=&status=a&page=2"
+                        href="/tasks/?search=&page=2&status=a"
                         onClick={[Function]}
                       >
                         Last

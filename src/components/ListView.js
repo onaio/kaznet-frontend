@@ -176,7 +176,7 @@ export default class ListView extends Component {
 
   renderPagination() {
     return (
-      <Pagination aria-label="Page navigation example">
+      <Pagination aria-label="Kaznet listview">
         <PaginationItem disabled={this.props.pageLinks.first ? false : true}>
           <Link
             to={
@@ -185,16 +185,17 @@ export default class ListView extends Component {
                     !this.props.searchVal || this.props.searchVal === undefined
                       ? ""
                       : this.props.searchVal
-                  }&status=${
-                    !this.props.taskStatus ||
-                    this.props.taskStatus === undefined
-                      ? ""
-                      : this.props.taskStatus
                   }&page=${
                     !this.props.firstPage ||
                     typeof this.props.firstPage !== Number
                       ? 1
                       : this.props.firstPage
+                  }${
+                    this.props.taskStatus
+                      ? "&status=" + this.props.taskStatus
+                      : ""
+                  }${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
                   }`
                 : "#"
             }
@@ -210,9 +211,13 @@ export default class ListView extends Component {
               this.props.pageLinks.prev
                 ? `/${this.props.endpoint}/?search=${
                     !this.props.searchVal ? "" : this.props.searchVal
-                  }&status=${
-                    !this.props.taskStatus ? "" : this.props.taskStatus
-                  }&page=${this.props.currentPage - 1}`
+                  }&page=${this.props.currentPage - 1}${
+                    this.props.taskStatus
+                      ? "&status=" + this.props.taskStatus
+                      : ""
+                  }${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
+                  }`
                 : "#"
             }
             className="page-link"
@@ -227,9 +232,13 @@ export default class ListView extends Component {
               this.props.pageLinks.next
                 ? `/${this.props.endpoint}/?search=${
                     !this.props.searchVal ? "" : this.props.searchVal
-                  }&status=${
-                    !this.props.taskStatus ? "" : this.props.taskStatus
-                  }&page=${this.props.currentPage + 1}`
+                  }&page=${this.props.currentPage + 1}${
+                    this.props.taskStatus
+                      ? "&status=" + this.props.taskStatus
+                      : ""
+                  }${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
+                  }`
                 : "#"
             }
             className="page-link"
@@ -244,12 +253,16 @@ export default class ListView extends Component {
               this.props.pageLinks.last
                 ? `/${this.props.endpoint}/?search=${
                     !this.props.searchVal ? "" : this.props.searchVal
-                  }&status=${
-                    !this.props.taskStatus ? "" : this.props.taskStatus
                   }&page=${
                     !this.props.lastPage || this.props.lastPage === undefined
                       ? this.props.totalPages
                       : this.props.lastPage
+                  }${
+                    this.props.taskStatus
+                      ? "&status=" + this.props.taskStatus
+                      : ""
+                  }${
+                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
                   }`
                 : "#"
             }

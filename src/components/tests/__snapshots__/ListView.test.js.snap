@@ -249,12 +249,12 @@ exports[`components/ListView renders a table 1`] = `
           </table>
         </Table>
         <Pagination
-          aria-label="Page navigation example"
+          aria-label="Kaznet listview"
           listTag="ul"
           tag="nav"
         >
           <nav
-            aria-label="Page navigation example"
+            aria-label="Kaznet listview"
             className=""
           >
             <ul
@@ -271,12 +271,12 @@ exports[`components/ListView renders a table 1`] = `
                     aria-label="First"
                     className="page-link"
                     replace={false}
-                    to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
+                    to="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                   >
                     <a
                       aria-label="First"
                       className="page-link"
-                      href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
+                      href="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                       onClick={[Function]}
                     >
                       First
@@ -319,12 +319,12 @@ exports[`components/ListView renders a table 1`] = `
                     aria-label="Next"
                     className="page-link"
                     replace={false}
-                    to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                    to="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                   >
                     <a
                       aria-label="Next"
                       className="page-link"
-                      href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                      href="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                       onClick={[Function]}
                     >
                       »
@@ -343,12 +343,12 @@ exports[`components/ListView renders a table 1`] = `
                     aria-label="Last"
                     className="page-link"
                     replace={false}
-                    to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                    to="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                   >
                     <a
                       aria-label="Last"
                       className="page-link"
-                      href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                      href="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                       onClick={[Function]}
                     >
                       Last
@@ -488,12 +488,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
         </table>
       </Table>
       <Pagination
-        aria-label="Page navigation example"
+        aria-label="Kaznet listview"
         listTag="ul"
         tag="nav"
       >
         <nav
-          aria-label="Page navigation example"
+          aria-label="Kaznet listview"
           className=""
         >
           <ul
@@ -510,12 +510,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="First"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                 >
                   <a
                     aria-label="First"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=1"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                     onClick={[Function]}
                   >
                     First
@@ -558,12 +558,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Next"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                 >
                   <a
                     aria-label="Next"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                     onClick={[Function]}
                   >
                     »
@@ -582,12 +582,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Last"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                 >
                   <a
                     aria-label="Last"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=test&status=2&page=2"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
                     onClick={[Function]}
                   >
                     Last
