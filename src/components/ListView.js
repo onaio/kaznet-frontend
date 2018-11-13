@@ -176,7 +176,7 @@ export default class ListView extends Component {
 
   renderPagination() {
     return (
-      <Pagination aria-label="Page navigation example">
+      <Pagination aria-label="Kaznet listview">
         <PaginationItem disabled={this.props.pageLinks.first ? false : true}>
           <Link
             to={
