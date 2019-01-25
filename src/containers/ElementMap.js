@@ -39,6 +39,8 @@ export default class ElementMap extends Component {
         }
       );
 
+      /// Modify listItems to Include Filter Fields in Specified Position in
+      /// this.props.filterItemPositions
       for (var i = 0; i < this.props.filterItemPositions.length; i++) {
         listItems.splice(this.props.filterItemPositions[i], 0, sortItems[i]);
       }
