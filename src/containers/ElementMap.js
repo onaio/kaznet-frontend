@@ -1,6 +1,7 @@
 // This component takes a list of strings
-// and returns them  wrapped in the provided HTML tag
+// and returns them wrapped in the provided HTML tag
 import React, { Component } from "react";
+import { DropdownToggle, DropdownMenu, Dropdown } from "reactstrap";
 
 export default class ElementMap extends Component {
   render() {
@@ -14,6 +15,35 @@ export default class ElementMap extends Component {
         [item]
       )
     );
+
+    if (this.props.filterFields != null) {
+      const sortItems = Object.entries(this.props.filterFields).map(
+        ([name, dropDownItems], index) => {
+          const uniqueKey = 2 * listItems.length;
+          return React.createElement(
+            this.props.HTMLTag,
+            { key: uniqueKey + index, className: this.props.className },
+            [
+              <Dropdown
+                key={uniqueKey * 2}
+                isOpen={this.props.isOpen}
+                toggle={e => this.props.handleChange(e)}
+              >
+                <DropdownToggle caret tag="span" className="nav-link">
+                  {name}
+                </DropdownToggle>
+                <DropdownMenu>{dropDownItems}</DropdownMenu>
+              </Dropdown>
+            ]
+          );
+        }
+      );
+
+      for (var i = 0; i < this.props.filterItemPositions.length; i++) {
+        listItems.splice(this.props.filterItemPositions[i], 0, sortItems[i]);
+      }
+    }
+
     return listItems;
   }
 }

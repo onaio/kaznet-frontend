@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`containers/ElementMap renders filter field 1`] = `
+<ElementMap
+  HTMLTag="div"
+  filterFilterFields={
+    Object {
+      "Status": Array [],
+    }
+  }
+  filterItemPositions={
+    Array [
+      0,
+    ]
+  }
+  items={
+    Array [
+      "Status",
+    ]
+  }
+>
+  <div
+    key="0"
+  >
+    Status
+  </div>
+</ElementMap>
+`;
+
 exports[`containers/ElementMap renders tags correctly 1`] = `
 <ElementMap
   HTMLTag="div"
