@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
-import { Badge } from "reactstrap";
+import { Badge, DropdownItem } from "reactstrap";
 import qs from "qs";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -135,7 +135,7 @@ export class TasksList extends Component {
     return (
       <div className="TasksList">
         <ListView
-          renderHeaders={this.renderHeaders}
+          renderHeaders={this.renderHeaders.bind(this)}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
@@ -149,9 +149,6 @@ export class TasksList extends Component {
           sortField={constants.TASK_SORT_ATTRIBUTE}
           sortOrder={constants.SORT_DESC}
           taskStatus={this.props.taskStatus}
-          isTaskPage={true}
-          handleChange={this.handleChange}
-          isOpen={this.state.isOpen}
           taskCount={this.state.taskCount}
         />
       </div>
@@ -170,8 +167,83 @@ export class TasksList extends Component {
   }
 
   renderHeaders() {
+    const statusList = ["", ...constants.TASK_STATUSES];
+
+    const statusArr = statusList.map(s => {
+      let status = "";
+      switch (s) {
+        case constants.TASK_ACTIVE:
+          status = constants.ACTIVE;
+          break;
+        case constants.TASK_DEACTIVATED:
+          status = constants.DEACTIVATED;
+          break;
+        case constants.TASK_EXPIRED:
+          status = constants.EXPIRED;
+          break;
+        case constants.TASK_DRAFT:
+          status = constants.DRAFT;
+          break;
+        case constants.TASK_ARCHIVED:
+          status = constants.ARCHIVED;
+          break;
+        case constants.TASK_SCHEDULED:
+          status = constants.SCHEDULED;
+          break;
+        case constants.TASK_ALL:
+          status = constants.ALL;
+          break;
+        default:
+          status = "";
+      }
+
+      return (
+        <DropdownItem
+          className={`${s === this.props.taskStatus ? "active-task" : ""}`}
+          key={s}
+        >
+          <Link
+            to={
+              this.props.pageLinks.first
+                ? `/tasks/?search=${
+                    !this.props.searchParam ||
+                    this.props.searchParam === undefined
+                      ? ""
+                      : this.props.searchParam
+                  }&status=${!s || s === undefined ? "" : s}&page=${
+                    !this.props.firstPage ||
+                    typeof this.props.firstPage !== Number
+                      ? 1
+                      : this.props.firstPage
+                  }`
+                : "#"
+            }
+            className="nav-link"
+            key={s}
+            data-key={s}
+          >
+            {status}
+          </Link>
+        </DropdownItem>
+      );
+    });
+
     const headerItems = ["Name", "Need Review", "Created", "Expires", "Form"];
-    return <ElementMap items={headerItems} HTMLTag="th" />;
+    const filterFields = {
+      Status: statusArr
+    };
+    const filterItemPositions = [0];
+
+    return (
+      <ElementMap
+        items={headerItems}
+        HTMLTag="th"
+        filterFields={filterFields}
+        isOpen={this.state.isOpen}
+        handleChange={this.handleChange}
+        filterItemPositions={filterItemPositions}
+      />
+    );
   }
 
   renderRow(row) {
