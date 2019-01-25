@@ -1,15 +1,7 @@
 // This component renders a list using Bootstrap 4 tables
 import _ from "lodash";
 import React, { Component } from "react";
-import {
-  Table,
-  Pagination,
-  PaginationItem,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
+import { Table, Pagination, PaginationItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import * as constants from "../constants";
 
@@ -35,63 +27,6 @@ export default class ListView extends Component {
       );
     }
 
-    const statuses = ["", ...constants.TASK_STATUSES];
-    const statusArr = statuses.map(s => {
-      let status = "";
-      switch (s) {
-        case constants.TASK_ACTIVE:
-          status = constants.ACTIVE;
-          break;
-        case constants.TASK_DEACTIVATED:
-          status = constants.DEACTIVATED;
-          break;
-        case constants.TASK_EXPIRED:
-          status = constants.EXPIRED;
-          break;
-        case constants.TASK_DRAFT:
-          status = constants.DRAFT;
-          break;
-        case constants.TASK_ARCHIVED:
-          status = constants.ARCHIVED;
-          break;
-        case constants.TASK_SCHEDULED:
-          status = constants.SCHEDULED;
-          break;
-        case constants.TASK_ALL:
-          status = constants.ALL;
-          break;
-        default:
-          status = "";
-      }
-      return (
-        <DropdownItem
-          className={`${s === this.props.taskStatus ? "active-task" : ""}`}
-          key={s}
-        >
-          <Link
-            to={
-              this.props.pageLinks.first
-                ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal || this.props.searchVal === undefined
-                      ? ""
-                      : this.props.searchVal
-                  }&status=${!s || s === undefined ? "" : s}&page=${
-                    !this.props.firstPage ||
-                    typeof this.props.firstPage !== Number
-                      ? 1
-                      : this.props.firstPage
-                  }`
-                : "#"
-            }
-            className="nav-link"
-            key={s}
-            data-key={s}
-          >
-            {status}
-          </Link>
-        </DropdownItem>
-      );
-    });
     return (
       <div>
         {this.props.downloadModalHandler && (
@@ -107,19 +42,6 @@ export default class ListView extends Component {
         <Table bordered className="kaznet-table">
           <thead>
             <tr>
-              {this.props.isTaskPage ? (
-                <th>
-                  <Dropdown
-                    isOpen={this.props.isOpen}
-                    toggle={e => this.props.handleChange(e)}
-                  >
-                    <DropdownToggle caret tag="span" className="nav-link">
-                      Status
-                    </DropdownToggle>
-                    <DropdownMenu>{statusArr}</DropdownMenu>
-                  </Dropdown>
-                </th>
-              ) : null}
               {this.props.isFormPage
                 ? this.props.renderHeaders(
                     this.props.pageLinks.first
