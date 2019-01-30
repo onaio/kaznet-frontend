@@ -2,8 +2,13 @@
 // and returns them wrapped in the provided HTML tag
 import React, { Component } from "react";
 import { DropdownToggle, DropdownMenu, Dropdown } from "reactstrap";
+import PropTypes from "prop-types";
 
 export default class ElementMap extends Component {
+  static propTypes = {
+    filterFields: PropTypes.object
+  };
+
   render() {
     const items = this.props.items;
     // use React.createElement to create the html tag
