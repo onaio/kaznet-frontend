@@ -22,6 +22,9 @@ export default class ElementMap extends Component {
     );
 
     if (this.props.filterFields != null) {
+      /// Check for filterFields prop
+      /// If present create a DropDown wrapped inside specified
+      /// HTMLTag prop.
       const sortItems = Object.entries(this.props.filterFields).map(
         ([name, dropDownItems], index) => {
           const uniqueKey = 2 * listItems.length;
