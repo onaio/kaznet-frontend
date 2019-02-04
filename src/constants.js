@@ -54,6 +54,12 @@ export const ASYNC_SEARCH_TIMEOUT = 10;
 export const ASYNC_FORM_TEXT = "Type to search or select from options";
 export const TRUE = "True";
 export const FALSE = "False";
+export const XFORM_CORRECTLY_CONFIGURED = "correctly_configured";
+export const XFORM_MEMBERS_CANT_SUBMIT = "members_cannot_submit";
+export const XFORM_NO_VALID_TEAM = "no_valid_team";
+export const XFORM_NO_TEAMS_AT_ALL = "no_teams_at_all";
+export const XFORM_NO_PROJECT = "no_project";
+export const XFORM_WRONG_OWNER = "wrong_owner";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
@@ -62,6 +68,15 @@ export const TASK_STATUSES = [
   TASK_DRAFT,
   TASK_SCHEDULED,
   TASK_ARCHIVED
+];
+
+export const XFORM_CONFIG_STATUSES = [
+  XFORM_CORRECTLY_CONFIGURED,
+  XFORM_MEMBERS_CANT_SUBMIT,
+  XFORM_NO_VALID_TEAM,
+  XFORM_NO_TEAMS_AT_ALL,
+  XFORM_NO_PROJECT,
+  XFORM_WRONG_OWNER
 ];
 
 // Ona stuff - should mostly come from env vars and not hard coded
