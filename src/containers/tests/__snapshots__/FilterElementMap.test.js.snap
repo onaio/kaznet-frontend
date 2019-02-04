@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`containers/ElementMap renders tags correctly 1`] = `
+exports[`containers/FilterElementMap renders tags correctly 1`] = `
 <FilterElementMap
   HTMLTag="div"
   filterFields={

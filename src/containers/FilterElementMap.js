@@ -27,7 +27,6 @@ export default class FilterElementMap extends Component {
     const itemList = [];
     const isOpenStates = this.props.isOpenStates;
     const handleChangeFunctions = this.props.handleChangeFunctions;
-    var filterItemPositions = null;
 
     Object.entries(filterFields).map(([name, dropDownItems], index) => {
       filterFieldsList.push(
@@ -48,7 +47,7 @@ export default class FilterElementMap extends Component {
 
     if (this.props.listItems) {
       if (this.props.filterItemPositions) {
-        filterItemPositions = this.props.filterItemPositions;
+        const filterItemPositions = this.props.filterItemPositions;
         itemList.push(...this.props.listItems);
 
         for (var i = 0; i < filterItemPositions.length; i++) {
