@@ -15,6 +15,7 @@ import * as constants from "../../constants.js";
 import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
+import FilterElementMap from "../FilterElementMap";
 import NoResults from "../../components/NoResults";
 import { withAlert } from "react-alert";
 
@@ -232,16 +233,14 @@ export class TasksList extends Component {
     const filterFields = {
       Status: statusArr
     };
-    const filterItemPositions = [0];
 
     return (
-      <ElementMap
-        items={headerItems}
+      <FilterElementMap
+        listItems={headerItems}
         HTMLTag="th"
+        handleChangeFunctions={[this.handleChange]}
+        isOpenStates={[this.state.isOpen]}
         filterFields={filterFields}
-        isOpen={this.state.isOpen}
-        handleChange={this.handleChange}
-        filterItemPositions={filterItemPositions}
       />
     );
   }
