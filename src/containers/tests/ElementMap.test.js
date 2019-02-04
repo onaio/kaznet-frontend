@@ -16,24 +16,4 @@ describe("containers/ElementMap", () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
   });
-
-  it("renders filter field", () => {
-    const headerItems = ["Status"];
-    const filterItemPositions = [0];
-    const filterFields = {
-      Status: []
-    };
-
-    const wrapper = mount(
-      <ElementMap
-        items={headerItems}
-        HTMLTag="div"
-        filterItemPositions={filterItemPositions}
-        filterFilterFields={filterFields}
-      />
-    );
-
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.unmount();
-  });
 });
