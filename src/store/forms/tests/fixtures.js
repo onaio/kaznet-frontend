@@ -21,7 +21,12 @@ export const formData = {
         modified: "2018-06-21T12:15:23.170313+03:00",
         has_task: false,
         task_name: null,
-        deleted_at: null
+        deleted_at: null,
+        metadata: {
+          owner: "kaznet",
+          owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
+          configuration_status: "correctly_configured"
+        }
       }
     },
     {
@@ -37,7 +42,12 @@ export const formData = {
         modified: "2018-06-21T12:15:23.175232+03:00",
         has_task: false,
         task_name: null,
-        deleted_at: null
+        deleted_at: null,
+        metadata: {
+          owner: "kaznet",
+          owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
+          configuration_status: "correctly_configured"
+        }
       }
     },
     {
@@ -53,7 +63,12 @@ export const formData = {
         modified: "2018-06-21T12:15:23.175232+03:00",
         has_task: true,
         task_name: "Form 3 Task",
-        deleted_at: null
+        deleted_at: null,
+        metadata: {
+          owner: "kaznet",
+          owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
+          configuration_status: "members_cannot_submit"
+        }
       }
     }
   ],
@@ -79,7 +94,12 @@ export const secondForm = {
     modified: "2018-06-21T12:15:23.175232+03:00",
     has_task: false,
     task_name: null,
-    deleted_at: null
+    deleted_at: null,
+    metadata: {
+      owner: "kaznet",
+      owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
+      configuration_status: "correctly_configured"
+    }
   }
 };
 
