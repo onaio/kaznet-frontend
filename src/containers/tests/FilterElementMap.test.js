@@ -4,7 +4,7 @@ import { shallow, mount } from "enzyme";
 import FilterElementMap from "../FilterElementMap";
 import toJson from "enzyme-to-json";
 
-describe("containers/ElementMap", () => {
+describe("containers/FilterElementMap", () => {
   it("renders without crashing", () => {
     const filterFields = {
       filterFields: []
