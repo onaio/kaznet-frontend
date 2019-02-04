@@ -11,7 +11,8 @@ import ElementMap from "./ElementMap";
 
 export default class FilterElementMap extends Component {
   // Sets runtime typechecking for Component Props
-  // Ensure props passed to FilterElementMap are of right type or Present
+  // Ensure props passed to FilterElementMap are of right type
+  // and required props are present
   static propTypes = {
     filterFields: PropTypes.object.isRequired,
     isOpenStates: PropTypes.arrayOf(PropTypes.bool).isRequired,
