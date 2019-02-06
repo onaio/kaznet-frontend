@@ -29,6 +29,13 @@ export class TasksList extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
+
+  getFetchURL(search, status, pageNumber) {
+    return `${constants.API_ENDPOINT}/tasks/?ordering=${
+      constants.TASK_SORT_FIELD
+    }&search=${search}&status=${status}&page=${pageNumber}`;
+  }
+
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Tasks");
@@ -57,11 +64,9 @@ export class TasksList extends Component {
       pageNumber = 1;
     }
     this.props.pageNum(pageNumber);
-    await this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/?ordering=${
-        constants.TASK_SORT_FIELD
-      }&search=${search}&status=${status}&page=${pageNumber}`
-    );
+    const url = this.getFetchURL(search, status, pageNumber);
+
+    await this.props.fetchTasks(url);
     this.props.changePageNumber(pageNumber);
   }
 
@@ -80,11 +85,9 @@ export class TasksList extends Component {
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
-      this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?ordering=${
-          constants.TASK_SORT_FIELD
-        }&search=${search}&status=${status}&page=${pageNumber}`
-      );
+      const url = this.getFetchURL(search, status, pageNumber);
+
+      this.props.fetchTasks(url);
       this.props.changePageNumber(pageNumber);
     }
 
@@ -97,7 +100,6 @@ export class TasksList extends Component {
 
   handleChange(e) {
     const status = e.target.getAttribute("data-key");
-    const param = `?status=${status}`;
     if (status === null) {
       this.setState({
         isOpen: !this.state.isOpen
@@ -106,11 +108,9 @@ export class TasksList extends Component {
     }
     const pageValue = this.props.pageParam;
     const searchString = this.props.searchParam;
-    this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/${
-        status !== "" ? param : ""
-      }&search=${searchString}&page=${pageValue}`
-    );
+    const url = this.getFetchURL(searchString, status, pageValue);
+
+    this.props.fetchTasks(url);
     this.props.getStatus(status !== "" ? status : "");
     this.setState({
       isOpen: !this.state.isOpen
