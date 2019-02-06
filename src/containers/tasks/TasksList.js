@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import Moment from "react-moment";
-import { Badge } from "reactstrap";
+import { Badge, DropdownItem } from "reactstrap";
 import qs from "qs";
 import * as taskActions from "../../store/tasks/actions";
 import * as globalActions from "../../store/global/actions";
@@ -15,6 +15,7 @@ import * as constants from "../../constants.js";
 import "../LoadListAnimation.css";
 import ListView from "../../components/ListView";
 import ElementMap from "../ElementMap";
+import FilterElementMap from "../FilterElementMap";
 import NoResults from "../../components/NoResults";
 import { withAlert } from "react-alert";
 
@@ -28,6 +29,13 @@ export class TasksList extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
+
+  getFetchURL(search, status, pageNumber) {
+    return `${constants.API_ENDPOINT}/tasks/?ordering=${
+      constants.TASK_SORT_FIELD
+    }&search=${search}&status=${status}&page=${pageNumber}`;
+  }
+
   async componentDidMount() {
     this.props.showListTitle();
     this.props.changePageTitle("Tasks");
@@ -56,11 +64,9 @@ export class TasksList extends Component {
       pageNumber = 1;
     }
     this.props.pageNum(pageNumber);
-    await this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/?ordering=${
-        constants.TASK_SORT_FIELD
-      }&search=${search}&status=${status}&page=${pageNumber}`
-    );
+    const url = this.getFetchURL(search, status, pageNumber);
+
+    await this.props.fetchTasks(url);
     this.props.changePageNumber(pageNumber);
   }
 
@@ -79,11 +85,9 @@ export class TasksList extends Component {
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
       const pageNumber = Number(page);
-      this.props.fetchTasks(
-        `${constants.API_ENDPOINT}/tasks/?ordering=${
-          constants.TASK_SORT_FIELD
-        }&search=${search}&status=${status}&page=${pageNumber}`
-      );
+      const url = this.getFetchURL(search, status, pageNumber);
+
+      this.props.fetchTasks(url);
       this.props.changePageNumber(pageNumber);
     }
 
@@ -96,7 +100,6 @@ export class TasksList extends Component {
 
   handleChange(e) {
     const status = e.target.getAttribute("data-key");
-    const param = `?status=${status}`;
     if (status === null) {
       this.setState({
         isOpen: !this.state.isOpen
@@ -105,11 +108,9 @@ export class TasksList extends Component {
     }
     const pageValue = this.props.pageParam;
     const searchString = this.props.searchParam;
-    this.props.fetchTasks(
-      `${constants.API_ENDPOINT}/tasks/${
-        status !== "" ? param : ""
-      }&search=${searchString}&page=${pageValue}`
-    );
+    const url = this.getFetchURL(searchString, status, pageValue);
+
+    this.props.fetchTasks(url);
     this.props.getStatus(status !== "" ? status : "");
     this.setState({
       isOpen: !this.state.isOpen
@@ -135,7 +136,7 @@ export class TasksList extends Component {
     return (
       <div className="TasksList">
         <ListView
-          renderHeaders={this.renderHeaders}
+          renderHeaders={this.renderHeaders.bind(this)}
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
@@ -149,9 +150,6 @@ export class TasksList extends Component {
           sortField={constants.TASK_SORT_ATTRIBUTE}
           sortOrder={constants.SORT_DESC}
           taskStatus={this.props.taskStatus}
-          isTaskPage={true}
-          handleChange={this.handleChange}
-          isOpen={this.state.isOpen}
           taskCount={this.state.taskCount}
         />
       </div>
@@ -170,8 +168,87 @@ export class TasksList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = ["Name", "Need Review", "Created", "Expires", "Form"];
-    return <ElementMap items={headerItems} HTMLTag="th" />;
+    const statusList = ["", ...constants.TASK_STATUSES];
+
+    const statusArr = statusList.map(s => {
+      let status = "";
+      switch (s) {
+        case constants.TASK_ACTIVE:
+          status = constants.ACTIVE;
+          break;
+        case constants.TASK_DEACTIVATED:
+          status = constants.DEACTIVATED;
+          break;
+        case constants.TASK_EXPIRED:
+          status = constants.EXPIRED;
+          break;
+        case constants.TASK_DRAFT:
+          status = constants.DRAFT;
+          break;
+        case constants.TASK_ARCHIVED:
+          status = constants.ARCHIVED;
+          break;
+        case constants.TASK_SCHEDULED:
+          status = constants.SCHEDULED;
+          break;
+        case constants.TASK_ALL:
+          status = constants.ALL;
+          break;
+        default:
+          status = "";
+      }
+
+      return (
+        <DropdownItem
+          className={`${s === this.props.taskStatus ? "active-task" : ""}`}
+          key={s}
+        >
+          <Link
+            to={
+              this.props.pageLinks.first
+                ? `/tasks/?search=${
+                    !this.props.searchParam ||
+                    this.props.searchParam === undefined
+                      ? ""
+                      : this.props.searchParam
+                  }&status=${!s || s === undefined ? "" : s}&page=${
+                    !this.props.firstPage ||
+                    typeof this.props.firstPage !== Number
+                      ? 1
+                      : this.props.firstPage
+                  }`
+                : "#"
+            }
+            className="nav-link"
+            key={s}
+            data-key={s}
+          >
+            {status}
+          </Link>
+        </DropdownItem>
+      );
+    });
+
+    const headerItems = [
+      constants.NAME,
+      constants.NEED_REVIEW,
+      constants.CREATED,
+      constants.EXPIRES,
+      constants.FORM
+    ];
+    const filterFields = {
+      Status: statusArr
+    };
+
+    return (
+      <FilterElementMap
+        listItems={headerItems}
+        HTMLTag="th"
+        handleChangeFunctions={[this.handleChange]}
+        isOpenStates={[this.state.isOpen]}
+        filterFields={filterFields}
+      />
+    );
   }
 
   renderRow(row) {

@@ -1,5 +1,5 @@
 // This component takes a list of strings
-// and returns them  wrapped in the provided HTML tag
+// and returns them wrapped in the provided HTML tag
 import React, { Component } from "react";
 
 export default class ElementMap extends Component {
@@ -14,6 +14,7 @@ export default class ElementMap extends Component {
         [item]
       )
     );
+
     return listItems;
   }
 }

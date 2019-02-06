@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/FilterElementMap renders tags correctly 1`] = `
+<FilterElementMap
+  HTMLTag="div"
+  filterFields={
+    Object {
+      "filterFields": Array [],
+    }
+  }
+  handleChangeFunctions={
+    Array [
+      [Function],
+    ]
+  }
+  isOpenStates={
+    Array [
+      false,
+    ]
+  }
+>
+  <ElementMap
+    HTMLTag="div"
+    items={
+      Array [
+        Array [
+          <Dropdown
+            active={false}
+            addonType={false}
+            direction="down"
+            inNavbar={false}
+            isOpen={false}
+            nav={false}
+            setActiveFromChild={false}
+            toggle={[Function]}
+      >
+            <DropdownToggle
+                  aria-haspopup={true}
+                  caret={true}
+                  className="nav-link"
+                  color="secondary"
+                  tag="span"
+            >
+                  filterFields
+            </DropdownToggle>
+            <DropdownMenu
+                  flip={true}
+                  tag="div"
+            >
+                  
+            </DropdownMenu>
+      </Dropdown>,
+        ],
+      ]
+    }
+  >
+    <div
+      key="0"
+    >
+      <Dropdown
+        active={false}
+        addonType={false}
+        direction="down"
+        inNavbar={false}
+        isOpen={false}
+        key="0"
+        nav={false}
+        setActiveFromChild={false}
+        toggle={[Function]}
+      >
+        <Manager
+          className="dropdown"
+          onKeyDown={[Function]}
+          tag="div"
+        >
+          <div
+            className="dropdown"
+            onKeyDown={[Function]}
+          >
+            <DropdownToggle
+              aria-haspopup={true}
+              caret={true}
+              className="nav-link"
+              color="secondary"
+              tag="span"
+            >
+              <Target
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="nav-link dropdown-toggle"
+                component="span"
+                onClick={[Function]}
+              >
+                <span
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="nav-link dropdown-toggle"
+                  onClick={[Function]}
+                >
+                  filterFields
+                </span>
+              </Target>
+            </DropdownToggle>
+            <DropdownMenu
+              flip={true}
+              tag="div"
+            >
+              <div
+                aria-hidden={true}
+                className="dropdown-menu"
+                role="menu"
+                tabIndex="-1"
+              />
+            </DropdownMenu>
+          </div>
+        </Manager>
+      </Dropdown>
+    </div>
+  </ElementMap>
+</FilterElementMap>
+`;
