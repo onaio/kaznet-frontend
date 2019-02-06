@@ -233,7 +233,7 @@ export class TasksList extends Component {
       constants.NAME,
       constants.NEED_REVIEW,
       constants.CREATED,
-      constants.EXPIRED,
+      constants.EXPIRES,
       constants.FORM
     ];
     const filterFields = {
