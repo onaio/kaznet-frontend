@@ -229,7 +229,13 @@ export class TasksList extends Component {
       );
     });
 
-    const headerItems = ["Name", "Need Review", "Created", "Expires", "Form"];
+    const headerItems = [
+      constants.NAME,
+      constants.NEED_REVIEW,
+      constants.CREATED,
+      constants.EXPIRED,
+      constants.FORM
+    ];
     const filterFields = {
       Status: statusArr
     };

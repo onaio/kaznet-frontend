@@ -7,6 +7,7 @@
 import React, { Component } from "react";
 import { DropdownToggle, DropdownMenu, Dropdown } from "reactstrap";
 import PropTypes from "prop-types";
+
 import ElementMap from "./ElementMap";
 
 export default class FilterElementMap extends Component {
