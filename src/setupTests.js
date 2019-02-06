@@ -8,6 +8,7 @@ import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import faExternalLinkAlt from "@fortawesome/fontawesome-free-solid/faExternalLinkAlt";
 import faLaptop from "@fortawesome/fontawesome-free-solid/faLaptop";
 import faClone from "@fortawesome/fontawesome-free-solid/faClone";
+import faExclamationCircle from "@fortawesome/fontawesome-free-solid/faExclamationCircle";
 
 fontawesome.library.add(
   faSearch,
@@ -15,7 +16,8 @@ fontawesome.library.add(
   faClone,
   faExternalLinkAlt,
   faLaptop,
-  faFolderOpen
+  faFolderOpen,
+  faExclamationCircle
 );
 
 configure({ adapter: new Adapter() });
