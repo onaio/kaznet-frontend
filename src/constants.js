@@ -2,6 +2,7 @@ export const API_ENDPOINT = process.env.REACT_APP_KAZNET_ENDPOINT;
 export const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 export const ONA_WEBSITE = process.env.REACT_APP_ONA_WEBSITE;
 export const ONA_USERNAME = process.env.REACT_APP_ONA_USERNAME;
+export const WEBSITE_NAME = process.env.REACT_APP_WEBSITE_NAME;
 export const TASK_ACTIVE = "a";
 export const TASK_DEACTIVATED = "b";
 export const TASK_EXPIRED = "c";
@@ -60,6 +61,7 @@ export const XFORM_NO_VALID_TEAM = "no_valid_team";
 export const XFORM_NO_TEAMS_AT_ALL = "no_teams_at_all";
 export const XFORM_NO_PROJECT = "no_project";
 export const XFORM_WRONG_OWNER = "wrong_owner";
+export const KAZNET_COLOR = "#711c27";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
