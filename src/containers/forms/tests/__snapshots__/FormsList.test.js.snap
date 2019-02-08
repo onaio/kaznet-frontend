@@ -483,7 +483,9 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Form 1",
+                        <div>
+                          Form 1
+                      </div>,
                         null,
                         <t
                           ago={false}
@@ -508,7 +510,11 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Form 1
+                      <div
+                        key="1"
+                      >
+                        Form 1
+                      </div>
                     </td>
                     <td
                       key="1"
@@ -548,7 +554,9 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Form 2",
+                        <div>
+                          Form 2
+                      </div>,
                         null,
                         <t
                           ago={false}
@@ -573,7 +581,11 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Form 2
+                      <div
+                        key="2"
+                      >
+                        Form 2
+                      </div>
                     </td>
                     <td
                       key="1"
@@ -613,7 +625,34 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     HTMLTag="td"
                     items={
                       Array [
-                        "Form 3",
+                        <div>
+                          Form 3
+                          <MisconfiguredForm
+                              form={
+                                  Object {
+                                      "attributes": Object {
+                                        "created": "2018-06-21T12:15:23.175198+03:00",
+                                        "deleted_at": null,
+                                        "has_task": true,
+                                        "id_string": "form_3",
+                                        "last_updated": null,
+                                        "metadata": Object {
+                                          "configuration_status": "members_cannot_submit",
+                                          "owner": "kaznet",
+                                          "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+                                        },
+                                        "modified": "2018-06-21T12:15:23.175232+03:00",
+                                        "ona_pk": 6373,
+                                        "project_id": 5522,
+                                        "task_name": "Form 3 Task",
+                                        "title": "Form 3",
+                                      },
+                                      "id": "3",
+                                      "type": "XForm",
+                                    }
+                              }
+                          />
+                      </div>,
                         "Form 3 Task",
                         <t
                           ago={false}
@@ -638,7 +677,104 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     <td
                       key="0"
                     >
-                      Form 3
+                      <div
+                        key="3"
+                      >
+                        Form 3
+                        <MisconfiguredForm
+                          form={
+                            Object {
+                              "attributes": Object {
+                                "created": "2018-06-21T12:15:23.175198+03:00",
+                                "deleted_at": null,
+                                "has_task": true,
+                                "id_string": "form_3",
+                                "last_updated": null,
+                                "metadata": Object {
+                                  "configuration_status": "members_cannot_submit",
+                                  "owner": "kaznet",
+                                  "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+                                },
+                                "modified": "2018-06-21T12:15:23.175232+03:00",
+                                "ona_pk": 6373,
+                                "project_id": 5522,
+                                "task_name": "Form 3 Task",
+                                "title": "Form 3",
+                              },
+                              "id": "3",
+                              "type": "XForm",
+                            }
+                          }
+                          key="3"
+                        >
+                          <span>
+                              
+                            <FontAwesomeIcon
+                              border={false}
+                              className=""
+                              color="#711c27"
+                              fixedWidth={false}
+                              flip={null}
+                              icon="exclamation-circle"
+                              id="Popover3"
+                              listItem={false}
+                              mask={null}
+                              name=""
+                              onClick={[Function]}
+                              pull={null}
+                              pulse={false}
+                              rotation={null}
+                              size={null}
+                              spin={false}
+                              style={
+                                Object {
+                                  "cursor": "pointer",
+                                }
+                              }
+                              symbol={false}
+                              transform={null}
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="svg-inline--fa fa-exclamation-circle fa-w-16 "
+                                color="#711c27"
+                                data-icon="exclamation-circle"
+                                data-prefix="fas"
+                                id="Popover3"
+                                onClick={[Function]}
+                                role="img"
+                                style={
+                                  Object {
+                                    "cursor": "pointer",
+                                  }
+                                }
+                                viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                  fill="currentColor"
+                                  style={Object {}}
+                                />
+                              </svg>
+                            </FontAwesomeIcon>
+                            <Popover
+                              delay={
+                                Object {
+                                  "hide": 0,
+                                  "show": 0,
+                                }
+                              }
+                              hideArrow={false}
+                              isOpen={false}
+                              placement="right"
+                              placementPrefix="bs-popover"
+                              target="Popover3"
+                              toggle={[Function]}
+                            />
+                          </span>
+                        </MisconfiguredForm>
+                      </div>
                     </td>
                     <td
                       key="1"
@@ -1279,7 +1415,9 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     HTMLTag="td"
                     items={
                       Array [
-                        "Form 1",
+                        <div>
+                          Form 1
+                      </div>,
                         null,
                         <t
                           ago={false}
@@ -1304,7 +1442,11 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     <td
                       key="0"
                     >
-                      Form 1
+                      <div
+                        key="1"
+                      >
+                        Form 1
+                      </div>
                     </td>
                     <td
                       key="1"
@@ -1344,7 +1486,9 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     HTMLTag="td"
                     items={
                       Array [
-                        "Form 2",
+                        <div>
+                          Form 2
+                      </div>,
                         null,
                         <t
                           ago={false}
@@ -1369,7 +1513,11 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     <td
                       key="0"
                     >
-                      Form 2
+                      <div
+                        key="2"
+                      >
+                        Form 2
+                      </div>
                     </td>
                     <td
                       key="1"
@@ -1409,7 +1557,34 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     HTMLTag="td"
                     items={
                       Array [
-                        "Form 3",
+                        <div>
+                          Form 3
+                          <MisconfiguredForm
+                              form={
+                                  Object {
+                                      "attributes": Object {
+                                        "created": "2018-06-21T12:15:23.175198+03:00",
+                                        "deleted_at": null,
+                                        "has_task": true,
+                                        "id_string": "form_3",
+                                        "last_updated": null,
+                                        "metadata": Object {
+                                          "configuration_status": "members_cannot_submit",
+                                          "owner": "kaznet",
+                                          "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+                                        },
+                                        "modified": "2018-06-21T12:15:23.175232+03:00",
+                                        "ona_pk": 6373,
+                                        "project_id": 5522,
+                                        "task_name": "Form 3 Task",
+                                        "title": "Form 3",
+                                      },
+                                      "id": "3",
+                                      "type": "XForm",
+                                    }
+                              }
+                          />
+                      </div>,
                         "Form 3 Task",
                         <t
                           ago={false}
@@ -1434,7 +1609,104 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     <td
                       key="0"
                     >
-                      Form 3
+                      <div
+                        key="3"
+                      >
+                        Form 3
+                        <MisconfiguredForm
+                          form={
+                            Object {
+                              "attributes": Object {
+                                "created": "2018-06-21T12:15:23.175198+03:00",
+                                "deleted_at": null,
+                                "has_task": true,
+                                "id_string": "form_3",
+                                "last_updated": null,
+                                "metadata": Object {
+                                  "configuration_status": "members_cannot_submit",
+                                  "owner": "kaznet",
+                                  "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+                                },
+                                "modified": "2018-06-21T12:15:23.175232+03:00",
+                                "ona_pk": 6373,
+                                "project_id": 5522,
+                                "task_name": "Form 3 Task",
+                                "title": "Form 3",
+                              },
+                              "id": "3",
+                              "type": "XForm",
+                            }
+                          }
+                          key="3"
+                        >
+                          <span>
+                              
+                            <FontAwesomeIcon
+                              border={false}
+                              className=""
+                              color="#711c27"
+                              fixedWidth={false}
+                              flip={null}
+                              icon="exclamation-circle"
+                              id="Popover3"
+                              listItem={false}
+                              mask={null}
+                              name=""
+                              onClick={[Function]}
+                              pull={null}
+                              pulse={false}
+                              rotation={null}
+                              size={null}
+                              spin={false}
+                              style={
+                                Object {
+                                  "cursor": "pointer",
+                                }
+                              }
+                              symbol={false}
+                              transform={null}
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="svg-inline--fa fa-exclamation-circle fa-w-16 "
+                                color="#711c27"
+                                data-icon="exclamation-circle"
+                                data-prefix="fas"
+                                id="Popover3"
+                                onClick={[Function]}
+                                role="img"
+                                style={
+                                  Object {
+                                    "cursor": "pointer",
+                                  }
+                                }
+                                viewBox="0 0 512 512"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                  fill="currentColor"
+                                  style={Object {}}
+                                />
+                              </svg>
+                            </FontAwesomeIcon>
+                            <Popover
+                              delay={
+                                Object {
+                                  "hide": 0,
+                                  "show": 0,
+                                }
+                              }
+                              hideArrow={false}
+                              isOpen={false}
+                              placement="right"
+                              placementPrefix="bs-popover"
+                              target="Popover3"
+                              toggle={[Function]}
+                            />
+                          </span>
+                        </MisconfiguredForm>
+                      </div>
                     </td>
                     <td
                       key="1"
