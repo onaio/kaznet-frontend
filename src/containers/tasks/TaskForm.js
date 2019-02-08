@@ -21,9 +21,7 @@ import { Redirect } from "react-router-dom";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-import "../LoadListAnimation.css";
-import "./TaskForm.css";
-
+import MisconfiguredFormMessage from "../../components/forms/MisconfiguredFormMessage";
 import * as clientActions from "../../store/clients/actions";
 import * as locationActions from "../../store/locations/actions";
 import * as formActions from "../../store/forms/actions";
@@ -35,6 +33,9 @@ import * as formSelectors from "../../store/forms/reducer";
 import * as contentTypeSelectors from "../../store/contentTypes/reducer";
 import "../LoadListAnimation.css";
 import * as constants from "../../constants";
+
+import "../LoadListAnimation.css";
+import "./TaskForm.css";
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -116,6 +117,22 @@ export class TaskForm extends Component {
     }, constants.ASYNC_SEARCH_TIMEOUT);
   };
 
+  validate(formsById) {
+    return values => {
+      let errors = {};
+      if (values.form) {
+        const theForm = formsById[values.form.value];
+        if (
+          theForm.attributes.metadata.configuration_status !==
+          constants.XFORM_CORRECTLY_CONFIGURED
+        ) {
+          errors.form = <MisconfiguredFormMessage />;
+        }
+      }
+      return errors;
+    };
+  }
+
   render() {
     if (
       Object.keys(this.props.locationsById).length === 0 &&
@@ -127,6 +144,7 @@ export class TaskForm extends Component {
     return (
       <Formik
         initialValues={this.props.initialData}
+        validate={this.validate(this.props.formsById)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const locations_input = values.taskLocations.map(d => ({
             location: d.location
@@ -818,6 +836,7 @@ function mapStateToProps(state, ownProps) {
   return {
     clientsById: clientSelectors.getClientsById(state),
     locationsById: locationSelectors.getLocationsById(state),
+    formsById: formSelectors.getFormsById(state),
     unusedFormsById: formSelectors.getUnusedFormsById(state),
     currentForm: formSelectors.getFormById(state, ownProps.initialData.form),
     formContentTypeId: contentTypeSelectors.getFormContentType(state),
