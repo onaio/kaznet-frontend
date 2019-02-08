@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { Popover, PopoverHeader, PopoverBody } from "reactstrap";
 
-import { KAZNET_COLOR, ONA_WEBSITE, WEBSITE_NAME } from "../../constants";
+import MisconfiguredFormMessage from "./MisconfiguredFormMessage";
+import { MAIN_COLOR } from "../../constants";
 
 import "./MisconfiguredForm.css";
 
@@ -30,7 +31,7 @@ export default class MisconfiguredForm extends Component {
         <FontAwesomeIcon
           id={`Popover-${this.props.form.id}`}
           icon="exclamation-circle"
-          color={KAZNET_COLOR}
+          color={MAIN_COLOR}
           onClick={this.toggle}
           style={{ cursor: "pointer" }}
         />
@@ -42,20 +43,7 @@ export default class MisconfiguredForm extends Component {
         >
           <PopoverHeader>This form is not configured correctly</PopoverHeader>
           <PopoverBody>
-            <p>
-              This form may not appear correctly in the {WEBSITE_NAME} mobile
-              app. Additionally, it{" "}
-              <strong>may not be possible to submit data</strong> to this form.
-              Please <a href={ONA_WEBSITE}>click this link to fix this form</a>.
-              You can fix it be ensuring that:
-            </p>
-            <ol>
-              <li>The form belongs to the right organisation</li>
-              <li>
-                The form exists in a project which allows its members to make
-                form submissions
-              </li>
-            </ol>
+            <MisconfiguredFormMessage />
           </PopoverBody>
         </Popover>
       </span>
