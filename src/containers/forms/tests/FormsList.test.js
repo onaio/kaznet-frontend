@@ -30,6 +30,8 @@ describe("containers/forms/FormsList", () => {
 
   it("renders form list correctly", () => {
     moment.tz.setDefault("UTC");
+    const div = document.createElement("div");
+    document.body.appendChild(div);
     const wrapper = mount(
       <Router history={history}>
         <FormsList
@@ -53,7 +55,8 @@ describe("containers/forms/FormsList", () => {
           hasTask={undefined}
           location={history.location}
         />
-      </Router>
+      </Router>,
+      { attachTo: div }
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
@@ -61,6 +64,8 @@ describe("containers/forms/FormsList", () => {
 
   it("renders form list correctly when there is a has_task filter", () => {
     moment.tz.setDefault("UTC");
+    const div = document.createElement("div");
+    document.body.appendChild(div);
     const wrapper = mount(
       <Router history={history}>
         <FormsList
@@ -84,7 +89,8 @@ describe("containers/forms/FormsList", () => {
           hasTask={true}
           location={history.location}
         />
-      </Router>
+      </Router>,
+      { attachTo: div }
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
