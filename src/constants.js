@@ -61,7 +61,7 @@ export const XFORM_NO_VALID_TEAM = "no_valid_team";
 export const XFORM_NO_TEAMS_AT_ALL = "no_teams_at_all";
 export const XFORM_NO_PROJECT = "no_project";
 export const XFORM_WRONG_OWNER = "wrong_owner";
-export const KAZNET_COLOR = "#711c27";
+export const MAIN_COLOR = "#711c27";
 
 export const TASK_STATUSES = [
   TASK_ACTIVE,
