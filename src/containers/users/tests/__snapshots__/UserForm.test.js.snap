@@ -792,7 +792,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                   className="col-sm-3"
                 >
                   <Label
-                    for="experties"
+                    for="expertise"
                     tag="label"
                     widths={
                       Array [
@@ -806,7 +806,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                   >
                     <label
                       className=""
-                      htmlFor="experties"
+                      htmlFor="expertise"
                     >
                       Level of expertise
                     </label>
@@ -1853,7 +1853,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                   className="col-sm-3"
                 >
                   <Label
-                    for="experties"
+                    for="expertise"
                     tag="label"
                     widths={
                       Array [
@@ -1867,7 +1867,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                   >
                     <label
                       className=""
-                      htmlFor="experties"
+                      htmlFor="expertise"
                     >
                       Level of expertise
                     </label>

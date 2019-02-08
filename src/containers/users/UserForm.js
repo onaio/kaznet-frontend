@@ -324,7 +324,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col sm="3">
-                  <Label for="experties">Level of expertise</Label>
+                  <Label for="expertise">Level of expertise</Label>
                 </Col>
                 <Col md="9">
                   <Input
