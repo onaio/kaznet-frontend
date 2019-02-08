@@ -274,12 +274,14 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                                           className="bg-white border-right-0 input-group-text"
                                         >
                                           <Button
+                                            aria-label="Filter"
                                             className="search_button btn btn-deoco"
                                             color="deoco"
                                             tag="button"
                                             type="submit"
                                           >
                                             <button
+                                              aria-label="Filter"
                                               className="search_button btn btn-deoco btn btn-deoco"
                                               onClick={[Function]}
                                               type="submit"

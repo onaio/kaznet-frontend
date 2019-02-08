@@ -34,7 +34,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="position-relative row form-group"
             >
               <Col
                 md={
@@ -121,7 +121,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="position-relative row form-group"
             >
               <p
                 className="text-center align-middle ml-4"
@@ -224,7 +224,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="position-relative row form-group"
             >
               <Col
                 md={
@@ -248,12 +248,14 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                   className="col-md-5 offset-md-1"
                 >
                   <Button
+                    aria-label="Cancel"
                     className="btn btn-secondary btn-block"
                     color="secondary"
                     onClick={[Function]}
                     tag="button"
                   >
                     <button
+                      aria-label="Cancel"
                       className="btn btn-secondary btn-block btn btn-secondary"
                       onClick={[Function]}
                       type="button"
@@ -284,6 +286,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                   className="col-md-5"
                 >
                   <Button
+                    aria-label="Export"
                     className="btn btn-primary btn-block"
                     color="secondary"
                     onClick={[Function]}
@@ -291,6 +294,7 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
                     type="submit"
                   >
                     <button
+                      aria-label="Export"
                       className="btn btn-primary btn-block btn btn-secondary"
                       onClick={[Function]}
                       type="submit"

@@ -275,12 +275,14 @@ exports[`components/tasks/TaskDetailTitle renders the correct html 1`] = `
                           |  
                       </span>
                       <Button
+                        aria-label="DELETE TASK"
                         className="remove_button_css action-link action-link-alert"
                         color="link"
                         onClick={[Function]}
                         tag="button"
                       >
                         <button
+                          aria-label="DELETE TASK"
                           className="remove_button_css action-link action-link-alert btn btn-link"
                           onClick={[Function]}
                           type="button"
