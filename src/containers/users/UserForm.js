@@ -416,6 +416,7 @@ export class UserForm extends Component {
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
+                    aria-label="Cancel"
                     onClick={() => {
                       setStatus("done");
                     }}
@@ -428,6 +429,7 @@ export class UserForm extends Component {
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
+                    aria-label="Save User"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Saving" : "Save User"}

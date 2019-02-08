@@ -78,6 +78,7 @@ export default class ExportForm extends Component {
                     className="btn btn-secondary btn-block"
                     color="secondary"
                     onClick={this.props.downloadModalHandler}
+                    aria-label="Cancel"
                   >
                     Cancel
                   </Button>
@@ -88,6 +89,7 @@ export default class ExportForm extends Component {
                     className="btn btn-primary btn-block"
                     color="secondary"
                     onClick={this.props.downloadModalHandler}
+                    aria-label="Export"
                   >
                     Export
                   </Button>

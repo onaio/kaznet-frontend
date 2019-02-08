@@ -51,6 +51,7 @@ export default class LocationDetailTitle extends Component {
                       color="link"
                       className="remove_button_css action-link action-link-alert"
                       onClick={this.toggle}
+                      aria-label="DELETE LOCATION"
                     >
                       DELETE LOCATION
                     </Button>
@@ -70,7 +71,11 @@ export default class LocationDetailTitle extends Component {
                         >
                           Delete Location
                         </Link>
-                        <Button color="secondary" onClick={this.toggle}>
+                        <Button
+                          color="secondary"
+                          onClick={this.toggle}
+                          aria-label="Cancel"
+                        >
                           Cancel
                         </Button>
                       </ModalFooter>

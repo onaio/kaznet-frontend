@@ -330,6 +330,7 @@ export class TaskForm extends Component {
                   <Button
                     className="btn btn-light btn-sm white my-1"
                     color="secondary"
+                    aria-label="GO TO ONA FORM"
                   >
                     <a
                       target="_blank"
@@ -514,6 +515,7 @@ export class TaskForm extends Component {
                                 <Button
                                   type="button"
                                   className="btn my-1 btn-sm btn-primary"
+                                  aria-label="+"
                                 >
                                   +
                                 </Button>
@@ -642,6 +644,7 @@ export class TaskForm extends Component {
                       <Col md={{ size: 4, offset: 4 }}>
                         <Button
                           className="btn btn-primary btn-block add-location"
+                          aria-label="Add Locations"
                           onClick={() =>
                             arrayHelpers.push({
                               start: constants.TASK_LOCATION_START,
@@ -700,6 +703,7 @@ export class TaskForm extends Component {
                     <Button
                       type="button"
                       className="btn my-1 btn-sm btn-primary"
+                      aria-label="+"
                     >
                       +
                     </Button>
@@ -768,6 +772,7 @@ export class TaskForm extends Component {
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
+                    aria-label="Cancel"
                     onClick={() => {
                       setStatus("done");
                     }}
@@ -780,6 +785,7 @@ export class TaskForm extends Component {
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
+                    aria-label="Submit"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Submitting" : "Submit"}
