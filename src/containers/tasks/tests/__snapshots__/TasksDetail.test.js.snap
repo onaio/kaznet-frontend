@@ -383,12 +383,14 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             |  
                         </span>
                         <Button
+                          aria-label="DELETE TASK"
                           className="remove_button_css action-link action-link-alert"
                           color="link"
                           onClick={[Function]}
                           tag="button"
                         >
                           <button
+                            aria-label="DELETE TASK"
                             className="remove_button_css action-link action-link-alert btn btn-link"
                             onClick={[Function]}
                             type="button"

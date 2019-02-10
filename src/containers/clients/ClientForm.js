@@ -113,6 +113,7 @@ export class ClientForm extends Component {
                 <Col md={{ size: 5, offset: 1 }}>
                   <Button
                     className="btn btn-secondary btn-block"
+                    aria-label="Cancel"
                     onClick={() => {
                       setStatus("done");
                     }}
@@ -125,6 +126,7 @@ export class ClientForm extends Component {
                   <Button
                     type="submit"
                     className="btn btn-primary btn-block"
+                    aria-label="Save Client"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Saving" : "Save Client"}
@@ -138,6 +140,7 @@ export class ClientForm extends Component {
                 <Col md={{ size: 4, offset: 4 }}>
                   <Button
                     className="btn btn-secondary btn-block btn-danger center-block"
+                    aria-label="DELETE CLIENT"
                     onClick={this.toggle}
                   >
                     DELETE CLIENT
@@ -159,7 +162,11 @@ export class ClientForm extends Component {
                     >
                       Delete Client
                     </Link>
-                    <Button color="secondary" onClick={this.toggle}>
+                    <Button
+                      color="secondary"
+                      onClick={this.toggle}
+                      aria-label="Cancel"
+                    >
                       Cancel
                     </Button>
                   </ModalFooter>

@@ -43,6 +43,7 @@ export default class PageTitle extends Component {
                             color="deoco"
                             className="search_button btn btn-deoco"
                             type="submit"
+                            aria-label="Filter"
                           >
                             <FontAwesomeIcon
                               icon="search"

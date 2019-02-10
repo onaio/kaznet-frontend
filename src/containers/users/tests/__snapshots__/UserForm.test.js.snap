@@ -59,7 +59,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 sm="6"
@@ -148,7 +148,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -245,7 +245,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -331,7 +331,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -416,7 +416,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
               tag="div"
             >
               <div
-                className="row form-group"
+                className="row position-relative form-group"
               >
                 <Col
                   md="3"
@@ -500,7 +500,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
               tag="div"
             >
               <div
-                className="row form-group"
+                className="row position-relative form-group"
               >
                 <Col
                   md="3"
@@ -590,7 +590,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -692,7 +692,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -773,7 +773,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 sm="3"
@@ -792,7 +792,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                   className="col-sm-3"
                 >
                   <Label
-                    for="experties"
+                    for="expertise"
                     tag="label"
                     widths={
                       Array [
@@ -806,7 +806,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                   >
                     <label
                       className=""
-                      htmlFor="experties"
+                      htmlFor="expertise"
                     >
                       Level of expertise
                     </label>
@@ -880,7 +880,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -966,7 +966,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1052,7 +1052,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1138,7 +1138,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
             tag="div"
           >
             <div
-              className="row my-5 form-group"
+              className="row my-5 position-relative form-group"
             >
               <Col
                 md={
@@ -1162,12 +1162,14 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                   className="col-md-5 offset-md-1"
                 >
                   <Button
+                    aria-label="Cancel"
                     className="btn btn-secondary btn-block"
                     color="secondary"
                     onClick={[Function]}
                     tag="button"
                   >
                     <button
+                      aria-label="Cancel"
                       className="btn btn-secondary btn-block btn btn-secondary"
                       onClick={[Function]}
                       type="button"
@@ -1200,6 +1202,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                   className="col-md-5"
                 >
                   <Button
+                    aria-label="Save User"
                     className="btn btn-primary btn-block"
                     color="secondary"
                     disabled={false}
@@ -1207,6 +1210,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                     type="submit"
                   >
                     <button
+                      aria-label="Save User"
                       className="btn btn-primary btn-block btn btn-secondary"
                       disabled={false}
                       onClick={[Function]}
@@ -1286,7 +1290,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 sm="6"
@@ -1375,7 +1379,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1472,7 +1476,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1558,7 +1562,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1647,7 +1651,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1749,7 +1753,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -1830,7 +1834,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 sm="3"
@@ -1849,7 +1853,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                   className="col-sm-3"
                 >
                   <Label
-                    for="experties"
+                    for="expertise"
                     tag="label"
                     widths={
                       Array [
@@ -1863,7 +1867,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                   >
                     <label
                       className=""
-                      htmlFor="experties"
+                      htmlFor="expertise"
                     >
                       Level of expertise
                     </label>
@@ -1937,7 +1941,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -2023,7 +2027,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -2109,7 +2113,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row form-group"
+              className="row position-relative form-group"
             >
               <Col
                 md="3"
@@ -2195,7 +2199,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
             tag="div"
           >
             <div
-              className="row my-5 form-group"
+              className="row my-5 position-relative form-group"
             >
               <Col
                 md={
@@ -2219,12 +2223,14 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                   className="col-md-5 offset-md-1"
                 >
                   <Button
+                    aria-label="Cancel"
                     className="btn btn-secondary btn-block"
                     color="secondary"
                     onClick={[Function]}
                     tag="button"
                   >
                     <button
+                      aria-label="Cancel"
                       className="btn btn-secondary btn-block btn btn-secondary"
                       onClick={[Function]}
                       type="button"
@@ -2257,6 +2263,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                   className="col-md-5"
                 >
                   <Button
+                    aria-label="Save User"
                     className="btn btn-primary btn-block"
                     color="secondary"
                     disabled={false}
@@ -2264,6 +2271,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                     type="submit"
                   >
                     <button
+                      aria-label="Save User"
                       className="btn btn-primary btn-block btn btn-secondary"
                       disabled={false}
                       onClick={[Function]}

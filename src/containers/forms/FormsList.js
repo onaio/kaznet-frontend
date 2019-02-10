@@ -21,6 +21,7 @@ import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
 import ListView from "../../components/ListView";
 import NoResults from "../../components/NoResults";
 import ElementMap from "../ElementMap";
+import MisconfiguredForm from "../../components/forms/MisconfiguredForm";
 import { withAlert } from "react-alert";
 
 export class FormsList extends Component {
@@ -216,7 +217,13 @@ export class FormsList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      row.attributes.title,
+      <div key={row.id}>
+        {row.attributes.title}
+        {row.attributes.metadata.configuration_status !==
+          constants.XFORM_CORRECTLY_CONFIGURED && (
+          <MisconfiguredForm key={row.id} form={row} />
+        )}
+      </div>,
       row.attributes.task_name,
       <Moment key={row.id} format="DD-MM-YYYY HH:mm:ss">
         {row.attributes.modified}

@@ -179,12 +179,14 @@ exports[`containers/location/LocationDetail renders detail page correctly with d
                             |  
                           <div>
                             <Button
+                              aria-label="DELETE LOCATION"
                               className="remove_button_css action-link action-link-alert"
                               color="link"
                               onClick={[Function]}
                               tag="button"
                             >
                               <button
+                                aria-label="DELETE LOCATION"
                                 className="remove_button_css action-link action-link-alert btn btn-link"
                                 onClick={[Function]}
                                 type="button"

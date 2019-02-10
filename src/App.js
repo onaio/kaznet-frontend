@@ -8,6 +8,7 @@ import faExternalLinkAlt from "@fortawesome/fontawesome-free-solid/faExternalLin
 import faLaptop from "@fortawesome/fontawesome-free-solid/faLaptop";
 import faCaretDown from "@fortawesome/fontawesome-free-solid/faCaretDown";
 import faFolderOpen from "@fortawesome/fontawesome-free-solid/faFolderOpen";
+import faExclamationCircle from "@fortawesome/fontawesome-free-solid/faExclamationCircle";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
 
@@ -57,7 +58,8 @@ fontawesome.library.add(
   faClone,
   faExternalLinkAlt,
   faLaptop,
-  faFolderOpen
+  faFolderOpen,
+  faExclamationCircle
 );
 
 class App extends Component {

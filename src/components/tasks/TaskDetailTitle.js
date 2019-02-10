@@ -124,6 +124,7 @@ export default class TaskDetailTitle extends Component {
                   color="link"
                   className="remove_button_css action-link action-link-alert"
                   onClick={this.toggle}
+                  aria-label="DELETE TASK"
                 >
                   DELETE TASK
                 </Button>
@@ -143,7 +144,11 @@ export default class TaskDetailTitle extends Component {
                     >
                       Delete Task
                     </Link>
-                    <Button color="secondary" onClick={this.toggle}>
+                    <Button
+                      color="secondary"
+                      onClick={this.toggle}
+                      aria-label="Cancel"
+                    >
                       Cancel
                     </Button>
                   </ModalFooter>

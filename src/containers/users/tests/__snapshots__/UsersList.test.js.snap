@@ -280,6 +280,7 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                         <div>
                           5
                           <Button
+                              aria-label="Export"
                               className="mx-2 btn btn-sm btn-light white"
                               color="secondary"
                               onClick={[Function]}
@@ -364,12 +365,14 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                       >
                         5
                         <Button
+                          aria-label="Export"
                           className="mx-2 btn btn-sm btn-light white"
                           color="secondary"
                           onClick={[Function]}
                           tag="button"
                         >
                           <button
+                            aria-label="Export"
                             className="mx-2 btn btn-sm btn-light white btn btn-secondary"
                             onClick={[Function]}
                             type="button"
