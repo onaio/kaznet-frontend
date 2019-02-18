@@ -41,12 +41,21 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint src --ext js,jsx"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.14.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
     "husky": "^0.14.3",
     "jest-fetch-mock": "^1.6.5",
     "lint-staged": "^7.2.0",
@@ -55,7 +64,11 @@
     "redux-testkit": "^1.0.6"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,css,md}": [
       "prettier --write",
       "git add"
     ]
