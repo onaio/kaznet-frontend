@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import moment from "moment";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import moment from 'moment';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as taskActions from "../../store/tasks/actions";
-import TaskForm from "./TaskForm";
-import FormView from "../../components/FormView";
-import * as globalActions from "../../store/global/actions";
+import * as taskActions from '../../store/tasks/actions';
+import TaskForm from './TaskForm';
+import FormView from '../../components/FormView';
+import * as globalActions from '../../store/global/actions';
 import {
   TASK_DRAFT,
   BEGINNER,
@@ -15,7 +15,7 @@ import {
   TASK_LOCATION_START,
   TASK_LOCATION_END,
   USER_SUBMISSION_TARGET
-} from "../../constants";
+} from '../../constants';
 
 export class TaskCreateForm extends Component {
   componentDidMount() {
@@ -25,35 +25,29 @@ export class TaskCreateForm extends Component {
   render() {
     const action = taskActions.createTask;
     const initialData = {
-      name: "",
+      name: '',
       estimated_time: ESTIMATED_TIME_INT,
-      start: moment().format("YYYY-MM-DD"),
-      end: moment().format("YYYY-MM-DD"),
-      description: "",
+      start: moment().format('YYYY-MM-DD'),
+      end: moment().format('YYYY-MM-DD'),
+      description: '',
       required_expertise: BEGINNER,
-      timing_rule: "",
+      timing_rule: '',
       status: TASK_DRAFT,
       user_submission_target: USER_SUBMISSION_TARGET,
-      amount: "",
+      amount: '',
       taskLocations: [
         {
           start: TASK_LOCATION_START,
           end: TASK_LOCATION_END,
           timing_rule: TASK_LOCATION_TIMING_RULE,
-          location: ""
+          location: ''
         }
       ]
     };
 
     return (
       <FormView
-        form={
-          <TaskForm
-            initialData={initialData}
-            action={action}
-            redirectAfterAction="/tasks"
-          />
-        }
+        form={<TaskForm initialData={initialData} action={action} redirectAfterAction="/tasks" />}
       />
     );
   }

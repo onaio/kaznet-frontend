@@ -1,11 +1,11 @@
 // Test FilterElementMap
-import React from "react";
-import { shallow, mount } from "enzyme";
-import FilterElementMap from "../FilterElementMap";
-import toJson from "enzyme-to-json";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import FilterElementMap from '../FilterElementMap';
 
-describe("containers/FilterElementMap", () => {
-  it("renders without crashing", () => {
+describe('containers/FilterElementMap', () => {
+  it('renders without crashing', () => {
     const filterFields = {
       filterFields: []
     };
@@ -22,7 +22,7 @@ describe("containers/FilterElementMap", () => {
     );
   });
 
-  it("renders tags correctly", () => {
+  it('renders tags correctly', () => {
     const filterFields = {
       filterFields: []
     };

@@ -1,17 +1,17 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
-import moment from "moment-timezone";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
+import moment from 'moment-timezone';
 
-import { FormsList } from "../FormsList";
-import * as fixtures from "../../../store/forms/tests/fixtures";
+import { FormsList } from '../FormsList';
+import * as fixtures from '../../../store/forms/tests/fixtures';
 
 const history = createBrowserHistory();
 
-describe("containers/forms/FormsList", () => {
-  it("renders without crashing", () => {
+describe('containers/forms/FormsList', () => {
+  it('renders without crashing', () => {
     shallow(
       <FormsList
         fetchForms={function() {}}
@@ -28,9 +28,9 @@ describe("containers/forms/FormsList", () => {
     );
   });
 
-  it("renders form list correctly", () => {
-    moment.tz.setDefault("UTC");
-    const div = document.createElement("div");
+  it('renders form list correctly', () => {
+    moment.tz.setDefault('UTC');
+    const div = document.createElement('div');
     document.body.appendChild(div);
     const wrapper = mount(
       <Router history={history}>
@@ -43,7 +43,7 @@ describe("containers/forms/FormsList", () => {
           showListTitle={function() {}}
           rowsById={fixtures.formsById}
           rowsIdArray={fixtures.formsIdArray}
-          endpoint={"forms"}
+          endpoint="forms"
           pageLinks={fixtures.pageLinks}
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}
@@ -62,9 +62,9 @@ describe("containers/forms/FormsList", () => {
     wrapper.unmount();
   });
 
-  it("renders form list correctly when there is a has_task filter", () => {
-    moment.tz.setDefault("UTC");
-    const div = document.createElement("div");
+  it('renders form list correctly when there is a has_task filter', () => {
+    moment.tz.setDefault('UTC');
+    const div = document.createElement('div');
     document.body.appendChild(div);
     const wrapper = mount(
       <Router history={history}>
@@ -77,7 +77,7 @@ describe("containers/forms/FormsList", () => {
           showListTitle={function() {}}
           rowsById={fixtures.formsById}
           rowsIdArray={fixtures.formsIdArray}
-          endpoint={"forms"}
+          endpoint="forms"
           pageLinks={fixtures.pageLinks}
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}
@@ -86,7 +86,7 @@ describe("containers/forms/FormsList", () => {
           lastPage={fixtures.lastPage}
           searchVal={function() {}}
           searchParam={fixtures.searchParam}
-          hasTask={true}
+          hasTask
           location={history.location}
         />
       </Router>,

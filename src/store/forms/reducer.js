@@ -1,9 +1,9 @@
 // Forms reducer
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   formsById: {},
@@ -13,7 +13,7 @@ const initialState = Immutable({
   currentPage: null,
   totalPages: null,
   totalCount: null,
-  hasTask: "",
+  hasTask: '',
 
   pageLinks: {
     first: null,

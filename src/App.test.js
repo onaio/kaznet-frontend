@@ -15,10 +15,7 @@ export const history = createBrowserHistory();
 
 const store = createStore(
   connectRouter(history)(combineReducers(reducers)),
-  applyMiddleware(
-    thunk,
-    routerMiddleware(history),
-  )
+  applyMiddleware(thunk, routerMiddleware(history))
 );
 
 it('renders without crashing', () => {

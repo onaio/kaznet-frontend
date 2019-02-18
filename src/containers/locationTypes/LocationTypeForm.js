@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Formik } from "formik";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Formik } from 'formik';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 import {
   Alert,
   Form,
@@ -13,16 +13,16 @@ import {
   Modal,
   ModalFooter,
   ModalHeader
-} from "reactstrap";
+} from 'reactstrap';
 
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
 
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
     const msg = element.detail;
-    const field = element.source.pointer.split("/").pop();
+    const field = element.source.pointer.split('/').pop();
     errors[field] = msg;
   }
 
@@ -49,15 +49,12 @@ export class LocationTypeForm extends Component {
     return (
       <Formik
         initialValues={{
-          name:
-            this.props.initialData.name != null
-              ? this.props.initialData.name
-              : null
+          name: this.props.initialData.name != null ? this.props.initialData.name : null
         }}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
-              type: "LocationType",
+              type: 'LocationType',
               id: this.targetId != null ? this.targetId : null,
               attributes: {
                 name: values.name
@@ -71,7 +68,7 @@ export class LocationTypeForm extends Component {
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
               } else {
-                setStatus("done");
+                setStatus('done');
               }
             });
           } catch (error) {
@@ -102,11 +99,9 @@ export class LocationTypeForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.name}
-                    className={errors.name ? "is-invalid" : ""}
+                    className={errors.name ? 'is-invalid' : ''}
                   />
-                  {errors.name && (
-                    <div className="invalid-feedback">{errors.name}</div>
-                  )}
+                  {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row mt-5">
@@ -115,11 +110,11 @@ export class LocationTypeForm extends Component {
                     className="btn btn-secondary btn-block"
                     aria-label="Cancel"
                     onClick={() => {
-                      setStatus("done");
+                      setStatus('done');
                     }}
                   >
-                    {" "}
-                    Cancel{" "}
+                    {' '}
+                    Cancel{' '}
                   </Button>
                 </Col>
                 <Col md={{ size: 5 }}>
@@ -129,7 +124,7 @@ export class LocationTypeForm extends Component {
                     aria-label="Save Location Type"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Saving" : "Save Location Type"}
+                    {isSubmitting ? 'Saving' : 'Save Location Type'}
                   </Button>
                 </Col>
               </FormGroup>
@@ -162,18 +157,14 @@ export class LocationTypeForm extends Component {
                     >
                       Delete LocationType
                     </Link>
-                    <Button
-                      color="secondary"
-                      onClick={this.toggle}
-                      aria-label="Cancel"
-                    >
+                    <Button color="secondary" onClick={this.toggle} aria-label="Cancel">
                       Cancel
                     </Button>
                   </ModalFooter>
                 </Modal>
               </div>
             )}
-            {status === "done" && <Redirect to={"/locationTypes"} />}
+            {status === 'done' && <Redirect to="/locationTypes" />}
           </div>
         )}
       />

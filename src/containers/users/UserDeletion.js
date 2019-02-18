@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
 
-import * as userActions from "../../store/users/actions";
+import * as userActions from '../../store/users/actions';
 
 export class UserDeletion extends Component {
   componentDidMount() {
     this.props.deleteUser(this.props.match.params.id);
   }
+
   render() {
     return <Redirect to="/users" />;
   }

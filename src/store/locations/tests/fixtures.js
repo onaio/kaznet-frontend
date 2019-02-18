@@ -1,27 +1,27 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export const locationsData = {
   links: {
-    first: "http://localhost:8000/api/v1/locations/?page=1",
-    last: "http://localhost:8000/api/v1/locations/?page=1",
-    next: "http://localhost:8000/api/v1/locations/?page=2",
+    first: 'http://localhost:8000/api/v1/locations/?page=1',
+    last: 'http://localhost:8000/api/v1/locations/?page=1',
+    next: 'http://localhost:8000/api/v1/locations/?page=2',
     prev: null
   },
   data: [
     {
-      type: "Location",
-      id: "1",
+      type: 'Location',
+      id: '1',
       attributes: {
-        name: "Nairobi",
-        country: "KE",
-        parent_name: "None",
-        location_type_name: "None",
-        description: "Such Big City , Much wow",
+        name: 'Nairobi',
+        country: 'KE',
+        parent_name: 'None',
+        location_type_name: 'None',
+        description: 'Such Big City , Much wow',
         geopoint: null,
         radius: null,
         has_submissions: true,
         shapefile: {
-          type: "MultiPolygon",
+          type: 'MultiPolygon',
           coordinates: [
             [
               [
@@ -34,8 +34,8 @@ export const locationsData = {
             ]
           ]
         },
-        created: "2018-06-20T12:09:02.916318+03:00",
-        modified: "2018-06-20T12:09:02.916345+03:00"
+        created: '2018-06-20T12:09:02.916318+03:00',
+        modified: '2018-06-20T12:09:02.916345+03:00'
       },
       relationships: {
         location_type: {
@@ -47,20 +47,20 @@ export const locationsData = {
       }
     },
     {
-      type: "Location",
-      id: "7",
+      type: 'Location',
+      id: '7',
       attributes: {
-        name: "Sol Point",
-        country: "CK",
+        name: 'Sol Point',
+        country: 'CK',
         parent_name: null,
         location_type_name: null,
-        description: "Something",
+        description: 'Something',
         geopoint: null,
         radius: null,
         shapefile: null,
         has_submissions: false,
-        created: "2018-07-09T14:53:09.732230+03:00",
-        modified: "2018-07-09T14:53:09.732261+03:00"
+        created: '2018-07-09T14:53:09.732230+03:00',
+        modified: '2018-07-09T14:53:09.732261+03:00'
       },
       relationships: {
         location_type: {
@@ -83,26 +83,26 @@ export const locationsData = {
 
 export const locationsDataSecondPage = {
   links: {
-    first: "http://localhost:8000/api/v1/locations/?page=1",
-    last: "http://localhost:8000/api/v1/locations/?page=2",
+    first: 'http://localhost:8000/api/v1/locations/?page=1',
+    last: 'http://localhost:8000/api/v1/locations/?page=2',
     next: null,
-    prev: "http://localhost:8000/api/v1/locations/?page=1"
+    prev: 'http://localhost:8000/api/v1/locations/?page=1'
   },
   data: [
     {
-      type: "Location",
-      id: "1",
+      type: 'Location',
+      id: '1',
       attributes: {
-        name: "Tampa",
-        country: "KE",
-        parent_name: "None",
-        location_type_name: "None",
-        description: "Such Big City , Much wow",
+        name: 'Tampa',
+        country: 'KE',
+        parent_name: 'None',
+        location_type_name: 'None',
+        description: 'Such Big City , Much wow',
         geopoint: null,
         radius: null,
         has_submissions: true,
         shapefile: {
-          type: "MultiPolygon",
+          type: 'MultiPolygon',
           coordinates: [
             [
               [
@@ -115,8 +115,8 @@ export const locationsDataSecondPage = {
             ]
           ]
         },
-        created: "2018-06-20T12:09:02.916318+03:00",
-        modified: "2018-06-20T12:09:02.916345+03:00"
+        created: '2018-06-20T12:09:02.916318+03:00',
+        modified: '2018-06-20T12:09:02.916345+03:00'
       },
       relationships: {
         location_type: {
@@ -128,20 +128,20 @@ export const locationsDataSecondPage = {
       }
     },
     {
-      type: "Location",
-      id: "7",
+      type: 'Location',
+      id: '7',
       attributes: {
-        name: "Kona Mbaya",
-        country: "CK",
+        name: 'Kona Mbaya',
+        country: 'CK',
         parent_name: null,
         location_type_name: null,
-        description: "Something",
+        description: 'Something',
         geopoint: null,
         radius: null,
         shapefile: null,
         has_submissions: false,
-        created: "2018-07-09T14:53:09.732230+03:00",
-        modified: "2018-07-09T14:53:09.732261+03:00"
+        created: '2018-07-09T14:53:09.732230+03:00',
+        modified: '2018-07-09T14:53:09.732261+03:00'
       },
       relationships: {
         location_type: {
@@ -163,20 +163,20 @@ export const locationsDataSecondPage = {
 };
 
 export const singleLocation = {
-  type: "Location",
-  id: "999",
+  type: 'Location',
+  id: '999',
   attributes: {
-    name: "Isiolo Market X",
-    country: "KE",
+    name: 'Isiolo Market X',
+    country: 'KE',
     parent_name: null,
     location_type_name: null,
-    description: "Something",
+    description: 'Something',
     geopoint: null,
     radius: null,
     shapefile: null,
     has_submissions: true,
-    created: "2018-07-09T14:53:09.732230+03:00",
-    modified: "2018-07-09T14:53:09.732261+03:00"
+    created: '2018-07-09T14:53:09.732230+03:00',
+    modified: '2018-07-09T14:53:09.732261+03:00'
   },
   relationships: {
     location_type: {
@@ -190,10 +190,7 @@ export const singleLocation = {
 
 export const locationsArray = _.map(locationsData.data, location => location);
 
-export const locationsArraySecondPage = _.map(
-  locationsDataSecondPage.data,
-  location => location
-);
+export const locationsArraySecondPage = _.map(locationsDataSecondPage.data, location => location);
 
 export const locationsById = _.keyBy(locationsArray, location => location.id);
 export const locationsIdArray = _.keys(locationsById);
@@ -207,10 +204,7 @@ export const singleLocationData = {
 export const singleLocationArray = _.map(singleLocationData, location => {
   return location;
 });
-export const singleLocationById = _.keyBy(
-  singleLocationArray,
-  location => location.id
-);
+export const singleLocationById = _.keyBy(singleLocationArray, location => location.id);
 
 export const currentPage = locationsData.meta.pagination.page;
 export const totalPages = locationsData.meta.pagination.pages;
@@ -220,14 +214,9 @@ export const firstPage = 1;
 export const lastPage = 2;
 
 export const pageLinksSecondPage = locationsDataSecondPage.links;
-export const currentPageSecondPage =
-  locationsDataSecondPage.meta.pagination.page;
-export const totalPagesSecondPage =
-  locationsDataSecondPage.meta.pagination.pages;
-export const locationsByIdSecondPage = _.keyBy(
-  locationsArraySecondPage,
-  location => location.id
-);
+export const currentPageSecondPage = locationsDataSecondPage.meta.pagination.page;
+export const totalPagesSecondPage = locationsDataSecondPage.meta.pagination.pages;
+export const locationsByIdSecondPage = _.keyBy(locationsArraySecondPage, location => location.id);
 
 export const selectOptions = locationsArray.map(d => ({
   value: d.id,

@@ -1,28 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
-import qs from "qs";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu
-} from "reactstrap";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+import qs from 'qs';
+import { Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from 'reactstrap';
 
-import "../LoadListAnimation.css";
-import * as formActions from "../../store/forms/actions";
-import * as formSelectors from "../../store/forms/reducer";
-import * as globalSelectors from "../../store/global/reducer";
-import * as globalActions from "../../store/global/actions";
-import * as constants from "../../constants.js";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import ListView from "../../components/ListView";
-import NoResults from "../../components/NoResults";
-import ElementMap from "../ElementMap";
-import MisconfiguredForm from "../../components/forms/MisconfiguredForm";
-import { withAlert } from "react-alert";
+import '../LoadListAnimation.css';
+import { withAlert } from 'react-alert';
+import * as formActions from '../../store/forms/actions';
+import * as formSelectors from '../../store/forms/reducer';
+import * as globalSelectors from '../../store/global/reducer';
+import * as globalActions from '../../store/global/actions';
+import * as constants from '../../constants.js';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import ListView from '../../components/ListView';
+import NoResults from '../../components/NoResults';
+import ElementMap from '../ElementMap';
+import MisconfiguredForm from '../../components/forms/MisconfiguredForm';
 
 export class FormsList extends Component {
   constructor(props) {
@@ -35,21 +30,21 @@ export class FormsList extends Component {
 
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.changePageTitle("Forms");
-    this.props.changePageTitleButton("");
-    this.props.changePageTarget("");
+    this.props.changePageTitle('Forms');
+    this.props.changePageTitleButton('');
+    this.props.changePageTarget('');
     let { search } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
-    let { has_task } = qs.parse(this.props.location.search.slice(1));
+    const { has_task } = qs.parse(this.props.location.search.slice(1));
     let hasTask;
 
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     this.props.searchVal(search);
 
     if (has_task === undefined) {
-      hasTask = "";
+      hasTask = '';
     } else {
       hasTask = has_task;
     }
@@ -72,13 +67,13 @@ export class FormsList extends Component {
   componentDidUpdate(prevProps) {
     let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
-      search = "";
+      search = '';
     }
 
-    let { has_task } = qs.parse(this.props.location.search.slice(1));
+    const { has_task } = qs.parse(this.props.location.search.slice(1));
     let hasTask;
     if (has_task === undefined) {
-      hasTask = "";
+      hasTask = '';
     } else {
       hasTask = has_task;
     }
@@ -102,7 +97,7 @@ export class FormsList extends Component {
   }
 
   handleChange(e) {
-    const hasTask = e.target.getAttribute("data-key");
+    const hasTask = e.target.getAttribute('data-key');
     const param = `?has_task=${hasTask}`;
     if (hasTask === null) {
       this.setState({
@@ -114,10 +109,10 @@ export class FormsList extends Component {
     const searchString = this.props.searchParam;
     this.props.fetchForms(
       `${constants.API_ENDPOINT}/forms/${
-        hasTask !== "" ? param : ""
+        hasTask !== '' ? param : ''
       }&search=${searchString}&page=${pageValue}`
     );
-    this.props.getHasTask(hasTask !== "" ? hasTask : "");
+    this.props.getHasTask(hasTask !== '' ? hasTask : '');
     this.setState({
       isOpen: !this.state.isOpen
     });
@@ -125,13 +120,11 @@ export class FormsList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.formCount === null) {
+    if (this.props.searchParam !== '' && this.props.formCount === null) {
       return this.renderLoading();
     }
     if (this.props.formCount === 0) {
-      return (
-        <NoResults searchVal={this.props.searchParam} endpoint={"forms"} />
-      );
+      return <NoResults searchVal={this.props.searchParam} endpoint="forms" />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
@@ -141,7 +134,7 @@ export class FormsList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
-          endpoint={"forms"}
+          endpoint="forms"
           pageLinks={this.props.pageLinks}
           totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
@@ -150,7 +143,7 @@ export class FormsList extends Component {
           searchVal={this.props.searchParam}
           sortField={constants.FORM_SORT_FIELD}
           sortOrder={constants.SORT_DESC}
-          isFormPage={true}
+          isFormPage
           isOpen={this.state.isOpen}
           handleChange={this.handleChange}
           hasTask={this.props.hasTask}
@@ -172,45 +165,30 @@ export class FormsList extends Component {
 
   renderHeaders(firstPageLink) {
     const headerItems = [
-      "Name",
+      'Name',
       <Dropdown isOpen={this.isOpen} toggle={this.handleChange} key="dropdown">
         <DropdownToggle caret tag="span" className="nav-link">
           Task
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem key={0}>
-            <Link
-              to={`${firstPageLink}`}
-              className="nav-link"
-              key="1"
-              data-key="2"
-            >
+            <Link to={`${firstPageLink}`} className="nav-link" key="1" data-key="2">
               All
             </Link>
           </DropdownItem>
           <DropdownItem key={1}>
-            <Link
-              to={`${firstPageLink}&has_task=true`}
-              className="nav-link"
-              key="1"
-              data-key="1"
-            >
+            <Link to={`${firstPageLink}&has_task=true`} className="nav-link" key="1" data-key="1">
               Has Task
             </Link>
           </DropdownItem>
           <DropdownItem key={2}>
-            <Link
-              to={`${firstPageLink}&has_task=false`}
-              className="nav-link"
-              key="0"
-              data-key="0"
-            >
+            <Link to={`${firstPageLink}&has_task=false`} className="nav-link" key="0" data-key="0">
               Does Not Have Task
             </Link>
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>,
-      "Last Modified"
+      'Last Modified'
     ];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
@@ -219,8 +197,7 @@ export class FormsList extends Component {
     const rowItems = [
       <div key={row.id}>
         {row.attributes.title}
-        {row.attributes.metadata.configuration_status !==
-          constants.XFORM_CORRECTLY_CONFIGURED && (
+        {row.attributes.metadata.configuration_status !== constants.XFORM_CORRECTLY_CONFIGURED && (
           <MisconfiguredForm key={row.id} form={row} />
         )}
       </div>,

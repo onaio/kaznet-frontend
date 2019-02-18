@@ -1,22 +1,18 @@
-import _ from "lodash";
-import * as constants from "../constants";
+import _ from 'lodash';
+import * as constants from '../constants';
 
 class formService {
-  async getFormList(
-    url = `${constants.API_ENDPOINT}/forms/?format=vnd.api%2Bjson`
-  ) {
+  async getFormList(url = `${constants.API_ENDPOINT}/forms/?format=vnd.api%2Bjson`) {
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
-      throw new Error(
-        `FormService getFormList failed, HTTP status ${response.status}`
-      );
+      throw new Error(`FormService getFormList failed, HTTP status ${response.status}`);
     }
 
     const {

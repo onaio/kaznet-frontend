@@ -1,73 +1,73 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export const formData = {
   links: {
-    first: "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1",
-    last: "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
-    next: "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
+    first: 'http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1',
+    last: 'http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2',
+    next: 'http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2',
     prev: null
   },
   data: [
     {
-      type: "XForm",
-      id: "1",
+      type: 'XForm',
+      id: '1',
       attributes: {
         ona_pk: 1903,
         project_id: 4328,
         last_updated: null,
-        title: "Form 1",
-        id_string: "form_1",
-        created: "2018-06-21T12:15:23.170271+03:00",
-        modified: "2018-06-21T12:15:23.170313+03:00",
+        title: 'Form 1',
+        id_string: 'form_1',
+        created: '2018-06-21T12:15:23.170271+03:00',
+        modified: '2018-06-21T12:15:23.170313+03:00',
         has_task: false,
         task_name: null,
         deleted_at: null,
         metadata: {
-          owner: "kaznet",
-          owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
-          configuration_status: "correctly_configured"
+          owner: 'kaznet',
+          owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
+          configuration_status: 'correctly_configured'
         }
       }
     },
     {
-      type: "XForm",
-      id: "2",
+      type: 'XForm',
+      id: '2',
       attributes: {
         ona_pk: 6373,
         project_id: 5522,
         last_updated: null,
-        title: "Form 2",
-        id_string: "form_2",
-        created: "2018-06-21T12:15:23.175198+03:00",
-        modified: "2018-06-21T12:15:23.175232+03:00",
+        title: 'Form 2',
+        id_string: 'form_2',
+        created: '2018-06-21T12:15:23.175198+03:00',
+        modified: '2018-06-21T12:15:23.175232+03:00',
         has_task: false,
         task_name: null,
         deleted_at: null,
         metadata: {
-          owner: "kaznet",
-          owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
-          configuration_status: "correctly_configured"
+          owner: 'kaznet',
+          owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
+          configuration_status: 'correctly_configured'
         }
       }
     },
     {
-      type: "XForm",
-      id: "3",
+      type: 'XForm',
+      id: '3',
       attributes: {
         ona_pk: 6373,
         project_id: 5522,
         last_updated: null,
-        title: "Form 3",
-        id_string: "form_3",
-        created: "2018-06-21T12:15:23.175198+03:00",
-        modified: "2018-06-21T12:15:23.175232+03:00",
+        title: 'Form 3',
+        id_string: 'form_3',
+        created: '2018-06-21T12:15:23.175198+03:00',
+        modified: '2018-06-21T12:15:23.175232+03:00',
         has_task: true,
-        task_name: "Form 3 Task",
+        task_name: 'Form 3 Task',
         deleted_at: null,
         metadata: {
-          owner: "kaznet",
-          owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
-          configuration_status: "members_cannot_submit"
+          owner: 'kaznet',
+          owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
+          configuration_status: 'members_cannot_submit'
         }
       }
     }
@@ -82,33 +82,33 @@ export const formData = {
 };
 
 export const secondForm = {
-  type: "XForm",
-  id: "99",
+  type: 'XForm',
+  id: '99',
   attributes: {
     ona_pk: 6373,
     project_id: 5522,
     last_updated: null,
-    title: "Form 99",
-    id_string: "form_99",
-    created: "2018-06-21T12:15:23.175198+03:00",
-    modified: "2018-06-21T12:15:23.175232+03:00",
+    title: 'Form 99',
+    id_string: 'form_99',
+    created: '2018-06-21T12:15:23.175198+03:00',
+    modified: '2018-06-21T12:15:23.175232+03:00',
     has_task: false,
     task_name: null,
     deleted_at: null,
     metadata: {
-      owner: "kaznet",
-      owner_url: "http://127.0.0.1:8000/api/v1/users/kaznet",
-      configuration_status: "correctly_configured"
+      owner: 'kaznet',
+      owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
+      configuration_status: 'correctly_configured'
     }
   }
 };
 
 export const formDataSecondPage = {
   links: {
-    first: "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1",
-    last: "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2",
+    first: 'http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1',
+    last: 'http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=2',
     next: null,
-    prev: "http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1"
+    prev: 'http://127.0.0.1:8000/api/v1/forms/?format=vnd.api%2Bjson&page=1'
   },
   data: [secondForm],
   meta: {
@@ -120,10 +120,7 @@ export const formDataSecondPage = {
   }
 };
 
-export const formsArraySecondPage = _.map(
-  formDataSecondPage.data,
-  form => form
-);
+export const formsArraySecondPage = _.map(formDataSecondPage.data, form => form);
 
 export const currentPage = formData.meta.pagination.page;
 export const totalPages = formData.meta.pagination.pages;
@@ -145,10 +142,7 @@ export const currentPageSecondPage = formDataSecondPage.meta.pagination.page;
 export const totalPagesSecondPage = formDataSecondPage.meta.pagination.pages;
 export const pageLinksSecondPage = formDataSecondPage.links;
 
-export const formsByIdSecondPage = _.keyBy(
-  formsArraySecondPage,
-  form => form.id
-);
+export const formsByIdSecondPage = _.keyBy(formsArraySecondPage, form => form.id);
 export const formsIdArraySecondPage = _.keys(formsByIdSecondPage);
 export const formByIdSecondPage = _.get(formsByIdSecondPage, 1);
 

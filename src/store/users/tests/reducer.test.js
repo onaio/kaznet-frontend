@@ -1,10 +1,10 @@
-import Immutable from "seamless-immutable";
-import _ from "lodash";
-import { Reducer } from "redux-testkit";
+import Immutable from 'seamless-immutable';
+import _ from 'lodash';
+import { Reducer } from 'redux-testkit';
 
-import users from "../reducer";
-import * as fixtures from "./fixtures";
-import * as actionTypes from "../actionTypes";
+import users from '../reducer';
+import * as fixtures from './fixtures';
+import * as actionTypes from '../actionTypes';
 
 const initialState = {
   usersById: {},
@@ -21,17 +21,17 @@ const initialState = {
   }
 };
 
-describe("store/users/reducer", () => {
-  it("should have initial state", () => {
+describe('store/users/reducer', () => {
+  it('should have initial state', () => {
     expect(users()).toEqual(initialState);
   });
 
-  it("should store fetched users", () => {
-    const usersById = fixtures.usersById;
-    const pageLinks = fixtures.pageLinks;
-    const currentPage = fixtures.currentPage;
-    const totalPages = fixtures.totalPages;
-    const totalCount = fixtures.totalCount;
+  it('should store fetched users', () => {
+    const { usersById } = fixtures;
+    const { pageLinks } = fixtures;
+    const { currentPage } = fixtures;
+    const { totalPages } = fixtures;
+    const { totalCount } = fixtures;
     const currentUser = fixtures.currentLoggedInUserData;
     const action = {
       type: actionTypes.USERS_FETCHED,
@@ -57,7 +57,7 @@ describe("store/users/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store created user", () => {
+  it('should store created user', () => {
     const userData = fixtures.singleUserData;
     const action = {
       type: actionTypes.USER_CREATED,
@@ -74,7 +74,7 @@ describe("store/users/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store fetched user", () => {
+  it('should store fetched user', () => {
     const userData = fixtures.singleUserData;
     const action = {
       type: actionTypes.USER_FETCHED,
@@ -91,7 +91,7 @@ describe("store/users/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store edited user", () => {
+  it('should store edited user', () => {
     const userData = fixtures.singleUserData;
     const action = {
       type: actionTypes.USER_EDITED,
@@ -108,7 +108,7 @@ describe("store/users/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should change page", () => {
+  it('should change page', () => {
     const pageNumber = 2;
     const action = {
       type: actionTypes.USER_CHANGE_PAGE,
@@ -124,9 +124,9 @@ describe("store/users/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store fetched users", () => {
+  it('should store fetched users', () => {
     const userData = fixtures.singleUserData;
-    const usersById = fixtures.usersById;
+    const { usersById } = fixtures;
     const action = {
       type: actionTypes.USER_CREATED,
       userData

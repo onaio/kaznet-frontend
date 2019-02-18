@@ -1,10 +1,10 @@
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import { Reducer } from "redux-testkit";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import { Reducer } from 'redux-testkit';
 
-import clients from "../reducer";
-import * as actionTypes from "../actionTypes";
-import * as fixtures from "./fixtures";
+import clients from '../reducer';
+import * as actionTypes from '../actionTypes';
+import * as fixtures from './fixtures';
 
 const initialState = {
   clientsById: {},
@@ -21,18 +21,18 @@ const initialState = {
   }
 };
 
-describe("store/clients/reducer", () => {
-  it("should have initial state", () => {
+describe('store/clients/reducer', () => {
+  it('should have initial state', () => {
     expect(clients()).toEqual(initialState);
   });
 
-  it("should store fetched clients", () => {
-    const clientsById = fixtures.clientsById;
-    const pageLinks = fixtures.pageLinks;
-    const currentPage = fixtures.currentPage;
-    const totalPages = fixtures.totalPages;
-    const totalCount = fixtures.totalCount;
-    const selectOptions = fixtures.selectOptions;
+  it('should store fetched clients', () => {
+    const { clientsById } = fixtures;
+    const { pageLinks } = fixtures;
+    const { currentPage } = fixtures;
+    const { totalPages } = fixtures;
+    const { totalCount } = fixtures;
+    const { selectOptions } = fixtures;
     const action = {
       type: actionTypes.CLIENTS_FETCHED,
       clientsById,
@@ -58,7 +58,7 @@ describe("store/clients/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store created client", () => {
+  it('should store created client', () => {
     const clientData = fixtures.singleClient;
     const action = { type: actionTypes.CLIENT_CREATED, clientData };
 
@@ -72,7 +72,7 @@ describe("store/clients/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store fetched client", () => {
+  it('should store fetched client', () => {
     const clientData = fixtures.singleClient;
     const action = { type: actionTypes.CLIENT_FETCHED, clientData };
 
@@ -86,7 +86,7 @@ describe("store/clients/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store edited client", () => {
+  it('should store edited client', () => {
     const clientData = fixtures.singleClient;
     const action = { type: actionTypes.CLIENT_EDITED, clientData };
 
@@ -100,8 +100,8 @@ describe("store/clients/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should remove deleted client from store", () => {
-    const clientId = "10";
+  it('should remove deleted client from store', () => {
+    const clientId = '10';
     const action = { type: actionTypes.CLIENT_DELETED, clientId };
 
     const existingState = Immutable(initialState);

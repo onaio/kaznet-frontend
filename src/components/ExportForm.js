@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Col, Input, FormGroup, Form, Button } from "reactstrap";
-import { Formik, Field } from "formik";
-import moment from "moment";
-import * as constants from "../constants";
-import "./ExportForm.css";
+import React, { Component } from 'react';
+import { Col, Input, FormGroup, Form, Button } from 'reactstrap';
+import { Formik, Field } from 'formik';
+import moment from 'moment';
+import * as constants from '../constants';
+import './ExportForm.css';
 
 export default class ExportForm extends Component {
   render() {
     return (
       <Formik
         initialValues={{
-          start: moment().format("YYYY-MM-DD"),
-          end: moment().format("YYYY-MM-DD"),
+          start: moment().format('YYYY-MM-DD'),
+          end: moment().format('YYYY-MM-DD'),
           status: constants.SUBMISSION_APPROVED
         }}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
@@ -25,20 +25,10 @@ export default class ExportForm extends Component {
                   <p className="text-center align-middle">Status:</p>
                 </Col>
                 <Col md={{ size: 10 }}>
-                  <Field
-                    name="status"
-                    component="select"
-                    className="form-control ml-4"
-                  >
-                    <option value={constants.SUBMISSION_APPROVED}>
-                      Approved
-                    </option>
-                    <option value={constants.SUBMISSION_REJECTED}>
-                      Rejected
-                    </option>
-                    <option value={constants.SUBMISSION_PENDING}>
-                      Pending
-                    </option>
+                  <Field name="status" component="select" className="form-control ml-4">
+                    <option value={constants.SUBMISSION_APPROVED}>Approved</option>
+                    <option value={constants.SUBMISSION_REJECTED}>Rejected</option>
+                    <option value={constants.SUBMISSION_PENDING}>Pending</option>
                   </Field>
                 </Col>
               </FormGroup>
@@ -51,7 +41,7 @@ export default class ExportForm extends Component {
                     bsSize="md"
                     placeholder="Start Date"
                     aria-label="start"
-                    className={`time-picker`}
+                    className="time-picker"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.start}
@@ -65,7 +55,7 @@ export default class ExportForm extends Component {
                     bsSize="md"
                     placeholder="End Date"
                     aria-label="end"
-                    className={`time-picker`}
+                    className="time-picker"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.end}

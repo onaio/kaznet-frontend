@@ -1,22 +1,22 @@
 // Test TasksDetail
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { TasksDetail } from "../TasksDetail";
-import * as fixtures from "../../../store/tasks/tests/fixtures";
+import { TasksDetail } from '../TasksDetail';
+import * as fixtures from '../../../store/tasks/tests/fixtures';
 
 const history = createBrowserHistory();
 
-describe("containers/task/TasksDetail", () => {
-  it("renders without crashing", () => {
+describe('containers/task/TasksDetail', () => {
+  it('renders without crashing', () => {
     shallow(
       <TasksDetail
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         fetchTask={function() {}}
@@ -26,13 +26,13 @@ describe("containers/task/TasksDetail", () => {
     );
   });
 
-  it("renders detail list correctly", () => {
+  it('renders detail list correctly', () => {
     const wrapper = mount(
       <Router history={history}>
         <TasksDetail
           match={{
             params: {
-              id: "1"
+              id: '1'
             }
           }}
           fetchTask={function() {}}

@@ -1,8 +1,8 @@
 // task actions
-import _ from "lodash";
-import * as types from "./actionTypes";
-import * as errorHandlerTypes from "../errorHandler/actionTypes";
-import taskService from "../../services/tasks";
+import _ from 'lodash';
+import * as types from './actionTypes';
+import * as errorHandlerTypes from '../errorHandler/actionTypes';
+import taskService from '../../services/tasks';
 
 // get list of tasks
 export function fetchTasks(url) {
@@ -32,7 +32,7 @@ export function fetchTasks(url) {
     }
   };
 }
-//get search value on task view
+// get search value on task view
 
 // Change the current Page on the task list
 export function changePageNumber(pageNumber) {
@@ -98,7 +98,7 @@ export function deleteTask(task_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: "Tasks with pre-existing submissions cannot be deleted"
+        errorMessage: 'Tasks with pre-existing submissions cannot be deleted'
       });
     }
   };

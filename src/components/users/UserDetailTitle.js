@@ -1,9 +1,9 @@
 // Renders the detail page title section
-import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import "../page/DetailTitle.css";
+import '../page/DetailTitle.css';
 
 export default class UserDetailTitle extends Component {
   constructor(props) {
@@ -29,15 +29,12 @@ export default class UserDetailTitle extends Component {
             <h1 className="kaznet-detail-title">
               <Link to="/users" className="kaznet-header-link">
                 Users
-              </Link>{" "}
+              </Link>{' '}
               > {this.props.user.attributes.ona_username}
             </h1>&nbsp;&nbsp;
             <Col md="12">
               <Row className="kaznet-action-links">
-                <Link
-                  to={`/users/${this.props.user.id}/edit`}
-                  className="action-link"
-                >
+                <Link to={`/users/${this.props.user.id}/edit`} className="action-link">
                   EDIT
                 </Link>
               </Row>

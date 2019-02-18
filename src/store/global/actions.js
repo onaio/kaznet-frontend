@@ -1,5 +1,5 @@
 // global actions
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 export function changePageTitle(pageTitle) {
   return async (dispatch, getState) => {
@@ -55,7 +55,7 @@ export function toggleTitleOn() {
   };
 }
 
-//get search value on task view
+// get search value on task view
 export function getSearchVal(searchVal) {
   return async (dispatch, getState) => {
     dispatch({ type: types.GLOBAL_SEARCH_VALUE, searchVal });

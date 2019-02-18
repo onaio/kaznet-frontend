@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import moment from "moment";
-import "../LoadListAnimation.css";
-import TaskForm from "./TaskForm";
-import FormView from "../../components/FormView";
-import * as taskSelectors from "../../store/tasks/reducer";
-import * as taskActions from "../../store/tasks/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as globalActions from "../../store/global/actions";
-import * as constants from "../../constants.js";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import moment from 'moment';
+import '../LoadListAnimation.css';
+import TaskForm from './TaskForm';
+import FormView from '../../components/FormView';
+import * as taskSelectors from '../../store/tasks/reducer';
+import * as taskActions from '../../store/tasks/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as globalActions from '../../store/global/actions';
+import * as constants from '../../constants.js';
 
 export class TaskEditForm extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ export class TaskEditForm extends Component {
       return this.renderLoading();
     }
     const action = taskActions.editTask;
-    var status = this.task.attributes.status;
+    let { status } = this.task.attributes;
 
     if (status === constants.DEACTIVATED) {
       status = constants.TASK_DEACTIVATED;
@@ -44,66 +44,52 @@ export class TaskEditForm extends Component {
             : constants.ESTIMATED_TIME
         )
         .minutes(),
-      start: moment(this.task.attributes.start).format(
+      start: moment(this.task.attributes.start).format(constants.TASK_DATE_FORMAT),
+      end: moment(this.task.attributes.end != null ? this.task.attributes.end : undefined).format(
         constants.TASK_DATE_FORMAT
       ),
-      end: moment(
-        this.task.attributes.end != null ? this.task.attributes.end : undefined
-      ).format(constants.TASK_DATE_FORMAT),
-      description:
-        this.task.attributes.description != null
-          ? this.task.attributes.description
-          : "",
+      description: this.task.attributes.description != null ? this.task.attributes.description : '',
       required_expertise: this.task.attributes.required_expertise,
-      timing_rule:
-        this.task.attributes.timing_rule != null
-          ? this.task.attributes.timing_rule
-          : "",
-      status: status,
+      timing_rule: this.task.attributes.timing_rule != null ? this.task.attributes.timing_rule : '',
+      status,
       user_submission_target:
         this.task.attributes.user_submission_target != null
           ? this.task.attributes.user_submission_target
-          : "",
+          : '',
       amount:
         this.task.attributes.current_bounty_amount != null
-          ? parseInt(
-              this.task.attributes.current_bounty_amount,
-              constants.USER_SUBMISSION_TARGET
-            )
-          : "",
+          ? parseInt(this.task.attributes.current_bounty_amount, constants.USER_SUBMISSION_TARGET)
+          : '',
       form:
         this.task.attributes.target_id && this.task.attributes.xform_title
           ? {
               value: this.task.attributes.target_id,
               label: this.task.attributes.xform_title
             }
-          : "",
+          : '',
       client:
         this.task.relationships.client.data != null
           ? {
               value: this.task.relationships.client.data.id,
               label: this.task.attributes.client_name
             }
-          : "",
+          : '',
       taskLocations:
-        this.task.attributes.task_locations &&
-        this.task.attributes.task_locations.length > 0
-          ? this.task.attributes.task_locations
-              .asMutable()
-              .map(taskLocationItem => ({
-                start: taskLocationItem.start,
-                end: taskLocationItem.end,
-                timing_rule: taskLocationItem.timing_rule,
-                location: {
-                  value: taskLocationItem.location.id,
-                  label: taskLocationItem.location_name
-                }
-              }))
+        this.task.attributes.task_locations && this.task.attributes.task_locations.length > 0
+          ? this.task.attributes.task_locations.asMutable().map(taskLocationItem => ({
+              start: taskLocationItem.start,
+              end: taskLocationItem.end,
+              timing_rule: taskLocationItem.timing_rule,
+              location: {
+                value: taskLocationItem.location.id,
+                label: taskLocationItem.location_name
+              }
+            }))
           : {
               start: constants.TASK_LOCATION_START,
               end: constants.TASK_LOCATION_END,
               timing_rule: constants.TASK_LOCATION_TIMING_RULE,
-              location: ""
+              location: ''
             }
     };
 

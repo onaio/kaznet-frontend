@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as locationSelectors from "../../store/locations/reducer";
-import * as locationActions from "../../store/locations/actions";
-import * as globalActions from "../../store/global/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as constants from "../../constants";
+import * as locationSelectors from '../../store/locations/reducer';
+import * as locationActions from '../../store/locations/actions';
+import * as globalActions from '../../store/global/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as constants from '../../constants';
 
-import NestedElementMap from "../NestedElementMap";
-import DetailView from "../../components/DetailView";
-import LocationDetailTitle from "../../components/location/LocationDetailTitle";
+import NestedElementMap from '../NestedElementMap';
+import DetailView from '../../components/DetailView';
+import LocationDetailTitle from '../../components/location/LocationDetailTitle';
 
 export class LocationDetail extends Component {
   componentDidMount() {
@@ -35,7 +35,8 @@ export class LocationDetail extends Component {
   renderLoading() {
     if (!this.props.hasError) {
       return <p>Loading...</p>;
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
@@ -43,9 +44,9 @@ export class LocationDetail extends Component {
   renderMainDetails() {
     const headerItems = {
       Description: this.location.attributes.description,
-      "Parent Location": this.location.attributes.parent_name,
+      'Parent Location': this.location.attributes.parent_name,
       Country: this.location.attributes.country,
-      "Location Type": this.location.attributes.location_type_name
+      'Location Type': this.location.attributes.location_type_name
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
@@ -56,15 +57,15 @@ export class LocationDetail extends Component {
       Geopoint: this.location.attributes.geopoint
         ? [
             this.location.attributes.geopoint.coordinates[0].toFixed(4),
-            "  ,   ",
+            '  ,   ',
             this.location.attributes.geopoint.coordinates[1].toFixed(4)
           ]
         : constants.NOT_APPLICABLE,
       Radius: this.location.attributes.radius
-        ? [Math.round(this.location.attributes.radius), " m"]
+        ? [Math.round(this.location.attributes.radius), ' m']
         : constants.NOT_APPLICABLE,
       Shapefile: this.location.attributes.shapefile
-        ? [this.location.attributes.name, ".shp"]
+        ? [this.location.attributes.name, '.shp']
         : constants.NOT_APPLICABLE
     };
 
@@ -74,10 +75,7 @@ export class LocationDetail extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    locationById: locationSelectors.getLocationById(
-      state,
-      props.match.params.id
-    ),
+    locationById: locationSelectors.getLocationById(state, props.match.params.id),
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
   };

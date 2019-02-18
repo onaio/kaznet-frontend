@@ -1,54 +1,44 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Formik, FieldArray, Field } from "formik";
-import AsyncSelect from "react-select/lib/Async";
-import {
-  Alert,
-  Form,
-  Input,
-  Button,
-  FormGroup,
-  Col,
-  Row,
-  Label,
-  FormText
-} from "reactstrap";
-import moment from "moment";
-import "react-rrule-generator/build/styles.css";
-import RRuleGenerator from "react-rrule-generator";
-import { Redirect } from "react-router-dom";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Formik, FieldArray, Field } from 'formik';
+import AsyncSelect from 'react-select/lib/Async';
+import { Alert, Form, Input, Button, FormGroup, Col, Row, Label, FormText } from 'reactstrap';
+import moment from 'moment';
+import 'react-rrule-generator/build/styles.css';
+import RRuleGenerator from 'react-rrule-generator';
+import { Redirect } from 'react-router-dom';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
-import MisconfiguredFormMessage from "../../components/forms/MisconfiguredFormMessage";
-import * as clientActions from "../../store/clients/actions";
-import * as locationActions from "../../store/locations/actions";
-import * as formActions from "../../store/forms/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as contentTypeActions from "../../store/contentTypes/actions";
-import * as clientSelectors from "../../store/clients/reducer";
-import * as locationSelectors from "../../store/locations/reducer";
-import * as formSelectors from "../../store/forms/reducer";
-import * as contentTypeSelectors from "../../store/contentTypes/reducer";
-import "../LoadListAnimation.css";
-import * as constants from "../../constants";
+import MisconfiguredFormMessage from '../../components/forms/MisconfiguredFormMessage';
+import * as clientActions from '../../store/clients/actions';
+import * as locationActions from '../../store/locations/actions';
+import * as formActions from '../../store/forms/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as contentTypeActions from '../../store/contentTypes/actions';
+import * as clientSelectors from '../../store/clients/reducer';
+import * as locationSelectors from '../../store/locations/reducer';
+import * as formSelectors from '../../store/forms/reducer';
+import * as contentTypeSelectors from '../../store/contentTypes/reducer';
+import '../LoadListAnimation.css';
+import * as constants from '../../constants';
 
-import "../LoadListAnimation.css";
-import "./TaskForm.css";
+import '../LoadListAnimation.css';
+import './TaskForm.css';
 
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
     const msg = element.detail;
-    const field = element.source.pointer.split("/").pop();
+    const field = element.source.pointer.split('/').pop();
 
-    if (field === "target_id" || field === "target_content_type") {
-      errors.form = "Please select a valid form.";
+    if (field === 'target_id' || field === 'target_content_type') {
+      errors.form = 'Please select a valid form.';
     }
 
-    if (field === "locations_input") {
+    if (field === 'locations_input') {
       errors.taskLocations = msg;
     }
 
@@ -83,9 +73,7 @@ export class TaskForm extends Component {
   }
 
   loadClientOptions = (inputValue, callback) => {
-    this.props.fetchClients(
-      `${constants.API_ENDPOINT}/clients/?search=${inputValue}`
-    );
+    this.props.fetchClients(`${constants.API_ENDPOINT}/clients/?search=${inputValue}`);
     setTimeout(() => {
       callback(this.getClientOptions());
     }, constants.ASYNC_SEARCH_TIMEOUT);
@@ -96,9 +84,7 @@ export class TaskForm extends Component {
   }
 
   loadFormOptions = (inputValue, callback) => {
-    this.props.fetchForms(
-      `${constants.API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`
-    );
+    this.props.fetchForms(`${constants.API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`);
     setTimeout(() => {
       callback(this.getFormOptions());
     }, constants.ASYNC_SEARCH_TIMEOUT);
@@ -109,9 +95,7 @@ export class TaskForm extends Component {
   }
 
   loadLocationOptions = (inputValue, callback) => {
-    this.props.fetchLocations(
-      `${constants.API_ENDPOINT}/locations/?search=${inputValue}`
-    );
+    this.props.fetchLocations(`${constants.API_ENDPOINT}/locations/?search=${inputValue}`);
     setTimeout(() => {
       callback(this.getLocationOptions());
     }, constants.ASYNC_SEARCH_TIMEOUT);
@@ -119,12 +103,11 @@ export class TaskForm extends Component {
 
   validate(formsById) {
     return values => {
-      let errors = {};
+      const errors = {};
       if (values.form) {
         const theForm = formsById[values.form.value];
         if (
-          theForm.attributes.metadata.configuration_status !==
-          constants.XFORM_CORRECTLY_CONFIGURED
+          theForm.attributes.metadata.configuration_status !== constants.XFORM_CORRECTLY_CONFIGURED
         ) {
           errors.form = <MisconfiguredFormMessage />;
         }
@@ -147,9 +130,7 @@ export class TaskForm extends Component {
         validate={this.validate(this.props.formsById)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const locations_input = values.taskLocations.map(d => ({
-            location: d.location
-              ? { type: "Location", id: d.location.value }
-              : undefined,
+            location: d.location ? { type: 'Location', id: d.location.value } : undefined,
             timing_rule: d.timing_rule,
             start: d.start,
             end: d.end
@@ -157,20 +138,19 @@ export class TaskForm extends Component {
 
           const payload = {
             data: {
-              type: "Task",
+              type: 'Task',
               id: this.targetId !== null ? this.targetId : null,
               attributes: {
                 name: values.name,
                 estimated_time: values.estimated_time * 60,
                 required_expertise: values.required_expertise,
                 description: values.description,
-                start: moment(values.start).format("YYYY-MM-DD") + "T12:00",
-                end: moment(values.end).format("YYYY-MM-DD") + "T12:00",
+                start: `${moment(values.start).format('YYYY-MM-DD')}T12:00`,
+                end: `${moment(values.end).format('YYYY-MM-DD')}T12:00`,
                 timing_rule: undefined,
                 total_submission_target: undefined,
                 user_submission_target:
-                  (values.user_submission_target !== null) &
-                  (values.user_submission_target !== "")
+                  (values.user_submission_target !== null) & (values.user_submission_target !== '')
                     ? values.user_submission_target
                     : undefined,
                 status:
@@ -179,14 +159,9 @@ export class TaskForm extends Component {
                     : this.props.initialData.status,
                 target_id: values.form ? values.form.value : undefined,
                 target_content_type: this.props.formContentTypeId,
-                amount:
-                  values.amount != null && values.amount !== ""
-                    ? values.amount
-                    : undefined,
-                client: values.client
-                  ? { type: "Client", id: values.client.value }
-                  : undefined,
-                locations_input: locations_input
+                amount: values.amount != null && values.amount !== '' ? values.amount : undefined,
+                client: values.client ? { type: 'Client', id: values.client.value } : undefined,
+                locations_input
               }
             }
           };
@@ -197,7 +172,7 @@ export class TaskForm extends Component {
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
               } else {
-                setStatus("done");
+                setStatus('done');
               }
             });
           } catch (error) {
@@ -230,11 +205,9 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.name}
-                    className={errors.name ? "is-invalid" : ""}
+                    className={errors.name ? 'is-invalid' : ''}
                   />
-                  {errors.name && (
-                    <div className="invalid-feedback">{errors.name}</div>
-                  )}
+                  {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -251,16 +224,14 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.status}
-                    className={errors.status ? "is-invalid" : ""}
-                    disabled={this.targetId != null ? false : true}
+                    className={errors.status ? 'is-invalid' : ''}
+                    disabled={this.targetId == null}
                   >
                     <option>----</option>
                     <option value="d">Draft</option>
                     <option value="a">Active</option>
                   </Input>
-                  {errors.status && (
-                    <div className="invalid-feedback">{errors.status}</div>
-                  )}
+                  {errors.status && <div className="invalid-feedback">{errors.status}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -278,7 +249,7 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.description}
-                    className={errors.description ? "is-invalid" : ""}
+                    className={errors.description ? 'is-invalid' : ''}
                   />
                   {errors.description && (
                     <div className="invalid-feedback">{errors.description}</div>
@@ -299,14 +270,10 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.amount}
-                    className={errors.amount ? "is-invalid" : ""}
+                    className={errors.amount ? 'is-invalid' : ''}
                   />
-                  <FormText color="muted">
-                    The reward paid for successful submissions.
-                  </FormText>
-                  {errors.amount && (
-                    <div className="invalid-feedback">{errors.amount}</div>
-                  )}
+                  <FormText color="muted">The reward paid for successful submissions.</FormText>
+                  {errors.amount && <div className="invalid-feedback">{errors.amount}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -317,8 +284,8 @@ export class TaskForm extends Component {
                   md={{ size: 6 }}
                   className={
                     errors.form
-                      ? "is-invalid is-invalid async-select-container"
-                      : "async-select-container"
+                      ? 'is-invalid is-invalid async-select-container'
+                      : 'async-select-container'
                   }
                 >
                   <AsyncSelect
@@ -327,22 +294,16 @@ export class TaskForm extends Component {
                     placeholder="Select Form"
                     aria-label="Select Form"
                     value={values.form}
-                    onChange={value => setFieldValue("form", value)}
+                    onChange={value => setFieldValue('form', value)}
                     onBlur={handleBlur}
                     defaultOptions={this.props.formOptions.asMutable()}
                     loadOptions={this.loadFormOptions}
                     isClearable
                     cacheOptions
-                    className={
-                      errors.form ? "is-invalid async-select" : "async-select"
-                    }
-                    classNamePrefix={
-                      errors.form ? "is-invalid async-select" : "async-select"
-                    }
+                    className={errors.form ? 'is-invalid async-select' : 'async-select'}
+                    classNamePrefix={errors.form ? 'is-invalid async-select' : 'async-select'}
                   />
-                  {errors.form && (
-                    <div className="invalid-feedback">{errors.form}</div>
-                  )}
+                  {errors.form && <div className="invalid-feedback">{errors.form}</div>}
                 </Col>
                 <Col md="3ss">
                   <Button
@@ -356,8 +317,8 @@ export class TaskForm extends Component {
                       href={constants.ONA_LOGIN}
                       className="kaznet-action-links"
                     >
-                      <FontAwesomeIcon icon="external-link-alt" />&nbsp; GO TO
-                      ONA FORM
+                      <FontAwesomeIcon icon="external-link-alt" />
+                      &nbsp; GO TO ONA FORM
                     </a>
                   </Button>
                 </Col>
@@ -378,14 +339,10 @@ export class TaskForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.start}
-                        className={`time-picker ${
-                          errors.start ? "is-invalid" : ""
-                        }`}
+                        className={`time-picker ${errors.start ? 'is-invalid' : ''}`}
                       />
                       {touched.start &&
-                        errors.start && (
-                          <div className="invalid-feedback">{errors.start}</div>
-                        )}
+                        errors.start && <div className="invalid-feedback">{errors.start}</div>}
                     </Col>
                     <Col md="2">
                       <p className="text-center align-middle">to</p>
@@ -400,13 +357,9 @@ export class TaskForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.end}
-                        className={`time-picker ${
-                          errors.end ? "is-invalid" : ""
-                        }`}
+                        className={`time-picker ${errors.end ? 'is-invalid' : ''}`}
                       />
-                      {errors.end && (
-                        <div className="invalid-feedback">{errors.end}</div>
-                      )}
+                      {errors.end && <div className="invalid-feedback">{errors.end}</div>}
                     </Col>
                   </Row>
                 </Col>
@@ -414,9 +367,7 @@ export class TaskForm extends Component {
 
               <FormGroup className="row">
                 <Col sm={{ size: 3 }}>
-                  <Label for="estimated_time">
-                    Estimated time to complete task
-                  </Label>
+                  <Label for="estimated_time">Estimated time to complete task</Label>
                 </Col>
                 <Col md={{ size: 8 }}>
                   <Input
@@ -428,16 +379,14 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.estimated_time}
-                    className={errors.estimated_time ? "is-invalid" : ""}
+                    className={errors.estimated_time ? 'is-invalid' : ''}
                   />
                   <FormText color="muted">
-                    The esitmated time that a contributor would take to complete
-                    the task, in minutes.
+                    The esitmated time that a contributor would take to complete the task, in
+                    minutes.
                   </FormText>
                   {errors.estimated_time && (
-                    <div className="invalid-feedback">
-                      {errors.estimated_time}
-                    </div>
+                    <div className="invalid-feedback">{errors.estimated_time}</div>
                   )}
                 </Col>
               </FormGroup>
@@ -451,10 +400,7 @@ export class TaskForm extends Component {
                     {values.taskLocations &&
                       values.taskLocations.length > 0 &&
                       values.taskLocations.map((friend, index) => (
-                        <div
-                          className="tasklocation-item position-relative"
-                          key={index}
-                        >
+                        <div className="tasklocation-item position-relative" key={index}>
                           {values.taskLocations &&
                             values.taskLocations.length > 1 && (
                               <button
@@ -469,19 +415,16 @@ export class TaskForm extends Component {
 
                           <FormGroup className="row mt-3">
                             <Col sm={{ size: 3 }}>
-                              <Label for={`taskLocations[${index}]location`}>
-                                Location
-                              </Label>
+                              <Label for={`taskLocations[${index}]location`}>Location</Label>
                             </Col>
                             <Col md={{ size: 8 }}>
                               <Row key={index}>
                                 <Col
                                   md={{ size: 12 }}
                                   className={
-                                    errors.taskLocations &&
-                                    errors.taskLocations.location
-                                      ? "is-invalid async-select-container"
-                                      : "async-select async-select-container"
+                                    errors.taskLocations && errors.taskLocations.location
+                                      ? 'is-invalid async-select-container'
+                                      : 'async-select async-select-container'
                                   }
                                 >
                                   <AsyncSelect
@@ -492,30 +435,25 @@ export class TaskForm extends Component {
                                     defaultOptions={this.props.locationOptions.asMutable()}
                                     loadOptions={this.loadLocationOptions}
                                     onChange={value =>
-                                      setFieldValue(
-                                        `taskLocations.${index}.location`,
-                                        value
-                                      )
+                                      setFieldValue(`taskLocations.${index}.location`, value)
                                     }
                                     isClearable
                                     cacheOptions
                                     className={
-                                      errors.taskLocations &&
-                                      errors.taskLocations.location
-                                        ? "is-invalid async-select"
-                                        : "async-select"
+                                      errors.taskLocations && errors.taskLocations.location
+                                        ? 'is-invalid async-select'
+                                        : 'async-select'
                                     }
                                     classNamePrefix={
-                                      errors.taskLocations &&
-                                      errors.taskLocations.location
-                                        ? "is-invalid async-select"
-                                        : "async-select"
+                                      errors.taskLocations && errors.taskLocations.location
+                                        ? 'is-invalid async-select'
+                                        : 'async-select'
                                     }
                                     required
                                     value={
                                       values.taskLocations[index]
                                         ? values.taskLocations[index].location
-                                        : ""
+                                        : ''
                                     }
                                   />
                                   {errors.taskLocations &&
@@ -543,9 +481,7 @@ export class TaskForm extends Component {
 
                           <FormGroup className="row">
                             <Col sm={{ size: 3 }}>
-                              <Label for={`taskLocations[${index}]start`}>
-                                Hours
-                              </Label>
+                              <Label for={`taskLocations[${index}]start`}>Hours</Label>
                             </Col>
                             <Col md="8">
                               <Row>
@@ -556,16 +492,15 @@ export class TaskForm extends Component {
                                     placeholder="Start"
                                     aria-label="Start"
                                     className={
-                                      errors.taskLocations &&
-                                      errors.taskLocations.start
-                                        ? "is-invalid time-picker form-control form-control-lg"
-                                        : "time-picker form-control form-control-lg"
+                                      errors.taskLocations && errors.taskLocations.start
+                                        ? 'is-invalid time-picker form-control form-control-lg'
+                                        : 'time-picker form-control form-control-lg'
                                     }
-                                    required={true}
+                                    required
                                     value={
                                       values.taskLocations[index]
                                         ? values.taskLocations[index].start
-                                        : ""
+                                        : ''
                                     }
                                   />
                                   {errors.taskLocations &&
@@ -586,16 +521,15 @@ export class TaskForm extends Component {
                                     placeholder="End"
                                     aria-label="End"
                                     className={
-                                      errors.taskLocations &&
-                                      errors.taskLocations.end
-                                        ? "is-invalid time-picker form-control form-control-lg"
-                                        : "time-picker form-control form-control-lg"
+                                      errors.taskLocations && errors.taskLocations.end
+                                        ? 'is-invalid time-picker form-control form-control-lg'
+                                        : 'time-picker form-control form-control-lg'
                                     }
-                                    required={true}
+                                    required
                                     value={
                                       values.taskLocations[index]
                                         ? values.taskLocations[index].end
-                                        : ""
+                                        : ''
                                     }
                                   />
                                   {errors.taskLocations &&
@@ -612,9 +546,7 @@ export class TaskForm extends Component {
 
                           <FormGroup className="row">
                             <Col sm={{ size: 3 }}>
-                              <Label for={`taskLocations[${index}]timing_rule`}>
-                                Timing Rule
-                              </Label>
+                              <Label for={`taskLocations[${index}]timing_rule`}>Timing Rule</Label>
                             </Col>
                             <Col md="8">
                               <Field
@@ -623,15 +555,14 @@ export class TaskForm extends Component {
                                 placeholder="Timing Rule"
                                 aria-label="timing rule"
                                 className={
-                                  errors.taskLocations &&
-                                  errors.taskLocations.timing_rule
-                                    ? "is-invalid form-control form-control-lg"
-                                    : "form-control form-control-lg"
+                                  errors.taskLocations && errors.taskLocations.timing_rule
+                                    ? 'is-invalid form-control form-control-lg'
+                                    : 'form-control form-control-lg'
                                 }
                                 value={
                                   values.taskLocations[index]
                                     ? values.taskLocations[index].timing_rule
-                                    : ""
+                                    : ''
                                 }
                               />
                               {errors.taskLocations &&
@@ -643,15 +574,12 @@ export class TaskForm extends Component {
                                 )}
                               <RRuleGenerator
                                 onChange={rrule =>
-                                  setFieldValue(
-                                    `taskLocations.${index}.timing_rule`,
-                                    rrule
-                                  )
+                                  setFieldValue(`taskLocations.${index}.timing_rule`, rrule)
                                 }
                                 value={
                                   values.taskLocations[index]
                                     ? values.taskLocations[index].timing_rule
-                                    : ""
+                                    : ''
                                 }
                               />
                             </Col>
@@ -668,7 +596,7 @@ export class TaskForm extends Component {
                               start: constants.TASK_LOCATION_START,
                               end: constants.TASK_LOCATION_END,
                               timing_rule: constants.TASK_LOCATION_TIMING_RULE,
-                              location: ""
+                              location: ''
                             })
                           }
                         >
@@ -687,9 +615,7 @@ export class TaskForm extends Component {
                 <Col
                   md={{ size: 8 }}
                   className={
-                    errors.client
-                      ? "is-invalid async-select-container"
-                      : "async-select-container"
+                    errors.client ? 'is-invalid async-select-container' : 'async-select-container'
                   }
                 >
                   <AsyncSelect
@@ -698,31 +624,21 @@ export class TaskForm extends Component {
                     placeholder="Select Client"
                     aria-label="Select Client"
                     value={values.client}
-                    onChange={value => setFieldValue("client", value)}
+                    onChange={value => setFieldValue('client', value)}
                     onBlur={handleBlur}
                     defaultOptions={this.props.clientOptions.asMutable()}
                     loadOptions={this.loadClientOptions}
                     isClearable
                     cacheOptions
-                    className={
-                      errors.client ? "is-invalid async-select" : "async-select"
-                    }
-                    classNamePrefix={
-                      errors.client ? "is-invalid async-select" : "async-select"
-                    }
+                    className={errors.client ? 'is-invalid async-select' : 'async-select'}
+                    classNamePrefix={errors.client ? 'is-invalid async-select' : 'async-select'}
                   />
-                  {errors.client && (
-                    <div className="invalid-feedback">{errors.client}</div>
-                  )}
+                  {errors.client && <div className="invalid-feedback">{errors.client}</div>}
                 </Col>
 
                 <Col md="1">
                   <Link to="/clients/new">
-                    <Button
-                      type="button"
-                      className="btn my-1 btn-sm btn-primary"
-                      aria-label="+"
-                    >
+                    <Button type="button" className="btn my-1 btn-sm btn-primary" aria-label="+">
                       +
                     </Button>
                   </Link>
@@ -730,9 +646,7 @@ export class TaskForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col sm={{ size: 3 }}>
-                  <Label for="user_submission_target">
-                    Submission limit (per contributor)
-                  </Label>
+                  <Label for="user_submission_target">Submission limit (per contributor)</Label>
                 </Col>
                 <Col md={{ size: 8 }}>
                   <Input
@@ -744,22 +658,16 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.user_submission_target}
-                    className={
-                      errors.user_submission_target ? "is-invalid" : ""
-                    }
+                    className={errors.user_submission_target ? 'is-invalid' : ''}
                   />
                   {errors.user_submission_target && (
-                    <div className="invalid-feedback">
-                      {errors.user_submission_target}
-                    </div>
+                    <div className="invalid-feedback">{errors.user_submission_target}</div>
                   )}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
                 <Col sm={{ size: 3 }}>
-                  <Label for="required_expertise">
-                    Minimum contributor level
-                  </Label>
+                  <Label for="required_expertise">Minimum contributor level</Label>
                 </Col>
                 <Col md={{ size: 8 }}>
                   <Input
@@ -771,7 +679,7 @@ export class TaskForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.required_expertise}
-                    className={errors.required_expertise ? "is-invalid" : ""}
+                    className={errors.required_expertise ? 'is-invalid' : ''}
                   >
                     <option value="">----</option>
                     <option value="1">Beginner</option>
@@ -780,9 +688,7 @@ export class TaskForm extends Component {
                     <option value="4">Expert</option>
                   </Input>
                   {errors.required_expertise && (
-                    <div className="invalid-feedback">
-                      {errors.required_expertise}
-                    </div>
+                    <div className="invalid-feedback">{errors.required_expertise}</div>
                   )}
                 </Col>
               </FormGroup>
@@ -792,11 +698,11 @@ export class TaskForm extends Component {
                     className="btn btn-secondary btn-block"
                     aria-label="Cancel"
                     onClick={() => {
-                      setStatus("done");
+                      setStatus('done');
                     }}
                   >
-                    {" "}
-                    Cancel{" "}
+                    {' '}
+                    Cancel{' '}
                   </Button>
                 </Col>
                 <Col md={{ size: 5 }}>
@@ -806,19 +712,18 @@ export class TaskForm extends Component {
                     aria-label="Submit"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Submitting" : "Submit"}
+                    {isSubmitting ? 'Submitting' : 'Submit'}
                   </Button>
                 </Col>
               </FormGroup>
             </Form>
-            {status === "done" && (
-              <Redirect to={this.props.redirectAfterAction} />
-            )}
+            {status === 'done' && <Redirect to={this.props.redirectAfterAction} />}
           </div>
         )}
       />
     );
   }
+
   renderLoading() {
     return (
       <center>

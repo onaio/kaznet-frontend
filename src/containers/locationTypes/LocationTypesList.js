@@ -1,31 +1,32 @@
 // Smart component that renders the LocationTypes List view
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { bindActionCreators } from "redux";
-import qs from "qs";
-import * as constants from "../../constants.js";
-import * as locationTypeActions from "../../store/locationTypes/actions";
-import * as locationTypeSelectors from "../../store/locationTypes/reducer";
-import * as globalActions from "../../store/global/actions";
-import * as globalSelectors from "../../store/global/reducer";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import NoResults from "../../components/NoResults";
-import ListView from "../../components/ListView";
-import ElementMap from "../ElementMap";
-import { withAlert } from "react-alert";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import qs from 'qs';
+import { withAlert } from 'react-alert';
+import * as constants from '../../constants.js';
+import * as locationTypeActions from '../../store/locationTypes/actions';
+import * as locationTypeSelectors from '../../store/locationTypes/reducer';
+import * as globalActions from '../../store/global/actions';
+import * as globalSelectors from '../../store/global/reducer';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import NoResults from '../../components/NoResults';
+import ListView from '../../components/ListView';
+import ElementMap from '../ElementMap';
+
 export class LocationTypesList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
     this.props.fetchLocationTypes();
-    this.props.changePageTitle("Location Types");
-    this.props.changePageTitleButton("+ Create Location Type");
-    this.props.changePageTarget("/locationTypes/new");
+    this.props.changePageTitle('Location Types');
+    this.props.changePageTitleButton('+ Create Location Type');
+    this.props.changePageTarget('/locationTypes/new');
     let { search } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     this.props.searchVal(search);
 
@@ -47,7 +48,7 @@ export class LocationTypesList extends Component {
   componentDidUpdate(prevProps) {
     let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
@@ -67,19 +68,11 @@ export class LocationTypesList extends Component {
   }
 
   render() {
-    if (
-      this.props.searchParam !== "" &&
-      this.props.locationTypeCount === null
-    ) {
+    if (this.props.searchParam !== '' && this.props.locationTypeCount === null) {
       return this.renderLoading();
     }
     if (this.props.locationTypeCount === 0) {
-      return (
-        <NoResults
-          searchVal={this.props.searchParam}
-          endpoint={"locationtypes"}
-        />
-      );
+      return <NoResults searchVal={this.props.searchParam} endpoint="locationtypes" />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
@@ -89,7 +82,7 @@ export class LocationTypesList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
-          endpoint={"locationtypes"}
+          endpoint="locationtypes"
           pageLinks={this.props.pageLinks}
           totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
@@ -124,7 +117,7 @@ export class LocationTypesList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = ["Name"];
+    const headerItems = ['Name'];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 }

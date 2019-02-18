@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ExportForm from "./ExportForm";
-import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import React, { Component } from 'react';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import ExportForm from './ExportForm';
 
 export default class ExportModal extends Component {
   render() {

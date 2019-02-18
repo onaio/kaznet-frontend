@@ -1,10 +1,10 @@
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import { Reducer } from "redux-testkit";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import { Reducer } from 'redux-testkit';
 
-import locations from "../reducer";
-import * as actionTypes from "../actionTypes";
-import * as fixtures from "./fixtures";
+import locations from '../reducer';
+import * as actionTypes from '../actionTypes';
+import * as fixtures from './fixtures';
 
 const initialState = {
   locationsById: {},
@@ -27,18 +27,18 @@ const fullState = {
   locationsIdArray: fixtures.locationsIdArray
 };
 
-describe("store/locations/reducer", () => {
-  it("should have initial state", () => {
+describe('store/locations/reducer', () => {
+  it('should have initial state', () => {
     expect(locations()).toEqual(initialState);
   });
 
-  it("should store fetched locations", () => {
+  it('should store fetched locations', () => {
     const locationsById = fixtures.locationById;
-    const pageLinks = fixtures.pageLinks;
-    const currentPage = fixtures.currentPage;
-    const totalPages = fixtures.totalPages;
-    const totalCount = fixtures.totalCount;
-    const selectOptions = fixtures.selectOptions;
+    const { pageLinks } = fixtures;
+    const { currentPage } = fixtures;
+    const { totalPages } = fixtures;
+    const { totalCount } = fixtures;
+    const { selectOptions } = fixtures;
     const action = {
       type: actionTypes.LOCATIONS_FETCHED,
       locationsById,
@@ -64,7 +64,7 @@ describe("store/locations/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store created location", () => {
+  it('should store created location', () => {
     const locationData = fixtures.singleLocation;
     const action = {
       type: actionTypes.LOCATION_CREATED,
@@ -84,7 +84,7 @@ describe("store/locations/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store fetched single location in empty state", () => {
+  it('should store fetched single location in empty state', () => {
     const locationData = fixtures.singleLocation;
     const action = {
       type: actionTypes.LOCATION_FETCHED,
@@ -102,8 +102,8 @@ describe("store/locations/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should remove deleted location from store", () => {
-    const locationId = "7";
+  it('should remove deleted location from store', () => {
+    const locationId = '7';
     const action = {
       type: actionTypes.LOCATION_DELETED,
       locationId

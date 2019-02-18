@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Col, Row, Card, CardBody } from "reactstrap";
+import React, { Component } from 'react';
+import { Col, Row, Card, CardBody } from 'reactstrap';
 
-import "./FormView.css";
+import './FormView.css';
 
 export default class FormView extends Component {
   render() {

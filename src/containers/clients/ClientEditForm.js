@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import ClientForm from "./ClientForm";
-import FormView from "../../components/FormView";
-import * as clientSelectors from "../../store/clients/reducer";
-import * as clientActions from "../../store/clients/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as globalActions from "../../store/global/actions";
+import ClientForm from './ClientForm';
+import FormView from '../../components/FormView';
+import * as clientSelectors from '../../store/clients/reducer';
+import * as clientActions from '../../store/clients/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as globalActions from '../../store/global/actions';
 
 export class ClientEditForm extends Component {
   componentDidMount() {
@@ -25,13 +25,7 @@ export class ClientEditForm extends Component {
 
     return (
       <FormView
-        form={
-          <ClientForm
-            action={action}
-            initialData={initialData}
-            targetId={this.client.id}
-          />
-        }
+        form={<ClientForm action={action} initialData={initialData} targetId={this.client.id} />}
       />
     );
   }
@@ -39,7 +33,8 @@ export class ClientEditForm extends Component {
   renderLoading() {
     if (!this.props.hasError) {
       return <p>Loading...</p>;
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }

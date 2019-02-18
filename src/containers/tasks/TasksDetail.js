@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import Moment from "react-moment";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import "../LoadListAnimation.css";
-import * as taskSelectors from "../../store/tasks/reducer";
-import * as userActions from "../../store/users/actions";
-import * as taskActions from "../../store/tasks/actions";
-import * as globalActions from "../../store/global/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as constants from "../../constants";
-import ElementMap from "../ElementMap";
-import DetailView from "../../components/DetailView";
-import TaskDetailTitle from "../../components/tasks/TaskDetailTitle";
-import StatisticsSection from "./StatisticsSection";
-import NestedElementMap from "../NestedElementMap";
-import "./TasksDetail.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Moment from 'react-moment';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import '../LoadListAnimation.css';
+import * as taskSelectors from '../../store/tasks/reducer';
+import * as userActions from '../../store/users/actions';
+import * as taskActions from '../../store/tasks/actions';
+import * as globalActions from '../../store/global/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as constants from '../../constants';
+import ElementMap from '../ElementMap';
+import DetailView from '../../components/DetailView';
+import TaskDetailTitle from '../../components/tasks/TaskDetailTitle';
+import StatisticsSection from './StatisticsSection';
+import NestedElementMap from '../NestedElementMap';
+import './TasksDetail.css';
 
 export class TasksDetail extends Component {
   componentDidMount() {
@@ -42,17 +42,14 @@ export class TasksDetail extends Component {
   }
 
   onFormSubmit(start, end, status) {
-    let filter_object = {
+    const filter_object = {
       task: this.props.match.params.id,
-      status: status,
-      format: "csv"
+      status,
+      format: 'csv'
     };
     filter_object[constants.FILTER_TIME_START] = start;
     filter_object[constants.FILTER_TIME_END] = end;
-    this.props.exportSubmissions(
-      filter_object,
-      this.props.taskById.attributes.name
-    );
+    this.props.exportSubmissions(filter_object, this.props.taskById.attributes.name);
   }
 
   render() {
@@ -64,11 +61,9 @@ export class TasksDetail extends Component {
     const form_projectid = this.task.attributes.xform_project_id;
     const ona_id = this.task.attributes.xform_ona_id;
     if (form_owner && form_projectid && ona_id) {
-      xformURL = `${constants.ONA_WEBSITE}/${
-        this.task.attributes.xform_owner
-      }/${this.task.attributes.xform_project_id}/${
-        this.task.attributes.xform_ona_id
-      }`;
+      xformURL = `${constants.ONA_WEBSITE}/${this.task.attributes.xform_owner}/${
+        this.task.attributes.xform_project_id
+      }/${this.task.attributes.xform_ona_id}`;
       xformTableURL = `${xformURL}#/table`;
     } else {
       xformURL = null;
@@ -109,7 +104,8 @@ export class TasksDetail extends Component {
           </div>
         </center>
       );
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
@@ -118,25 +114,25 @@ export class TasksDetail extends Component {
     const headerItems = {
       Description: this.task.attributes.description,
       Name: this.task.attributes.name,
-      "Unit Reward Amount": this.task.attributes.current_bounty_amount,
+      'Unit Reward Amount': this.task.attributes.current_bounty_amount,
       Form: this.task.attributes.xform_title
         ? [
             this.task.attributes.xform_title,
             <a
-              href={constants.ONA_LOGIN}
-              target="_blank"
-              key="form_link"
-              className="link withspace"
-            >
-              <FontAwesomeIcon
+            href={constants.ONA_LOGIN}
+            target="_blank"
+            key="form_link"
+            className="link withspace"
+          >
+            <FontAwesomeIcon
                 icon="external-link-alt"
                 className="fa-xs icon-link"
                 key="form_link_icon"
-              />{" "}
+              />{' '}
               VIEW IN ONA
-            </a>
+          </a>
           ]
-        : "Not selected"
+        : 'Not selected'
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
@@ -156,19 +152,18 @@ export class TasksDetail extends Component {
     });
 
     const headerItems = {
-      "Active dates": [
+      'Active dates': [
         <Moment format="DD-MM-YYYY" key="start_date">
           {this.task.attributes.start}
         </Moment>,
-        " to ",
+        ' to ',
         <Moment format="DD-MM-YYYY" key="end_date">
           {this.task.attributes.end}
         </Moment>
       ],
       Locations: this.renderLocations(locations),
-      "Submission Limit": this.task.attributes.user_submission_target,
-      "Minimum Contributor Level": this.task.attributes
-        .required_expertise_display
+      'Submission Limit': this.task.attributes.user_submission_target,
+      'Minimum Contributor Level': this.task.attributes.required_expertise_display
     };
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;

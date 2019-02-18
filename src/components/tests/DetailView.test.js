@@ -1,24 +1,24 @@
 // Test DetailView
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import DetailView from "../DetailView";
-import NestedElementMap from "../../containers/NestedElementMap";
+import DetailView from '../DetailView';
+import NestedElementMap from '../../containers/NestedElementMap';
 
-describe("components/DetailView", () => {
-  it("renders without crashing", () => {
+describe('components/DetailView', () => {
+  it('renders without crashing', () => {
     const renderMainDetails = function() {
       const detailItems = {
-        Name: "Dave",
-        Test: "Testing"
+        Name: 'Dave',
+        Test: 'Testing'
       };
       return <NestedElementMap detailitems={detailItems} HTMLTag="td" />;
     };
 
     const renderAdditionalDetails = function() {
       const detailItems = {
-        Gender: "Male"
+        Gender: 'Male'
       };
       return <NestedElementMap detailitems={detailItems} HTMLTag="td" />;
     };
@@ -31,18 +31,18 @@ describe("components/DetailView", () => {
     );
   });
 
-  it("renders a view", () => {
+  it('renders a view', () => {
     const renderMainDetails = function() {
       const detailItems = {
-        Name: "Dave",
-        Test: "Testing"
+        Name: 'Dave',
+        Test: 'Testing'
       };
       return <NestedElementMap detailitems={detailItems} HTMLTag="td" />;
     };
 
     const renderAdditionalDetails = function() {
       const detailItems = {
-        Gender: "Male"
+        Gender: 'Male'
       };
       return <NestedElementMap detailitems={detailItems} HTMLTag="td" />;
     };

@@ -1,9 +1,9 @@
 // Users reducer
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   usersById: {},
@@ -56,7 +56,7 @@ export default function reduce(state = initialState, action = {}) {
       });
     case types.USER_DELETED:
       const newUsersById = _.omit(state.usersById, action.userId);
-      return state.set("usersById", newUsersById);
+      return state.set('usersById', newUsersById);
     case types.USER_EDITED:
       return Immutable({
         ...state,

@@ -1,9 +1,9 @@
-import _ from "lodash";
+import _ from 'lodash';
 
-import * as errorHandlerTypes from "../errorHandler/actionTypes";
-import * as types from "./actionTypes";
+import * as errorHandlerTypes from '../errorHandler/actionTypes';
+import * as types from './actionTypes';
 
-import locationService from "../../services/locations";
+import locationService from '../../services/locations';
 
 export function fetchLocations(url) {
   return async (dispatch, getState) => {
@@ -69,10 +69,7 @@ export function createLocation(location_data) {
 export function editLocation(location_data, id) {
   return async (dispatch, getState) => {
     try {
-      const locationData = await locationService.editLocation(
-        location_data,
-        id
-      );
+      const locationData = await locationService.editLocation(location_data, id);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
@@ -125,7 +122,7 @@ export function deleteLocation(location_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: "Location has not been deleted"
+        errorMessage: 'Location has not been deleted'
       });
     }
   };

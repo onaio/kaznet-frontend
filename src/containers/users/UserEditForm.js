@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import UserForm from "./UserForm";
-import FormView from "../../components/FormView";
-import * as userActions from "../../store/users/actions";
-import * as userSelectors from "../../store/users/reducer";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as globalActions from "../../store/global/actions";
+import UserForm from './UserForm';
+import FormView from '../../components/FormView';
+import * as userActions from '../../store/users/actions';
+import * as userSelectors from '../../store/users/reducer';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as globalActions from '../../store/global/actions';
 
 export class UserEditForm extends Component {
   componentDidMount() {
@@ -25,35 +25,21 @@ export class UserEditForm extends Component {
       first_name: this.user.attributes.first_name,
       last_name: this.user.attributes.last_name,
       email: this.user.attributes.email,
-      password: "",
-      confirmation: "",
-      gender:
-        this.user.attributes.gender !== null ? this.user.attributes.gender : "",
-      role: this.user.attributes.role !== null ? this.user.attributes.role : "",
-      expertise:
-        this.user.attributes.expertise !== null
-          ? this.user.attributes.expertise
-          : "",
-      national_id: this.user.attributes.national_id
-        ? this.user.attributes.national_id
-        : "",
+      password: '',
+      confirmation: '',
+      gender: this.user.attributes.gender !== null ? this.user.attributes.gender : '',
+      role: this.user.attributes.role !== null ? this.user.attributes.role : '',
+      expertise: this.user.attributes.expertise !== null ? this.user.attributes.expertise : '',
+      national_id: this.user.attributes.national_id ? this.user.attributes.national_id : '',
       payment_number:
-        this.user.attributes.payment_number !== null
-          ? this.user.attributes.payment_number
-          : "",
+        this.user.attributes.payment_number !== null ? this.user.attributes.payment_number : '',
       phone_number: this.user.attributes.phone_number,
       ona_username: this.user.attributes.ona_username
     };
 
     return (
       <FormView
-        form={
-          <UserForm
-            action={action}
-            initialData={initialData}
-            targetId={this.user.id}
-          />
-        }
+        form={<UserForm action={action} initialData={initialData} targetId={this.user.id} />}
       />
     );
   }
@@ -68,7 +54,8 @@ export class UserEditForm extends Component {
           </div>
         </center>
       );
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }

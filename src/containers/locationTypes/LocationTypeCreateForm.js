@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as locationTypeActions from "../../store/locationTypes/actions";
-import LocationTypeForm from "./LocationTypeForm";
-import FormView from "../../components/FormView";
-import * as globalActions from "../../store/global/actions";
+import * as locationTypeActions from '../../store/locationTypes/actions';
+import LocationTypeForm from './LocationTypeForm';
+import FormView from '../../components/FormView';
+import * as globalActions from '../../store/global/actions';
 
 export class LocationTypeCreateForm extends Component {
   componentDidMount() {
@@ -15,13 +15,9 @@ export class LocationTypeCreateForm extends Component {
   render() {
     const action = locationTypeActions.createLocationType;
     const initialData = {
-      name: ""
+      name: ''
     };
-    return (
-      <FormView
-        form={<LocationTypeForm action={action} initialData={initialData} />}
-      />
-    );
+    return <FormView form={<LocationTypeForm action={action} initialData={initialData} />} />;
   }
 }
 

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Table, Col } from "reactstrap";
+import React, { Component } from 'react';
+import { Table, Col } from 'reactstrap';
 
 export default class DetailView extends Component {
   render() {

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
 
-import * as taskActions from "../../store/tasks/actions";
-import * as taskSelectors from "../../store/tasks/reducer";
+import * as taskActions from '../../store/tasks/actions';
+import * as taskSelectors from '../../store/tasks/reducer';
 
 export class TaskClone extends Component {
   componentDidMount() {
@@ -16,16 +16,16 @@ export class TaskClone extends Component {
     if (!this.task) return this.renderLoading();
     const payload = {
       data: {
-        type: "Task",
+        type: 'Task',
         id: this.task.id
       }
     };
     this.props.cloneTask(payload, this.task.id);
-    return <Redirect to={"/tasks"} />;
+    return <Redirect to="/tasks" />;
   }
 
   renderLoading() {
-    return <p>{`Cloning Task`}</p>;
+    return <p>Cloning Task</p>;
   }
 }
 

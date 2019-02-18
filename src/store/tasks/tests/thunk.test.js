@@ -1,20 +1,20 @@
 // task thunk tests
-import { Thunk } from "redux-testkit";
+import { Thunk } from 'redux-testkit';
 
-import TaskService from "../../../services/tasks";
-import * as fixtures from "./fixtures";
-import * as tasks from "../actions";
-import * as actionTypes from "../actionTypes";
-import * as errorHandlerTypes from "../../errorHandler/actionTypes";
+import TaskService from '../../../services/tasks';
+import * as fixtures from './fixtures';
+import * as tasks from '../actions';
+import * as actionTypes from '../actionTypes';
+import * as errorHandlerTypes from '../../errorHandler/actionTypes';
 
-jest.mock("../../../services/tasks");
+jest.mock('../../../services/tasks');
 
-describe("store/tasks/actions", () => {
+describe('store/tasks/actions', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
 
-  it("should fetch tasks from server", async () => {
+  it('should fetch tasks from server', async () => {
     TaskService.getTaskList.mockReturnValueOnce({
       tasksArray: fixtures.tasksArray,
       pageLinks: fixtures.pageLinks,
@@ -35,16 +35,14 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should fetch tasks from server given a url", async () => {
+  it('should fetch tasks from server given a url', async () => {
     TaskService.getTaskList.mockReturnValueOnce({
       tasksArray: fixtures.tasksArraySecondPage,
       pageLinks: fixtures.pageLinksSecondPage,
       currentPage: fixtures.currentPageSecondPage,
       totalPages: fixtures.totalPagesSecondPage
     });
-    const dispatches = await Thunk(tasks.fetchTasks).execute(
-      fixtures.pageLinks.first
-    );
+    const dispatches = await Thunk(tasks.fetchTasks).execute(fixtures.pageLinks.first);
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
@@ -56,7 +54,7 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should change the current page", async () => {
+  it('should change the current page', async () => {
     const dispatches = await Thunk(tasks.changePageNumber).execute(2);
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
@@ -66,20 +64,20 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should fetch tasks and dispatches on error", async () => {
+  it('should fetch tasks and dispatches on error', async () => {
     TaskService.getTaskList.mockImplementationOnce(() => {
-      throw new Error("oops");
+      throw new Error('oops');
     });
     const dispatches = await Thunk(tasks.fetchTasks).execute();
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: errorHandlerTypes.REQUEST_FAILURE,
-      errorMessage: Error("oops")
+      errorMessage: Error('oops')
     });
   });
 
-  it("should fetch a tasks data from server", async () => {
+  it('should fetch a tasks data from server', async () => {
     TaskService.getTask.mockReturnValueOnce(fixtures.taskData);
     const dispatches = await Thunk(tasks.fetchTask).execute(1);
     expect(dispatches.length).toBe(2);
@@ -93,19 +91,19 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should fetch a task and dispatch to errorHandler on error", async () => {
+  it('should fetch a task and dispatch to errorHandler on error', async () => {
     TaskService.getTask.mockImplementationOnce(() => {
-      throw new Error("oops");
+      throw new Error('oops');
     });
     const dispatches = await Thunk(tasks.fetchTask).execute(1);
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].getAction()).toEqual({
       type: errorHandlerTypes.REQUEST_FAILURE,
-      errorMessage: Error("oops")
+      errorMessage: Error('oops')
     });
   });
 
-  it("should post to server to create new task", async () => {
+  it('should post to server to create new task', async () => {
     TaskService.createTask.mockReturnValueOnce(fixtures.singleTask);
     const dispatches = await Thunk(tasks.createTask).execute();
     expect(dispatches.length).toBe(2);
@@ -119,9 +117,9 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should create task and print to console on error", async () => {
+  it('should create task and print to console on error', async () => {
     TaskService.createTask.mockImplementationOnce(() => {
-      throw new Error("oops");
+      throw new Error('oops');
     });
     console.error = jest.fn(); // mock the console side effect
     const dispatches = await Thunk(tasks.createTask).execute();
@@ -129,11 +127,11 @@ describe("store/tasks/actions", () => {
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({
       type: errorHandlerTypes.REQUEST_FAILURE,
-      errorMessage: Error("oops")
+      errorMessage: Error('oops')
     });
   });
 
-  it("should clone task", async () => {
+  it('should clone task', async () => {
     TaskService.cloneTask.mockReturnValueOnce(fixtures.singleTask);
     const dispatches = await Thunk(tasks.cloneTask).execute();
     expect(dispatches.length).toBe(2);
@@ -147,7 +145,7 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should edit task", async () => {
+  it('should edit task', async () => {
     TaskService.editTask.mockReturnValueOnce(fixtures.singleTask);
     const dispatches = await Thunk(tasks.editTask).execute();
     expect(dispatches.length).toBe(2);
@@ -161,7 +159,7 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should delete a task", async () => {
+  it('should delete a task', async () => {
     TaskService.deleteTask.mockReturnValueOnce(fixtures.taskData.data.id);
     const dispatches = await Thunk(tasks.deleteTask).execute(1);
     expect(dispatches.length).toBe(2);
@@ -175,8 +173,8 @@ describe("store/tasks/actions", () => {
     });
   });
 
-  it("should get task status", async () => {
-    const dispatches = await Thunk(tasks.getStatus).execute("a");
+  it('should get task status', async () => {
+    const dispatches = await Thunk(tasks.getStatus).execute('a');
     expect(dispatches.length).toBe(1);
     expect(dispatches[0].isPlainObject()).toBe(true);
     expect(dispatches[0].getAction()).toEqual({

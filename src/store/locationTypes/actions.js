@@ -1,9 +1,9 @@
 // locationType actions
-import _ from "lodash";
+import _ from 'lodash';
 
-import * as types from "./actionTypes";
-import * as errorHandlerTypes from "../errorHandler/actionTypes";
-import LocationTypeService from "../../services/locationTypes";
+import * as types from './actionTypes';
+import * as errorHandlerTypes from '../errorHandler/actionTypes';
+import LocationTypeService from '../../services/locationTypes';
 
 // get list of locationTypes
 export function fetchLocationTypes(url) {
@@ -16,10 +16,7 @@ export function fetchLocationTypes(url) {
         totalPages,
         totalCount
       } = await LocationTypeService.getLocationTypeList(url);
-      const locationTypesById = _.keyBy(
-        locationTypeArray,
-        locationType => locationType.id
-      );
+      const locationTypesById = _.keyBy(locationTypeArray, locationType => locationType.id);
       const selectOptions = locationTypeArray.map(d => ({
         value: d.id,
         label: d.attributes.name
@@ -52,9 +49,7 @@ export function changePageNumber(pageNumber) {
 export function createLocationType(locationType_data) {
   return async (dispatch, getState) => {
     try {
-      const locationTypeData = await LocationTypeService.createLocationType(
-        locationType_data
-      );
+      const locationTypeData = await LocationTypeService.createLocationType(locationType_data);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
@@ -75,10 +70,7 @@ export function createLocationType(locationType_data) {
 export function editLocationType(locationType_data, id) {
   return async (dispatch, getState) => {
     try {
-      const locationTypeData = await LocationTypeService.editLocationType(
-        locationType_data,
-        id
-      );
+      const locationTypeData = await LocationTypeService.editLocationType(locationType_data, id);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
@@ -120,9 +112,7 @@ export function fetchLocationType(id) {
 export function deleteLocationType(locationType_id) {
   return async (dispatch, getState) => {
     try {
-      const locationTypeId = await LocationTypeService.deleteLocationType(
-        locationType_id
-      );
+      const locationTypeId = await LocationTypeService.deleteLocationType(locationType_id);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
@@ -133,7 +123,7 @@ export function deleteLocationType(locationType_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: "Location type was not deleted"
+        errorMessage: 'Location type was not deleted'
       });
     }
   };

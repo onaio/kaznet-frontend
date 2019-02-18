@@ -1,9 +1,9 @@
-import _ from "lodash";
-import * as types from "./actionTypes";
-import userService from "../../services/users";
-import exportService from "../../services/exports";
-import * as errorHandlerTypes from "../errorHandler/actionTypes";
-import * as constants from "../../constants";
+import _ from 'lodash';
+import * as types from './actionTypes';
+import userService from '../../services/users';
+import exportService from '../../services/exports';
+import * as errorHandlerTypes from '../errorHandler/actionTypes';
+import * as constants from '../../constants';
 
 export function fetchUsers(url = `${constants.API_ENDPOINT}/userprofiles/`) {
   return async (dispatch, getState) => {
@@ -109,7 +109,7 @@ export function deleteUser(user_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: "User was not deleted"
+        errorMessage: 'User was not deleted'
       });
     }
   };

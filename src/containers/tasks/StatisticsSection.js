@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { Col, Row } from "reactstrap";
-import ExportModal from "../../components/ExportModal";
+import React, { Component } from 'react';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { Col, Row } from 'reactstrap';
+import ExportModal from '../../components/ExportModal';
 
 export default class StatisticsSection extends Component {
   render() {
@@ -10,20 +10,18 @@ export default class StatisticsSection extends Component {
         <Row>
           <Col sm="3" className="kaznet-sub">
             <p className="kaznet-stats-count">
-              {this.props.totalSubmissions} Submissions
+{this.props.totalSubmissions}
+              {' '}
+Submissions
             </p>
           </Col>
           <Col sm="9" className="kaznet-sub">
             {this.props.task && this.props.task.attributes.xform_title ? (
-              <a
-                href={this.props.formURL}
-                className="btn btn-primary text-white"
-                target="_blank"
-              >
+              <a href={this.props.formURL} className="btn btn-primary text-white" target="_blank">
                 <FontAwesomeIcon icon="clone" /> Review all submissions
               </a>
             ) : (
-              ""
+              ''
             )}
           </Col>
         </Row>

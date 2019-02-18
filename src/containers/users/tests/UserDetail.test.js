@@ -1,23 +1,23 @@
 // Test UserDetail
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { UserDetail } from "../UserDetail";
-import * as fixtures from "../../../store/users/tests/fixtures";
-import ErrorBoundary from "../../../components/ErrorBoundary";
+import { UserDetail } from '../UserDetail';
+import * as fixtures from '../../../store/users/tests/fixtures';
+import ErrorBoundary from '../../../components/ErrorBoundary';
 
 const history = createBrowserHistory();
 
-describe("containers/users/UserDetail", () => {
-  it("renders without crashing", () => {
+describe('containers/users/UserDetail', () => {
+  it('renders without crashing', () => {
     shallow(
       <UserDetail
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         fetchUser={function() {}}
@@ -27,14 +27,14 @@ describe("containers/users/UserDetail", () => {
     );
   });
 
-  it("renders detail page correctly without delete button", () => {
+  it('renders detail page correctly without delete button', () => {
     const wrapper = mount(
       <Router history={history}>
         <ErrorBoundary>
           <UserDetail
             match={{
               params: {
-                id: "1"
+                id: '1'
               }
             }}
             fetchUser={function() {}}
@@ -48,14 +48,14 @@ describe("containers/users/UserDetail", () => {
     wrapper.unmount();
   });
 
-  it("renders detail page correctly with delete button", () => {
+  it('renders detail page correctly with delete button', () => {
     const wrapper = mount(
       <Router history={history}>
         <ErrorBoundary>
           <UserDetail
             match={{
               params: {
-                id: "7"
+                id: '7'
               }
             }}
             fetchUser={function() {}}

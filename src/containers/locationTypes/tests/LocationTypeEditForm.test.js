@@ -1,19 +1,19 @@
 // Test LocationTypeEditForm
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import FormView from "../../../components/FormView";
-import LocationTypeForm from "../LocationTypeForm";
-import { LocationTypeEditForm } from "../LocationTypeEditForm";
-import * as fixtures from "../../../store/locationTypes/tests/fixtures";
+import FormView from '../../../components/FormView';
+import LocationTypeForm from '../LocationTypeForm';
+import { LocationTypeEditForm } from '../LocationTypeEditForm';
+import * as fixtures from '../../../store/locationTypes/tests/fixtures';
 
-describe("containers/locationType/LocationTypeEditForm", () => {
-  it("renders without crashing", () => {
+describe('containers/locationType/LocationTypeEditForm', () => {
+  it('renders without crashing', () => {
     shallow(
       <LocationTypeEditForm
         match={{
           params: {
-            id: "999"
+            id: '999'
           }
         }}
         noTitle={function() {}}
@@ -22,12 +22,12 @@ describe("containers/locationType/LocationTypeEditForm", () => {
     );
   });
 
-  it("renders both Form View and LocationTypeForm with correct Data", () => {
+  it('renders both Form View and LocationTypeForm with correct Data', () => {
     const wrapper = shallow(
       <LocationTypeEditForm
         match={{
           params: {
-            id: "999"
+            id: '999'
           }
         }}
         noTitle={function() {}}
@@ -37,7 +37,7 @@ describe("containers/locationType/LocationTypeEditForm", () => {
     ).dive();
 
     const expected = {
-      name: "Office"
+      name: 'Office'
     };
 
     expect(wrapper.find(FormView)).toHaveLength(0);

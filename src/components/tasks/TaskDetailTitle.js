@@ -1,17 +1,9 @@
 // Renders the detail page title section
-import React, { Component } from "react";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import {
-  Row,
-  Col,
-  Badge,
-  Modal,
-  ModalHeader,
-  ModalFooter,
-  Button
-} from "reactstrap";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
+import React, { Component } from 'react';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { Row, Col, Badge, Modal, ModalHeader, ModalFooter, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 import {
   TASK_ACTIVE,
@@ -20,8 +12,8 @@ import {
   TASK_DRAFT,
   TASK_SCHEDULED,
   TASK_ARCHIVED
-} from "../../constants";
-import "../page/DetailTitle.css";
+} from '../../constants';
+import '../page/DetailTitle.css';
 
 export default class TaskDetailTitle extends Component {
   constructor(props) {
@@ -47,25 +39,24 @@ export default class TaskDetailTitle extends Component {
             <h1 className="kaznet-detail-title">
               <Link to="/tasks" className="kaznet-header-link">
                 Tasks
-              </Link>{" "}
+              </Link>{' '}
               > {this.props.task.attributes.name}
               {this.props.task.attributes.status != null ? (
                 <Badge
                   className={
                     this.props.task.attributes.status === TASK_ACTIVE
-                      ? "kaznet-badge badge-active"
+                      ? 'kaznet-badge badge-active'
                       : this.props.task.attributes.status === TASK_DRAFT
-                        ? "kaznet-badge badge-draft"
+                        ? 'kaznet-badge badge-draft'
                         : this.props.task.attributes.status === TASK_DEACTIVATED
-                          ? "kaznet-badge badge-deactivated"
+                          ? 'kaznet-badge badge-deactivated'
                           : this.props.task.attributes.status === TASK_ARCHIVED
-                            ? "kaznet-badge badge-archived"
+                            ? 'kaznet-badge badge-archived'
                             : this.props.task.attributes.status === TASK_EXPIRED
-                              ? "kaznet-badge badge-expired"
-                              : this.props.task.attributes.status ===
-                                TASK_SCHEDULED
-                                ? "kaznet-badge badge-scheduled"
-                                : "kaznet-badge"
+                              ? 'kaznet-badge badge-expired'
+                              : this.props.task.attributes.status === TASK_SCHEDULED
+                                ? 'kaznet-badge badge-scheduled'
+                                : 'kaznet-badge'
                   }
                 >
                   {this.props.task.attributes.status_display}
@@ -73,41 +64,34 @@ export default class TaskDetailTitle extends Component {
               ) : null}
             </h1>
             <p className="kaznet-creation-detail">
-              {this.props.task.attributes.created_by_name},{" "}
-              <Moment format="DD-MM-YYYY">
-                {this.props.task.attributes.created}
-              </Moment>
+              {this.props.task.attributes.created_by_name}
+              , <Moment format="DD-MM-YYYY">{this.props.task.attributes.created}</Moment>
             </p>
             <Col md="12">
               <Row className="kaznet-action-links">
-                <Link
-                  to={`/tasks/${this.props.task.id}/edit`}
-                  className="action-link"
-                >
+                <Link to={`/tasks/${this.props.task.id}/edit`} className="action-link">
                   EDIT
-                </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                </Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 {this.props.task.attributes.status !== TASK_ACTIVE &&
-                  this.props.task.attributes.xform_title !== "" &&
+                  this.props.task.attributes.xform_title !== '' &&
                   this.props.task.attributes.xform_title !== null && (
                     <span>
                       <Link
-                        to={`/tasks/${
-                          this.props.task.id
-                        }/status_change/?status=${TASK_ACTIVE}`}
+                        to={`/tasks/${this.props.task.id}/status_change/?status=${TASK_ACTIVE}`}
                         className="action-link"
                       >
                         ACTIVATE
-                      </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      </Link>
+                      &nbsp;&nbsp;|&nbsp;&nbsp;
                     </span>
                   )}
-                <Link
-                  to={`/tasks/${this.props.task.id}/clone`}
-                  className="action-link"
-                >
+                <Link to={`/tasks/${this.props.task.id}/clone`} className="action-link">
                   CREATE A COPY
-                </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                </Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 {this.props.task.attributes.status !== TASK_DEACTIVATED &&
-                  this.props.task.attributes.xform_title !== "" &&
+                  this.props.task.attributes.xform_title !== '' &&
                   this.props.task.attributes.xform_title !== null && (
                     <span>
                       <Link
@@ -117,7 +101,8 @@ export default class TaskDetailTitle extends Component {
                         className="action-link"
                       >
                         DEACTIVATE
-                      </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      </Link>
+                      &nbsp;&nbsp;|&nbsp;&nbsp;
                     </span>
                   )}
                 <Button
@@ -144,28 +129,19 @@ export default class TaskDetailTitle extends Component {
                     >
                       Delete Task
                     </Link>
-                    <Button
-                      color="secondary"
-                      onClick={this.toggle}
-                      aria-label="Cancel"
-                    >
+                    <Button color="secondary" onClick={this.toggle} aria-label="Cancel">
                       Cancel
                     </Button>
                   </ModalFooter>
                 </Modal>
                 {this.props.task.attributes.status !== TASK_ARCHIVED &&
-                  this.props.task.attributes.xform_title !== "" &&
+                  this.props.task.attributes.xform_title !== '' &&
                   this.props.task.attributes.xform_title !== null && (
                     <Link
-                      to={`/tasks/${
-                        this.props.task.id
-                      }/status_change/?status=${TASK_ARCHIVED}`}
+                      to={`/tasks/${this.props.task.id}/status_change/?status=${TASK_ARCHIVED}`}
                       className="action-link archive-button"
                     >
-                      <FontAwesomeIcon
-                        icon="folder-open"
-                        className="withspace"
-                      />
+                      <FontAwesomeIcon icon="folder-open" className="withspace" />
                       Archive
                     </Link>
                   )}

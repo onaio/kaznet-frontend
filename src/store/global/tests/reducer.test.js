@@ -1,39 +1,39 @@
 // global reducer tests
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import { Reducer } from "redux-testkit";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import { Reducer } from 'redux-testkit';
 
-import global from "../reducer";
-import * as actionTypes from "../actionTypes";
+import global from '../reducer';
+import * as actionTypes from '../actionTypes';
 
 const initialState = {
-  pageTitle: "Kaznet",
-  pageTitleButton: "Friendly Button",
-  pageTarget: "/",
+  pageTitle: 'Kaznet',
+  pageTitleButton: 'Friendly Button',
+  pageTarget: '/',
   noTitle: false,
   showDetail: false,
   detailName: null,
   detailStatus: null,
   actionLinks: [],
-  searchVal: "",
+  searchVal: '',
   pageVal: 1
 };
 
-describe("store/global/reducer", () => {
-  it("should have initial state", () => {
+describe('store/global/reducer', () => {
+  it('should have initial state', () => {
     expect(global()).toEqual(initialState);
   });
 
-  it("should not affect state", () => {
+  it('should not affect state', () => {
     Reducer(global)
-      .expect({ type: "NOT_EXISTING" })
+      .expect({ type: 'NOT_EXISTING' })
       .toReturnState(initialState);
   });
 
-  it("should change page title", () => {
+  it('should change page title', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const pageTitle = "A New Hope";
+    const pageTitle = 'A New Hope';
     const action = { type: actionTypes.CHANGE_PAGETITLE, pageTitle };
     newState.pageTitle = pageTitle;
     Reducer(global)
@@ -41,10 +41,10 @@ describe("store/global/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
-  it("should change search value", () => {
+  it('should change search value', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const searchVal = "hello";
+    const searchVal = 'hello';
     const action = { type: actionTypes.GLOBAL_SEARCH_VALUE, searchVal };
     newState.searchVal = searchVal;
     Reducer(global)
@@ -52,7 +52,7 @@ describe("store/global/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
-  it("should change pageVal", () => {
+  it('should change pageVal', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     const pageVal = 2;
@@ -63,10 +63,10 @@ describe("store/global/reducer", () => {
       .expect(action)
       .toReturnState(newState);
   });
-  it("should change page button title", () => {
+  it('should change page button title', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const pageTitleButton = "Kill Bill";
+    const pageTitleButton = 'Kill Bill';
     const action = {
       type: actionTypes.CHANGE_PAGETITLE_BUTTON,
       pageTitleButton
@@ -78,10 +78,10 @@ describe("store/global/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should change page target", () => {
+  it('should change page target', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const pageTarget = "/tasks/new";
+    const pageTarget = '/tasks/new';
     const action = { type: actionTypes.CHANGE_PAGE_TARGET, pageTarget };
     newState.pageTarget = pageTarget;
     Reducer(global)
@@ -90,10 +90,10 @@ describe("store/global/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should toggle noTitle and showDetail and Set detailName", () => {
+  it('should toggle noTitle and showDetail and Set detailName', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const detailName = "Detail !!!";
+    const detailName = 'Detail !!!';
     const action = { type: actionTypes.TOGGLE_DETAIL_TITLE_ON, detailName };
     newState.detailName = detailName;
     newState.noTitle = false;
@@ -104,7 +104,7 @@ describe("store/global/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should toggle noTitle and showDetail", () => {
+  it('should toggle noTitle and showDetail', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     const action = { type: actionTypes.TOGGLE_DETAIL_TITLE_OFF };
@@ -116,7 +116,7 @@ describe("store/global/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should toggle noTitle", () => {
+  it('should toggle noTitle', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
     const action = { type: actionTypes.PAGE_TITLE_OFF };
@@ -136,10 +136,10 @@ describe("store/global/reducer", () => {
       .toReturnState(newState2);
   });
 
-  it("should set action links", () => {
+  it('should set action links', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const actionLinks = ["Hey", "Bye"];
+    const actionLinks = ['Hey', 'Bye'];
     const action = { type: actionTypes.SET_ACTION_LINKS, actionLinks };
     newState.actionLinks = actionLinks;
     Reducer(global)
@@ -148,10 +148,10 @@ describe("store/global/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should change detail Status", () => {
+  it('should change detail Status', () => {
     const existingState = Immutable(initialState);
     const newState = _.clone(initialState);
-    const detailStatus = "Active";
+    const detailStatus = 'Active';
     const action = { type: actionTypes.CHANGE_DETAIL_STATUS, detailStatus };
     newState.detailStatus = detailStatus;
     Reducer(global)
