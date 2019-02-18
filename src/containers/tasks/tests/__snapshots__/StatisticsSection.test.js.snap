@@ -153,7 +153,8 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                 className="kaznet-stats-count"
               >
                 0
-                 Submissions
+                 
+                Submissions
               </p>
             </div>
           </Col>

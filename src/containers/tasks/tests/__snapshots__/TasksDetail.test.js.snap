@@ -291,8 +291,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   className="kaznet-creation-detail"
                 >
                   Ona User
-                  ,
-                   
+                  , 
                   <t
                     ago={false}
                     calendar={false}
@@ -635,7 +634,8 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       className="kaznet-stats-count"
                     >
                       0
-                       Submissions
+                       
+                      Submissions
                     </p>
                   </div>
                 </Col>

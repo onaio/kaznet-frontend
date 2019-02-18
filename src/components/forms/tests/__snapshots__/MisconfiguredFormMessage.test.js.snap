@@ -6,7 +6,8 @@ exports[`components/forms/MisconfiguredFormMessage renders the MisconfiguredForm
     <p>
       This form may not appear correctly in the 
       Kaznet
-       mobile app. Additionally, it 
+       mobile app. Additionally, it
+       
       <strong>
         may not be possible to submit data
       </strong>

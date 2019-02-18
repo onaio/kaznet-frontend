@@ -1019,6 +1019,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                 >
                                   <DropdownItem
                                     className=""
+                                    key=""
                                     tag="button"
                                     toggle={true}
                                   >
@@ -1031,6 +1032,7 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                                       <Link
                                         className="nav-link"
                                         data-key=""
+                                        key=""
                                         replace={false}
                                         to="/tasks/?search=&status=&page=1"
                                       >
