@@ -25,7 +25,8 @@ export const formData = {
         metadata: {
           owner: 'kaznet',
           owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
-          configuration_status: 'correctly_configured'
+          configuration_status: 'correctly_configured',
+          downloadable: true
         }
       }
     },
@@ -46,7 +47,8 @@ export const formData = {
         metadata: {
           owner: 'kaznet',
           owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
-          configuration_status: 'correctly_configured'
+          configuration_status: 'correctly_configured',
+          downloadable: false
         }
       }
     },
@@ -67,7 +69,8 @@ export const formData = {
         metadata: {
           owner: 'kaznet',
           owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
-          configuration_status: 'members_cannot_submit'
+          configuration_status: 'members_cannot_submit',
+          downloadable: true
         }
       }
     }
@@ -98,7 +101,8 @@ export const secondForm = {
     metadata: {
       owner: 'kaznet',
       owner_url: 'http://127.0.0.1:8000/api/v1/users/kaznet',
-      configuration_status: 'correctly_configured'
+      configuration_status: 'correctly_configured',
+      downloadable: true
     }
   }
 };
