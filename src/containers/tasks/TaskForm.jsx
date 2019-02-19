@@ -7,9 +7,9 @@ import { Alert, Form, Input, Button, FormGroup, Col, Row, Label, FormText } from
 import moment from 'moment';
 import 'react-rrule-generator/build/styles.css';
 import RRuleGenerator from 'react-rrule-generator';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import MisconfiguredFormMessage from '../../components/forms/MisconfiguredFormMessage';
 import * as clientActions from '../../store/clients/actions';
@@ -21,7 +21,7 @@ import * as clientSelectors from '../../store/clients/reducer';
 import * as locationSelectors from '../../store/locations/reducer';
 import * as formSelectors from '../../store/forms/reducer';
 import * as contentTypeSelectors from '../../store/contentTypes/reducer';
-import '../LoadListAnimation.css';
+
 import {
   INACTIVE_XFORM_VALIDATION_MESSAGE,
   API_ENDPOINT,
@@ -36,9 +36,9 @@ import {
 import '../LoadListAnimation.css';
 import './TaskForm.css';
 
-const transformMyApiErrors = function(array) {
+function transformMyApiErrors(array) {
   const errors = {};
-  for (let index = 0; index < array.length; index++) {
+  for (let index = 0; index < array.length; index + 1) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split('/').pop();
@@ -55,7 +55,34 @@ const transformMyApiErrors = function(array) {
   }
 
   return errors;
-};
+}
+
+function validate(formsById) {
+  return values => {
+    const errors = {};
+    if (values.form) {
+      const theForm = formsById[values.form.value];
+      if (theForm.attributes.metadata.downloadable === false) {
+        errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
+      }
+      if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
+        errors.form = <MisconfiguredFormMessage />;
+      }
+    }
+    return errors;
+  };
+}
+
+function renderLoading() {
+  return (
+    <center>
+      <div className="lds-ripple">
+        <div />
+        <div />
+      </div>
+    </center>
+  );
+}
 
 export class TaskForm extends Component {
   constructor(props) {
@@ -71,75 +98,81 @@ export class TaskForm extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchForms();
-    this.props.fetchClients();
-    this.props.fetchLocations();
-    this.props.fetchContentTypes();
+    const { fetchForms, fetchClients, fetchLocations, fetchContentTypes } = this.props;
+    fetchForms();
+    fetchClients();
+    fetchLocations();
+    fetchContentTypes();
   }
 
   getClientOptions() {
-    return this.props.clientOptions.asMutable();
+    const { clientOptions } = this.props;
+    return clientOptions.asMutable();
   }
 
-  loadClientOptions = (inputValue, callback) => {
-    this.props.fetchClients(`${API_ENDPOINT}/clients/?search=${inputValue}`);
-    setTimeout(() => {
-      callback(this.getClientOptions());
-    }, ASYNC_SEARCH_TIMEOUT);
-  };
-
   getFormOptions() {
-    return this.props.formOptions.asMutable();
+    const { formOptions } = this.props;
+    return formOptions.asMutable();
+  }
+
+  getLocationOptions() {
+    const { locationOptions } = this.props;
+    return locationOptions.asMutable();
   }
 
   loadFormOptions = (inputValue, callback) => {
-    this.props.fetchForms(`${API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`);
+    const { fetchForms } = this.props;
+    fetchForms(`${API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`);
     setTimeout(() => {
       callback(this.getFormOptions());
     }, ASYNC_SEARCH_TIMEOUT);
   };
 
-  getLocationOptions() {
-    return this.props.locationOptions.asMutable();
-  }
+  loadClientOptions = (inputValue, callback) => {
+    const { fetchClients } = this.props;
+    fetchClients(`${API_ENDPOINT}/clients/?search=${inputValue}`);
+    setTimeout(() => {
+      callback(this.getClientOptions());
+    }, ASYNC_SEARCH_TIMEOUT);
+  };
 
   loadLocationOptions = (inputValue, callback) => {
-    this.props.fetchLocations(`${API_ENDPOINT}/locations/?search=${inputValue}`);
+    const { fetchLocations } = this.props;
+    fetchLocations(`${API_ENDPOINT}/locations/?search=${inputValue}`);
     setTimeout(() => {
       callback(this.getLocationOptions());
     }, ASYNC_SEARCH_TIMEOUT);
   };
 
-  validate(formsById) {
-    return values => {
-      const errors = {};
-      if (values.form) {
-        const theForm = formsById[values.form.value];
-        if (theForm.attributes.metadata.downloadable === false) {
-          errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
-        }
-        if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
-          errors.form = <MisconfiguredFormMessage />;
-        }
-      }
-      return errors;
-    };
-  }
-
   render() {
+    const {
+      locationsById,
+      clientsById,
+      initialData,
+      formsById,
+      hasError,
+      errorMessage,
+      formActionDispatch,
+      formContentTypeId,
+      formOptions,
+      locationOptions,
+      clientOptions,
+      redirectAfterAction
+    } = this.props;
+
     if (
-      Object.keys(this.props.locationsById).length === 0 &&
-      this.props.locationsById.constructor === Object &&
-      Object.keys(this.props.clientsById).length === 0 &&
-      this.props.clientsById.constructor === Object
+      Object.keys(locationsById).length === 0 &&
+      locationsById.constructor === Object &&
+      Object.keys(clientsById).length === 0 &&
+      clientsById.constructor === Object
     )
-      return this.renderLoading();
+      return renderLoading();
     return (
       <Formik
-        initialValues={this.props.initialData}
-        validate={this.validate(this.props.formsById)}
+        initialValues={initialData}
+        validate={validate(formsById)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
-          const locations_input = values.taskLocations.map(d => ({
+          const locationsInput = values.taskLocations.map(d => ({
             location: d.location ? { type: 'Location', id: d.location.value } : undefined,
             timing_rule: d.timing_rule,
             start: d.start,
@@ -160,27 +193,24 @@ export class TaskForm extends Component {
                 timing_rule: undefined,
                 total_submission_target: undefined,
                 user_submission_target:
-                  (values.user_submission_target !== null) & (values.user_submission_target !== '')
+                  values.user_submission_target !== null && values.user_submission_target !== ''
                     ? values.user_submission_target
                     : undefined,
-                status:
-                  values.status !== this.props.initialData.status
-                    ? values.status
-                    : this.props.initialData.status,
+                status: values.status !== initialData.status ? values.status : initialData.status,
                 target_id: values.form ? values.form.value : undefined,
-                target_content_type: this.props.formContentTypeId,
+                target_content_type: formContentTypeId,
                 amount: values.amount != null && values.amount !== '' ? values.amount : undefined,
                 client: values.client ? { type: 'Client', id: values.client.value } : undefined,
-                locations_input
+                locations_input: locationsInput
               }
             }
           };
 
           try {
-            this.props.formActionDispatch(payload, this.targetId).then(() => {
+            formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
-              if (this.props.hasError) {
-                setErrors(transformMyApiErrors(this.props.errorMessage));
+              if (hasError) {
+                setErrors(transformMyApiErrors(errorMessage));
               } else {
                 setStatus('done');
               }
@@ -306,7 +336,7 @@ export class TaskForm extends Component {
                     value={values.form}
                     onChange={value => setFieldValue('form', value)}
                     onBlur={handleBlur}
-                    defaultOptions={this.props.formOptions.asMutable()}
+                    defaultOptions={formOptions.asMutable()}
                     loadOptions={this.loadFormOptions}
                     isClearable
                     cacheOptions
@@ -409,8 +439,13 @@ export class TaskForm extends Component {
                   <div>
                     {values.taskLocations &&
                       values.taskLocations.length > 0 &&
-                      values.taskLocations.map((friend, index) => (
-                        <div className="tasklocation-item position-relative" key={index}>
+                      values.taskLocations.map((taskLocationObj, index) => (
+                        <div
+                          className="tasklocation-item position-relative"
+                          key={`${taskLocationObj.location.value}${taskLocationObj.start}${
+                            taskLocationObj.end
+                          }`}
+                        >
                           {values.taskLocations &&
                             values.taskLocations.length > 1 && (
                               <button
@@ -428,7 +463,11 @@ export class TaskForm extends Component {
                               <Label for={`taskLocations[${index}]location`}>Location</Label>
                             </Col>
                             <Col md={{ size: 8 }}>
-                              <Row key={index}>
+                              <Row
+                                key={`${taskLocationObj.location.value}${taskLocationObj.start}${
+                                  taskLocationObj.end
+                                }`}
+                              >
                                 <Col
                                   md={{ size: 12 }}
                                   className={
@@ -442,7 +481,7 @@ export class TaskForm extends Component {
                                     bsSize="lg"
                                     placeholder="Select Location"
                                     aria-label="Select Location"
-                                    defaultOptions={this.props.locationOptions.asMutable()}
+                                    defaultOptions={locationOptions.asMutable()}
                                     loadOptions={this.loadLocationOptions}
                                     onChange={value =>
                                       setFieldValue(`taskLocations.${index}.location`, value)
@@ -636,7 +675,7 @@ export class TaskForm extends Component {
                     value={values.client}
                     onChange={value => setFieldValue('client', value)}
                     onBlur={handleBlur}
-                    defaultOptions={this.props.clientOptions.asMutable()}
+                    defaultOptions={clientOptions.asMutable()}
                     loadOptions={this.loadClientOptions}
                     isClearable
                     cacheOptions
@@ -711,8 +750,7 @@ export class TaskForm extends Component {
                       setStatus('done');
                     }}
                   >
-                    {' '}
-                    Cancel{' '}
+                    Cancel
                   </Button>
                 </Col>
                 <Col md={{ size: 5 }}>
@@ -727,33 +765,49 @@ export class TaskForm extends Component {
                 </Col>
               </FormGroup>
             </Form>
-            {status === 'done' && <Redirect to={this.props.redirectAfterAction} />}
+            {status === 'done' && <Redirect to={redirectAfterAction} />}
           </div>
         )}
       />
     );
   }
-
-  renderLoading() {
-    return (
-      <center>
-        <div className="lds-ripple">
-          <div />
-          <div />
-        </div>
-      </center>
-    );
-  }
 }
 
+TaskForm.propTypes = {
+  clientsById: PropTypes.objectOf(PropTypes.object).isRequired,
+  locationsById: PropTypes.objectOf(PropTypes.object).isRequired,
+  formsById: PropTypes.objectOf(PropTypes.object).isRequired,
+  formContentTypeId: PropTypes.number,
+  targetId: PropTypes.string,
+  hasError: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  clientOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  formOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  locationOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  initialData: PropTypes.objectOf(PropTypes.any).isRequired,
+  redirectAfterAction: PropTypes.string,
+  // functions
+  formActionDispatch: PropTypes.func.isRequired,
+  fetchClients: PropTypes.func.isRequired,
+  fetchLocations: PropTypes.func.isRequired,
+  fetchForms: PropTypes.func.isRequired,
+  fetchContentTypes: PropTypes.func.isRequired
+};
+
+TaskForm.defaultProps = {
+  targetId: null,
+  formContentTypeId: null,
+  hasError: false,
+  errorMessage: '',
+  redirectAfterAction: '/'
+};
+
 // which props do we want to inject, given the global store state?
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     clientsById: clientSelectors.getClientsById(state),
     locationsById: locationSelectors.getLocationsById(state),
     formsById: formSelectors.getFormsById(state),
-    unusedFormsById: formSelectors.getUnusedFormsById(state),
-    currentForm: formSelectors.getFormById(state, ownProps.initialData.form),
     formContentTypeId: contentTypeSelectors.getFormContentType(state),
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state),
