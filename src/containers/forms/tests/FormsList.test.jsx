@@ -26,6 +26,10 @@ describe('containers/forms/FormsList', () => {
         location={history.location}
         searchVal={emptyFunction}
         rowsIdArray={fixtures.formsIdArray}
+        rowsById={fixtures.formsById}
+        searchParam=""
+        hasTask=""
+        pageLinks={fixtures.pageLinks}
       />
     );
   });
@@ -53,8 +57,8 @@ describe('containers/forms/FormsList', () => {
           changePageNumber={emptyFunction}
           lastPage={fixtures.lastPage}
           searchVal={emptyFunction}
-          searchParam={fixtures.searchParam}
-          hasTask={undefined}
+          searchParam=""
+          hasTask=""
           location={history.location}
         />
       </Router>,
@@ -87,8 +91,8 @@ describe('containers/forms/FormsList', () => {
           changePageNumber={emptyFunction}
           lastPage={fixtures.lastPage}
           searchVal={emptyFunction}
-          searchParam={fixtures.searchParam}
-          hasTask
+          searchParam=""
+          hasTask=""
           location={history.location}
         />
       </Router>,
