@@ -1,7 +1,7 @@
-import _ from "lodash";
-import * as types from "./actionTypes";
-import * as errorHandlerTypes from "../errorHandler/actionTypes";
-import clientService from "../../services/clients";
+import _ from 'lodash';
+import * as types from './actionTypes';
+import * as errorHandlerTypes from '../errorHandler/actionTypes';
+import clientService from '../../services/clients';
 
 export function fetchClients(url) {
   // Enables other modules to use/call this function its kind of like a private / public thing
@@ -102,7 +102,7 @@ export function deleteClient(client_id) {
     } catch (error) {
       dispatch({
         type: errorHandlerTypes.REQUEST_FAILURE,
-        errorMessage: "Client has not been deleted"
+        errorMessage: 'Client has not been deleted'
       });
     }
   };

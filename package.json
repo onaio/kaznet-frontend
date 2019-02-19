@@ -1,6 +1,6 @@
 {
   "name": "kaznet-frontend",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -8,8 +8,10 @@
     "@fortawesome/react-fontawesome": "^0.0.20",
     "bootstrap": "^4.1.1",
     "connected-react-router": "^4.3.0",
+    "date-fns": "^1.30.1",
     "downloadjs": "^1.4.7",
     "formik": "^0.11.11",
+    "history": "^4.7.2",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.10",
     "mockdate": "^2.0.2",
@@ -23,6 +25,7 @@
     "react-dom": "^16.4.1",
     "react-moment": "^0.7.7",
     "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-rrule-generator": "^1.0.2",
     "react-scripts": "1.1.4",
@@ -41,12 +44,21 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint src --ext js,jsx"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.14.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
     "husky": "^0.14.3",
     "jest-fetch-mock": "^1.6.5",
     "lint-staged": "^7.2.0",
@@ -55,7 +67,11 @@
     "redux-testkit": "^1.0.6"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,css,md}": [
       "prettier --write",
       "git add"
     ]

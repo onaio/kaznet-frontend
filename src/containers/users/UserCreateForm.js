@@ -1,50 +1,46 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as userActions from "../../store/users/actions";
-import UserForm from "./UserForm";
-import FormView from "../../components/FormView";
-import * as globalActions from "../../store/global/actions";
+import * as userActions from '../../store/users/actions';
+import UserForm from './UserForm';
+import FormView from '../../components/FormView';
+import * as globalActions from '../../store/global/actions';
 
-import * as constants from "../../constants";
+import * as constants from '../../constants';
 
 export class UserCreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
   }
+
   componentDidMount() {
     this.props.noTitle();
     this.setState({ isLoading: false });
   }
+
   render() {
     if (this.state.isLoading) return this.renderLoading();
     const action = userActions.createUser;
     const initialData = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: "",
-      confirmation: "",
-      gender: "",
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      confirmation: '',
+      gender: '',
       role: constants.CONTRIBUTOR_ROLE,
       expertise: constants.BEGINNER,
-      national_id: "",
-      payment_number: "",
-      phone_number: "",
-      ona_username: ""
+      national_id: '',
+      payment_number: '',
+      phone_number: '',
+      ona_username: ''
     };
 
     return (
       <FormView
-        form={
-          <UserForm
-            initialData={initialData}
-            action={action}
-            redirectAfterAction="/users"
-          />
-        }
+        form={<UserForm initialData={initialData} action={action} redirectAfterAction="/users" />}
       />
     );
   }
@@ -59,7 +55,8 @@ export class UserCreateForm extends Component {
           </div>
         </center>
       );
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as clientActions from "../../store/clients/actions";
-import ClientForm from "./ClientForm";
-import FormView from "../../components/FormView";
-import * as globalActions from "../../store/global/actions";
+import * as clientActions from '../../store/clients/actions';
+import ClientForm from './ClientForm';
+import FormView from '../../components/FormView';
+import * as globalActions from '../../store/global/actions';
 
 export class ClientCreateForm extends Component {
   componentDidMount() {
@@ -15,13 +15,9 @@ export class ClientCreateForm extends Component {
   render() {
     const action = clientActions.createClient;
     const initialData = {
-      name: ""
+      name: ''
     };
-    return (
-      <FormView
-        form={<ClientForm action={action} initialData={initialData} />}
-      />
-    );
+    return <FormView form={<ClientForm action={action} initialData={initialData} />} />;
   }
 }
 

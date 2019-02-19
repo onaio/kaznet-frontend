@@ -1,16 +1,16 @@
 // This component takes an object of links
 // and returns them as react-router Link objects
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class LinkMap extends Component {
   render() {
-    const links = this.props.links;
+    const { links } = this.props;
     const listLinks = [];
-    var counter = 1;
+    let counter = 1;
 
     for (const [key, value] of Object.entries(links)) {
-      if (key === "DELETE TASK") {
+      if (key === 'DELETE TASK') {
         listLinks.push(
           <Link to={value} key={key} className="action-link-alert">
             {key}

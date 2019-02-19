@@ -1,7 +1,7 @@
 // form actions
-import _ from "lodash";
-import * as types from "./actionTypes";
-import formService from "../../services/forms";
+import _ from 'lodash';
+import * as types from './actionTypes';
+import formService from '../../services/forms';
 
 // get list of forms
 export function fetchForms(url) {

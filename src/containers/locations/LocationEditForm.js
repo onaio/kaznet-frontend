@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import LocationForm from "./LocationForm";
-import FormView from "../../components/FormView";
-import * as locationSelectors from "../../store/locations/reducer";
-import * as locationActions from "../../store/locations/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as globalActions from "../../store/global/actions";
+import LocationForm from './LocationForm';
+import FormView from '../../components/FormView';
+import * as locationSelectors from '../../store/locations/reducer';
+import * as locationActions from '../../store/locations/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as globalActions from '../../store/global/actions';
 
 export class LocationEditForm extends Component {
   componentDidMount() {
@@ -28,25 +28,20 @@ export class LocationEditForm extends Component {
             value: this.location.relationships.parent.data.id,
             label: this.location.attributes.parent_name
           }
-        : "",
+        : '',
       location_type: this.location.relationships.location_type.data
         ? {
             value: this.location.relationships.location_type.data.id,
             label: this.location.attributes.location_type_name
           }
-        : "",
+        : '',
       geopoint:
         this.location.attributes.geopoint != null
           ? this.location.attributes.geopoint.coordinates
-          : "",
-      radius:
-        this.location.attributes.radius != null
-          ? this.location.attributes.radius
-          : "",
+          : '',
+      radius: this.location.attributes.radius != null ? this.location.attributes.radius : '',
       shapefile:
-        this.location.attributes.shapefile != null
-          ? [this.location.attributes.name, ".shp"]
-          : ""
+        this.location.attributes.shapefile != null ? [this.location.attributes.name, '.shp'] : ''
     };
 
     return (
@@ -66,7 +61,8 @@ export class LocationEditForm extends Component {
   renderLoading() {
     if (!this.props.hasError) {
       return <p>Loading...</p>;
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
@@ -74,10 +70,7 @@ export class LocationEditForm extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    locationById: locationSelectors.getLocationById(
-      state,
-      ownProps.match.params.id
-    ),
+    locationById: locationSelectors.getLocationById(state, ownProps.match.params.id),
     currentLocation: locationSelectors.getCurrentLocation(state),
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)

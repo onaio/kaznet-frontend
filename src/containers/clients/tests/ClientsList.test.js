@@ -1,16 +1,16 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { ClientsList } from "../ClientsList";
-import * as fixtures from "../../../store/clients/tests/fixtures";
+import { ClientsList } from '../ClientsList';
+import * as fixtures from '../../../store/clients/tests/fixtures';
 
 const history = createBrowserHistory();
 
-describe("containers/clients/ClientsList", () => {
-  it("renders without crashing", () => {
+describe('containers/clients/ClientsList', () => {
+  it('renders without crashing', () => {
     shallow(
       <ClientsList
         fetchClients={function() {}}
@@ -26,7 +26,7 @@ describe("containers/clients/ClientsList", () => {
     );
   });
 
-  it("renders client list correctly", () => {
+  it('renders client list correctly', () => {
     const wrapper = mount(
       <Router history={history}>
         <ClientsList
@@ -37,7 +37,7 @@ describe("containers/clients/ClientsList", () => {
           showListTitle={function() {}}
           rowsById={fixtures.clientsById}
           rowsIdArray={fixtures.clientsIdArray}
-          endpoint={"clients"}
+          endpoint="clients"
           pageLinks={fixtures.pageLinks}
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}

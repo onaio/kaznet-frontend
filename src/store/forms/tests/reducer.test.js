@@ -1,20 +1,20 @@
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import { Reducer } from "redux-testkit";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import { Reducer } from 'redux-testkit';
 
-import forms from "../reducer";
-import * as actionTypes from "../actionTypes";
-import * as fixtures from "./fixtures";
+import forms from '../reducer';
+import * as actionTypes from '../actionTypes';
+import * as fixtures from './fixtures';
 
 const initialState = {
   formsById: {},
   selectOptions: [],
   formsIdArray: [],
   unusedForms: [],
-  currentPage: null,
-  totalPages: null,
+  currentPage: 1,
+  totalPages: 1,
   totalCount: null,
-  hasTask: "",
+  hasTask: '',
   pageLinks: {
     first: null,
     last: null,
@@ -23,18 +23,18 @@ const initialState = {
   }
 };
 
-describe("store/forms/reducer", () => {
-  it("should have initial state", () => {
+describe('store/forms/reducer', () => {
+  it('should have initial state', () => {
     expect(forms()).toEqual(initialState);
   });
 
-  it("should store fetched forms", () => {
-    const formsById = fixtures.formsById;
-    const pageLinks = fixtures.pageLinks;
-    const currentPage = fixtures.currentPage;
-    const totalPages = fixtures.totalPages;
-    const totalCount = fixtures.totalCount;
-    const selectOptions = fixtures.selectOptions;
+  it('should store fetched forms', () => {
+    const { formsById } = fixtures;
+    const { pageLinks } = fixtures;
+    const { currentPage } = fixtures;
+    const { totalPages } = fixtures;
+    const { totalCount } = fixtures;
+    const { selectOptions } = fixtures;
     const action = {
       type: actionTypes.FORMS_FETCHED,
       formsById,

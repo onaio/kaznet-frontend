@@ -1,29 +1,29 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export const locationTypeData = {
   links: {
-    first: "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
-    last: "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
+    first: 'http://127.0.0.1:8000/api/v1/locationtypes/?page=1',
+    last: 'http://127.0.0.1:8000/api/v1/locationtypes/?page=1',
     next: null,
     prev: null
   },
   data: [
     {
-      type: "LocationType",
-      id: "2",
+      type: 'LocationType',
+      id: '2',
       attributes: {
-        created: "2018-07-13T17:34:27.023947+03:00",
-        name: "Hospital",
-        modified: "2018-07-13T17:34:27.023970+03:00"
+        created: '2018-07-13T17:34:27.023947+03:00',
+        name: 'Hospital',
+        modified: '2018-07-13T17:34:27.023970+03:00'
       }
     },
     {
-      type: "LocationType",
-      id: "1",
+      type: 'LocationType',
+      id: '1',
       attributes: {
-        created: "2018-07-13T17:34:14.408576+03:00",
-        name: "Market",
-        modified: "2018-07-13T17:34:14.408599+03:00"
+        created: '2018-07-13T17:34:14.408576+03:00',
+        name: 'Market',
+        modified: '2018-07-13T17:34:14.408599+03:00'
       }
     }
   ],
@@ -38,28 +38,28 @@ export const locationTypeData = {
 
 export const locationTypeDataSecondPage = {
   links: {
-    first: "http://127.0.0.1:8000/api/v1/locationtypes/?page=1",
-    last: "http://127.0.0.1:8000/api/v1/locationtypes/?page=2",
+    first: 'http://127.0.0.1:8000/api/v1/locationtypes/?page=1',
+    last: 'http://127.0.0.1:8000/api/v1/locationtypes/?page=2',
     next: null,
-    prev: "http://127.0.0.1:8000/api/v1/locationtypes/?page=1"
+    prev: 'http://127.0.0.1:8000/api/v1/locationtypes/?page=1'
   },
   data: [
     {
-      type: "LocationType",
-      id: "3",
+      type: 'LocationType',
+      id: '3',
       attributes: {
-        created: "2018-07-13T17:34:27.023947+03:00",
-        name: "Hospital",
-        modified: "2018-07-13T17:34:27.023970+03:00"
+        created: '2018-07-13T17:34:27.023947+03:00',
+        name: 'Hospital',
+        modified: '2018-07-13T17:34:27.023970+03:00'
       }
     },
     {
-      type: "LocationType",
-      id: "4",
+      type: 'LocationType',
+      id: '4',
       attributes: {
-        created: "2018-07-13T17:34:14.408576+03:00",
-        name: "Market",
-        modified: "2018-07-13T17:34:14.408599+03:00"
+        created: '2018-07-13T17:34:14.408576+03:00',
+        name: 'Market',
+        modified: '2018-07-13T17:34:14.408599+03:00'
       }
     }
   ],
@@ -77,39 +77,30 @@ export const locationTypeArraySecondPage = _.map(
   locationType => locationType
 );
 
-export const locationTypesArray = _.map(
-  locationTypeData.data,
-  locationType => locationType
-);
+export const locationTypesArray = _.map(locationTypeData.data, locationType => locationType);
 
-export const locationTypesById = _.keyBy(
-  locationTypesArray,
-  locationType => locationType.id
-);
+export const locationTypesById = _.keyBy(locationTypesArray, locationType => locationType.id);
 
 export const locationTypesIdArray = _.keys(locationTypesById);
 
 export const locationTypeIdOneById = _.get(locationTypesById, 1);
 
 export const singleLocationType = {
-  type: "LocationType",
-  id: "999",
+  type: 'LocationType',
+  id: '999',
   attributes: {
-    created: "2018-07-13T17:34:14.408576+03:00",
-    name: "Office",
-    modified: "2018-07-13T17:34:14.408599+03:00"
+    created: '2018-07-13T17:34:14.408576+03:00',
+    name: 'Office',
+    modified: '2018-07-13T17:34:14.408599+03:00'
   }
 };
 
 export const singleLocationTypeData = {
   data: singleLocationType
 };
-export const singleLocationTypeArray = _.map(
-  singleLocationTypeData,
-  locationType => {
-    return locationType;
-  }
-);
+export const singleLocationTypeArray = _.map(singleLocationTypeData, locationType => {
+  return locationType;
+});
 export const singleLocationTypeById = _.keyBy(
   singleLocationTypeArray,
   locationType => locationType.id
@@ -123,10 +114,8 @@ export const firstPage = 1;
 export const lastPage = 2;
 
 export const pageLinksSecondPage = locationTypeDataSecondPage.links;
-export const currentPageSecondPage =
-  locationTypeDataSecondPage.meta.pagination.page;
-export const totalPagesSecondPage =
-  locationTypeDataSecondPage.meta.pagination.pages;
+export const currentPageSecondPage = locationTypeDataSecondPage.meta.pagination.page;
+export const totalPagesSecondPage = locationTypeDataSecondPage.meta.pagination.pages;
 export const locationTypeByIdSecondPage = _.keyBy(
   locationTypeArraySecondPage,
   locationType => locationType.id

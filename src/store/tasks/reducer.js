@@ -1,9 +1,9 @@
 // Tasks reducer
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   tasksById: {},
@@ -17,7 +17,7 @@ const initialState = Immutable({
     prev: null,
     next: null
   },
-  status: ""
+  status: ''
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -65,7 +65,7 @@ export default function reduce(state = initialState, action = {}) {
       });
     case types.TASK_DELETED:
       const newTasksById = _.omit(state.tasksById, action.taskId);
-      return state.set("tasksById", newTasksById);
+      return state.set('tasksById', newTasksById);
     case types.TASK_CLONED:
       return Immutable({
         ...state,

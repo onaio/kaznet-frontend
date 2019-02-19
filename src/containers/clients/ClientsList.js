@@ -1,31 +1,32 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
-import qs from "qs";
-import "../LoadListAnimation.css";
-import * as clientActions from "../../store/clients/actions";
-import * as clientSelectors from "../../store/clients/reducer";
-import * as globalSelectors from "../../store/global/reducer";
-import * as globalActions from "../../store/global/actions";
-import * as constants from "../../constants.js";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import ListView from "../../components/ListView";
-import NoResults from "../../components/NoResults";
-import ElementMap from "../ElementMap";
-import { withAlert } from "react-alert";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+import qs from 'qs';
+import '../LoadListAnimation.css';
+import { withAlert } from 'react-alert';
+import * as clientActions from '../../store/clients/actions';
+import * as clientSelectors from '../../store/clients/reducer';
+import * as globalSelectors from '../../store/global/reducer';
+import * as globalActions from '../../store/global/actions';
+import * as constants from '../../constants';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import ListView from '../../components/ListView';
+import NoResults from '../../components/NoResults';
+import ElementMap from '../ElementMap';
+
 export class ClientsList extends Component {
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.changePageTitle("Clients");
-    this.props.changePageTitleButton("+ Add Client");
-    this.props.changePageTarget("/clients/new");
+    this.props.changePageTitle('Clients');
+    this.props.changePageTitleButton('+ Add Client');
+    this.props.changePageTarget('/clients/new');
     let { search } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     this.props.searchVal(search);
     let pageNumber = Number(page);
@@ -44,7 +45,7 @@ export class ClientsList extends Component {
   componentDidUpdate(prevProps) {
     let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
@@ -64,13 +65,11 @@ export class ClientsList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.clientCount === null) {
+    if (this.props.searchParam !== '' && this.props.clientCount === null) {
       return this.renderLoading();
     }
     if (this.props.clientCount === 0) {
-      return (
-        <NoResults searchVal={this.props.searchParam} endpoint={"clients"} />
-      );
+      return <NoResults searchVal={this.props.searchParam} endpoint="clients" />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
@@ -80,7 +79,7 @@ export class ClientsList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
-          endpoint={"clients"}
+          endpoint="clients"
           pageLinks={this.props.pageLinks}
           totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
@@ -106,7 +105,7 @@ export class ClientsList extends Component {
   }
 
   renderHeaders() {
-    const headerItems = ["Name", "Created"];
+    const headerItems = ['Name', 'Created'];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
 

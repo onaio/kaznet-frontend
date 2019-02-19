@@ -1,20 +1,20 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { TaskClone } from "../TaskClone";
-import * as fixtures from "../../../store/tasks/tests/fixtures";
+import { TaskClone } from '../TaskClone';
+import * as fixtures from '../../../store/tasks/tests/fixtures';
 
 const history = createBrowserHistory();
 
-describe("containers/task/TaskClone", () => {
-  it("renders without crashing", () => {
+describe('containers/task/TaskClone', () => {
+  it('renders without crashing', () => {
     shallow(
       <TaskClone
         match={{
           params: {
-            id: "2"
+            id: '2'
           }
         }}
         fetchTask={function() {}}
@@ -22,11 +22,11 @@ describe("containers/task/TaskClone", () => {
     );
   });
 
-  it("check if cloneTask works", () => {
+  it('check if cloneTask works', () => {
     const mockCloneTask = jest.fn();
     const payload = {
       data: {
-        type: "Task"
+        type: 'Task'
       }
     };
     mount(
@@ -34,7 +34,7 @@ describe("containers/task/TaskClone", () => {
         <TaskClone
           match={{
             params: {
-              id: "4"
+              id: '4'
             }
           }}
           taskData={fixtures.taskData}

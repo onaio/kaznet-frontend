@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import LocationTypeForm from "./LocationTypeForm";
-import FormView from "../../components/FormView";
-import * as locationTypeSelectors from "../../store/locationTypes/reducer";
-import * as locationTypeActions from "../../store/locationTypes/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as globalActions from "../../store/global/actions";
+import LocationTypeForm from './LocationTypeForm';
+import FormView from '../../components/FormView';
+import * as locationTypeSelectors from '../../store/locationTypes/reducer';
+import * as locationTypeActions from '../../store/locationTypes/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as globalActions from '../../store/global/actions';
 
 export class LocationTypeEditForm extends Component {
   componentDidMount() {
@@ -39,7 +39,8 @@ export class LocationTypeEditForm extends Component {
   renderLoading() {
     if (!this.props.hasError) {
       return <p>Loading...</p>;
-    } else if (this.props.hasError) {
+    }
+    if (this.props.hasError) {
       return <p> {this.props.errorMessage.message} </p>;
     }
   }
@@ -47,10 +48,7 @@ export class LocationTypeEditForm extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    locationTypeById: locationTypeSelectors.getLocationTypeById(
-      state,
-      ownProps.match.params.id
-    ),
+    locationTypeById: locationTypeSelectors.getLocationTypeById(state, ownProps.match.params.id),
     hasError: errorHandlerSelectors.getHasError,
     errorMessage: errorHandlerSelectors.getErrorMessage
   };

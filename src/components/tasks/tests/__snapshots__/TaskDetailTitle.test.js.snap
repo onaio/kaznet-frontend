@@ -183,8 +183,7 @@ exports[`components/tasks/TaskDetailTitle renders the correct html 1`] = `
                 className="kaznet-creation-detail"
               >
                 Ona User
-                ,
-                 
+                , 
                 <t
                   ago={false}
                   calendar={false}

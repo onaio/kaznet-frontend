@@ -1,19 +1,19 @@
 // Forms reducer
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   formsById: {},
   formsIdArray: [],
   selectOptions: [],
   unusedForms: [],
-  currentPage: null,
-  totalPages: null,
+  currentPage: 1,
+  totalPages: 1,
   totalCount: null,
-  hasTask: "",
+  hasTask: '',
 
   pageLinks: {
     first: null,
@@ -74,37 +74,37 @@ export function getFormById(state, id) {
   return _.get(state.forms.formsById, id);
 }
 
-export function getPageLinks(state, props) {
+export function getPageLinks(state) {
   return state.forms.pageLinks;
 }
 
-export function getCurrentPage(state, props) {
+export function getCurrentPage(state) {
   return state.forms.currentPage;
 }
 
-export function getTotalPages(state, props) {
+export function getTotalPages(state) {
   return state.forms.totalPages;
 }
 
-export function getFirstPage(state, props) {
+export function getFirstPage(state) {
   const url = state.forms.pageLinks.first;
   return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
 }
 
-export function getNextPage(state, props) {
+export function getNextPage(state) {
   return state.forms.pageLinks.next;
 }
 
-export function getPreviousPage(state, props) {
+export function getPreviousPage(state) {
   return state.forms.pageLinks.prev;
 }
 
-export function getLastPage(state, props) {
+export function getLastPage(state) {
   const url = state.forms.pageLinks.last;
   return Number(Object.values(qs.parse(url && url.slice(1)))[0]);
 }
 
-export function getTotalCount(state, props) {
+export function getTotalCount(state) {
   return state.forms.totalCount;
 }
 

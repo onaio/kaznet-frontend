@@ -1,22 +1,20 @@
-import _ from "lodash";
-import Cookies from "js-cookie";
+import _ from 'lodash';
+import Cookies from 'js-cookie';
 
-import * as constants from "../constants";
+import * as constants from '../constants';
 
 class LocationService {
   async getLocationList(url = `${constants.API_ENDPOINT}/locations/`) {
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
-      throw new Error(
-        `LocationService getLocationList failed, HTTP status ${response.status}`
-      );
+      throw new Error(`LocationService getLocationList failed, HTTP status ${response.status}`);
     }
 
     const {
@@ -28,9 +26,7 @@ class LocationService {
     } = await response.json();
 
     if (!data) {
-      throw new Error(
-        `LocationService getLocationList failed, data not returned`
-      );
+      throw new Error(`LocationService getLocationList failed, data not returned`);
     }
 
     const locationArray = _.map(data, location => location);
@@ -47,30 +43,26 @@ class LocationService {
   async createLocation(location_data) {
     const url = `${constants.API_ENDPOINT}/locations/`;
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(location_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
     if (!response.ok && response.status !== 400) {
-      throw new Error(
-        `LocationService createLocation failed, HTTP status ${response.status}`
-      );
+      throw new Error(`LocationService createLocation failed, HTTP status ${response.status}`);
     }
     const apiResponse = await response.json();
     if (response.status === 400) {
       throw apiResponse.errors;
     }
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error(
-        `LocationService createLocation failed, data not returned`
-      );
+      throw new Error(`LocationService createLocation failed, data not returned`);
     }
 
     return data;
@@ -80,21 +72,19 @@ class LocationService {
     const url = `${constants.API_ENDPOINT}/locations/${id}/`;
 
     const response = await fetch(url, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(location_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
 
     if (!response.ok && response.status !== 400) {
-      throw new Error(
-        `LocationService editLocation failed, HTTP status ${response.status}`
-      );
+      throw new Error(`LocationService editLocation failed, HTTP status ${response.status}`);
     }
 
     const apiResponse = await response.json();
@@ -103,9 +93,9 @@ class LocationService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error("LocationService editLocation failed, data not returned");
+      throw new Error('LocationService editLocation failed, data not returned');
     }
 
     return data;
@@ -114,39 +104,33 @@ class LocationService {
   async deleteLocation(location_id) {
     const url = `${constants.API_ENDPOINT}/locations/${location_id}/`;
     const response = await fetch(url, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        Accept: "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
-      throw new Error(
-        `LocationService deleteLocation failed, HTTP status ${response.status}`
-      );
+      throw new Error(`LocationService deleteLocation failed, HTTP status ${response.status}`);
     }
 
     return location_id;
   }
 
   async getLocation(id) {
-    const url = `${
-      constants.API_ENDPOINT
-    }/locations/${id}/?format=vnd.api%2Bjson`;
+    const url = `${constants.API_ENDPOINT}/locations/${id}/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
-      throw new Error(
-        `LocationService getLocation failed, HTTP status ${response.status}`
-      );
+      throw new Error(`LocationService getLocation failed, HTTP status ${response.status}`);
     }
 
     const apiResponse = await response.json();
@@ -155,9 +139,9 @@ class LocationService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error("LocationService getLocation failed, data not returned");
+      throw new Error('LocationService getLocation failed, data not returned');
     }
 
     return data;

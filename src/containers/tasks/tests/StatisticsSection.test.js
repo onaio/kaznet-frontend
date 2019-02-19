@@ -1,17 +1,17 @@
 // Test StatisticsSection
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import StatisticsSection from "../StatisticsSection";
-import * as fixtures from "../../../store/tasks/tests/fixtures";
+import StatisticsSection from '../StatisticsSection';
+import * as fixtures from '../../../store/tasks/tests/fixtures';
 
-describe("containers/task/StatisticsSection", () => {
-  it("renders without crashing", () => {
+describe('containers/task/StatisticsSection', () => {
+  it('renders without crashing', () => {
     shallow(<StatisticsSection />);
   });
 
-  it("renders statistics correctly", () => {
+  it('renders statistics correctly', () => {
     const task = fixtures.singleTask;
     const wrapper = mount(
       <StatisticsSection

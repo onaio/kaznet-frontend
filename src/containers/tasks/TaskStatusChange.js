@@ -1,16 +1,16 @@
 // TaskStatus Change Component
 // Deals with Switching Active Status of a Task
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Redirect } from "react-router-dom";
-import qs from "qs";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
+import qs from 'qs';
 
-import * as taskSelectors from "../../store/tasks/reducer";
-import * as taskActions from "../../store/tasks/actions";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as globalAction from "../../store/global/actions";
-import { TASK_STATUSES } from "../../constants";
+import * as taskSelectors from '../../store/tasks/reducer';
+import * as taskActions from '../../store/tasks/actions';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as globalAction from '../../store/global/actions';
+import { TASK_STATUSES } from '../../constants';
 
 export class TaskStatusChange extends Component {
   componentDidMount() {
@@ -26,17 +26,17 @@ export class TaskStatusChange extends Component {
     if (status && TASK_STATUSES.includes(status) && currentStatus !== status) {
       const payload = {
         data: {
-          type: "Task",
+          type: 'Task',
           id: this.task.id,
           attributes: {
-            status: status
+            status
           }
         }
       };
       this.props.editTask(payload, this.task.id);
     } else {
       // this status is not valid
-      console.log("Invalid status");
+      console.log('Invalid status');
     }
 
     // no matter what, redirect back to the task
@@ -46,9 +46,8 @@ export class TaskStatusChange extends Component {
   renderLoading() {
     if (this.props.hasError) {
       return <p>Task edit failed</p>;
-    } else {
-      return <p>Task edit in progress..</p>;
     }
+    return <p>Task edit in progress..</p>;
   }
 }
 

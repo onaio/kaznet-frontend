@@ -1,21 +1,19 @@
-import _ from "lodash";
-import Cookies from "js-cookie";
+import _ from 'lodash';
+import Cookies from 'js-cookie';
 
-import * as constants from "../constants";
+import * as constants from '../constants';
 
 class TaskService {
   async getTaskList(url = `${constants.API_ENDPOINT}/tasks/`) {
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
     if (!response.ok) {
-      throw new Error(
-        `TaskService getTaskList failed, HTTP status ${response.status}`
-      );
+      throw new Error(`TaskService getTaskList failed, HTTP status ${response.status}`);
     }
 
     const {
@@ -44,26 +42,24 @@ class TaskService {
   async createTask(task_data) {
     const url = `${constants.API_ENDPOINT}/tasks/`;
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(task_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
     if (!response.ok && response.status !== 400) {
-      throw new Error(
-        `TaskService createTask failed, HTTP status ${response.status}`
-      );
+      throw new Error(`TaskService createTask failed, HTTP status ${response.status}`);
     }
     const apiResponse = await response.json();
     if (response.status === 400) {
       throw apiResponse.errors;
     }
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
       throw new Error(`TaskService createTask failed, data not returned`);
     }
@@ -74,21 +70,19 @@ class TaskService {
   async editTask(task_data, id) {
     const url = `${constants.API_ENDPOINT}/tasks/${id}/`;
     const response = await fetch(url, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(task_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
 
     if (!response.ok && response.status !== 400) {
-      throw new Error(
-        `TaskService editTask failed, HTTP status ${response.status}`
-      );
+      throw new Error(`TaskService editTask failed, HTTP status ${response.status}`);
     }
 
     const apiResponse = await response.json();
@@ -97,9 +91,9 @@ class TaskService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error("TaskService editTask failed, data not returned");
+      throw new Error('TaskService editTask failed, data not returned');
     }
 
     return data;
@@ -108,17 +102,15 @@ class TaskService {
   async deleteTask(task_id) {
     const url = `${constants.API_ENDPOINT}/tasks/${task_id}/`;
     const response = await fetch(url, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        Accept: "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
     if (!response.ok) {
-      throw new Error(
-        `TaskService deleteTask failed, HTTP status ${response.status}`
-      );
+      throw new Error(`TaskService deleteTask failed, HTTP status ${response.status}`);
     }
 
     return task_id;
@@ -127,17 +119,15 @@ class TaskService {
   async getTask(id) {
     const url = `${constants.API_ENDPOINT}/tasks/${id}/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
-      throw new Error(
-        `TaskService getTask failed, HTTP status ${response.status}`
-      );
+      throw new Error(`TaskService getTask failed, HTTP status ${response.status}`);
     }
 
     const apiResponse = await response.json();
@@ -146,9 +136,9 @@ class TaskService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error("TaskService getTask failed, data not returned");
+      throw new Error('TaskService getTask failed, data not returned');
     }
 
     return data;
@@ -157,21 +147,19 @@ class TaskService {
   async cloneTask(task_data, id) {
     const url = `${constants.API_ENDPOINT}/tasks/${id}/clone_task/`;
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(task_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
 
     if (!response.ok && response.status !== 400) {
-      throw new Error(
-        `TaskService cloneTask failed, HTTP status ${response.status}`
-      );
+      throw new Error(`TaskService cloneTask failed, HTTP status ${response.status}`);
     }
 
     const apiResponse = await response.json();
@@ -179,7 +167,7 @@ class TaskService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
       throw new Element(`TaskService cloneTask failed, no data returned`);
     }

@@ -1,20 +1,20 @@
-//Test TaskEditForm
-import React from "react";
-import { shallow } from "enzyme";
-import Immutable from "seamless-immutable";
+// Test TaskEditForm
+import React from 'react';
+import { shallow } from 'enzyme';
+import Immutable from 'seamless-immutable';
 
-import * as fixtures from "../../../store/tasks/tests/fixtures";
-import { TaskEditForm } from "../TaskEditForm";
-import FormView from "../../../components/FormView";
-import TaskForm from "../TaskForm";
+import * as fixtures from '../../../store/tasks/tests/fixtures';
+import { TaskEditForm } from '../TaskEditForm';
+import FormView from '../../../components/FormView';
+import TaskForm from '../TaskForm';
 
-describe("containers/task/TaskEditForm", () => {
-  it("renders without crashing", () => {
+describe('containers/task/TaskEditForm', () => {
+  it('renders without crashing', () => {
     shallow(
       <TaskEditForm
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         fetchTask={function() {}}
@@ -23,17 +23,15 @@ describe("containers/task/TaskEditForm", () => {
     );
   });
 
-  it("renders both Form View and TaskForm with correct Data", () => {
-    let singleTask = fixtures.singleTask;
-    singleTask.attributes.task_locations = Immutable(
-      singleTask.attributes.task_locations
-    );
+  it('renders both Form View and TaskForm with correct Data', () => {
+    const { singleTask } = fixtures;
+    singleTask.attributes.task_locations = Immutable(singleTask.attributes.task_locations);
 
     const wrapper = shallow(
       <TaskEditForm
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         fetchTask={function() {}}

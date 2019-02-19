@@ -1,7 +1,7 @@
-import Immutable from "seamless-immutable";
-import { Selector } from "redux-testkit";
+import Immutable from 'seamless-immutable';
+import { Selector } from 'redux-testkit';
 
-import * as contentTypes from "../reducer";
+import * as contentTypes from '../reducer';
 
 const emptyState = Immutable({
   errorHandler: {
@@ -10,14 +10,14 @@ const emptyState = Immutable({
   }
 });
 
-describe("store/errorHandler/selectors", () => {
-  it("should get default errors when empty", () => {
+describe('store/errorHandler/selectors', () => {
+  it('should get default errors when empty', () => {
     Selector(contentTypes.getHasError)
       .expect(emptyState)
       .toReturn(false);
   });
 
-  it("should get default errorMessage when empty", () => {
+  it('should get default errorMessage when empty', () => {
     Selector(contentTypes.getErrorMessage)
       .expect(emptyState)
       .toReturn(null);

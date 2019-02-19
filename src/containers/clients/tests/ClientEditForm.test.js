@@ -1,19 +1,19 @@
 // Test ClientEditForm
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import { ClientEditForm } from "../ClientEditForm";
-import FormView from "../../../components/FormView";
-import ClientForm from "../ClientForm";
-import * as fixtures from "../../../store/clients/tests/fixtures";
+import { ClientEditForm } from '../ClientEditForm';
+import FormView from '../../../components/FormView';
+import ClientForm from '../ClientForm';
+import * as fixtures from '../../../store/clients/tests/fixtures';
 
-describe("containers/client/ClientEditForm", () => {
-  it("renders without crashing", () => {
+describe('containers/client/ClientEditForm', () => {
+  it('renders without crashing', () => {
     shallow(
       <ClientEditForm
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         noTitle={function() {}}
@@ -22,12 +22,12 @@ describe("containers/client/ClientEditForm", () => {
     );
   });
 
-  it("renders both Form View and ClientForm with correct Data", () => {
+  it('renders both Form View and ClientForm with correct Data', () => {
     const wrapper = shallow(
       <ClientEditForm
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         noTitle={function() {}}
@@ -37,7 +37,7 @@ describe("containers/client/ClientEditForm", () => {
     ).dive();
 
     const expected = {
-      name: "Sol"
+      name: 'Sol'
     };
 
     expect(wrapper.find(FormView)).toHaveLength(0);

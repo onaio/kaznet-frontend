@@ -44,11 +44,13 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
         },
       }
     }
+    errorMessage=""
     fetchClients={[Function]}
     fetchContentTypes={[Function]}
     fetchForms={[Function]}
     fetchLocations={[Function]}
     formActionDispatch={[Function]}
+    formContentTypeId={null}
     formOptions={
       Array [
         Object {
@@ -61,6 +63,77 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
         },
       ]
     }
+    formsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.170271+03:00",
+            "deleted_at": null,
+            "has_task": false,
+            "id_string": "form_1",
+            "last_updated": null,
+            "metadata": Object {
+              "configuration_status": "correctly_configured",
+              "downloadable": true,
+              "owner": "kaznet",
+              "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+            },
+            "modified": "2018-06-21T12:15:23.170313+03:00",
+            "ona_pk": 1903,
+            "project_id": 4328,
+            "task_name": null,
+            "title": "Form 1",
+          },
+          "id": "1",
+          "type": "XForm",
+        },
+        "2": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.175198+03:00",
+            "deleted_at": null,
+            "has_task": false,
+            "id_string": "form_2",
+            "last_updated": null,
+            "metadata": Object {
+              "configuration_status": "correctly_configured",
+              "downloadable": false,
+              "owner": "kaznet",
+              "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+            },
+            "modified": "2018-06-21T12:15:23.175232+03:00",
+            "ona_pk": 6373,
+            "project_id": 5522,
+            "task_name": null,
+            "title": "Form 2",
+          },
+          "id": "2",
+          "type": "XForm",
+        },
+        "3": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.175198+03:00",
+            "deleted_at": null,
+            "has_task": true,
+            "id_string": "form_3",
+            "last_updated": null,
+            "metadata": Object {
+              "configuration_status": "members_cannot_submit",
+              "downloadable": true,
+              "owner": "kaznet",
+              "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+            },
+            "modified": "2018-06-21T12:15:23.175232+03:00",
+            "ona_pk": 6373,
+            "project_id": 5522,
+            "task_name": "Form 3 Task",
+            "title": "Form 3",
+          },
+          "id": "3",
+          "type": "XForm",
+        },
+      }
+    }
+    hasError={false}
     initialData={
       Object {
         "amount": 55,
@@ -188,6 +261,8 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
         },
       }
     }
+    redirectAfterAction="/"
+    targetId={null}
     unusedFormsById={
       Object {
         "1": Object {
@@ -2283,7 +2358,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
               <div>
                 <div
                   className="tasklocation-item position-relative"
-                  key="0"
+                  key="106:00:0018:00:00"
                 >
                   <FormGroup
                     className="row mt-3"
@@ -2355,7 +2430,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                           className="col-md-8"
                         >
                           <Row
-                            key="0"
+                            key="106:00:0018:00:00"
                             tag="div"
                           >
                             <div
@@ -6087,9 +6162,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                         
                         Cancel
-                         
                       </button>
                     </Button>
                   </div>
@@ -6188,11 +6261,13 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
         },
       }
     }
+    errorMessage=""
     fetchClients={[Function]}
     fetchContentTypes={[Function]}
     fetchForms={[Function]}
     fetchLocations={[Function]}
     formActionDispatch={[Function]}
+    formContentTypeId={null}
     formOptions={
       Array [
         Object {
@@ -6205,6 +6280,77 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
         },
       ]
     }
+    formsById={
+      Object {
+        "1": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.170271+03:00",
+            "deleted_at": null,
+            "has_task": false,
+            "id_string": "form_1",
+            "last_updated": null,
+            "metadata": Object {
+              "configuration_status": "correctly_configured",
+              "downloadable": true,
+              "owner": "kaznet",
+              "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+            },
+            "modified": "2018-06-21T12:15:23.170313+03:00",
+            "ona_pk": 1903,
+            "project_id": 4328,
+            "task_name": null,
+            "title": "Form 1",
+          },
+          "id": "1",
+          "type": "XForm",
+        },
+        "2": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.175198+03:00",
+            "deleted_at": null,
+            "has_task": false,
+            "id_string": "form_2",
+            "last_updated": null,
+            "metadata": Object {
+              "configuration_status": "correctly_configured",
+              "downloadable": false,
+              "owner": "kaznet",
+              "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+            },
+            "modified": "2018-06-21T12:15:23.175232+03:00",
+            "ona_pk": 6373,
+            "project_id": 5522,
+            "task_name": null,
+            "title": "Form 2",
+          },
+          "id": "2",
+          "type": "XForm",
+        },
+        "3": Object {
+          "attributes": Object {
+            "created": "2018-06-21T12:15:23.175198+03:00",
+            "deleted_at": null,
+            "has_task": true,
+            "id_string": "form_3",
+            "last_updated": null,
+            "metadata": Object {
+              "configuration_status": "members_cannot_submit",
+              "downloadable": true,
+              "owner": "kaznet",
+              "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+            },
+            "modified": "2018-06-21T12:15:23.175232+03:00",
+            "ona_pk": 6373,
+            "project_id": 5522,
+            "task_name": "Form 3 Task",
+            "title": "Form 3",
+          },
+          "id": "3",
+          "type": "XForm",
+        },
+      }
+    }
+    hasError={false}
     initialData={
       Object {
         "name": "Coconut Quest",
@@ -6304,7 +6450,8 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
         },
       }
     }
-    targetId={1337}
+    redirectAfterAction="/"
+    targetId="1337"
     unusedFormsById={
       Object {
         "1": Object {
@@ -9541,9 +9688,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
                         onClick={[Function]}
                         type="button"
                       >
-                         
                         Cancel
-                         
                       </button>
                     </Button>
                   </div>

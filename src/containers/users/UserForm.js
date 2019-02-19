@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { Formik } from "formik";
-import Yup from "yup";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { Alert, Form, FormGroup, Col, Input, Button, Label } from "reactstrap";
+import React, { Component } from 'react';
+import { Formik } from 'formik';
+import Yup from 'yup';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { Alert, Form, FormGroup, Col, Input, Button, Label } from 'reactstrap';
 
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
 
 const transformMyApiErrors = function(array) {
   const errors = {};
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
     const msg = element.detail;
-    const field = element.source.pointer.split("/").pop();
-    if (field === "username") {
+    const field = element.source.pointer.split('/').pop();
+    if (field === 'username') {
       errors.ona_username = msg;
     }
     errors[field] = msg;
@@ -33,17 +33,17 @@ export class UserForm extends Component {
   }
 
   getValidationSchema(values) {
-    let validator = {
-      ona_username: Yup.string().required("Username is required!"),
+    const validator = {
+      ona_username: Yup.string().required('Username is required!'),
       email: Yup.string()
-        .required("E-mail is required.")
-        .email("Please input a valid email address.")
+        .required('E-mail is required.')
+        .email('Please input a valid email address.')
     };
     if (!this.targetId) {
-      validator.password = Yup.string().required("Password is required.");
+      validator.password = Yup.string().required('Password is required.');
       validator.confirmation = Yup.string()
         .oneOf([values.password], "Passwords don't match!")
-        .required("Password confirmation is required!");
+        .required('Password confirmation is required!');
     }
     return Yup.object().shape(validator);
   }
@@ -82,7 +82,7 @@ export class UserForm extends Component {
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
-              type: "UserProfile",
+              type: 'UserProfile',
               id: this.targetId !== null ? this.targetId : null,
               attributes: {
                 first_name: values.first_name,
@@ -106,7 +106,7 @@ export class UserForm extends Component {
               if (this.props.hasError) {
                 setErrors(transformMyApiErrors(this.props.errorMessage));
               } else {
-                setStatus("done");
+                setStatus('done');
               }
             });
           } catch (error) {
@@ -137,11 +137,9 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.last_name}
-                    className={errors.last_name ? "is-invalid" : ""}
+                    className={errors.last_name ? 'is-invalid' : ''}
                   />
-                  {errors.last_name && (
-                    <div className="invalid-feedback">{errors.last_name}</div>
-                  )}
+                  {errors.last_name && <div className="invalid-feedback">{errors.last_name}</div>}
                 </Col>
                 <Col sm="6">
                   <Input
@@ -153,11 +151,9 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.first_name}
-                    className={errors.first_name ? "is-invalid" : ""}
+                    className={errors.first_name ? 'is-invalid' : ''}
                   />
-                  {errors.first_name && (
-                    <div className="invalid-feedback">{errors.first_name}</div>
-                  )}
+                  {errors.first_name && <div className="invalid-feedback">{errors.first_name}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -173,15 +169,13 @@ export class UserForm extends Component {
                     aria-label="role"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.role != null ? values.role : "1"}
-                    className={errors.role ? "is-invalid" : ""}
+                    value={values.role != null ? values.role : '1'}
+                    className={errors.role ? 'is-invalid' : ''}
                   >
                     <option value="2">Contributor</option>
                     <option value="1">Admin</option>
                   </Input>
-                  {errors.role && (
-                    <div className="invalid-feedback">{errors.role}</div>
-                  )}
+                  {errors.role && <div className="invalid-feedback">{errors.role}</div>}
                 </Col>
               </FormGroup>
 
@@ -197,13 +191,11 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.ona_username}
-                    className={errors.ona_username ? "is-invalid" : ""}
-                    disabled={this.targetId != null ? true : false}
+                    className={errors.ona_username ? 'is-invalid' : ''}
+                    disabled={this.targetId != null}
                   />
                   {errors.ona_username && (
-                    <div className="invalid-feedback">
-                      {errors.ona_username}
-                    </div>
+                    <div className="invalid-feedback">{errors.ona_username}</div>
                   )}
                 </Col>
               </FormGroup>
@@ -220,7 +212,7 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.national_id}
-                    className={errors.national_id ? "is-invalid" : ""}
+                    className={errors.national_id ? 'is-invalid' : ''}
                   />
                   {errors.national_id && (
                     <div className="invalid-feedback">{errors.national_id}</div>
@@ -242,13 +234,9 @@ export class UserForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
-                        className={errors.password ? "is-invalid" : ""}
+                        className={errors.password ? 'is-invalid' : ''}
                       />
-                      {errors.password && (
-                        <div className="invalid-feedback">
-                          {errors.password}
-                        </div>
-                      )}
+                      {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                     </Col>
                   </FormGroup>
                   <FormGroup className="row">
@@ -263,12 +251,10 @@ export class UserForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.confirmation}
-                        className={errors.confirmation ? "is-invalid" : ""}
+                        className={errors.confirmation ? 'is-invalid' : ''}
                       />
                       {errors.confirmation && (
-                        <div className="invalid-feedback">
-                          {errors.confirmation}
-                        </div>
+                        <div className="invalid-feedback">{errors.confirmation}</div>
                       )}
                     </Col>
                   </FormGroup>
@@ -290,16 +276,14 @@ export class UserForm extends Component {
                     aria-label="role"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.gender != null ? values.gender : "0"}
-                    className={errors.gender ? "is-invalid" : ""}
+                    value={values.gender != null ? values.gender : '0'}
+                    className={errors.gender ? 'is-invalid' : ''}
                   >
                     <option value="0">Male</option>
                     <option value="1">Female</option>
                     <option value="2">Other</option>
                   </Input>
-                  {errors.gender && (
-                    <div className="invalid-feedback">{errors.gender}</div>
-                  )}
+                  {errors.gender && <div className="invalid-feedback">{errors.gender}</div>}
                 </Col>
               </FormGroup>
 
@@ -315,11 +299,9 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.address}
-                    className={errors.address ? "is-invalid" : ""}
+                    className={errors.address ? 'is-invalid' : ''}
                   />
-                  {errors.address && (
-                    <div className="invalid-feedback">{errors.address}</div>
-                  )}
+                  {errors.address && <div className="invalid-feedback">{errors.address}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -335,17 +317,15 @@ export class UserForm extends Component {
                     aria-label="required expertise"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.expertise != null ? values.expertise : "1"}
-                    className={errors.required_expertise ? "is-invalid" : ""}
+                    value={values.expertise != null ? values.expertise : '1'}
+                    className={errors.required_expertise ? 'is-invalid' : ''}
                   >
                     <option value="1">Beginner</option>
                     <option value="2">Intermediate</option>
                     <option value="3">Advanced</option>
                     <option value="4">Expert</option>
                   </Input>
-                  {errors.expertise && (
-                    <div className="invalid-feedback">{errors.expertise}</div>
-                  )}
+                  {errors.expertise && <div className="invalid-feedback">{errors.expertise}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -360,12 +340,10 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
-                    className={errors.email ? "is-invalid" : ""}
-                    disabled={this.targetId != null ? true : false}
+                    className={errors.email ? 'is-invalid' : ''}
+                    disabled={this.targetId != null}
                   />
-                  {errors.email && (
-                    <div className="invalid-feedback">{errors.email}</div>
-                  )}
+                  {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                 </Col>
               </FormGroup>
               <FormGroup className="row">
@@ -381,12 +359,10 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.payment_number}
-                    className={errors.payment_number ? "is-invalid" : ""}
+                    className={errors.payment_number ? 'is-invalid' : ''}
                   />
                   {errors.payment_number && (
-                    <div className="invalid-feedback">
-                      {errors.payment_number}
-                    </div>
+                    <div className="invalid-feedback">{errors.payment_number}</div>
                   )}
                 </Col>
               </FormGroup>
@@ -403,12 +379,10 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.phone_number}
-                    className={errors.phone_number ? "is-invalid" : ""}
+                    className={errors.phone_number ? 'is-invalid' : ''}
                   />
                   {errors.phone_number && (
-                    <div className="invalid-feedback">
-                      {errors.phone_number}
-                    </div>
+                    <div className="invalid-feedback">{errors.phone_number}</div>
                   )}
                 </Col>
               </FormGroup>
@@ -418,11 +392,11 @@ export class UserForm extends Component {
                     className="btn btn-secondary btn-block"
                     aria-label="Cancel"
                     onClick={() => {
-                      setStatus("done");
+                      setStatus('done');
                     }}
                   >
-                    {" "}
-                    Cancel{" "}
+                    {' '}
+                    Cancel{' '}
                   </Button>
                 </Col>
                 <Col md={{ size: 5 }}>
@@ -432,12 +406,12 @@ export class UserForm extends Component {
                     aria-label="Save User"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Saving" : "Save User"}
+                    {isSubmitting ? 'Saving' : 'Save User'}
                   </Button>
                 </Col>
               </FormGroup>
             </Form>
-            {status === "done" && <Redirect to={"/users"} />}
+            {status === 'done' && <Redirect to="/users" />}
           </div>
         )}
       />

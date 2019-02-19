@@ -1,11 +1,11 @@
 // task reducer tests
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import { Reducer } from "redux-testkit";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import { Reducer } from 'redux-testkit';
 
-import tasks from "../reducer";
-import * as actionTypes from "../actionTypes";
-import * as fixtures from "./fixtures";
+import tasks from '../reducer';
+import * as actionTypes from '../actionTypes';
+import * as fixtures from './fixtures';
 
 const initialState = {
   tasksById: {},
@@ -19,7 +19,7 @@ const initialState = {
     prev: null,
     next: null
   },
-  status: ""
+  status: ''
 };
 
 const fullState = {
@@ -28,12 +28,12 @@ const fullState = {
   status: fixtures.getTaskStatus
 };
 
-describe("store/tasks/reducer", () => {
-  it("should have initial state", () => {
+describe('store/tasks/reducer', () => {
+  it('should have initial state', () => {
     expect(tasks()).toEqual(initialState);
   });
 
-  it("should store fetched single task in empty state", () => {
+  it('should store fetched single task in empty state', () => {
     const taskData = fixtures.singleTask;
     const action = { type: actionTypes.TASK_FETCHED, taskData };
 
@@ -47,7 +47,7 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store cloned task", () => {
+  it('should store cloned task', () => {
     const taskData = fixtures.singleTask;
     const action = { type: actionTypes.TASK_CLONED, taskData };
 
@@ -61,7 +61,7 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should change page", () => {
+  it('should change page', () => {
     const pageNumber = 2;
     const action = {
       type: actionTypes.TASK_CHANGE_PAGE,
@@ -77,12 +77,12 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store fetched tasks", () => {
-    const tasksById = fixtures.tasksById;
-    const pageLinks = fixtures.pageLinks;
-    const currentPage = fixtures.currentPage;
-    const totalPages = fixtures.totalPages;
-    const totalCount = fixtures.totalCount;
+  it('should store fetched tasks', () => {
+    const { tasksById } = fixtures;
+    const { pageLinks } = fixtures;
+    const { currentPage } = fixtures;
+    const { totalPages } = fixtures;
+    const { totalCount } = fixtures;
     const action = {
       type: actionTypes.TASKS_FETCHED,
       tasksById,
@@ -106,7 +106,7 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should store created task", () => {
+  it('should store created task', () => {
     const taskData = fixtures.singleTask;
     const action = { type: actionTypes.TASK_CREATED, taskData };
 
@@ -124,7 +124,7 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should add created task to store", () => {
+  it('should add created task to store', () => {
     const taskData = fixtures.singleTask;
     const action = { type: actionTypes.TASK_CREATED, taskData };
 
@@ -138,7 +138,7 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should add task status to store", () => {
+  it('should add task status to store', () => {
     const status = fixtures.getTaskStatus;
     const action = {
       type: actionTypes.TASK_STATUS,
@@ -155,8 +155,8 @@ describe("store/tasks/reducer", () => {
       .toReturnState(newState);
   });
 
-  it("should remove deleted task from store", () => {
-    const taskId = "10";
+  it('should remove deleted task from store', () => {
+    const taskId = '10';
     const action = { type: actionTypes.TASK_DELETED, taskId };
 
     const existingState = Immutable(fullState);

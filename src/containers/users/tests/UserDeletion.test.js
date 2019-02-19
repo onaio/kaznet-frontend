@@ -1,27 +1,27 @@
 // test UserDeletion
-import React from "react";
-import { shallow, mount } from "enzyme";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { UserDeletion } from "../UserDeletion";
+import { UserDeletion } from '../UserDeletion';
 
 const history = createBrowserHistory();
 
-describe("containers/users/UserDeletion", () => {
-  it("renders without crashing", () => {
+describe('containers/users/UserDeletion', () => {
+  it('renders without crashing', () => {
     shallow(
       <UserDeletion
         match={{
           params: {
-            id: "4"
+            id: '4'
           }
         }}
         deleteUser={function() {}}
       />
     );
   });
-  it("check if deleteUser works", () => {
+  it('check if deleteUser works', () => {
     const mockDeleteUser = jest.fn();
 
     const wrapper = mount(
@@ -29,7 +29,7 @@ describe("containers/users/UserDeletion", () => {
         <UserDeletion
           match={{
             params: {
-              id: "4"
+              id: '4'
             }
           }}
           fetchUser={function() {}}
@@ -37,7 +37,7 @@ describe("containers/users/UserDeletion", () => {
         />
       </Router>
     );
-    expect(mockDeleteUser.mock.calls[0][0]).toEqual("4");
+    expect(mockDeleteUser.mock.calls[0][0]).toEqual('4');
     expect(mockDeleteUser.mock.calls.length).toBe(1);
   });
 });

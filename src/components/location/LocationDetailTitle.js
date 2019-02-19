@@ -1,9 +1,9 @@
 // Renders the detail page title section
-import React, { Component } from "react";
-import { Row, Col, Modal, ModalHeader, ModalFooter, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Row, Col, Modal, ModalHeader, ModalFooter, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import "../page/DetailTitle.css";
+import '../page/DetailTitle.css';
 
 export default class LocationDetailTitle extends Component {
   constructor(props) {
@@ -29,17 +29,15 @@ export default class LocationDetailTitle extends Component {
             <h1 className="kaznet-detail-title">
               <Link to="/locations" className="kaznet-header-link">
                 Locations
-              </Link>{" "}
+              </Link>{' '}
               > {this.props.location.attributes.name}
             </h1>
             <Col md="12">
               <Row className="kaznet-action-links">
-                <Link
-                  to={`/locations/${this.props.location.id}/edit`}
-                  className="action-link"
-                >
+                <Link to={`/locations/${this.props.location.id}/edit`} className="action-link">
                   EDIT
-                </Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                </Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 {this.props.location.attributes.has_submissions === true && (
                   <div>
                     <p className="text-muted">DELETE LOCATION</p>
@@ -71,11 +69,7 @@ export default class LocationDetailTitle extends Component {
                         >
                           Delete Location
                         </Link>
-                        <Button
-                          color="secondary"
-                          onClick={this.toggle}
-                          aria-label="Cancel"
-                        >
+                        <Button color="secondary" onClick={this.toggle} aria-label="Cancel">
                           Cancel
                         </Button>
                       </ModalFooter>

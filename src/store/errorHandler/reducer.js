@@ -1,7 +1,7 @@
 // ErrorHandler reducer
-import Immutable from "seamless-immutable";
+import Immutable from 'seamless-immutable';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   errors: false,

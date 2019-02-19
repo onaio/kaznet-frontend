@@ -1,11 +1,11 @@
 // Test TaskCreation
-import React from "react";
-import { shallow } from "enzyme";
-import moment from "moment";
+import React from 'react';
+import { shallow } from 'enzyme';
+import moment from 'moment';
 
-import { TaskCreateForm } from "../TaskCreateForm";
-import FormView from "../../../components/FormView";
-import TaskForm from "../TaskForm";
+import { TaskCreateForm } from '../TaskCreateForm';
+import FormView from '../../../components/FormView';
+import TaskForm from '../TaskForm';
 import {
   TASK_DRAFT,
   ESTIMATED_TIME_INT,
@@ -14,31 +14,31 @@ import {
   TASK_LOCATION_START,
   BEGINNER,
   USER_SUBMISSION_TARGET
-} from "../../../constants";
+} from '../../../constants';
 
-describe("containers/task/TaskCreateForm", () => {
-  it("renders without crashing", () => {
+describe('containers/task/TaskCreateForm', () => {
+  it('renders without crashing', () => {
     shallow(<TaskCreateForm noTitle={function() {}} />);
   });
 
-  it("renders both Form View and TaskForm with correct Data", () => {
+  it('renders both Form View and TaskForm with correct Data', () => {
     const initialData = {
-      name: "",
+      name: '',
       estimated_time: ESTIMATED_TIME_INT,
-      start: moment().format("YYYY-MM-DD"),
-      end: moment().format("YYYY-MM-DD"),
-      description: "",
+      start: moment().format('YYYY-MM-DD'),
+      end: moment().format('YYYY-MM-DD'),
+      description: '',
       required_expertise: BEGINNER,
-      timing_rule: "",
+      timing_rule: '',
       status: TASK_DRAFT,
       user_submission_target: USER_SUBMISSION_TARGET,
-      amount: "",
+      amount: '',
       taskLocations: [
         {
           start: TASK_LOCATION_START,
           end: TASK_LOCATION_END,
           timing_rule: TASK_LOCATION_TIMING_RULE,
-          location: ""
+          location: ''
         }
       ]
     };

@@ -1,8 +1,8 @@
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   clientsById: {},
@@ -61,7 +61,7 @@ export default function reduce(state = initialState, action = {}) {
       });
     case types.CLIENT_DELETED:
       const newClientsById = _.omit(state.clientsById, action.clientId);
-      return state.set("clientsById", newClientsById);
+      return state.set('clientsById', newClientsById);
     default:
       return state;
   }

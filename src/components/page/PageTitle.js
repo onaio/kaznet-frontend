@@ -1,8 +1,8 @@
 // Renders the page title section
-import React, { Component } from "react";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import "./PageTitle.css";
+import React, { Component } from 'react';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import './PageTitle.css';
 import {
   Col,
   Row,
@@ -12,7 +12,7 @@ import {
   Input,
   Button,
   InputGroupText
-} from "reactstrap";
+} from 'reactstrap';
 
 export default class PageTitle extends Component {
   render() {
@@ -25,19 +25,10 @@ export default class PageTitle extends Component {
             <div>
               <h1>{this.props.pageTitle}</h1>
               <Row>
-                <Col
-                  md={
-                    this.props.pageTitleButton && this.props.pageTarget
-                      ? "9"
-                      : "12"
-                  }
-                >
+                <Col md={this.props.pageTitleButton && this.props.pageTarget ? '9' : '12'}>
                   <Form onSubmit={this.handleSubmit}>
                     <InputGroup className="search-group">
-                      <InputGroupAddon
-                        addonType="prepend"
-                        className="search-prepend"
-                      >
+                      <InputGroupAddon addonType="prepend" className="search-prepend">
                         <InputGroupText className="bg-white border-right-0">
                           <Button
                             color="deoco"
@@ -45,10 +36,7 @@ export default class PageTitle extends Component {
                             type="submit"
                             aria-label="Filter"
                           >
-                            <FontAwesomeIcon
-                              icon="search"
-                              className="filtersubmit"
-                            />
+                            <FontAwesomeIcon icon="search" className="filtersubmit" />
                           </Button>
                         </InputGroupText>
                       </InputGroupAddon>
@@ -60,9 +48,7 @@ export default class PageTitle extends Component {
                         aria-label="Search"
                         name="search"
                         onChange={this.handleChange}
-                        defaultValue={
-                          this.searchValue != null ? this.searchValue : ""
-                        }
+                        defaultValue={this.searchValue != null ? this.searchValue : ''}
                       />
                     </InputGroup>
                   </Form>
@@ -70,10 +56,7 @@ export default class PageTitle extends Component {
                 {this.props.pageTitleButton &&
                   this.props.pageTarget && (
                     <Col md="3">
-                      <Link
-                        to={this.props.pageTarget || "/"}
-                        className="btn btn-primary btn-lg"
-                      >
+                      <Link to={this.props.pageTarget || '/'} className="btn btn-primary btn-lg">
                         {this.props.pageTitleButton}
                       </Link>
                     </Col>

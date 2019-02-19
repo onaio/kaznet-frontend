@@ -1,8 +1,8 @@
 // LocationTypes reducer
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
-import * as types from "./actionTypes";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   locationTypesById: {},
@@ -59,11 +59,8 @@ export default function reduce(state = initialState, action = {}) {
         }
       });
     case types.LOCATIONTYPE_DELETED:
-      const newlocationTypesById = _.omit(
-        state.locationTypesById,
-        action.locationTypeId
-      );
-      return state.set("locationTypesById", newlocationTypesById);
+      const newlocationTypesById = _.omit(state.locationTypesById, action.locationTypeId);
+      return state.set('locationTypesById', newlocationTypesById);
     default:
       return state;
   }
@@ -80,12 +77,9 @@ export function getLocationTypesIdArray(state) {
 }
 
 export function getUnusedLocationTypesById(state) {
-  const locationTypes = _.filter(
-    state.locationTypes.locationTypesById,
-    locationType => {
-      return !locationType.attributes.has_task;
-    }
-  );
+  const locationTypes = _.filter(state.locationTypes.locationTypesById, locationType => {
+    return !locationType.attributes.has_task;
+  });
 
   const locationTypesById = _.keyBy(locationTypes, locationType => {
     return locationType.id;

@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { bindActionCreators } from "redux";
-import { Button } from "reactstrap";
-import Moment from "react-moment";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import qs from "qs";
-import "../LoadListAnimation.css";
-import * as userActions from "../../store/users/actions";
-import * as globalActions from "../../store/global/actions";
-import * as globalSelectors from "../../store/global/reducer";
-import * as userSelectors from "../../store/users/reducer";
-import * as constants from "../../constants.js";
-import NoResults from "../../components/NoResults";
-import ListView from "../../components/ListView";
-import ElementMap from "../ElementMap";
-import { withAlert } from "react-alert";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { Button } from 'reactstrap';
+import Moment from 'react-moment';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import qs from 'qs';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import '../LoadListAnimation.css';
+import * as userActions from '../../store/users/actions';
+import * as globalActions from '../../store/global/actions';
+import * as globalSelectors from '../../store/global/reducer';
+import * as userSelectors from '../../store/users/reducer';
+import * as constants from '../../constants';
+import NoResults from '../../components/NoResults';
+import ListView from '../../components/ListView';
+import ElementMap from '../ElementMap';
+import { withAlert } from 'react-alert';
 
 export class UsersList extends Component {
   constructor(props) {
@@ -41,14 +41,14 @@ export class UsersList extends Component {
   }
 
   setUserDetails(userId = null, userName = null) {
-    this.setState({ userId: userId, userName: userName });
+    this.setState({ userId, userName });
   }
 
   onFormSubmit(start, end, status) {
-    let filter_object = {
+    const filter_object = {
       userprofile: this.state.userId,
-      status: status,
-      format: "csv"
+      status,
+      format: 'csv'
     };
     filter_object[constants.FILTER_TIME_START] = start;
     filter_object[constants.FILTER_TIME_END] = end;
@@ -57,15 +57,15 @@ export class UsersList extends Component {
 
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.changePageTitle("Users");
-    this.props.changePageTitleButton("+ Create User");
-    this.props.changePageTarget("/users/new");
+    this.props.changePageTitle('Users');
+    this.props.changePageTitleButton('+ Create User');
+    this.props.changePageTarget('/users/new');
 
     let { search } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     this.props.searchVal(search);
     let pageNumber = Number(page);
@@ -85,7 +85,7 @@ export class UsersList extends Component {
   componentDidUpdate(prevProps) {
     let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
-      search = "";
+      search = '';
     }
     const { page } = qs.parse(this.props.location.search.slice(1));
     if (Number(page) !== this.props.currentPage && !isNaN(page)) {
@@ -105,13 +105,11 @@ export class UsersList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.userCount === null) {
+    if (this.props.searchParam !== '' && this.props.userCount === null) {
       return this.renderLoading();
     }
     if (this.props.userCount === 0) {
-      return (
-        <NoResults searchVal={this.props.searchParam} endpoint={"users"} />
-      );
+      return <NoResults searchVal={this.props.searchParam} endpoint="users" />;
     }
     if (this.props.rowsIdArray.length <= 0) return this.renderLoading();
     return (
@@ -121,7 +119,7 @@ export class UsersList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
-          endpoint={"users"}
+          endpoint="users"
           pageLinks={this.props.pageLinks}
           totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
@@ -153,13 +151,13 @@ export class UsersList extends Component {
 
   renderHeaders() {
     const headerItems = [
-      "Role",
-      "Username",
-      "Last Name",
-      "First Name",
-      "Submissions",
-      "Approved %",
-      "Last Active Date"
+      'Role',
+      'Username',
+      'Last Name',
+      'First Name',
+      'Submissions',
+      'Approved %',
+      'Last Active Date'
     ];
     return <ElementMap items={headerItems} HTMLTag="th" />;
   }
@@ -183,14 +181,11 @@ export class UsersList extends Component {
               setUserDetails(row.id, row.attributes.ona_username);
             }}
           >
-            <FontAwesomeIcon
-              icon="laptop"
-              className="fa-xs icon-link withspace"
-            />
+            <FontAwesomeIcon icon="laptop" className="fa-xs icon-link withspace" />
           </Button>
         )}
       </div>,
-      row.attributes.approval_rate * 100 + "%",
+      `${row.attributes.approval_rate * 100}%`,
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.last_login}
       </Moment>

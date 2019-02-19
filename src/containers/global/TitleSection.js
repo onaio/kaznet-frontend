@@ -1,10 +1,10 @@
 // Smart component that renders the page title section
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import * as globalSelectors from "../../store/global/reducer";
-import PageTitle from "../../components/page/PageTitle";
-import DetailPageTitle from "../../components/page/DetailTitle";
+import * as globalSelectors from '../../store/global/reducer';
+import PageTitle from '../../components/page/PageTitle';
+import DetailPageTitle from '../../components/page/DetailTitle';
 
 export class TitleSection extends Component {
   render() {
@@ -18,17 +18,16 @@ export class TitleSection extends Component {
             searchVal={this.props.searchParam}
           />
         );
-      } else {
-        return (
-          <DetailPageTitle
-            pageTitle={this.props.pageTitle}
-            detailName={this.props.detailName}
-            pageTarget={this.props.pageTarget}
-            actionLinks={this.props.actionLinks}
-            status={this.props.getStatus}
-          />
-        );
       }
+      return (
+        <DetailPageTitle
+          pageTitle={this.props.pageTitle}
+          detailName={this.props.detailName}
+          pageTarget={this.props.pageTarget}
+          actionLinks={this.props.actionLinks}
+          status={this.props.getStatus}
+        />
+      );
     }
     return null;
   }

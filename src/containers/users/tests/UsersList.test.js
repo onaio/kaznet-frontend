@@ -1,16 +1,16 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { UsersList } from "../UsersList";
-import * as fixtures from "../../../store/users/tests/fixtures";
+import { UsersList } from '../UsersList';
+import * as fixtures from '../../../store/users/tests/fixtures';
 
 const history = createBrowserHistory();
 
-describe("containers/users/UsersList", () => {
-  it("renders without crashing", () => {
+describe('containers/users/UsersList', () => {
+  it('renders without crashing', () => {
     shallow(
       <UsersList
         fetchUsers={function() {}}
@@ -20,8 +20,8 @@ describe("containers/users/UsersList", () => {
         changePageNumber={function() {}}
         showListTitle={function() {}}
         searchVal={function() {}}
-        searchParam={""}
-        taskStatus={""}
+        searchParam=""
+        taskStatus=""
         location={history.location}
         rowsIdArray={fixtures.usersIdArray}
         location={history.location}
@@ -29,7 +29,7 @@ describe("containers/users/UsersList", () => {
     );
   });
 
-  it("renders user list correctly", () => {
+  it('renders user list correctly', () => {
     const wrapper = mount(
       <Router history={history}>
         <UsersList
@@ -38,11 +38,11 @@ describe("containers/users/UsersList", () => {
           changePageTitleButton={function() {}}
           showListTitle={function() {}}
           searchVal={function() {}}
-          searchParam={""}
-          taskStatus={""}
+          searchParam=""
+          taskStatus=""
           rowsById={fixtures.usersById}
           rowsIdArray={fixtures.usersIdArray}
-          endpoint={"userprofiles"}
+          endpoint="userprofiles"
           pageLinks={fixtures.pageLinks}
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}

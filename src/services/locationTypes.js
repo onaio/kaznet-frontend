@@ -1,23 +1,21 @@
-import _ from "lodash";
-import Cookies from "js-cookie";
+import _ from 'lodash';
+import Cookies from 'js-cookie';
 
-import * as constants from "../constants";
+import * as constants from '../constants';
 
 class LocationTypeService {
   async getLocationTypeList(url = `${constants.API_ENDPOINT}/locationtypes/`) {
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
       throw new Error(
-        `LocationTypeService getLocationTypeList failed, HTTP status ${
-          response.status
-        }`
+        `LocationTypeService getLocationTypeList failed, HTTP status ${response.status}`
       );
     }
     const {
@@ -29,9 +27,7 @@ class LocationTypeService {
     } = await response.json();
 
     if (!data) {
-      throw new Error(
-        `LocationTypeService getLocationTypeList failed, data not returned`
-      );
+      throw new Error(`LocationTypeService getLocationTypeList failed, data not returned`);
     }
 
     const locationTypeArray = _.map(data, locationType => locationType);
@@ -48,32 +44,28 @@ class LocationTypeService {
   async createLocationType(locationType_data) {
     const url = `${constants.API_ENDPOINT}/locationtypes/`;
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(locationType_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
     if (!response.ok && response.status !== 400) {
       throw new Error(
-        `LocationTypeService createLocationType failed, HTTP status ${
-          response.status
-        }`
+        `LocationTypeService createLocationType failed, HTTP status ${response.status}`
       );
     }
     const apiResponse = await response.json();
     if (response.status === 400) {
       throw apiResponse.errors;
     }
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error(
-        `LocationTypeService createLocationType failed, data not returned`
-      );
+      throw new Error(`LocationTypeService createLocationType failed, data not returned`);
     }
 
     return data;
@@ -83,22 +75,20 @@ class LocationTypeService {
     const url = `${constants.API_ENDPOINT}/locationtypes/${id}/`;
 
     const response = await fetch(url, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
-        Accept: "application/vnd.api+json",
-        "content-type": "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       },
       body: JSON.stringify(locationType_data),
-      cache: "no-cache"
+      cache: 'no-cache'
     });
 
     if (!response.ok && response.status !== 400) {
       throw new Error(
-        `LocationTypeService editLocationType failed, HTTP status ${
-          response.status
-        }`
+        `LocationTypeService editLocationType failed, HTTP status ${response.status}`
       );
     }
 
@@ -108,11 +98,9 @@ class LocationTypeService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error(
-        "LocationTypeService editLocationType failed, data not returned"
-      );
+      throw new Error('LocationTypeService editLocationType failed, data not returned');
     }
 
     return data;
@@ -121,19 +109,17 @@ class LocationTypeService {
   async deleteLocationType(locationType_id) {
     const url = `${constants.API_ENDPOINT}/locationtypes/${locationType_id}/`;
     const response = await fetch(url, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        Accept: "application/vnd.api+json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Accept: 'application/vnd.api+json',
+        'X-CSRFToken': Cookies.get('csrftoken'),
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
       throw new Error(
-        `LocationTypeService deleteLocationType failed, HTTP status ${
-          response.status
-        }`
+        `LocationTypeService deleteLocationType failed, HTTP status ${response.status}`
       );
     }
 
@@ -141,23 +127,17 @@ class LocationTypeService {
   }
 
   async getLocationType(id) {
-    const url = `${
-      constants.API_ENDPOINT
-    }/locationtypes/${id}/?format=vnd.api%2Bjson`;
+    const url = `${constants.API_ENDPOINT}/locationtypes/${id}/?format=vnd.api%2Bjson`;
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/vnd.api+json",
+        Accept: 'application/vnd.api+json',
         Authorization: `Token ${constants.API_TOKEN}`
       }
     });
 
     if (!response.ok) {
-      throw new Error(
-        `LocationTypeService getLocationType failed, HTTP status ${
-          response.status
-        }`
-      );
+      throw new Error(`LocationTypeService getLocationType failed, HTTP status ${response.status}`);
     }
 
     const apiResponse = await response.json();
@@ -166,11 +146,9 @@ class LocationTypeService {
       throw apiResponse.errors;
     }
 
-    const data = _.get(apiResponse, "data");
+    const data = _.get(apiResponse, 'data');
     if (!data) {
-      throw new Error(
-        "LocationTypeService getLocationType failed, data not returned"
-      );
+      throw new Error('LocationTypeService getLocationType failed, data not returned');
     }
 
     return data;

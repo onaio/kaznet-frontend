@@ -1,19 +1,19 @@
 // This component renders a list using Bootstrap 4 tables
-import _ from "lodash";
-import React, { Component } from "react";
-import { Table, Pagination, PaginationItem } from "reactstrap";
-import { Link } from "react-router-dom";
-import * as constants from "../constants";
+import _ from 'lodash';
+import React, { Component } from 'react';
+import { Table, Pagination, PaginationItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import * as constants from '../constants';
 
-import ExportModal from "../components/ExportModal";
+import ExportModal from './ExportModal';
 
-import "./ListView.css";
+import './ListView.css';
 
 export default class ListView extends Component {
   render() {
     if (this.props.sortField) {
-      const sortField = this.props.sortField;
-      var sortOrder = constants.SORT_ASC;
+      const { sortField } = this.props;
+      let sortOrder = constants.SORT_ASC;
       if (this.props.sortOrder) {
         sortOrder = this.props.sortOrder;
       }
@@ -46,17 +46,15 @@ export default class ListView extends Component {
                 ? this.props.renderHeaders(
                     this.props.pageLinks.first
                       ? `/${this.props.endpoint}/?search=${
-                          !this.props.searchVal ||
-                          this.props.searchVal === undefined
-                            ? ""
+                          !this.props.searchVal || this.props.searchVal === undefined
+                            ? ''
                             : this.props.searchVal
                         }&page=${
-                          !this.props.firstPage ||
-                          typeof this.props.firstPage !== Number
+                          !this.props.firstPage || typeof this.props.firstPage !== Number
                             ? 1
                             : this.props.firstPage
                         }`
-                      : "#"
+                      : '#'
                   )
                 : this.props.renderHeaders()}
             </tr>
@@ -99,27 +97,22 @@ export default class ListView extends Component {
   renderPagination() {
     return (
       <Pagination aria-label="Kaznet listview">
-        <PaginationItem disabled={this.props.pageLinks.first ? false : true}>
+        <PaginationItem disabled={!this.props.pageLinks.first}>
           <Link
             to={
               this.props.pageLinks.first
                 ? `/${this.props.endpoint}/?search=${
                     !this.props.searchVal || this.props.searchVal === undefined
-                      ? ""
+                      ? ''
                       : this.props.searchVal
                   }&page=${
-                    !this.props.firstPage ||
-                    typeof this.props.firstPage !== Number
+                    !this.props.firstPage || typeof this.props.firstPage !== Number
                       ? 1
                       : this.props.firstPage
-                  }${
-                    this.props.taskStatus
-                      ? "&status=" + this.props.taskStatus
-                      : ""
-                  }${
-                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
+                  }${this.props.taskStatus ? `&status=${this.props.taskStatus}` : ''}${
+                    this.props.hasTask ? `&has_task=${this.props.hasTask}` : ''
                   }`
-                : "#"
+                : '#'
             }
             className="page-link"
             aria-label="First"
@@ -127,20 +120,16 @@ export default class ListView extends Component {
             First
           </Link>
         </PaginationItem>
-        <PaginationItem disabled={this.props.pageLinks.prev ? false : true}>
+        <PaginationItem disabled={!this.props.pageLinks.prev}>
           <Link
             to={
               this.props.pageLinks.prev
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal ? "" : this.props.searchVal
+                    !this.props.searchVal ? '' : this.props.searchVal
                   }&page=${this.props.currentPage - 1}${
-                    this.props.taskStatus
-                      ? "&status=" + this.props.taskStatus
-                      : ""
-                  }${
-                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
-                  }`
-                : "#"
+                    this.props.taskStatus ? `&status=${this.props.taskStatus}` : ''
+                  }${this.props.hasTask ? `&has_task=${this.props.hasTask}` : ''}`
+                : '#'
             }
             className="page-link"
             aria-label="Previous"
@@ -148,20 +137,16 @@ export default class ListView extends Component {
             &laquo;
           </Link>
         </PaginationItem>
-        <PaginationItem disabled={this.props.pageLinks.next ? false : true}>
+        <PaginationItem disabled={!this.props.pageLinks.next}>
           <Link
             to={
               this.props.pageLinks.next
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal ? "" : this.props.searchVal
+                    !this.props.searchVal ? '' : this.props.searchVal
                   }&page=${this.props.currentPage + 1}${
-                    this.props.taskStatus
-                      ? "&status=" + this.props.taskStatus
-                      : ""
-                  }${
-                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
-                  }`
-                : "#"
+                    this.props.taskStatus ? `&status=${this.props.taskStatus}` : ''
+                  }${this.props.hasTask ? `&has_task=${this.props.hasTask}` : ''}`
+                : '#'
             }
             className="page-link"
             aria-label="Next"
@@ -169,24 +154,20 @@ export default class ListView extends Component {
             &raquo;
           </Link>
         </PaginationItem>
-        <PaginationItem disabled={this.props.pageLinks.last ? false : true}>
+        <PaginationItem disabled={!this.props.pageLinks.last}>
           <Link
             to={
               this.props.pageLinks.last
                 ? `/${this.props.endpoint}/?search=${
-                    !this.props.searchVal ? "" : this.props.searchVal
+                    !this.props.searchVal ? '' : this.props.searchVal
                   }&page=${
                     !this.props.lastPage || this.props.lastPage === undefined
                       ? this.props.totalPages
                       : this.props.lastPage
-                  }${
-                    this.props.taskStatus
-                      ? "&status=" + this.props.taskStatus
-                      : ""
-                  }${
-                    this.props.hasTask ? "&has_task=" + this.props.hasTask : ""
+                  }${this.props.taskStatus ? `&status=${this.props.taskStatus}` : ''}${
+                    this.props.hasTask ? `&has_task=${this.props.hasTask}` : ''
                   }`
-                : "#"
+                : '#'
             }
             className="page-link"
             aria-label="Last"

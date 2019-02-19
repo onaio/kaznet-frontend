@@ -1,9 +1,9 @@
 // Locations reducer
-import _ from "lodash";
-import Immutable from "seamless-immutable";
-import qs from "qs";
+import _ from 'lodash';
+import Immutable from 'seamless-immutable';
+import qs from 'qs';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   locationsById: {},
@@ -63,7 +63,7 @@ export default function reduce(state = initialState, action = {}) {
       });
     case types.LOCATION_DELETED:
       const newLocationsById = _.omit(state.locationsById, action.locationId);
-      return state.set("locationsById", newLocationsById);
+      return state.set('locationsById', newLocationsById);
     default:
       return state;
   }

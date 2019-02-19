@@ -1,7 +1,7 @@
 // ContentTypes reducer
-import Immutable from "seamless-immutable";
+import Immutable from 'seamless-immutable';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
   contentTypesById: {},
@@ -26,10 +26,10 @@ export function getContentTypesById(state) {
 }
 
 export function getFormContentType(state) {
-  const contentTypesById = state.contentTypes.contentTypesById;
+  const { contentTypesById } = state.contentTypes;
 
   for (const [key, value] of Object.entries(contentTypesById)) {
-    if (value.attributes.model === "xform") {
+    if (value.attributes.model === 'xform') {
       return Number(key);
     }
   }

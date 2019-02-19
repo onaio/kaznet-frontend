@@ -1,18 +1,18 @@
 // Global reducer
-import Immutable from "seamless-immutable";
+import Immutable from 'seamless-immutable';
 
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = Immutable({
-  pageTitle: "Kaznet",
-  pageTitleButton: "Friendly Button",
-  pageTarget: "/",
+  pageTitle: 'Kaznet',
+  pageTitleButton: 'Friendly Button',
+  pageTarget: '/',
   noTitle: false,
   showDetail: false,
   detailName: null,
   actionLinks: [],
   detailStatus: null,
-  searchVal: "",
+  searchVal: '',
   pageVal: 1
 });
 

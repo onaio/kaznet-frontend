@@ -1,23 +1,23 @@
 // Test LocationDetail
-import React from "react";
-import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
-import { Router } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { LocationDetail } from "../LocationDetail";
-import * as fixtures from "../../../store/locations/tests/fixtures";
-import ErrorBoundary from "../../../components/ErrorBoundary";
+import { LocationDetail } from '../LocationDetail';
+import * as fixtures from '../../../store/locations/tests/fixtures';
+import ErrorBoundary from '../../../components/ErrorBoundary';
 
 const history = createBrowserHistory();
 
-describe("containers/location/LocationDetail", () => {
-  it("renders without crashing", () => {
+describe('containers/location/LocationDetail', () => {
+  it('renders without crashing', () => {
     shallow(
       <LocationDetail
         match={{
           params: {
-            id: "1"
+            id: '1'
           }
         }}
         fetchLocation={function() {}}
@@ -27,14 +27,14 @@ describe("containers/location/LocationDetail", () => {
     );
   });
 
-  it("renders detail page correctly without delete button", () => {
+  it('renders detail page correctly without delete button', () => {
     const wrapper = mount(
       <Router history={history}>
         <ErrorBoundary>
           <LocationDetail
             match={{
               params: {
-                id: "1"
+                id: '1'
               }
             }}
             fetchLocation={function() {}}
@@ -48,14 +48,14 @@ describe("containers/location/LocationDetail", () => {
     wrapper.unmount();
   });
 
-  it("renders detail page correctly with delete button", () => {
+  it('renders detail page correctly with delete button', () => {
     const wrapper = mount(
       <Router history={history}>
         <ErrorBoundary>
           <LocationDetail
             match={{
               params: {
-                id: "7"
+                id: '7'
               }
             }}
             fetchLocation={function() {}}

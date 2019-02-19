@@ -1,25 +1,25 @@
 // Smart component that renders the Task list view
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { bindActionCreators } from "redux";
-import Moment from "react-moment";
-import { Badge, DropdownItem } from "reactstrap";
-import qs from "qs";
-import * as taskActions from "../../store/tasks/actions";
-import * as globalActions from "../../store/global/actions";
-import * as taskSelectors from "../../store/tasks/reducer";
-import * as globalSelectors from "../../store/global/reducer";
-import * as errorHandlerSelectors from "../../store/errorHandler/reducer";
-import * as constants from "../../constants.js";
-import "../LoadListAnimation.css";
-import ListView from "../../components/ListView";
-import ElementMap from "../ElementMap";
-import FilterElementMap from "../FilterElementMap";
-import NoResults from "../../components/NoResults";
-import { withAlert } from "react-alert";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import Moment from 'react-moment';
+import { Badge, DropdownItem } from 'reactstrap';
+import qs from 'qs';
+import * as taskActions from '../../store/tasks/actions';
+import * as globalActions from '../../store/global/actions';
+import * as taskSelectors from '../../store/tasks/reducer';
+import * as globalSelectors from '../../store/global/reducer';
+import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as constants from '../../constants';
+import '../LoadListAnimation.css';
+import ListView from '../../components/ListView';
+import ElementMap from '../ElementMap';
+import FilterElementMap from '../FilterElementMap';
+import NoResults from '../../components/NoResults';
+import { withAlert } from 'react-alert';
 
-import "./TaskList.css";
+import './TaskList.css';
 
 export class TasksList extends Component {
   constructor(props) {
@@ -38,22 +38,22 @@ export class TasksList extends Component {
 
   async componentDidMount() {
     this.props.showListTitle();
-    this.props.changePageTitle("Tasks");
-    this.props.changePageTitleButton("+ Create Task");
-    this.props.changePageTarget("/tasks/new");
+    this.props.changePageTitle('Tasks');
+    this.props.changePageTitleButton('+ Create Task');
+    this.props.changePageTarget('/tasks/new');
 
     let { search } = qs.parse(this.props.location.search.slice(1));
     let { status } = qs.parse(this.props.location.search.slice(1));
     const { page } = qs.parse(this.props.location.search.slice(1));
 
     if (search === undefined) {
-      search = "";
+      search = '';
     }
 
     this.props.searchVal(search);
 
     if (status === undefined) {
-      status = "";
+      status = '';
     }
 
     this.props.getStatus(status);
@@ -73,13 +73,13 @@ export class TasksList extends Component {
   componentDidUpdate(prevProps) {
     let { search } = qs.parse(this.props.location.search.slice(1));
     if (search === undefined) {
-      search = "";
+      search = '';
     }
 
     let { status } = qs.parse(this.props.location.search.slice(1));
 
     if (status === undefined) {
-      status = "";
+      status = '';
     }
 
     const { page } = qs.parse(this.props.location.search.slice(1));
@@ -99,7 +99,7 @@ export class TasksList extends Component {
   }
 
   handleChange(e) {
-    const status = e.target.getAttribute("data-key");
+    const status = e.target.getAttribute('data-key');
     if (status === null) {
       this.setState({
         isOpen: !this.state.isOpen
@@ -111,7 +111,7 @@ export class TasksList extends Component {
     const url = this.getFetchURL(searchString, status, pageValue);
 
     this.props.fetchTasks(url);
-    this.props.getStatus(status !== "" ? status : "");
+    this.props.getStatus(status !== '' ? status : '');
     this.setState({
       isOpen: !this.state.isOpen
     });
@@ -119,7 +119,7 @@ export class TasksList extends Component {
   }
 
   render() {
-    if (this.props.searchParam !== "" && this.props.taskCount === null) {
+    if (this.props.searchParam !== '' && this.props.taskCount === null) {
       return this.renderLoading();
     }
     if (this.props.taskCount === 0) {
@@ -127,7 +127,7 @@ export class TasksList extends Component {
         <NoResults
           searchVal={this.props.searchParam}
           taskStatus={this.props.taskStatus}
-          endpoint={"tasks"}
+          endpoint="tasks"
         />
       );
     }
@@ -140,7 +140,7 @@ export class TasksList extends Component {
           rowsIdArray={this.props.rowsIdArray}
           rowsById={this.props.rowsById}
           renderRow={this.renderRow}
-          endpoint={"tasks"}
+          endpoint="tasks"
           pageLinks={this.props.pageLinks}
           totalPages={this.props.totalPages}
           currentPage={this.props.currentPage}
@@ -168,10 +168,10 @@ export class TasksList extends Component {
   }
 
   renderHeaders() {
-    const statusList = ["", ...constants.TASK_STATUSES];
+    const statusList = ['', ...constants.TASK_STATUSES];
 
     const statusArr = statusList.map(s => {
-      let status = "";
+      let status = '';
       switch (s) {
         case constants.TASK_ACTIVE:
           status = constants.ACTIVE;
@@ -195,29 +195,24 @@ export class TasksList extends Component {
           status = constants.ALL;
           break;
         default:
-          status = "";
+          status = '';
       }
 
       return (
-        <DropdownItem
-          className={`${s === this.props.taskStatus ? "active-task" : ""}`}
-          key={s}
-        >
+        <DropdownItem className={`${s === this.props.taskStatus ? 'active-task' : ''}`} key={s}>
           <Link
             to={
               this.props.pageLinks.first
                 ? `/tasks/?search=${
-                    !this.props.searchParam ||
-                    this.props.searchParam === undefined
-                      ? ""
+                    !this.props.searchParam || this.props.searchParam === undefined
+                      ? ''
                       : this.props.searchParam
-                  }&status=${!s || s === undefined ? "" : s}&page=${
-                    !this.props.firstPage ||
-                    typeof this.props.firstPage !== Number
+                  }&status=${!s || s === undefined ? '' : s}&page=${
+                    !this.props.firstPage || typeof this.props.firstPage !== Number
                       ? 1
                       : this.props.firstPage
                   }`
-                : "#"
+                : '#'
             }
             className="nav-link"
             key={s}
@@ -253,18 +248,13 @@ export class TasksList extends Component {
 
   renderRow(row) {
     const rowItems = [
-      <Badge
-        key={row.id}
-        className={"task-badge status-" + row.attributes.status}
-      >
+      <Badge key={row.id} className={`task-badge status-${row.attributes.status}`}>
         {row.attributes.status_display}
       </Badge>,
       <Link to={`/tasks/${row.id}`} key="link_to">
         {row.attributes.name}
       </Link>,
-      row.attributes.pending_submissions_count +
-        "/" +
-        row.attributes.submission_count,
+      `${row.attributes.pending_submissions_count}/${row.attributes.submission_count}`,
       <Moment key={row.id} format="DD-MM-YYYY">
         {row.attributes.start}
       </Moment>,
