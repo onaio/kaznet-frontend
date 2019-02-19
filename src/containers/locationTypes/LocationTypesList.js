@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import qs from 'qs';
 import { withAlert } from 'react-alert';
-import * as constants from '../../constants.js';
+import * as constants from '../../constants';
 import * as locationTypeActions from '../../store/locationTypes/actions';
 import * as locationTypeSelectors from '../../store/locationTypes/reducer';
 import * as globalActions from '../../store/global/actions';

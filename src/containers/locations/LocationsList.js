@@ -10,7 +10,7 @@ import * as locationSelectors from '../../store/locations/reducer';
 import * as globalActions from '../../store/global/actions';
 import * as globalSelectors from '../../store/global/reducer';
 import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
-import * as constants from '../../constants.js';
+import * as constants from '../../constants';
 import '../LoadListAnimation.css';
 import ListView from '../../components/ListView';
 import NoResults from '../../components/NoResults';

@@ -12,7 +12,7 @@ import * as userActions from '../../store/users/actions';
 import * as globalActions from '../../store/global/actions';
 import * as globalSelectors from '../../store/global/reducer';
 import * as userSelectors from '../../store/users/reducer';
-import * as constants from '../../constants.js';
+import * as constants from '../../constants';
 import NoResults from '../../components/NoResults';
 import ListView from '../../components/ListView';
 import ElementMap from '../ElementMap';

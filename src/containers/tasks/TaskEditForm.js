@@ -9,7 +9,7 @@ import * as taskSelectors from '../../store/tasks/reducer';
 import * as taskActions from '../../store/tasks/actions';
 import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
 import * as globalActions from '../../store/global/actions';
-import * as constants from '../../constants.js';
+import * as constants from '../../constants';
 
 export class TaskEditForm extends Component {
   componentDidMount() {
@@ -97,12 +97,12 @@ export class TaskEditForm extends Component {
       <FormView
         form={
           <TaskForm
-            initialData={initialData}
-            action={action}
-            targetId={this.props.match.params.id}
-            task={this.task}
-            redirectAfterAction={`/tasks/${this.task.id}`}
-          />
+  initialData={initialData}
+  action={action}
+  targetId={this.props.match.params.id}
+  task={this.task}
+  redirectAfterAction={`/tasks/${this.task.id}`}
+/>
         }
       />
     );

@@ -11,7 +11,7 @@ import * as globalActions from '../../store/global/actions';
 import * as taskSelectors from '../../store/tasks/reducer';
 import * as globalSelectors from '../../store/global/reducer';
 import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
-import * as constants from '../../constants.js';
+import * as constants from '../../constants';
 import '../LoadListAnimation.css';
 import ListView from '../../components/ListView';
 import ElementMap from '../ElementMap';

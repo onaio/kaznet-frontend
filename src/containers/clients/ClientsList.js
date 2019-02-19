@@ -10,7 +10,7 @@ import * as clientActions from '../../store/clients/actions';
 import * as clientSelectors from '../../store/clients/reducer';
 import * as globalSelectors from '../../store/global/reducer';
 import * as globalActions from '../../store/global/actions';
-import * as constants from '../../constants.js';
+import * as constants from '../../constants';
 import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
 import ListView from '../../components/ListView';
 import NoResults from '../../components/NoResults';
