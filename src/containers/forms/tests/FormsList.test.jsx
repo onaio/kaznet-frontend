@@ -10,19 +10,21 @@ import * as fixtures from '../../../store/forms/tests/fixtures';
 
 const history = createBrowserHistory();
 
+function emptyFunction() {}
+
 describe('containers/forms/FormsList', () => {
   it('renders without crashing', () => {
     shallow(
       <FormsList
-        fetchForms={function() {}}
-        getHasTask={function() {}}
-        changePageTitle={function() {}}
-        changePageTitleButton={function() {}}
-        changePageTarget={function() {}}
-        showListTitle={function() {}}
-        changePageNumber={function() {}}
+        fetchForms={emptyFunction}
+        getHasTask={emptyFunction}
+        changePageTitle={emptyFunction}
+        changePageTitleButton={emptyFunction}
+        changePageTarget={emptyFunction}
+        showListTitle={emptyFunction}
+        changePageNumber={emptyFunction}
         location={history.location}
-        searchVal={function() {}}
+        searchVal={emptyFunction}
         rowsIdArray={fixtures.formsIdArray}
       />
     );
@@ -35,12 +37,12 @@ describe('containers/forms/FormsList', () => {
     const wrapper = mount(
       <Router history={history}>
         <FormsList
-          fetchForms={function() {}}
-          getHasTask={function() {}}
-          changePageTitle={function() {}}
-          changePageTitleButton={function() {}}
-          changePageTarget={function() {}}
-          showListTitle={function() {}}
+          fetchForms={emptyFunction}
+          getHasTask={emptyFunction}
+          changePageTitle={emptyFunction}
+          changePageTitleButton={emptyFunction}
+          changePageTarget={emptyFunction}
+          showListTitle={emptyFunction}
           rowsById={fixtures.formsById}
           rowsIdArray={fixtures.formsIdArray}
           endpoint="forms"
@@ -48,9 +50,9 @@ describe('containers/forms/FormsList', () => {
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}
           firstPage={fixtures.firstPage}
-          changePageNumber={function() {}}
+          changePageNumber={emptyFunction}
           lastPage={fixtures.lastPage}
-          searchVal={function() {}}
+          searchVal={emptyFunction}
           searchParam={fixtures.searchParam}
           hasTask={undefined}
           location={history.location}
@@ -69,12 +71,12 @@ describe('containers/forms/FormsList', () => {
     const wrapper = mount(
       <Router history={history}>
         <FormsList
-          fetchForms={function() {}}
-          getHasTask={function() {}}
-          changePageTitle={function() {}}
-          changePageTitleButton={function() {}}
-          changePageTarget={function() {}}
-          showListTitle={function() {}}
+          fetchForms={emptyFunction}
+          getHasTask={emptyFunction}
+          changePageTitle={emptyFunction}
+          changePageTitleButton={emptyFunction}
+          changePageTarget={emptyFunction}
+          showListTitle={emptyFunction}
           rowsById={fixtures.formsById}
           rowsIdArray={fixtures.formsIdArray}
           endpoint="forms"
@@ -82,9 +84,9 @@ describe('containers/forms/FormsList', () => {
           totalPages={fixtures.totalPages}
           currentPage={fixtures.currentPage}
           firstPage={fixtures.firstPage}
-          changePageNumber={function() {}}
+          changePageNumber={emptyFunction}
           lastPage={fixtures.lastPage}
-          searchVal={function() {}}
+          searchVal={emptyFunction}
           searchParam={fixtures.searchParam}
           hasTask
           location={history.location}

@@ -61,6 +61,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
             "last_updated": null,
             "metadata": Object {
               "configuration_status": "correctly_configured",
+              "downloadable": true,
               "owner": "kaznet",
               "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
             },
@@ -82,6 +83,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
             "last_updated": null,
             "metadata": Object {
               "configuration_status": "correctly_configured",
+              "downloadable": false,
               "owner": "kaznet",
               "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
             },
@@ -103,6 +105,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
             "last_updated": null,
             "metadata": Object {
               "configuration_status": "members_cannot_submit",
+              "downloadable": true,
               "owner": "kaznet",
               "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
             },
@@ -160,6 +163,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                 "last_updated": null,
                 "metadata": Object {
                   "configuration_status": "correctly_configured",
+                  "downloadable": true,
                   "owner": "kaznet",
                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                 },
@@ -181,6 +185,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                 "last_updated": null,
                 "metadata": Object {
                   "configuration_status": "correctly_configured",
+                  "downloadable": false,
                   "owner": "kaznet",
                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                 },
@@ -202,6 +207,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                 "last_updated": null,
                 "metadata": Object {
                   "configuration_status": "members_cannot_submit",
+                  "downloadable": true,
                   "owner": "kaznet",
                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                 },
@@ -244,6 +250,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     items={
                       Array [
                         "Name",
+                        "Active",
                         <Dropdown
                           active={false}
                           addonType={false}
@@ -319,6 +326,11 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     </th>
                     <th
                       key="1"
+                    >
+                      Active
+                    </th>
+                    <th
+                      key="2"
                     >
                       <Dropdown
                         active={false}
@@ -468,7 +480,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                       </Dropdown>
                     </th>
                     <th
-                      key="2"
+                      key="3"
                     >
                       Last Modified
                     </th>
@@ -486,6 +498,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         <div>
                           Form 1
                       </div>,
+                        "true",
                         null,
                         <t
                           ago={false}
@@ -518,9 +531,14 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     </td>
                     <td
                       key="1"
-                    />
+                    >
+                      true
+                    </td>
                     <td
                       key="2"
+                    />
+                    <td
+                      key="3"
                     >
                       <t
                         ago={false}
@@ -557,6 +575,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         <div>
                           Form 2
                       </div>,
+                        "false",
                         null,
                         <t
                           ago={false}
@@ -589,9 +608,14 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     </td>
                     <td
                       key="1"
-                    />
+                    >
+                      false
+                    </td>
                     <td
                       key="2"
+                    />
+                    <td
+                      key="3"
                     >
                       <t
                         ago={false}
@@ -638,6 +662,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                                         "last_updated": null,
                                         "metadata": Object {
                                           "configuration_status": "members_cannot_submit",
+                                          "downloadable": true,
                                           "owner": "kaznet",
                                           "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                                         },
@@ -653,6 +678,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                               }
                           />
                       </div>,
+                        "true",
                         "Form 3 Task",
                         <t
                           ago={false}
@@ -692,6 +718,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                                 "last_updated": null,
                                 "metadata": Object {
                                   "configuration_status": "members_cannot_submit",
+                                  "downloadable": true,
                                   "owner": "kaznet",
                                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                                 },
@@ -779,10 +806,15 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                     <td
                       key="1"
                     >
-                      Form 3 Task
+                      true
                     </td>
                     <td
                       key="2"
+                    >
+                      Form 3 Task
+                    </td>
+                    <td
+                      key="3"
                     >
                       <t
                         ago={false}
@@ -992,6 +1024,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
             "last_updated": null,
             "metadata": Object {
               "configuration_status": "correctly_configured",
+              "downloadable": true,
               "owner": "kaznet",
               "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
             },
@@ -1013,6 +1046,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
             "last_updated": null,
             "metadata": Object {
               "configuration_status": "correctly_configured",
+              "downloadable": false,
               "owner": "kaznet",
               "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
             },
@@ -1034,6 +1068,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
             "last_updated": null,
             "metadata": Object {
               "configuration_status": "members_cannot_submit",
+              "downloadable": true,
               "owner": "kaznet",
               "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
             },
@@ -1092,6 +1127,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                 "last_updated": null,
                 "metadata": Object {
                   "configuration_status": "correctly_configured",
+                  "downloadable": true,
                   "owner": "kaznet",
                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                 },
@@ -1113,6 +1149,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                 "last_updated": null,
                 "metadata": Object {
                   "configuration_status": "correctly_configured",
+                  "downloadable": false,
                   "owner": "kaznet",
                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                 },
@@ -1134,6 +1171,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                 "last_updated": null,
                 "metadata": Object {
                   "configuration_status": "members_cannot_submit",
+                  "downloadable": true,
                   "owner": "kaznet",
                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                 },
@@ -1176,6 +1214,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     items={
                       Array [
                         "Name",
+                        "Active",
                         <Dropdown
                           active={false}
                           addonType={false}
@@ -1251,6 +1290,11 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     </th>
                     <th
                       key="1"
+                    >
+                      Active
+                    </th>
+                    <th
+                      key="2"
                     >
                       <Dropdown
                         active={false}
@@ -1400,7 +1444,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                       </Dropdown>
                     </th>
                     <th
-                      key="2"
+                      key="3"
                     >
                       Last Modified
                     </th>
@@ -1418,6 +1462,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                         <div>
                           Form 1
                       </div>,
+                        "true",
                         null,
                         <t
                           ago={false}
@@ -1450,9 +1495,14 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     </td>
                     <td
                       key="1"
-                    />
+                    >
+                      true
+                    </td>
                     <td
                       key="2"
+                    />
+                    <td
+                      key="3"
                     >
                       <t
                         ago={false}
@@ -1489,6 +1539,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                         <div>
                           Form 2
                       </div>,
+                        "false",
                         null,
                         <t
                           ago={false}
@@ -1521,9 +1572,14 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     </td>
                     <td
                       key="1"
-                    />
+                    >
+                      false
+                    </td>
                     <td
                       key="2"
+                    />
+                    <td
+                      key="3"
                     >
                       <t
                         ago={false}
@@ -1570,6 +1626,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                                         "last_updated": null,
                                         "metadata": Object {
                                           "configuration_status": "members_cannot_submit",
+                                          "downloadable": true,
                                           "owner": "kaznet",
                                           "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                                         },
@@ -1585,6 +1642,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                               }
                           />
                       </div>,
+                        "true",
                         "Form 3 Task",
                         <t
                           ago={false}
@@ -1624,6 +1682,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                                 "last_updated": null,
                                 "metadata": Object {
                                   "configuration_status": "members_cannot_submit",
+                                  "downloadable": true,
                                   "owner": "kaznet",
                                   "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
                                 },
@@ -1711,10 +1770,15 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                     <td
                       key="1"
                     >
-                      Form 3 Task
+                      true
                     </td>
                     <td
                       key="2"
+                    >
+                      Form 3 Task
+                    </td>
+                    <td
+                      key="3"
                     >
                       <t
                         ago={false}
