@@ -22,7 +22,16 @@ import * as locationSelectors from '../../store/locations/reducer';
 import * as formSelectors from '../../store/forms/reducer';
 import * as contentTypeSelectors from '../../store/contentTypes/reducer';
 import '../LoadListAnimation.css';
-import * as constants from '../../constants';
+import {
+  INACTIVE_XFORM_VALIDATION_MESSAGE,
+  API_ENDPOINT,
+  ASYNC_SEARCH_TIMEOUT,
+  XFORM_CORRECTLY_CONFIGURED,
+  ONA_LOGIN,
+  TASK_LOCATION_START,
+  TASK_LOCATION_END,
+  TASK_LOCATION_TIMING_RULE
+} from '../../constants';
 
 import '../LoadListAnimation.css';
 import './TaskForm.css';
@@ -73,10 +82,10 @@ export class TaskForm extends Component {
   }
 
   loadClientOptions = (inputValue, callback) => {
-    this.props.fetchClients(`${constants.API_ENDPOINT}/clients/?search=${inputValue}`);
+    this.props.fetchClients(`${API_ENDPOINT}/clients/?search=${inputValue}`);
     setTimeout(() => {
       callback(this.getClientOptions());
-    }, constants.ASYNC_SEARCH_TIMEOUT);
+    }, ASYNC_SEARCH_TIMEOUT);
   };
 
   getFormOptions() {
@@ -84,10 +93,10 @@ export class TaskForm extends Component {
   }
 
   loadFormOptions = (inputValue, callback) => {
-    this.props.fetchForms(`${constants.API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`);
+    this.props.fetchForms(`${API_ENDPOINT}/forms/?search=${inputValue}&has_task=false`);
     setTimeout(() => {
       callback(this.getFormOptions());
-    }, constants.ASYNC_SEARCH_TIMEOUT);
+    }, ASYNC_SEARCH_TIMEOUT);
   };
 
   getLocationOptions() {
@@ -95,10 +104,10 @@ export class TaskForm extends Component {
   }
 
   loadLocationOptions = (inputValue, callback) => {
-    this.props.fetchLocations(`${constants.API_ENDPOINT}/locations/?search=${inputValue}`);
+    this.props.fetchLocations(`${API_ENDPOINT}/locations/?search=${inputValue}`);
     setTimeout(() => {
       callback(this.getLocationOptions());
-    }, constants.ASYNC_SEARCH_TIMEOUT);
+    }, ASYNC_SEARCH_TIMEOUT);
   };
 
   validate(formsById) {
@@ -106,9 +115,10 @@ export class TaskForm extends Component {
       const errors = {};
       if (values.form) {
         const theForm = formsById[values.form.value];
-        if (
-          theForm.attributes.metadata.configuration_status !== constants.XFORM_CORRECTLY_CONFIGURED
-        ) {
+        if (theForm.attributes.metadata.downloadable === false) {
+          errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
+        }
+        if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
           errors.form = <MisconfiguredFormMessage />;
         }
       }
@@ -314,7 +324,7 @@ export class TaskForm extends Component {
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={constants.ONA_LOGIN}
+                      href={ONA_LOGIN}
                       className="kaznet-action-links"
                     >
                       <FontAwesomeIcon icon="external-link-alt" />
@@ -593,9 +603,9 @@ export class TaskForm extends Component {
                           aria-label="Add Locations"
                           onClick={() =>
                             arrayHelpers.push({
-                              start: constants.TASK_LOCATION_START,
-                              end: constants.TASK_LOCATION_END,
-                              timing_rule: constants.TASK_LOCATION_TIMING_RULE,
+                              start: TASK_LOCATION_START,
+                              end: TASK_LOCATION_END,
+                              timing_rule: TASK_LOCATION_TIMING_RULE,
                               location: ''
                             })
                           }
