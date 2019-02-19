@@ -24,15 +24,20 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
   }
 >
   <FormsList
+    alert={Object {}}
     changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
     currentPage={1}
     endpoint="forms"
+    errorMessage=""
     fetchForms={[Function]}
     firstPage={1}
+    formCount={null}
     getHasTask={[Function]}
+    hasError={false}
+    hasTask=""
     lastPage={2}
     location={
       Object {
@@ -50,6 +55,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
         "prev": null,
       }
     }
+    pageValue={1}
     rowsById={
       Object {
         "1": Object {
@@ -127,6 +133,8 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
         "3",
       ]
     }
+    searchParam=""
+    searchString=""
     searchVal={[Function]}
     showListTitle={[Function]}
     totalPages={2}
@@ -139,6 +147,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
         endpoint="forms"
         firstPage={1}
         handleChange={[Function]}
+        hasTask=""
         isFormPage={true}
         isOpen={false}
         lastPage={2}
@@ -229,6 +238,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
             "3",
           ]
         }
+        searchVal=""
         sortField="-modified"
         sortOrder="desc"
         totalPages={2}
@@ -986,16 +996,20 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
   }
 >
   <FormsList
+    alert={Object {}}
     changePageNumber={[Function]}
     changePageTarget={[Function]}
     changePageTitle={[Function]}
     changePageTitleButton={[Function]}
     currentPage={1}
     endpoint="forms"
+    errorMessage=""
     fetchForms={[Function]}
     firstPage={1}
+    formCount={null}
     getHasTask={[Function]}
-    hasTask={true}
+    hasError={false}
+    hasTask=""
     lastPage={2}
     location={
       Object {
@@ -1013,6 +1027,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
         "prev": null,
       }
     }
+    pageValue={1}
     rowsById={
       Object {
         "1": Object {
@@ -1090,6 +1105,8 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
         "3",
       ]
     }
+    searchParam=""
+    searchString=""
     searchVal={[Function]}
     showListTitle={[Function]}
     totalPages={2}
@@ -1102,7 +1119,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
         endpoint="forms"
         firstPage={1}
         handleChange={[Function]}
-        hasTask={true}
+        hasTask=""
         isFormPage={true}
         isOpen={false}
         lastPage={2}
@@ -1193,6 +1210,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
             "3",
           ]
         }
+        searchVal=""
         sortField="-modified"
         sortOrder="desc"
         totalPages={2}
@@ -1831,12 +1849,12 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                       aria-label="First"
                       className="page-link"
                       replace={false}
-                      to="/forms/?search=&page=1&has_task=true"
+                      to="/forms/?search=&page=1"
                     >
                       <a
                         aria-label="First"
                         className="page-link"
-                        href="/forms/?search=&page=1&has_task=true"
+                        href="/forms/?search=&page=1"
                         onClick={[Function]}
                       >
                         First
@@ -1879,12 +1897,12 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                       aria-label="Next"
                       className="page-link"
                       replace={false}
-                      to="/forms/?search=&page=2&has_task=true"
+                      to="/forms/?search=&page=2"
                     >
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="/forms/?search=&page=2&has_task=true"
+                        href="/forms/?search=&page=2"
                         onClick={[Function]}
                       >
                         »
@@ -1903,12 +1921,12 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                       aria-label="Last"
                       className="page-link"
                       replace={false}
-                      to="/forms/?search=&page=2&has_task=true"
+                      to="/forms/?search=&page=2"
                     >
                       <a
                         aria-label="Last"
                         className="page-link"
-                        href="/forms/?search=&page=2&has_task=true"
+                        href="/forms/?search=&page=2"
                         onClick={[Function]}
                       >
                         Last

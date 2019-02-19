@@ -12,6 +12,7 @@ exports[`components/forms/MisconfiguredForm renders the MisconfiguredForm compon
         "last_updated": null,
         "metadata": Object {
           "configuration_status": "members_cannot_submit",
+          "downloadable": true,
           "owner": "kaznet",
           "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
         },

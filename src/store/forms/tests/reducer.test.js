@@ -11,8 +11,8 @@ const initialState = {
   selectOptions: [],
   formsIdArray: [],
   unusedForms: [],
-  currentPage: null,
-  totalPages: null,
+  currentPage: 1,
+  totalPages: 1,
   totalCount: null,
   hasTask: '',
   pageLinks: {
