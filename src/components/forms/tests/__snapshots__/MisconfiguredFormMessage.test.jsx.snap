@@ -4,18 +4,16 @@ exports[`components/forms/MisconfiguredFormMessage renders the MisconfiguredForm
 <MisconfiguredFormMessage>
   <div>
     <p>
-      This form may not appear correctly in the 
+      This form may not appear correctly in the
       Kaznet
-       mobile app. Additionally, it
-       
+      mobile app. Additionally, it
       <strong>
         may not be possible to submit data
       </strong>
-       
       to this form. Please
-       
       <a
         href="https://ona.io"
+        rel="noopener noreferrer"
         target="_blank"
       >
         click this link to fix this form
