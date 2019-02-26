@@ -7,7 +7,6 @@ import qs from 'qs';
 import { Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import '../LoadListAnimation.css';
 import { withAlert } from 'react-alert';
 import * as formActions from '../../store/forms/actions';
 import * as formSelectors from '../../store/forms/reducer';
@@ -24,17 +23,7 @@ import ListView from '../../components/ListView';
 import NoResults from '../../components/NoResults';
 import ElementMap from '../ElementMap';
 import MisconfiguredForm from '../../components/forms/MisconfiguredForm';
-
-function renderLoading() {
-  return (
-    <center>
-      <div className="lds-ripple">
-        <div />
-        <div />
-      </div>
-    </center>
-  );
-}
+import Loading from '../../components/global/Loading';
 
 function renderRow(row) {
   const rowItems = [
@@ -197,12 +186,12 @@ export class FormsList extends Component {
     const { isOpen } = this.state;
 
     if (searchParam !== '' && formCount === null) {
-      return renderLoading();
+      return <Loading />;
     }
     if (formCount === 0) {
       return <NoResults searchVal={searchParam} endpoint="forms" />;
     }
-    if (rowsIdArray.length <= 0) return renderLoading();
+    if (rowsIdArray.length <= 0) return <Loading />;
     return (
       <div className="FormsList">
         <ListView

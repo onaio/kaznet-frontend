@@ -10,7 +10,7 @@ function MisconfiguredFormMessage() {
         {WEBSITE_NAME}
         mobile app. Additionally, it
         <strong>may not be possible to submit data</strong>
-        to this form. Please
+        to this form. Please&nbsp;
         <a href={`${ONA_WEBSITE}`} target="_blank" rel="noopener noreferrer">
           click this link to fix this form
         </a>

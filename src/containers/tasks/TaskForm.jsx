@@ -11,6 +11,7 @@ import { Redirect, Link } from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
+import Loading from '../../components/global/Loading';
 import MisconfiguredFormMessage from '../../components/forms/MisconfiguredFormMessage';
 import * as clientActions from '../../store/clients/actions';
 import * as locationActions from '../../store/locations/actions';
@@ -33,7 +34,6 @@ import {
   TASK_LOCATION_TIMING_RULE
 } from '../../constants';
 
-import '../LoadListAnimation.css';
 import './TaskForm.css';
 
 function transformMyApiErrors(array) {
@@ -71,17 +71,6 @@ function validate(formsById) {
     }
     return errors;
   };
-}
-
-function renderLoading() {
-  return (
-    <center>
-      <div className="lds-ripple">
-        <div />
-        <div />
-      </div>
-    </center>
-  );
 }
 
 export class TaskForm extends Component {
@@ -166,7 +155,7 @@ export class TaskForm extends Component {
       Object.keys(clientsById).length === 0 &&
       clientsById.constructor === Object
     )
-      return renderLoading();
+      return <Loading />;
     return (
       <Formik
         initialValues={initialData}
