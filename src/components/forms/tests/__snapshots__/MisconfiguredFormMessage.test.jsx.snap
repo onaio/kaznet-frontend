@@ -10,7 +10,7 @@ exports[`components/forms/MisconfiguredFormMessage renders the MisconfiguredForm
       <strong>
         may not be possible to submit data
       </strong>
-      to this form. Please
+      to this form. Please 
       <a
         href="https://ona.io"
         rel="noopener noreferrer"
