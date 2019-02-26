@@ -23,6 +23,7 @@ export class LocationEditForm extends Component {
     const action = locationActions.editLocation;
     const initialData = {
       name: this.location.attributes.name,
+      description: this.location.attributes.description,
       parent: this.location.relationships.parent.data
         ? {
             value: this.location.relationships.parent.data.id,
@@ -48,11 +49,11 @@ export class LocationEditForm extends Component {
       <FormView
         form={
           <LocationForm
-            action={action}
-            initialData={initialData}
-            targetId={this.props.match.params.id}
-            location={this.location}
-          />
+  action={action}
+  initialData={initialData}
+  targetId={this.props.match.params.id}
+  location={this.location}
+/>
         }
       />
     );
