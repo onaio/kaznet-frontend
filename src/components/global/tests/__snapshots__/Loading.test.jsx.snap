@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/global/Loading renders the Loading component 1`] = `
+<Loading>
+  <center>
+    <div
+      className="lds-ripple"
+    >
+      <div />
+      <div />
+    </div>
+  </center>
+</Loading>
+`;
