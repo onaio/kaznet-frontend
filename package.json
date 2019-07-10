@@ -14,6 +14,7 @@
     "history": "^4.7.2",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.10",
+    "mem": "4.0.0",
     "mockdate": "^2.0.2",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.23",
