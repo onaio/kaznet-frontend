@@ -8,7 +8,7 @@ function MisconfiguredFormMessage() {
       <p>
         This form may not appear correctly in the&nbsp;
         {WEBSITE_NAME}
-        &nbsp; mobile app. Additionally, it
+        &nbsp;mobile app. Additionally, it
         <strong>&nbsp;may not be possible to submit data&nbsp;</strong>
         to this form. Please&nbsp;
         <a href={`${ONA_WEBSITE}`} target="_blank" rel="noopener noreferrer">
