@@ -6,10 +6,10 @@ function MisconfiguredFormMessage() {
   return (
     <div>
       <p>
-        This form may not appear correctly in the
+        This form may not appear correctly in the&nbsp;
         {WEBSITE_NAME}
-        mobile app. Additionally, it
-        <strong>may not be possible to submit data</strong>
+        &nbsp;mobile app. Additionally, it
+        <strong>&nbsp;may not be possible to submit data&nbsp;</strong>
         to this form. Please&nbsp;
         <a href={`${ONA_WEBSITE}`} target="_blank" rel="noopener noreferrer">
           click this link to fix this form
