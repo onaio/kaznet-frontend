@@ -5,12 +5,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Alert, Form, FormGroup, Col, Input, Button, Label } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
 
 const transformMyApiErrors = function(array) {
   const errors = {};
-  for (let index = 0; index < array.length; index++) {
+  for (let index = 0; index < array.length; index += 1) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split('/').pop();
@@ -24,6 +25,10 @@ const transformMyApiErrors = function(array) {
 };
 
 export class UserForm extends Component {
+  static redirect(link) {
+    return <Redirect to={link} />;
+  }
+
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
@@ -48,7 +53,7 @@ export class UserForm extends Component {
     return Yup.object().shape(validator);
   }
 
-  getErrorsFromValidationError(validationError) {
+  static getErrorsFromValidationError(validationError) {
     const FIRST_ERROR = 0;
     return validationError.inner.reduce((errors, error) => {
       return {
@@ -70,14 +75,11 @@ export class UserForm extends Component {
     };
   }
 
-  redirect(link) {
-    return <Redirect to={link} />;
-  }
-
   render() {
+    const { initialData } = this.props;
     return (
       <Formik
-        initialValues={this.props.initialData}
+        initialValues={initialData}
         validate={this.validate(this.getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
@@ -101,10 +103,13 @@ export class UserForm extends Component {
           };
 
           try {
-            this.props.formActionDispatch(payload, this.targetId).then(() => {
+            const { errorMessage } = this.props;
+            const { hasError } = this.props;
+            const { formActionDispatch } = this.props;
+            formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
-              if (this.props.hasError) {
-                setErrors(transformMyApiErrors(this.props.errorMessage));
+              if (hasError) {
+                setErrors(transformMyApiErrors(errorMessage));
               } else {
                 setStatus('done');
               }
@@ -279,9 +284,9 @@ export class UserForm extends Component {
                     value={values.gender != null ? values.gender : '0'}
                     className={errors.gender ? 'is-invalid' : ''}
                   >
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
-                    <option value="2">Other</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="0">Other</option>
                   </Input>
                   {errors.gender && <div className="invalid-feedback">{errors.gender}</div>}
                 </Col>
@@ -395,8 +400,7 @@ export class UserForm extends Component {
                       setStatus('done');
                     }}
                   >
-                    {' '}
-                    Cancel{' '}
+                    Cancel
                   </Button>
                 </Col>
                 <Col md={{ size: 5 }}>
@@ -419,7 +423,24 @@ export class UserForm extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+UserForm.propTypes = {
+  targetId: PropTypes.number,
+  redirectAfterAction: PropTypes.string,
+  initialData: PropTypes.objectOf(PropTypes.string),
+  formActionDispatch: PropTypes.func.isRequired,
+  hasError: PropTypes.bool,
+  errorMessage: PropTypes.string
+};
+
+UserForm.defaultProps = {
+  targetId: null,
+  redirectAfterAction: '',
+  errorMessage: '',
+  hasError: false,
+  initialData: {}
+};
+
+function mapStateToProps(state) {
   return {
     hasError: errorHandlerSelectors.getHasError(state),
     errorMessage: errorHandlerSelectors.getErrorMessage(state)
