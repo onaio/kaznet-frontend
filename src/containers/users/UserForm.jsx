@@ -424,18 +424,20 @@ export class UserForm extends Component {
 }
 
 UserForm.propTypes = {
-  targetId: PropTypes.string,
-  redirectAfterAction: PropTypes.objectOf(PropTypes.object),
-  initialData: PropTypes.objectOf(PropTypes.string).isRequired,
+  targetId: PropTypes.number,
+  redirectAfterAction: PropTypes.string,
+  initialData: PropTypes.objectOf(PropTypes.string),
   formActionDispatch: PropTypes.func.isRequired,
-  hasError: PropTypes.bool.isRequired,
+  hasError: PropTypes.bool,
   errorMessage: PropTypes.string
 };
 
 UserForm.defaultProps = {
   targetId: null,
-  redirectAfterAction: null,
-  errorMessage: ''
+  redirectAfterAction: '',
+  errorMessage: '',
+  hasError: false,
+  initialData: {}
 };
 
 function mapStateToProps(state) {
