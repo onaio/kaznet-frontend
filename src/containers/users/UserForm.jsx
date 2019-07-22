@@ -70,7 +70,8 @@ export class UserForm extends Component {
         validationSchema.validateSync(values, { abortEarly: false });
         return {};
       } catch (error) {
-        return this.getErrorsFromValidationError(error);
+        this.test = '';
+        return UserForm.getErrorsFromValidationError(error);
       }
     };
   }
@@ -425,17 +426,19 @@ export class UserForm extends Component {
 
 UserForm.propTypes = {
   targetId: PropTypes.string,
-  redirectAfterAction: PropTypes.objectOf(PropTypes.object),
-  initialData: PropTypes.objectOf(PropTypes.string).isRequired,
+  redirectAfterAction: PropTypes.string,
+  initialData: PropTypes.objectOf(PropTypes.string),
   formActionDispatch: PropTypes.func.isRequired,
-  hasError: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string
+  hasError: PropTypes.bool,
+  errorMessage: PropTypes.arrayOf(PropTypes.object)
 };
 
 UserForm.defaultProps = {
-  targetId: null,
-  redirectAfterAction: null,
-  errorMessage: ''
+  targetId: '',
+  redirectAfterAction: '',
+  errorMessage: [],
+  hasError: false,
+  initialData: ''
 };
 
 function mapStateToProps(state) {
