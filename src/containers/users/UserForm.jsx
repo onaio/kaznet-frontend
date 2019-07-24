@@ -430,7 +430,10 @@ UserForm.propTypes = {
   initialData: PropTypes.objectOf(PropTypes.string),
   formActionDispatch: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
-  errorMessage: PropTypes.arrayOf(PropTypes.object)
+  errorMessage: PropTypes.oneOfType([
+    PropTypes.objectOf(PropTypes.object),
+    PropTypes.arrayOf(PropTypes.object)
+  ])
 };
 
 UserForm.defaultProps = {

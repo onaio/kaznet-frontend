@@ -2,7 +2,7 @@
 
 exports[`containers/users/UserForm renders user form correctly 1`] = `
 <UserForm
-  errorMessage=""
+  errorMessage={Array []}
   formActionDispatch={[Function]}
   hasError={false}
   initialData={
@@ -22,7 +22,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
     }
   }
   redirectAfterAction=""
-  targetId={null}
+  targetId=""
 >
   <Formik
     enableReinitialize={false}
@@ -1234,7 +1234,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
 
 exports[`containers/users/UserForm renders user form correctly when doing an edit 1`] = `
 <UserForm
-  errorMessage=""
+  errorMessage={Array []}
   formActionDispatch={[Function]}
   hasError={false}
   initialData={
