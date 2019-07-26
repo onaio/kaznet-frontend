@@ -29,6 +29,18 @@ export class UserForm extends Component {
     return <Redirect to={link} />;
   }
 
+  static validate(getValidationSchema) {
+    return values => {
+      const validationSchema = getValidationSchema(values);
+      try {
+        validationSchema.validateSync(values, { abortEarly: false });
+        return {};
+      } catch (error) {
+        return UserForm.getErrorsFromValidationError(error);
+      }
+    };
+  }
+
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
@@ -63,25 +75,12 @@ export class UserForm extends Component {
     }, {});
   }
 
-  validate(getValidationSchema) {
-    return values => {
-      const validationSchema = getValidationSchema(values);
-      try {
-        validationSchema.validateSync(values, { abortEarly: false });
-        return {};
-      } catch (error) {
-        this.test = '';
-        return UserForm.getErrorsFromValidationError(error);
-      }
-    };
-  }
-
   render() {
     const { initialData } = this.props;
     return (
       <Formik
         initialValues={initialData}
-        validate={this.validate(this.getValidationSchema)}
+        validate={UserForm.validate(this.getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
