@@ -29,6 +29,18 @@ export class UserForm extends Component {
     return <Redirect to={link} />;
   }
 
+  static validate(getValidationSchema) {
+    return values => {
+      const validationSchema = getValidationSchema(values);
+      try {
+        validationSchema.validateSync(values, { abortEarly: false });
+        return {};
+      } catch (error) {
+        return UserForm.getErrorsFromValidationError(error);
+      }
+    };
+  }
+
   constructor(props) {
     super(props);
     this.targetId = props.targetId || null;
@@ -63,24 +75,12 @@ export class UserForm extends Component {
     }, {});
   }
 
-  validate(getValidationSchema) {
-    return values => {
-      const validationSchema = getValidationSchema(values);
-      try {
-        validationSchema.validateSync(values, { abortEarly: false });
-        return {};
-      } catch (error) {
-        return this.getErrorsFromValidationError(error);
-      }
-    };
-  }
-
   render() {
     const { initialData } = this.props;
     return (
       <Formik
         initialValues={initialData}
-        validate={this.validate(this.getValidationSchema)}
+        validate={UserForm.validate(this.getValidationSchema)}
         onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
@@ -424,20 +424,23 @@ export class UserForm extends Component {
 }
 
 UserForm.propTypes = {
-  targetId: PropTypes.number,
+  targetId: PropTypes.string,
   redirectAfterAction: PropTypes.string,
   initialData: PropTypes.objectOf(PropTypes.string),
   formActionDispatch: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.oneOfType([
+    PropTypes.objectOf(PropTypes.object),
+    PropTypes.arrayOf(PropTypes.object)
+  ])
 };
 
 UserForm.defaultProps = {
-  targetId: null,
+  targetId: '',
   redirectAfterAction: '',
-  errorMessage: '',
+  errorMessage: [],
   hasError: false,
-  initialData: {}
+  initialData: ''
 };
 
 function mapStateToProps(state) {
