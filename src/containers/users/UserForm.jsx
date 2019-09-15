@@ -126,7 +126,8 @@ export class UserForm extends Component {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          setStatus
+          setStatus,
+          touched
         }) => (
           <div>
             {errors.data && <Alert color="danger">{errors.data}</Alert>}
@@ -196,7 +197,7 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.ona_username}
-                    className={errors.ona_username ? 'is-invalid' : ''}
+                    className={touched.ona_username && errors.ona_username ? 'is-invalid' : ''}
                     disabled={this.targetId != null}
                   />
                   {errors.ona_username && (
@@ -239,7 +240,7 @@ export class UserForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
-                        className={errors.password ? 'is-invalid' : ''}
+                        className={touched.password && errors.password ? 'is-invalid' : ''}
                       />
                       {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                     </Col>
@@ -256,7 +257,7 @@ export class UserForm extends Component {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.confirmation}
-                        className={errors.confirmation ? 'is-invalid' : ''}
+                        className={touched.confirmation && errors.confirmation ? 'is-invalid' : ''}
                       />
                       {errors.confirmation && (
                         <div className="invalid-feedback">{errors.confirmation}</div>
@@ -345,7 +346,7 @@ export class UserForm extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
-                    className={errors.email ? 'is-invalid' : ''}
+                    className={touched.email && errors.email ? 'is-invalid' : ''}
                     disabled={this.targetId != null}
                   />
                   {errors.email && <div className="invalid-feedback">{errors.email}</div>}
