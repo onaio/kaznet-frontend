@@ -62,10 +62,13 @@ function validate(formsById) {
     const errors = {};
     if (values.form) {
       const theForm = formsById[values.form.value];
-      if (theForm.attributes.metadata.downloadable === false) {
+      if (theForm && theForm.attributes.metadata.downloadable === false) {
         errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
       }
-      if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
+      if (
+        theForm &&
+        theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED
+      ) {
         errors.form = <MisconfiguredFormMessage />;
       }
     }
