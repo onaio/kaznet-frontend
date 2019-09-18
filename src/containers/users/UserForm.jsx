@@ -103,11 +103,11 @@ export class UserForm extends Component {
           };
 
           try {
-            const { errorMessage } = this.props;
-            const { hasError } = this.props;
             const { formActionDispatch } = this.props;
             formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
+              const { errorMessage } = this.props;
+              const { hasError } = this.props;
               if (hasError) {
                 setErrors(transformMyApiErrors(errorMessage));
               } else {
