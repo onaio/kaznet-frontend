@@ -35,6 +35,7 @@ export function fetchUsers(url = `${constants.API_ENDPOINT}/userprofiles/`) {
 export function createUser(user_data) {
   return async (dispatch, getState) => {
     try {
+      throw new Error();
       const userData = await userService.createUser(user_data);
       dispatch({ type: types.USER_CREATED, userData });
       dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });

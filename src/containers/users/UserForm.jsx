@@ -102,7 +102,9 @@ export class UserForm extends Component {
             }
           };
 
+          console.log("test");
           try {
+            
             const { formActionDispatch } = this.props;
             formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
