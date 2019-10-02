@@ -81,7 +81,7 @@ export class UserForm extends Component {
       <Formik
         initialValues={initialData}
         validate={UserForm.validate(this.getValidationSchema)}
-        onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
+        onSubmit={async (values, { setSubmitting, setErrors, setStatus }) => {
           const payload = {
             data: {
               type: 'UserProfile',
@@ -102,11 +102,9 @@ export class UserForm extends Component {
             }
           };
 
-          console.log("test");
           try {
-            
             const { formActionDispatch } = this.props;
-            formActionDispatch(payload, this.targetId).then(() => {
+            await formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
               const { errorMessage } = this.props;
               const { hasError } = this.props;
