@@ -1,23 +1,24 @@
-const response1 = {
+// eslint-disable-next-line import/prefer-default-export
+export const response1 = {
   errors: [
     {
-      detail: 'This email address is already in use. ',
+      detail: 'Profile with this National ID Number already exists.',
       source: {
-        pointer: '/data/attributes/email'
+        pointer: '/data/attributes/national_id'
       },
       status: '400'
     },
     {
-      detail: 'three already exists',
+      detail: 'Profile with this Ona Username already exists.',
       source: {
-        pointer: '/data/attributes/username'
+        pointer: '/data/attributes/ona_username'
       },
       status: '400'
     }
   ]
 };
 
-const response2 = {
+export const response2 = {
   data: {
     attributes: {
       address: null,
