@@ -6,7 +6,7 @@ import * as errorHandlerTypes from '../errorHandler/actionTypes';
 import * as constants from '../../constants';
 
 export function fetchUsers(url = `${constants.API_ENDPOINT}/userprofiles/`) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     try {
       const {
         userArray,
@@ -32,11 +32,10 @@ export function fetchUsers(url = `${constants.API_ENDPOINT}/userprofiles/`) {
   };
 }
 
-export function createUser(user_data) {
-  return async (dispatch, getState) => {
+export function createUser(userDataParam) {
+  return async dispatch => {
     try {
-      throw new Error();
-      const userData = await userService.createUser(user_data);
+      const userData = await userService.createUser(userDataParam);
       dispatch({ type: types.USER_CREATED, userData });
       dispatch({ type: errorHandlerTypes.REQUEST_SUCCESS });
     } catch (error) {
@@ -48,10 +47,10 @@ export function createUser(user_data) {
   };
 }
 
-export function editUser(user_data, id) {
-  return async (dispatch, getState) => {
+export function editUser(userDataParam, id) {
+  return async dispatch => {
     try {
-      const userData = await userService.editUser(user_data, id);
+      const userData = await userService.editUser(userDataParam, id);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
@@ -70,7 +69,7 @@ export function editUser(user_data, id) {
 
 // fetch a specific user
 export function fetchUser(id) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     try {
       const userData = await userService.getUser(id);
       dispatch({
@@ -90,16 +89,16 @@ export function fetchUser(id) {
 }
 
 export function changePageNumber(pageNumber) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     dispatch({ type: types.USER_CHANGE_PAGE, pageNumber });
   };
 }
 
 // delete user
-export function deleteUser(user_id) {
-  return async (dispatch, getState) => {
+export function deleteUser(userIdParam) {
+  return async dispatch => {
     try {
-      const userId = await userService.deleteUser(user_id);
+      const userId = await userService.deleteUser(userIdParam);
       dispatch({
         type: errorHandlerTypes.REQUEST_SUCCESS
       });
@@ -116,10 +115,10 @@ export function deleteUser(user_id) {
   };
 }
 
-export function exportSubmissions(filter_dict, name = null) {
-  return async (dispatch, getState) => {
+export function exportSubmissions(filterDict, name = null) {
+  return async dispatch => {
     try {
-      const file = await exportService.exportSubmissions(filter_dict, name);
+      const file = await exportService.exportSubmissions(filterDict, name);
       dispatch({
         type: types.FILE_EXPORTED,
         file
@@ -137,7 +136,7 @@ export function exportSubmissions(filter_dict, name = null) {
 }
 // fetch currently logged in user
 export function fetchLoggedInUser() {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     try {
       const userData = await userService.getLoggedInUser();
       dispatch({
