@@ -7,6 +7,7 @@ import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import toJson from 'enzyme-to-json';
 import { UserCreateForm } from '../UserCreateForm';
 import FormView from '../../../components/FormView';
 // eslint-disable-next-line import/no-named-as-default
@@ -100,5 +101,49 @@ describe('containers/task/TaskCreateForm', () => {
     ]);
     expect(setSubmitting.mock.calls).toEqual([[false]]);
     expect(setStatus).toHaveBeenCalledTimes(0);
+
+    wrapper.unmount();
+  });
+
+  it('Correct errors are shown only after form fields are touched and not before', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <UserCreateForm noTitle={function() {}} />
+      </Provider>
+    );
+
+    // we should not have any invalid feedback before we touch the form
+    expect(toJson(wrapper.find('.invalid-feedback'))).toEqual(null);
+
+    // valid email
+    wrapper
+      .find("input[name='email']")
+      .simulate('change', { target: { name: 'email', value: 'invalid email' } });
+    wrapper.update();
+
+    wrapper.find('form').simulate('submit');
+
+    // passwords must match
+    wrapper
+      .find("input[name='password']")
+      .simulate('change', { target: { name: 'password', value: 'password1' } });
+    wrapper
+      .find("input[name='confirmation']")
+      .simulate('change', { target: { name: 'password', value: 'password2' } });
+    wrapper.update();
+
+    expect(toJson(wrapper.find('.invalid-feedback'))).toMatchSnapshot('ivalid email and password');
+    wrapper.unmount();
+  });
+
+  it('ensure user can not submit without filling in required fields', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <UserCreateForm noTitle={function() {}} />
+      </Provider>
+    );
+    wrapper.find('form').simulate('submit');
+    expect(toJson(wrapper.find('.invalid-feedback'))).toMatchSnapshot('invalid feedback');
+    wrapper.unmount();
   });
 });
