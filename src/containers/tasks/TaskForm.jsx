@@ -159,7 +159,7 @@ export class TaskForm extends Component {
       <Formik
         initialValues={initialData}
         validate={validate(formsById)}
-        onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
+        onSubmit={async (values, { setSubmitting, setErrors, setStatus }) => {
           const locationsInput = values.taskLocations.map(d => ({
             location: d.location ? { type: 'Location', id: d.location.value } : undefined,
             timing_rule: d.timing_rule,
@@ -195,11 +195,10 @@ export class TaskForm extends Component {
           };
 
           try {
-            formActionDispatch(payload, this.targetId).then(() => {
+            await formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
               const { errorMessage } = this.props;
               const { hasError } = this.props;
-
               if (hasError) {
                 setErrors(transformMyApiErrors(errorMessage));
               } else {
@@ -771,7 +770,10 @@ TaskForm.propTypes = {
   formContentTypeId: PropTypes.number,
   targetId: PropTypes.string,
   hasError: PropTypes.bool,
-  errorMessage: PropTypes.arrayOf(PropTypes.object),
+  errorMessage: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.objectOf(PropTypes.object)
+  ]),
   clientOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   formOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   locationOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
