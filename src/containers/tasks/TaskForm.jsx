@@ -139,8 +139,6 @@ export class TaskForm extends Component {
       clientsById,
       initialData,
       formsById,
-      hasError,
-      errorMessage,
       formActionDispatch,
       formContentTypeId,
       formOptions,
@@ -198,6 +196,9 @@ export class TaskForm extends Component {
           try {
             formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
+              const { errorMessage } = this.props;
+              const { hasError } = this.props;
+
               if (hasError) {
                 setErrors(transformMyApiErrors(errorMessage));
               } else {
@@ -769,7 +770,7 @@ TaskForm.propTypes = {
   formContentTypeId: PropTypes.number,
   targetId: PropTypes.string,
   hasError: PropTypes.bool,
-  errorMessage: PropTypes.string,
+  errorMessage: PropTypes.arrayOf(PropTypes.object),
   clientOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   formOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   locationOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -787,7 +788,7 @@ TaskForm.defaultProps = {
   targetId: null,
   formContentTypeId: null,
   hasError: false,
-  errorMessage: '',
+  errorMessage: [],
   redirectAfterAction: '/'
 };
 
