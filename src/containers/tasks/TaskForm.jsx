@@ -38,7 +38,8 @@ import './TaskForm.css';
 
 function transformMyApiErrors(array) {
   const errors = {};
-  for (let index = 0; index < array.length; index + 1) {
+  // eslint-disable-next-line no-plusplus
+  for (let index = 0; index < array.length; index++) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split('/').pop();
