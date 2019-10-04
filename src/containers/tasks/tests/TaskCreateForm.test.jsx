@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
 import { ConnectedRouter, routerMiddleware, connectRouter } from 'connected-react-router';
-import toJson from 'enzyme-to-json';
 import { TaskCreateForm } from '../TaskCreateForm';
 import FormView from '../../../components/FormView';
 // eslint-disable-next-line import/no-named-as-default
@@ -146,8 +145,6 @@ describe('containers/task/TaskCreateForm', () => {
         }
       ]
     };
-
-    expect(toJson(wrapper)).toMatchSnapshot();
 
     await wrapper
       .find('Formik')
