@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable react/jsx-no-bind */
 // Test TaskCreation
 import React from 'react';
@@ -82,9 +83,6 @@ describe('containers/task/TaskCreateForm', () => {
     const setSubmitting = jest.fn();
     const setErrors = jest.fn();
     const setStatus = jest.fn();
-
-    // const temp = await fetch().then(response => response.json());
-    // expect(temp).toEqual({});
 
     await wrapper
       .find('Formik')
