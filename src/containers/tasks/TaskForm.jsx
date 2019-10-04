@@ -58,7 +58,7 @@ function transformMyApiErrors(array) {
   return errors;
 }
 
-export function validate(formsById) {
+function validate(formsById) {
   return values => {
     const errors = {};
     if (values.form && values.form.value) {

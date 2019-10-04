@@ -22,7 +22,6 @@ import {
   USER_SUBMISSION_TARGET
 } from '../../../constants';
 import {
-  successMessageFromTaskApi,
   errorReceivedFromApi,
   formlistApiResult,
   locationlistApi,
@@ -80,8 +79,7 @@ describe('containers/task/TaskCreateForm', () => {
       .once(JSON.stringify(resultsFromClientListApi), { status: 200 })
       .once(JSON.stringify(locationlistApi), { status: 200 })
       .once(JSON.stringify(contentTypeApiResults), { status: 200 })
-      .once(JSON.stringify(errorReceivedFromApi), { status: 400 })
-      .once(JSON.stringify(successMessageFromTaskApi), { status: 400 });
+      .once(JSON.stringify(errorReceivedFromApi), { status: 400 });
 
     store.dispatch({
       clientsById: {
@@ -163,5 +161,59 @@ describe('containers/task/TaskCreateForm', () => {
     expect(setStatus).toHaveBeenCalledTimes(0);
 
     wrapper.unmount();
+  });
+  it('TaskCreateForm does not crash when you backspace on the select form field', async () => {
+    fetch
+      .once(JSON.stringify(formlistApiResult), { status: 200 })
+      .once(JSON.stringify(resultsFromClientListApi), { status: 200 })
+      .once(JSON.stringify(locationlistApi), { status: 200 })
+      .once(JSON.stringify(contentTypeApiResults), { status: 200 })
+      .once(JSON.stringify(formlistApiResult), { status: 200 });
+
+    store.dispatch({
+      clientsById: {
+        '1': {
+          attributes: {
+            created: '2019-09-12T07:58:29.522037+03:00',
+            modified: '2019-09-12T07:58:29.522096+03:00',
+            name: 'frankline'
+          },
+          id: '1',
+          type: 'Client'
+        }
+      },
+      currentPage: 1,
+      pageLinks: {
+        first: 'http://127.0.0.1:8000/api/v1/clients/?page=1',
+        last: 'http://127.0.0.1:8000/api/v1/clients/?page=1',
+        next: null,
+        prev: null
+      },
+      selectOptions: [
+        {
+          label: 'frankline',
+          value: '1'
+        }
+      ],
+      totalCount: 1,
+      totalPages: 1,
+      type: 'clients.CLIENTS_FETCHED'
+    });
+
+    const wrapper = await mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <TaskCreateForm noTitle={function() {}} />
+        </ConnectedRouter>
+      </Provider>
+    );
+
+    const values = { form: [] };
+    expect(() =>
+      wrapper
+        .find('Formik')
+        .props()
+        .validate(values)
+    ).not.toThrow(new TypeError("Cannot read property 'attributes' of undefined"));
   });
 });
