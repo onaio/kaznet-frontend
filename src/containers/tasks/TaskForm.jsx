@@ -58,10 +58,10 @@ function transformMyApiErrors(array) {
   return errors;
 }
 
-function validate(formsById) {
+export function validate(formsById) {
   return values => {
     const errors = {};
-    if (values.form) {
+    if (values.form && values.form.value) {
       const theForm = formsById[values.form.value];
       if (theForm.attributes.metadata.downloadable === false) {
         errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
