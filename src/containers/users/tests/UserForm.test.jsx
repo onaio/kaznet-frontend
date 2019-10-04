@@ -26,7 +26,7 @@ describe('containers/users/UserForm', () => {
       <UserForm
         formActionDispatch={function() {}}
         initialData={fixtures.UserFormInitialData}
-        targetId={1337}
+        targetId="1337"
       />
     );
     expect(toJson(wrapper)).toMatchSnapshot();

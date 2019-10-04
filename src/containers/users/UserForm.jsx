@@ -441,7 +441,7 @@ UserForm.defaultProps = {
   redirectAfterAction: '',
   errorMessage: [],
   hasError: false,
-  initialData: ''
+  initialData: {}
 };
 
 function mapStateToProps(state) {
