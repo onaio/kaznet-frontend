@@ -44,7 +44,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
         },
       }
     }
-    errorMessage=""
+    errorMessage={Array []}
     fetchClients={[Function]}
     fetchContentTypes={[Function]}
     fetchForms={[Function]}
@@ -6261,7 +6261,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
         },
       }
     }
-    errorMessage=""
+    errorMessage={Array []}
     fetchClients={[Function]}
     fetchContentTypes={[Function]}
     fetchForms={[Function]}

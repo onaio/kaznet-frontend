@@ -1254,7 +1254,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
     }
   }
   redirectAfterAction=""
-  targetId={1337}
+  targetId="1337"
 >
   <Formik
     enableReinitialize={false}

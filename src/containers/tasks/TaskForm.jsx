@@ -38,7 +38,8 @@ import './TaskForm.css';
 
 function transformMyApiErrors(array) {
   const errors = {};
-  for (let index = 0; index < array.length; index + 1) {
+  // eslint-disable-next-line no-plusplus
+  for (let index = 0; index < array.length; index++) {
     const element = array[index];
     const msg = element.detail;
     const field = element.source.pointer.split('/').pop();
@@ -60,7 +61,7 @@ function transformMyApiErrors(array) {
 function validate(formsById) {
   return values => {
     const errors = {};
-    if (values.form) {
+    if (values.form && values.form.value) {
       const theForm = formsById[values.form.value];
       if (theForm.attributes.metadata.downloadable === false) {
         errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
@@ -139,8 +140,6 @@ export class TaskForm extends Component {
       clientsById,
       initialData,
       formsById,
-      hasError,
-      errorMessage,
       formActionDispatch,
       formContentTypeId,
       formOptions,
@@ -160,7 +159,7 @@ export class TaskForm extends Component {
       <Formik
         initialValues={initialData}
         validate={validate(formsById)}
-        onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
+        onSubmit={async (values, { setSubmitting, setErrors, setStatus }) => {
           const locationsInput = values.taskLocations.map(d => ({
             location: d.location ? { type: 'Location', id: d.location.value } : undefined,
             timing_rule: d.timing_rule,
@@ -196,8 +195,10 @@ export class TaskForm extends Component {
           };
 
           try {
-            formActionDispatch(payload, this.targetId).then(() => {
+            await formActionDispatch(payload, this.targetId).then(() => {
               setSubmitting(false);
+              const { errorMessage } = this.props;
+              const { hasError } = this.props;
               if (hasError) {
                 setErrors(transformMyApiErrors(errorMessage));
               } else {
@@ -769,7 +770,10 @@ TaskForm.propTypes = {
   formContentTypeId: PropTypes.number,
   targetId: PropTypes.string,
   hasError: PropTypes.bool,
-  errorMessage: PropTypes.string,
+  errorMessage: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.objectOf(PropTypes.object)
+  ]),
   clientOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   formOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   locationOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -787,7 +791,7 @@ TaskForm.defaultProps = {
   targetId: null,
   formContentTypeId: null,
   hasError: false,
-  errorMessage: '',
+  errorMessage: [],
   redirectAfterAction: '/'
 };
 
