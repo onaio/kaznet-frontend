@@ -68,7 +68,7 @@ function validate(formsById, fetchForm) {
         if (!theForm) {
           // Entire FormList is not loaded onto state at times
           // Especially in update cases as such we try to retrieve the form
-          // if not available formsById
+          // if not available in formsById
           resolve(fetchForm(values.form.value));
           theForm = formsById[values.form.value];
 
@@ -169,7 +169,6 @@ export class TaskForm extends Component {
     )
       return <Loading />;
 
-    // Check that the form related to the task(if present) is loaded into formsById
     return (
       <Formik
         initialValues={initialData}
