@@ -58,20 +58,32 @@ function transformMyApiErrors(array) {
   return errors;
 }
 
-function validate(formsById) {
-  return values => {
-    const errors = {};
-    if (values.form && values.form.value) {
-      const theForm = formsById[values.form.value];
-      if (theForm.attributes.metadata.downloadable === false) {
-        errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
+function validate(formsById, fetchForm) {
+  return values =>
+    new Promise(resolve => {
+      const errors = {};
+      if (values.form && values.form.value) {
+        let theForm = formsById[values.form.value];
+
+        if (!theForm) {
+          // Entire FormList is not loaded onto state at times
+          // Especially in update cases as such we try to retrieve the form
+          // if not available formsById
+          resolve(fetchForm(values.form.value));
+          theForm = formsById[values.form.value];
+
+          if (!theForm) errors.form = 'Could not retrieve form';
+        } else {
+          if (theForm.attributes.metadata.downloadable === false) {
+            errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
+          }
+          if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
+            errors.form = <MisconfiguredFormMessage />;
+          }
+        }
       }
-      if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
-        errors.form = <MisconfiguredFormMessage />;
-      }
-    }
-    return errors;
-  };
+      return errors;
+    });
 }
 
 export class TaskForm extends Component {
@@ -139,6 +151,7 @@ export class TaskForm extends Component {
       locationsById,
       clientsById,
       initialData,
+      fetchForm,
       formsById,
       formActionDispatch,
       formContentTypeId,
@@ -155,10 +168,12 @@ export class TaskForm extends Component {
       clientsById.constructor === Object
     )
       return <Loading />;
+
+    // Check that the form related to the task(if present) is loaded into formsById
     return (
       <Formik
         initialValues={initialData}
-        validate={validate(formsById)}
+        validate={validate(formsById, fetchForm)}
         onSubmit={async (values, { setSubmitting, setErrors, setStatus }) => {
           const locationsInput = values.taskLocations.map(d => ({
             location: d.location ? { type: 'Location', id: d.location.value } : undefined,
@@ -784,6 +799,7 @@ TaskForm.propTypes = {
   fetchClients: PropTypes.func.isRequired,
   fetchLocations: PropTypes.func.isRequired,
   fetchForms: PropTypes.func.isRequired,
+  fetchForm: PropTypes.func.isRequired,
   fetchContentTypes: PropTypes.func.isRequired
 };
 
@@ -817,6 +833,7 @@ function mapDispatchToProps(dispatch, ownProps) {
       fetchClients: clientActions.fetchClients,
       fetchLocations: locationActions.fetchLocations,
       fetchForms: formActions.fetchForms,
+      fetchForm: formActions.fetchForm,
       fetchContentTypes: contentTypeActions.fetchContentTypes
     },
     dispatch
