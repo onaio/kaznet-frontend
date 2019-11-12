@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import '../LoadListAnimation.css';
+// TODO: Change how we export components
+// eslint-disable-next-line import/no-named-as-default
 import TaskForm from './TaskForm';
 import FormView from '../../components/FormView';
 import * as taskSelectors from '../../store/tasks/reducer';
@@ -13,15 +16,36 @@ import * as constants from '../../constants';
 
 export class TaskEditForm extends Component {
   componentDidMount() {
-    this.props.fetchTask(this.props.match.params.id);
-    this.props.noTitle();
+    const { noTitle, fetchTask, match } = this.props;
+
+    // Assign to variables in the Components Scope
+    this.taskId = match.params.id;
+
+    fetchTask(match.params.id);
+    noTitle();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  renderLoading() {
+    return (
+      <center>
+        <div className="lds-ripple">
+          <div />
+          <div />
+        </div>
+      </center>
+    );
   }
 
   render() {
-    this.task = this.props.taskById;
+    // Check if task is present and set it
+    const { taskById } = this.props;
+    this.task = taskById;
+
     if (!this.task) {
       return this.renderLoading();
     }
+
     const action = taskActions.editTask;
     let { status } = this.task.attributes;
 
@@ -85,40 +109,48 @@ export class TaskEditForm extends Component {
                 label: taskLocationItem.location_name
               }
             }))
-          : {
-              start: constants.TASK_LOCATION_START,
-              end: constants.TASK_LOCATION_END,
-              timing_rule: constants.TASK_LOCATION_TIMING_RULE,
-              location: ''
-            }
+          : [
+              {
+                start: constants.TASK_LOCATION_START,
+                end: constants.TASK_LOCATION_END,
+                timing_rule: constants.TASK_LOCATION_TIMING_RULE,
+                location: ''
+              }
+            ]
     };
 
     return (
       <FormView
-        form={
+        // eslint-disable-next-line prettier/prettier
+        form={(
           <TaskForm
-  initialData={initialData}
-  action={action}
-  targetId={this.props.match.params.id}
-  task={this.task}
-  redirectAfterAction={`/tasks/${this.task.id}`}
-/>
-        }
+            initialData={initialData}
+            action={action}
+            targetId={this.taskId}
+            task={this.task}
+            redirectAfterAction={`/tasks/${this.task.id}`}
+          />
+          // eslint-disable-next-line prettier/prettier
+        )}
       />
     );
   }
-
-  renderLoading() {
-    return (
-      <center>
-        <div className="lds-ripple">
-          <div />
-          <div />
-        </div>
-      </center>
-    );
-  }
 }
+
+TaskEditForm.propTypes = {
+  noTitle: PropTypes.func.isRequired,
+  fetchTask: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.objectOf(PropTypes.string)
+  }).isRequired,
+  taskById: PropTypes.shape({
+    id: PropTypes.string
+  })
+};
+
+TaskEditForm.defaultProps = {
+  taskById: null
+};
 
 function mapStateToProps(state, props) {
   return {
