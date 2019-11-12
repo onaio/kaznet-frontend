@@ -474,7 +474,7 @@ export class TaskForm extends Component {
                                     defaultOptions={locationOptions.asMutable()}
                                     loadOptions={this.loadLocationOptions}
                                     onChange={value =>
-                                      setFieldValue(`taskLocations.${index}.location`, value)
+                                      setFieldValue(`taskLocations.${index}.location`, value || '')
                                     }
                                     isClearable
                                     cacheOptions
