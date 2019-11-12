@@ -126,7 +126,7 @@ export class TaskEditForm extends Component {
           <TaskForm
             initialData={initialData}
             action={action}
-            targetId={this.taskId}
+            targetId={this.task.id}
             task={this.task}
             redirectAfterAction={`/tasks/${this.task.id}`}
           />
