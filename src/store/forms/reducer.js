@@ -43,6 +43,14 @@ export default function reduce(state = initialState, action = {}) {
         ...state,
         hasTask: action.hasTask
       });
+    case types.FORM_FETCHED:
+      return Immutable({
+        ...state,
+        formsById: {
+          ...state.formsById,
+          [action.formData.id]: action.formData
+        }
+      });
     default:
       return state;
   }

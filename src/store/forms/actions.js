@@ -5,7 +5,7 @@ import formService from '../../services/forms';
 
 // get list of forms
 export function fetchForms(url) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     try {
       const {
         formArray,
@@ -40,7 +40,7 @@ export function fetchForms(url) {
 }
 
 export function changePageNumber(pageNumber) {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     dispatch({
       type: types.FORM_CHANGE_PAGE,
       pageNumber
@@ -54,5 +54,16 @@ export function getHasTask(hasTask) {
       type: types.FORM_HAS_TASK,
       hasTask
     });
+  };
+}
+
+export function fetchForm(id) {
+  return async dispatch => {
+    try {
+      const formData = await formService.getForm(id);
+      dispatch({ type: types.FORM_FETCHED, formData });
+    } catch (error) {
+      console.error(error);
+    }
   };
 }
