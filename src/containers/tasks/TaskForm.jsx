@@ -58,32 +58,24 @@ function transformMyApiErrors(array) {
   return errors;
 }
 
-function validate(formsById, fetchForm) {
-  return values =>
-    new Promise(resolve => {
-      const errors = {};
-      if (values.form && values.form.value) {
-        let theForm = formsById[values.form.value];
+function validate(formsById) {
+  return values => {
+    const errors = {};
+    if (values.form && values.form.value) {
+      const theForm = formsById[values.form.value];
 
-        if (!theForm) {
-          // Entire FormList is not loaded onto state at times
-          // Especially in update cases as such we try to retrieve the form
-          // if not available in formsById
-          resolve(fetchForm(values.form.value));
-          theForm = formsById[values.form.value];
-
-          if (!theForm) errors.form = 'Could not retrieve form';
-        } else {
-          if (theForm.attributes.metadata.downloadable === false) {
-            errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
-          }
-          if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
-            errors.form = <MisconfiguredFormMessage />;
-          }
+      if (theForm) {
+        if (theForm.attributes.metadata.downloadable === false) {
+          errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
+        }
+        if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
+          errors.form = <MisconfiguredFormMessage />;
         }
       }
-      return errors;
-    });
+    }
+
+    return errors;
+  };
 }
 
 export class TaskForm extends Component {
@@ -100,7 +92,21 @@ export class TaskForm extends Component {
   }
 
   componentDidMount() {
-    const { fetchForms, fetchClients, fetchLocations, fetchContentTypes } = this.props;
+    const {
+      fetchForm,
+      fetchForms,
+      fetchClients,
+      fetchLocations,
+      fetchContentTypes,
+      initialData
+    } = this.props;
+
+    if (initialData.form) {
+      if (initialData.form.value) {
+        fetchForm(initialData.form.value);
+      }
+    }
+
     fetchForms();
     fetchClients();
     fetchLocations();
@@ -151,7 +157,6 @@ export class TaskForm extends Component {
       locationsById,
       clientsById,
       initialData,
-      fetchForm,
       formsById,
       formActionDispatch,
       formContentTypeId,
@@ -172,7 +177,7 @@ export class TaskForm extends Component {
     return (
       <Formik
         initialValues={initialData}
-        validate={validate(formsById, fetchForm)}
+        validate={validate(formsById)}
         onSubmit={async (values, { setSubmitting, setErrors, setStatus }) => {
           const locationsInput = values.taskLocations.map(d => ({
             location: d.location ? { type: 'Location', id: d.location.value } : undefined,
