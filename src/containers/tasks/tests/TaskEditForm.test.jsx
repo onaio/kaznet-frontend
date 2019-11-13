@@ -6,7 +6,10 @@ import Immutable from 'seamless-immutable';
 import * as fixtures from '../../../store/tasks/tests/fixtures';
 import { TaskEditForm } from '../TaskEditForm';
 import FormView from '../../../components/FormView';
+// eslint-disable-next-line import/no-named-as-default
 import TaskForm from '../TaskForm';
+
+const emptyFunction = () => {};
 
 describe('containers/task/TaskEditForm', () => {
   it('renders without crashing', () => {
@@ -17,8 +20,8 @@ describe('containers/task/TaskEditForm', () => {
             id: '1'
           }
         }}
-        fetchTask={function() {}}
-        noTitle={function() {}}
+        fetchTask={emptyFunction}
+        noTitle={emptyFunction}
       />
     );
   });
@@ -34,8 +37,8 @@ describe('containers/task/TaskEditForm', () => {
             id: '1'
           }
         }}
-        fetchTask={function() {}}
-        noTitle={function() {}}
+        fetchTask={emptyFunction}
+        noTitle={emptyFunction}
         taskById={fixtures.singleTask}
       />
     ).dive();
