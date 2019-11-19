@@ -63,13 +63,17 @@ function validate(formsById) {
     const errors = {};
     if (values.form && values.form.value) {
       const theForm = formsById[values.form.value];
-      if (theForm.attributes.metadata.downloadable === false) {
-        errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
-      }
-      if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
-        errors.form = <MisconfiguredFormMessage />;
+
+      if (theForm) {
+        if (theForm.attributes.metadata.downloadable === false) {
+          errors.form = INACTIVE_XFORM_VALIDATION_MESSAGE;
+        }
+        if (theForm.attributes.metadata.configuration_status !== XFORM_CORRECTLY_CONFIGURED) {
+          errors.form = <MisconfiguredFormMessage />;
+        }
       }
     }
+
     return errors;
   };
 }
@@ -88,7 +92,21 @@ export class TaskForm extends Component {
   }
 
   componentDidMount() {
-    const { fetchForms, fetchClients, fetchLocations, fetchContentTypes } = this.props;
+    const {
+      fetchForm,
+      fetchForms,
+      fetchClients,
+      fetchLocations,
+      fetchContentTypes,
+      initialData
+    } = this.props;
+
+    if (initialData.form) {
+      if (initialData.form.value) {
+        fetchForm(initialData.form.value);
+      }
+    }
+
     fetchForms();
     fetchClients();
     fetchLocations();
@@ -155,6 +173,7 @@ export class TaskForm extends Component {
       clientsById.constructor === Object
     )
       return <Loading />;
+
     return (
       <Formik
         initialValues={initialData}
@@ -784,6 +803,7 @@ TaskForm.propTypes = {
   fetchClients: PropTypes.func.isRequired,
   fetchLocations: PropTypes.func.isRequired,
   fetchForms: PropTypes.func.isRequired,
+  fetchForm: PropTypes.func.isRequired,
   fetchContentTypes: PropTypes.func.isRequired
 };
 
@@ -817,6 +837,7 @@ function mapDispatchToProps(dispatch, ownProps) {
       fetchClients: clientActions.fetchClients,
       fetchLocations: locationActions.fetchLocations,
       fetchForms: formActions.fetchForms,
+      fetchForm: formActions.fetchForm,
       fetchContentTypes: contentTypeActions.fetchContentTypes
     },
     dispatch

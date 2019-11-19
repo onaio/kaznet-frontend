@@ -25,6 +25,7 @@ describe('containers/task/TaskForm', () => {
         fetchClients={emptyFunction}
         fetchLocations={emptyFunction}
         fetchForms={emptyFunction}
+        fetchForm={emptyFunction}
         fetchContentTypes={emptyFunction}
         locationsById={locationFixtures.locationsById}
         clientsById={clientFixtures.clientsById}
@@ -51,6 +52,7 @@ describe('containers/task/TaskForm', () => {
           fetchClients={emptyFunction}
           fetchLocations={emptyFunction}
           fetchForms={emptyFunction}
+          fetchForm={emptyFunction}
           fetchContentTypes={emptyFunction}
           unusedFormsById={forms}
           clientOptions={Immutable(clientFixtures.selectOptions)}
@@ -85,6 +87,7 @@ describe('containers/task/TaskForm', () => {
           fetchClients={emptyFunction}
           fetchLocations={emptyFunction}
           fetchForms={emptyFunction}
+          fetchForm={emptyFunction}
           fetchContentTypes={emptyFunction}
           unusedFormsById={forms}
           clientOptions={Immutable(clientFixtures.selectOptions)}
@@ -100,5 +103,61 @@ describe('containers/task/TaskForm', () => {
     );
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
+  });
+
+  it('fetches form attached to task if not in formsById', () => {
+    const initialData = {
+      name: 'Testing',
+      estimated_time: 5,
+      start: '2019-10-02',
+      end: '2020-11-17',
+      description: 'Hey',
+      required_expertise: '3',
+      timing_rule: '',
+      status: 'b',
+      user_submission_target: 1000,
+      amount: 0,
+      form: {
+        value: 999,
+        label: 'Testing'
+      },
+      client: {
+        value: '1',
+        label: 'Test'
+      },
+      taskLocations: [
+        {
+          start: '09:00:00',
+          end: '17:00:00',
+          timing_rule: 'FREQ=DAILY;INTERVAL=1;COUNT=1',
+          location: {
+            value: '1',
+            label: 'Kenya'
+          }
+        }
+      ]
+    };
+
+    const mockFetchForm = jest.fn();
+    shallow(
+      <TaskForm
+        formActionDispatch={emptyFunction}
+        fetchClients={emptyFunction}
+        fetchLocations={emptyFunction}
+        fetchForms={emptyFunction}
+        fetchForm={mockFetchForm}
+        fetchContentTypes={emptyFunction}
+        locationsById={locationFixtures.locationsById}
+        clientsById={clientFixtures.clientsById}
+        formsById={{}}
+        clientOptions={Immutable(clientFixtures.selectOptions)}
+        formOptions={Immutable(formFixtures.selectOptions)}
+        locationOptions={Immutable(locationFixtures.selectOptions)}
+        initialData={initialData}
+      />
+    );
+
+    expect(mockFetchForm.mock.calls.length).toBe(1);
+    expect(mockFetchForm.mock.calls[0][0]).toBe(999);
   });
 });

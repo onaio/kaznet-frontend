@@ -47,6 +47,7 @@ exports[`containers/task/TaskForm renders task form correctly 1`] = `
     errorMessage={Array []}
     fetchClients={[Function]}
     fetchContentTypes={[Function]}
+    fetchForm={[Function]}
     fetchForms={[Function]}
     fetchLocations={[Function]}
     formActionDispatch={[Function]}
@@ -6264,6 +6265,7 @@ exports[`containers/task/TaskForm renders task form correctly when doing an edit
     errorMessage={Array []}
     fetchClients={[Function]}
     fetchContentTypes={[Function]}
+    fetchForm={[Function]}
     fetchForms={[Function]}
     fetchLocations={[Function]}
     formActionDispatch={[Function]}

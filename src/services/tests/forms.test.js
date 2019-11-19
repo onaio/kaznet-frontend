@@ -1,4 +1,4 @@
-import formService from '../forms';
+import FormService from '../forms';
 
 import * as fixtures from '../../store/forms/tests/fixtures';
 
@@ -12,7 +12,7 @@ describe('services/forms', () => {
   it('should fetch forms', async () => {
     const data = fixtures.formData;
     fetch.mockResponseOnce(JSON.stringify(data));
-    const response = await formService.getFormList();
+    const response = await FormService.getFormList();
     const {
       links,
       meta: {
@@ -34,10 +34,17 @@ describe('services/forms', () => {
     fetch.mockResponseOnce(JSON.stringify({}), { status: 500 });
     let error;
     try {
-      await formService.getFormList();
+      await FormService.getFormList();
     } catch (e) {
       error = e;
     }
     expect(error).toEqual(new Error('FormService getFormList failed, HTTP status 500'));
+  });
+
+  it('should fetch task', async () => {
+    const data = fixtures.singleFormData;
+    fetch.mockResponseOnce(JSON.stringify(data));
+    const response = await FormService.getForm(1996);
+    expect(response).toEqual(fixtures.singleForm);
   });
 });

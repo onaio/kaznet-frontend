@@ -124,6 +124,66 @@ export const formDataSecondPage = {
   }
 };
 
+export const singleFormData = {
+  data: {
+    type: 'XForm',
+    id: '1996',
+    attributes: {
+      ona_pk: '99999',
+      ona_project_id: '99999',
+      last_updated: '2019-08-09T15:57:09.785788+03:00',
+      title: 'Form 2000',
+      id_string: 'form_2000',
+      version: '2019-08-09T15:30:48+03:00',
+      created: '2019-09-27T16:35:16.961442+03:00',
+      modified: '2019-11-13T11:40:17.001177+03:00',
+      deleted_at: null,
+      has_task: false,
+      task_name: null,
+      metadata: {
+        owner: 'test',
+        owner_url: 'https://127.0.0.1:8000/api/v1/users/test',
+        downloadable: false,
+        configuration_status: 'correctly_configured'
+      }
+    },
+    relationships: {
+      project: {
+        data: null
+      }
+    }
+  }
+};
+
+export const singleForm = {
+  type: 'XForm',
+  id: '1996',
+  attributes: {
+    ona_pk: '99999',
+    ona_project_id: '99999',
+    last_updated: '2019-08-09T15:57:09.785788+03:00',
+    title: 'Form 2000',
+    id_string: 'form_2000',
+    version: '2019-08-09T15:30:48+03:00',
+    created: '2019-09-27T16:35:16.961442+03:00',
+    modified: '2019-11-13T11:40:17.001177+03:00',
+    deleted_at: null,
+    has_task: false,
+    task_name: null,
+    metadata: {
+      owner: 'test',
+      owner_url: 'https://127.0.0.1:8000/api/v1/users/test',
+      downloadable: false,
+      configuration_status: 'correctly_configured'
+    }
+  },
+  relationships: {
+    project: {
+      data: null
+    }
+  }
+};
+
 export const formsArraySecondPage = _.map(formDataSecondPage.data, form => form);
 
 export const currentPage = formData.meta.pagination.page;
