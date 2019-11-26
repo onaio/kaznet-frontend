@@ -32,7 +32,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-rrule-generator": "^1.0.2",
-    "react-scripts": "1.1.4",
+    "react-scripts": "2.1.8",
     "react-select": "^2.0.0",
     "react-transition-group": "^2.4.0",
     "reactstrap": "^6.1.0",
@@ -47,7 +47,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "lint": "eslint src --ext js,jsx"
@@ -56,7 +56,6 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.4",
-    "eslint": "^5.14.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -80,5 +79,11 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
