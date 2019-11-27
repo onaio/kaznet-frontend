@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Moment from 'react-moment';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import '../LoadListAnimation.css';
 import * as taskSelectors from '../../store/tasks/reducer';
 import * as userActions from '../../store/users/actions';
@@ -15,87 +16,49 @@ import DetailView from '../../components/DetailView';
 import TaskDetailTitle from '../../components/tasks/TaskDetailTitle';
 import StatisticsSection from './StatisticsSection';
 import NestedElementMap from '../NestedElementMap';
-import './TasksDetail.css';
+import './TasksDetail.scss';
 
 export class TasksDetail extends Component {
-  componentDidMount() {
-    this.props.fetchTask(this.props.match.params.id);
-    this.props.noTitle();
-  }
-
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
-      start: undefined,
-      end: undefined,
-      status: undefined
+      modal: false
     };
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
+  componentDidMount() {
+    const { fetchTask, noTitle, match } = this.props;
+    fetchTask(match.params.id);
+    noTitle();
   }
 
   onFormSubmit(start, end, status) {
-    const filter_object = {
-      task: this.props.match.params.id,
+    const { match, taskById, exportSubmissions } = this.props;
+
+    const filterObject = {
+      task: match.params.id,
       status,
       format: 'csv'
     };
-    filter_object[constants.FILTER_TIME_START] = start;
-    filter_object[constants.FILTER_TIME_END] = end;
-    this.props.exportSubmissions(filter_object, this.props.taskById.attributes.name);
+    filterObject[constants.FILTER_TIME_START] = start;
+    filterObject[constants.FILTER_TIME_END] = end;
+    exportSubmissions(filterObject, taskById.attributes.name);
   }
 
-  render() {
-    let xformURL;
-    let xformTableURL;
-    this.task = this.props.taskById;
-    if (!this.task) return this.renderLoading();
-    const form_owner = this.task.attributes.xform_owner;
-    const form_projectid = this.task.attributes.xform_project_id;
-    const ona_id = this.task.attributes.xform_ona_id;
-    if (form_owner && form_projectid && ona_id) {
-      xformURL = `${constants.ONA_WEBSITE}/${this.task.attributes.xform_owner}/${
-        this.task.attributes.xform_project_id
-      }/${this.task.attributes.xform_ona_id}`;
-      xformTableURL = `${xformURL}#/table`;
-    } else {
-      xformURL = null;
-      xformTableURL = xformURL;
-    }
-    return (
-      <div className="TasksList">
-        <TaskDetailTitle task={this.task} />
-        <StatisticsSection
-          accepted={this.task.attributes.approved_submissions_count}
-          reward={this.task.attributes.total_bounty_payout}
-          review={this.task.attributes.pending_submissions_count}
-          rejected={this.task.attributes.rejected_submissions_count}
-          totalSubmissions={this.task.attributes.submission_count}
-          task={this.task}
-          formURL={xformTableURL}
-          downloadModalHandler={this.toggle}
-          modalState={this.state.modal}
-          onFormSubmit={this.onFormSubmit}
-          taskName={this.task.attributes.name}
-          xformTableURL={xformTableURL}
-        />
-        <DetailView
-          renderMainDetails={this.renderMainDetails(xformURL)}
-          renderAdditionalDetails={this.renderAdditionalDetails()}
-        />
-      </div>
-    );
+  toggle() {
+    const { modal } = this.state;
+
+    this.setState({
+      modal: !modal
+    });
   }
 
   renderLoading() {
-    if (!this.props.hasError) {
+    const { hasError, errorMessage } = this.props;
+
+    if (!hasError) {
       return (
         <center>
           <div className="lds-ripple">
@@ -105,12 +68,11 @@ export class TasksDetail extends Component {
         </center>
       );
     }
-    if (this.props.hasError) {
-      return <p> {this.props.errorMessage.message} </p>;
-    }
+
+    return <p>{errorMessage.message}</p>;
   }
 
-  renderMainDetails(xformURL) {
+  renderMainDetails() {
     const headerItems = {
       Description: this.task.attributes.description,
       Name: this.task.attributes.name,
@@ -118,19 +80,21 @@ export class TasksDetail extends Component {
       Form: this.task.attributes.xform_title
         ? [
             this.task.attributes.xform_title,
+            // eslint-disable-next-line react/jsx-indent
             <a
-            href={constants.ONA_LOGIN}
-            target="_blank"
-            key="form_link"
-            className="link withspace"
-          >
-            <FontAwesomeIcon
+              href={constants.ONA_LOGIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              key="form_link"
+              className="link withspace"
+            >
+              <FontAwesomeIcon
                 icon="external-link-alt"
                 className="fa-xs icon-link"
                 key="form_link_icon"
-              />{' '}
-              VIEW IN ONA
-          </a>
+              />
+              &nbsp;VIEW IN ONA
+            </a>
           ]
         : 'Not selected'
     };
@@ -138,6 +102,7 @@ export class TasksDetail extends Component {
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   renderLocations(locations) {
     return (
       <ul key={1} className="list-unstyled">
@@ -147,7 +112,7 @@ export class TasksDetail extends Component {
   }
 
   renderAdditionalDetails() {
-    const locations = this.task.attributes.task_locations.map(function(el) {
+    const locations = this.task.attributes.task_locations.map(el => {
       return `${el.location_name}`;
     });
 
@@ -168,7 +133,73 @@ export class TasksDetail extends Component {
 
     return <NestedElementMap detailitems={headerItems} HTMLTag="td" />;
   }
+
+  render() {
+    let xformURL;
+    let xformTableURL;
+
+    const { taskById } = this.props;
+    const { modal } = this.state;
+    this.task = taskById;
+
+    if (!this.task) return this.renderLoading();
+
+    const formOwner = this.task.attributes.xform_owner;
+    const projectID = this.task.attributes.xform_project_id;
+    const onaID = this.task.attributes.xform_ona_id;
+
+    if (formOwner && projectID && onaID) {
+      xformURL = `${constants.ONA_WEBSITE}/${formOwner}/${projectID}/${onaID}`;
+      xformTableURL = `${xformURL}#/table`;
+    } else {
+      xformURL = null;
+      xformTableURL = xformURL;
+    }
+
+    return (
+      <div className="TasksList">
+        <TaskDetailTitle task={this.task} />
+        <StatisticsSection
+          accepted={this.task.attributes.approved_submissions_count}
+          reward={this.task.attributes.total_bounty_payout}
+          review={this.task.attributes.pending_submissions_count}
+          rejected={this.task.attributes.rejected_submissions_count}
+          totalSubmissions={this.task.attributes.submission_count}
+          task={this.task}
+          formURL={xformTableURL}
+          downloadModalHandler={this.toggle}
+          modalState={modal}
+          onFormSubmit={this.onFormSubmit}
+          taskName={this.task.attributes.name}
+          xformTableURL={xformTableURL}
+        />
+        <DetailView
+          renderMainDetails={this.renderMainDetails()}
+          renderAdditionalDetails={this.renderAdditionalDetails()}
+        />
+      </div>
+    );
+  }
 }
+
+TasksDetail.propTypes = {
+  exportSubmissions: PropTypes.func.isRequired,
+  fetchTask: PropTypes.func.isRequired,
+  noTitle: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: {}
+  }).isRequired,
+  taskById: PropTypes.shape({
+    attributes: {}
+  }).isRequired,
+  hasError: PropTypes.bool,
+  errorMessage: PropTypes.string
+};
+
+TasksDetail.defaultProps = {
+  hasError: false,
+  errorMessage: ''
+};
 
 function mapStateToProps(state, props) {
   return {
@@ -190,7 +221,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TasksDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(TasksDetail);
