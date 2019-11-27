@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 /** Global Stuff **/
 .kaznet-root {
   max-width: 1470px;
@@ -14,25 +16,25 @@
 
 a,
 .page-link {
-  color: #711c27;
+  color: $primary-color;
 }
 
 a:hover,
 a:focus,
 .page-link:hover,
 .page-link:focus {
-  color: #932431;
+  color: $secondary-color;
 }
 
 .btn-primary {
-  background-color: #711c27;
-  border-color: #711c27;
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #932431;
-  border-color: #932431;
+  background-color: $secondary-color;
+  border-color: $secondary-color;
 }
 
 /** Navigation **/
@@ -57,7 +59,7 @@ a:focus,
 }
 
 .navbar-light .navbar-brand.logo {
-  color: #711c27;
+  color: $primary-color;
 }
 
 /** page title **/

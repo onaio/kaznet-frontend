@@ -20,6 +20,7 @@
     "mockdate": "^2.0.2",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.23",
+    "node-sass": "^4.13.0",
     "prop-types": "^15.6.2",
     "qs": "^6.5.2",
     "react": "^16.4.0",
