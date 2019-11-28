@@ -272,39 +272,39 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                         <Link
                           replace={false}
                           to="/users/1"
-                      >
+                        >
                           davisraym
-                      </Link>,
+                        </Link>,
                         "Raymond",
                         "Davis",
                         <div>
                           5
                           <Button
-                              aria-label="Export"
-                              className="mx-2 btn btn-sm btn-light white"
-                              color="secondary"
-                              onClick={[Function]}
-                              tag="button"
+                            aria-label="Export"
+                            className="mx-2 btn btn-sm btn-light white"
+                            color="secondary"
+                            onClick={[Function]}
+                            tag="button"
                           >
-                              <FontAwesomeIcon
-                                  border={false}
-                                  className="fa-xs icon-link withspace"
-                                  fixedWidth={false}
-                                  flip={null}
-                                  icon="laptop"
-                                  listItem={false}
-                                  mask={null}
-                                  name=""
-                                  pull={null}
-                                  pulse={false}
-                                  rotation={null}
-                                  size={null}
-                                  spin={false}
-                                  symbol={false}
-                                  transform={null}
-                              />
+                            <FontAwesomeIcon
+                              border={false}
+                              className="fa-xs icon-link withspace"
+                              fixedWidth={false}
+                              flip={null}
+                              icon="laptop"
+                              listItem={false}
+                              mask={null}
+                              name=""
+                              pull={null}
+                              pulse={false}
+                              rotation={null}
+                              size={null}
+                              spin={false}
+                              symbol={false}
+                              transform={null}
+                            />
                           </Button>
-                      </div>,
+                        </div>,
                         "0%",
                         <t
                           ago={false}
@@ -320,9 +320,9 @@ exports[`containers/users/UsersList renders user list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-19T16:03:22+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >

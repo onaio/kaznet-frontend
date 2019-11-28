@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .kaznet-table a {
   color: #222;
   font-weight: 700;
@@ -5,7 +7,7 @@
 
 .kaznet-table a:hover,
 .kaznet-table a:focus {
-  color: #711c27;
+  color: $primary-color;
   text-decoration: none;
 }
 

@@ -170,9 +170,9 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
                         <Link
                           replace={false}
                           to="/locationTypes/edit/2"
-                      >
+                        >
                           Hospital
-                      </Link>,
+                        </Link>,
                       ]
                     }
                   >
@@ -204,9 +204,9 @@ exports[`containers/locationTypes/LocationTypesList renders location list correc
                         <Link
                           replace={false}
                           to="/locationTypes/edit/1"
-                      >
+                        >
                           Market
-                      </Link>,
+                        </Link>,
                       ]
                     }
                   >

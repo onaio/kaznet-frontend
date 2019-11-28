@@ -33,23 +33,21 @@ exports[`containers/FilterElementMap renders tags correctly 1`] = `
             nav={false}
             setActiveFromChild={false}
             toggle={[Function]}
-      >
+          >
             <DropdownToggle
-                  aria-haspopup={true}
-                  caret={true}
-                  className="nav-link"
-                  color="secondary"
-                  tag="span"
+              aria-haspopup={true}
+              caret={true}
+              className="nav-link"
+              color="secondary"
+              tag="span"
             >
-                  filterFields
+              filterFields
             </DropdownToggle>
             <DropdownMenu
-                  flip={true}
-                  tag="div"
-            >
-                  
-            </DropdownMenu>
-      </Dropdown>,
+              flip={true}
+              tag="div"
+            />
+          </Dropdown>,
         ],
       ]
     }

@@ -1,6 +1,9 @@
+@import 'variables.scss';
+
 .statistics-data {
   width: 977px;
 }
+
 .kaznet-title-td {
   font-weight: bold;
 }
@@ -68,7 +71,7 @@
 }
 
 .icon-link {
-  color: #711c27;
+  color: $primary-color;
 }
 
 .link {

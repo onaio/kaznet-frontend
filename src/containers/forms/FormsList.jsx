@@ -53,6 +53,7 @@ export class FormsList extends Component {
       isOpen: false
     };
     this.handleChange = this.handleChange.bind(this);
+    this.renderHeaders = this.renderHeaders.bind(this);
   }
 
   async componentDidMount() {
@@ -140,10 +141,12 @@ export class FormsList extends Component {
   }
 
   renderHeaders(firstPageLink) {
+    const { isOpen } = this.state;
+
     const headerItems = [
       'Name',
       'Active',
-      <Dropdown isOpen={this.isOpen} toggle={this.handleChange} key="dropdown">
+      <Dropdown isOpen={isOpen} toggle={this.handleChange} key="dropdown">
         <DropdownToggle caret tag="span" className="nav-link">
           Task
         </DropdownToggle>
@@ -296,7 +299,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withAlert(FormsList));
+export default connect(mapStateToProps, mapDispatchToProps)(withAlert(FormsList));

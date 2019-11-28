@@ -1,7 +1,7 @@
 // This component
 import React from 'react';
 
-import './Loading.css';
+import './Loading.scss';
 
 function Loading() {
   return (

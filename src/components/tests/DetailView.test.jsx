@@ -8,7 +8,7 @@ import NestedElementMap from '../../containers/NestedElementMap';
 
 describe('components/DetailView', () => {
   it('renders without crashing', () => {
-    const renderMainDetails = function() {
+    const renderMainDetails = () => {
       const detailItems = {
         Name: 'Dave',
         Test: 'Testing'
@@ -16,7 +16,7 @@ describe('components/DetailView', () => {
       return <NestedElementMap detailitems={detailItems} HTMLTag="td" />;
     };
 
-    const renderAdditionalDetails = function() {
+    const renderAdditionalDetails = () => {
       const detailItems = {
         Gender: 'Male'
       };
@@ -25,14 +25,14 @@ describe('components/DetailView', () => {
 
     shallow(
       <DetailView
-        renderMainDetails={renderMainDetails}
-        renderAdditionalDetails={renderAdditionalDetails}
+        renderMainDetails={renderMainDetails()}
+        renderAdditionalDetails={renderAdditionalDetails()}
       />
     );
   });
 
   it('renders a view', () => {
-    const renderMainDetails = function() {
+    const renderMainDetails = () => {
       const detailItems = {
         Name: 'Dave',
         Test: 'Testing'
@@ -40,7 +40,7 @@ describe('components/DetailView', () => {
       return <NestedElementMap detailitems={detailItems} HTMLTag="td" />;
     };
 
-    const renderAdditionalDetails = function() {
+    const renderAdditionalDetails = () => {
       const detailItems = {
         Gender: 'Male'
       };

@@ -310,9 +310,9 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                         <Link
                           replace={false}
                           to="/locations/7"
-                      >
+                        >
                           Sol Point
-                      </Link>,
+                        </Link>,
                         null,
                         null,
                         "Something",
@@ -358,9 +358,9 @@ exports[`containers/locations/LocationList renders location list correctly 1`] =
                         <Link
                           replace={false}
                           to="/locations/1"
-                      >
+                        >
                           Nairobi
-                      </Link>,
+                        </Link>,
                         "None",
                         "None",
                         "Such Big City , Much wow",

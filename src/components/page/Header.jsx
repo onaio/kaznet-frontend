@@ -15,29 +15,39 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 import * as userSelectors from '../../store/users/reducer';
 import * as userActions from '../../store/users/actions';
 
-import profile_image from '../../images/profile.png';
+import profileImage from '../../images/profile.png';
+import * as constants from '../../constants';
 import './Header.css';
 
 export class Header extends Component {
-  componentDidMount() {
-    this.props.fetchLoggedInUser();
-  }
-
   constructor(props) {
     super(props);
 
     this.toggleLocation = this.toggleLocation.bind(this);
     this.toggleTask = this.toggleTask.bind(this);
     this.toggleUser = this.toggleUser.bind(this);
+    this.getAppName = this.getAppName.bind(this);
     this.state = {
       locationDropDownOpen: false,
       taskDropDownOpen: false,
       userDropDownOpen: false
     };
+  }
+
+  componentDidMount() {
+    const { fetchLoggedInUser } = this.props;
+    fetchLoggedInUser();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getAppName() {
+    if (constants.WEBSITE_NAME) return constants.WEBSITE_NAME.toUpperCase();
+    return 'CERANA';
   }
 
   toggleLocation() {
@@ -59,20 +69,23 @@ export class Header extends Component {
   }
 
   render() {
-    const path = this.props.location.pathname;
+    const { location, getCurrentUser } = this.props;
+    const path = location.pathname;
+
+    const { taskDropDownOpen, locationDropDownOpen, userDropDownOpen } = this.state;
 
     return (
       <header>
         <Container fluid>
           <Navbar light color="white" expand="md">
             <Link to="/" className="navbar-brand logo">
-              KAZNET
+              {this.getAppName()}
             </Link>
             <NavbarToggler />
             <Collapse navbar>
               <Nav navbar>
                 <NavItem>
-                  <Dropdown isOpen={this.state.taskDropDownOpen} toggle={this.toggleTask}>
+                  <Dropdown isOpen={taskDropDownOpen} toggle={this.toggleTask}>
                     <DropdownToggle
                       caret
                       tag="span"
@@ -102,7 +115,7 @@ export class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <Dropdown isOpen={this.state.locationDropDownOpen} toggle={this.toggleLocation}>
+                  <Dropdown isOpen={locationDropDownOpen} toggle={this.toggleLocation}>
                     <DropdownToggle
                       caret
                       tag="span"
@@ -136,39 +149,38 @@ export class Header extends Component {
               </Nav>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <Dropdown isOpen={this.state.userDropDownOpen} toggle={this.toggleUser} size="sm">
+                  <Dropdown isOpen={userDropDownOpen} toggle={this.toggleUser} size="sm">
                     <DropdownToggle tag="span" className="toggle-user">
                       <img
                         src={
-                          this.props.getCurrentUser &&
-                          this.props.getCurrentUser.attributes &&
-                          this.props.getCurrentUser.attributes.metadata.gravatar
-                            ? this.props.getCurrentUser.attributes.metadata.gravatar
-                            : profile_image
+                          getCurrentUser &&
+                          getCurrentUser.attributes &&
+                          getCurrentUser.attributes.metadata.gravatar
+                            ? getCurrentUser.attributes.metadata.gravatar
+                            : profileImage
                         }
                         className="img-fluid rounded-circle userprofile-img"
                         alt="profile"
                       />
                     </DropdownToggle>
-                    {this.props.getCurrentUser &&
-                      this.props.getCurrentUser.id && (
-                        <DropdownMenu right>
-                          <DropdownItem>
-                            <NavLink
-                              to={`/users/${this.props.getCurrentUser.id}`}
-                              className="nav-link"
-                              activeClassName="active"
-                            >
-                              View Profile
-                            </NavLink>
-                          </DropdownItem>
-                          <DropdownItem>
-                            <a href="/accounts/logout" className="nav-link">
-                              Log Out
-                            </a>
-                          </DropdownItem>
-                        </DropdownMenu>
-                      )}
+                    {getCurrentUser && getCurrentUser.id && (
+                      <DropdownMenu right>
+                        <DropdownItem>
+                          <NavLink
+                            to={`/users/${getCurrentUser.id}`}
+                            className="nav-link"
+                            activeClassName="active"
+                          >
+                            View Profile
+                          </NavLink>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a href="/accounts/logout" className="nav-link">
+                            Log Out
+                          </a>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    )}
                   </Dropdown>
                 </NavItem>
               </Nav>
@@ -180,7 +192,7 @@ export class Header extends Component {
   }
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     getCurrentUser: userSelectors.getCurrentUser(state)
   };
@@ -195,9 +207,19 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Header)
-);
+Header.propTypes = {
+  fetchLoggedInUser: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired,
+  getCurrentUser: PropTypes.shape({
+    id: PropTypes.number,
+    attributes: PropTypes.shape({
+      metadata: PropTypes.shape({
+        gravatar: PropTypes.string
+      })
+    })
+  }).isRequired
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
