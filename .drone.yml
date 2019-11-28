@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: node:10.4
+    image: node:10.16.3
     commands:
       - npm install yarn
       - yarn
