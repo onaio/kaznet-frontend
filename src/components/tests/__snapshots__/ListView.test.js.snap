@@ -27,6 +27,7 @@ exports[`components/ListView does not render pagination when totalPages <= 1 1`]
     currentPage={1}
     endpoint="http://127.0.0.1:8000/api/v1"
     firstPage={1}
+    lastPage={1}
     lastpage={1}
     pageLinks={
       Object {
@@ -50,6 +51,8 @@ exports[`components/ListView does not render pagination when totalPages <= 1 1`]
         "1",
       ]
     }
+    sortField={null}
+    sortOrder="asc"
     totalPages={1}
   >
     <div>
@@ -153,6 +156,7 @@ exports[`components/ListView renders a table 1`] = `
       currentPage={1}
       endpoint="http://127.0.0.1:8000/api/v1"
       firstPage={1}
+      lastPage={1}
       lastpage={2}
       pageLinks={
         Object {
@@ -177,6 +181,8 @@ exports[`components/ListView renders a table 1`] = `
         ]
       }
       searchVal="test"
+      sortField={null}
+      sortOrder="asc"
       taskStatus="2"
       totalPages={2}
     >
@@ -343,12 +349,12 @@ exports[`components/ListView renders a table 1`] = `
                     aria-label="Last"
                     className="page-link"
                     replace={false}
-                    to="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
+                    to="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                   >
                     <a
                       aria-label="Last"
                       className="page-link"
-                      href="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
+                      href="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                       onClick={[Function]}
                     >
                       Last
@@ -392,6 +398,7 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
     currentPage={1}
     endpoint="http://127.0.0.1:8000/api/v1"
     firstPage={1}
+    lastPage={1}
     lastpage={2}
     pageLinks={
       Object {
@@ -416,6 +423,8 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
       ]
     }
     searchVal="test"
+    sortField={null}
+    sortOrder="asc"
     taskStatus="2"
     totalPages={2}
   >
@@ -582,12 +591,12 @@ exports[`components/ListView renders pagination when totalPages > 1 1`] = `
                   aria-label="Last"
                   className="page-link"
                   replace={false}
-                  to="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
+                  to="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                 >
                   <a
                     aria-label="Last"
                     className="page-link"
-                    href="/http://127.0.0.1:8000/api/v1/?search=test&page=2&status=2"
+                    href="/http://127.0.0.1:8000/api/v1/?search=test&page=1&status=2"
                     onClick={[Function]}
                   >
                     Last

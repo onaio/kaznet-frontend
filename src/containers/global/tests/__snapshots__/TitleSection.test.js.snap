@@ -71,8 +71,7 @@ exports[`containers/global/TitleSection renders detail title correctly 1`] = `
                     onClick={[Function]}
                   />
                 </Link>
-                 
-                &gt; 
+                 &gt; 
               </h1>
               <p
                 className="kaznet-creation-detail"

@@ -71,8 +71,7 @@ exports[`components/page/DetailTitle renders header correctly 1`] = `
                   Kaznet
                 </a>
               </Link>
-               
-              &gt; 
+               &gt; 
               Testing!!!
               <Badge
                 className="kaznet-badge badge-active"

@@ -24,7 +24,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
   }
 >
   <TasksDetail
+    errorMessage=""
     fetchTask={[Function]}
+    hasError={false}
     match={
       Object {
         "params": Object {
@@ -271,8 +273,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       Tasks
                     </a>
                   </Link>
-                   
-                  &gt; 
+                   &gt; 
                   Kaznet
                   <Badge
                     className="kaznet-badge badge-active"
@@ -291,7 +292,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   className="kaznet-creation-detail"
                 >
                   Ona User
-                  , 
+                  , 
                   <t
                     ago={false}
                     calendar={false}
@@ -1105,9 +1106,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     unit={null}
                     unix={false}
                     utc={false}
-              >
+                  >
                     2018-07-10T12:00:00+03:00
-              </t>,
+                  </t>,
                   " to ",
                   <t
                     ago={false}
@@ -1123,22 +1124,22 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     unit={null}
                     unix={false}
                     utc={false}
-              >
+                  >
                     2020-07-10T12:00:00+03:00
-              </t>,
+                  </t>,
                 ],
                 "Locations": <ul
                   className="list-unstyled"
-              >
+                >
                   <ElementMap
-                      HTMLTag="li"
-                      items={
-                          Array [
-                              "undefined",
-                            ]
-                      }
+                    HTMLTag="li"
+                    items={
+                      Array [
+                        "undefined",
+                      ]
+                    }
                   />
-              </ul>,
+                </ul>,
                 "Minimum Contributor Level": "Beginner",
                 "Submission Limit": 10,
               }
@@ -1156,28 +1157,28 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                   <a
                     className="link withspace"
                     href="https://ona.io/login"
+                    rel="noopener noreferrer"
                     target="_blank"
-              >
+                  >
                     <FontAwesomeIcon
-                          border={false}
-                          className="fa-xs icon-link"
-                          fixedWidth={false}
-                          flip={null}
-                          icon="external-link-alt"
-                          listItem={false}
-                          mask={null}
-                          name=""
-                          pull={null}
-                          pulse={false}
-                          rotation={null}
-                          size={null}
-                          spin={false}
-                          symbol={false}
-                          transform={null}
+                      border={false}
+                      className="fa-xs icon-link"
+                      fixedWidth={false}
+                      flip={null}
+                      icon="external-link-alt"
+                      listItem={false}
+                      mask={null}
+                      name=""
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size={null}
+                      spin={false}
+                      symbol={false}
+                      transform={null}
                     />
-                     
-                    VIEW IN ONA
-              </a>,
+                     VIEW IN ONA
+                  </a>,
                 ],
                 "Name": "Kaznet",
                 "Unit Reward Amount": null,
@@ -1228,28 +1229,28 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           <a
                             className="link withspace"
                             href="https://ona.io/login"
+                            rel="noopener noreferrer"
                             target="_blank"
-                      >
+                          >
                             <FontAwesomeIcon
-                                  border={false}
-                                  className="fa-xs icon-link"
-                                  fixedWidth={false}
-                                  flip={null}
-                                  icon="external-link-alt"
-                                  listItem={false}
-                                  mask={null}
-                                  name=""
-                                  pull={null}
-                                  pulse={false}
-                                  rotation={null}
-                                  size={null}
-                                  spin={false}
-                                  symbol={false}
-                                  transform={null}
+                              border={false}
+                              className="fa-xs icon-link"
+                              fixedWidth={false}
+                              flip={null}
+                              icon="external-link-alt"
+                              listItem={false}
+                              mask={null}
+                              name=""
+                              pull={null}
+                              pulse={false}
+                              rotation={null}
+                              size={null}
+                              spin={false}
+                              symbol={false}
+                              transform={null}
                             />
-                             
-                            VIEW IN ONA
-                      </a>,
+                             VIEW IN ONA
+                          </a>,
                         ],
                         "Name": "Kaznet",
                         "Unit Reward Amount": null,
@@ -1391,28 +1392,28 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                               <a
                                 className="link withspace"
                                 href="https://ona.io/login"
+                                rel="noopener noreferrer"
                                 target="_blank"
-                          >
+                              >
                                 <FontAwesomeIcon
-                                      border={false}
-                                      className="fa-xs icon-link"
-                                      fixedWidth={false}
-                                      flip={null}
-                                      icon="external-link-alt"
-                                      listItem={false}
-                                      mask={null}
-                                      name=""
-                                      pull={null}
-                                      pulse={false}
-                                      rotation={null}
-                                      size={null}
-                                      spin={false}
-                                      symbol={false}
-                                      transform={null}
+                                  border={false}
+                                  className="fa-xs icon-link"
+                                  fixedWidth={false}
+                                  flip={null}
+                                  icon="external-link-alt"
+                                  listItem={false}
+                                  mask={null}
+                                  name=""
+                                  pull={null}
+                                  pulse={false}
+                                  rotation={null}
+                                  size={null}
+                                  spin={false}
+                                  symbol={false}
+                                  transform={null}
                                 />
-                                 
-                                VIEW IN ONA
-                          </a>,
+                                 VIEW IN ONA
+                              </a>,
                             ],
                           ]
                         }
@@ -1426,6 +1427,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             className="link withspace"
                             href="https://ona.io/login"
                             key="form_link"
+                            rel="noopener noreferrer"
                             target="_blank"
                           >
                             <FontAwesomeIcon
@@ -1463,8 +1465,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 />
                               </svg>
                             </FontAwesomeIcon>
-                             
-                            VIEW IN ONA
+                             VIEW IN ONA
                           </a>
                         </td>
                       </ElementMap>
@@ -1496,9 +1497,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             unit={null}
                             unix={false}
                             utc={false}
-                      >
+                          >
                             2018-07-10T12:00:00+03:00
-                      </t>,
+                          </t>,
                           " to ",
                           <t
                             ago={false}
@@ -1514,22 +1515,22 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                             unit={null}
                             unix={false}
                             utc={false}
-                      >
+                          >
                             2020-07-10T12:00:00+03:00
-                      </t>,
+                          </t>,
                         ],
                         "Locations": <ul
                           className="list-unstyled"
-                      >
+                        >
                           <ElementMap
-                              HTMLTag="li"
-                              items={
-                                  Array [
-                                      "undefined",
-                                    ]
-                              }
+                            HTMLTag="li"
+                            items={
+                              Array [
+                                "undefined",
+                              ]
+                            }
                           />
-                      </ul>,
+                        </ul>,
                         "Minimum Contributor Level": "Beginner",
                         "Submission Limit": 10,
                       }
@@ -1574,9 +1575,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 unit={null}
                                 unix={false}
                                 utc={false}
-                          >
+                              >
                                 2018-07-10T12:00:00+03:00
-                          </t>,
+                              </t>,
                               " to ",
                               <t
                                 ago={false}
@@ -1592,9 +1593,9 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 unit={null}
                                 unix={false}
                                 utc={false}
-                          >
+                              >
                                 2020-07-10T12:00:00+03:00
-                          </t>,
+                              </t>,
                             ],
                           ]
                         }
@@ -1677,16 +1678,16 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           Array [
                             <ul
                               className="list-unstyled"
-                          >
+                            >
                               <ElementMap
-                                  HTMLTag="li"
-                                  items={
-                                      Array [
-                                          "undefined",
-                                        ]
-                                  }
+                                HTMLTag="li"
+                                items={
+                                  Array [
+                                    "undefined",
+                                  ]
+                                }
                               />
-                          </ul>,
+                            </ul>,
                           ]
                         }
                         key="40"

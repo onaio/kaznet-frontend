@@ -95,8 +95,7 @@ exports[`components/location/LocationDetailTitle renders the correct html 1`] = 
                     Locations
                   </a>
                 </Link>
-                 
-                &gt; 
+                 &gt; 
                 Isiolo Market X
               </h1>
               <Col

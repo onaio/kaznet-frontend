@@ -136,8 +136,7 @@ exports[`containers/location/LocationDetail renders detail page correctly with d
                         Locations
                       </a>
                     </Link>
-                     
-                    &gt; 
+                     &gt; 
                     Sol Point
                   </h1>
                   <Col
@@ -769,8 +768,7 @@ exports[`containers/location/LocationDetail renders detail page correctly withou
                         Locations
                       </a>
                     </Link>
-                     
-                    &gt; 
+                     &gt; 
                     Nairobi
                   </h1>
                   <Col

@@ -156,9 +156,9 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                         <Link
                           replace={false}
                           to="/clients/edit/1"
-                      >
+                        >
                           Sol
-                      </Link>,
+                        </Link>,
                         <t
                           ago={false}
                           calendar={false}
@@ -173,9 +173,9 @@ exports[`containers/clients/ClientsList renders client list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T13:51:54.011373+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >

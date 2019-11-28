@@ -708,100 +708,100 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                             className=""
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key=""
-                                  replace={false}
-                                  to="/tasks/?search=&status=&page=1"
+                              className="nav-link"
+                              data-key=""
+                              replace={false}
+                              to="/tasks/?search=&status=&page=1"
                             >
-                                  All
+                              All
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                           <DropdownItem
                             className="active-task"
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key="a"
-                                  replace={false}
-                                  to="/tasks/?search=&status=a&page=1"
+                              className="nav-link"
+                              data-key="a"
+                              replace={false}
+                              to="/tasks/?search=&status=a&page=1"
                             >
-                                  Active
+                              Active
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                           <DropdownItem
                             className=""
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key="b"
-                                  replace={false}
-                                  to="/tasks/?search=&status=b&page=1"
+                              className="nav-link"
+                              data-key="b"
+                              replace={false}
+                              to="/tasks/?search=&status=b&page=1"
                             >
-                                  Deactivated
+                              Deactivated
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                           <DropdownItem
                             className=""
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key="c"
-                                  replace={false}
-                                  to="/tasks/?search=&status=c&page=1"
+                              className="nav-link"
+                              data-key="c"
+                              replace={false}
+                              to="/tasks/?search=&status=c&page=1"
                             >
-                                  Expired
+                              Expired
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                           <DropdownItem
                             className=""
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key="d"
-                                  replace={false}
-                                  to="/tasks/?search=&status=d&page=1"
+                              className="nav-link"
+                              data-key="d"
+                              replace={false}
+                              to="/tasks/?search=&status=d&page=1"
                             >
-                                  Draft
+                              Draft
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                           <DropdownItem
                             className=""
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key="s"
-                                  replace={false}
-                                  to="/tasks/?search=&status=s&page=1"
+                              className="nav-link"
+                              data-key="s"
+                              replace={false}
+                              to="/tasks/?search=&status=s&page=1"
                             >
-                                  Scheduled
+                              Scheduled
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                           <DropdownItem
                             className=""
                             tag="button"
                             toggle={true}
-                      >
+                          >
                             <Link
-                                  className="nav-link"
-                                  data-key="e"
-                                  replace={false}
-                                  to="/tasks/?search=&status=e&page=1"
+                              className="nav-link"
+                              data-key="e"
+                              replace={false}
+                              to="/tasks/?search=&status=e&page=1"
                             >
-                                  Archived
+                              Archived
                             </Link>
-                      </DropdownItem>,
+                          </DropdownItem>,
                         ],
                       }
                     }
@@ -838,120 +838,120 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                             nav={false}
                             setActiveFromChild={false}
                             toggle={[Function]}
-                        >
+                          >
                             <DropdownToggle
-                                aria-haspopup={true}
-                                caret={true}
-                                className="nav-link"
-                                color="secondary"
-                                tag="span"
+                              aria-haspopup={true}
+                              caret={true}
+                              className="nav-link"
+                              color="secondary"
+                              tag="span"
                             >
-                                Status
+                              Status
                             </DropdownToggle>
                             <DropdownMenu
-                                flip={true}
-                                tag="div"
+                              flip={true}
+                              tag="div"
                             >
-                                <DropdownItem
-                                    className=""
-                                    tag="button"
-                                    toggle={true}
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key=""
+                                  replace={false}
+                                  to="/tasks/?search=&status=&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key=""
-                                        replace={false}
-                                        to="/tasks/?search=&status=&page=1"
-                                    >
-                                        All
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem
-                                    className="active-task"
-                                    tag="button"
-                                    toggle={true}
+                                  All
+                                </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                className="active-task"
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key="a"
+                                  replace={false}
+                                  to="/tasks/?search=&status=a&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key="a"
-                                        replace={false}
-                                        to="/tasks/?search=&status=a&page=1"
-                                    >
-                                        Active
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem
-                                    className=""
-                                    tag="button"
-                                    toggle={true}
+                                  Active
+                                </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key="b"
+                                  replace={false}
+                                  to="/tasks/?search=&status=b&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key="b"
-                                        replace={false}
-                                        to="/tasks/?search=&status=b&page=1"
-                                    >
-                                        Deactivated
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem
-                                    className=""
-                                    tag="button"
-                                    toggle={true}
+                                  Deactivated
+                                </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key="c"
+                                  replace={false}
+                                  to="/tasks/?search=&status=c&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key="c"
-                                        replace={false}
-                                        to="/tasks/?search=&status=c&page=1"
-                                    >
-                                        Expired
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem
-                                    className=""
-                                    tag="button"
-                                    toggle={true}
+                                  Expired
+                                </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key="d"
+                                  replace={false}
+                                  to="/tasks/?search=&status=d&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key="d"
-                                        replace={false}
-                                        to="/tasks/?search=&status=d&page=1"
-                                    >
-                                        Draft
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem
-                                    className=""
-                                    tag="button"
-                                    toggle={true}
+                                  Draft
+                                </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key="s"
+                                  replace={false}
+                                  to="/tasks/?search=&status=s&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key="s"
-                                        replace={false}
-                                        to="/tasks/?search=&status=s&page=1"
-                                    >
-                                        Scheduled
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem
-                                    className=""
-                                    tag="button"
-                                    toggle={true}
+                                  Scheduled
+                                </Link>
+                              </DropdownItem>
+                              <DropdownItem
+                                className=""
+                                tag="button"
+                                toggle={true}
+                              >
+                                <Link
+                                  className="nav-link"
+                                  data-key="e"
+                                  replace={false}
+                                  to="/tasks/?search=&status=e&page=1"
                                 >
-                                    <Link
-                                        className="nav-link"
-                                        data-key="e"
-                                        replace={false}
-                                        to="/tasks/?search=&status=e&page=1"
-                                    >
-                                        Archived
-                                    </Link>
-                                </DropdownItem>
+                                  Archived
+                                </Link>
+                              </DropdownItem>
                             </DropdownMenu>
-                        </Dropdown>,
+                          </Dropdown>,
                           "Name",
                           "Need Review",
                           "Created",
@@ -1275,15 +1275,15 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           color="secondary"
                           pill={false}
                           tag="span"
-                      >
+                        >
                           Archived
-                      </Badge>,
+                        </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/8"
-                      >
+                        >
                           Kill Bill
-                      </Link>,
+                        </Link>,
                         "0/0",
                         <t
                           ago={false}
@@ -1299,9 +1299,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         <t
                           ago={false}
                           calendar={false}
@@ -1316,9 +1316,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-07-12T12:00:00+03:00
-                      </t>,
+                        </t>,
                         "BRCiS - TARGETED COMMUNITIES (March 2015)",
                       ]
                     }
@@ -1432,15 +1432,15 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           color="secondary"
                           pill={false}
                           tag="span"
-                      >
+                        >
                           Draft
-                      </Badge>,
+                        </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/6"
-                      >
+                        >
                           Coconut Quest2
-                      </Link>,
+                        </Link>,
                         "0/0",
                         <t
                           ago={false}
@@ -1456,9 +1456,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         <t
                           ago={false}
                           calendar={false}
@@ -1473,9 +1473,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2020-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         "bike_trip_repeat",
                       ]
                     }
@@ -1589,15 +1589,15 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           color="secondary"
                           pill={false}
                           tag="span"
-                      >
+                        >
                           Active
-                      </Badge>,
+                        </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/4"
-                      >
+                        >
                           Kaznet
-                      </Link>,
+                        </Link>,
                         "0/0",
                         <t
                           ago={false}
@@ -1613,9 +1613,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         <t
                           ago={false}
                           calendar={false}
@@ -1630,9 +1630,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2020-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         "Baseline_Questionnaire",
                       ]
                     }
@@ -1746,15 +1746,15 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           color="secondary"
                           pill={false}
                           tag="span"
-                      >
+                        >
                           Draft
-                      </Badge>,
+                        </Badge>,
                         <Link
                           replace={false}
                           to="/tasks/10"
-                      >
+                        >
                           Coconut Quest
-                      </Link>,
+                        </Link>,
                         "0/0",
                         <t
                           ago={false}
@@ -1770,9 +1770,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         <t
                           ago={false}
                           calendar={false}
@@ -1787,9 +1787,9 @@ exports[`containers/task/TasksList renders task list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2020-07-10T12:00:00+03:00
-                      </t>,
+                        </t>,
                         "",
                       ]
                     }

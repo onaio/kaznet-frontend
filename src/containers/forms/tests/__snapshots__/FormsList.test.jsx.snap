@@ -270,61 +270,61 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           nav={false}
                           setActiveFromChild={false}
                           toggle={[Function]}
-                      >
+                        >
                           <DropdownToggle
-                              aria-haspopup={true}
-                              caret={true}
-                              className="nav-link"
-                              color="secondary"
-                              tag="span"
+                            aria-haspopup={true}
+                            caret={true}
+                            className="nav-link"
+                            color="secondary"
+                            tag="span"
                           >
-                              Task
+                            Task
                           </DropdownToggle>
                           <DropdownMenu
-                              flip={true}
-                              tag="div"
+                            flip={true}
+                            tag="div"
                           >
-                              <DropdownItem
-                                  tag="button"
-                                  toggle={true}
+                            <DropdownItem
+                              tag="button"
+                              toggle={true}
+                            >
+                              <Link
+                                className="nav-link"
+                                data-key="2"
+                                replace={false}
+                                to="/forms/?search=&page=1"
                               >
-                                  <Link
-                                      className="nav-link"
-                                      data-key="2"
-                                      replace={false}
-                                      to="/forms/?search=&page=1"
-                                  >
-                                      All
-                                  </Link>
-                              </DropdownItem>
-                              <DropdownItem
-                                  tag="button"
-                                  toggle={true}
+                                All
+                              </Link>
+                            </DropdownItem>
+                            <DropdownItem
+                              tag="button"
+                              toggle={true}
+                            >
+                              <Link
+                                className="nav-link"
+                                data-key="1"
+                                replace={false}
+                                to="/forms/?search=&page=1&has_task=true"
                               >
-                                  <Link
-                                      className="nav-link"
-                                      data-key="1"
-                                      replace={false}
-                                      to="/forms/?search=&page=1&has_task=true"
-                                  >
-                                      Has Task
-                                  </Link>
-                              </DropdownItem>
-                              <DropdownItem
-                                  tag="button"
-                                  toggle={true}
+                                Has Task
+                              </Link>
+                            </DropdownItem>
+                            <DropdownItem
+                              tag="button"
+                              toggle={true}
+                            >
+                              <Link
+                                className="nav-link"
+                                data-key="0"
+                                replace={false}
+                                to="/forms/?search=&page=1&has_task=false"
                               >
-                                  <Link
-                                      className="nav-link"
-                                      data-key="0"
-                                      replace={false}
-                                      to="/forms/?search=&page=1&has_task=false"
-                                  >
-                                      Does Not Have Task
-                                  </Link>
-                              </DropdownItem>
+                                Does Not Have Task
+                              </Link>
+                            </DropdownItem>
                           </DropdownMenu>
-                      </Dropdown>,
+                        </Dropdown>,
                         "Last Modified",
                       ]
                     }
@@ -507,7 +507,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                       Array [
                         <div>
                           Form 1
-                      </div>,
+                        </div>,
                         "true",
                         null,
                         <t
@@ -524,9 +524,9 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T12:15:23.170313+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >
@@ -584,7 +584,7 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                       Array [
                         <div>
                           Form 2
-                      </div>,
+                        </div>,
                         "false",
                         null,
                         <t
@@ -601,9 +601,9 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T12:15:23.175232+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >
@@ -662,32 +662,32 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                         <div>
                           Form 3
                           <MisconfiguredForm
-                              form={
-                                  Object {
-                                      "attributes": Object {
-                                        "created": "2018-06-21T12:15:23.175198+03:00",
-                                        "deleted_at": null,
-                                        "has_task": true,
-                                        "id_string": "form_3",
-                                        "last_updated": null,
-                                        "metadata": Object {
-                                          "configuration_status": "members_cannot_submit",
-                                          "downloadable": true,
-                                          "owner": "kaznet",
-                                          "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
-                                        },
-                                        "modified": "2018-06-21T12:15:23.175232+03:00",
-                                        "ona_pk": 6373,
-                                        "project_id": 5522,
-                                        "task_name": "Form 3 Task",
-                                        "title": "Form 3",
-                                      },
-                                      "id": "3",
-                                      "type": "XForm",
-                                    }
+                            form={
+                              Object {
+                                "attributes": Object {
+                                  "created": "2018-06-21T12:15:23.175198+03:00",
+                                  "deleted_at": null,
+                                  "has_task": true,
+                                  "id_string": "form_3",
+                                  "last_updated": null,
+                                  "metadata": Object {
+                                    "configuration_status": "members_cannot_submit",
+                                    "downloadable": true,
+                                    "owner": "kaznet",
+                                    "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+                                  },
+                                  "modified": "2018-06-21T12:15:23.175232+03:00",
+                                  "ona_pk": 6373,
+                                  "project_id": 5522,
+                                  "task_name": "Form 3 Task",
+                                  "title": "Form 3",
+                                },
+                                "id": "3",
+                                "type": "XForm",
                               }
+                            }
                           />
-                      </div>,
+                        </div>,
                         "true",
                         "Form 3 Task",
                         <t
@@ -704,9 +704,9 @@ exports[`containers/forms/FormsList renders form list correctly 1`] = `
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T12:15:23.175232+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >
@@ -1242,61 +1242,61 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                           nav={false}
                           setActiveFromChild={false}
                           toggle={[Function]}
-                      >
+                        >
                           <DropdownToggle
-                              aria-haspopup={true}
-                              caret={true}
-                              className="nav-link"
-                              color="secondary"
-                              tag="span"
+                            aria-haspopup={true}
+                            caret={true}
+                            className="nav-link"
+                            color="secondary"
+                            tag="span"
                           >
-                              Task
+                            Task
                           </DropdownToggle>
                           <DropdownMenu
-                              flip={true}
-                              tag="div"
+                            flip={true}
+                            tag="div"
                           >
-                              <DropdownItem
-                                  tag="button"
-                                  toggle={true}
+                            <DropdownItem
+                              tag="button"
+                              toggle={true}
+                            >
+                              <Link
+                                className="nav-link"
+                                data-key="2"
+                                replace={false}
+                                to="/forms/?search=&page=1"
                               >
-                                  <Link
-                                      className="nav-link"
-                                      data-key="2"
-                                      replace={false}
-                                      to="/forms/?search=&page=1"
-                                  >
-                                      All
-                                  </Link>
-                              </DropdownItem>
-                              <DropdownItem
-                                  tag="button"
-                                  toggle={true}
+                                All
+                              </Link>
+                            </DropdownItem>
+                            <DropdownItem
+                              tag="button"
+                              toggle={true}
+                            >
+                              <Link
+                                className="nav-link"
+                                data-key="1"
+                                replace={false}
+                                to="/forms/?search=&page=1&has_task=true"
                               >
-                                  <Link
-                                      className="nav-link"
-                                      data-key="1"
-                                      replace={false}
-                                      to="/forms/?search=&page=1&has_task=true"
-                                  >
-                                      Has Task
-                                  </Link>
-                              </DropdownItem>
-                              <DropdownItem
-                                  tag="button"
-                                  toggle={true}
+                                Has Task
+                              </Link>
+                            </DropdownItem>
+                            <DropdownItem
+                              tag="button"
+                              toggle={true}
+                            >
+                              <Link
+                                className="nav-link"
+                                data-key="0"
+                                replace={false}
+                                to="/forms/?search=&page=1&has_task=false"
                               >
-                                  <Link
-                                      className="nav-link"
-                                      data-key="0"
-                                      replace={false}
-                                      to="/forms/?search=&page=1&has_task=false"
-                                  >
-                                      Does Not Have Task
-                                  </Link>
-                              </DropdownItem>
+                                Does Not Have Task
+                              </Link>
+                            </DropdownItem>
                           </DropdownMenu>
-                      </Dropdown>,
+                        </Dropdown>,
                         "Last Modified",
                       ]
                     }
@@ -1479,7 +1479,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                       Array [
                         <div>
                           Form 1
-                      </div>,
+                        </div>,
                         "true",
                         null,
                         <t
@@ -1496,9 +1496,9 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T12:15:23.170313+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >
@@ -1556,7 +1556,7 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                       Array [
                         <div>
                           Form 2
-                      </div>,
+                        </div>,
                         "false",
                         null,
                         <t
@@ -1573,9 +1573,9 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T12:15:23.175232+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >
@@ -1634,32 +1634,32 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                         <div>
                           Form 3
                           <MisconfiguredForm
-                              form={
-                                  Object {
-                                      "attributes": Object {
-                                        "created": "2018-06-21T12:15:23.175198+03:00",
-                                        "deleted_at": null,
-                                        "has_task": true,
-                                        "id_string": "form_3",
-                                        "last_updated": null,
-                                        "metadata": Object {
-                                          "configuration_status": "members_cannot_submit",
-                                          "downloadable": true,
-                                          "owner": "kaznet",
-                                          "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
-                                        },
-                                        "modified": "2018-06-21T12:15:23.175232+03:00",
-                                        "ona_pk": 6373,
-                                        "project_id": 5522,
-                                        "task_name": "Form 3 Task",
-                                        "title": "Form 3",
-                                      },
-                                      "id": "3",
-                                      "type": "XForm",
-                                    }
+                            form={
+                              Object {
+                                "attributes": Object {
+                                  "created": "2018-06-21T12:15:23.175198+03:00",
+                                  "deleted_at": null,
+                                  "has_task": true,
+                                  "id_string": "form_3",
+                                  "last_updated": null,
+                                  "metadata": Object {
+                                    "configuration_status": "members_cannot_submit",
+                                    "downloadable": true,
+                                    "owner": "kaznet",
+                                    "owner_url": "http://127.0.0.1:8000/api/v1/users/kaznet",
+                                  },
+                                  "modified": "2018-06-21T12:15:23.175232+03:00",
+                                  "ona_pk": 6373,
+                                  "project_id": 5522,
+                                  "task_name": "Form 3 Task",
+                                  "title": "Form 3",
+                                },
+                                "id": "3",
+                                "type": "XForm",
                               }
+                            }
                           />
-                      </div>,
+                        </div>,
                         "true",
                         "Form 3 Task",
                         <t
@@ -1676,9 +1676,9 @@ exports[`containers/forms/FormsList renders form list correctly when there is a 
                           unit={null}
                           unix={false}
                           utc={false}
-                      >
+                        >
                           2018-06-21T12:15:23.175232+03:00
-                      </t>,
+                        </t>,
                       ]
                     }
                   >

@@ -1,46 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`invalid feedback 1`] = `
+exports[`containers/task/TaskCreateForm Correct errors are shown only after form fields are touched and not before: ivalid email and password 1`] = `
 Array [
   <div
     className="invalid-feedback"
->
+  >
     Username is required!
-</div>,
+  </div>,
   <div
     className="invalid-feedback"
->
-    Password is required.
-</div>,
+  >
+    Passwords don't match!
+  </div>,
   <div
     className="invalid-feedback"
->
-    Password confirmation is required!
-</div>,
-  <div
-    className="invalid-feedback"
->
-    E-mail is required.
-</div>,
+  >
+    Please input a valid email address.
+  </div>,
 ]
 `;
 
-exports[`ivalid email and password 1`] = `
+exports[`containers/task/TaskCreateForm ensure user can not submit without filling in required fields: invalid feedback 1`] = `
 Array [
   <div
     className="invalid-feedback"
->
+  >
     Username is required!
-</div>,
+  </div>,
   <div
     className="invalid-feedback"
->
-    Passwords don't match!
-</div>,
+  >
+    Password is required.
+  </div>,
   <div
     className="invalid-feedback"
->
-    Please input a valid email address.
-</div>,
+  >
+    Password confirmation is required!
+  </div>,
+  <div
+    className="invalid-feedback"
+  >
+    E-mail is required.
+  </div>,
 ]
 `;
