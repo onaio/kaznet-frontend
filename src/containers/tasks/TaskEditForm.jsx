@@ -121,8 +121,8 @@ export class TaskEditForm extends Component {
 
     return (
       <FormView
-        // eslint-disable-next-line prettier/prettier
-        form={(
+        form={
+          // eslint-disable-next-line react/jsx-wrap-multilines
           <TaskForm
             initialData={initialData}
             action={action}
@@ -130,8 +130,7 @@ export class TaskEditForm extends Component {
             task={this.task}
             redirectAfterAction={`/tasks/${this.task.id}`}
           />
-          // eslint-disable-next-line prettier/prettier
-        )}
+        }
       />
     );
   }
@@ -170,7 +169,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TaskEditForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskEditForm);

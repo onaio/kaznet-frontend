@@ -635,8 +635,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                       className="kaznet-stats-count"
                     >
                       0
-                       
-                      Submissions
+                       Submissions
                     </p>
                   </div>
                 </Col>
@@ -660,6 +659,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                     <a
                       className="btn btn-primary text-white"
                       href="https://ona.io/kahama/64867/328755#/table"
+                      rel="noopener noreferrer"
                       target="_blank"
                     >
                       <FontAwesomeIcon
@@ -696,7 +696,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                           />
                         </svg>
                       </FontAwesomeIcon>
-                       Review all submissions
+                      Review all submissions
                     </a>
                   </div>
                 </Col>
@@ -761,6 +761,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Accepted
                                 <a
                                   href="https://ona.io/kahama/64867/328755#/table"
+                                  rel="noopener noreferrer"
                                   target="_blank"
                                 >
                                   <FontAwesomeIcon
@@ -929,6 +930,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Needs Review
                                 <a
                                   href="https://ona.io/kahama/64867/328755#/table"
+                                  rel="noopener noreferrer"
                                   target="_blank"
                                 >
                                   <FontAwesomeIcon
@@ -1001,6 +1003,7 @@ exports[`containers/task/TasksDetail renders detail list correctly 1`] = `
                                 Rejected
                                 <a
                                   href="https://ona.io/kahama/64867/328755#/table"
+                                  rel="noopener noreferrer"
                                   target="_blank"
                                 >
                                   <FontAwesomeIcon

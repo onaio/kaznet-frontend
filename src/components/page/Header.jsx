@@ -21,6 +21,7 @@ import * as userSelectors from '../../store/users/reducer';
 import * as userActions from '../../store/users/actions';
 
 import profileImage from '../../images/profile.png';
+import * as constants from '../../constants';
 import './Header.css';
 
 export class Header extends Component {
@@ -30,6 +31,7 @@ export class Header extends Component {
     this.toggleLocation = this.toggleLocation.bind(this);
     this.toggleTask = this.toggleTask.bind(this);
     this.toggleUser = this.toggleUser.bind(this);
+    this.getAppName = this.getAppName.bind(this);
     this.state = {
       locationDropDownOpen: false,
       taskDropDownOpen: false,
@@ -40,6 +42,12 @@ export class Header extends Component {
   componentDidMount() {
     const { fetchLoggedInUser } = this.props;
     fetchLoggedInUser();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getAppName() {
+    if (constants.WEBSITE_NAME) return constants.WEBSITE_NAME.toUpperCase();
+    return 'CERANA';
   }
 
   toggleLocation() {
@@ -71,7 +79,7 @@ export class Header extends Component {
         <Container fluid>
           <Navbar light color="white" expand="md">
             <Link to="/" className="navbar-brand logo">
-              KAZNET
+              {this.getAppName()}
             </Link>
             <NavbarToggler />
             <Collapse navbar>
@@ -155,25 +163,24 @@ export class Header extends Component {
                         alt="profile"
                       />
                     </DropdownToggle>
-                    {getCurrentUser &&
-                      getCurrentUser.id && (
-                        <DropdownMenu right>
-                          <DropdownItem>
-                            <NavLink
-                              to={`/users/${getCurrentUser.id}`}
-                              className="nav-link"
-                              activeClassName="active"
-                            >
-                              View Profile
-                            </NavLink>
-                          </DropdownItem>
-                          <DropdownItem>
-                            <a href="/accounts/logout" className="nav-link">
-                              Log Out
-                            </a>
-                          </DropdownItem>
-                        </DropdownMenu>
-                      )}
+                    {getCurrentUser && getCurrentUser.id && (
+                      <DropdownMenu right>
+                        <DropdownItem>
+                          <NavLink
+                            to={`/users/${getCurrentUser.id}`}
+                            className="nav-link"
+                            activeClassName="active"
+                          >
+                            View Profile
+                          </NavLink>
+                        </DropdownItem>
+                        <DropdownItem>
+                          <a href="/accounts/logout" className="nav-link">
+                            Log Out
+                          </a>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    )}
                   </Dropdown>
                 </NavItem>
               </Nav>
@@ -202,13 +209,17 @@ function mapDispatchToProps(dispatch) {
 
 Header.propTypes = {
   fetchLoggedInUser: PropTypes.func.isRequired,
-  location: PropTypes.shape({}).isRequired,
-  getCurrentUser: PropTypes.shape({}).isRequired
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired,
+  getCurrentUser: PropTypes.shape({
+    id: PropTypes.number,
+    attributes: PropTypes.shape({
+      metadata: PropTypes.shape({
+        gravatar: PropTypes.string
+      })
+    })
+  }).isRequired
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Header)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

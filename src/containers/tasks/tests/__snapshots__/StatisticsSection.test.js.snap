@@ -153,8 +153,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                 className="kaznet-stats-count"
               >
                 0
-                 
-                Submissions
+                 Submissions
               </p>
             </div>
           </Col>
@@ -178,6 +177,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
               <a
                 className="btn btn-primary text-white"
                 href="https://ona.io/kaznettest/64730/327942"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 <FontAwesomeIcon
@@ -214,7 +214,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                     />
                   </svg>
                 </FontAwesomeIcon>
-                 Review all submissions
+                Review all submissions
               </a>
             </div>
           </Col>
@@ -278,6 +278,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                         >
                           Accepted
                           <a
+                            rel="noopener noreferrer"
                             target="_blank"
                           >
                             <FontAwesomeIcon
@@ -443,6 +444,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                         >
                           Needs Review
                           <a
+                            rel="noopener noreferrer"
                             target="_blank"
                           >
                             <FontAwesomeIcon
@@ -514,6 +516,7 @@ exports[`containers/task/StatisticsSection renders statistics correctly 1`] = `
                         >
                           Rejected
                           <a
+                            rel="noopener noreferrer"
                             target="_blank"
                           >
                             <FontAwesomeIcon
