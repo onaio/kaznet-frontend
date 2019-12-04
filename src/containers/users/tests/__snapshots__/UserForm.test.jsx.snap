@@ -1005,7 +1005,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                       className=""
                       htmlFor="payment_no"
                     >
-                      MPESA No.
+                      Payment No.
                     </label>
                   </Label>
                 </div>
@@ -2067,7 +2067,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                       className=""
                       htmlFor="payment_no"
                     >
-                      MPESA No.
+                      Payment No.
                     </label>
                   </Label>
                 </div>
