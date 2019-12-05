@@ -8,6 +8,7 @@ import { Alert, Form, FormGroup, Col, Input, Button, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import * as errorHandlerSelectors from '../../store/errorHandler/reducer';
+import * as constants from '../../constants';
 
 const transformMyApiErrors = function(array) {
   const errors = {};
@@ -354,7 +355,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="payment_no">MPESA No.</Label>
+                  <Label for="payment_no">{constants.PAYMENT_METHOD}</Label>
                 </Col>
                 <Col md="9">
                   <Input
@@ -460,7 +461,4 @@ function mapDispatchToProps(dispatch, ownProps) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
