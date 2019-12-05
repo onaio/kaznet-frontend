@@ -5,7 +5,7 @@ export const ONA_USERNAME = process.env.REACT_APP_ONA_USERNAME;
 export const WEBSITE_NAME = process.env.REACT_APP_WEBSITE_NAME;
 export const PAYMENT_METHOD = process.env.REACT_APP_PAYMENT_METHOD
   ? process.env.REACT_APP_PAYMENT_METHOD
-  : 'Payment';
+  : 'Payment No.';
 export const TASK_ACTIVE = 'a';
 export const TASK_DEACTIVATED = 'b';
 export const TASK_EXPIRED = 'c';

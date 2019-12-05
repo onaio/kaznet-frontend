@@ -355,7 +355,7 @@ export class UserForm extends Component {
               </FormGroup>
               <FormGroup className="row">
                 <Col md="3">
-                  <Label for="payment_no">{`${constants.PAYMENT_METHOD} No.`}</Label>
+                  <Label for="payment_no">{constants.PAYMENT_METHOD}</Label>
                 </Col>
                 <Col md="9">
                   <Input
