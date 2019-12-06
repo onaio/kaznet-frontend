@@ -1032,7 +1032,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                     name="payment_number"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    placeholder="+254 722 000 000"
+                    placeholder="+254 799 000 000"
                     type="text"
                     value=""
                   >
@@ -1042,7 +1042,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                       name="payment_number"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      placeholder="+254 722 000 000"
+                      placeholder="+254 799 000 000"
                       type="text"
                       value=""
                     />
@@ -1118,7 +1118,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                     name="phone_number"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    placeholder="+254 722 000 000"
+                    placeholder="+254 799 000 000"
                     type="text"
                     value=""
                   >
@@ -1128,7 +1128,7 @@ exports[`containers/users/UserForm renders user form correctly 1`] = `
                       name="phone_number"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      placeholder="+254 722 000 000"
+                      placeholder="+254 799 000 000"
                       type="text"
                       value=""
                     />
@@ -2094,7 +2094,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                     name="payment_number"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    placeholder="+254 722 000 000"
+                    placeholder="+254 799 000 000"
                     type="text"
                     value=""
                   >
@@ -2104,7 +2104,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                       name="payment_number"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      placeholder="+254 722 000 000"
+                      placeholder="+254 799 000 000"
                       type="text"
                       value=""
                     />
@@ -2180,7 +2180,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                     name="phone_number"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    placeholder="+254 722 000 000"
+                    placeholder="+254 799 000 000"
                     type="text"
                     value=""
                   >
@@ -2190,7 +2190,7 @@ exports[`containers/users/UserForm renders user form correctly when doing an edi
                       name="phone_number"
                       onBlur={[Function]}
                       onChange={[Function]}
-                      placeholder="+254 722 000 000"
+                      placeholder="+254 799 000 000"
                       type="text"
                       value=""
                     />

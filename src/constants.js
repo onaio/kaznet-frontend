@@ -6,6 +6,9 @@ export const WEBSITE_NAME = process.env.REACT_APP_WEBSITE_NAME;
 export const PAYMENT_METHOD = process.env.REACT_APP_PAYMENT_METHOD
   ? process.env.REACT_APP_PAYMENT_METHOD
   : 'Payment No.';
+export const SAMPLE_PHONE_NUMBER = process.env.REACT_APP_SAMPLE_PHONE_NUMBER
+  ? process.env.REACT_APP_SAMPLE_PHONE_NUMBER
+  : '+254 799 000 000';
 export const TASK_ACTIVE = 'a';
 export const TASK_DEACTIVATED = 'b';
 export const TASK_EXPIRED = 'c';

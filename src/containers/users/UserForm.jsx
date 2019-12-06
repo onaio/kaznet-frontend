@@ -362,7 +362,7 @@ export class UserForm extends Component {
                     name="payment_number"
                     type="text"
                     aria-label="payment_number"
-                    placeholder="+254 722 000 000"
+                    placeholder={constants.SAMPLE_PHONE_NUMBER}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.payment_number}
@@ -382,7 +382,7 @@ export class UserForm extends Component {
                     name="phone_number"
                     type="text"
                     aria-label="phone_number"
-                    placeholder="+254 722 000 000"
+                    placeholder={constants.SAMPLE_PHONE_NUMBER}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.phone_number}
