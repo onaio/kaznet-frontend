@@ -101,7 +101,7 @@ exports[`components/users/UserDetailTitle renders the correct html 1`] = `
                     Users
                   </a>
                 </Link>
-                &gt; &gt;
+                 &gt; 
                 davisraym
               </h1>
                 

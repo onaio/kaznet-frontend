@@ -34,7 +34,7 @@ export default class UserDetailTitle extends Component {
               <Link to="/users" className="kaznet-header-link">
                 Users
               </Link>
-              &gt;&nbsp;&gt;
+              &nbsp;&gt;&nbsp;
               {user.attributes.ona_username}
             </h1>
             &nbsp;&nbsp;

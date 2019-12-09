@@ -27,6 +27,7 @@ exports[`components/page/PageTitle renders header correctly 1`] = `
     pageTarget="/zerg"
     pageTitle="Kaznet"
     pageTitleButton="Big Red Button"
+    searchValue=""
   >
     <section
       className="page-title"
@@ -115,14 +116,14 @@ exports[`components/page/PageTitle renders header correctly 1`] = `
                                       >
                                         <Button
                                           aria-label="Filter"
-                                          className="search_button btn btn-deoco"
+                                          className="search_button"
                                           color="deoco"
                                           tag="button"
                                           type="submit"
                                         >
                                           <button
                                             aria-label="Filter"
-                                            className="search_button btn btn-deoco btn btn-deoco"
+                                            className="search_button btn btn-deoco"
                                             onClick={[Function]}
                                             type="submit"
                                           >
