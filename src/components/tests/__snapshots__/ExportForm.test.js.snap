@@ -22,11 +22,12 @@ exports[`components/ExportForm renders an ExportForm 1`] = `
   >
     <div>
       <Form
+        className="export-form"
         onSubmit={[Function]}
         tag="form"
       >
         <form
-          className=""
+          className="export-form"
           onSubmit={[Function]}
         >
           <FormGroup

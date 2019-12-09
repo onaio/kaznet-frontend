@@ -1,6 +1,7 @@
 .bg-white .search_button {
   border: none;
   background-color: white;
+  padding: 0;
 }
 .bg-white .search_button:hover {
   background-color: white;

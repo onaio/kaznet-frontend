@@ -188,7 +188,11 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
     showDetail={false}
     showTitle={true}
   >
-    <PageTitle>
+    <PageTitle
+      pageTarget="/"
+      pageTitleButton=""
+      searchValue=""
+    >
       <section
         className="page-title"
       >
@@ -274,14 +278,14 @@ exports[`containers/global/TitleSection renders page title correctly 1`] = `
                                         >
                                           <Button
                                             aria-label="Filter"
-                                            className="search_button btn btn-deoco"
-                                            color="deoco"
+                                            className="search_button"
+                                            color="secondary"
                                             tag="button"
                                             type="submit"
                                           >
                                             <button
                                               aria-label="Filter"
-                                              className="search_button btn btn-deoco btn btn-deoco"
+                                              className="search_button btn btn-secondary"
                                               onClick={[Function]}
                                               type="submit"
                                             >
