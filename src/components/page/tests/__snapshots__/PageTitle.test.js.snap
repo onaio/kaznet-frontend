@@ -117,13 +117,13 @@ exports[`components/page/PageTitle renders header correctly 1`] = `
                                         <Button
                                           aria-label="Filter"
                                           className="search_button"
-                                          color="deoco"
+                                          color="secondary"
                                           tag="button"
                                           type="submit"
                                         >
                                           <button
                                             aria-label="Filter"
-                                            className="search_button btn btn-deoco"
+                                            className="search_button btn btn-secondary"
                                             onClick={[Function]}
                                             type="submit"
                                           >

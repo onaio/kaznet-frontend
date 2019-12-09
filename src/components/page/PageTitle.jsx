@@ -31,12 +31,7 @@ export default class PageTitle extends Component {
                     <InputGroup className="search-group">
                       <InputGroupAddon addonType="prepend" className="search-prepend">
                         <InputGroupText className="bg-white border-right-0">
-                          <Button
-                            color="deoco"
-                            className="search_button"
-                            type="submit"
-                            aria-label="Filter"
-                          >
+                          <Button className="search_button" type="submit" aria-label="Filter">
                             <FontAwesomeIcon icon="search" className="filtersubmit" />
                           </Button>
                         </InputGroupText>
